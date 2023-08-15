@@ -14,6 +14,9 @@ class Constants {
 
   /// Padding and margin values.
   late final insets = _Insets();
+
+  /// Color $constants.palette.
+  late final palette = _Palette();
 }
 
 @immutable
@@ -42,4 +45,18 @@ class _Insets {
   late final double xl = 48;
   late final double xxl = 56;
   late final double offset = 80;
+}
+
+@immutable
+class _Palette {
+  final white = const Color(0xFFFFFFFF);
+  final black = const Color(0xFF000000);
+  final pink = const Color(0xFFDE0BC9);
+  final blue = const Color(0xFF1286F0);
+  final lightBlue = const Color(0xFF1A1D28);
+  final darkBlue = const Color(0xFF0E1018);
+  final grey1 = const Color(0xFFA9AFC2);
+  final yellow = const Color(0xFFFFB200);
+  final green = const Color(0xFF67B527);
+  final red = const Color(0xFFFF3A3D);
 }
