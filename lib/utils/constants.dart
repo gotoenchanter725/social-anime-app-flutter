@@ -6,6 +6,9 @@ final $constants = Constants();
 class Constants {
   final appTitle = 'Senpai';
 
+  /// Theme defaults.
+  late final theme = _Theme();
+
   /// Animation durations.
   late final times = _Times();
 
@@ -14,6 +17,9 @@ class Constants {
 
   /// Padding and margin values.
   late final insets = _Insets();
+
+  /// Text shadows.
+  late final shadows = _Shadows();
 
   /// Color $constants.palette.
   late final palette = _Palette();
@@ -55,8 +61,41 @@ class _Palette {
   final blue = const Color(0xFF1286F0);
   final lightBlue = const Color(0xFF1A1D28);
   final darkBlue = const Color(0xFF0E1018);
-  final grey1 = const Color(0xFFA9AFC2);
+  final grey = const Color(0xFFA9AFC2);
   final yellow = const Color(0xFFFFB200);
   final green = const Color(0xFF67B527);
   final red = const Color(0xFFFF3A3D);
+}
+
+@immutable
+class _Theme {
+  final tryToGetColorPaletteFromWallpaper = false;
+  final defaultThemeColor = const Color(0xFF0E1018);
+  final defaultFontFamily = 'Lato';
+  final secondaryFontFamily = 'Geomanist';
+  final tertiaryFontFamily = 'Prompt';
+  final double defaultElevation = 0;
+  final double defaultBorderRadius = 16;
+}
+
+@immutable
+class _Shadows {
+  final textSoft = [
+    Shadow(
+        color: Colors.black.withOpacity(0.25),
+        offset: const Offset(0, 2),
+        blurRadius: 4),
+  ];
+  final text = [
+    Shadow(
+        color: Colors.black.withOpacity(0.6),
+        offset: const Offset(0, 2),
+        blurRadius: 2),
+  ];
+  final textStrong = [
+    Shadow(
+        color: Colors.black.withOpacity(0.6),
+        offset: const Offset(0, 4),
+        blurRadius: 6),
+  ];
 }
