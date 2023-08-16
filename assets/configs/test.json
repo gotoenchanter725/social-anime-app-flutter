@@ -1,0 +1,7 @@
+{
+  "env": "test",
+  "debug": true,
+  "debugShowCheckedModeBanner": false,
+  "debugShowMaterialGrid": false,
+  "debugApiClient": true
+}
