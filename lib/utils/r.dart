@@ -10,6 +10,18 @@ class R {
 
 class _ImageResources {
   const _ImageResources();
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/onboarding_1.svg)
+  final onboarding_1 = r'assets/images/onboarding/onboarding_1.svg';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/onboarding_2.svg)
+  final onboarding_2 = r'assets/images/onboarding/onboarding_2.svg';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/onboarding_3.svg)
+  final onboarding_3 = r'assets/images/onboarding/onboarding_3.svg';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/heart.svg)
+  final heart = r'assets/images/onboarding/heart.svg';
 }
 
 class _SvgResources {

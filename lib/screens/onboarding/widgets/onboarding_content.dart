@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:senpai/screens/onboarding/widgets/circle_progress_bar.dart';
+import 'package:senpai/utils/constants.dart';
 
 class OnboardingContent extends StatelessWidget {
   const OnboardingContent({super.key});
@@ -51,32 +53,33 @@ class OnboardingContent extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 SizedBox(
-                  width: 80,
-                  height: 80,
+                  width: 100,
+                  height: 100,
                   child: CircleProgressBar(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Theme.of(context).primaryColor,
+                    backgroundColor: $constants.palette.buttonBackground,
                     value: percent,
                   ),
                 ),
                 Material(
                   shape: const CircleBorder(),
-                  color: Theme.of(context).primaryColor,
+                  color: $constants.palette.buttonBackground,
                   child: RawMaterialButton(
                     shape: const CircleBorder(),
                     onPressed: () {
                       bloc.add(PageChangedEvent());
                     },
-                    child: const Padding(
-                      padding: EdgeInsets.all(24.0),
-                      child: Icon(
-                        Icons.east_rounded,
-                        size: 38.0,
-                        color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: SvgPicture.asset(
+                        'assets/images/onboarding/heart.svg',
+                        width: 40,
+                        height: 40,
+                        fit: BoxFit.contain,
+                        alignment: Alignment.center,
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             );
           },

@@ -1,19 +1,18 @@
 import 'dart:math' as Math;
 
 import 'package:flutter/widgets.dart';
+import 'package:flutter/painting.dart';
 
 /// Draws a circular animated progress bar.
 class CircleProgressBar extends StatefulWidget {
   final Duration? animationDuration;
   final Color backgroundColor;
-  final Color foregroundColor;
   final double? value;
 
   const CircleProgressBar({
     Key? key,
     this.animationDuration = const Duration(seconds: 1),
     this.backgroundColor = const Color(0x00000000),
-    required this.foregroundColor,
     this.value = 0,
   }) : super(key: key);
 
@@ -70,25 +69,6 @@ class CircleProgressBarState extends State<CircleProgressBar>
         end: widget.value,
       );
 
-      // Clear cached color tweens when the color hasn't changed.
-      if (oldWidget.backgroundColor != widget.backgroundColor) {
-        backgroundColorTween = ColorTween(
-          begin: oldWidget.backgroundColor,
-          end: widget.backgroundColor,
-        );
-      } else {
-        backgroundColorTween = null;
-      }
-
-      if (oldWidget.foregroundColor != widget.foregroundColor) {
-        foregroundColorTween = ColorTween(
-          begin: oldWidget.foregroundColor,
-          end: widget.foregroundColor,
-        );
-      } else {
-        foregroundColorTween = null;
-      }
-
       _controller!
         ..value = 0
         ..forward();
@@ -111,13 +91,10 @@ class CircleProgressBarState extends State<CircleProgressBar>
         builder: (context, child) {
           final backgroundColor =
               backgroundColorTween?.evaluate(curve) ?? widget.backgroundColor;
-          final foregroundColor =
-              foregroundColorTween?.evaluate(curve) ?? widget.foregroundColor;
 
           return CustomPaint(
             foregroundPainter: CircleProgressBarPainter(
               backgroundColor: backgroundColor,
-              foregroundColor: foregroundColor,
               percentage: valueTween!.evaluate(curve),
             ),
             child: child,
@@ -133,14 +110,12 @@ class CircleProgressBarPainter extends CustomPainter {
   final double percentage;
   final double strokeWidth;
   final Color? backgroundColor;
-  final Color foregroundColor;
 
   CircleProgressBarPainter({
     this.backgroundColor,
-    required this.foregroundColor,
     required this.percentage,
     double? strokeWidth,
-  }) : strokeWidth = strokeWidth ?? 3;
+  }) : strokeWidth = strokeWidth ?? 4;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -150,14 +125,23 @@ class CircleProgressBarPainter extends CustomPainter {
     final shortestSide =
         Math.min(constrainedSize.width, constrainedSize.height);
     final foregroundPaint = Paint()
-      ..color = foregroundColor
-      ..strokeWidth = strokeWidth
+      ..shader = const LinearGradient(
+          colors: [Color(0xFFDE0BC9), Color(0xFF1286F0)],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          transform: GradientRotation(135.62 * Math.pi / 180),
+          stops: [0.1585, 0.8491]).createShader(Rect.fromCenter(
+        center: center,
+        width: shortestSide,
+        height: shortestSide,
+      ))
+      ..strokeWidth = strokeWidth + 1
       ..strokeCap = StrokeCap.round
       ..style = PaintingStyle.stroke;
     final radius = (shortestSide / 2);
 
     // Start at the top. 0 radians represents the right edge
-    const double startAngle = -(2 * Math.pi * 0.25);
+    const double startAngle = Math.pi * 0.5;
     final double sweepAngle = (2 * Math.pi * (percentage));
 
     // Don't draw the background if we don't have a background color
@@ -183,7 +167,6 @@ class CircleProgressBarPainter extends CustomPainter {
     final oldPainter = (oldDelegate as CircleProgressBarPainter);
     return oldPainter.percentage != percentage ||
         oldPainter.backgroundColor != backgroundColor ||
-        oldPainter.foregroundColor != foregroundColor ||
         oldPainter.strokeWidth != strokeWidth;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math' as math;
 
 final $constants = Constants();
 
@@ -65,6 +66,15 @@ class _Palette {
   final yellow = const Color(0xFFFFB200);
   final green = const Color(0xFF67B527);
   final red = const Color(0xFFFF3A3D);
+  final buttonBackground = const Color(0xB214161D);
+
+  // gradients
+  final mainGradient = const LinearGradient(
+      colors: [Color(0xFFDE0BC9), Color(0xFF1286F0)],
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      transform: GradientRotation(135.62 * math.pi / 180),
+      stops: [0.1585, 0.8491]);
 }
 
 @immutable
