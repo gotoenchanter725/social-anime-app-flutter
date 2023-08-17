@@ -2,19 +2,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
+import 'package:senpai/utils/constants.dart';
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final ThemeData theme;
+  const MyApp({super.key, required this.theme});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Senpai',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      title: $constants.appTitle,
+      theme: theme,
       home: const OnboardingPage(),
     );
   }

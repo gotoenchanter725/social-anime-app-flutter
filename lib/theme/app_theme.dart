@@ -46,7 +46,7 @@ Future<ThemeData> createTheme({
       ),
     ),
     splashFactory: InkRipple.splashFactory,
-    scaffoldBackgroundColor: appColorScheme.surface,
+    scaffoldBackgroundColor: $constants.palette.appBackground,
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       elevation: $constants.theme.defaultElevation,
       highlightElevation: $constants.theme.defaultElevation,

@@ -67,6 +67,7 @@ class _Palette {
   final green = const Color(0xFF67B527);
   final red = const Color(0xFFFF3A3D);
   final buttonBackground = const Color(0xB214161D);
+  final appBackground = const Color(0xFF14161D);
 
   // gradients
   final mainGradient = const LinearGradient(
