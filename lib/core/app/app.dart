@@ -1,6 +1,7 @@
 // Main page widget resides here
 
 import 'package:flutter/material.dart';
+import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -9,20 +10,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Senpai',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text("Senpai"),
-        ),
-        body: const Text(
-          "Hello World",
-        ),
-      ),
+      home: const OnboardingPage(),
     );
   }
 }
