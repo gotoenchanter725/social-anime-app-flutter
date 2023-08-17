@@ -10,15 +10,6 @@ class R {
 
 class _ImageResources {
   const _ImageResources();
-
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding_2.svg)
-  final onboarding_2 = r'assets/images/onboarding_2.svg';
-
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding_3.svg)
-  final onboarding_3 = r'assets/images/onboarding_3.svg';
-
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding_1.svg)
-  final onboarding_1 = r'assets/images/onboarding_1.svg';
 }
 
 class _SvgResources {
