@@ -1,0 +1,17 @@
+{
+  "actions": {
+    "skip": "Skip"
+  },
+  "onboarding_1": {
+    "title": "Find",
+    "subtitle": "your waifu"
+  },
+  "onboarding_2": {
+    "title": "Anime",
+    "subtitle": "lovers unite"
+  },
+  "onboarding_3": {
+    "title": "Start",
+    "subtitle": "matching"
+  }
+}

@@ -58,6 +58,7 @@ dependencies:
   fresh_graphql: ^0.6.0
   graphql_flutter: ^5.1.2
   web_socket_channel: ^2.4.0
+  flutter_localization: ^0.1.13
   intl: ^0.18.1
   flutter_displaymode: ^0.6.0
   flutter_staggered_grid_view: ^0.7.0
@@ -98,6 +99,9 @@ dev_dependencies:
   slang_flutter: ^3.22.0
   slang_build_runner: ^3.22.0
   r_resources: ^1.0.1
+
+dependency_overrides:
+  intl: ^0.18.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

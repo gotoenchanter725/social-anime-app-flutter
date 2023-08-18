@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:senpai/data/data_constants.dart';
+import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:senpai/screens/onboarding/widgets/circle_progress_bar.dart';
-import 'package:senpai/screens/onboarding/widgets/onboarding_tile.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -25,7 +26,7 @@ class OnboardingContent extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   child: Text(
-                    "Skip",
+                    TextConstants.onboardingButtonText,
                     style: getTextTheme(context).displaySmall,
                   ),
                   onPressed: () {
@@ -52,13 +53,7 @@ class OnboardingContent extends StatelessWidget {
     return PageView(
       scrollDirection: Axis.horizontal,
       controller: controller,
-      children: const [
-        OnboardingTile(
-          imagePath: "assets/images/onboarding/onboarding_1.png",
-          title: "Find",
-          subTitle: "your waifu",
-        )
-      ],
+      children: DataConstants.onboardingTiles,
       onPageChanged: (index) {
         bloc.add(PageSwipedEvent(index: index));
       },
