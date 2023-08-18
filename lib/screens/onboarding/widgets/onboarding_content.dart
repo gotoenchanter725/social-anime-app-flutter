@@ -16,37 +16,54 @@ class OnboardingContent extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<OnboardingBloc>(context);
     return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 40,
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  child: Text(
-                    TextConstants.onboardingButtonText,
-                    style: getTextTheme(context).displaySmall,
+      child: Stack(children: [
+        Positioned(
+          bottom: 0,
+          left: 0,
+          child: Container(
+            height: getSize(context).height * .4,
+            width: getSize(context).width,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(
+                    PathConstants.onboardingBackground,
                   ),
-                  onPressed: () {
-                    bloc.add(PageChangedEvent());
-                  },
+                  fit: BoxFit.cover),
+            ),
+          ),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 40,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: TextButton(
+                    child: Text(
+                      TextConstants.onboardingButtonText,
+                      style: getTextTheme(context).displaySmall,
+                    ),
+                    onPressed: () {
+                      bloc.add(PageChangedEvent());
+                    },
+                  ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 3,
-            child: _createPageView(bloc.pageController, bloc),
-          ),
-          Expanded(
-            flex: 1,
-            child: _createStatic(bloc),
-          ),
-        ],
-      ),
+            Expanded(
+              flex: 3,
+              child: _createPageView(bloc.pageController, bloc),
+            ),
+            Expanded(
+              flex: 1,
+              child: _createStatic(bloc),
+            ),
+          ],
+        ),
+      ]),
     );
   }
 

@@ -5,4 +5,6 @@ class PathConstants {
   static const String onboarding3 = 'assets/images/onboarding/onboarding_3.png';
 
   static const String heart = 'assets/images/onboarding/heart.svg';
+  static const String onboardingBackground =
+      'assets/images/onboarding/onboarding_bg.png';
 }
