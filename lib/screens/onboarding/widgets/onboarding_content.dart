@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/data_constants.dart';
+import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:senpai/screens/onboarding/widgets/circle_progress_bar.dart';
@@ -92,7 +93,7 @@ class OnboardingContent extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(20),
                       child: SvgPicture.asset(
-                        'assets/images/onboarding/heart.svg',
+                        PathConstants.heart,
                         width: 40,
                         height: 40,
                         fit: BoxFit.contain,
