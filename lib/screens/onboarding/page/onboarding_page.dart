@@ -1,8 +1,10 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:senpai/screens/onboarding/widgets/onboarding_content.dart';
 
+@RoutePage()
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
 
