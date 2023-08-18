@@ -41,7 +41,7 @@ class AppTypography with _$AppTypography {
           fontWeight: FontWeight.w700,
           fontFamily: secondaryFontFamily,
           textBaseline: TextBaseline.alphabetic,
-          height: 48,
+          height: 1,
         ),
         displayMedium: TextStyle(
           debugLabel: 'appTextTheme displayMedium',
@@ -50,7 +50,7 @@ class AppTypography with _$AppTypography {
           fontWeight: FontWeight.w400,
           fontFamily: secondaryFontFamily,
           textBaseline: TextBaseline.alphabetic,
-          height: 48,
+          height: 1,
         ),
         displaySmall: TextStyle(
           debugLabel: 'appTextTheme displaySmall',
@@ -59,7 +59,7 @@ class AppTypography with _$AppTypography {
           fontWeight: FontWeight.w400,
           fontFamily: tertiaryFontFamily,
           textBaseline: TextBaseline.alphabetic,
-          height: 24,
+          height: 2,
         ),
         headlineLarge: TextStyle(
           debugLabel: 'appTextTheme headlineLarge',
@@ -68,7 +68,7 @@ class AppTypography with _$AppTypography {
           fontWeight: FontWeight.w700,
           fontFamily: fontFamily,
           textBaseline: TextBaseline.alphabetic,
-          height: 40,
+          height: 1.25,
         ),
         headlineMedium: TextStyle(
           debugLabel: 'appTextTheme headlineMedium',
@@ -77,7 +77,7 @@ class AppTypography with _$AppTypography {
           fontWeight: FontWeight.w500,
           fontFamily: fontFamily,
           textBaseline: TextBaseline.alphabetic,
-          height: 32,
+          height: 1.333,
         ),
         headlineSmall: TextStyle(
           debugLabel: 'appTextTheme headlineSmall',
@@ -86,7 +86,7 @@ class AppTypography with _$AppTypography {
           fontWeight: FontWeight.w600,
           fontFamily: fontFamily,
           textBaseline: TextBaseline.alphabetic,
-          height: 24,
+          height: 1.5,
         ),
         titleLarge: TextStyle(
           debugLabel: 'appTextTheme titleLarge',

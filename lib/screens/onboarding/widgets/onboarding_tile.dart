@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/methods/utils.dart';
 
 class OnboardingTile extends StatelessWidget {
-  final title, imagePath;
+  final title, subTitle, imagePath;
 
-  const OnboardingTile({super.key, this.imagePath, this.title});
+  const OnboardingTile({super.key, this.imagePath, this.title, this.subTitle});
 
   @override
   Widget build(BuildContext context) {
@@ -12,20 +13,25 @@ class OnboardingTile extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
       child: Column(
         children: [
-          Expanded(
-            child: Image.asset(
-              imagePath,
-            ),
+          Image.asset(
+            imagePath,
+            height: getSize(context).height * 0.45,
+            fit: BoxFit.contain,
           ),
-          const SizedBox(height: 65),
+          SizedBox(
+            height: $constants.insets.md,
+          ),
           Text(
             title,
-            style: const TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 24.0,
-            ),
+            style: getTextTheme(context).displayMedium,
           ),
-          const SizedBox(height: 15),
+          SizedBox(
+            height: $constants.insets.sm,
+          ),
+          Text(
+            subTitle,
+            style: getTextTheme(context).displayLarge,
+          )
         ],
       ),
     );

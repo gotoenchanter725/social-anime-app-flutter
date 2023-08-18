@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:senpai/screens/onboarding/widgets/circle_progress_bar.dart';
+import 'package:senpai/screens/onboarding/widgets/onboarding_tile.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/methods/utils.dart';
 
 class OnboardingContent extends StatelessWidget {
   const OnboardingContent({super.key});
@@ -15,12 +17,30 @@ class OnboardingContent extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(
+            height: 40,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  child: Text(
+                    "Skip",
+                    style: getTextTheme(context).displaySmall,
+                  ),
+                  onPressed: () {
+                    bloc.add(PageChangedEvent());
+                  },
+                ),
+              ),
+            ),
+          ),
           Expanded(
-            flex: 4,
+            flex: 3,
             child: _createPageView(bloc.pageController, bloc),
           ),
           Expanded(
-            flex: 2,
+            flex: 1,
             child: _createStatic(bloc),
           ),
         ],
@@ -32,7 +52,13 @@ class OnboardingContent extends StatelessWidget {
     return PageView(
       scrollDirection: Axis.horizontal,
       controller: controller,
-      children: [],
+      children: const [
+        OnboardingTile(
+          imagePath: "assets/images/onboarding/onboarding_1.png",
+          title: "Find",
+          subTitle: "your waifu",
+        )
+      ],
       onPageChanged: (index) {
         bloc.add(PageSwipedEvent(index: index));
       },
@@ -56,7 +82,7 @@ class OnboardingContent extends StatelessWidget {
                   width: 100,
                   height: 100,
                   child: CircleProgressBar(
-                    backgroundColor: $constants.palette.buttonBackground,
+                    backgroundColor: $constants.palette.progressBackground,
                     value: percent,
                   ),
                 ),
