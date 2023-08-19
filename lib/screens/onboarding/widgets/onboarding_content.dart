@@ -36,7 +36,7 @@ class OnboardingContent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 35,
+              height: 40,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
                 child: Align(
@@ -54,11 +54,11 @@ class OnboardingContent extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 3,
+              flex: 4,
               child: _createPageView(bloc.pageController, bloc),
             ),
             Expanded(
-              flex: 1,
+              flex: 2,
               child: _createStatic(bloc),
             ),
           ],
