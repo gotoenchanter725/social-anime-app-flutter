@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:senpai/core/widgets/primary_button.dart';
+import 'package:senpai/core/widgets/secondary_button.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -27,60 +29,11 @@ class EntryContent extends StatelessWidget {
               SizedBox(
                 height: $constants.insets.lg,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  print("pressed");
-                },
-                style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: Colors.transparent,
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular($constants.corners.md),
-                    ),
-                    padding: const EdgeInsets.all(0)),
-                child: Container(
-                  height: 56,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                      borderRadius:
-                          BorderRadius.circular($constants.corners.md),
-                      gradient: $constants.palette.buttonGradient),
-                  child: Text(
-                    TextConstants.signUp,
-                    style: getTextTheme(context).headlineSmall,
-                  ),
-                ),
-              ),
+              PrimaryButton(text: TextConstants.signUp, onPressed: () {}),
               SizedBox(
                 height: $constants.insets.lg,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  print("pressed");
-                },
-                style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    backgroundColor: Colors.transparent,
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular($constants.corners.md),
-                      side: BorderSide(
-                          color: $constants.palette.buttonBorder, width: 1.0),
-                    ),
-                    padding: const EdgeInsets.all(0)),
-                child: Container(
-                  height: 56,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular($constants.corners.md),
-                  ),
-                  child: Text(
-                    TextConstants.signIn,
-                    style: getTextTheme(context).headlineSmall,
-                  ),
-                ),
-              ),
+              SecondaryButton(text: TextConstants.signIn, onPressed: () {}),
               SizedBox(
                 height: $constants.insets.lg,
               ),
