@@ -36,7 +36,7 @@ class OnboardingContent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 40,
+              height: 35,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
                 child: Align(

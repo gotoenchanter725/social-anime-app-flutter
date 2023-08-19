@@ -15,7 +15,7 @@ class OnboardingTile extends StatelessWidget {
         children: [
           Image.asset(
             imagePath,
-            height: getSize(context).height * 0.45,
+            height: getSize(context).height * 0.4,
             fit: BoxFit.contain,
           ),
           SizedBox(
