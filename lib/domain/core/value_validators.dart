@@ -11,3 +11,11 @@ Either<ValueFailure<String>, String> validatePhoneNumber(String phoneNumber) {
 
   return left(ValueFailure.invalidPhone(failedValue: phoneNumber));
 }
+
+Either<ValueFailure<String>, String> validateCode(String input) {
+  if (input.length == 6) {
+    return right(input);
+  }
+
+  return left(ValueFailure.invalidCode(failedValue: input));
+}
