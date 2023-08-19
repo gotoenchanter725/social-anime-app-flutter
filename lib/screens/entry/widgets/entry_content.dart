@@ -33,13 +33,13 @@ class EntryContent extends StatelessWidget {
                       print("pressed");
                     },
                     style: ElevatedButton.styleFrom(
-                      elevation: 0,
-                      backgroundColor: Colors.transparent,
-                      shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular($constants.corners.md),
-                      ),
-                    ),
+                        elevation: 0,
+                        backgroundColor: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular($constants.corners.md),
+                        ),
+                        padding: const EdgeInsets.all(0)),
                     child: Container(
                       height: 56,
                       alignment: Alignment.center,
