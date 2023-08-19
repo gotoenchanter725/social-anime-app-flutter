@@ -11,36 +11,38 @@ class EntryContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Center(
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: $constants.insets.lg,
+      child: Flex(
+          direction: Axis.vertical,
+          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: $constants.insets.lg,
+              ),
+              child: Column(children: [
+                Text(
+                  TextConstants.entryText,
+                  style: getTextTheme(context)
+                      .labelMedium
+                      ?.copyWith(color: $constants.palette.white),
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: $constants.insets.lg,
+                ),
+                PrimaryButton(text: TextConstants.signUp, onPressed: () {}),
+                SizedBox(
+                  height: $constants.insets.lg,
+                ),
+                SecondaryButton(text: TextConstants.signIn, onPressed: () {}),
+                SizedBox(
+                  height: $constants.insets.lg,
+                ),
+              ]),
             ),
-            child: Column(children: [
-              Text(
-                TextConstants.entryText,
-                style: getTextTheme(context)
-                    .labelMedium
-                    ?.copyWith(color: $constants.palette.white),
-                textAlign: TextAlign.center,
-              ),
-              SizedBox(
-                height: $constants.insets.lg,
-              ),
-              PrimaryButton(text: TextConstants.signUp, onPressed: () {}),
-              SizedBox(
-                height: $constants.insets.lg,
-              ),
-              SecondaryButton(text: TextConstants.signIn, onPressed: () {}),
-              SizedBox(
-                height: $constants.insets.lg,
-              ),
-            ]),
-          ),
-        ),
-      ),
+          ]),
     );
   }
 }
