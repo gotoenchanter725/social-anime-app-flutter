@@ -7,4 +7,14 @@ class TextConstants {
   static const String onboarding2SubTitle = "lovers unite";
   static const String onboarding3SubTitle = "matching";
   static const String onboardingButtonText = "Skip";
+
+  // Auth
+
+  // -> Entry
+  static const String entryText =
+      'By tapping "Create account" or "Sign in", you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookies Policy.';
+
+  static const String signUp = "Create account";
+  static const String signIn = "Sign in";
+  static const String signOut = "Sign Out";
 }

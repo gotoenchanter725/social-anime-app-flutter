@@ -21,7 +21,7 @@ class OnboardingPage extends StatelessWidget {
       child: BlocConsumer<OnboardingBloc, OnboardingState>(
         listenWhen: (_, currState) => currState is NextScreenState,
         listener: (context, state) {
-          print("Has got to the end of the screens");
+          context.router.pushNamed('/entry');
         },
         buildWhen: (_, currState) => currState is OnboardingInitial,
         builder: (context, state) {

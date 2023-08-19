@@ -77,6 +77,18 @@ class _Palette {
       end: Alignment.bottomCenter,
       transform: GradientRotation(135.62 * math.pi / 180),
       stops: [0.1585, 0.8491]);
+
+  final buttonGradient = const LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFFDE0BC9),
+      Color(0xFF1286F0),
+    ],
+    stops: [0.1531, 0.8686],
+    transform: GradientRotation(
+        123.56 * 3.141592653589793 / 180), // Convert degrees to radians
+  );
 }
 
 @immutable
