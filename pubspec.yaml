@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   auto_route: ^7.8.0
   injectable: ^2.2.0
+  dartz: ^0.10.1
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
   get_it: ^7.6.0
@@ -79,6 +80,7 @@ dependencies:
   permission_handler: ^10.4.3
   permission_handler_web: ^0.0.2
   flutter_svg: ^2.0.7
+  uuid: ^3.0.7
 
 dev_dependencies:
   flutter_test:
