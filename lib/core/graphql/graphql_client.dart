@@ -3,7 +3,7 @@ import 'package:senpai/models/env_model.dart';
 
 class GraphQlConfig {
   GraphQLClient initGraphQLClient(EnvModel env) {
-    final httpLink = HttpLink(env.apiUrl);
+    final httpLink = HttpLink(env.graphApiUrl);
 
     return GraphQLClient(
       link: httpLink,

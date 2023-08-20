@@ -25,7 +25,8 @@ mixin _$EnvModel {
   bool get debugShowCheckedModeBanner => throw _privateConstructorUsedError;
   bool get debugShowMaterialGrid => throw _privateConstructorUsedError;
   bool get debugApiClient => throw _privateConstructorUsedError;
-  String get apiUrl => throw _privateConstructorUsedError;
+  String get graphApiUrl => throw _privateConstructorUsedError;
+  String get httpApiUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +45,8 @@ abstract class $EnvModelCopyWith<$Res> {
       bool debugShowCheckedModeBanner,
       bool debugShowMaterialGrid,
       bool debugApiClient,
-      String apiUrl});
+      String graphApiUrl,
+      String httpApiUrl});
 }
 
 /// @nodoc
@@ -65,7 +67,8 @@ class _$EnvModelCopyWithImpl<$Res, $Val extends EnvModel>
     Object? debugShowCheckedModeBanner = null,
     Object? debugShowMaterialGrid = null,
     Object? debugApiClient = null,
-    Object? apiUrl = null,
+    Object? graphApiUrl = null,
+    Object? httpApiUrl = null,
   }) {
     return _then(_value.copyWith(
       env: null == env
@@ -88,9 +91,13 @@ class _$EnvModelCopyWithImpl<$Res, $Val extends EnvModel>
           ? _value.debugApiClient
           : debugApiClient // ignore: cast_nullable_to_non_nullable
               as bool,
-      apiUrl: null == apiUrl
-          ? _value.apiUrl
-          : apiUrl // ignore: cast_nullable_to_non_nullable
+      graphApiUrl: null == graphApiUrl
+          ? _value.graphApiUrl
+          : graphApiUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      httpApiUrl: null == httpApiUrl
+          ? _value.httpApiUrl
+          : httpApiUrl // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -109,7 +116,8 @@ abstract class _$$_EnvModelCopyWith<$Res> implements $EnvModelCopyWith<$Res> {
       bool debugShowCheckedModeBanner,
       bool debugShowMaterialGrid,
       bool debugApiClient,
-      String apiUrl});
+      String graphApiUrl,
+      String httpApiUrl});
 }
 
 /// @nodoc
@@ -128,7 +136,8 @@ class __$$_EnvModelCopyWithImpl<$Res>
     Object? debugShowCheckedModeBanner = null,
     Object? debugShowMaterialGrid = null,
     Object? debugApiClient = null,
-    Object? apiUrl = null,
+    Object? graphApiUrl = null,
+    Object? httpApiUrl = null,
   }) {
     return _then(_$_EnvModel(
       env: null == env
@@ -151,9 +160,13 @@ class __$$_EnvModelCopyWithImpl<$Res>
           ? _value.debugApiClient
           : debugApiClient // ignore: cast_nullable_to_non_nullable
               as bool,
-      apiUrl: null == apiUrl
-          ? _value.apiUrl
-          : apiUrl // ignore: cast_nullable_to_non_nullable
+      graphApiUrl: null == graphApiUrl
+          ? _value.graphApiUrl
+          : graphApiUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      httpApiUrl: null == httpApiUrl
+          ? _value.httpApiUrl
+          : httpApiUrl // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -168,7 +181,8 @@ class _$_EnvModel extends _EnvModel {
       required this.debugShowCheckedModeBanner,
       required this.debugShowMaterialGrid,
       required this.debugApiClient,
-      required this.apiUrl})
+      required this.graphApiUrl,
+      required this.httpApiUrl})
       : super._();
 
   factory _$_EnvModel.fromJson(Map<String, dynamic> json) =>
@@ -185,11 +199,13 @@ class _$_EnvModel extends _EnvModel {
   @override
   final bool debugApiClient;
   @override
-  final String apiUrl;
+  final String graphApiUrl;
+  @override
+  final String httpApiUrl;
 
   @override
   String toString() {
-    return 'EnvModel(env: $env, debug: $debug, debugShowCheckedModeBanner: $debugShowCheckedModeBanner, debugShowMaterialGrid: $debugShowMaterialGrid, debugApiClient: $debugApiClient, apiUrl: $apiUrl)';
+    return 'EnvModel(env: $env, debug: $debug, debugShowCheckedModeBanner: $debugShowCheckedModeBanner, debugShowMaterialGrid: $debugShowMaterialGrid, debugApiClient: $debugApiClient, graphApiUrl: $graphApiUrl, httpApiUrl: $httpApiUrl)';
   }
 
   @override
@@ -207,7 +223,10 @@ class _$_EnvModel extends _EnvModel {
                 other.debugShowMaterialGrid == debugShowMaterialGrid) &&
             (identical(other.debugApiClient, debugApiClient) ||
                 other.debugApiClient == debugApiClient) &&
-            (identical(other.apiUrl, apiUrl) || other.apiUrl == apiUrl));
+            (identical(other.graphApiUrl, graphApiUrl) ||
+                other.graphApiUrl == graphApiUrl) &&
+            (identical(other.httpApiUrl, httpApiUrl) ||
+                other.httpApiUrl == httpApiUrl));
   }
 
   @JsonKey(ignore: true)
@@ -219,7 +238,8 @@ class _$_EnvModel extends _EnvModel {
       debugShowCheckedModeBanner,
       debugShowMaterialGrid,
       debugApiClient,
-      apiUrl);
+      graphApiUrl,
+      httpApiUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -242,7 +262,8 @@ abstract class _EnvModel extends EnvModel {
       required final bool debugShowCheckedModeBanner,
       required final bool debugShowMaterialGrid,
       required final bool debugApiClient,
-      required final String apiUrl}) = _$_EnvModel;
+      required final String graphApiUrl,
+      required final String httpApiUrl}) = _$_EnvModel;
   _EnvModel._() : super._();
 
   factory _EnvModel.fromJson(Map<String, dynamic> json) = _$_EnvModel.fromJson;
@@ -258,7 +279,9 @@ abstract class _EnvModel extends EnvModel {
   @override
   bool get debugApiClient;
   @override
-  String get apiUrl;
+  String get graphApiUrl;
+  @override
+  String get httpApiUrl;
   @override
   @JsonKey(ignore: true)
   _$$_EnvModelCopyWith<_$_EnvModel> get copyWith =>
