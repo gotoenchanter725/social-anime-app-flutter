@@ -1,0 +1,12 @@
+{
+  "errors": {
+    "others": {
+      "no_item_found": "There is no data to show.",
+      "something_went_wrong": "Something went wrong and data couldn't loaded.",
+      "an_unknown_error": "An unknown error happened.",
+      "no_internet_connection": "Internet connectivity is not available.",
+      "server_failure": "Server failure encountered.",
+      "communication_error": "There was an error with our communication with the servers."
+    }
+  }
+}
