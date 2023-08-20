@@ -2,6 +2,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:senpai/core/dio/dio_exception_handler.dart';
 import 'package:senpai/i18n/en/strings.g.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 
 part 'alert_model.freezed.dart';
 
@@ -30,7 +31,7 @@ class AlertModel with _$AlertModel {
     int? code,
   }) {
     if (type == AlertType.error) {
-      // TODO: send a sentry alert
+      logIt.error(message);
     }
 
     return AlertModel(
@@ -72,7 +73,7 @@ class AlertModel with _$AlertModel {
     }
 
     if (isTest) {
-      // Send a sentry log
+      logIt.wtf(message, stackTrace: stackTrace);
     }
 
     return AlertModel(
