@@ -1,0 +1,18 @@
+type CreateUserParams {
+  phone: String!
+}
+
+type CreateUserInput {
+  params: CreateUserParams
+}
+
+type User {
+  id: String!
+  phone: String!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Mutation {
+  createUser(input: CreateUserInput!): User
+}
