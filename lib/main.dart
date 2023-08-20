@@ -12,7 +12,7 @@ import 'package:senpai/theme/app_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureInjection(Environment.prod);
+  await configureInjection(Environment.prod);
   final theme = await createTheme(brightness: Brightness.dark);
   runApp(MyApp(theme: theme));
 }
