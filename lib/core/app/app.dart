@@ -1,14 +1,14 @@
 // Main page widget resides here
 
 import 'package:flutter/material.dart';
-import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 
 class MyApp extends StatelessWidget {
   final ThemeData theme;
   MyApp({super.key, required this.theme});
 
-  final _appRouter = AppRouter();
+  final _appRouter = appRouter;
 
   // This widget is the root of your application.
   @override
