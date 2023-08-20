@@ -12,6 +12,7 @@ _$_EnvModel _$$_EnvModelFromJson(Map<String, dynamic> json) => _$_EnvModel(
       debugShowCheckedModeBanner: json['debugShowCheckedModeBanner'] as bool,
       debugShowMaterialGrid: json['debugShowMaterialGrid'] as bool,
       debugApiClient: json['debugApiClient'] as bool,
+      apiUrl: json['apiUrl'] as String,
     );
 
 Map<String, dynamic> _$$_EnvModelToJson(_$_EnvModel instance) =>
@@ -21,4 +22,5 @@ Map<String, dynamic> _$$_EnvModelToJson(_$_EnvModel instance) =>
       'debugShowCheckedModeBanner': instance.debugShowCheckedModeBanner,
       'debugShowMaterialGrid': instance.debugShowMaterialGrid,
       'debugApiClient': instance.debugApiClient,
+      'apiUrl': instance.apiUrl,
     };

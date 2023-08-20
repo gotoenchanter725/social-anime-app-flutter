@@ -16,6 +16,7 @@ class EnvModel with _$EnvModel {
     required bool debugShowCheckedModeBanner,
     required bool debugShowMaterialGrid,
     required bool debugApiClient,
+    required String apiUrl,
   }) = _EnvModel;
 
   EnvModel._();

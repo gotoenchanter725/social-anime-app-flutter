@@ -3,5 +3,6 @@
   "debug": true,
   "debugShowCheckedModeBanner": false,
   "debugShowMaterialGrid": false,
-  "debugApiClient": false
+  "debugApiClient": false,
+  "apiUrl": "https://staging.senpaiapp.com/graphql"
 }
