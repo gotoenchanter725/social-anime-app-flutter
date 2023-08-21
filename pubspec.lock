@@ -5,18 +5,18 @@ packages:
     dependency: transitive
     description:
       name: _fe_analyzer_shared
-      sha256: eb376e9acf6938204f90eb3b1f00b578640d3188b4c8a8ec054f9f479af8d051
+      sha256: ae92f5d747aee634b87f89d9946000c2de774be1d6ac3e58268224348cd0101a
       url: "https://pub.dev"
     source: hosted
-    version: "64.0.0"
+    version: "61.0.0"
   analyzer:
     dependency: transitive
     description:
       name: analyzer
-      sha256: "69f54f967773f6c26c7dcb13e93d7ccee8b17a641689da39e878d5cf13b06893"
+      sha256: ea3d8652bda62982addfd92fdc2d0214e5f82e43325104990d4f4c4a2a313562
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.0"
+    version: "5.13.0"
   animations:
     dependency: "direct main"
     description:
@@ -49,6 +49,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.2"
+  artemis:
+    dependency: "direct dev"
+    description:
+      name: artemis
+      sha256: "696b16c9ee7934d76ca18267973355620669bdc5a3cc62d116e8e7c86ef8f31b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "7.13.0-beta.2"
   async:
     dependency: transitive
     description:
@@ -321,6 +329,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.6.6"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -529,10 +545,10 @@ packages:
     dependency: "direct dev"
     description:
       name: freezed
-      sha256: "83462cfc33dc9680533a7f3a4a6ab60aa94f287db5f4ee6511248c22833c497f"
+      sha256: "2df89855fe181baae3b6d714dc3c4317acf4fccd495a6f36e5e00f24144c6c3b"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.2"
+    version: "2.4.1"
   freezed_annotation:
     dependency: "direct main"
     description:
@@ -606,13 +622,21 @@ packages:
     source: hosted
     version: "0.15.0"
   gql:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: gql
       sha256: "56c5707f84128dfad2db16f513bbfe011f0dae96073bbdc4e6a9925915641a03"
       url: "https://pub.dev"
     source: hosted
     version: "1.0.1-alpha+1691943394579"
+  gql_code_builder:
+    dependency: "direct overridden"
+    description:
+      name: gql_code_builder
+      sha256: "6e386a85f5d91daae82915337f566a43dfeb0a0df38caa372387fbc07d31b8c1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.2"
   gql_dedupe_link:
     dependency: transitive
     description:
@@ -630,7 +654,7 @@ packages:
     source: hosted
     version: "1.0.0"
   gql_exec:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: gql_exec
       sha256: "7b8c816f1d4830a21ae37e107bb035073b2f5613acde8f76a7768a7eb23322d3"
@@ -638,7 +662,7 @@ packages:
     source: hosted
     version: "1.0.1-alpha+1691943394588"
   gql_http_link:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: gql_http_link
       sha256: "0789d397d46ce274942fcc73e18a080cd2584296dadc33d8ae53d0666d7fe981"
@@ -646,13 +670,13 @@ packages:
     source: hosted
     version: "1.0.1"
   gql_link:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: gql_link
-      sha256: "255a0262425b6efd9df2312fd90546105baaad22a98a9873dfca56efbe9163eb"
+      sha256: f7973279126bc922d465c4f4da6ed93d187085e597b3480f5e14e74d28fe14bd
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1-alpha+1691943394596"
+    version: "0.5.1"
   gql_transform_link:
     dependency: transitive
     description:
@@ -702,7 +726,7 @@ packages:
     source: hosted
     version: "0.15.4"
   http:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: http
       sha256: "759d1a329847dd0f39226c688d3e06a6b8679668e350e2891a6474f8b4bb8525"

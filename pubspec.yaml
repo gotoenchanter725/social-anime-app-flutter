@@ -96,7 +96,9 @@ dev_dependencies:
   build_runner: ^2.4.6
   injectable_generator: ^2.3.0
   json_serializable: ^6.7.1
-  freezed: ^2.4.2
+  artemis: ^7.9.0-beta
+  http: ^1.1.0
+  freezed: ^2.4.1
   golden_toolkit: ^0.15.0
   slang_flutter: ^3.22.0
   slang_build_runner: ^3.22.0
@@ -104,6 +106,12 @@ dev_dependencies:
 
 dependency_overrides:
   intl: ^0.18.1
+  http: ^1.1.0
+  gql_link: ^0.5.0
+  gql_exec: ^1.0.0
+  gql: ^1.0.0
+  gql_http_link: ^1.0.0
+  gql_code_builder: ^0.7.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
