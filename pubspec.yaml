@@ -81,6 +81,7 @@ dependencies:
   permission_handler_web: ^0.0.2
   flutter_svg: ^2.0.7
   uuid: ^3.0.7
+  http: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -97,7 +98,6 @@ dev_dependencies:
   injectable_generator: ^2.3.0
   json_serializable: ^6.7.1
   artemis: ^7.9.0-beta
-  http: ^1.1.0
   freezed: ^2.4.1
   golden_toolkit: ^0.15.0
   slang_flutter: ^3.22.0

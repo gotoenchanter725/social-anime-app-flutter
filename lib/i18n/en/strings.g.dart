@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 7
+/// Strings: 6
 ///
-/// Built on 2023-08-19 at 11:51 UTC
+/// Built on 2023-08-21 at 22:51 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -149,53 +149,32 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsEn _root = this; // ignore: unused_field
 
 	// Translations
-	late final _StringsActionsEn actions = _StringsActionsEn._(_root);
-	late final _StringsOnboarding1En onboarding_1 = _StringsOnboarding1En._(_root);
-	late final _StringsOnboarding2En onboarding_2 = _StringsOnboarding2En._(_root);
-	late final _StringsOnboarding3En onboarding_3 = _StringsOnboarding3En._(_root);
+	late final _StringsErrorsEn errors = _StringsErrorsEn._(_root);
 }
 
-// Path: actions
-class _StringsActionsEn {
-	_StringsActionsEn._(this._root);
+// Path: errors
+class _StringsErrorsEn {
+	_StringsErrorsEn._(this._root);
 
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get skip => 'Skip';
+	late final _StringsErrorsOthersEn others = _StringsErrorsOthersEn._(_root);
 }
 
-// Path: onboarding_1
-class _StringsOnboarding1En {
-	_StringsOnboarding1En._(this._root);
+// Path: errors.others
+class _StringsErrorsOthersEn {
+	_StringsErrorsOthersEn._(this._root);
 
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Find';
-	String get subtitle => 'your waifu';
-}
-
-// Path: onboarding_2
-class _StringsOnboarding2En {
-	_StringsOnboarding2En._(this._root);
-
-	final _StringsEn _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'Anime';
-	String get subtitle => 'lovers unite';
-}
-
-// Path: onboarding_3
-class _StringsOnboarding3En {
-	_StringsOnboarding3En._(this._root);
-
-	final _StringsEn _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'Start';
-	String get subtitle => 'matching';
+	String get no_item_found => 'There is no data to show.';
+	String get something_went_wrong => 'Something went wrong and data couldn\'t loaded.';
+	String get an_unknown_error => 'An unknown error happened.';
+	String get no_internet_connection => 'Internet connectivity is not available.';
+	String get server_failure => 'Server failure encountered.';
+	String get communication_error => 'There was an error with our communication with the servers.';
 }
 
 /// Flat map(s) containing all translations.
@@ -204,13 +183,12 @@ class _StringsOnboarding3En {
 extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'actions.skip': return 'Skip';
-			case 'onboarding_1.title': return 'Find';
-			case 'onboarding_1.subtitle': return 'your waifu';
-			case 'onboarding_2.title': return 'Anime';
-			case 'onboarding_2.subtitle': return 'lovers unite';
-			case 'onboarding_3.title': return 'Start';
-			case 'onboarding_3.subtitle': return 'matching';
+			case 'errors.others.no_item_found': return 'There is no data to show.';
+			case 'errors.others.something_went_wrong': return 'Something went wrong and data couldn\'t loaded.';
+			case 'errors.others.an_unknown_error': return 'An unknown error happened.';
+			case 'errors.others.no_internet_connection': return 'Internet connectivity is not available.';
+			case 'errors.others.server_failure': return 'Server failure encountered.';
+			case 'errors.others.communication_error': return 'There was an error with our communication with the servers.';
 			default: return null;
 		}
 	}

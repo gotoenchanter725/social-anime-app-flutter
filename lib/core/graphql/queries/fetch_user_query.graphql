@@ -1,0 +1,16 @@
+query fetchUser($userId: ID!) {
+  fetchUser(userId: $userId) {
+    id
+    lastSignInIp
+    matches {
+      id
+      matcheeId
+      conversation {
+        id
+      }
+    }
+    gallery {
+      photoUrls
+    }
+  }
+}

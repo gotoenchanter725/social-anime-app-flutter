@@ -14,5 +14,32 @@ type User {
 }
 
 type Mutation {
+  _: Int
   createUser(input: CreateUserInput!): User
+}
+
+type Query {
+  _: Int
+  fetchUser(id: ID!): User
+}
+
+type Matches {
+  id: ID
+  matcheeId: ID
+  conversation: Conversation
+}
+
+type Conversation {
+  id: ID
+}
+
+type Gallery {
+  photoUrls: [String]
+}
+
+type User {
+  id: ID
+  lastSignInIp: String
+  matches: Matches
+  gallery: Gallery
 }
