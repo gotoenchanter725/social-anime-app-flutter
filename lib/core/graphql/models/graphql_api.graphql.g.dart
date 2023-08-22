@@ -101,7 +101,7 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
       ..id = json['id'] as String
       ..role = json['role'] as String
       ..birthday = fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
-          json['birthday'] as DateTime?)
+          json['birthday'] as String?)
       ..bio = json['bio'] as String?
       ..gender = json['gender'] as int?
       ..desiredGender = json['desiredGender'] as int?
@@ -173,9 +173,9 @@ FetchAnime$Query$FetchAnime _$FetchAnime$Query$FetchAnimeFromJson(
       ..popularity = json['popularity'] as int?
       ..averageScore = json['averageScore'] as int?
       ..startDate = fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
-          json['startDate'] as DateTime?)
+          json['startDate'] as String?)
       ..endDate = fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
-          json['endDate'] as DateTime?)
+          json['endDate'] as String?)
       ..studios = json['studios'] as String?
       ..year = json['year'] as int?
       ..status = json['status'] as String?;
@@ -291,7 +291,7 @@ FetchFeed$Query$FetchFeed _$FetchFeed$Query$FetchFeedFromJson(
       ..premium = json['premium'] as bool
       ..currentSignInAt =
           fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
-              json['currentSignInAt'] as DateTime?)
+              json['currentSignInAt'] as String?)
       ..currentSignInIp = json['currentSignInIp'] as String?
       ..gender = json['gender'] as int?
       ..desiredGender = json['desiredGender'] as int?
