@@ -1,0 +1,16 @@
+query fetchAnime($params: AnimeInput!) {
+  fetchAnime(params: $params) {
+    id
+    title
+    genres
+    cover
+    episodes
+    popularity
+    averageScore
+    startDate
+    endDate
+    studios
+    year
+    status
+  }
+}

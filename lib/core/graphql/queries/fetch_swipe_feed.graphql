@@ -1,0 +1,29 @@
+query fetchFeed($userId: ID!, $milesAway: Int!, $page: Int) {
+  fetchFeed(userId: $userId, milesAway: $milesAway, page: $page) {
+    id
+    phone
+    premium
+    currentSignInAt
+    currentSignInIp
+    gender
+    desiredGender
+    bio
+    gallery {
+      photos {
+        order
+        url
+      }
+    }
+    animes {
+      id
+      title
+      cover
+    }
+    favoriteMusic {
+      id
+      name
+      cover
+      musicType
+    }
+  }
+}

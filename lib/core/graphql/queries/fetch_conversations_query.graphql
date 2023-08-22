@@ -1,0 +1,6 @@
+query fetchConversations($userId: ID!) {
+  fetchConversations(userId: $userId) {
+    id
+    matchId
+  }
+}

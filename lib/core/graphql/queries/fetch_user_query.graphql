@@ -1,7 +1,18 @@
 query fetchUser($userId: ID!) {
   fetchUser(userId: $userId) {
     id
-    lastSignInIp
+    role
+    birthday
+    bio
+    gender
+    desiredGender
+    phone
+    verified
+    school
+    occupation
+    displayCity
+    displayState
+    spotifyEmail
     matches {
       id
       matcheeId
@@ -10,7 +21,21 @@ query fetchUser($userId: ID!) {
       }
     }
     gallery {
-      photoUrls
+      photos {
+        order
+        url
+      }
+    }
+    animes {
+      id
+      title
+      cover
+    }
+    favoriteMusic {
+      id
+      cover
+      musicType
+      name
     }
   }
 }

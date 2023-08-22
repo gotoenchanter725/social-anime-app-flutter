@@ -1,0 +1,6 @@
+query fetchStickers($page: Int!) {
+  fetchStickers(page: $page) {
+    id
+    url
+  }
+}
