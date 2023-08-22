@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
+import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -22,6 +23,13 @@ class EntryContent extends StatelessWidget {
                 horizontal: $constants.insets.lg,
               ),
               child: Column(children: [
+                Image.asset(
+                  PathConstants.logo,
+                  width: getSize(context).width * 0.6,
+                ),
+                SizedBox(
+                  height: getSize(context).height * 0.15,
+                ),
                 Text(
                   TextConstants.entryText,
                   style: getTextTheme(context)
