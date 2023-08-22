@@ -394,6 +394,70 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
+CreateUser$Mutation$CreateUser$User
+    _$CreateUser$Mutation$CreateUser$UserFromJson(Map<String, dynamic> json) =>
+        CreateUser$Mutation$CreateUser$User()
+          ..id = json['id'] as String
+          ..phone = json['phone'] as String
+          ..createdAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['createdAt'] as String)
+          ..updatedAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['updatedAt'] as String);
+
+Map<String, dynamic> _$CreateUser$Mutation$CreateUser$UserToJson(
+        CreateUser$Mutation$CreateUser$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'phone': instance.phone,
+      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
+      'updatedAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.updatedAt),
+    };
+
+CreateUser$Mutation$CreateUser _$CreateUser$Mutation$CreateUserFromJson(
+        Map<String, dynamic> json) =>
+    CreateUser$Mutation$CreateUser()
+      ..user = CreateUser$Mutation$CreateUser$User.fromJson(
+          json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$CreateUser$Mutation$CreateUserToJson(
+        CreateUser$Mutation$CreateUser instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+CreateUser$Mutation _$CreateUser$MutationFromJson(Map<String, dynamic> json) =>
+    CreateUser$Mutation()
+      ..createUser = json['createUser'] == null
+          ? null
+          : CreateUser$Mutation$CreateUser.fromJson(
+              json['createUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$CreateUser$MutationToJson(
+        CreateUser$Mutation instance) =>
+    <String, dynamic>{
+      'createUser': instance.createUser?.toJson(),
+    };
+
+CreateUserInput _$CreateUserInputFromJson(Map<String, dynamic> json) =>
+    CreateUserInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      params: UserInput.fromJson(json['params'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$CreateUserInputToJson(CreateUserInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'params': instance.params.toJson(),
+    };
+
+UserInput _$UserInputFromJson(Map<String, dynamic> json) => UserInput(
+      phone: json['phone'] as String,
+    );
+
+Map<String, dynamic> _$UserInputToJson(UserInput instance) => <String, dynamic>{
+      'phone': instance.phone,
+    };
+
 FetchUserArguments _$FetchUserArgumentsFromJson(Map<String, dynamic> json) =>
     FetchUserArguments(
       userId: json['userId'] as String,
@@ -451,4 +515,15 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
+    };
+
+CreateUserArguments _$CreateUserArgumentsFromJson(Map<String, dynamic> json) =>
+    CreateUserArguments(
+      input: CreateUserInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$CreateUserArgumentsToJson(
+        CreateUserArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
     };
