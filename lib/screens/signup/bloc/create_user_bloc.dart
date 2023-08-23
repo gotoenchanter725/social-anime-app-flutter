@@ -30,11 +30,11 @@ class CreateUserBloc extends MutationBloc<CreateUser$Mutation> {
       return false;
     }
 
-    final variables = {
-      'input': {
-        'params': {'phone': phoneNumber},
-      }
-    };
+    final variables = CreateUserArguments(
+      input: CreateUserInput(
+        params: UserInput(phone: phoneNumber),
+      ),
+    ).toJson();
 
     run(variables);
     return true;
