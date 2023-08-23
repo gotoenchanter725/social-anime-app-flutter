@@ -9,6 +9,7 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         // add your routes here
         AutoRoute(page: OnboardingRoute.page, initial: true),
-        AutoRoute(page: EntryRoute.page, path: '/entry')
+        AutoRoute(page: EntryRoute.page, path: '/entry'),
+        AutoRoute(page: SignUpRoute.page, path: '/create_user')
       ];
 }

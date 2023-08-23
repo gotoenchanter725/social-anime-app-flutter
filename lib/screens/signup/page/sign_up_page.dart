@@ -6,6 +6,7 @@ import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/screens/signup/bloc/create_user_bloc.dart';
 import 'package:senpai/screens/signup/widgets/sign_up_content.dart';
 
+@RoutePage()
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
 
