@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
@@ -40,7 +41,11 @@ class EntryContent extends StatelessWidget {
                 SizedBox(
                   height: $constants.insets.lg,
                 ),
-                PrimaryButton(text: TextConstants.signUp, onPressed: () {}),
+                PrimaryButton(
+                    text: TextConstants.signUp,
+                    onPressed: () {
+                      context.router.pushNamed('/create_user');
+                    }),
                 SizedBox(
                   height: $constants.insets.lg,
                 ),

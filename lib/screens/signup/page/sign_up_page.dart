@@ -16,7 +16,9 @@ class SignUpPage extends StatelessWidget {
       create: (_) => getIt<CreateUserBloc>(),
       child: BlocConsumer<CreateUserBloc, MutationState>(
           builder: ((context, state) {
-        return const SignupContent();
+        return const Scaffold(
+          body: SignupContent(),
+        );
       }), listener: (_, state) {
         state.mapOrNull(succeeded: (_) {
           context.router.pushNamed('/verify_code');
