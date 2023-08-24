@@ -17,4 +17,8 @@ class TextConstants {
   static const String signUp = "Create account";
   static const String signIn = "Sign in";
   static const String signOut = "Sign Out";
+
+  //  -> Create Account
+  static const String hello = "Hello!";
+  static const String createUserPrompt = "Enter your phone";
 }
