@@ -6,6 +6,187 @@ part of 'graphql_api.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+CreateUser$Mutation$CreateUser$User
+    _$CreateUser$Mutation$CreateUser$UserFromJson(Map<String, dynamic> json) =>
+        CreateUser$Mutation$CreateUser$User()
+          ..id = json['id'] as String
+          ..phone = json['phone'] as String
+          ..createdAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['createdAt'] as String)
+          ..updatedAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['updatedAt'] as String);
+
+Map<String, dynamic> _$CreateUser$Mutation$CreateUser$UserToJson(
+        CreateUser$Mutation$CreateUser$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'phone': instance.phone,
+      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
+      'updatedAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.updatedAt),
+    };
+
+CreateUser$Mutation$CreateUser _$CreateUser$Mutation$CreateUserFromJson(
+        Map<String, dynamic> json) =>
+    CreateUser$Mutation$CreateUser()
+      ..user = CreateUser$Mutation$CreateUser$User.fromJson(
+          json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$CreateUser$Mutation$CreateUserToJson(
+        CreateUser$Mutation$CreateUser instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+CreateUser$Mutation _$CreateUser$MutationFromJson(Map<String, dynamic> json) =>
+    CreateUser$Mutation()
+      ..createUser = json['createUser'] == null
+          ? null
+          : CreateUser$Mutation$CreateUser.fromJson(
+              json['createUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$CreateUser$MutationToJson(
+        CreateUser$Mutation instance) =>
+    <String, dynamic>{
+      'createUser': instance.createUser?.toJson(),
+    };
+
+CreateUserInput _$CreateUserInputFromJson(Map<String, dynamic> json) =>
+    CreateUserInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      params: UserInput.fromJson(json['params'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$CreateUserInputToJson(CreateUserInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'params': instance.params.toJson(),
+    };
+
+UserInput _$UserInputFromJson(Map<String, dynamic> json) => UserInput(
+      phone: json['phone'] as String,
+    );
+
+Map<String, dynamic> _$UserInputToJson(UserInput instance) => <String, dynamic>{
+      'phone': instance.phone,
+    };
+
+FetchFeed$Query$FetchFeed$Gallery$Photos
+    _$FetchFeed$Query$FetchFeed$Gallery$PhotosFromJson(
+            Map<String, dynamic> json) =>
+        FetchFeed$Query$FetchFeed$Gallery$Photos()
+          ..order = json['order'] as int?
+          ..url = json['url'] as String;
+
+Map<String, dynamic> _$FetchFeed$Query$FetchFeed$Gallery$PhotosToJson(
+        FetchFeed$Query$FetchFeed$Gallery$Photos instance) =>
+    <String, dynamic>{
+      'order': instance.order,
+      'url': instance.url,
+    };
+
+FetchFeed$Query$FetchFeed$Gallery _$FetchFeed$Query$FetchFeed$GalleryFromJson(
+        Map<String, dynamic> json) =>
+    FetchFeed$Query$FetchFeed$Gallery()
+      ..photos = (json['photos'] as List<dynamic>?)
+          ?.map((e) => FetchFeed$Query$FetchFeed$Gallery$Photos.fromJson(
+              e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$FetchFeed$Query$FetchFeed$GalleryToJson(
+        FetchFeed$Query$FetchFeed$Gallery instance) =>
+    <String, dynamic>{
+      'photos': instance.photos?.map((e) => e.toJson()).toList(),
+    };
+
+FetchFeed$Query$FetchFeed$Animes _$FetchFeed$Query$FetchFeed$AnimesFromJson(
+        Map<String, dynamic> json) =>
+    FetchFeed$Query$FetchFeed$Animes()
+      ..id = json['id'] as String
+      ..title = json['title'] as String?
+      ..cover = json['cover'] as String?;
+
+Map<String, dynamic> _$FetchFeed$Query$FetchFeed$AnimesToJson(
+        FetchFeed$Query$FetchFeed$Animes instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'cover': instance.cover,
+    };
+
+FetchFeed$Query$FetchFeed$FavoriteMusic
+    _$FetchFeed$Query$FetchFeed$FavoriteMusicFromJson(
+            Map<String, dynamic> json) =>
+        FetchFeed$Query$FetchFeed$FavoriteMusic()
+          ..id = json['id'] as String
+          ..name = json['name'] as String?
+          ..cover = json['cover'] as String?
+          ..musicType = json['musicType'] as int?;
+
+Map<String, dynamic> _$FetchFeed$Query$FetchFeed$FavoriteMusicToJson(
+        FetchFeed$Query$FetchFeed$FavoriteMusic instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'cover': instance.cover,
+      'musicType': instance.musicType,
+    };
+
+FetchFeed$Query$FetchFeed _$FetchFeed$Query$FetchFeedFromJson(
+        Map<String, dynamic> json) =>
+    FetchFeed$Query$FetchFeed()
+      ..id = json['id'] as String
+      ..phone = json['phone'] as String
+      ..premium = json['premium'] as bool
+      ..currentSignInAt =
+          fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
+              json['currentSignInAt'] as String?)
+      ..currentSignInIp = json['currentSignInIp'] as String?
+      ..gender = json['gender'] as int?
+      ..desiredGender = json['desiredGender'] as int?
+      ..bio = json['bio'] as String?
+      ..gallery = json['gallery'] == null
+          ? null
+          : FetchFeed$Query$FetchFeed$Gallery.fromJson(
+              json['gallery'] as Map<String, dynamic>)
+      ..animes = (json['animes'] as List<dynamic>?)
+          ?.map((e) => FetchFeed$Query$FetchFeed$Animes.fromJson(
+              e as Map<String, dynamic>))
+          .toList()
+      ..favoriteMusic = (json['favoriteMusic'] as List<dynamic>?)
+          ?.map((e) => FetchFeed$Query$FetchFeed$FavoriteMusic.fromJson(
+              e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$FetchFeed$Query$FetchFeedToJson(
+        FetchFeed$Query$FetchFeed instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'phone': instance.phone,
+      'premium': instance.premium,
+      'currentSignInAt':
+          fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable(
+              instance.currentSignInAt),
+      'currentSignInIp': instance.currentSignInIp,
+      'gender': instance.gender,
+      'desiredGender': instance.desiredGender,
+      'bio': instance.bio,
+      'gallery': instance.gallery?.toJson(),
+      'animes': instance.animes?.map((e) => e.toJson()).toList(),
+      'favoriteMusic': instance.favoriteMusic?.map((e) => e.toJson()).toList(),
+    };
+
+FetchFeed$Query _$FetchFeed$QueryFromJson(Map<String, dynamic> json) =>
+    FetchFeed$Query()
+      ..fetchFeed = (json['fetchFeed'] as List<dynamic>)
+          .map((e) =>
+              FetchFeed$Query$FetchFeed.fromJson(e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$FetchFeed$QueryToJson(FetchFeed$Query instance) =>
+    <String, dynamic>{
+      'fetchFeed': instance.fetchFeed.map((e) => e.toJson()).toList(),
+    };
+
 FetchUser$Query$FetchUser$Matches$Conversation
     _$FetchUser$Query$FetchUser$Matches$ConversationFromJson(
             Map<String, dynamic> json) =>
@@ -222,123 +403,6 @@ Map<String, dynamic> _$AnimeInputToJson(AnimeInput instance) =>
       'title': instance.title,
     };
 
-FetchFeed$Query$FetchFeed$Gallery$Photos
-    _$FetchFeed$Query$FetchFeed$Gallery$PhotosFromJson(
-            Map<String, dynamic> json) =>
-        FetchFeed$Query$FetchFeed$Gallery$Photos()
-          ..order = json['order'] as int?
-          ..url = json['url'] as String;
-
-Map<String, dynamic> _$FetchFeed$Query$FetchFeed$Gallery$PhotosToJson(
-        FetchFeed$Query$FetchFeed$Gallery$Photos instance) =>
-    <String, dynamic>{
-      'order': instance.order,
-      'url': instance.url,
-    };
-
-FetchFeed$Query$FetchFeed$Gallery _$FetchFeed$Query$FetchFeed$GalleryFromJson(
-        Map<String, dynamic> json) =>
-    FetchFeed$Query$FetchFeed$Gallery()
-      ..photos = (json['photos'] as List<dynamic>?)
-          ?.map((e) => FetchFeed$Query$FetchFeed$Gallery$Photos.fromJson(
-              e as Map<String, dynamic>))
-          .toList();
-
-Map<String, dynamic> _$FetchFeed$Query$FetchFeed$GalleryToJson(
-        FetchFeed$Query$FetchFeed$Gallery instance) =>
-    <String, dynamic>{
-      'photos': instance.photos?.map((e) => e.toJson()).toList(),
-    };
-
-FetchFeed$Query$FetchFeed$Animes _$FetchFeed$Query$FetchFeed$AnimesFromJson(
-        Map<String, dynamic> json) =>
-    FetchFeed$Query$FetchFeed$Animes()
-      ..id = json['id'] as String
-      ..title = json['title'] as String?
-      ..cover = json['cover'] as String?;
-
-Map<String, dynamic> _$FetchFeed$Query$FetchFeed$AnimesToJson(
-        FetchFeed$Query$FetchFeed$Animes instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'title': instance.title,
-      'cover': instance.cover,
-    };
-
-FetchFeed$Query$FetchFeed$FavoriteMusic
-    _$FetchFeed$Query$FetchFeed$FavoriteMusicFromJson(
-            Map<String, dynamic> json) =>
-        FetchFeed$Query$FetchFeed$FavoriteMusic()
-          ..id = json['id'] as String
-          ..name = json['name'] as String?
-          ..cover = json['cover'] as String?
-          ..musicType = json['musicType'] as int?;
-
-Map<String, dynamic> _$FetchFeed$Query$FetchFeed$FavoriteMusicToJson(
-        FetchFeed$Query$FetchFeed$FavoriteMusic instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'cover': instance.cover,
-      'musicType': instance.musicType,
-    };
-
-FetchFeed$Query$FetchFeed _$FetchFeed$Query$FetchFeedFromJson(
-        Map<String, dynamic> json) =>
-    FetchFeed$Query$FetchFeed()
-      ..id = json['id'] as String
-      ..phone = json['phone'] as String
-      ..premium = json['premium'] as bool
-      ..currentSignInAt =
-          fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
-              json['currentSignInAt'] as String?)
-      ..currentSignInIp = json['currentSignInIp'] as String?
-      ..gender = json['gender'] as int?
-      ..desiredGender = json['desiredGender'] as int?
-      ..bio = json['bio'] as String?
-      ..gallery = json['gallery'] == null
-          ? null
-          : FetchFeed$Query$FetchFeed$Gallery.fromJson(
-              json['gallery'] as Map<String, dynamic>)
-      ..animes = (json['animes'] as List<dynamic>?)
-          ?.map((e) => FetchFeed$Query$FetchFeed$Animes.fromJson(
-              e as Map<String, dynamic>))
-          .toList()
-      ..favoriteMusic = (json['favoriteMusic'] as List<dynamic>?)
-          ?.map((e) => FetchFeed$Query$FetchFeed$FavoriteMusic.fromJson(
-              e as Map<String, dynamic>))
-          .toList();
-
-Map<String, dynamic> _$FetchFeed$Query$FetchFeedToJson(
-        FetchFeed$Query$FetchFeed instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'phone': instance.phone,
-      'premium': instance.premium,
-      'currentSignInAt':
-          fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable(
-              instance.currentSignInAt),
-      'currentSignInIp': instance.currentSignInIp,
-      'gender': instance.gender,
-      'desiredGender': instance.desiredGender,
-      'bio': instance.bio,
-      'gallery': instance.gallery?.toJson(),
-      'animes': instance.animes?.map((e) => e.toJson()).toList(),
-      'favoriteMusic': instance.favoriteMusic?.map((e) => e.toJson()).toList(),
-    };
-
-FetchFeed$Query _$FetchFeed$QueryFromJson(Map<String, dynamic> json) =>
-    FetchFeed$Query()
-      ..fetchFeed = (json['fetchFeed'] as List<dynamic>)
-          .map((e) =>
-              FetchFeed$Query$FetchFeed.fromJson(e as Map<String, dynamic>))
-          .toList();
-
-Map<String, dynamic> _$FetchFeed$QueryToJson(FetchFeed$Query instance) =>
-    <String, dynamic>{
-      'fetchFeed': instance.fetchFeed.map((e) => e.toJson()).toList(),
-    };
-
 FetchConversations$Query$FetchConversations
     _$FetchConversations$Query$FetchConversationsFromJson(
             Map<String, dynamic> json) =>
@@ -394,68 +458,29 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
-CreateUser$Mutation$CreateUser$User
-    _$CreateUser$Mutation$CreateUser$UserFromJson(Map<String, dynamic> json) =>
-        CreateUser$Mutation$CreateUser$User()
-          ..id = json['id'] as String
-          ..phone = json['phone'] as String
-          ..createdAt = fromGraphQLISO8601DateTimeToDartDateTime(
-              json['createdAt'] as String)
-          ..updatedAt = fromGraphQLISO8601DateTimeToDartDateTime(
-              json['updatedAt'] as String);
-
-Map<String, dynamic> _$CreateUser$Mutation$CreateUser$UserToJson(
-        CreateUser$Mutation$CreateUser$User instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'phone': instance.phone,
-      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
-      'updatedAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.updatedAt),
-    };
-
-CreateUser$Mutation$CreateUser _$CreateUser$Mutation$CreateUserFromJson(
-        Map<String, dynamic> json) =>
-    CreateUser$Mutation$CreateUser()
-      ..user = CreateUser$Mutation$CreateUser$User.fromJson(
-          json['user'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$CreateUser$Mutation$CreateUserToJson(
-        CreateUser$Mutation$CreateUser instance) =>
-    <String, dynamic>{
-      'user': instance.user.toJson(),
-    };
-
-CreateUser$Mutation _$CreateUser$MutationFromJson(Map<String, dynamic> json) =>
-    CreateUser$Mutation()
-      ..createUser = json['createUser'] == null
-          ? null
-          : CreateUser$Mutation$CreateUser.fromJson(
-              json['createUser'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$CreateUser$MutationToJson(
-        CreateUser$Mutation instance) =>
-    <String, dynamic>{
-      'createUser': instance.createUser?.toJson(),
-    };
-
-CreateUserInput _$CreateUserInputFromJson(Map<String, dynamic> json) =>
-    CreateUserInput(
-      clientMutationId: json['clientMutationId'] as String?,
-      params: UserInput.fromJson(json['params'] as Map<String, dynamic>),
+CreateUserArguments _$CreateUserArgumentsFromJson(Map<String, dynamic> json) =>
+    CreateUserArguments(
+      input: CreateUserInput.fromJson(json['input'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$CreateUserInputToJson(CreateUserInput instance) =>
+Map<String, dynamic> _$CreateUserArgumentsToJson(
+        CreateUserArguments instance) =>
     <String, dynamic>{
-      'clientMutationId': instance.clientMutationId,
-      'params': instance.params.toJson(),
+      'input': instance.input.toJson(),
     };
 
-UserInput _$UserInputFromJson(Map<String, dynamic> json) => UserInput(
-      phone: json['phone'] as String,
+FetchFeedArguments _$FetchFeedArgumentsFromJson(Map<String, dynamic> json) =>
+    FetchFeedArguments(
+      userId: json['userId'] as String,
+      milesAway: json['milesAway'] as int,
+      page: json['page'] as int?,
     );
 
-Map<String, dynamic> _$UserInputToJson(UserInput instance) => <String, dynamic>{
-      'phone': instance.phone,
+Map<String, dynamic> _$FetchFeedArgumentsToJson(FetchFeedArguments instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'milesAway': instance.milesAway,
+      'page': instance.page,
     };
 
 FetchUserArguments _$FetchUserArgumentsFromJson(Map<String, dynamic> json) =>
@@ -477,20 +502,6 @@ Map<String, dynamic> _$FetchAnimeArgumentsToJson(
         FetchAnimeArguments instance) =>
     <String, dynamic>{
       'params': instance.params.toJson(),
-    };
-
-FetchFeedArguments _$FetchFeedArgumentsFromJson(Map<String, dynamic> json) =>
-    FetchFeedArguments(
-      userId: json['userId'] as String,
-      milesAway: json['milesAway'] as int,
-      page: json['page'] as int?,
-    );
-
-Map<String, dynamic> _$FetchFeedArgumentsToJson(FetchFeedArguments instance) =>
-    <String, dynamic>{
-      'userId': instance.userId,
-      'milesAway': instance.milesAway,
-      'page': instance.page,
     };
 
 FetchConversationsArguments _$FetchConversationsArgumentsFromJson(
@@ -515,15 +526,4 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
-    };
-
-CreateUserArguments _$CreateUserArgumentsFromJson(Map<String, dynamic> json) =>
-    CreateUserArguments(
-      input: CreateUserInput.fromJson(json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$CreateUserArgumentsToJson(
-        CreateUserArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
     };

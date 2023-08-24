@@ -23,11 +23,11 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/onboarding_2.png)
   final onboarding_2 = r'assets/images/onboarding/onboarding_2.png';
 
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/heart.svg)
-  final heart = r'assets/images/onboarding/heart.svg';
-
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/onboarding_bg.png)
   final onboarding_bg = r'assets/images/onboarding/onboarding_bg.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/heart.svg)
+  final heart = r'assets/images/onboarding/heart.svg';
 }
 
 class _SvgResources {
