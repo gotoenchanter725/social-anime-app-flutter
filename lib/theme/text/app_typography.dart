@@ -131,7 +131,7 @@ class AppTypography with _$AppTypography {
           fontWeight: FontWeight.w400,
           fontFamily: fontFamily,
           textBaseline: TextBaseline.alphabetic,
-          height: 24,
+          height: 1.5,
         ),
         bodySmall: TextStyle(
           debugLabel: 'appTextTheme bodySmall',

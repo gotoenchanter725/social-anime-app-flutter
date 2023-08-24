@@ -21,4 +21,5 @@ class TextConstants {
   //  -> Create Account
   static const String hello = "Hello!";
   static const String createUserPrompt = "Enter your phone";
+  static const String continueText = "Continue";
 }
