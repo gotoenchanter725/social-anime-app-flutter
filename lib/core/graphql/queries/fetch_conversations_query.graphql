@@ -6,7 +6,10 @@ query fetchConversations($userId: ID!) {
       content
       sender_id
       reaction
-      sticker
+      sticker { 
+        id
+        url
+      }
       attachment
     }
   }
