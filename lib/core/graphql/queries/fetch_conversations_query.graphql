@@ -4,9 +4,9 @@ query fetchConversations($userId: ID!) {
     matchId
     messages {
       content
-      sender_id
+      senderId
       reaction
-      sticker { 
+      sticker {
         id
         url
       }

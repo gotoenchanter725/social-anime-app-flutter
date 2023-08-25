@@ -8,102 +8,6 @@ import 'package:senpai/core/graphql/scalars/datetime_scalar.dart';
 part 'graphql_api.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class CreateUser$Mutation$CreateUser$User extends JsonSerializable
-    with EquatableMixin {
-  CreateUser$Mutation$CreateUser$User();
-
-  factory CreateUser$Mutation$CreateUser$User.fromJson(
-          Map<String, dynamic> json) =>
-      _$CreateUser$Mutation$CreateUser$UserFromJson(json);
-
-  late String id;
-
-  late String phone;
-
-  @JsonKey(
-      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
-      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
-  late DateTime createdAt;
-
-  @JsonKey(
-      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
-      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
-  late DateTime updatedAt;
-
-  @override
-  List<Object?> get props => [id, phone, createdAt, updatedAt];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$CreateUser$Mutation$CreateUser$UserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class CreateUser$Mutation$CreateUser extends JsonSerializable
-    with EquatableMixin {
-  CreateUser$Mutation$CreateUser();
-
-  factory CreateUser$Mutation$CreateUser.fromJson(Map<String, dynamic> json) =>
-      _$CreateUser$Mutation$CreateUserFromJson(json);
-
-  late CreateUser$Mutation$CreateUser$User user;
-
-  @override
-  List<Object?> get props => [user];
-  @override
-  Map<String, dynamic> toJson() => _$CreateUser$Mutation$CreateUserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class CreateUser$Mutation extends JsonSerializable with EquatableMixin {
-  CreateUser$Mutation();
-
-  factory CreateUser$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$CreateUser$MutationFromJson(json);
-
-  CreateUser$Mutation$CreateUser? createUser;
-
-  @override
-  List<Object?> get props => [createUser];
-  @override
-  Map<String, dynamic> toJson() => _$CreateUser$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class CreateUserInput extends JsonSerializable with EquatableMixin {
-  CreateUserInput({
-    this.clientMutationId,
-    required this.params,
-  });
-
-  factory CreateUserInput.fromJson(Map<String, dynamic> json) =>
-      _$CreateUserInputFromJson(json);
-
-  String? clientMutationId;
-
-  late UserInput params;
-
-  @override
-  List<Object?> get props => [clientMutationId, params];
-  @override
-  Map<String, dynamic> toJson() => _$CreateUserInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UserInput extends JsonSerializable with EquatableMixin {
-  UserInput({required this.phone});
-
-  factory UserInput.fromJson(Map<String, dynamic> json) =>
-      _$UserInputFromJson(json);
-
-  late String phone;
-
-  @override
-  List<Object?> get props => [phone];
-  @override
-  Map<String, dynamic> toJson() => _$UserInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
 class FetchFeed$Query$FetchFeed$Gallery$Photos extends JsonSerializable
     with EquatableMixin {
   FetchFeed$Query$FetchFeed$Gallery$Photos();
@@ -551,6 +455,54 @@ class AnimeInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class FetchConversations$Query$FetchConversations$Messages$Sticker
+    extends JsonSerializable with EquatableMixin {
+  FetchConversations$Query$FetchConversations$Messages$Sticker();
+
+  factory FetchConversations$Query$FetchConversations$Messages$Sticker.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchConversations$Query$FetchConversations$Messages$StickerFromJson(
+          json);
+
+  late String id;
+
+  late String url;
+
+  @override
+  List<Object?> get props => [id, url];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchConversations$Query$FetchConversations$Messages$StickerToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchConversations$Query$FetchConversations$Messages
+    extends JsonSerializable with EquatableMixin {
+  FetchConversations$Query$FetchConversations$Messages();
+
+  factory FetchConversations$Query$FetchConversations$Messages.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchConversations$Query$FetchConversations$MessagesFromJson(json);
+
+  String? content;
+
+  int? senderId;
+
+  int? reaction;
+
+  late FetchConversations$Query$FetchConversations$Messages$Sticker sticker;
+
+  late String attachment;
+
+  @override
+  List<Object?> get props => [content, senderId, reaction, sticker, attachment];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchConversations$Query$FetchConversations$MessagesToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class FetchConversations$Query$FetchConversations extends JsonSerializable
     with EquatableMixin {
   FetchConversations$Query$FetchConversations();
@@ -563,8 +515,10 @@ class FetchConversations$Query$FetchConversations extends JsonSerializable
 
   late int matchId;
 
+  List<FetchConversations$Query$FetchConversations$Messages>? messages;
+
   @override
-  List<Object?> get props => [id, matchId];
+  List<Object?> get props => [id, matchId, messages];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversationsToJson(this);
@@ -618,113 +572,6 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [fetchStickers];
   @override
   Map<String, dynamic> toJson() => _$FetchStickers$QueryToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class CreateUserArguments extends JsonSerializable with EquatableMixin {
-  CreateUserArguments({required this.input});
-
-  @override
-  factory CreateUserArguments.fromJson(Map<String, dynamic> json) =>
-      _$CreateUserArgumentsFromJson(json);
-
-  late CreateUserInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$CreateUserArgumentsToJson(this);
-}
-
-final CREATE_USER_MUTATION_DOCUMENT_OPERATION_NAME = 'createUser';
-final CREATE_USER_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'createUser'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'CreateUserInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'createUser'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'user'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'phone'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'createdAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'updatedAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class CreateUserMutation
-    extends GraphQLQuery<CreateUser$Mutation, CreateUserArguments> {
-  CreateUserMutation({required this.variables});
-
-  @override
-  final DocumentNode document = CREATE_USER_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName = CREATE_USER_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final CreateUserArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  CreateUser$Mutation parse(Map<String, dynamic> json) =>
-      CreateUser$Mutation.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1488,6 +1335,64 @@ final FETCH_CONVERSATIONS_QUERY_DOCUMENT = DocumentNode(definitions: [
             arguments: [],
             directives: [],
             selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'messages'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'content'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'senderId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'reaction'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'sticker'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'url'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'attachment'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
           ),
         ]),
       )

@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 6
+/// Strings: 7
 ///
-/// Built on 2023-08-25 at 00:13 UTC
+/// Built on 2023-08-25 at 11:54 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -159,7 +159,18 @@ class _StringsErrorsEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
+	late final _StringsErrorsCreateUserEn create_user = _StringsErrorsCreateUserEn._(_root);
 	late final _StringsErrorsOthersEn others = _StringsErrorsOthersEn._(_root);
+}
+
+// Path: errors.create_user
+class _StringsErrorsCreateUserEn {
+	_StringsErrorsCreateUserEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get something_went_wrong => 'Something went wrong, please try again later';
 }
 
 // Path: errors.others
@@ -183,6 +194,7 @@ class _StringsErrorsOthersEn {
 extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'errors.create_user.something_went_wrong': return 'Something went wrong, please try again later';
 			case 'errors.others.no_item_found': return 'There is no data to show.';
 			case 'errors.others.something_went_wrong': return 'Something went wrong and data couldn\'t loaded.';
 			case 'errors.others.an_unknown_error': return 'An unknown error happened.';

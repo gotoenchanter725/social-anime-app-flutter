@@ -1,5 +1,8 @@
 {
   "errors": {
+    "create_user": {
+      "something_went_wrong": "Something went wrong, please try again later"
+    },
     "others": {
       "no_item_found": "There is no data to show.",
       "something_went_wrong": "Something went wrong and data couldn't loaded.",
