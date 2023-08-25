@@ -28,8 +28,8 @@ class SignupContent extends StatelessWidget {
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(
-                  height: 42,
+                SizedBox(
+                  height: $constants.insets.xl,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -42,8 +42,8 @@ class SignupContent extends StatelessWidget {
                     )
                   ],
                 ),
-                const SizedBox(
-                  height: 32,
+                SizedBox(
+                  height: $constants.insets.lg,
                 ),
                 Text(
                   TextConstants.hello,
@@ -59,10 +59,20 @@ class SignupContent extends StatelessWidget {
                       ),
                   textAlign: TextAlign.left,
                 ),
-                const SizedBox(
-                  height: 32,
+                SizedBox(
+                  height: $constants.insets.lg,
                 ),
                 _buildTextInput(context),
+                SizedBox(
+                  height: $constants.insets.sm,
+                ),
+                Text(
+                  TextConstants.createUserInstructions,
+                  style: getTextTheme(context).labelMedium?.copyWith(
+                        color: $constants.palette.grey2,
+                      ),
+                  textAlign: TextAlign.left,
+                ),
                 const SizedBox(
                   height: 32,
                 ),

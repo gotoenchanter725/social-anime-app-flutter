@@ -24,4 +24,6 @@ class TextConstants {
   static const String continueText = "Continue";
   static const String invalidPhoneError =
       "Invalid phone number. Please try again";
+  static const String createUserInstructions =
+      "We will send a text with a verification code.";
 }
