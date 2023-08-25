@@ -65,7 +65,6 @@ class _SenpaiPhoneInputState extends State<SenpaiPhoneInput> {
                   textFieldController: widget.controller,
                   keyboardType: widget.keyboardType!,
                   autoValidateMode: AutovalidateMode.disabled,
-                  initialValue: PhoneNumber(isoCode: 'US'),
                   textStyle: getTextTheme(context)
                       .bodyMedium
                       ?.copyWith(color: $constants.palette.white),
