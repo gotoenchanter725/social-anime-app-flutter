@@ -61,6 +61,7 @@ class _SenpaiPhoneInputState extends State<SenpaiPhoneInput> {
                   ),
                   hintText: widget.placeholder,
                   focusNode: focusNode,
+                  countries: const ["CA", "US", "UG"],
                   formatInput: true,
                   textFieldController: widget.controller,
                   keyboardType: widget.keyboardType!,
