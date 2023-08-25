@@ -73,12 +73,17 @@ class SignupContent extends StatelessWidget {
                       ),
                   textAlign: TextAlign.left,
                 ),
-                const SizedBox(
-                  height: 32,
+                SizedBox(
+                  height: $constants.insets.lg,
                 ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: _buildSubmitButton(context),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: _buildSubmitButton(context),
+                  ),
+                ),
+                SizedBox(
+                  height: $constants.insets.sm,
                 ),
               ],
             ))
