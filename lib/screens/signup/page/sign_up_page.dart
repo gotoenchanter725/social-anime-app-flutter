@@ -29,25 +29,27 @@ class SignUpPage extends StatelessWidget {
                 state.whenOrNull<Widget>(
                   loading: () => const SenpaiLoading(),
                   failed: (error, result) {
-                    ScaffoldMessenger.of(context)
-                      ..hideCurrentSnackBar()
-                      ..showSnackBar(
-                        SnackBar(
-                          /// need to set following properties for best effect of awesome_snackbar_content
-                          elevation: 0,
-                          behavior: SnackBarBehavior.floating,
-                          backgroundColor: Colors.transparent,
-                          content: AwesomeSnackbarContent(
-                            title: 'On Snap!',
-                            message: error.graphqlErrors.isNotEmpty
-                                ? error.graphqlErrors[0].message
-                                : "Something went wrong, please try again later",
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      ScaffoldMessenger.of(context)
+                        ..hideCurrentSnackBar()
+                        ..showSnackBar(
+                          SnackBar(
+                            /// need to set following properties for best effect of awesome_snackbar_content
+                            elevation: 0,
+                            behavior: SnackBarBehavior.floating,
+                            backgroundColor: Colors.transparent,
+                            content: AwesomeSnackbarContent(
+                              title: 'On Snap!',
+                              message: error.graphqlErrors.isNotEmpty
+                                  ? error.graphqlErrors[0].message
+                                  : "Something went wrong, please try again later",
 
-                            /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
-                            contentType: ContentType.failure,
+                              /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                              contentType: ContentType.failure,
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                    });
 
                     return const SizedBox.shrink();
                   },
