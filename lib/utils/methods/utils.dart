@@ -60,3 +60,13 @@ LinearGradient colorsToGradient(List<Color> colors, {double opacity = 1}) {
     colors: colors.map((c) => c.withOpacity(opacity)).toList(),
   );
 }
+
+bool isValidPhoneNumber(String phoneNumber) {
+  final RegExp phoneRegExp = RegExp(r'^\+\d{12}$');
+
+  if (!phoneRegExp.hasMatch(phoneNumber)) {
+    return false;
+  }
+
+  return true;
+}

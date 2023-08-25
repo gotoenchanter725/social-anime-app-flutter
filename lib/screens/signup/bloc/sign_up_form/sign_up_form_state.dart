@@ -13,12 +13,12 @@ class SignUpButtonEnableChangedState extends SignUpFormState {
   });
 }
 
-class ShowErrorState extends SignUpFormState {}
-
 class ErrorState extends SignUpFormState {
   final String message;
 
-  ErrorState({required this.message});
+  final bool isEnabled;
+
+  ErrorState({required this.message, required this.isEnabled});
 }
 
 class LoadingState extends SignUpFormState {}

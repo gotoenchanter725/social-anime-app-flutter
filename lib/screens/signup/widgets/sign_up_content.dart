@@ -60,24 +60,7 @@ class SignupContent extends StatelessWidget {
                 const SizedBox(
                   height: 32,
                 ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular($constants.corners.md),
-                          shape: BoxShape.rectangle,
-                          border: Border.all(
-                              color: $constants.palette.buttonBorder,
-                              width: 1.0),
-                          // Separator
-                        ),
-                        child: _buildTextInput(context),
-                      ),
-                    ),
-                  ],
-                ),
+                _buildTextInput(context),
                 const SizedBox(
                   height: 32,
                 ),
@@ -99,6 +82,7 @@ class SignupContent extends StatelessWidget {
   Widget _buildTextInput(BuildContext context) {
     final bloc = BlocProvider.of<SignUpFormBloc>(context);
     return BlocBuilder<SignUpFormBloc, SignUpFormState>(
+      buildWhen: (_, currState) => currState is ErrorState,
       builder: (context, state) {
         return SenpaiPhoneInput(
           placeholder: '000-000-0000',
@@ -107,7 +91,7 @@ class SignupContent extends StatelessWidget {
             bloc.add(OnTextChangedEvent());
           },
           errorText: TextConstants.invalidPhoneError,
-          isError: state is ShowErrorState,
+          isError: state is ErrorState ? state.isEnabled : false,
         );
       },
     );

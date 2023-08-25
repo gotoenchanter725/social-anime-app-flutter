@@ -28,37 +28,12 @@ class SenpaiPhoneInput extends StatefulWidget {
 class _SenpaiPhoneInputState extends State<SenpaiPhoneInput> {
   final focusNode = FocusNode();
 
-  bool stateIsError = false;
-
-  @override
-  void initState() {
-    super.initState();
-
-    focusNode.addListener(
-      () {
-        setState(() {
-          if (focusNode.hasFocus) {
-            stateIsError = false;
-          }
-        });
-      },
-    );
-
-    stateIsError = widget.isError;
-  }
-
-  @override
-  void didUpdateWidget(covariant SenpaiPhoneInput oldWidget) {
-    super.didUpdateWidget(oldWidget);
-
-    stateIsError = focusNode.hasFocus ? false : widget.isError;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (stateIsError) ...[_createError(context)],
+        if (widget.isError) ...[_createError(context)],
         Row(
           children: [
             Expanded(
@@ -67,7 +42,7 @@ class _SenpaiPhoneInputState extends State<SenpaiPhoneInput> {
                   borderRadius: BorderRadius.circular($constants.corners.md),
                   shape: BoxShape.rectangle,
                   border: Border.all(
-                      color: stateIsError
+                      color: widget.isError
                           ? $constants.palette.red
                           : $constants.palette.buttonBorder,
                       width: 1.0),
