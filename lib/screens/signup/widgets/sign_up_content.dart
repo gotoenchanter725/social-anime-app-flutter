@@ -72,13 +72,16 @@ class SignupContent extends StatelessWidget {
                           // Separator
                         ),
                         child: InternationalPhoneNumberInput(
-                          onInputChanged: (PhoneNumber phoneNumber) {},
+                          onInputChanged: (PhoneNumber phoneNumber) {
+                            print(phoneNumber);
+                          },
                           inputBorder: const OutlineInputBorder(
                             borderSide:
                                 BorderSide.none, // No border for inner input
                           ),
                           hintText: '000-000-0000',
-                          autoValidateMode: AutovalidateMode.onUserInteraction,
+                          autoValidateMode: AutovalidateMode.disabled,
+                          keyboardType: TextInputType.number,
                           initialValue: PhoneNumber(isoCode: 'US'),
                           textStyle: getTextTheme(context)
                               .bodyMedium

@@ -22,4 +22,6 @@ class TextConstants {
   static const String hello = "Hello!";
   static const String createUserPrompt = "Enter your phone";
   static const String continueText = "Continue";
+  static const String invalidPhoneError =
+      "Invalid phone number. Please try again";
 }
