@@ -14,7 +14,7 @@ class CreateUserBloc extends MutationBloc<CreateUser$Mutation> {
     );
   }
 
-  bool createUserWithPhoneNumber(String phoneNumber) {
+  createUserWithPhoneNumber(String phoneNumber) {
     final variables = CreateUserArguments(
       input: CreateUserInput(
         params: UserInput(phone: phoneNumber),
@@ -22,7 +22,6 @@ class CreateUserBloc extends MutationBloc<CreateUser$Mutation> {
     ).toJson();
 
     run(variables);
-    return true;
   }
 
   @override
