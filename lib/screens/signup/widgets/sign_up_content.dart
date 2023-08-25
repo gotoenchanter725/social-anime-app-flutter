@@ -7,6 +7,7 @@ import 'package:senpai/core/widgets/phone_input.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/screens/signup/bloc/create_user_bloc.dart';
 import 'package:senpai/screens/signup/bloc/sign_up_form/sign_up_form_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -67,16 +68,32 @@ class SignupContent extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
-                  child: PrimaryButton(
-                    text: TextConstants.continueText,
-                    onPressed: () {},
-                  ),
+                  child: _buildSubmitButton(context),
                 ),
               ],
             ))
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildSubmitButton(BuildContext context) {
+    final formBloc = BlocProvider.of<SignUpFormBloc>(context);
+    final serviceBloc = BlocProvider.of<CreateUserBloc>(context);
+
+    return BlocBuilder<SignUpFormBloc, SignUpFormState>(
+      builder: (context, state) {
+        return PrimaryButton(
+          text: TextConstants.continueText,
+          onPressed: () {
+            if (isValidPhoneNumber(formBloc.phoneController.text)) {
+              final String formattedPhone = formBloc.phoneNumber.phoneNumber!;
+              serviceBloc.createUserWithPhoneNumber(formattedPhone);
+            }
+          },
+        );
+      },
     );
   }
 

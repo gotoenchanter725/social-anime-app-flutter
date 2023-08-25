@@ -14,22 +14,7 @@ class CreateUserBloc extends MutationBloc<CreateUser$Mutation> {
     );
   }
 
-  bool validatePhoneNumber(String phoneNumber) {
-    final RegExp phoneRegExp = RegExp(r'^\+\d{12}$');
-
-    if (!phoneRegExp.hasMatch(phoneNumber)) {
-      return false;
-    }
-
-    return true;
-  }
-
   bool createUserWithPhoneNumber(String phoneNumber) {
-    final isValid = validatePhoneNumber(phoneNumber);
-    if (!isValid) {
-      return false;
-    }
-
     final variables = CreateUserArguments(
       input: CreateUserInput(
         params: UserInput(phone: phoneNumber),
