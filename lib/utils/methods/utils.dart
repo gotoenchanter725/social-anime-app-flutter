@@ -62,7 +62,7 @@ LinearGradient colorsToGradient(List<Color> colors, {double opacity = 1}) {
 }
 
 bool isValidPhoneNumber(String phoneNumber) {
-  final RegExp phoneRegExp = RegExp(r'^[\d\-.]+$');
+  final RegExp phoneRegExp = RegExp(r'^[\d\-. ]+$');
 
   return phoneNumber.length > 8 && phoneRegExp.hasMatch(phoneNumber);
 }
