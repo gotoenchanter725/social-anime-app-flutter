@@ -5,7 +5,7 @@ targets:
         options:
           schema_mapping:
             - schema: lib/core/graphql/schema.graphql
-              queries_glob: lib/core/graphql/queries/*.graphql
+              queries_glob: lib/core/graphql/schema/**.graphql
               output: lib/core/graphql/models/graphql_api.dart
               naming_scheme: pathedWithFields
           scalar_mapping:
