@@ -7,14 +7,16 @@ class SenpaiPhoneInput extends StatefulWidget {
   final String placeholder;
   final String errorText;
   final bool isError;
+  final bool isValid;
   final TextEditingController controller;
-  final VoidCallback onTextChanged;
+  final Function(PhoneNumber) onTextChanged;
   final TextInputType? keyboardType;
 
   const SenpaiPhoneInput({
     super.key,
     required this.placeholder,
     this.isError = false,
+    this.isValid = false,
     required this.controller,
     required this.onTextChanged,
     required this.errorText,
@@ -33,7 +35,7 @@ class _SenpaiPhoneInputState extends State<SenpaiPhoneInput> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (widget.isError) ...[_createError(context)],
+        _createError(context),
         Row(
           children: [
             Expanded(
@@ -44,20 +46,22 @@ class _SenpaiPhoneInputState extends State<SenpaiPhoneInput> {
                   border: Border.all(
                       color: widget.isError
                           ? $constants.palette.red
-                          : $constants.palette.buttonBorder,
+                          : widget.isValid
+                              ? $constants.palette.pink
+                              : $constants.palette.buttonBorder,
                       width: 1.0),
                   // Separator
                 ),
                 child: InternationalPhoneNumberInput(
                   onInputChanged: (PhoneNumber phoneNumber) {
-                    setState(() {});
-                    widget.onTextChanged();
+                    widget.onTextChanged(phoneNumber);
                   },
                   inputBorder: const OutlineInputBorder(
                     borderSide: BorderSide.none, // No border for inner input
                   ),
                   hintText: widget.placeholder,
                   focusNode: focusNode,
+                  formatInput: true,
                   textFieldController: widget.controller,
                   keyboardType: widget.keyboardType!,
                   autoValidateMode: AutovalidateMode.disabled,
@@ -87,7 +91,7 @@ class _SenpaiPhoneInputState extends State<SenpaiPhoneInput> {
     return Container(
       padding: const EdgeInsets.only(bottom: 2),
       child: Text(
-        widget.errorText,
+        widget.isError ? widget.errorText : '',
         style: getTextTheme(context)
             .labelMedium
             ?.copyWith(color: $constants.palette.red),

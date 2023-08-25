@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/phone_input.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
@@ -87,11 +88,14 @@ class SignupContent extends StatelessWidget {
         return SenpaiPhoneInput(
           placeholder: '000-000-0000',
           controller: bloc.phoneController,
-          onTextChanged: () {
-            bloc.add(OnTextChangedEvent());
+          onTextChanged: (PhoneNumber phoneNumber) {
+            bloc.add(OnTextChangedEvent(phoneNumber: phoneNumber));
           },
           errorText: TextConstants.invalidPhoneError,
           isError: state is ErrorState ? state.isEnabled : false,
+          isValid: state is ValidState
+              ? true
+              : isValidPhoneNumber(bloc.phoneController.text),
         );
       },
     );

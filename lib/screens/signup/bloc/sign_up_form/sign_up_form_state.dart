@@ -21,6 +21,8 @@ class ErrorState extends SignUpFormState {
   ErrorState({required this.message, required this.isEnabled});
 }
 
+class ValidState extends SignUpFormState {}
+
 class LoadingState extends SignUpFormState {}
 
 class SignUpState extends SignUpFormState {}
