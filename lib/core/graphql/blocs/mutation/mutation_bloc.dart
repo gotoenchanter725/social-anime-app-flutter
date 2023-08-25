@@ -37,10 +37,12 @@ abstract class MutationBloc<T>
             final exception = result.exception;
 
             if (exception != null) {
+              print("Has failed with result $result");
               emit(MutationState<T>.failed(error: exception, result: result));
             }
 
             if (!result.isLoading && !result.hasException) {
+              print("Has made a successful event $result");
               emit(
                 MutationState<T>.succeeded(
                   data: parseData(result.data),
