@@ -1,10 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
+import 'package:senpai/core/widgets/phone_input.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/screens/signup/bloc/sign_up_form/sign_up_form_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -71,31 +73,7 @@ class SignupContent extends StatelessWidget {
                               width: 1.0),
                           // Separator
                         ),
-                        child: InternationalPhoneNumberInput(
-                          onInputChanged: (PhoneNumber phoneNumber) {
-                            print(phoneNumber);
-                          },
-                          inputBorder: const OutlineInputBorder(
-                            borderSide:
-                                BorderSide.none, // No border for inner input
-                          ),
-                          hintText: '000-000-0000',
-                          autoValidateMode: AutovalidateMode.disabled,
-                          keyboardType: TextInputType.number,
-                          initialValue: PhoneNumber(isoCode: 'US'),
-                          textStyle: getTextTheme(context)
-                              .bodyMedium
-                              ?.copyWith(color: $constants.palette.white),
-                          selectorTextStyle: getTextTheme(context)
-                              .bodyMedium
-                              ?.copyWith(color: $constants.palette.white),
-                          searchBoxDecoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: $constants.palette.buttonBorder),
-                            ),
-                          ),
-                        ),
+                        child: _buildTextInput(context),
                       ),
                     ),
                   ],
@@ -115,6 +93,23 @@ class SignupContent extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildTextInput(BuildContext context) {
+    final bloc = BlocProvider.of<SignUpFormBloc>(context);
+    return BlocBuilder<SignUpFormBloc, SignUpFormState>(
+      builder: (context, state) {
+        return SenpaiPhoneInput(
+          placeholder: '000-000-0000',
+          controller: bloc.phoneController,
+          onTextChanged: () {
+            bloc.add(OnTextChangedEvent());
+          },
+          errorText: TextConstants.invalidPhoneError,
+          isError: state is ShowErrorState,
+        );
+      },
     );
   }
 }
