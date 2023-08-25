@@ -2,5 +2,12 @@ query fetchConversations($userId: ID!) {
   fetchConversations(userId: $userId) {
     id
     matchId
+    messages {
+      content
+      sender_id
+      reaction
+      sticker
+      attachment
+    }
   }
 }
