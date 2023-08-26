@@ -4,7 +4,9 @@ import 'package:senpai/screens/verify_phone/widget/verify_phone_content.dart';
 
 @RoutePage()
 class VerifyPhonePage extends StatelessWidget {
-  const VerifyPhonePage({super.key});
+  const VerifyPhonePage({super.key, required this.phone});
+
+  final String phone;
 
   @override
   Widget build(BuildContext context) {

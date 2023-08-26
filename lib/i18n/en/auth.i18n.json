@@ -1,0 +1,7 @@
+{
+  "verify_phone": {
+    "heading": "Your code is",
+    "instruction": "We sent the verification code on",
+    "resend_action": "Code not received? Resend"
+  }
+}

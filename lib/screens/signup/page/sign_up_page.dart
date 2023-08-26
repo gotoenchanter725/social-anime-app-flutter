@@ -6,6 +6,7 @@ import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/i18n/strings.g.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/signup/bloc/create_user_bloc.dart';
 import 'package:senpai/screens/signup/bloc/sign_up_form/sign_up_form_bloc.dart';
 import 'package:senpai/screens/signup/widgets/sign_up_content.dart';
@@ -63,7 +64,9 @@ class SignUpPage extends StatelessWidget {
         );
       }), listener: (_, state) {
         state.mapOrNull(succeeded: (_) {
-          context.router.pushNamed('/verify_phone');
+          final formBloc = BlocProvider.of<SignUpFormBloc>(context);
+          final String formattedPhone = formBloc.phoneNumber.phoneNumber!;
+          context.router.push(VerifyPhoneRoute(phone: formattedPhone));
         });
       }),
     );

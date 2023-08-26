@@ -34,9 +34,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     VerifyPhoneRoute.name: (routeData) {
+      final args = routeData.argsAs<VerifyPhoneRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const VerifyPhonePage(),
+        child: VerifyPhonePage(
+          key: args.key,
+          phone: args.phone,
+        ),
       );
     },
   };
@@ -86,14 +90,38 @@ class SignUpRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [VerifyPhonePage]
-class VerifyPhoneRoute extends PageRouteInfo<void> {
-  const VerifyPhoneRoute({List<PageRouteInfo>? children})
-      : super(
+class VerifyPhoneRoute extends PageRouteInfo<VerifyPhoneRouteArgs> {
+  VerifyPhoneRoute({
+    Key? key,
+    required String phone,
+    List<PageRouteInfo>? children,
+  }) : super(
           VerifyPhoneRoute.name,
+          args: VerifyPhoneRouteArgs(
+            key: key,
+            phone: phone,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'VerifyPhoneRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<VerifyPhoneRouteArgs> page =
+      PageInfo<VerifyPhoneRouteArgs>(name);
+}
+
+class VerifyPhoneRouteArgs {
+  const VerifyPhoneRouteArgs({
+    this.key,
+    required this.phone,
+  });
+
+  final Key? key;
+
+  final String phone;
+
+  @override
+  String toString() {
+    return 'VerifyPhoneRouteArgs{key: $key, phone: $phone}';
+  }
 }
