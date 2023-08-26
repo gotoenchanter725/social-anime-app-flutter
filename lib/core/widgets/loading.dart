@@ -10,15 +10,15 @@ class SenpaiLoading extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: double.infinity,
-      color: $constants.palette.pink,
+      color: $constants.palette.loadingBackground,
       child: Center(
         child: Theme(
           data: ThemeData(
             cupertinoOverrideTheme:
                 const CupertinoThemeData(brightness: Brightness.light),
           ),
-          child: const CupertinoActivityIndicator(
-            radius: 17,
+          child: CupertinoActivityIndicator(
+            radius: $constants.insets.md,
           ),
         ),
       ),

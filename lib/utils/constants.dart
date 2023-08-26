@@ -72,6 +72,8 @@ class _Palette {
   final progressBackground = const Color(0xFF1F2542);
   final buttonBorder = const Color(0xFF363B4B);
 
+  final loadingBackground = const Color(0x4414161D);
+
   // gradients
   final mainGradient = const LinearGradient(
       colors: [Color(0xFFDE0BC9), Color(0xFF1286F0)],
