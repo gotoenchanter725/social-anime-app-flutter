@@ -63,7 +63,7 @@ class SignUpPage extends StatelessWidget {
         );
       }), listener: (_, state) {
         state.mapOrNull(succeeded: (_) {
-          context.router.pushNamed('/verify_code');
+          context.router.pushNamed('/verify_phone');
         });
       }),
     );
