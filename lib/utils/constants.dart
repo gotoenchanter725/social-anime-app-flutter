@@ -74,6 +74,8 @@ class _Palette {
 
   final loadingBackground = const Color(0x4414161D);
 
+  final disabledTextButton = const Color(0xFF98A1BB);
+
   // gradients
   final mainGradient = const LinearGradient(
       colors: [Color(0xFFDE0BC9), Color(0xFF1286F0)],

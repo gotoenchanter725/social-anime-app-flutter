@@ -2,10 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_pin_field/otp_pin_field.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
+import 'package:senpai/core/widgets/text_button.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
+import 'package:timer_count_down/timer_count_down.dart';
 
 class VerifyPhoneContent extends StatelessWidget {
   const VerifyPhoneContent({super.key, required this.phone, required this.id});
@@ -57,6 +59,10 @@ class VerifyPhoneContent extends StatelessWidget {
                 height: $constants.insets.lg,
               ),
               _buildInputField(context),
+              SizedBox(
+                height: $constants.insets.sm,
+              ),
+              _buildResendAction(context),
             ]),
       ),
     );
@@ -103,6 +109,40 @@ class VerifyPhoneContent extends StatelessWidget {
       /// to select cursor width
       mainAxisAlignment: MainAxisAlignment.start,
       otpPinFieldDecoration: OtpPinFieldDecoration.underlinedPinBoxDecoration,
+    );
+  }
+
+  Widget _buildResendAction(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Countdown(
+          // controller: _controller,
+          seconds: 5,
+          build: (_, double time) {
+            final seconds = (time % 60).floor();
+            final milliseconds = ((time - seconds) * 1000).floor();
+            final formattedTime =
+                '${seconds.toString().padLeft(2, '0')}:${milliseconds.toString().padLeft(2, '0')}';
+
+            return Text(
+              formattedTime,
+              style: getTextTheme(context)
+                  .labelMedium!
+                  .copyWith(color: $constants.palette.white),
+            );
+          },
+          interval: const Duration(milliseconds: 100),
+          onFinished: () {
+            // will activate the resend timer
+          },
+        ),
+        SenpaiTextButton(
+          text: TextConstants.verifyCodeAction,
+          onPressed: () {},
+          enabled: false,
+        )
+      ],
     );
   }
 }
