@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_pin_field/otp_pin_field.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
+import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/text_button.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
@@ -63,6 +64,18 @@ class VerifyPhoneContent extends StatelessWidget {
                 height: $constants.insets.sm,
               ),
               _buildResendAction(context),
+              SizedBox(
+                height: $constants.insets.lg,
+              ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: _buildSubmitButton(context),
+                ),
+              ),
+              SizedBox(
+                height: $constants.insets.sm,
+              ),
             ]),
       ),
     );
@@ -144,5 +157,9 @@ class VerifyPhoneContent extends StatelessWidget {
         )
       ],
     );
+  }
+
+  Widget _buildSubmitButton(BuildContext context) {
+    return PrimaryButton(text: TextConstants.continueText, onPressed: () {});
   }
 }
