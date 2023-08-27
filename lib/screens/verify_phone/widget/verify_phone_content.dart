@@ -50,7 +50,7 @@ class VerifyPhoneContent extends StatelessWidget {
                 textAlign: TextAlign.left,
               ),
               Text(
-                "${TextConstants.verifyPhoneInstruction} ${RouteData.of(context).pathParams.get('phone')}",
+                "${TextConstants.verifyPhoneInstruction} $phone",
                 style: getTextTheme(context).labelMedium?.copyWith(
                       color: $constants.palette.grey2,
                     ),
