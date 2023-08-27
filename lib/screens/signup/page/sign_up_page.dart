@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
+import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
-import 'package:senpai/i18n/strings.g.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/signup/bloc/create_user_bloc.dart';
 import 'package:senpai/screens/signup/bloc/sign_up_form/sign_up_form_bloc.dart';
@@ -45,9 +45,7 @@ class SignUpPage extends StatelessWidget {
                                       backgroundColor: Colors.transparent,
                                       content: AwesomeSnackbarContent(
                                         title: 'On Snap!',
-                                        message: error.graphqlErrors.isNotEmpty
-                                            ? error.graphqlErrors[0].message
-                                            : t["core.errors.create_user.something_went_wrong"],
+                                        message: TextConstants.serverError,
 
                                         /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
                                         contentType: ContentType.failure,
