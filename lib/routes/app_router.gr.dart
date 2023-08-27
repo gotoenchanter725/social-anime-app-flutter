@@ -40,6 +40,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: VerifyPhonePage(
           key: args.key,
           phone: args.phone,
+          id: args.id,
         ),
       );
     },
@@ -94,12 +95,14 @@ class VerifyPhoneRoute extends PageRouteInfo<VerifyPhoneRouteArgs> {
   VerifyPhoneRoute({
     Key? key,
     required String phone,
+    required String id,
     List<PageRouteInfo>? children,
   }) : super(
           VerifyPhoneRoute.name,
           args: VerifyPhoneRouteArgs(
             key: key,
             phone: phone,
+            id: id,
           ),
           initialChildren: children,
         );
@@ -114,14 +117,17 @@ class VerifyPhoneRouteArgs {
   const VerifyPhoneRouteArgs({
     this.key,
     required this.phone,
+    required this.id,
   });
 
   final Key? key;
 
   final String phone;
 
+  final String id;
+
   @override
   String toString() {
-    return 'VerifyPhoneRouteArgs{key: $key, phone: $phone}';
+    return 'VerifyPhoneRouteArgs{key: $key, phone: $phone, id: $id}';
   }
 }
