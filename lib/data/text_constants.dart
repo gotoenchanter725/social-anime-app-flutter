@@ -27,4 +27,10 @@ class TextConstants {
   static const String createUserInstructions =
       "We will send a text with a verification code.";
   static const String serverError = "Something went wrong, please try again";
+
+  static const String verifyPhoneHeading = "Your code is";
+  static const String verifyPhoneInstruction =
+      "We sent the verification code on";
+  static const String invalidCodeError = "Invalid code. Please try again";
+  static const String verifyCodeAction = "Code not received? Resend";
 }

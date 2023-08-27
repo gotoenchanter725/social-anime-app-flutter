@@ -1077,6 +1077,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.8.2+1"
+  otp_pin_field:
+    dependency: "direct main"
+    description:
+      name: otp_pin_field
+      sha256: d15b348ebc21c17fccc926a79a21447dd653a29c7a514b6a4015c1ff6ddc71ec
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.2"
   package_config:
     dependency: transitive
     description:
