@@ -85,6 +85,7 @@ class VerifyPhoneContent extends StatelessWidget {
     return OtpPinField(
       autoFillEnable: false,
       textInputAction: TextInputAction.done,
+      fieldWidth: (getSize(context).width - (7 * $constants.insets.sm)) / 6,
 
       ///in case you want to change the action of keyboard
       /// to clear the Otp pin Controller
@@ -116,8 +117,9 @@ class VerifyPhoneContent extends StatelessWidget {
       maxLength: 6,
 
       /// no of pin field
-      showCursor: false,
+      showCursor: true,
       showDefaultKeyboard: true,
+      cursorColor: $constants.palette.pink,
 
       /// to select cursor width
       mainAxisAlignment: MainAxisAlignment.start,
@@ -131,12 +133,13 @@ class VerifyPhoneContent extends StatelessWidget {
       children: [
         Countdown(
           // controller: _controller,
-          seconds: 5,
+          seconds: 10,
           build: (_, double time) {
-            final seconds = (time % 60).floor();
-            final milliseconds = ((time - seconds) * 1000).floor();
+            final int totalSeconds = time.ceil();
+            final int minutes = (totalSeconds ~/ 60) % 60;
+            final int seconds = totalSeconds % 60;
             final formattedTime =
-                '${seconds.toString().padLeft(2, '0')}:${milliseconds.toString().padLeft(2, '0')}';
+                '0$minutes:${seconds.toString().padLeft(2, '0')}';
 
             return Text(
               formattedTime,
