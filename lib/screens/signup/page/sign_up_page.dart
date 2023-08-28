@@ -7,7 +7,7 @@ import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/routes/app_router.dart';
-import 'package:senpai/screens/signup/bloc/create_user_bloc.dart';
+import 'package:senpai/core/auth/blocs/create_user_bloc.dart';
 import 'package:senpai/screens/signup/bloc/sign_up_form/sign_up_form_bloc.dart';
 import 'package:senpai/screens/signup/widgets/sign_up_content.dart';
 import 'package:senpai/utils/methods/aliases.dart';

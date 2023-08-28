@@ -17,6 +17,7 @@ import 'package:graphql_flutter/graphql_flutter.dart' as _i7;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart'
     as _i8;
+import 'package:senpai/core/auth/blocs/create_user_bloc.dart' as _i4;
 import 'package:senpai/core/secure_storage/secure_auth_storage.dart' as _i13;
 import 'package:senpai/dependency_injection/dio_client_di.dart' as _i19;
 import 'package:senpai/dependency_injection/graphql_client_di.dart' as _i17;
@@ -27,7 +28,6 @@ import 'package:senpai/models/auth/auth_model.dart' as _i12;
 import 'package:senpai/models/env_model.dart' as _i5;
 import 'package:senpai/models/theme_model.dart' as _i10;
 import 'package:senpai/routes/app_router.dart' as _i3;
-import 'package:senpai/screens/signup/bloc/create_user_bloc.dart' as _i4;
 import 'package:senpai/utils/helpers/logging_helpers.dart' as _i9;
 
 extension GetItInjectableX on _i1.GetIt {
