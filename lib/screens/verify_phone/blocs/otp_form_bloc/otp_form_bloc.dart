@@ -1,14 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:timer_count_down/timer_controller.dart';
 
 part 'otp_form_event.dart';
 part 'otp_form_state.dart';
 part 'otp_form_bloc.freezed.dart';
 
 class OTPFormBloc extends Bloc<OtpFormEvent, OtpFormState> {
-  final timerController = CountdownController();
-
   OTPFormBloc()
       : super(
           const OtpFormState(
