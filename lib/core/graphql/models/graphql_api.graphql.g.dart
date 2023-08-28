@@ -503,6 +503,175 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
+ValidatePhone$Mutation$ValidatePhone$User
+    _$ValidatePhone$Mutation$ValidatePhone$UserFromJson(
+            Map<String, dynamic> json) =>
+        ValidatePhone$Mutation$ValidatePhone$User()
+          ..phone = json['phone'] as String;
+
+Map<String, dynamic> _$ValidatePhone$Mutation$ValidatePhone$UserToJson(
+        ValidatePhone$Mutation$ValidatePhone$User instance) =>
+    <String, dynamic>{
+      'phone': instance.phone,
+    };
+
+ValidatePhone$Mutation$ValidatePhone
+    _$ValidatePhone$Mutation$ValidatePhoneFromJson(Map<String, dynamic> json) =>
+        ValidatePhone$Mutation$ValidatePhone()
+          ..user = ValidatePhone$Mutation$ValidatePhone$User.fromJson(
+              json['user'] as Map<String, dynamic>)
+          ..token = json['token'] as String;
+
+Map<String, dynamic> _$ValidatePhone$Mutation$ValidatePhoneToJson(
+        ValidatePhone$Mutation$ValidatePhone instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+      'token': instance.token,
+    };
+
+ValidatePhone$Mutation _$ValidatePhone$MutationFromJson(
+        Map<String, dynamic> json) =>
+    ValidatePhone$Mutation()
+      ..validatePhone = json['validatePhone'] == null
+          ? null
+          : ValidatePhone$Mutation$ValidatePhone.fromJson(
+              json['validatePhone'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$ValidatePhone$MutationToJson(
+        ValidatePhone$Mutation instance) =>
+    <String, dynamic>{
+      'validatePhone': instance.validatePhone?.toJson(),
+    };
+
+ValidatePhoneInput _$ValidatePhoneInputFromJson(Map<String, dynamic> json) =>
+    ValidatePhoneInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      code: json['code'] as int,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$ValidatePhoneInputToJson(ValidatePhoneInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'code': instance.code,
+      'userId': instance.userId,
+    };
+
+ResendVerifyCode$Mutation$ResendVerifyText$User
+    _$ResendVerifyCode$Mutation$ResendVerifyText$UserFromJson(
+            Map<String, dynamic> json) =>
+        ResendVerifyCode$Mutation$ResendVerifyText$User()
+          ..id = json['id'] as String
+          ..phone = json['phone'] as String;
+
+Map<String, dynamic> _$ResendVerifyCode$Mutation$ResendVerifyText$UserToJson(
+        ResendVerifyCode$Mutation$ResendVerifyText$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'phone': instance.phone,
+    };
+
+ResendVerifyCode$Mutation$ResendVerifyText
+    _$ResendVerifyCode$Mutation$ResendVerifyTextFromJson(
+            Map<String, dynamic> json) =>
+        ResendVerifyCode$Mutation$ResendVerifyText()
+          ..user = json['user'] == null
+              ? null
+              : ResendVerifyCode$Mutation$ResendVerifyText$User.fromJson(
+                  json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$ResendVerifyCode$Mutation$ResendVerifyTextToJson(
+        ResendVerifyCode$Mutation$ResendVerifyText instance) =>
+    <String, dynamic>{
+      'user': instance.user?.toJson(),
+    };
+
+ResendVerifyCode$Mutation _$ResendVerifyCode$MutationFromJson(
+        Map<String, dynamic> json) =>
+    ResendVerifyCode$Mutation()
+      ..resendVerifyText = json['resendVerifyText'] == null
+          ? null
+          : ResendVerifyCode$Mutation$ResendVerifyText.fromJson(
+              json['resendVerifyText'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$ResendVerifyCode$MutationToJson(
+        ResendVerifyCode$Mutation instance) =>
+    <String, dynamic>{
+      'resendVerifyText': instance.resendVerifyText?.toJson(),
+    };
+
+ResendVerifyTextInput _$ResendVerifyTextInputFromJson(
+        Map<String, dynamic> json) =>
+    ResendVerifyTextInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      phone: json['phone'] as String,
+    );
+
+Map<String, dynamic> _$ResendVerifyTextInputToJson(
+        ResendVerifyTextInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'phone': instance.phone,
+    };
+
+SignIn$Mutation$SignIn$User _$SignIn$Mutation$SignIn$UserFromJson(
+        Map<String, dynamic> json) =>
+    SignIn$Mutation$SignIn$User()
+      ..id = json['id'] as String
+      ..currentSignInAt =
+          fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
+              json['currentSignInAt'] as String?)
+      ..lastSignInAt = fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
+          json['lastSignInAt'] as String?)
+      ..phone = json['phone'] as String;
+
+Map<String, dynamic> _$SignIn$Mutation$SignIn$UserToJson(
+        SignIn$Mutation$SignIn$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'currentSignInAt':
+          fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable(
+              instance.currentSignInAt),
+      'lastSignInAt': fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable(
+          instance.lastSignInAt),
+      'phone': instance.phone,
+    };
+
+SignIn$Mutation$SignIn _$SignIn$Mutation$SignInFromJson(
+        Map<String, dynamic> json) =>
+    SignIn$Mutation$SignIn()
+      ..user = SignIn$Mutation$SignIn$User.fromJson(
+          json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$SignIn$Mutation$SignInToJson(
+        SignIn$Mutation$SignIn instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+SignIn$Mutation _$SignIn$MutationFromJson(Map<String, dynamic> json) =>
+    SignIn$Mutation()
+      ..signIn = json['signIn'] == null
+          ? null
+          : SignIn$Mutation$SignIn.fromJson(
+              json['signIn'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$SignIn$MutationToJson(SignIn$Mutation instance) =>
+    <String, dynamic>{
+      'signIn': instance.signIn?.toJson(),
+    };
+
+SignInInput _$SignInInputFromJson(Map<String, dynamic> json) => SignInInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      token: json['token'] as String,
+    );
+
+Map<String, dynamic> _$SignInInputToJson(SignInInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'token': instance.token,
+    };
+
 CreateUserArguments _$CreateUserArgumentsFromJson(Map<String, dynamic> json) =>
     CreateUserArguments(
       input: CreateUserInput.fromJson(json['input'] as Map<String, dynamic>),
@@ -571,4 +740,39 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
+    };
+
+ValidatePhoneArguments _$ValidatePhoneArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    ValidatePhoneArguments(
+      input: ValidatePhoneInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$ValidatePhoneArgumentsToJson(
+        ValidatePhoneArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+ResendVerifyCodeArguments _$ResendVerifyCodeArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    ResendVerifyCodeArguments(
+      input:
+          ResendVerifyTextInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$ResendVerifyCodeArgumentsToJson(
+        ResendVerifyCodeArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+SignInArguments _$SignInArgumentsFromJson(Map<String, dynamic> json) =>
+    SignInArguments(
+      input: SignInInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$SignInArgumentsToJson(SignInArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
     };

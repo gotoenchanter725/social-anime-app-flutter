@@ -671,6 +671,232 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class ValidatePhone$Mutation$ValidatePhone$User extends JsonSerializable
+    with EquatableMixin {
+  ValidatePhone$Mutation$ValidatePhone$User();
+
+  factory ValidatePhone$Mutation$ValidatePhone$User.fromJson(
+          Map<String, dynamic> json) =>
+      _$ValidatePhone$Mutation$ValidatePhone$UserFromJson(json);
+
+  late String phone;
+
+  @override
+  List<Object?> get props => [phone];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$ValidatePhone$Mutation$ValidatePhone$UserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ValidatePhone$Mutation$ValidatePhone extends JsonSerializable
+    with EquatableMixin {
+  ValidatePhone$Mutation$ValidatePhone();
+
+  factory ValidatePhone$Mutation$ValidatePhone.fromJson(
+          Map<String, dynamic> json) =>
+      _$ValidatePhone$Mutation$ValidatePhoneFromJson(json);
+
+  late ValidatePhone$Mutation$ValidatePhone$User user;
+
+  late String token;
+
+  @override
+  List<Object?> get props => [user, token];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$ValidatePhone$Mutation$ValidatePhoneToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ValidatePhone$Mutation extends JsonSerializable with EquatableMixin {
+  ValidatePhone$Mutation();
+
+  factory ValidatePhone$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$ValidatePhone$MutationFromJson(json);
+
+  ValidatePhone$Mutation$ValidatePhone? validatePhone;
+
+  @override
+  List<Object?> get props => [validatePhone];
+  @override
+  Map<String, dynamic> toJson() => _$ValidatePhone$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ValidatePhoneInput extends JsonSerializable with EquatableMixin {
+  ValidatePhoneInput({
+    this.clientMutationId,
+    required this.code,
+    required this.userId,
+  });
+
+  factory ValidatePhoneInput.fromJson(Map<String, dynamic> json) =>
+      _$ValidatePhoneInputFromJson(json);
+
+  String? clientMutationId;
+
+  late int code;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [clientMutationId, code, userId];
+  @override
+  Map<String, dynamic> toJson() => _$ValidatePhoneInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ResendVerifyCode$Mutation$ResendVerifyText$User extends JsonSerializable
+    with EquatableMixin {
+  ResendVerifyCode$Mutation$ResendVerifyText$User();
+
+  factory ResendVerifyCode$Mutation$ResendVerifyText$User.fromJson(
+          Map<String, dynamic> json) =>
+      _$ResendVerifyCode$Mutation$ResendVerifyText$UserFromJson(json);
+
+  late String id;
+
+  late String phone;
+
+  @override
+  List<Object?> get props => [id, phone];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$ResendVerifyCode$Mutation$ResendVerifyText$UserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ResendVerifyCode$Mutation$ResendVerifyText extends JsonSerializable
+    with EquatableMixin {
+  ResendVerifyCode$Mutation$ResendVerifyText();
+
+  factory ResendVerifyCode$Mutation$ResendVerifyText.fromJson(
+          Map<String, dynamic> json) =>
+      _$ResendVerifyCode$Mutation$ResendVerifyTextFromJson(json);
+
+  ResendVerifyCode$Mutation$ResendVerifyText$User? user;
+
+  @override
+  List<Object?> get props => [user];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$ResendVerifyCode$Mutation$ResendVerifyTextToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ResendVerifyCode$Mutation extends JsonSerializable with EquatableMixin {
+  ResendVerifyCode$Mutation();
+
+  factory ResendVerifyCode$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$ResendVerifyCode$MutationFromJson(json);
+
+  ResendVerifyCode$Mutation$ResendVerifyText? resendVerifyText;
+
+  @override
+  List<Object?> get props => [resendVerifyText];
+  @override
+  Map<String, dynamic> toJson() => _$ResendVerifyCode$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ResendVerifyTextInput extends JsonSerializable with EquatableMixin {
+  ResendVerifyTextInput({
+    this.clientMutationId,
+    required this.phone,
+  });
+
+  factory ResendVerifyTextInput.fromJson(Map<String, dynamic> json) =>
+      _$ResendVerifyTextInputFromJson(json);
+
+  String? clientMutationId;
+
+  late String phone;
+
+  @override
+  List<Object?> get props => [clientMutationId, phone];
+  @override
+  Map<String, dynamic> toJson() => _$ResendVerifyTextInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SignIn$Mutation$SignIn$User extends JsonSerializable with EquatableMixin {
+  SignIn$Mutation$SignIn$User();
+
+  factory SignIn$Mutation$SignIn$User.fromJson(Map<String, dynamic> json) =>
+      _$SignIn$Mutation$SignIn$UserFromJson(json);
+
+  late String id;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable,
+      toJson: fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable)
+  DateTime? currentSignInAt;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable,
+      toJson: fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable)
+  DateTime? lastSignInAt;
+
+  late String phone;
+
+  @override
+  List<Object?> get props => [id, currentSignInAt, lastSignInAt, phone];
+  @override
+  Map<String, dynamic> toJson() => _$SignIn$Mutation$SignIn$UserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SignIn$Mutation$SignIn extends JsonSerializable with EquatableMixin {
+  SignIn$Mutation$SignIn();
+
+  factory SignIn$Mutation$SignIn.fromJson(Map<String, dynamic> json) =>
+      _$SignIn$Mutation$SignInFromJson(json);
+
+  late SignIn$Mutation$SignIn$User user;
+
+  @override
+  List<Object?> get props => [user];
+  @override
+  Map<String, dynamic> toJson() => _$SignIn$Mutation$SignInToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SignIn$Mutation extends JsonSerializable with EquatableMixin {
+  SignIn$Mutation();
+
+  factory SignIn$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$SignIn$MutationFromJson(json);
+
+  SignIn$Mutation$SignIn? signIn;
+
+  @override
+  List<Object?> get props => [signIn];
+  @override
+  Map<String, dynamic> toJson() => _$SignIn$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SignInInput extends JsonSerializable with EquatableMixin {
+  SignInInput({
+    this.clientMutationId,
+    required this.token,
+  });
+
+  factory SignInInput.fromJson(Map<String, dynamic> json) =>
+      _$SignInInputFromJson(json);
+
+  String? clientMutationId;
+
+  late String token;
+
+  @override
+  List<Object?> get props => [clientMutationId, token];
+  @override
+  Map<String, dynamic> toJson() => _$SignInInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class CreateUserArguments extends JsonSerializable with EquatableMixin {
   CreateUserArguments({required this.input});
 
@@ -1707,4 +1933,297 @@ class FetchStickersQuery
   @override
   FetchStickers$Query parse(Map<String, dynamic> json) =>
       FetchStickers$Query.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ValidatePhoneArguments extends JsonSerializable with EquatableMixin {
+  ValidatePhoneArguments({required this.input});
+
+  @override
+  factory ValidatePhoneArguments.fromJson(Map<String, dynamic> json) =>
+      _$ValidatePhoneArgumentsFromJson(json);
+
+  late ValidatePhoneInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$ValidatePhoneArgumentsToJson(this);
+}
+
+final VALIDATE_PHONE_MUTATION_DOCUMENT_OPERATION_NAME = 'validatePhone';
+final VALIDATE_PHONE_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'validatePhone'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ValidatePhoneInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'validatePhone'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'phone'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              )
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'token'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class ValidatePhoneMutation
+    extends GraphQLQuery<ValidatePhone$Mutation, ValidatePhoneArguments> {
+  ValidatePhoneMutation({required this.variables});
+
+  @override
+  final DocumentNode document = VALIDATE_PHONE_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = VALIDATE_PHONE_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final ValidatePhoneArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  ValidatePhone$Mutation parse(Map<String, dynamic> json) =>
+      ValidatePhone$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ResendVerifyCodeArguments extends JsonSerializable with EquatableMixin {
+  ResendVerifyCodeArguments({required this.input});
+
+  @override
+  factory ResendVerifyCodeArguments.fromJson(Map<String, dynamic> json) =>
+      _$ResendVerifyCodeArgumentsFromJson(json);
+
+  late ResendVerifyTextInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$ResendVerifyCodeArgumentsToJson(this);
+}
+
+final RESEND_VERIFY_CODE_MUTATION_DOCUMENT_OPERATION_NAME = 'resendVerifyCode';
+final RESEND_VERIFY_CODE_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'resendVerifyCode'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ResendVerifyTextInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'resendVerifyText'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'phone'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class ResendVerifyCodeMutation
+    extends GraphQLQuery<ResendVerifyCode$Mutation, ResendVerifyCodeArguments> {
+  ResendVerifyCodeMutation({required this.variables});
+
+  @override
+  final DocumentNode document = RESEND_VERIFY_CODE_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      RESEND_VERIFY_CODE_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final ResendVerifyCodeArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  ResendVerifyCode$Mutation parse(Map<String, dynamic> json) =>
+      ResendVerifyCode$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SignInArguments extends JsonSerializable with EquatableMixin {
+  SignInArguments({required this.input});
+
+  @override
+  factory SignInArguments.fromJson(Map<String, dynamic> json) =>
+      _$SignInArgumentsFromJson(json);
+
+  late SignInInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$SignInArgumentsToJson(this);
+}
+
+final SIGN_IN_MUTATION_DOCUMENT_OPERATION_NAME = 'signIn';
+final SIGN_IN_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'signIn'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'SignInInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'signIn'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'currentSignInAt'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'lastSignInAt'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'phone'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class SignInMutation extends GraphQLQuery<SignIn$Mutation, SignInArguments> {
+  SignInMutation({required this.variables});
+
+  @override
+  final DocumentNode document = SIGN_IN_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = SIGN_IN_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final SignInArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  SignIn$Mutation parse(Map<String, dynamic> json) =>
+      SignIn$Mutation.fromJson(json);
 }

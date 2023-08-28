@@ -1,0 +1,8 @@
+mutation validatePhone($input: ValidatePhoneInput!) {
+  validatePhone(input: $input) {
+    user {
+      phone
+    }
+    token
+  }
+}

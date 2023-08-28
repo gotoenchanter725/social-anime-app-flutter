@@ -1,0 +1,8 @@
+mutation resendVerifyCode($input: ResendVerifyTextInput!) {
+  resendVerifyText(input: $input) {
+    user {
+      id
+      phone
+    }
+  }
+}
