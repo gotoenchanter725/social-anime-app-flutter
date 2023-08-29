@@ -4,6 +4,7 @@ import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -44,12 +45,16 @@ class EntryContent extends StatelessWidget {
                 PrimaryButton(
                     text: TextConstants.signUp,
                     onPressed: () {
-                      context.router.pushNamed('/create_user');
+                      context.router.push(SignUpRoute(isExistingUser: false));
                     }),
                 SizedBox(
                   height: $constants.insets.lg,
                 ),
-                SecondaryButton(text: TextConstants.signIn, onPressed: () {}),
+                SecondaryButton(
+                    text: TextConstants.signIn,
+                    onPressed: () {
+                      context.router.push(SignUpRoute(isExistingUser: true));
+                    }),
                 SizedBox(
                   height: $constants.insets.lg,
                 ),

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:senpai/core/auth/blocs/resend_verification_code_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/phone_input.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
@@ -13,7 +14,9 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class SignupContent extends StatelessWidget {
-  const SignupContent({super.key});
+  const SignupContent({super.key, required this.isExistingUser});
+
+  final bool isExistingUser;
 
   @override
   Widget build(BuildContext context) {
@@ -96,6 +99,8 @@ class SignupContent extends StatelessWidget {
   Widget _buildSubmitButton(BuildContext context) {
     final formBloc = BlocProvider.of<SignUpFormBloc>(context);
     final serviceBloc = BlocProvider.of<CreateUserBloc>(context);
+    final existingUserServiceBloc =
+        BlocProvider.of<ResendVerificationCodeBloc>(context);
 
     return BlocBuilder<SignUpFormBloc, SignUpFormState>(
       builder: (context, state) {
@@ -104,7 +109,11 @@ class SignupContent extends StatelessWidget {
           onPressed: () {
             if (isValidPhoneNumber(formBloc.phoneController.text)) {
               final String formattedPhone = formBloc.phoneNumber.phoneNumber!;
-              serviceBloc.createUserWithPhoneNumber(formattedPhone);
+              if (isExistingUser) {
+                existingUserServiceBloc.resendCodeToPhoneNumber(formattedPhone);
+              } else {
+                serviceBloc.createUserWithPhoneNumber(formattedPhone);
+              }
             }
           },
         );
