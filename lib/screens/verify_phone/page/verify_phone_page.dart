@@ -91,7 +91,7 @@ class VerifyPhonePage extends StatelessWidget {
                       return const SizedBox.shrink();
                     },
                     succeeded: (data, result) {
-                      final response = data.result.data;
+                      final response = result.data;
 
                       if (response == null) {
                         // handle this fatal error
@@ -174,9 +174,21 @@ class VerifyPhonePage extends StatelessWidget {
                       return const SizedBox.shrink();
                     },
                     succeeded: (data, result) {
-                      print(data);
-                      print("--------------------------");
-                      print(result);
+                      final response = result.data;
+
+                      if (response == null) {
+                        // handle this fatal error
+                        logIt.wtf(
+                            "A successful empty response just got recorded");
+                        return const SizedBox.shrink();
+                      }
+
+                      String id = response["signIn"]["user"]["id"];
+                      String phone = response["signIn"]["user"]["phone"];
+                      print("signed in user of id $id and phone $phone");
+
+                      context.router.pushNamed("/profile_fill");
+
                       return const SizedBox.shrink();
                     },
                     orElse: () => const SizedBox.shrink());
