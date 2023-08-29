@@ -20,6 +20,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: EntryRoute.page, path: '/entry'),
         AutoRoute(page: SignUpRoute.page, path: '/create_user'),
         AutoRoute(page: VerifyPhoneRoute.page, path: '/verify_phone'),
-        AutoRoute(page: ProfileFillRoute.page, path: '/profile_fill')
+        AutoRoute(page: ProfileFillRoute.page, path: '/profile_fill'),
+        AutoRoute(page: LicenseRoute.page, path: '/license'),
       ];
 }
