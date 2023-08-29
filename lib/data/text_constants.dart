@@ -13,6 +13,14 @@ class TextConstants {
   // -> Entry
   static const String entryText =
       'By tapping "Create account" or "Sign in", you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookies Policy.';
+  static const String entrySpanText1 =
+      'By tapping "Create account" or "Sign in", you agree to our \n';
+  static const String entryActionText1 = 'Terms';
+  static const String entrySpanText2 =
+      '. Learn how we process your data in our \n';
+  static const String entryActionText2 = 'Privacy Policy';
+  static const String entrySpanText3 = ' and ';
+  static const String entryActionText3 = 'Cookies Policy';
 
   static const String signUp = "Create account";
   static const String signIn = "Sign in";

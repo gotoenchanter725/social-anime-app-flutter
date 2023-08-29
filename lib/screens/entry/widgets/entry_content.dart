@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
@@ -32,13 +33,7 @@ class EntryContent extends StatelessWidget {
                 SizedBox(
                   height: getSize(context).height * 0.15,
                 ),
-                Text(
-                  TextConstants.entryText,
-                  style: getTextTheme(context)
-                      .labelMedium
-                      ?.copyWith(color: $constants.palette.white),
-                  textAlign: TextAlign.center,
-                ),
+                _buildEntryText(context),
                 SizedBox(
                   height: $constants.insets.lg,
                 ),
@@ -61,6 +56,58 @@ class EntryContent extends StatelessWidget {
               ]),
             ),
           ]),
+    );
+  }
+
+  Widget _buildEntryText(BuildContext context) {
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+        style: getTextTheme(context).labelMedium?.copyWith(
+              color: $constants.palette.white,
+            ),
+        children: [
+          const TextSpan(text: TextConstants.entrySpanText1),
+          TextSpan(
+            text: TextConstants.entryActionText1,
+            style: getTextTheme(context).labelMedium!.copyWith(
+                  decoration: TextDecoration.underline,
+                  color: $constants.palette.white,
+                ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                context.router.push(SenpaiLicenseRoute(mdFileName: "tos.md"));
+              },
+          ),
+          const TextSpan(text: TextConstants.entrySpanText2),
+          TextSpan(
+            text: TextConstants.entryActionText2,
+            style: getTextTheme(context).labelMedium!.copyWith(
+                  decoration: TextDecoration.underline,
+                  color: $constants.palette.white,
+                ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                context.router
+                    .push(SenpaiLicenseRoute(mdFileName: "privacy_policy.md"));
+              },
+          ),
+          const TextSpan(text: TextConstants.entrySpanText3),
+          TextSpan(
+            text: TextConstants.entryActionText3,
+            style: getTextTheme(context).labelMedium!.copyWith(
+                  decoration: TextDecoration.underline,
+                  color: $constants.palette.white,
+                ),
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                context.router
+                    .push(SenpaiLicenseRoute(mdFileName: "cookie_policy.md"));
+              },
+          ),
+          const TextSpan(text: '.'),
+        ],
+      ),
     );
   }
 }
