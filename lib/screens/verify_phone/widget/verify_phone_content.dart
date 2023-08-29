@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:otp_pin_field/otp_pin_field.dart';
+import 'package:senpai/core/auth/blocs/resend_verification_code_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/text_button.dart';
@@ -152,6 +153,7 @@ class VerifyPhoneContent extends StatelessWidget {
 
   Widget _buildResendAction(BuildContext context) {
     final bloc = BlocProvider.of<OTPFormBloc>(context);
+    final serviceBloc = BlocProvider.of<ResendVerificationCodeBloc>(context);
     return BlocBuilder<OTPFormBloc, OtpFormState>(
       buildWhen: (prevState, currState) =>
           currState.isResendButtonActive != prevState.isResendButtonActive,
@@ -186,6 +188,7 @@ class VerifyPhoneContent extends StatelessWidget {
               text: TextConstants.verifyCodeAction,
               onPressed: () {
                 bloc.add(const OtpFormEvent.resend());
+                serviceBloc.resendCodeToPhoneNumber(phone);
               },
               enabled: state.isResendButtonActive,
             )
