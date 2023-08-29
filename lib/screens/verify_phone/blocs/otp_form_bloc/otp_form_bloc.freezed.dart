@@ -22,6 +22,7 @@ mixin _$OtpFormEvent {
     required TResult Function() submit,
     required TResult Function() resend,
     required TResult Function() activateResend,
+    required TResult Function() failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$OtpFormEvent {
     TResult? Function()? submit,
     TResult? Function()? resend,
     TResult? Function()? activateResend,
+    TResult? Function()? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$OtpFormEvent {
     TResult Function()? submit,
     TResult Function()? resend,
     TResult Function()? activateResend,
+    TResult Function()? failed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +50,7 @@ mixin _$OtpFormEvent {
     required TResult Function(_Submit value) submit,
     required TResult Function(_Resend value) resend,
     required TResult Function(_ActivateResend value) activateResend,
+    required TResult Function(_Failed value) failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +59,7 @@ mixin _$OtpFormEvent {
     TResult? Function(_Submit value)? submit,
     TResult? Function(_Resend value)? resend,
     TResult? Function(_ActivateResend value)? activateResend,
+    TResult? Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +68,7 @@ mixin _$OtpFormEvent {
     TResult Function(_Submit value)? submit,
     TResult Function(_Resend value)? resend,
     TResult Function(_ActivateResend value)? activateResend,
+    TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -154,6 +160,7 @@ class _$_CodeChanged implements _CodeChanged {
     required TResult Function() submit,
     required TResult Function() resend,
     required TResult Function() activateResend,
+    required TResult Function() failed,
   }) {
     return codeChanged(otpCode);
   }
@@ -165,6 +172,7 @@ class _$_CodeChanged implements _CodeChanged {
     TResult? Function()? submit,
     TResult? Function()? resend,
     TResult? Function()? activateResend,
+    TResult? Function()? failed,
   }) {
     return codeChanged?.call(otpCode);
   }
@@ -176,6 +184,7 @@ class _$_CodeChanged implements _CodeChanged {
     TResult Function()? submit,
     TResult Function()? resend,
     TResult Function()? activateResend,
+    TResult Function()? failed,
     required TResult orElse(),
   }) {
     if (codeChanged != null) {
@@ -191,6 +200,7 @@ class _$_CodeChanged implements _CodeChanged {
     required TResult Function(_Submit value) submit,
     required TResult Function(_Resend value) resend,
     required TResult Function(_ActivateResend value) activateResend,
+    required TResult Function(_Failed value) failed,
   }) {
     return codeChanged(this);
   }
@@ -202,6 +212,7 @@ class _$_CodeChanged implements _CodeChanged {
     TResult? Function(_Submit value)? submit,
     TResult? Function(_Resend value)? resend,
     TResult? Function(_ActivateResend value)? activateResend,
+    TResult? Function(_Failed value)? failed,
   }) {
     return codeChanged?.call(this);
   }
@@ -213,6 +224,7 @@ class _$_CodeChanged implements _CodeChanged {
     TResult Function(_Submit value)? submit,
     TResult Function(_Resend value)? resend,
     TResult Function(_ActivateResend value)? activateResend,
+    TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
     if (codeChanged != null) {
@@ -271,6 +283,7 @@ class _$_Submit implements _Submit {
     required TResult Function() submit,
     required TResult Function() resend,
     required TResult Function() activateResend,
+    required TResult Function() failed,
   }) {
     return submit();
   }
@@ -282,6 +295,7 @@ class _$_Submit implements _Submit {
     TResult? Function()? submit,
     TResult? Function()? resend,
     TResult? Function()? activateResend,
+    TResult? Function()? failed,
   }) {
     return submit?.call();
   }
@@ -293,6 +307,7 @@ class _$_Submit implements _Submit {
     TResult Function()? submit,
     TResult Function()? resend,
     TResult Function()? activateResend,
+    TResult Function()? failed,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -308,6 +323,7 @@ class _$_Submit implements _Submit {
     required TResult Function(_Submit value) submit,
     required TResult Function(_Resend value) resend,
     required TResult Function(_ActivateResend value) activateResend,
+    required TResult Function(_Failed value) failed,
   }) {
     return submit(this);
   }
@@ -319,6 +335,7 @@ class _$_Submit implements _Submit {
     TResult? Function(_Submit value)? submit,
     TResult? Function(_Resend value)? resend,
     TResult? Function(_ActivateResend value)? activateResend,
+    TResult? Function(_Failed value)? failed,
   }) {
     return submit?.call(this);
   }
@@ -330,6 +347,7 @@ class _$_Submit implements _Submit {
     TResult Function(_Submit value)? submit,
     TResult Function(_Resend value)? resend,
     TResult Function(_ActivateResend value)? activateResend,
+    TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -383,6 +401,7 @@ class _$_Resend implements _Resend {
     required TResult Function() submit,
     required TResult Function() resend,
     required TResult Function() activateResend,
+    required TResult Function() failed,
   }) {
     return resend();
   }
@@ -394,6 +413,7 @@ class _$_Resend implements _Resend {
     TResult? Function()? submit,
     TResult? Function()? resend,
     TResult? Function()? activateResend,
+    TResult? Function()? failed,
   }) {
     return resend?.call();
   }
@@ -405,6 +425,7 @@ class _$_Resend implements _Resend {
     TResult Function()? submit,
     TResult Function()? resend,
     TResult Function()? activateResend,
+    TResult Function()? failed,
     required TResult orElse(),
   }) {
     if (resend != null) {
@@ -420,6 +441,7 @@ class _$_Resend implements _Resend {
     required TResult Function(_Submit value) submit,
     required TResult Function(_Resend value) resend,
     required TResult Function(_ActivateResend value) activateResend,
+    required TResult Function(_Failed value) failed,
   }) {
     return resend(this);
   }
@@ -431,6 +453,7 @@ class _$_Resend implements _Resend {
     TResult? Function(_Submit value)? submit,
     TResult? Function(_Resend value)? resend,
     TResult? Function(_ActivateResend value)? activateResend,
+    TResult? Function(_Failed value)? failed,
   }) {
     return resend?.call(this);
   }
@@ -442,6 +465,7 @@ class _$_Resend implements _Resend {
     TResult Function(_Submit value)? submit,
     TResult Function(_Resend value)? resend,
     TResult Function(_ActivateResend value)? activateResend,
+    TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
     if (resend != null) {
@@ -497,6 +521,7 @@ class _$_ActivateResend implements _ActivateResend {
     required TResult Function() submit,
     required TResult Function() resend,
     required TResult Function() activateResend,
+    required TResult Function() failed,
   }) {
     return activateResend();
   }
@@ -508,6 +533,7 @@ class _$_ActivateResend implements _ActivateResend {
     TResult? Function()? submit,
     TResult? Function()? resend,
     TResult? Function()? activateResend,
+    TResult? Function()? failed,
   }) {
     return activateResend?.call();
   }
@@ -519,6 +545,7 @@ class _$_ActivateResend implements _ActivateResend {
     TResult Function()? submit,
     TResult Function()? resend,
     TResult Function()? activateResend,
+    TResult Function()? failed,
     required TResult orElse(),
   }) {
     if (activateResend != null) {
@@ -534,6 +561,7 @@ class _$_ActivateResend implements _ActivateResend {
     required TResult Function(_Submit value) submit,
     required TResult Function(_Resend value) resend,
     required TResult Function(_ActivateResend value) activateResend,
+    required TResult Function(_Failed value) failed,
   }) {
     return activateResend(this);
   }
@@ -545,6 +573,7 @@ class _$_ActivateResend implements _ActivateResend {
     TResult? Function(_Submit value)? submit,
     TResult? Function(_Resend value)? resend,
     TResult? Function(_ActivateResend value)? activateResend,
+    TResult? Function(_Failed value)? failed,
   }) {
     return activateResend?.call(this);
   }
@@ -556,6 +585,7 @@ class _$_ActivateResend implements _ActivateResend {
     TResult Function(_Submit value)? submit,
     TResult Function(_Resend value)? resend,
     TResult Function(_ActivateResend value)? activateResend,
+    TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
     if (activateResend != null) {
@@ -567,6 +597,124 @@ class _$_ActivateResend implements _ActivateResend {
 
 abstract class _ActivateResend implements OtpFormEvent {
   const factory _ActivateResend() = _$_ActivateResend;
+}
+
+/// @nodoc
+abstract class _$$_FailedCopyWith<$Res> {
+  factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
+      __$$_FailedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FailedCopyWithImpl<$Res>
+    extends _$OtpFormEventCopyWithImpl<$Res, _$_Failed>
+    implements _$$_FailedCopyWith<$Res> {
+  __$$_FailedCopyWithImpl(_$_Failed _value, $Res Function(_$_Failed) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Failed implements _Failed {
+  const _$_Failed();
+
+  @override
+  String toString() {
+    return 'OtpFormEvent.failed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Failed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String otpCode) codeChanged,
+    required TResult Function() submit,
+    required TResult Function() resend,
+    required TResult Function() activateResend,
+    required TResult Function() failed,
+  }) {
+    return failed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String otpCode)? codeChanged,
+    TResult? Function()? submit,
+    TResult? Function()? resend,
+    TResult? Function()? activateResend,
+    TResult? Function()? failed,
+  }) {
+    return failed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String otpCode)? codeChanged,
+    TResult Function()? submit,
+    TResult Function()? resend,
+    TResult Function()? activateResend,
+    TResult Function()? failed,
+    required TResult orElse(),
+  }) {
+    if (failed != null) {
+      return failed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CodeChanged value) codeChanged,
+    required TResult Function(_Submit value) submit,
+    required TResult Function(_Resend value) resend,
+    required TResult Function(_ActivateResend value) activateResend,
+    required TResult Function(_Failed value) failed,
+  }) {
+    return failed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CodeChanged value)? codeChanged,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Resend value)? resend,
+    TResult? Function(_ActivateResend value)? activateResend,
+    TResult? Function(_Failed value)? failed,
+  }) {
+    return failed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CodeChanged value)? codeChanged,
+    TResult Function(_Submit value)? submit,
+    TResult Function(_Resend value)? resend,
+    TResult Function(_ActivateResend value)? activateResend,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (failed != null) {
+      return failed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Failed implements OtpFormEvent {
+  const factory _Failed() = _$_Failed;
 }
 
 /// @nodoc

@@ -20,14 +20,16 @@ class OTPFormBloc extends Bloc<OtpFormEvent, OtpFormState> {
         emit(state.copyWith(otpCode: otpCode));
       }, submit: () {
         if (!_validateCode(state.otpCode)) {
-          emit(state.copyWith(isError: true));
+          emit(state.copyWith(isError: true, isSubmitting: false));
           return;
         }
-        emit(state.copyWith(isSubmitting: true));
+        emit(state.copyWith(isSubmitting: true, isError: false));
       }, resend: () {
         emit(state.copyWith(isResendButtonActive: false));
       }, activateResend: () {
         emit(state.copyWith(isResendButtonActive: true));
+      }, failed: () {
+        emit(state.copyWith(isError: true, isSubmitting: false));
       });
     });
   }
