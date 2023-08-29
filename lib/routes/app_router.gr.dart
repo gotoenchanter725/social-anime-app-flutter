@@ -21,12 +21,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const EntryPage(),
       );
     },
-    LicenseRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const LicensePage(),
-      );
-    },
     OnboardingRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -37,6 +31,16 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ProfileFillPage(),
+      );
+    },
+    SenpaiLicenseRoute.name: (routeData) {
+      final args = routeData.argsAs<SenpaiLicenseRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SenpaiLicensePage(
+          key: args.key,
+          mdFileName: args.mdFileName,
+        ),
       );
     },
     SignUpRoute.name: (routeData) {
@@ -78,20 +82,6 @@ class EntryRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [LicensePage]
-class LicenseRoute extends PageRouteInfo<void> {
-  const LicenseRoute({List<PageRouteInfo>? children})
-      : super(
-          LicenseRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'LicenseRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
 /// [OnboardingPage]
 class OnboardingRoute extends PageRouteInfo<void> {
   const OnboardingRoute({List<PageRouteInfo>? children})
@@ -117,6 +107,44 @@ class ProfileFillRoute extends PageRouteInfo<void> {
   static const String name = 'ProfileFillRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SenpaiLicensePage]
+class SenpaiLicenseRoute extends PageRouteInfo<SenpaiLicenseRouteArgs> {
+  SenpaiLicenseRoute({
+    Key? key,
+    required String mdFileName,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SenpaiLicenseRoute.name,
+          args: SenpaiLicenseRouteArgs(
+            key: key,
+            mdFileName: mdFileName,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SenpaiLicenseRoute';
+
+  static const PageInfo<SenpaiLicenseRouteArgs> page =
+      PageInfo<SenpaiLicenseRouteArgs>(name);
+}
+
+class SenpaiLicenseRouteArgs {
+  const SenpaiLicenseRouteArgs({
+    this.key,
+    required this.mdFileName,
+  });
+
+  final Key? key;
+
+  final String mdFileName;
+
+  @override
+  String toString() {
+    return 'SenpaiLicenseRouteArgs{key: $key, mdFileName: $mdFileName}';
+  }
 }
 
 /// generated route for
