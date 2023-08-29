@@ -136,11 +136,11 @@ class AppTypography with _$AppTypography {
         bodySmall: TextStyle(
           debugLabel: 'appTextTheme bodySmall',
           color: color,
-          fontSize: 13,
+          fontSize: 14,
           fontWeight: FontWeight.w400,
           fontFamily: fontFamily,
           textBaseline: TextBaseline.alphabetic,
-          letterSpacing: 0.1,
+          letterSpacing: 1.5714,
         ),
         labelLarge: TextStyle(
           debugLabel: 'appTextTheme labelLarge',

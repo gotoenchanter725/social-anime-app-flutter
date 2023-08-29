@@ -28,6 +28,9 @@ class _ImageResources {
 
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/heart.svg)
   final heart = r'assets/images/onboarding/heart.svg';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/lines_bg.png)
+  final lines_bg = r'assets/images/profile/lines_bg.png';
 }
 
 class _SvgResources {

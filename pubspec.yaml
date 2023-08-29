@@ -133,6 +133,7 @@ flutter:
     - assets/images/
     - assets/configs/
     - assets/images/onboarding/
+    - assets/images/profile/
     - assets/icons/
     - assets/licenses/
 

@@ -41,4 +41,11 @@ class TextConstants {
       "We sent the verification code on";
   static const String invalidCodeError = "Invalid code. Please try again";
   static const String verifyCodeAction = "Code not received? Resend";
+
+  static const String skipStep = "Skip this step";
+
+  static const String verifyPhotoHeading = "Photo verify";
+  static const String verifyPhotoDescription =
+      "Photo verify to let everyone know \nyour photos are really you";
+  static const String verifyPhotoButtonText = "Verify by photo";
 }

@@ -64,6 +64,12 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    VerifyPhotoRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const VerifyPhotoPage(),
+      );
+    },
   };
 }
 
@@ -225,4 +231,18 @@ class VerifyPhoneRouteArgs {
   String toString() {
     return 'VerifyPhoneRouteArgs{key: $key, phone: $phone, id: $id}';
   }
+}
+
+/// generated route for
+/// [VerifyPhotoPage]
+class VerifyPhotoRoute extends PageRouteInfo<void> {
+  const VerifyPhotoRoute({List<PageRouteInfo>? children})
+      : super(
+          VerifyPhotoRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'VerifyPhotoRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

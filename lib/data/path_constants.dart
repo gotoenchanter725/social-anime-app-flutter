@@ -11,4 +11,6 @@ class PathConstants {
       'assets/images/onboarding/onboarding_bg.png';
 
   static const String backIcon = 'assets/icons/back.svg';
+
+  static const String profileBg = 'assets/images/profile/lines_bg.png';
 }

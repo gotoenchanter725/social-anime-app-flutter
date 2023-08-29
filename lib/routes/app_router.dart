@@ -7,6 +7,7 @@ import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
 import 'package:senpai/screens/profile_fill/page/profile_fill.dart';
 import 'package:senpai/screens/signup/page/sign_up_page.dart';
 import 'package:senpai/screens/verify_phone/page/verify_phone_page.dart';
+import 'package:senpai/screens/verify_photo/page/verify_photo_page.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
@@ -23,5 +24,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: VerifyPhoneRoute.page, path: '/verify_phone'),
         AutoRoute(page: ProfileFillRoute.page, path: '/profile_fill'),
         AutoRoute(page: SenpaiLicenseRoute.page, path: '/license'),
+        AutoRoute(page: VerifyPhotoRoute.page, path: '/verify_photo'),
       ];
 }

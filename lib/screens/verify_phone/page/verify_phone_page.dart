@@ -187,7 +187,7 @@ class VerifyPhonePage extends StatelessWidget {
                       String phone = response["signIn"]["user"]["phone"];
                       print("signed in user of id $id and phone $phone");
 
-                      context.router.pushNamed("/profile_fill");
+                      context.router.pushNamed("/verify_photo");
 
                       return const SizedBox.shrink();
                     },
