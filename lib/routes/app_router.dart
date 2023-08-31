@@ -16,10 +16,7 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         // add your routes here
-        AutoRoute(
-            page: OnboardingRoute.page,
-            initial: true,
-            guards: [ExistingUserGuard()]),
+        AutoRoute(page: OnboardingRoute.page, guards: [ExistingUserGuard()]),
         AutoRoute(page: EntryRoute.page, path: '/entry'),
         AutoRoute(page: SignUpRoute.page, path: '/create_user'),
         AutoRoute(page: VerifyPhoneRoute.page, path: '/verify_phone'),
@@ -28,6 +25,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: VerifyPhotoRoute.page, path: '/verify_photo'),
         AutoRoute(
           page: HomeRoute.page,
+          initial: true,
         ),
       ];
 }
