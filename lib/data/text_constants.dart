@@ -48,4 +48,19 @@ class TextConstants {
   static const String verifyPhotoDescription =
       "Photo verify to let everyone know \nyour photos are really you";
   static const String verifyPhotoButtonText = "Verify by photo";
+
+  //Profile Fill
+
+  //  -> Welcome to Senpai
+  static const String welcomeSenpaiTitle = "Welcome to Senpai!";
+  static const String welcomeSenpaiDescription =
+      "Fill your profile and start matching";
+  static const String fillProfileText = "  Fill the profile";
+
+  //  -> Create First Name
+  static const String yourFirstName = "Your first name";
+  static const String yourFirstNameDescription =
+      "This is how it will appear in Senpai";
+  static const String firstNameText = "First Name";
+  static const String nextText = "Next";
 }
