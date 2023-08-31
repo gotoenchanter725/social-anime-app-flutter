@@ -95,6 +95,18 @@ class _Palette {
     transform: GradientRotation(
         123.56 * 3.141592653589793 / 180), // Convert degrees to radians
   );
+
+  final lineGradient = const LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFF1286F0),
+      Color(0xFFDE0BC9),
+    ],
+    stops: [0.1531, 0.8686],
+    transform: GradientRotation(
+        123.56 * 3.141592653589793 / 180), // Convert degrees to radians
+  );
 }
 
 @immutable
