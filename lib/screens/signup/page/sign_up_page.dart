@@ -95,8 +95,16 @@ class SignUpPage extends StatelessWidget {
                 return const SizedBox.shrink();
               }
 
-              String phone = response["resendVerifyText"]["user"]["phone"];
-              String id = response["resendVerifyText"]["user"]["id"];
+              Map<String, dynamic>? user = response["resendVerifyText"]["user"];
+
+              if (user == null) {
+                _showSnackBarError(context, TextConstants.nullUser);
+                logIt.error("A user without an account just tried to sign in");
+                return const SizedBox.shrink();
+              }
+
+              String phone = user["phone"];
+              String id = user["id"];
               context.router.push(VerifyPhoneRoute(phone: phone, id: id));
 
               return const SizedBox.shrink();
