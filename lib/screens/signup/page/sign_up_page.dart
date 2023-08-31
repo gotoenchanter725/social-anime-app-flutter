@@ -53,27 +53,7 @@ class SignUpPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              WidgetsBinding.instance.addPostFrameCallback(
-                (_) {
-                  ScaffoldMessenger.of(context)
-                    ..hideCurrentSnackBar()
-                    ..showSnackBar(
-                      SnackBar(
-                        /// need to set following properties for best effect of awesome_snackbar_content
-                        elevation: 0,
-                        behavior: SnackBarBehavior.floating,
-                        backgroundColor: Colors.transparent,
-                        content: AwesomeSnackbarContent(
-                          title: 'On Snap!',
-                          message: TextConstants.serverError,
-
-                          /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
-                          contentType: ContentType.failure,
-                        ),
-                      ),
-                    );
-                },
-              );
+              _showSnackBarError(context, TextConstants.serverError);
 
               return const SizedBox.shrink();
             },
@@ -102,27 +82,7 @@ class SignUpPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              WidgetsBinding.instance.addPostFrameCallback(
-                (_) {
-                  ScaffoldMessenger.of(context)
-                    ..hideCurrentSnackBar()
-                    ..showSnackBar(
-                      SnackBar(
-                        /// need to set following properties for best effect of awesome_snackbar_content
-                        elevation: 0,
-                        behavior: SnackBarBehavior.floating,
-                        backgroundColor: Colors.transparent,
-                        content: AwesomeSnackbarContent(
-                          title: 'On Snap!',
-                          message: TextConstants.serverError,
-
-                          /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
-                          contentType: ContentType.failure,
-                        ),
-                      ),
-                    );
-                },
-              );
+              _showSnackBarError(context, TextConstants.serverError);
 
               return const SizedBox.shrink();
             },
@@ -142,6 +102,30 @@ class SignUpPage extends StatelessWidget {
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
+      },
+    );
+  }
+
+  _showSnackBarError(BuildContext context, String message) {
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) {
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(
+            SnackBar(
+              /// need to set following properties for best effect of awesome_snackbar_content
+              elevation: 0,
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: Colors.transparent,
+              content: AwesomeSnackbarContent(
+                title: 'On Snap!',
+                message: message,
+
+                /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                contentType: ContentType.failure,
+              ),
+            ),
+          );
       },
     );
   }
