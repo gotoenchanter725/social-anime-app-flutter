@@ -21,4 +21,9 @@ class PathConstants {
   static const String closeIcon = 'assets/icons/close.svg';
 
   static const String searchIcon = 'assets/icons/search.svg';
+
+  // navigation
+  static const String matchIcon = 'assets/icons/heart.svg';
+  static const String chatIcon = 'assets/icons/chat.svg';
+  static const String profileIcon = 'assets/icons/profile.svg';
 }
