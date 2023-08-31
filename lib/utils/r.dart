@@ -11,26 +11,29 @@ class R {
 class _ImageResources {
   const _ImageResources();
 
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/logo.png)
+  /// ![](/Users/Vika/Desktop/Work/senpai/senpai-app/assets/images/logo.png)
   final logo = r'assets/images/logo.png';
 
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/onboarding_1.png)
+  /// ![](/Users/Vika/Desktop/Work/senpai/senpai-app/assets/images/onboarding/onboarding_1.png)
   final onboarding_1 = r'assets/images/onboarding/onboarding_1.png';
 
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/onboarding_3.png)
+  /// ![](/Users/Vika/Desktop/Work/senpai/senpai-app/assets/images/onboarding/onboarding_3.png)
   final onboarding_3 = r'assets/images/onboarding/onboarding_3.png';
 
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/onboarding_2.png)
+  /// ![](/Users/Vika/Desktop/Work/senpai/senpai-app/assets/images/onboarding/onboarding_2.png)
   final onboarding_2 = r'assets/images/onboarding/onboarding_2.png';
 
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/onboarding_bg.png)
+  /// ![](/Users/Vika/Desktop/Work/senpai/senpai-app/assets/images/onboarding/onboarding_bg.png)
   final onboarding_bg = r'assets/images/onboarding/onboarding_bg.png';
 
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/heart.svg)
+  /// ![](/Users/Vika/Desktop/Work/senpai/senpai-app/assets/images/onboarding/heart.svg)
   final heart = r'assets/images/onboarding/heart.svg';
 
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/lines_bg.png)
+  /// ![](/Users/Vika/Desktop/Work/senpai/senpai-app/assets/images/profile/lines_bg.png)
   final lines_bg = r'assets/images/profile/lines_bg.png';
+
+  /// ![](/Users/Vika/Desktop/Work/senpai/senpai-app/assets/images/profile/welcome_image.png)
+  final welcome_image = r'assets/images/profile/welcome_image.png';
 }
 
 class _SvgResources {
