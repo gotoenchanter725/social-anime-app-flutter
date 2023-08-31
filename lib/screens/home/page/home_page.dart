@@ -13,7 +13,11 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: const [ProfileFillRoute()],
+      routes: const [
+        MatchRoute(),
+        ChatListRoute(),
+        ProfileFillRoute(),
+      ],
       bottomNavigationBuilder: _createdBottomTabBar,
     );
   }
@@ -21,7 +25,9 @@ class HomePage extends StatelessWidget {
   Widget _createdBottomTabBar(BuildContext context, TabsRouter router) {
     return BottomNavigationBar(
       currentIndex: router.activeIndex,
-      fixedColor: $constants.palette.darkBlue,
+      backgroundColor: $constants.palette.lightBlue,
+      selectedItemColor: $constants.palette.white,
+      unselectedItemColor: $constants.palette.darkGrey,
       items: [
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
@@ -57,7 +63,7 @@ class HomePage extends StatelessWidget {
           label: TextConstants.profileTabText,
         ),
       ],
-      onTap: (index) {},
+      onTap: router.setActiveIndex,
     );
   }
 }
