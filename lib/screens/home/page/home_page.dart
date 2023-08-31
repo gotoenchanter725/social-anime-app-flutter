@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/utils/constants.dart';
 
 @RoutePage()
@@ -12,7 +13,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: [],
+      routes: const [ProfileFillRoute()],
       bottomNavigationBuilder: _createdBottomTabBar,
     );
   }

@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    ChatListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ChatListPage(),
+      );
+    },
     EntryRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -25,6 +31,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const HomePage(),
+      );
+    },
+    MatchRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MatchPage(),
       );
     },
     OnboardingRoute.name: (routeData) {
@@ -80,6 +92,20 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
+/// [ChatListPage]
+class ChatListRoute extends PageRouteInfo<void> {
+  const ChatListRoute({List<PageRouteInfo>? children})
+      : super(
+          ChatListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChatListRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [EntryPage]
 class EntryRoute extends PageRouteInfo<void> {
   const EntryRoute({List<PageRouteInfo>? children})
@@ -103,6 +129,20 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MatchPage]
+class MatchRoute extends PageRouteInfo<void> {
+  const MatchRoute({List<PageRouteInfo>? children})
+      : super(
+          MatchRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MatchRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
