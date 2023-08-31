@@ -49,6 +49,11 @@ class TextConstants {
       "Photo verify to let everyone know \nyour photos are really you";
   static const String verifyPhotoButtonText = "Verify by photo";
 
+  // Navigation
+  static const String matchTabText = "Match";
+  static const String chatTabText = "Chat";
+  static const String profileTabText = "Profile";
+
   //Profile Fill
 
   //  -> Welcome to Senpai

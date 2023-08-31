@@ -64,6 +64,7 @@ class _Palette {
   final darkBlue = const Color(0xFF0E1018);
   final grey = const Color(0xFFA9AFC2);
   final grey2 = const Color(0xFF98A1BB);
+  final darkGrey = const Color(0xFF5B6277);
   final yellow = const Color(0xFFFFB200);
   final green = const Color(0xFF67B527);
   final red = const Color(0xFFFF3A3D);
