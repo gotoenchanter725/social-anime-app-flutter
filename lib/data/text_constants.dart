@@ -35,6 +35,8 @@ class TextConstants {
   static const String createUserInstructions =
       "We will send a text with a verification code.";
   static const String serverError = "Something went wrong, please try again";
+  static const String nullUser =
+      "There's no existing account associated with this phone number";
 
   static const String verifyPhoneHeading = "Your code is";
   static const String verifyPhoneInstruction =
