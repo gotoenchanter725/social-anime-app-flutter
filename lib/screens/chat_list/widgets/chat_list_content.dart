@@ -12,19 +12,22 @@ class ChatListContent extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
       child: Column(
         children: [
+          SizedBox(
+            height: $constants.insets.sm,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Image.asset(
                 PathConstants.launcher,
-                width: 30,
-                height: 30,
+                width: $constants.insets.lg,
+                height: $constants.insets.lg,
                 fit: BoxFit.contain,
               ),
               SvgPicture.asset(
                 PathConstants.crownIcon,
-                width: 30,
-                height: 30,
+                width: $constants.insets.lg,
+                height: $constants.insets.lg,
                 fit: BoxFit.contain,
               )
             ],
