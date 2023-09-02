@@ -108,6 +108,7 @@ dev_dependencies:
   slang_flutter: ^3.22.0
   slang_build_runner: ^3.22.0
   r_resources: ^1.0.1
+  flutter_launcher_icons: ^0.13.1
 
 dependency_overrides:
   intl: ^0.18.1
@@ -117,6 +118,12 @@ dependency_overrides:
   gql: ^1.0.0
   gql_http_link: ^1.0.0
   gql_code_builder: ^0.7.1
+
+flutter_launcher_icons:
+  image_path_android: "assets/images/launcher.png"
+  image_path_ios: "assets/images/launcher.png"
+  android: true
+  ios: true
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
