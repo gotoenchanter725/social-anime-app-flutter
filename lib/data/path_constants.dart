@@ -5,6 +5,7 @@ class PathConstants {
   static const String onboarding3 = 'assets/images/onboarding/onboarding_3.png';
 
   static const String logo = 'assets/images/logo.png';
+  static const String launcher = 'assets/images/launcher.png';
 
   static const String heart = 'assets/images/onboarding/heart.svg';
   static const String onboardingBackground =
@@ -26,4 +27,7 @@ class PathConstants {
   static const String matchIcon = 'assets/icons/heart.svg';
   static const String chatIcon = 'assets/icons/chat.svg';
   static const String profileIcon = 'assets/icons/profile.svg';
+
+  // chat
+  static const String crownIcon = 'assets/icons/crown.svg';
 }
