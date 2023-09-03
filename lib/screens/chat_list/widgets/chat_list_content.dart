@@ -102,7 +102,23 @@ class ChatListContent extends StatelessWidget {
               userName: "Arthur",
             ),
           ]),
-        )
+        ),
+        SizedBox(
+          height: $constants.insets.lg,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+          child: Text(
+            TextConstants.messagesTitle,
+            textAlign: TextAlign.left,
+            style: getTextTheme(context)
+                .headlineSmall!
+                .copyWith(color: $constants.palette.white),
+          ),
+        ),
+        SizedBox(
+          height: $constants.insets.md,
+        ),
       ],
     );
   }

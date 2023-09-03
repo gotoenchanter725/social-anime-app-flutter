@@ -74,4 +74,5 @@ class TextConstants {
   // Chat
   static const String searchHintText = "Search chat or match";
   static const String matchesTitle = "Matches";
+  static const String messagesTitle = "Messages";
 }
