@@ -4,6 +4,7 @@ import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/methods/utils.dart';
 
 class ChatListContent extends StatelessWidget {
   const ChatListContent({super.key});
@@ -13,6 +14,7 @@ class ChatListContent extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             height: $constants.insets.sm,
@@ -43,6 +45,16 @@ class ChatListContent extends StatelessWidget {
             onChange: (text) {
               print(text);
             },
+          ),
+          SizedBox(
+            height: $constants.insets.md,
+          ),
+          Text(
+            TextConstants.matchesTitle,
+            textAlign: TextAlign.left,
+            style: getTextTheme(context)
+                .headlineSmall!
+                .copyWith(color: $constants.palette.white),
           )
         ],
       ),
