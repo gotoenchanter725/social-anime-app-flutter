@@ -70,4 +70,7 @@ class TextConstants {
       "This is how it will appear in Senpai";
   static const String firstNameText = "First Name";
   static const String nextText = "Next";
+
+  // Chat
+  static const String searchHintText = "Search chat or match";
 }
