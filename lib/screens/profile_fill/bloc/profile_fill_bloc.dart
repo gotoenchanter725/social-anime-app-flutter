@@ -11,6 +11,15 @@ enum ProfileFillStep {
   welcome,
   firstName,
   birthday,
+  gender,
+  desiredGender,
+  occupation,
+  story,
+  photos,
+  location,
+  spotify,
+  animes,
+  verify
   //add another step
 }
 
@@ -18,16 +27,15 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
   ProfileFillStep step = ProfileFillStep.welcome;
   UpdateUserModel user = const UpdateUserModel(
     id: '',
-    firstName: '',
-    birthday: '',
   );
 
   ProfileFillBloc() : super(ProfileFillInitial()) {
-    on<OnChangeStepEvent>((event, emit) async {
+    on<OnChangeStepEvent>((event, emit) {
       step = event.step;
       emit(ChangedStepSucssesfulState());
     });
-    on<OnFirstNameSaveEvent>((event, emit) async {
+
+    on<OnFirstNameSaveEvent>((event, emit) {
       if (event.firstName.isNotEmpty) {
         user = user.copyWith(firstName: event.firstName);
         step = ProfileFillStep.birthday;
@@ -41,6 +49,14 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
           ),
         );
       }
+    });
+
+    on<OnUserGenderSaveEvent>((event, emit) {
+      user = user.copyWith(gender: event.gender);
+      //change it on desiredGender
+      step = ProfileFillStep.welcome;
+      emit(LoadingProfileFillState());
+      emit(ChangedStepSucssesfulState());
     });
   }
 }

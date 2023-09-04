@@ -65,4 +65,10 @@ class TextConstants {
       "This is how it will appear in Senpai";
   static const String firstNameText = "First Name";
   static const String nextText = "Next";
+
+  //  -> Add User Gender
+  static const String youAreText = "You are";
+  static const String youAreDescription = "How do you identify?";
+  static const String male = "Male";
+  static const String female = "Female";
 }

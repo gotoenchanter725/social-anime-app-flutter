@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:senpai/core/widgets/primary_button.dart';
-import 'package:senpai/core/widgets/senpai_input.dart';
-import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/core/widgets/senpai_radio_button.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
-import 'package:senpai/screens/profile_fill/first_name/bloc/first_name_bloc.dart';
+import 'package:senpai/screens/profile_fill/user_gender/bloc/user_gender_bloc.dart';
+import 'package:senpai/screens/profile_fill/user_gender/enums/user_gender_enum.dart';
 import 'package:senpai/screens/profile_fill/widgets/header_simple_field.dart';
 import 'package:senpai/utils/constants.dart';
 
-class FirstNameContent extends StatelessWidget {
-  const FirstNameContent({super.key});
+class UserGenderContent extends StatelessWidget {
+  const UserGenderContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,10 +22,7 @@ class FirstNameContent extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           _buildHeader(context),
-          _buildTextInput(context),
-          SizedBox(
-            height: $constants.insets.sm,
-          ),
+          _buildRadioButtonList(context),
           Expanded(
             child: Align(
               alignment: Alignment.bottomCenter,
@@ -43,47 +40,52 @@ class FirstNameContent extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
     return HeaderSimpleField(
-      title: TextConstants.yourFirstName,
-      description: TextConstants.yourFirstNameDescription,
-      iconPath: PathConstants.closeIcon,
+      title: TextConstants.youAreText,
+      description: TextConstants.youAreDescription,
       onTapBackButton: () {
         bloc.add(
           OnChangeStepEvent(
-            step: ProfileFillStep.welcome,
+            step: ProfileFillStep.firstName,
           ),
         );
       },
     );
   }
 
-  Widget _buildTextInput(BuildContext context) {
-    final bloc = BlocProvider.of<FirstNameBloc>(context);
-    return BlocBuilder<FirstNameBloc, FirstNameState>(
+  Widget _buildRadioButtonList(BuildContext context) {
+    final bloc = BlocProvider.of<UserGenderBloc>(context);
+    return BlocBuilder<UserGenderBloc, UserGenderState>(
       builder: (context, state) {
-        return SenpaiInput(
-          placeholder: TextConstants.firstNameText,
-          controller: bloc.firstNameController,
-          onTextChanged: (String firstName) {
-            bloc.add(OnFirstNameChangedEvent(firstName: firstName));
-          },
-          errorText: TextConstants.serverError,
-          isError: state is ErrorState ? state.isEnabled : false,
-          isValid: state is ValidState
-              ? true
-              : bloc.firstNameController.text.isNotEmpty,
+        return Column(
+          children: UserGender.values.map((gender) {
+            return Padding(
+              padding: EdgeInsets.only(right: $constants.corners.md),
+              child: SenpaiRadioButton(
+                title: genderToString(gender),
+                value: gender,
+                isSelected: gender == bloc.userGender,
+                onChanged: (userGender) {
+                  bloc.add(OnUserGenderChangedEvent(userGender: userGender));
+                },
+              ),
+            );
+          }).toList(),
         );
       },
     );
   }
 
   Widget _buildSubmitButton(BuildContext context) {
-    final bloc = BlocProvider.of<FirstNameBloc>(context);
+    final bloc = BlocProvider.of<UserGenderBloc>(context);
     final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
-
-    return BlocListener<FirstNameBloc, FirstNameState>(
-      listenWhen: (_, currState) => currState is FirstNameSucssesfulState,
+    return BlocListener<UserGenderBloc, UserGenderState>(
+      listenWhen: (_, currState) => currState is UserGenderSucssesfulState,
       listener: (context, state) {
-        blocProfileFill.add(OnFirstNameSaveEvent(firstName: bloc.firstName));
+        blocProfileFill.add(
+          OnUserGenderSaveEvent(
+            gender: genderToServer(bloc.userGender!),
+          ),
+        );
       },
       child: PrimaryButton(
         text: TextConstants.nextText,

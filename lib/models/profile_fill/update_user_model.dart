@@ -7,8 +7,14 @@ part 'update_user_model.g.dart';
 class UpdateUserModel with _$UpdateUserModel {
   const factory UpdateUserModel({
     required String id,
-    required String firstName,
-    required String birthday,
+    String? firstName,
+    String? birthday,
+    int? gender,
+    int? desiredGender,
+    String? occupation,
+    String? school,
+    String? bio,
+
     //add all variable
   }) = _UpdateUserModel;
 
@@ -16,6 +22,11 @@ class UpdateUserModel with _$UpdateUserModel {
         id: '',
         firstName: '',
         birthday: '',
+        gender: 0,
+        desiredGender: 1,
+        occupation: '',
+        school: '',
+        bio: '',
       );
 
   factory UpdateUserModel.fromJson(Map<String, dynamic> json) =>
