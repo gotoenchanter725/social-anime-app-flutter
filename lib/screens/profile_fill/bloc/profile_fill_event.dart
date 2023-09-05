@@ -20,3 +20,9 @@ class OnUserGenderSaveEvent extends ProfileFillEvent {
 
   OnUserGenderSaveEvent({required this.gender});
 }
+
+class OnDesiredGenderSaveEvent extends ProfileFillEvent {
+  final int gender;
+
+  OnDesiredGenderSaveEvent({required this.gender});
+}
