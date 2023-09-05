@@ -73,7 +73,7 @@ class TextConstants {
   static const String female = "Female";
 
   //  -> Add Desired Gender
-  static const String youLookingForText = "'You looking for'";
+  static const String youLookingForText = "You looking for";
   static const String youLookingDescription = "Who should we show for you";
   static const String both = "Both";
 }
