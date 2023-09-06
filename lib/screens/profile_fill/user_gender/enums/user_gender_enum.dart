@@ -4,31 +4,12 @@ enum UserGender {
   male,
   female;
 
-  static UserGender genderFromServer(int? gender) {
-    switch (gender) {
-      case 0:
-        return UserGender.male;
-      case 1:
-        return UserGender.female;
-    }
-    return UserGender.male;
-  }
+  static UserGender genderFromServer(int? gender) =>
+      gender == 0 ? UserGender.male : UserGender.female;
 }
 
-String genderToString(UserGender userGender) {
-  switch (userGender) {
-    case UserGender.male:
-      return TextConstants.male;
-    case UserGender.female:
-      return TextConstants.female;
-  }
-}
+String genderToString(UserGender userGender) =>
+    userGender == UserGender.male ? TextConstants.male : TextConstants.female;
 
-int genderToServer(UserGender userGender) {
-  switch (userGender) {
-    case UserGender.male:
-      return 0;
-    case UserGender.female:
-      return 1;
-  }
-}
+int genderToServer(UserGender userGender) =>
+    userGender == UserGender.male ? 0 : 1;

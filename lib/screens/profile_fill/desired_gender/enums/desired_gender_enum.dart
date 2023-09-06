@@ -6,36 +6,32 @@ enum DesiredGender {
   both;
 
   static DesiredGender genderFromServer(int? gender) {
-    switch (gender) {
-      case 0:
-        return DesiredGender.male;
-      case 1:
-        return DesiredGender.female;
-      case 2:
-        return DesiredGender.both;
+    if (gender == 0) {
+      return DesiredGender.male;
+    } else if (gender == 1) {
+      return DesiredGender.female;
+    } else {
+      return DesiredGender.both;
     }
-    return DesiredGender.male;
   }
 }
 
 String genderToString(DesiredGender desiredGender) {
-  switch (desiredGender) {
-    case DesiredGender.male:
-      return TextConstants.male;
-    case DesiredGender.female:
-      return TextConstants.female;
-    case DesiredGender.both:
-      return TextConstants.both;
+  if (desiredGender == DesiredGender.male) {
+    return TextConstants.male;
+  } else if (desiredGender == DesiredGender.female) {
+    return TextConstants.female;
+  } else {
+    return TextConstants.both;
   }
 }
 
 int genderToServer(DesiredGender desiredGender) {
-  switch (desiredGender) {
-    case DesiredGender.male:
-      return 0;
-    case DesiredGender.female:
-      return 1;
-    case DesiredGender.both:
-      return 2;
+  if (desiredGender == DesiredGender.male) {
+    return 0;
+  } else if (desiredGender == DesiredGender.female) {
+    return 1;
+  } else {
+    return 2;
   }
 }
