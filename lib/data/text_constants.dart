@@ -66,6 +66,16 @@ class TextConstants {
   static const String firstNameText = "First Name";
   static const String nextText = "Next";
 
+  static const String invalidFirstNameError =
+      "Invalid first name. Please try again";
+
+  //  -> Add Bithday Gender
+  static const String yourBirthdayText = "Your birthday";
+  static const String yourBirthdayDescription = "Your age will be public";
+  static const String cancelText = "Cancel";
+  static const String okText = "Ok";
+  static const String pleaseSelectDateText = "Please select a date";
+
   //  -> Add User Gender
   static const String youAreText = "You are";
   static const String youAreDescription = "How do you identify?";
@@ -76,4 +86,21 @@ class TextConstants {
   static const String youLookingForText = "You looking for";
   static const String youLookingDescription = "Who should we show for you";
   static const String both = "Both";
+
+  //  -> Add Occupation
+  static const String yourOccupationText = "Your occupation";
+  static const String yourOccupationDescription =
+      "This is how it will appear in Senpai";
+  static const String universityName = "University name";
+  static const String jobTitleName = "Job title";
+  static const String jobTitleNameHelper =
+      "If you don’t have a job or don’t want to fill in this field, just skip it.";
+  static const String invalidUniversityNameError =
+      "Invalid university name. Please try again";
+
+  //  -> Add Biography
+  static const String yourStoryText = "Your story";
+  static const String yourStoryDescription =
+      "Tell us a little bit about yourself";
+  static const String shortInfoAboutYou = "Short info about you";
 }
