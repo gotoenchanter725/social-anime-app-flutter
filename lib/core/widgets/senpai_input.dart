@@ -10,6 +10,8 @@ class SenpaiInput extends StatefulWidget {
   final TextEditingController controller;
   final Function(String) onTextChanged;
   final TextInputType? keyboardType;
+  final VoidCallback? onTap;
+  final int maxLines;
 
   const SenpaiInput({
     super.key,
@@ -20,6 +22,8 @@ class SenpaiInput extends StatefulWidget {
     required this.onTextChanged,
     required this.errorText,
     this.keyboardType = TextInputType.text,
+    this.onTap,
+    this.maxLines = 1,
   });
 
   @override
@@ -52,9 +56,15 @@ class _SenpaiInputState extends State<SenpaiInput> {
                   ),
                 ),
                 child: TextField(
+                  readOnly: widget.onTap != null,
+                  onTap: widget.onTap,
+                  onTapOutside: (_) {
+                    focusNode.unfocus();
+                  },
                   onChanged: (String value) {
                     widget.onTextChanged(value);
                   },
+                  maxLines: widget.maxLines,
                   focusNode: focusNode,
                   decoration: _getDecoration(),
                   controller: widget.controller,
