@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/screens/profile_fill/biography/page/biography_page.dart';
 import 'package:senpai/screens/profile_fill/birthday/page/birthday_page.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/desired_gender/page/desired_gender_page.dart';
@@ -49,6 +50,11 @@ class ProfileFillContent extends StatelessWidget {
       return UserGenderPage(gender: bloc.user.gender);
     } else if (bloc.step == ProfileFillStep.desiredGender) {
       return DesiredGenderPage(gender: bloc.user.desiredGender);
+    } else if (bloc.step == ProfileFillStep.occupation) {
+      // change it after add occupation Screen
+      return DesiredGenderPage(gender: bloc.user.desiredGender);
+    } else if (bloc.step == ProfileFillStep.biography) {
+      return BiographyPage(bio: bloc.user.bio);
     } else {
       return const WelcomeSenpaiContent();
     }
