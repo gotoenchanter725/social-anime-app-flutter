@@ -45,7 +45,7 @@ class UserGenderContent extends StatelessWidget {
       onTapBackButton: () {
         bloc.add(
           OnChangeStepEvent(
-            step: ProfileFillStep.firstName,
+            step: ProfileFillStep.birthday,
           ),
         );
       },
