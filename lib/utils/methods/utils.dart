@@ -66,3 +66,11 @@ bool isValidPhoneNumber(String phoneNumber) {
 
   return phoneNumber.length > 8 && phoneRegExp.hasMatch(phoneNumber);
 }
+
+List<String> convertDateTimeToList(DateTime dateTime) {
+  String day = dateTime.day.toString().padLeft(2, '0');
+  String month = dateTime.month.toString().padLeft(2, '0');
+  String year = dateTime.year.toString();
+
+  return [...day.split(''), ...month.split(''), ...year.split('')];
+}
