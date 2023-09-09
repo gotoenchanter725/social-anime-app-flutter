@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 Size getSize(BuildContext context) {
   return MediaQuery.of(context).size;
@@ -65,4 +66,20 @@ bool isValidPhoneNumber(String phoneNumber) {
   final RegExp phoneRegExp = RegExp(r'^[\d\-. ]+$');
 
   return phoneNumber.length > 8 && phoneRegExp.hasMatch(phoneNumber);
+}
+
+String formatDateTime(DateTime dateTime) {
+  final now = DateTime.now();
+
+  if (dateTime.year == now.year &&
+      dateTime.month == now.month &&
+      dateTime.day == now.day) {
+    return DateFormat('HH:mm').format(dateTime);
+  } else if (dateTime.year == now.year &&
+      dateTime.month == now.month &&
+      dateTime.day == now.day - 1) {
+    return 'Yesterday';
+  } else {
+    return DateFormat('dd/MM/yyyy').format(dateTime);
+  }
 }
