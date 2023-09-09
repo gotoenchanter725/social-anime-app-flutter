@@ -11,6 +11,8 @@ class ConversationList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    chatList
+        .sort((a, b) => a.lastMessageTime.compareTo(b.lastMessageTime) * -1);
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
