@@ -87,9 +87,6 @@ class ChatListContent extends StatelessWidget {
                 .copyWith(color: $constants.palette.white),
           ),
         ),
-        SizedBox(
-          height: $constants.insets.md,
-        ),
         Expanded(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
