@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/widgets/icon_input.dart';
+import 'package:senpai/data/mock_conversation_list_data.dart';
 import 'package:senpai/data/mock_match_data.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/screens/chat_list/widgets/conversation_list.dart';
 import 'package:senpai/screens/chat_list/widgets/match_list.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -87,6 +89,12 @@ class ChatListContent extends StatelessWidget {
         ),
         SizedBox(
           height: $constants.insets.md,
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+            child: ConversationList(chatList: mockChatItems),
+          ),
         ),
       ],
     );
