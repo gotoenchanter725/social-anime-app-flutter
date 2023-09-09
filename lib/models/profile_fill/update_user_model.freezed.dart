@@ -21,8 +21,13 @@ UpdateUserModel _$UpdateUserModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UpdateUserModel {
   String get id => throw _privateConstructorUsedError;
-  String get firstName => throw _privateConstructorUsedError;
-  String get birthday => throw _privateConstructorUsedError;
+  String? get firstName => throw _privateConstructorUsedError;
+  String? get birthday => throw _privateConstructorUsedError;
+  int? get gender => throw _privateConstructorUsedError;
+  int? get desiredGender => throw _privateConstructorUsedError;
+  String? get occupation => throw _privateConstructorUsedError;
+  String? get school => throw _privateConstructorUsedError;
+  String? get bio => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +41,15 @@ abstract class $UpdateUserModelCopyWith<$Res> {
           UpdateUserModel value, $Res Function(UpdateUserModel) then) =
       _$UpdateUserModelCopyWithImpl<$Res, UpdateUserModel>;
   @useResult
-  $Res call({String id, String firstName, String birthday});
+  $Res call(
+      {String id,
+      String? firstName,
+      String? birthday,
+      int? gender,
+      int? desiredGender,
+      String? occupation,
+      String? school,
+      String? bio});
 }
 
 /// @nodoc
@@ -53,22 +66,47 @@ class _$UpdateUserModelCopyWithImpl<$Res, $Val extends UpdateUserModel>
   @override
   $Res call({
     Object? id = null,
-    Object? firstName = null,
-    Object? birthday = null,
+    Object? firstName = freezed,
+    Object? birthday = freezed,
+    Object? gender = freezed,
+    Object? desiredGender = freezed,
+    Object? occupation = freezed,
+    Object? school = freezed,
+    Object? bio = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      firstName: null == firstName
+      firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      birthday: null == birthday
+              as String?,
+      birthday: freezed == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as int?,
+      desiredGender: freezed == desiredGender
+          ? _value.desiredGender
+          : desiredGender // ignore: cast_nullable_to_non_nullable
+              as int?,
+      occupation: freezed == occupation
+          ? _value.occupation
+          : occupation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      school: freezed == school
+          ? _value.school
+          : school // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bio: freezed == bio
+          ? _value.bio
+          : bio // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -81,7 +119,15 @@ abstract class _$$_UpdateUserModelCopyWith<$Res>
       __$$_UpdateUserModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String firstName, String birthday});
+  $Res call(
+      {String id,
+      String? firstName,
+      String? birthday,
+      int? gender,
+      int? desiredGender,
+      String? occupation,
+      String? school,
+      String? bio});
 }
 
 /// @nodoc
@@ -96,22 +142,47 @@ class __$$_UpdateUserModelCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? firstName = null,
-    Object? birthday = null,
+    Object? firstName = freezed,
+    Object? birthday = freezed,
+    Object? gender = freezed,
+    Object? desiredGender = freezed,
+    Object? occupation = freezed,
+    Object? school = freezed,
+    Object? bio = freezed,
   }) {
     return _then(_$_UpdateUserModel(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      firstName: null == firstName
+      firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
-              as String,
-      birthday: null == birthday
+              as String?,
+      birthday: freezed == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
+      gender: freezed == gender
+          ? _value.gender
+          : gender // ignore: cast_nullable_to_non_nullable
+              as int?,
+      desiredGender: freezed == desiredGender
+          ? _value.desiredGender
+          : desiredGender // ignore: cast_nullable_to_non_nullable
+              as int?,
+      occupation: freezed == occupation
+          ? _value.occupation
+          : occupation // ignore: cast_nullable_to_non_nullable
+              as String?,
+      school: freezed == school
+          ? _value.school
+          : school // ignore: cast_nullable_to_non_nullable
+              as String?,
+      bio: freezed == bio
+          ? _value.bio
+          : bio // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -120,7 +191,14 @@ class __$$_UpdateUserModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UpdateUserModel implements _UpdateUserModel {
   const _$_UpdateUserModel(
-      {required this.id, required this.firstName, required this.birthday});
+      {required this.id,
+      this.firstName,
+      this.birthday,
+      this.gender,
+      this.desiredGender,
+      this.occupation,
+      this.school,
+      this.bio});
 
   factory _$_UpdateUserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateUserModelFromJson(json);
@@ -128,13 +206,23 @@ class _$_UpdateUserModel implements _UpdateUserModel {
   @override
   final String id;
   @override
-  final String firstName;
+  final String? firstName;
   @override
-  final String birthday;
+  final String? birthday;
+  @override
+  final int? gender;
+  @override
+  final int? desiredGender;
+  @override
+  final String? occupation;
+  @override
+  final String? school;
+  @override
+  final String? bio;
 
   @override
   String toString() {
-    return 'UpdateUserModel(id: $id, firstName: $firstName, birthday: $birthday)';
+    return 'UpdateUserModel(id: $id, firstName: $firstName, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, occupation: $occupation, school: $school, bio: $bio)';
   }
 
   @override
@@ -146,12 +234,20 @@ class _$_UpdateUserModel implements _UpdateUserModel {
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
             (identical(other.birthday, birthday) ||
-                other.birthday == birthday));
+                other.birthday == birthday) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
+            (identical(other.desiredGender, desiredGender) ||
+                other.desiredGender == desiredGender) &&
+            (identical(other.occupation, occupation) ||
+                other.occupation == occupation) &&
+            (identical(other.school, school) || other.school == school) &&
+            (identical(other.bio, bio) || other.bio == bio));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, firstName, birthday);
+  int get hashCode => Object.hash(runtimeType, id, firstName, birthday, gender,
+      desiredGender, occupation, school, bio);
 
   @JsonKey(ignore: true)
   @override
@@ -170,8 +266,13 @@ class _$_UpdateUserModel implements _UpdateUserModel {
 abstract class _UpdateUserModel implements UpdateUserModel {
   const factory _UpdateUserModel(
       {required final String id,
-      required final String firstName,
-      required final String birthday}) = _$_UpdateUserModel;
+      final String? firstName,
+      final String? birthday,
+      final int? gender,
+      final int? desiredGender,
+      final String? occupation,
+      final String? school,
+      final String? bio}) = _$_UpdateUserModel;
 
   factory _UpdateUserModel.fromJson(Map<String, dynamic> json) =
       _$_UpdateUserModel.fromJson;
@@ -179,9 +280,19 @@ abstract class _UpdateUserModel implements UpdateUserModel {
   @override
   String get id;
   @override
-  String get firstName;
+  String? get firstName;
   @override
-  String get birthday;
+  String? get birthday;
+  @override
+  int? get gender;
+  @override
+  int? get desiredGender;
+  @override
+  String? get occupation;
+  @override
+  String? get school;
+  @override
+  String? get bio;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateUserModelCopyWith<_$_UpdateUserModel> get copyWith =>

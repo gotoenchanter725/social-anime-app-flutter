@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
+import 'package:senpai/screens/profile_fill/desired_gender/page/desired_gender_page.dart';
+import 'package:senpai/screens/profile_fill/first_name/page/first_name_page.dart';
+import 'package:senpai/screens/profile_fill/user_gender/page/gender_page.dart';
 import 'package:senpai/screens/profile_fill/widgets/progress_line_widget.dart';
+import 'package:senpai/utils/constants.dart';
 
-import '../../../utils/constants.dart';
-import '../bloc/profile_fill_bloc.dart';
-import '../first_name/page/first_name_page.dart';
 import 'welcome_senpai_content.dart';
 
 class ProfileFillContent extends StatelessWidget {
@@ -36,13 +38,19 @@ class ProfileFillContent extends StatelessWidget {
   Widget _buildProfileFillContent(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
 
-    switch (bloc.step) {
-      case ProfileFillStep.welcome:
-        return const WelcomeSenpaiContent();
-      case ProfileFillStep.firstName:
-        return const FirstNamePage();
-      default:
-        return const WelcomeSenpaiContent();
+    if (bloc.step == ProfileFillStep.welcome) {
+      return const WelcomeSenpaiContent();
+    } else if (bloc.step == ProfileFillStep.firstName) {
+      return FirstNamePage(firstName: bloc.user.firstName);
+    } else if (bloc.step == ProfileFillStep.birthday) {
+      // change on BirthdayPage
+      return UserGenderPage(gender: bloc.user.gender);
+    } else if (bloc.step == ProfileFillStep.gender) {
+      return UserGenderPage(gender: bloc.user.gender);
+    } else if (bloc.step == ProfileFillStep.desiredGender) {
+      return DesiredGenderPage(gender: bloc.user.desiredGender);
+    } else {
+      return const WelcomeSenpaiContent();
     }
   }
 

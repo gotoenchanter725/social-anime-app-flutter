@@ -14,3 +14,15 @@ class OnFirstNameSaveEvent extends ProfileFillEvent {
 
   OnFirstNameSaveEvent({required this.firstName});
 }
+
+class OnUserGenderSaveEvent extends ProfileFillEvent {
+  final int gender;
+
+  OnUserGenderSaveEvent({required this.gender});
+}
+
+class OnDesiredGenderSaveEvent extends ProfileFillEvent {
+  final int gender;
+
+  OnDesiredGenderSaveEvent({required this.gender});
+}

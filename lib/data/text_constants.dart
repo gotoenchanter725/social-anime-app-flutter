@@ -75,4 +75,14 @@ class TextConstants {
   static const String searchHintText = "Search chat or match";
   static const String matchesTitle = "Matches";
   static const String messagesTitle = "Messages";
+  //  -> Add User Gender
+  static const String youAreText = "You are";
+  static const String youAreDescription = "How do you identify?";
+  static const String male = "Male";
+  static const String female = "Female";
+
+  //  -> Add Desired Gender
+  static const String youLookingForText = "You looking for";
+  static const String youLookingDescription = "Who should we show for you";
+  static const String both = "Both";
 }
