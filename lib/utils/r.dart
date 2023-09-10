@@ -11,6 +11,9 @@ class R {
 class _ImageResources {
   const _ImageResources();
 
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/launcher.png)
+  final launcher = r'assets/images/launcher.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/logo.png)
   final logo = r'assets/images/logo.png';
 
@@ -29,11 +32,11 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/onboarding/heart.svg)
   final heart = r'assets/images/onboarding/heart.svg';
 
-  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/lines_bg.png)
-  final lines_bg = r'assets/images/profile/lines_bg.png';
-
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/welcome_image.png)
   final welcome_image = r'assets/images/profile/welcome_image.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/lines_bg.png)
+  final lines_bg = r'assets/images/profile/lines_bg.png';
 }
 
 class _SvgResources {
