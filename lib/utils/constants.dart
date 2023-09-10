@@ -40,6 +40,7 @@ class _Corners {
   late final double md = 12;
   late final double lg = 16;
   late final double xl = 30;
+  late final double xxl = 40;
 }
 
 @immutable

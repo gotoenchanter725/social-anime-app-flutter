@@ -75,6 +75,8 @@ class TextConstants {
   static const String searchHintText = "Search chat or match";
   static const String matchesTitle = "Matches";
   static const String messagesTitle = "Messages";
+  static const String chatInputHint = 'Send message...';
+
   //  -> Add User Gender
   static const String youAreText = "You are";
   static const String youAreDescription = "How do you identify?";
