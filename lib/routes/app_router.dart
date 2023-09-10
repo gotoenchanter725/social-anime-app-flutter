@@ -25,7 +25,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: VerifyPhoneRoute.page, path: '/verify_phone'),
         AutoRoute(page: SenpaiLicenseRoute.page, path: '/license'),
         AutoRoute(page: VerifyPhotoRoute.page, path: '/verify_photo'),
-        AutoRoute(page: HomeRoute.page, path: '/', children: [
+        AutoRoute(page: HomeRoute.page, path: '/home', children: [
           AutoRoute(page: MatchRoute.page, path: 'match'),
           AutoRoute(page: ChatListRoute.page, path: 'chat_list'),
           AutoRoute(page: ProfileFillRoute.page, path: 'profile_fill'),
