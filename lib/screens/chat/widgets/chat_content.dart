@@ -6,6 +6,7 @@ import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/mock_conversation_list_data.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/screens/chat/widgets/messages_list.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -21,7 +22,7 @@ class ChatContent extends StatelessWidget {
       child: Column(
         children: [
           _buildChatHeader(context),
-          const Expanded(child: Placeholder()),
+          Expanded(child: MessagesList()),
           SizedBox(
             height: $constants.insets.sm,
           ),
