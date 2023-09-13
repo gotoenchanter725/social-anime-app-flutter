@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/mock_chat_messages_data.dart';
 import 'package:senpai/models/chat/chat_message.dart';
@@ -16,19 +17,47 @@ class MessagesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    messages.sort((a, b) => a.timestamp.compareTo(b.timestamp));
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
+      reverse: true,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.max,
-        children: messages.map((message) {
-          if (message.senderId == currentUserId) {
-            return _buildCurrentUserMessage(context, message);
-          }
-          return _buildRecieverMessage(context, message);
-        }).toList(),
+        children: _buildMessages(context),
       ),
     );
+  }
+
+  List<Widget> _buildMessages(BuildContext context) {
+    final List<Widget> messageWidgets = [];
+
+    DateTime? messageDate;
+
+    for (final message in messages) {
+      // Check if a system message should be displayed for the current date
+      if (messageDate == null ||
+          !DateFormat('yyyy-MM-dd')
+              .format(message.timestamp)
+              .contains(DateFormat('yyyy-MM-dd').format(messageDate))) {
+        messageDate = message.timestamp;
+        messageWidgets.add(_buildSystemMessage(
+            context,
+            ChatMessage(
+                id: "SYSTEM",
+                senderId: "SENPAI_SYSTEM_MESSAGE",
+                text: formatSystemDateTimeDisplay(message.timestamp),
+                timestamp: message.timestamp)));
+      }
+
+      if (message.senderId == currentUserId) {
+        messageWidgets.add(_buildCurrentUserMessage(context, message));
+      } else {
+        messageWidgets.add(_buildRecieverMessage(context, message));
+      }
+    }
+
+    return messageWidgets;
   }
 
   Widget _buildCurrentUserMessage(BuildContext context, ChatMessage message) {
@@ -105,7 +134,7 @@ class MessagesList extends StatelessWidget {
           height: 4,
         ),
         Text(
-          formatDateTime(message.timestamp),
+          DateFormat('hh:mm').format(message.timestamp),
           style: getTextTheme(context)
               .labelMedium!
               .copyWith(color: $constants.palette.grey),
@@ -146,12 +175,42 @@ class MessagesList extends StatelessWidget {
           height: 4,
         ),
         Text(
-          formatDateTime(message.timestamp),
+          DateFormat('hh:mm').format(message.timestamp),
           style: getTextTheme(context)
               .labelMedium!
               .copyWith(color: $constants.palette.grey),
         )
       ],
+    );
+  }
+
+  Widget _buildSystemMessage(BuildContext context, ChatMessage message) {
+    return Padding(
+      padding: EdgeInsets.only(top: $constants.insets.sm),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.max,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: $constants.palette.lightBlue,
+              borderRadius: BorderRadius.circular($constants.corners.lg),
+            ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: $constants.insets.sm,
+                  vertical: $constants.insets.xs),
+              child: Text(
+                message.text,
+                style: getTextTheme(context).labelMedium!.copyWith(
+                      color: $constants.palette.grey,
+                      letterSpacing: 0,
+                    ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

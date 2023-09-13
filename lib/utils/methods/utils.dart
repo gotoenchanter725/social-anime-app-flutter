@@ -83,3 +83,23 @@ String formatDateTime(DateTime dateTime) {
     return DateFormat('dd/MM/yyyy').format(dateTime);
   }
 }
+
+String formatSystemDateTimeDisplay(DateTime dateTime) {
+  final now = DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  final lastWeek = today.subtract(Duration(days: 6)); // 6 days ago
+
+  if (dateTime.year == now.year &&
+      dateTime.month == now.month &&
+      dateTime.day == now.day) {
+    return 'Today';
+  } else if (dateTime.year == now.year &&
+      dateTime.month == now.month &&
+      dateTime.day == now.day - 1) {
+    return 'Yesterday';
+  } else if (dateTime.isAfter(lastWeek)) {
+    return DateFormat('EEEE').format(dateTime);
+  } else {
+    return DateFormat('d MMMM y').format(dateTime);
+  }
+}
