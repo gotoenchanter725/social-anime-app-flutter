@@ -8,6 +8,7 @@ class ChatMessage {
   final AttachmentType? attachmentType;
   final String? attachment;
   final int? recommendationAnimeId;
+  final ReactionType? reaction;
 
   ChatMessage({
     required this.id,
@@ -19,10 +20,20 @@ class ChatMessage {
     this.attachmentType,
     this.attachment,
     this.recommendationAnimeId,
+    this.reaction,
   });
 }
 
 enum AttachmentType {
   Photo,
   Video,
+}
+
+enum ReactionType {
+  laughing,
+  thumbsUp,
+  heart,
+  puke,
+  anger,
+  demon,
 }
