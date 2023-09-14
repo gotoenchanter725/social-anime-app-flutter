@@ -97,10 +97,36 @@ class TextConstants {
       "If you don’t have a job or don’t want to fill in this field, just skip it.";
   static const String invalidUniversityNameError =
       "Invalid university name. Please try again";
+  static const String noUniversityFound =
+      "No university with such a name was found.";
 
   //  -> Add Biography
   static const String yourStoryText = "Your story";
   static const String yourStoryDescription =
       "Tell us a little bit about yourself";
   static const String shortInfoAboutYou = "Short info about you";
+
+  //  -> Add Photos
+  static const String uploadPhotosText = "Upload photos";
+  static const String uploadPhotosDescription =
+      "Add at least 2 photos to continue";
+  static const String youCanChangeOrder =
+      "You can change the order of the photos.";
+  static const String justDragPhoto = "Just drag the photo to a new place.";
+  static const String yourPhotoSuccessfullyAdded =
+      "Your photo successfully added!";
+  static const String uploadingPhoto = "Uploading photo";
+  static const String backText = "Back";
+  static const String choosePhotosText = "Choose photos from";
+  static const String uploadText = "Upload";
+  static const String yourPhotosText = "Your photos";
+  static const String openText = "Open";
+  static const String cameraText = "Camera";
+  static const String galleryText = "Gallery";
+  static const String doneText = "Done";
+  static const String recentsText = "Recents";
+  static const String selectedText = "Selected";
+  static const String ofText = "of";
+  static const String noPhotoFoundText = "Sorry, no photo found";
+  static const String cameraError = "Something went wrong with your camera";
 }
