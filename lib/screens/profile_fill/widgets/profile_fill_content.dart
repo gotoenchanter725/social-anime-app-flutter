@@ -52,7 +52,10 @@ class ProfileFillContent extends StatelessWidget {
     } else if (bloc.step == ProfileFillStep.desiredGender) {
       return DesiredGenderPage(gender: bloc.user.desiredGender);
     } else if (bloc.step == ProfileFillStep.occupation) {
-      return const OccupationPage();
+      return OccupationPage(
+        school: bloc.user.school,
+        occupation: bloc.user.occupation,
+      );
     } else if (bloc.step == ProfileFillStep.biography) {
       return BiographyPage(bio: bloc.user.bio);
     } else {
