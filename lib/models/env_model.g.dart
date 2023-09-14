@@ -14,6 +14,7 @@ _$_EnvModel _$$_EnvModelFromJson(Map<String, dynamic> json) => _$_EnvModel(
       debugApiClient: json['debugApiClient'] as bool,
       graphApiUrl: json['graphApiUrl'] as String,
       httpApiUrl: json['httpApiUrl'] as String,
+      httpApiUrlUniversities: json['httpApiUrlUniversities'] as String,
     );
 
 Map<String, dynamic> _$$_EnvModelToJson(_$_EnvModel instance) =>
@@ -25,4 +26,5 @@ Map<String, dynamic> _$$_EnvModelToJson(_$_EnvModel instance) =>
       'debugApiClient': instance.debugApiClient,
       'graphApiUrl': instance.graphApiUrl,
       'httpApiUrl': instance.httpApiUrl,
+      'httpApiUrlUniversities': instance.httpApiUrlUniversities,
     };

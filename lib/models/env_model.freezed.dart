@@ -27,6 +27,7 @@ mixin _$EnvModel {
   bool get debugApiClient => throw _privateConstructorUsedError;
   String get graphApiUrl => throw _privateConstructorUsedError;
   String get httpApiUrl => throw _privateConstructorUsedError;
+  String get httpApiUrlUniversities => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +47,8 @@ abstract class $EnvModelCopyWith<$Res> {
       bool debugShowMaterialGrid,
       bool debugApiClient,
       String graphApiUrl,
-      String httpApiUrl});
+      String httpApiUrl,
+      String httpApiUrlUniversities});
 }
 
 /// @nodoc
@@ -69,6 +71,7 @@ class _$EnvModelCopyWithImpl<$Res, $Val extends EnvModel>
     Object? debugApiClient = null,
     Object? graphApiUrl = null,
     Object? httpApiUrl = null,
+    Object? httpApiUrlUniversities = null,
   }) {
     return _then(_value.copyWith(
       env: null == env
@@ -99,6 +102,10 @@ class _$EnvModelCopyWithImpl<$Res, $Val extends EnvModel>
           ? _value.httpApiUrl
           : httpApiUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      httpApiUrlUniversities: null == httpApiUrlUniversities
+          ? _value.httpApiUrlUniversities
+          : httpApiUrlUniversities // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -117,7 +124,8 @@ abstract class _$$_EnvModelCopyWith<$Res> implements $EnvModelCopyWith<$Res> {
       bool debugShowMaterialGrid,
       bool debugApiClient,
       String graphApiUrl,
-      String httpApiUrl});
+      String httpApiUrl,
+      String httpApiUrlUniversities});
 }
 
 /// @nodoc
@@ -138,6 +146,7 @@ class __$$_EnvModelCopyWithImpl<$Res>
     Object? debugApiClient = null,
     Object? graphApiUrl = null,
     Object? httpApiUrl = null,
+    Object? httpApiUrlUniversities = null,
   }) {
     return _then(_$_EnvModel(
       env: null == env
@@ -168,6 +177,10 @@ class __$$_EnvModelCopyWithImpl<$Res>
           ? _value.httpApiUrl
           : httpApiUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      httpApiUrlUniversities: null == httpApiUrlUniversities
+          ? _value.httpApiUrlUniversities
+          : httpApiUrlUniversities // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -182,7 +195,8 @@ class _$_EnvModel extends _EnvModel {
       required this.debugShowMaterialGrid,
       required this.debugApiClient,
       required this.graphApiUrl,
-      required this.httpApiUrl})
+      required this.httpApiUrl,
+      required this.httpApiUrlUniversities})
       : super._();
 
   factory _$_EnvModel.fromJson(Map<String, dynamic> json) =>
@@ -202,10 +216,12 @@ class _$_EnvModel extends _EnvModel {
   final String graphApiUrl;
   @override
   final String httpApiUrl;
+  @override
+  final String httpApiUrlUniversities;
 
   @override
   String toString() {
-    return 'EnvModel(env: $env, debug: $debug, debugShowCheckedModeBanner: $debugShowCheckedModeBanner, debugShowMaterialGrid: $debugShowMaterialGrid, debugApiClient: $debugApiClient, graphApiUrl: $graphApiUrl, httpApiUrl: $httpApiUrl)';
+    return 'EnvModel(env: $env, debug: $debug, debugShowCheckedModeBanner: $debugShowCheckedModeBanner, debugShowMaterialGrid: $debugShowMaterialGrid, debugApiClient: $debugApiClient, graphApiUrl: $graphApiUrl, httpApiUrl: $httpApiUrl, httpApiUrlUniversities: $httpApiUrlUniversities)';
   }
 
   @override
@@ -226,7 +242,9 @@ class _$_EnvModel extends _EnvModel {
             (identical(other.graphApiUrl, graphApiUrl) ||
                 other.graphApiUrl == graphApiUrl) &&
             (identical(other.httpApiUrl, httpApiUrl) ||
-                other.httpApiUrl == httpApiUrl));
+                other.httpApiUrl == httpApiUrl) &&
+            (identical(other.httpApiUrlUniversities, httpApiUrlUniversities) ||
+                other.httpApiUrlUniversities == httpApiUrlUniversities));
   }
 
   @JsonKey(ignore: true)
@@ -239,7 +257,8 @@ class _$_EnvModel extends _EnvModel {
       debugShowMaterialGrid,
       debugApiClient,
       graphApiUrl,
-      httpApiUrl);
+      httpApiUrl,
+      httpApiUrlUniversities);
 
   @JsonKey(ignore: true)
   @override
@@ -263,7 +282,8 @@ abstract class _EnvModel extends EnvModel {
       required final bool debugShowMaterialGrid,
       required final bool debugApiClient,
       required final String graphApiUrl,
-      required final String httpApiUrl}) = _$_EnvModel;
+      required final String httpApiUrl,
+      required final String httpApiUrlUniversities}) = _$_EnvModel;
   _EnvModel._() : super._();
 
   factory _EnvModel.fromJson(Map<String, dynamic> json) = _$_EnvModel.fromJson;
@@ -282,6 +302,8 @@ abstract class _EnvModel extends EnvModel {
   String get graphApiUrl;
   @override
   String get httpApiUrl;
+  @override
+  String get httpApiUrlUniversities;
   @override
   @JsonKey(ignore: true)
   _$$_EnvModelCopyWith<_$_EnvModel> get copyWith =>
