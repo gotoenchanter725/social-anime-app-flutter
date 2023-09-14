@@ -75,8 +75,7 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
 
     on<OnDesiredGenderSaveEvent>((event, emit) {
       user = user.copyWith(desiredGender: event.gender);
-      // change it after add occupation Screen
-      step = ProfileFillStep.biography;
+      step = ProfileFillStep.occupation;
       emit(LoadingProfileFillState());
       emit(ChangedStepSucssesfulState());
     });
