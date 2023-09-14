@@ -18,10 +18,8 @@ Dio initDioClient(
   dio.options.baseUrl = env.httpApiUrl;
   dio.options.headers['Accept-Language'] =
       UniversalPlatform.isWeb ? 'en-US' : Platform.localeName.substring(0, 2);
-  dio.options.connectTimeout =
-      const Duration(seconds: 10).inMilliseconds as Duration?;
-  dio.options.receiveTimeout =
-      const Duration(seconds: 10).inMilliseconds as Duration?;
+  dio.options.connectTimeout = const Duration(seconds: 10);
+  dio.options.receiveTimeout = const Duration(seconds: 10);
   dio.interceptors.add(BadNetworkErrorInterceptor());
   dio.interceptors.add(InternalServerErrorInterceptor());
   dio.interceptors.add(ApiErrorInterceptor());
