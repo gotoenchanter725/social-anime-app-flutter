@@ -65,6 +65,9 @@ class ProfileFillContent extends StatelessWidget {
 
   Widget _buildProgressLine(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
-    return ProgressLineWidget(progressIndex: bloc.step.index);
+    return ProgressLineWidget(
+      progressIndex: bloc.step.index,
+      maxDivisions: ProfileFillStep.values.length,
+    );
   }
 }
