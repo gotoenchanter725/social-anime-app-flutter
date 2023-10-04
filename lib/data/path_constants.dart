@@ -19,4 +19,8 @@ class PathConstants {
   static const String welcomeImage = 'assets/images/profile/welcome_image.png';
 
   static const String closeIcon = 'assets/icons/close.svg';
+
+  // Photos
+  static const String addIcon = 'assets/icons/add.svg';
+  static const String photosIcon = 'assets/icons/photos.svg';
 }

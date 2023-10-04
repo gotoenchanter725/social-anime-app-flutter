@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -10,6 +11,7 @@ class HeaderSimpleField extends StatelessWidget {
   final String description;
   final VoidCallback onTapBackButton;
   final String? iconPath;
+  final VoidCallback? onTapSkipkButton;
 
   const HeaderSimpleField({
     super.key,
@@ -17,6 +19,7 @@ class HeaderSimpleField extends StatelessWidget {
     required this.description,
     required this.onTapBackButton,
     this.iconPath,
+    this.onTapSkipkButton,
   });
 
   @override
@@ -24,7 +27,13 @@ class HeaderSimpleField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildBackButton(context),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            _buildBackButton(context),
+            if (onTapSkipkButton != null) _buildSkipButton(context),
+          ],
+        ),
         Text(
           title,
           style: getTextTheme(context)
@@ -56,6 +65,18 @@ class HeaderSimpleField extends StatelessWidget {
       child: SenpaiIconButton(
         onPressed: onTapBackButton,
         iconPath: iconPath ?? PathConstants.backIcon,
+      ),
+    );
+  }
+
+  Widget _buildSkipButton(BuildContext context) {
+    return TextButton(
+      onPressed: onTapSkipkButton,
+      child: Text(
+        TextConstants.skipStep,
+        style: getTextTheme(context)
+            .labelMedium!
+            .copyWith(color: $constants.palette.white),
       ),
     );
   }

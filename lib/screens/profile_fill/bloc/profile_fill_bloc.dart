@@ -14,13 +14,12 @@ enum ProfileFillStep {
   gender,
   desiredGender,
   occupation,
-  story,
+  biography,
   photos,
   location,
   spotify,
   animes,
   verify
-  //add another step
 }
 
 class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
@@ -51,6 +50,22 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
       }
     });
 
+    on<OnBirthdaySaveEvent>((event, emit) {
+      if (event.birthday != null) {
+        user = user.copyWith(birthday: event.birthday.toString());
+        step = ProfileFillStep.gender;
+        emit(LoadingProfileFillState());
+        emit(ChangedStepSucssesfulState());
+      } else {
+        emit(
+          ErrorProfileFillState(
+            message: TextConstants.serverError,
+            isEnabled: true,
+          ),
+        );
+      }
+    });
+
     on<OnUserGenderSaveEvent>((event, emit) {
       user = user.copyWith(gender: event.gender);
       step = ProfileFillStep.desiredGender;
@@ -60,7 +75,23 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
 
     on<OnDesiredGenderSaveEvent>((event, emit) {
       user = user.copyWith(desiredGender: event.gender);
-      //change it on occupation
+      step = ProfileFillStep.occupation;
+      emit(LoadingProfileFillState());
+      emit(ChangedStepSucssesfulState());
+    });
+
+    on<OnOccupationSaveEvent>((event, emit) {
+      user = user.copyWith(
+        school: event.university,
+        occupation: event.jobTitle ?? '',
+      );
+      step = ProfileFillStep.biography;
+      emit(LoadingProfileFillState());
+      emit(ChangedStepSucssesfulState());
+    });
+
+    on<OnBiographySaveEvent>((event, emit) {
+      user = user.copyWith(bio: event.biography);
       step = ProfileFillStep.welcome;
       emit(LoadingProfileFillState());
       emit(ChangedStepSucssesfulState());
