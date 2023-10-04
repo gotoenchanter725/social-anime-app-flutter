@@ -64,7 +64,6 @@ class MessagesList extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: $constants.insets.md),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const UserAvatar(
@@ -85,7 +84,6 @@ class MessagesList extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: $constants.insets.md),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           _buildRecieverMessageContent(context, message),
