@@ -18,6 +18,7 @@ class EnvModel with _$EnvModel {
     required bool debugApiClient,
     required String graphApiUrl,
     required String httpApiUrl,
+    required String httpApiUrlUniversities,
   }) = _EnvModel;
 
   EnvModel._();

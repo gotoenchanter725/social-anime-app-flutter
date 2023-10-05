@@ -103,3 +103,41 @@ String formatSystemDateTimeDisplay(DateTime dateTime) {
     return DateFormat('d MMMM y').format(dateTime);
   }
 }
+
+List<String> convertDateTimeToList(DateTime dateTime) {
+  String day = dateTime.day.toString().padLeft(2, '0');
+  String month = dateTime.month.toString().padLeft(2, '0');
+  String year = dateTime.year.toString();
+
+  return [...day.split(''), ...month.split(''), ...year.split('')];
+}
+
+TextSpan updateTextStyle(
+  String fullText,
+  String selectedText,
+  TextStyle? textStyle,
+) {
+  final List<TextSpan> spans = [];
+
+  final parts = fullText.split(selectedText);
+
+  for (int i = 0; i < parts.length; i++) {
+    spans.add(TextSpan(
+      text: parts[i],
+      style: textStyle?.copyWith(
+        fontWeight: FontWeight.w400,
+      ),
+    ));
+
+    if (i < parts.length - 1) {
+      spans.add(TextSpan(
+        text: selectedText,
+        style: textStyle?.copyWith(
+          fontWeight: FontWeight.w700,
+        ),
+      ));
+    }
+  }
+
+  return TextSpan(children: spans);
+}

@@ -32,4 +32,7 @@ class PathConstants {
   static const String crownIcon = 'assets/icons/crown.svg';
   static const String sendIcon = 'assets/icons/up.svg';
   static const String stickerIcon = 'assets/icons/sticker.svg';
+  // Photos
+  static const String addIcon = 'assets/icons/add.svg';
+  static const String photosIcon = 'assets/icons/photos.svg';
 }
