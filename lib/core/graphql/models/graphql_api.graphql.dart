@@ -134,8 +134,10 @@ class ValidatePhone$Mutation$ValidatePhone extends JsonSerializable
 
   late String token;
 
+  late bool profileFilled;
+
   @override
-  List<Object?> get props => [user, token];
+  List<Object?> get props => [user, token, profileFilled];
   @override
   Map<String, dynamic> toJson() =>
       _$ValidatePhone$Mutation$ValidatePhoneToJson(this);
@@ -1065,6 +1067,13 @@ final VALIDATE_PHONE_MUTATION_DOCUMENT = DocumentNode(definitions: [
           ),
           FieldNode(
             name: NameNode(value: 'token'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'profileFilled'),
             alias: null,
             arguments: [],
             directives: [],

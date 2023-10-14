@@ -87,13 +87,15 @@ ValidatePhone$Mutation$ValidatePhone
         ValidatePhone$Mutation$ValidatePhone()
           ..user = ValidatePhone$Mutation$ValidatePhone$User.fromJson(
               json['user'] as Map<String, dynamic>)
-          ..token = json['token'] as String;
+          ..token = json['token'] as String
+          ..profileFilled = json['profileFilled'] as bool;
 
 Map<String, dynamic> _$ValidatePhone$Mutation$ValidatePhoneToJson(
         ValidatePhone$Mutation$ValidatePhone instance) =>
     <String, dynamic>{
       'user': instance.user.toJson(),
       'token': instance.token,
+      'profileFilled': instance.profileFilled,
     };
 
 ValidatePhone$Mutation _$ValidatePhone$MutationFromJson(

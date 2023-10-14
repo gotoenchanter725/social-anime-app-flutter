@@ -734,6 +734,7 @@ type ValidatePhonePayload {
   clientMutationId: String
   token: String!
   user: User!
+  profileFilled: Boolean!
 }
 
 input VerifyRequestInput {
