@@ -24,6 +24,7 @@ query fetchUser($userId: ID!) {
       photos {
         order
         url
+        id
       }
     }
     animes {
