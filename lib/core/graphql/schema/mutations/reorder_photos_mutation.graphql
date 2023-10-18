@@ -1,0 +1,9 @@
+mutation reorderPhotos($input: ReorderPhotosInput!) {
+  reorderPhotos(input: $input) {
+    photo {
+      order
+      url
+      id
+    }
+  }
+}
