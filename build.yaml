@@ -17,10 +17,10 @@ targets:
               custom_parser_import: "package:senpai/core/graphql/scalars/datetime_scalar.dart"
               dart_type: DateTime
               use_custom_parser: true
-            # - graphql_type: Upload
-            #   custom_parser_import: "package:senpai/core/graphql/scalars/upload_scalar.dart"
-            #   dart_type:
-            #     name: MultipartFile
-            #     imports:
-            #       - "package:http/http.dart"
-            #   use_custom_parser: true
+            - graphql_type: Upload
+              custom_parser_import: "package:senpai/core/graphql/scalars/upload_scalar.dart"
+              dart_type:
+                name: MultipartFile
+                imports:
+                  - "package:http/http.dart"
+              use_custom_parser: true
