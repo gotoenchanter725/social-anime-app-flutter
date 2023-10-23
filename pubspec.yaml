@@ -109,6 +109,9 @@ dev_dependencies:
   slang_build_runner: ^3.22.0
   r_resources: ^1.0.1
   flutter_launcher_icons: ^0.13.1
+  reorderable_grid_view: ^2.2.7
+  photo_manager: ^2.7.1
+
 
 dependency_overrides:
   intl: ^0.18.1
