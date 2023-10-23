@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/models/profile_fill/photos/upload_photo_model.dart';
 
 import '../../../models/profile_fill/update_user_model.dart';
 
@@ -27,6 +28,7 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
   UpdateUserModel user = const UpdateUserModel(
     id: '',
   );
+  List<UploadPhotoModel> uploadedPhotos = [];
 
   ProfileFillBloc() : super(ProfileFillInitial()) {
     on<OnChangeStepEvent>((event, emit) {
@@ -92,6 +94,13 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
 
     on<OnBiographySaveEvent>((event, emit) {
       user = user.copyWith(bio: event.biography);
+      step = ProfileFillStep.photos;
+      emit(LoadingProfileFillState());
+      emit(ChangedStepSucssesfulState());
+    });
+
+    on<OnPhotosListSaveEvent>((event, emit) {
+      uploadedPhotos = event.photos;
       step = ProfileFillStep.welcome;
       emit(LoadingProfileFillState());
       emit(ChangedStepSucssesfulState());

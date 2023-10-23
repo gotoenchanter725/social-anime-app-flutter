@@ -45,3 +45,9 @@ class OnBiographySaveEvent extends ProfileFillEvent {
 
   OnBiographySaveEvent({required this.biography});
 }
+
+class OnPhotosListSaveEvent extends ProfileFillEvent {
+  final List<UploadPhotoModel> photos;
+
+  OnPhotosListSaveEvent({required this.photos});
+}
