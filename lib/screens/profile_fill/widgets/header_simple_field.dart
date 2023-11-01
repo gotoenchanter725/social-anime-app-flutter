@@ -13,6 +13,7 @@ class HeaderSimpleField extends StatelessWidget {
   final String? iconPath;
   final VoidCallback? onTapSkipkButton;
   final Color? backBorderColor;
+  final bool isCenterTitle;
 
   const HeaderSimpleField({
     super.key,
@@ -22,12 +23,14 @@ class HeaderSimpleField extends StatelessWidget {
     this.iconPath,
     this.onTapSkipkButton,
     this.backBorderColor,
+    this.isCenterTitle = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment:
+          isCenterTitle ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,7 +44,7 @@ class HeaderSimpleField extends StatelessWidget {
           style: getTextTheme(context)
               .headlineLarge
               ?.copyWith(color: $constants.palette.white),
-          textAlign: TextAlign.left,
+          textAlign: isCenterTitle ? TextAlign.center : TextAlign.left,
         ),
         Text(
           description,
@@ -49,7 +52,7 @@ class HeaderSimpleField extends StatelessWidget {
                 color: $constants.palette.grey,
                 letterSpacing: 0,
               ),
-          textAlign: TextAlign.left,
+          textAlign: isCenterTitle ? TextAlign.center : TextAlign.left,
         ),
         SizedBox(
           height: $constants.insets.lg,
