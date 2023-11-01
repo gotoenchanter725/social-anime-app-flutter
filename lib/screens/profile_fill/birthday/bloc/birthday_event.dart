@@ -4,9 +4,9 @@ part of 'birthday_bloc.dart';
 abstract class BirthdayEvent {}
 
 class OnBirthdayInitEvent extends BirthdayEvent {
-  final String birthday;
+  final DateTime? birthday;
 
-  OnBirthdayInitEvent({required this.birthday});
+  OnBirthdayInitEvent({this.birthday});
 }
 
 class OnBirthdayChangedEvent extends BirthdayEvent {

@@ -7,8 +7,9 @@ part 'update_user_model.g.dart';
 class UpdateUserModel with _$UpdateUserModel {
   const factory UpdateUserModel({
     required String id,
+    required String phone,
     String? firstName,
-    String? birthday,
+    DateTime? birthday,
     int? gender,
     int? desiredGender,
     String? occupation,
@@ -20,8 +21,9 @@ class UpdateUserModel with _$UpdateUserModel {
 
   factory UpdateUserModel.initial() => const UpdateUserModel(
         id: '',
+        phone: '',
         firstName: '',
-        birthday: '',
+        birthday: null,
         gender: 0,
         desiredGender: 1,
         occupation: '',
