@@ -1,0 +1,8 @@
+mutation submitVerifyRequest($input: SubmitVerifyRequestInput!) {
+  submitVerifyRequest(input: $input) {
+    user {
+      id
+      phone
+    }
+  }
+}
