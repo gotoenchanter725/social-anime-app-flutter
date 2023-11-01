@@ -46,10 +46,10 @@
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
+	<true/>
 	<key>NSCameraUsageDescription</key>
 		<string>Senpai needs access to your camera so you can include photos in your profile.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 		<string>Senpai needs access to your photos so you can include them in your profile.</string>
-	<true/>
 </dict>
 </plist>
