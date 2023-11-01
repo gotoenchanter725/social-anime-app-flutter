@@ -12,6 +12,7 @@ class HeaderSimpleField extends StatelessWidget {
   final VoidCallback onTapBackButton;
   final String? iconPath;
   final VoidCallback? onTapSkipkButton;
+  final Color? backBorderColor;
 
   const HeaderSimpleField({
     super.key,
@@ -20,6 +21,7 @@ class HeaderSimpleField extends StatelessWidget {
     required this.onTapBackButton,
     this.iconPath,
     this.onTapSkipkButton,
+    this.backBorderColor,
   });
 
   @override
@@ -59,12 +61,13 @@ class HeaderSimpleField extends StatelessWidget {
   Widget _buildBackButton(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: $constants.insets.xl,
+        top: $constants.insets.md,
         bottom: $constants.insets.lg,
       ),
       child: SenpaiIconButton(
         onPressed: onTapBackButton,
         iconPath: iconPath ?? PathConstants.backIcon,
+        borderColor: backBorderColor,
       ),
     );
   }
@@ -76,7 +79,7 @@ class HeaderSimpleField extends StatelessWidget {
         TextConstants.skipStep,
         style: getTextTheme(context)
             .labelMedium!
-            .copyWith(color: $constants.palette.white),
+            .copyWith(color: $constants.palette.white, fontSize: 14),
       ),
     );
   }
