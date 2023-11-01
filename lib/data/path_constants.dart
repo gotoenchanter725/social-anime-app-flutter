@@ -23,4 +23,11 @@ class PathConstants {
   // Photos
   static const String addIcon = 'assets/icons/add.svg';
   static const String photosIcon = 'assets/icons/photos.svg';
+
+  // Anime
+  static const String searchIcon = 'assets/icons/search_icon.svg';
+  static const String animeHeaderImage =
+      'assets/images/profile/anime_header.png';
+  static const String emptySearchAnimeImage =
+      'assets/images/profile/anime_empty.png';
 }
