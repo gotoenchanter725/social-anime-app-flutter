@@ -51,3 +51,21 @@ class OnPhotosListSaveEvent extends ProfileFillEvent {
 
   OnPhotosListSaveEvent({required this.photos});
 }
+
+class OnLocationSaveEvent extends ProfileFillEvent {
+  final LocationUserModel location;
+
+  OnLocationSaveEvent({required this.location});
+}
+
+class OnFavoriteAnimeSaveEvent extends ProfileFillEvent {
+  final List<AnimeModel> animeList;
+
+  OnFavoriteAnimeSaveEvent({required this.animeList});
+}
+
+class OnVerifyPhotoSaveEvent extends ProfileFillEvent {
+  final File? verifyPhoto;
+
+  OnVerifyPhotoSaveEvent({this.verifyPhoto});
+}

@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/models/profile_fill/anime/anime_model.dart';
+import 'package:senpai/models/profile_fill/location/location_user_model.dart';
 import 'package:senpai/models/profile_fill/photos/upload_photo_model.dart';
 
 import '../../../models/profile_fill/update_user_model.dart';
@@ -27,6 +31,9 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
   ProfileFillStep step = ProfileFillStep.welcome;
   UpdateUserModel user = const UpdateUserModel(id: '', phone: '');
   List<UploadPhotoModel> uploadedPhotos = [];
+  LocationUserModel? location;
+  List<AnimeModel> animeList = [];
+  File? verifyPhoto;
 
   ProfileFillBloc() : super(ProfileFillInitial()) {
     on<OnChangeStepEvent>((event, emit) {
@@ -99,7 +106,28 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
 
     on<OnPhotosListSaveEvent>((event, emit) {
       uploadedPhotos = event.photos;
-      step = ProfileFillStep.welcome;
+      step = ProfileFillStep.location;
+      emit(LoadingProfileFillState());
+      emit(ChangedStepSucssesfulState());
+    });
+
+    on<OnLocationSaveEvent>((event, emit) {
+      location = event.location;
+      step = ProfileFillStep.animes;
+      emit(LoadingProfileFillState());
+      emit(ChangedStepSucssesfulState());
+    });
+
+    on<OnFavoriteAnimeSaveEvent>((event, emit) {
+      animeList = event.animeList;
+      step = ProfileFillStep.verify;
+      emit(LoadingProfileFillState());
+      emit(ChangedStepSucssesfulState());
+    });
+
+    on<OnVerifyPhotoSaveEvent>((event, emit) {
+      verifyPhoto = event.verifyPhoto;
+      step = ProfileFillStep.animes;
       emit(LoadingProfileFillState());
       emit(ChangedStepSucssesfulState());
     });
