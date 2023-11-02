@@ -89,6 +89,8 @@ dependencies:
   flutter_markdown: ^0.6.17+1
   reorderable_grid_view: ^2.2.7
   photo_manager: ^2.7.1
+  geolocator: ^10.0.1
+  camera: ^0.10.5+5
 
 dev_dependencies:
   flutter_test:
