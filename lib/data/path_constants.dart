@@ -32,7 +32,23 @@ class PathConstants {
   static const String crownIcon = 'assets/icons/crown.svg';
   static const String sendIcon = 'assets/icons/up.svg';
   static const String stickerIcon = 'assets/icons/sticker.svg';
+  static const String locationBg = 'assets/images/profile/location_bg.png';
+  static const String spotifyBg = 'assets/images/profile/spotify_bg.png';
+  static const String verifyUserPhoto =
+      'assets/images/profile/verify_user_photo.png';
+  static const String startMatchBg = 'assets/images/profile/start_match_bg.png';
+
   // Photos
   static const String addIcon = 'assets/icons/add.svg';
   static const String photosIcon = 'assets/icons/photos.svg';
+
+  static const String photoCircleIcon = 'assets/icons/photo_circle.svg';
+  static const String lightningIcon = 'assets/icons/lightning.svg';
+  static const String rotateIcon = 'assets/icons/rotate.svg';
+
+  // Anime
+  static const String animeHeaderImage =
+      'assets/images/profile/anime_header.png';
+  static const String emptySearchAnimeImage =
+      'assets/images/profile/anime_empty.png';
 }

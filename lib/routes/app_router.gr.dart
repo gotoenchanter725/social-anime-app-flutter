@@ -83,6 +83,16 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    UploadPhotosManagerRoute.name: (routeData) {
+      final args = routeData.argsAs<UploadPhotosManagerRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UploadPhotosManagerPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
+      );
+    },
     VerifyPhoneRoute.name: (routeData) {
       final args = routeData.argsAs<VerifyPhoneRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -287,6 +297,45 @@ class SignUpRouteArgs {
   @override
   String toString() {
     return 'SignUpRouteArgs{key: $key, isExistingUser: $isExistingUser}';
+  }
+}
+
+/// generated route for
+/// [UploadPhotosManagerPage]
+class UploadPhotosManagerRoute
+    extends PageRouteInfo<UploadPhotosManagerRouteArgs> {
+  UploadPhotosManagerRoute({
+    Key? key,
+    required PhotosBloc bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UploadPhotosManagerRoute.name,
+          args: UploadPhotosManagerRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'UploadPhotosManagerRoute';
+
+  static const PageInfo<UploadPhotosManagerRouteArgs> page =
+      PageInfo<UploadPhotosManagerRouteArgs>(name);
+}
+
+class UploadPhotosManagerRouteArgs {
+  const UploadPhotosManagerRouteArgs({
+    this.key,
+    required this.bloc,
+  });
+
+  final Key? key;
+
+  final PhotosBloc bloc;
+
+  @override
+  String toString() {
+    return 'UploadPhotosManagerRouteArgs{key: $key, bloc: $bloc}';
   }
 }
 

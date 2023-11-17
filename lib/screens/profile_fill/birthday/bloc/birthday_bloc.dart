@@ -19,9 +19,9 @@ class BirthdayBloc extends Bloc<BirthdayEvent, BirthdayState> {
 
   BirthdayBloc() : super(BirthdayInitial()) {
     on<OnBirthdayInitEvent>((event, emit) {
-      if (event.birthday.isNotEmpty) {
+      if (event.birthday != null) {
         emit(ValidState());
-        birthdayDate = DateTime.parse(event.birthday);
+        birthdayDate = event.birthday;
         birthdayDateList = convertDateTimeToList(birthdayDate!);
       }
     });

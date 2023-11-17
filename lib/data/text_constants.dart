@@ -55,6 +55,15 @@ class TextConstants {
   static const String matchTabText = "Match";
   static const String chatTabText = "Chat";
   static const String profileTabText = "Profile";
+  static const String happyWithPhotoText = "Happy with your \nphoto?";
+  static const String weWillScanYourPhotoText =
+      "We will scan your photo to verify \nyour identity";
+  static const String retakeButton = "Retake";
+  static const String agreeAndSubmitButton = "Agree and submit";
+  static const String thanksLotText = "Thanks a lot!";
+  static const String weReceivedYourPhotoText =
+      "We have received your photo and will \nanswer within 1-2 business days";
+  static const String startMatchingButton = "Start matching!";
 
   //Profile Fill
 
@@ -139,4 +148,31 @@ class TextConstants {
   static const String ofText = "of";
   static const String noPhotoFoundText = "Sorry, no photo found";
   static const String cameraError = "Something went wrong with your camera";
+
+  //  -> Add Favorite Anime
+  static const String saveText = "Save";
+  static const String searchText = "Search";
+  static const String choosenText = "Choosen";
+  static const String almostDoneText = "Almost done!";
+  static const String nowChooseYourFavoriteAnimesText =
+      "Now choose your favorite animes \nand start matching";
+  static const String noAnimesFoundTitle = "Oops. No animes found";
+  static const String noAnimesFoundText =
+      "Maybe there is a mistake in search? \nPlease check and try again";
+
+  // -> Location
+  static const String enableLocationText = "Enable location";
+  static const String enableLocationDescription =
+      "Your location will be used to show \n potential matches near you";
+  static const String allowLocationText = "Allow location";
+  static const String locationPermissionsDenied =
+      "Location permissions are denied";
+  static const String locationPermissionsPermanentlyDenied =
+      "Location permissions are permanently denied, we cannot request permissions.";
+
+  // -> Spotify
+  static const String connectYourSpotifyText = "Connect your Spotify";
+  static const String connectYourSpotifyDescription =
+      "Show potential matches your favorite artists";
+  static const String connectSpotifyText = "Connect Spotify";
 }

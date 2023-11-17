@@ -1,0 +1,11 @@
+mutation addFavoriteAnime($input: AddFavoriteAnimeInput!) {
+  addFavoriteAnime(input: $input) {
+    user {
+      animes {
+        id
+        title
+        cover
+      }
+    }
+  }
+}

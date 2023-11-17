@@ -5,7 +5,7 @@ import 'package:senpai/screens/profile_fill/birthday/bloc/birthday_bloc.dart';
 import 'package:senpai/screens/profile_fill/birthday/widgets/birthday_content.dart';
 
 class BirthdayPage extends StatelessWidget {
-  final String? birthday;
+  final DateTime? birthday;
 
   const BirthdayPage({super.key, this.birthday});
 
@@ -14,7 +14,7 @@ class BirthdayPage extends StatelessWidget {
     return BlocProvider<BirthdayBloc>(
       create: (context) => BirthdayBloc()
         ..add(OnBirthdayInitEvent(
-          birthday: birthday ?? '',
+          birthday: birthday,
         )),
       child: Stack(
         children: [

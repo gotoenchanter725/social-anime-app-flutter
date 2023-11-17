@@ -47,5 +47,15 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+		<string>Senpai needs access to your camera so you can include photos in your profile.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+		<string>Senpai needs access to your photos so you can include them in your profile.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+  		<string>Senpai needs access to location when app open.</string>
+  	<key>NSLocationAlwaysUsageDescription</key>
+  		<string>Senpai needs access to location when app in the background.</string>
+	<key>NSMicrophoneUsageDescription</key>
+		<string>Senpai needs access to your microphone when app open.</string>
 </dict>
 </plist>
