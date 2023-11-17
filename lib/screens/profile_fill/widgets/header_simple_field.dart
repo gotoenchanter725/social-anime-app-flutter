@@ -12,6 +12,8 @@ class HeaderSimpleField extends StatelessWidget {
   final VoidCallback onTapBackButton;
   final String? iconPath;
   final VoidCallback? onTapSkipkButton;
+  final Color? backBorderColor;
+  final bool isCenterTitle;
 
   const HeaderSimpleField({
     super.key,
@@ -20,12 +22,15 @@ class HeaderSimpleField extends StatelessWidget {
     required this.onTapBackButton,
     this.iconPath,
     this.onTapSkipkButton,
+    this.backBorderColor,
+    this.isCenterTitle = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment:
+          isCenterTitle ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,7 +44,7 @@ class HeaderSimpleField extends StatelessWidget {
           style: getTextTheme(context)
               .headlineLarge
               ?.copyWith(color: $constants.palette.white),
-          textAlign: TextAlign.left,
+          textAlign: isCenterTitle ? TextAlign.center : TextAlign.left,
         ),
         Text(
           description,
@@ -47,7 +52,7 @@ class HeaderSimpleField extends StatelessWidget {
                 color: $constants.palette.grey,
                 letterSpacing: 0,
               ),
-          textAlign: TextAlign.left,
+          textAlign: isCenterTitle ? TextAlign.center : TextAlign.left,
         ),
         SizedBox(
           height: $constants.insets.lg,
@@ -59,12 +64,13 @@ class HeaderSimpleField extends StatelessWidget {
   Widget _buildBackButton(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-        top: $constants.insets.xl,
+        top: $constants.insets.md,
         bottom: $constants.insets.lg,
       ),
       child: SenpaiIconButton(
         onPressed: onTapBackButton,
         iconPath: iconPath ?? PathConstants.backIcon,
+        borderColor: backBorderColor,
       ),
     );
   }
@@ -76,7 +82,7 @@ class HeaderSimpleField extends StatelessWidget {
         TextConstants.skipStep,
         style: getTextTheme(context)
             .labelMedium!
-            .copyWith(color: $constants.palette.white),
+            .copyWith(color: $constants.palette.white, fontSize: 14),
       ),
     );
   }

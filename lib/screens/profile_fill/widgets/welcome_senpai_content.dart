@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:senpai/core/widgets/primary_button.dart';
+import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
-
-import '../../../core/widgets/primary_button.dart';
-import '../../../data/path_constants.dart';
-import '../../../data/text_constants.dart';
-import '../bloc/profile_fill_bloc.dart';
 
 class WelcomeSenpaiContent extends StatelessWidget {
   const WelcomeSenpaiContent({super.key});
@@ -20,9 +19,10 @@ class WelcomeSenpaiContent extends StatelessWidget {
         Image.asset(
           PathConstants.welcomeImage,
           fit: BoxFit.fitWidth,
+          height: getSize(context).width,
           width: getSize(context).width,
         ),
-        Container(
+        Padding(
           padding: EdgeInsets.all($constants.insets.sm),
           child: _buildButton(context),
         ),

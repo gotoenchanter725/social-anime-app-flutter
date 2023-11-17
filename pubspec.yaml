@@ -87,6 +87,10 @@ dependencies:
   otp_pin_field: ^1.2.2
   timer_count_down: ^2.2.2
   flutter_markdown: ^0.6.17+1
+  reorderable_grid_view: ^2.2.7
+  photo_manager: ^2.7.1
+  geolocator: ^10.0.1
+  camera: ^0.10.5+5
 
 dev_dependencies:
   flutter_test:
@@ -109,6 +113,7 @@ dev_dependencies:
   slang_build_runner: ^3.22.0
   r_resources: ^1.0.1
   flutter_launcher_icons: ^0.13.1
+
 
 dependency_overrides:
   intl: ^0.18.1

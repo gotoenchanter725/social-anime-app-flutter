@@ -9,8 +9,11 @@ part of 'update_user_model.dart';
 _$_UpdateUserModel _$$_UpdateUserModelFromJson(Map<String, dynamic> json) =>
     _$_UpdateUserModel(
       id: json['id'] as String,
+      phone: json['phone'] as String,
       firstName: json['firstName'] as String?,
-      birthday: json['birthday'] as String?,
+      birthday: json['birthday'] == null
+          ? null
+          : DateTime.parse(json['birthday'] as String),
       gender: json['gender'] as int?,
       desiredGender: json['desiredGender'] as int?,
       occupation: json['occupation'] as String?,
@@ -21,8 +24,9 @@ _$_UpdateUserModel _$$_UpdateUserModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_UpdateUserModelToJson(_$_UpdateUserModel instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'phone': instance.phone,
       'firstName': instance.firstName,
-      'birthday': instance.birthday,
+      'birthday': instance.birthday?.toIso8601String(),
       'gender': instance.gender,
       'desiredGender': instance.desiredGender,
       'occupation': instance.occupation,

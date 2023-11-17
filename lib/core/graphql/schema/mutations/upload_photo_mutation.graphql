@@ -1,0 +1,13 @@
+mutation uploadPhoto($input: UploadPhotoInput!) {
+  uploadPhoto(input: $input) {
+    user {
+      gallery {
+        photos {
+          order
+          url
+          id
+        }
+      }
+    }
+  }
+}

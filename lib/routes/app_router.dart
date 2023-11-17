@@ -5,6 +5,8 @@ import 'package:senpai/screens/entry/page/entry_page.dart';
 import 'package:senpai/screens/license/page/license_page.dart';
 import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
 import 'package:senpai/screens/profile_fill/page/profile_fill.dart';
+import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
+import 'package:senpai/screens/profile_fill/photos/upload_photos/page/upload_photos_manager_page.dart';
 import 'package:senpai/screens/signup/page/sign_up_page.dart';
 import 'package:senpai/screens/verify_phone/page/verify_phone_page.dart';
 import 'package:senpai/screens/verify_photo/page/verify_photo_page.dart';

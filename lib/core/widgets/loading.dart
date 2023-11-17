@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:senpai/utils/constants.dart';
 
 class SenpaiLoading extends StatelessWidget {
-  const SenpaiLoading({super.key});
+  final double? radius;
+
+  const SenpaiLoading({super.key, this.radius});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class SenpaiLoading extends StatelessWidget {
                 const CupertinoThemeData(brightness: Brightness.light),
           ),
           child: CupertinoActivityIndicator(
-            radius: $constants.insets.md,
+            radius: radius ?? $constants.insets.md,
           ),
         ),
       ),

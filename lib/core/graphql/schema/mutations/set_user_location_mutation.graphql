@@ -1,0 +1,10 @@
+mutation setUserLocation($input: SetUserLocationInput!) {
+  setUserLocation(input: $input) {
+    user {
+      id
+      lonlat
+      displayCity
+      displayState
+    }
+  }
+}
