@@ -101,6 +101,10 @@ class VerifyPhonePage extends StatelessWidget {
                       }
 
                       String token = response["validatePhone"]["token"];
+                      bool hasFilledProfile =
+                          response["validatePhone"]["profileFilled"];
+                      final formBloc = BlocProvider.of<OTPFormBloc>(context);
+                      formBloc.isProfileFilled = hasFilledProfile;
                       final serviceBloc = BlocProvider.of<SignInBloc>(context);
                       serviceBloc.signInExistingUser(token);
                       return const SenpaiLoading();
@@ -187,7 +191,14 @@ class VerifyPhonePage extends StatelessWidget {
                       String phone = response["signIn"]["user"]["phone"];
                       print("signed in user of id $id and phone $phone");
 
-                      context.router.pushNamed("/verify_photo");
+                      final formBloc = BlocProvider.of<OTPFormBloc>(context);
+                      bool hasFilledProfile = formBloc.isProfileFilled;
+
+                      if (hasFilledProfile) {
+                        context.router.pushNamed("/home");
+                      } else {
+                        context.router.pushNamed("/profile_fill");
+                      }
 
                       return const SizedBox.shrink();
                     },

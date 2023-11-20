@@ -4,5 +4,6 @@ mutation validatePhone($input: ValidatePhoneInput!) {
       phone
     }
     token
+    profileFilled
   }
 }

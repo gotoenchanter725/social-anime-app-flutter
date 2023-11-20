@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 Size getSize(BuildContext context) {
   return MediaQuery.of(context).size;
@@ -65,6 +66,42 @@ bool isValidPhoneNumber(String phoneNumber) {
   final RegExp phoneRegExp = RegExp(r'^[\d\-. ]+$');
 
   return phoneNumber.length > 8 && phoneRegExp.hasMatch(phoneNumber);
+}
+
+String formatDateTime(DateTime dateTime) {
+  final now = DateTime.now();
+
+  if (dateTime.year == now.year &&
+      dateTime.month == now.month &&
+      dateTime.day == now.day) {
+    return DateFormat.jm().format(dateTime);
+  } else if (dateTime.year == now.year &&
+      dateTime.month == now.month &&
+      dateTime.day == now.day - 1) {
+    return 'Yesterday';
+  } else {
+    return DateFormat('dd/MM/yyyy').format(dateTime);
+  }
+}
+
+String formatSystemDateTimeDisplay(DateTime dateTime) {
+  final now = DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  final lastWeek = today.subtract(Duration(days: 6)); // 6 days ago
+
+  if (dateTime.year == now.year &&
+      dateTime.month == now.month &&
+      dateTime.day == now.day) {
+    return 'Today';
+  } else if (dateTime.year == now.year &&
+      dateTime.month == now.month &&
+      dateTime.day == now.day - 1) {
+    return 'Yesterday';
+  } else if (dateTime.isAfter(lastWeek)) {
+    return DateFormat('EEEE').format(dateTime);
+  } else {
+    return DateFormat('d MMMM y').format(dateTime);
+  }
 }
 
 List<String> convertDateTimeToList(DateTime dateTime) {

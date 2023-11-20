@@ -51,6 +51,10 @@ class TextConstants {
       "Photo verify to let everyone know \nyour photos are really you";
   static const String verifyPhotoButtonText = "Verify by photo";
 
+  // Navigation
+  static const String matchTabText = "Match";
+  static const String chatTabText = "Chat";
+  static const String profileTabText = "Profile";
   static const String happyWithPhotoText = "Happy with your \nphoto?";
   static const String weWillScanYourPhotoText =
       "We will scan your photo to verify \nyour identity";
@@ -76,6 +80,11 @@ class TextConstants {
   static const String firstNameText = "First Name";
   static const String nextText = "Next";
 
+  // Chat
+  static const String searchHintText = "Search chat or match";
+  static const String matchesTitle = "Matches";
+  static const String messagesTitle = "Messages";
+  static const String chatInputHint = 'Send message...';
   static const String invalidFirstNameError =
       "Invalid first name. Please try again";
 
