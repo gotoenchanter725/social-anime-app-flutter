@@ -23,11 +23,11 @@ import 'package:senpai/core/auth/blocs/resend_verification_code_bloc.dart'
 import 'package:senpai/core/auth/blocs/sign_in_bloc.dart' as _i16;
 import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart' as _i23;
 import 'package:senpai/core/profile_fill/api/universities_api.dart' as _i21;
-import 'package:senpai/core/profile_fill/blocs/upload_photo/delete_photo/delete_photo_bloc.dart'
+import 'package:senpai/core/profile_fill/blocs/delete_photo/delete_photo_bloc.dart'
     as _i5;
-import 'package:senpai/core/profile_fill/blocs/upload_photo/reorder_photos/reorder_photos_bloc.dart'
+import 'package:senpai/core/profile_fill/blocs/reorder_photos/reorder_photos_bloc.dart'
     as _i14;
-import 'package:senpai/core/profile_fill/blocs/upload_photo/upload_photo/upload_photo_bloc.dart'
+import 'package:senpai/core/profile_fill/blocs/upload_photo/upload_photo_bloc.dart'
     as _i22;
 import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart'
     as _i7;
