@@ -9,33 +9,35 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:dio/dio.dart' as _i19;
-import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i6;
-import 'package:fresh_dio/fresh_dio.dart' as _i14;
+import 'package:dio/dio.dart' as _i20;
+import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i7;
+import 'package:fresh_dio/fresh_dio.dart' as _i15;
 import 'package:get_it/get_it.dart' as _i1;
-import 'package:graphql_flutter/graphql_flutter.dart' as _i8;
+import 'package:graphql_flutter/graphql_flutter.dart' as _i9;
 import 'package:injectable/injectable.dart' as _i2;
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart'
-    as _i9;
+    as _i10;
 import 'package:senpai/core/auth/blocs/create_user_bloc.dart' as _i4;
 import 'package:senpai/core/auth/blocs/resend_verification_code_bloc.dart'
-    as _i11;
-import 'package:senpai/core/auth/blocs/sign_in_bloc.dart' as _i12;
-import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart' as _i18;
-import 'package:senpai/core/profile_fill/api/universities_api.dart' as _i17;
-import 'package:senpai/core/secure_storage/secure_auth_storage.dart' as _i16;
-import 'package:senpai/dependency_injection/dio_client_di.dart' as _i25;
-import 'package:senpai/dependency_injection/graphql_client_di.dart' as _i23;
-import 'package:senpai/dependency_injection/network_info_di.dart' as _i24;
-import 'package:senpai/dependency_injection/router_di.dart' as _i20;
-import 'package:senpai/dependency_injection/secure_storage_di.dart' as _i21;
-import 'package:senpai/dependency_injection/university_module_di.dart' as _i22;
-import 'package:senpai/domain/profile_fill/universities_usecase.dart' as _i7;
-import 'package:senpai/models/auth/auth_model.dart' as _i15;
+    as _i12;
+import 'package:senpai/core/auth/blocs/sign_in_bloc.dart' as _i13;
+import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart' as _i19;
+import 'package:senpai/core/profile_fill/api/universities_api.dart' as _i18;
+import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart'
+    as _i6;
+import 'package:senpai/core/secure_storage/secure_auth_storage.dart' as _i17;
+import 'package:senpai/dependency_injection/dio_client_di.dart' as _i26;
+import 'package:senpai/dependency_injection/graphql_client_di.dart' as _i24;
+import 'package:senpai/dependency_injection/network_info_di.dart' as _i25;
+import 'package:senpai/dependency_injection/router_di.dart' as _i21;
+import 'package:senpai/dependency_injection/secure_storage_di.dart' as _i22;
+import 'package:senpai/dependency_injection/university_module_di.dart' as _i23;
+import 'package:senpai/domain/profile_fill/universities_usecase.dart' as _i8;
+import 'package:senpai/models/auth/auth_model.dart' as _i16;
 import 'package:senpai/models/env_model.dart' as _i5;
-import 'package:senpai/models/theme_model.dart' as _i13;
+import 'package:senpai/models/theme_model.dart' as _i14;
 import 'package:senpai/routes/app_router.dart' as _i3;
-import 'package:senpai/utils/helpers/logging_helpers.dart' as _i10;
+import 'package:senpai/utils/helpers/logging_helpers.dart' as _i11;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -60,39 +62,40 @@ extension GetItInjectableX on _i1.GetIt {
       () => _i5.EnvModel.create(),
       preResolve: true,
     );
-    gh.factory<_i6.FlutterSecureStorage>(
+    gh.factory<_i6.FetchAnimeBloc>(() => _i6.FetchAnimeBloc());
+    gh.factory<_i7.FlutterSecureStorage>(
         () => secureStorageInjection.storage());
-    gh.factory<_i7.GetUniversitiesUseCase>(
+    gh.factory<_i8.GetUniversitiesUseCase>(
         () => universityInjectionModule.universitiesRepository);
-    gh.factory<_i8.GraphQLClient>(
+    gh.factory<_i9.GraphQLClient>(
         () => graphQLInjection.graphql(gh<_i5.EnvModel>()));
-    gh.factory<_i9.InternetConnection>(() => networkInfoInjection.networkInfo);
-    gh.singleton<_i10.LoggingHelper>(_i10.LoggingHelper());
-    gh.factory<_i11.ResendVerificationCodeBloc>(
-        () => _i11.ResendVerificationCodeBloc());
-    gh.factory<_i12.SignInBloc>(() => _i12.SignInBloc());
-    await gh.singletonAsync<_i13.ThemeModel>(
-      () => _i13.ThemeModel.create(),
+    gh.factory<_i10.InternetConnection>(() => networkInfoInjection.networkInfo);
+    gh.singleton<_i11.LoggingHelper>(_i11.LoggingHelper());
+    gh.factory<_i12.ResendVerificationCodeBloc>(
+        () => _i12.ResendVerificationCodeBloc());
+    gh.factory<_i13.SignInBloc>(() => _i13.SignInBloc());
+    await gh.singletonAsync<_i14.ThemeModel>(
+      () => _i14.ThemeModel.create(),
       preResolve: true,
     );
-    gh.lazySingleton<_i14.TokenStorage<_i15.AuthModel>>(
-        () => _i16.SecureAuthStorage(gh<_i6.FlutterSecureStorage>()));
-    gh.factory<_i17.UniversitiesApi>(
+    gh.lazySingleton<_i15.TokenStorage<_i16.AuthModel>>(
+        () => _i17.SecureAuthStorage(gh<_i7.FlutterSecureStorage>()));
+    gh.factory<_i18.UniversitiesApi>(
         () => universityInjectionModule.universitiesApi(gh<_i5.EnvModel>()));
-    gh.factory<_i18.ValidatePhoneBloc>(() => _i18.ValidatePhoneBloc());
-    gh.factory<_i19.Dio>(() => dioInjection.dio(gh<_i5.EnvModel>()));
+    gh.factory<_i19.ValidatePhoneBloc>(() => _i19.ValidatePhoneBloc());
+    gh.factory<_i20.Dio>(() => dioInjection.dio(gh<_i5.EnvModel>()));
     return this;
   }
 }
 
-class _$RouterInjection extends _i20.RouterInjection {}
+class _$RouterInjection extends _i21.RouterInjection {}
 
-class _$SecureStorageInjection extends _i21.SecureStorageInjection {}
+class _$SecureStorageInjection extends _i22.SecureStorageInjection {}
 
-class _$UniversityInjectionModule extends _i22.UniversityInjectionModule {}
+class _$UniversityInjectionModule extends _i23.UniversityInjectionModule {}
 
-class _$GraphQLInjection extends _i23.GraphQLInjection {}
+class _$GraphQLInjection extends _i24.GraphQLInjection {}
 
-class _$NetworkInfoInjection extends _i24.NetworkInfoInjection {}
+class _$NetworkInfoInjection extends _i25.NetworkInfoInjection {}
 
-class _$DioInjection extends _i25.DioInjection {}
+class _$DioInjection extends _i26.DioInjection {}
