@@ -51,4 +51,25 @@ class PathConstants {
       'assets/images/profile/anime_header.png';
   static const String emptySearchAnimeImage =
       'assets/images/profile/anime_empty.png';
+
+  //Profile
+  static const String filterIcon = 'assets/icons/filter.svg';
+  static const String settingsIcon = 'assets/icons/settings.svg';
+  static const String verifyUserIcon = 'assets/icons/verify_user.svg';
+  static const String pencilIcon = 'assets/icons/pencil.svg';
+  static const String shineHeartIcon = 'assets/icons/shine_heart.svg';
+  static const String verifyFaceIcon = 'assets/icons/verify_face.svg';
+
+  static const String locationMarkerIcon = 'assets/icons/location_marker.svg';
+  static const String jobIcon = 'assets/icons/job_icon.svg';
+  static const String universityIcon = 'assets/icons/university_icon.svg';
+  static const String matchLikeImage =
+      'assets/images/match/match_successful.png';
+
+  //Match
+  static const String catsPawIcon = 'assets/icons/cats_paw.svg';
+  static const String matchBackLogoIcon = 'assets/icons/match_back_logo.svg';
+  static const String refreshIcon = 'assets/icons/refresh.svg';
+  static const String premiumImage = 'assets/images/profile/premium_image.png';
+  static const String matchHeartBgIcon = 'assets/icons/match_heart.svg';
 }
