@@ -98,6 +98,16 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    VerifyCameraRoute.name: (routeData) {
+      final args = routeData.argsAs<VerifyCameraRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: VerifyCameraPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
+      );
+    },
     VerifyPhoneRoute.name: (routeData) {
       final args = routeData.argsAs<VerifyPhoneRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -370,6 +380,44 @@ class UploadPhotosManagerRouteArgs {
   @override
   String toString() {
     return 'UploadPhotosManagerRouteArgs{key: $key, bloc: $bloc}';
+  }
+}
+
+/// generated route for
+/// [VerifyCameraPage]
+class VerifyCameraRoute extends PageRouteInfo<VerifyCameraRouteArgs> {
+  VerifyCameraRoute({
+    Key? key,
+    required VerifyPhotoBloc bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          VerifyCameraRoute.name,
+          args: VerifyCameraRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'VerifyCameraRoute';
+
+  static const PageInfo<VerifyCameraRouteArgs> page =
+      PageInfo<VerifyCameraRouteArgs>(name);
+}
+
+class VerifyCameraRouteArgs {
+  const VerifyCameraRouteArgs({
+    this.key,
+    required this.bloc,
+  });
+
+  final Key? key;
+
+  final VerifyPhotoBloc bloc;
+
+  @override
+  String toString() {
+    return 'VerifyCameraRouteArgs{key: $key, bloc: $bloc}';
   }
 }
 
