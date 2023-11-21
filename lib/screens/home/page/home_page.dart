@@ -13,10 +13,10 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: const [
-        MatchRoute(),
-        ChatListRoute(),
-        ProfileFillRoute(),
+      routes: [
+        const MatchRoute(),
+        const ChatListRoute(),
+        ProfileFillRoute(id: '2', phone: '"786-512-1984"'),
       ],
       bottomNavigationBuilder: _createdBottomTabBar,
     );

@@ -52,9 +52,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ProfileFillRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileFillRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ProfileFillPage(),
+        child: ProfileFillPage(
+          key: args.key,
+          phone: args.phone,
+          id: args.id,
+        ),
       );
     },
     ProfileRoute.name: (routeData) {
@@ -199,16 +204,45 @@ class OnboardingRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ProfileFillPage]
-class ProfileFillRoute extends PageRouteInfo<void> {
-  const ProfileFillRoute({List<PageRouteInfo>? children})
-      : super(
+class ProfileFillRoute extends PageRouteInfo<ProfileFillRouteArgs> {
+  ProfileFillRoute({
+    Key? key,
+    required String phone,
+    required String id,
+    List<PageRouteInfo>? children,
+  }) : super(
           ProfileFillRoute.name,
+          args: ProfileFillRouteArgs(
+            key: key,
+            phone: phone,
+            id: id,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ProfileFillRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ProfileFillRouteArgs> page =
+      PageInfo<ProfileFillRouteArgs>(name);
+}
+
+class ProfileFillRouteArgs {
+  const ProfileFillRouteArgs({
+    this.key,
+    required this.phone,
+    required this.id,
+  });
+
+  final Key? key;
+
+  final String phone;
+
+  final String id;
+
+  @override
+  String toString() {
+    return 'ProfileFillRouteArgs{key: $key, phone: $phone, id: $id}';
+  }
 }
 
 /// generated route for

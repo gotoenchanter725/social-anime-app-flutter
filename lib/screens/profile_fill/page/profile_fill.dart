@@ -6,14 +6,16 @@ import '../bloc/profile_fill_bloc.dart';
 import '../widgets/profile_fill_content.dart';
 
 @RoutePage()
-class ProfileFillPage extends StatefulWidget {
-  const ProfileFillPage({super.key});
+class ProfileFillPage extends StatelessWidget {
+  final String phone;
+  final String id;
 
-  @override
-  State<ProfileFillPage> createState() => _ProfileFillPageState();
-}
+  const ProfileFillPage({
+    super.key,
+    required this.phone,
+    required this.id,
+  });
 
-class _ProfileFillPageState extends State<ProfileFillPage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ProfileFillBloc>(
