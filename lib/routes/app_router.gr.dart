@@ -120,9 +120,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     VerifyPhotoRoute.name: (routeData) {
+      final args = routeData.argsAs<VerifyPhotoRouteArgs>(
+          orElse: () => const VerifyPhotoRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const VerifyPhotoPage(),
+        child: VerifyPhotoPage(
+          key: args.key,
+          photo: args.photo,
+        ),
       );
     },
   };
@@ -466,14 +471,38 @@ class VerifyPhoneRouteArgs {
 
 /// generated route for
 /// [VerifyPhotoPage]
-class VerifyPhotoRoute extends PageRouteInfo<void> {
-  const VerifyPhotoRoute({List<PageRouteInfo>? children})
-      : super(
+class VerifyPhotoRoute extends PageRouteInfo<VerifyPhotoRouteArgs> {
+  VerifyPhotoRoute({
+    Key? key,
+    File? photo,
+    List<PageRouteInfo>? children,
+  }) : super(
           VerifyPhotoRoute.name,
+          args: VerifyPhotoRouteArgs(
+            key: key,
+            photo: photo,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'VerifyPhotoRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<VerifyPhotoRouteArgs> page =
+      PageInfo<VerifyPhotoRouteArgs>(name);
+}
+
+class VerifyPhotoRouteArgs {
+  const VerifyPhotoRouteArgs({
+    this.key,
+    this.photo,
+  });
+
+  final Key? key;
+
+  final File? photo;
+
+  @override
+  String toString() {
+    return 'VerifyPhotoRouteArgs{key: $key, photo: $photo}';
+  }
 }
