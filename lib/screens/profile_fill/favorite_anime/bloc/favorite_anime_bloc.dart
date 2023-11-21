@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
+import 'package:senpai/screens/profile_fill/favorite_anime/enums/anime_enums.dart';
 
 part 'favorite_anime_event.dart';
 part 'favorite_anime_state.dart';
@@ -23,6 +24,8 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
   int page = 1;
   int maxAnimeCount = 10;
 
+  Set<AnimeGenresEnums> genresList = Set.identity();
+
   FavoriteAnimeBloc() : super(FavoriteAnimeInitial()) {
     on<OnFavoriteAnimeInitEvent>((event, emit) {
       if (event.selectedAnimeList.isNotEmpty) {
@@ -40,6 +43,24 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
       } else {
         animeList.addAll(event.animeList);
       }
+    });
+
+    on<OnSearchAnimesEvent>((event, emit) {
+      emit(LoadingState());
+      searchText = event.searchText;
+      emit(ValidState());
+      emit(FavoriteAnimeFetchState());
+    });
+
+    on<OnSelectGenreAnimesEvent>((event, emit) {
+      emit(LoadingState());
+      if (event.selected) {
+        genresList.add(event.genre);
+      } else {
+        genresList.remove(event.genre);
+      }
+      emit(ValidState());
+      emit(FavoriteAnimeFetchState());
     });
 
     on<OnChangeAnimeStepEvent>((event, emit) {
