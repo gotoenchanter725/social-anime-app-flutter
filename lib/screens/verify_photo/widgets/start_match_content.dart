@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
+import 'package:senpai/core/profile_fill/favorite_anime/add_favorite_anime_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
@@ -76,11 +76,14 @@ class StartMatchContent extends StatelessWidget {
   Widget _buildStartMatchButton(BuildContext context) {
     final bloc = BlocProvider.of<VerifyPhotoBloc>(context);
     final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
-    final serverBloc = BlocProvider.of<UpdateUserBloc>(context);
+    final serverBloc = BlocProvider.of<AddFavoriteAnimeBloc>(context);
     return BlocListener<VerifyPhotoBloc, VerifyPhotoState>(
       listenWhen: (_, currState) => currState is VerifyPhotoSucssesfulState,
       listener: (context, state) {
-        serverBloc.updateUserInfo(user: blocProfileFill.user);
+        serverBloc.addFavoriteAnimeList(
+          userId: blocProfileFill.userId,
+          animeIds: blocProfileFill.animeList.map((anime) => anime.id).toList(),
+        );
       },
       child: PrimaryButton(
         text: TextConstants.startMatchingButton,
