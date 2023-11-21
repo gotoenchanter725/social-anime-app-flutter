@@ -75,26 +75,30 @@ class SearchFavoriteAnimeContent extends StatelessWidget {
   }
 
   Widget _buildAnimeList(BuildContext context) {
-    final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
     final blocFetchAnime = BlocProvider.of<FetchAnimeBloc>(context);
-    return BlocListener<FavoriteAnimeBloc, FavoriteAnimeState>(
+    return BlocConsumer<FavoriteAnimeBloc, FavoriteAnimeState>(
       listenWhen: (_, currState) => currState is FavoriteAnimeFetchState,
       listener: (context, state) {
+        final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
         blocFetchAnime.add(blocFetchAnime.fetchAnime(
           genres: bloc.genresList.map((genre) => genre.genresString).toList(),
           page: bloc.page,
           title: bloc.searchText,
         ));
       },
-      child: Expanded(
-        child: bloc.animeList.isEmpty && bloc.searchText.isNotEmpty
-            ? const EmptySearchAnimeWidget()
-            : SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                controller: bloc.animeListController,
-                child: const SearchAnimeList(),
-              ),
-      ),
+      builder: (context, state) {
+        final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
+
+        return Expanded(
+          child: SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
+            controller: bloc.animeListController,
+            child: bloc.animeList.isEmpty && bloc.searchText.isNotEmpty
+                ? const EmptySearchAnimeWidget()
+                : const SearchAnimeList(),
+          ),
+        );
+      },
     );
   }
 }
