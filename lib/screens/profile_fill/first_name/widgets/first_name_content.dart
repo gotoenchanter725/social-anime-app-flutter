@@ -21,16 +21,23 @@ class FirstNameContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         children: [
-          _buildHeader(context),
-          _buildTextInput(context),
+          Expanded(
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                children: [
+                  _buildHeader(context),
+                  _buildTextInput(context),
+                ],
+              ),
+            ),
+          ),
           SizedBox(
             height: $constants.insets.sm,
           ),
-          Expanded(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: _buildSubmitButton(context),
-            ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: _buildSubmitButton(context),
           ),
           SizedBox(
             height: $constants.insets.sm,
