@@ -9,7 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:dio/dio.dart' as _i26;
+import 'package:dio/dio.dart' as _i27;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i10;
 import 'package:fresh_dio/fresh_dio.dart' as _i20;
 import 'package:get_it/get_it.dart' as _i1;
@@ -21,14 +21,14 @@ import 'package:senpai/core/auth/blocs/create_user_bloc.dart' as _i5;
 import 'package:senpai/core/auth/blocs/resend_verification_code_bloc.dart'
     as _i16;
 import 'package:senpai/core/auth/blocs/sign_in_bloc.dart' as _i18;
-import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart' as _i25;
+import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart' as _i26;
 import 'package:senpai/core/profile_fill/api/universities_api.dart' as _i23;
 import 'package:senpai/core/profile_fill/blocs/delete_photo/delete_photo_bloc.dart'
     as _i6;
 import 'package:senpai/core/profile_fill/blocs/reorder_photos/reorder_photos_bloc.dart'
     as _i15;
 import 'package:senpai/core/profile_fill/blocs/upload_photo/upload_photo_bloc.dart'
-    as _i24;
+    as _i25;
 import 'package:senpai/core/profile_fill/favorite_anime/add_favorite_anime_bloc.dart'
     as _i3;
 import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart'
@@ -37,12 +37,14 @@ import 'package:senpai/core/profile_fill/set_user_location/set_user_location_blo
     as _i17;
 import 'package:senpai/core/secure_storage/secure_auth_storage.dart' as _i22;
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart' as _i9;
-import 'package:senpai/dependency_injection/dio_client_di.dart' as _i32;
-import 'package:senpai/dependency_injection/graphql_client_di.dart' as _i30;
-import 'package:senpai/dependency_injection/network_info_di.dart' as _i31;
-import 'package:senpai/dependency_injection/router_di.dart' as _i27;
-import 'package:senpai/dependency_injection/secure_storage_di.dart' as _i28;
-import 'package:senpai/dependency_injection/university_module_di.dart' as _i29;
+import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart'
+    as _i24;
+import 'package:senpai/dependency_injection/dio_client_di.dart' as _i33;
+import 'package:senpai/dependency_injection/graphql_client_di.dart' as _i31;
+import 'package:senpai/dependency_injection/network_info_di.dart' as _i32;
+import 'package:senpai/dependency_injection/router_di.dart' as _i28;
+import 'package:senpai/dependency_injection/secure_storage_di.dart' as _i29;
+import 'package:senpai/dependency_injection/university_module_di.dart' as _i30;
 import 'package:senpai/domain/profile_fill/universities_usecase.dart' as _i11;
 import 'package:senpai/models/auth/auth_model.dart' as _i21;
 import 'package:senpai/models/env_model.dart' as _i7;
@@ -98,21 +100,22 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i22.SecureAuthStorage(gh<_i10.FlutterSecureStorage>()));
     gh.factory<_i23.UniversitiesApi>(
         () => universityInjectionModule.universitiesApi(gh<_i7.EnvModel>()));
-    gh.factory<_i24.UploadPhotoBloc>(() => _i24.UploadPhotoBloc());
-    gh.factory<_i25.ValidatePhoneBloc>(() => _i25.ValidatePhoneBloc());
-    gh.factory<_i26.Dio>(() => dioInjection.dio(gh<_i7.EnvModel>()));
+    gh.factory<_i24.UpdateUserBloc>(() => _i24.UpdateUserBloc());
+    gh.factory<_i25.UploadPhotoBloc>(() => _i25.UploadPhotoBloc());
+    gh.factory<_i26.ValidatePhoneBloc>(() => _i26.ValidatePhoneBloc());
+    gh.factory<_i27.Dio>(() => dioInjection.dio(gh<_i7.EnvModel>()));
     return this;
   }
 }
 
-class _$RouterInjection extends _i27.RouterInjection {}
+class _$RouterInjection extends _i28.RouterInjection {}
 
-class _$SecureStorageInjection extends _i28.SecureStorageInjection {}
+class _$SecureStorageInjection extends _i29.SecureStorageInjection {}
 
-class _$UniversityInjectionModule extends _i29.UniversityInjectionModule {}
+class _$UniversityInjectionModule extends _i30.UniversityInjectionModule {}
 
-class _$GraphQLInjection extends _i30.GraphQLInjection {}
+class _$GraphQLInjection extends _i31.GraphQLInjection {}
 
-class _$NetworkInfoInjection extends _i31.NetworkInfoInjection {}
+class _$NetworkInfoInjection extends _i32.NetworkInfoInjection {}
 
-class _$DioInjection extends _i32.DioInjection {}
+class _$DioInjection extends _i33.DioInjection {}
