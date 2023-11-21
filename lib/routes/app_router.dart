@@ -40,6 +40,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: ChatRoute.page,
           path: '/chat',
-        )
+        ),
+        AutoRoute(page: UploadPhotosManagerRoute.page, path: '/photos_manager'),
       ];
 }
