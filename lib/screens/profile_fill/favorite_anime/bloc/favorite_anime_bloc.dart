@@ -78,7 +78,7 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
       bool isSelectedAnime = selectedAnimeList.contains(event.favoriteAnime);
       if (selectedAnimeList.length >= 10) {
         emit(ErrorState(
-          message: TextConstants.cameraError,
+          message: TextConstants.selectedAnimeError,
           isEnabled: false,
         ));
         if (isSelectedAnime) {

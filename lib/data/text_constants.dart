@@ -159,6 +159,8 @@ class TextConstants {
   static const String noAnimesFoundTitle = "Oops. No animes found";
   static const String noAnimesFoundText =
       "Maybe there is a mistake in search? \nPlease check and try again";
+  static const String selectedAnimeError =
+      "Sorry, you have already selected 10 anime.";
 
   //  -> Favorite Anime Genres
   static const String actionGenresTitle = "Action";
