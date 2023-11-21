@@ -160,6 +160,26 @@ class TextConstants {
   static const String noAnimesFoundText =
       "Maybe there is a mistake in search? \nPlease check and try again";
 
+  //  -> Favorite Anime Genres
+  static const String actionGenresTitle = "Action";
+  static const String adventureGenresTitle = "Adventure";
+  static const String dramaGenresTitle = "Drama";
+  static const String ecchiGenresTitle = "Ecchi";
+  static const String musicGenresTitle = "Music";
+  static const String mechaGenresTitle = "Mecha";
+  static const String horrorGenresTitle = "Horror";
+  static const String fantasyGenresTitle = "Fantasy";
+  static const String mahouShoujoGenresTitle = "Mahou Shoujo";
+  static const String psychologicalGenresTitle = "Psychological";
+  static const String romanceGenresTitle = "Romance";
+  static const String sciFiGenresTitle = "Sci-Fi";
+  static const String sportsGenresTitle = "Sports";
+  static const String comedyGenresTitle = "Comedy";
+  static const String mysteryGenresTitle = "Mystery";
+  static const String supernaturalGenresTitle = "Supernatural";
+  static const String thrillerGenresTitle = "Thriller";
+  static const String sliceOfLifeGenresTitle = "Slice Of Life";
+
   // -> Location
   static const String enableLocationText = "Enable location";
   static const String enableLocationDescription =
