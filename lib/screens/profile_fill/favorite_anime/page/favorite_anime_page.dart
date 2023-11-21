@@ -1,16 +1,13 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
-import 'package:senpai/core/profile_fill/favorite_anime/add_favorite_anime_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart';
 
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
-import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/bloc/favorite_anime_bloc.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/widgets/favorite_anime_content.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -27,9 +24,6 @@ class FavoriteAnimePage extends StatelessWidget {
         BlocProvider(
           create: (_) => getIt<FetchAnimeBloc>(),
         ),
-        BlocProvider(
-          create: (_) => getIt<AddFavoriteAnimeBloc>(),
-        ),
         BlocProvider<FavoriteAnimeBloc>(
           create: (context) => FavoriteAnimeBloc()
             ..add(OnFavoriteAnimeInitEvent(
@@ -41,7 +35,6 @@ class FavoriteAnimePage extends StatelessWidget {
           const FavoriteAnimeContent(),
           _buildFavoriteAnimeListeners(),
           _buildFetchAnimeListeners(),
-          _buildAddAnimeListListeners(),
         ],
       ),
     );
@@ -81,48 +74,6 @@ class FavoriteAnimePage extends StatelessWidget {
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
-      },
-    );
-  }
-
-  Widget _buildAddAnimeListListeners() {
-    return BlocBuilder<AddFavoriteAnimeBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-          loading: () => const SenpaiLoading(),
-          succeeded: (data, result) {
-            final response = result.data;
-
-            if (response == null) {
-              // handle this fatal error
-              logIt.wtf("A successful empty response just got recorded");
-              return const SizedBox.shrink();
-            }
-            List<dynamic> listAnime =
-                response["addFavoriteAnime"]["user"]["animes"];
-
-            if (listAnime.isEmpty) {
-              _showSnackBarError(context, TextConstants.nullUser);
-              logIt.error("A user without an animes tried to again");
-              return const SizedBox.shrink();
-            }
-
-            final selectedAnimeList =
-                listAnime.map((e) => AnimeModel.fromJson(e)).toList();
-
-            final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
-            blocProfileFill.add(
-              OnFavoriteAnimeSaveEvent(animeList: selectedAnimeList),
-            );
-
-            return const SizedBox.shrink();
-          },
-          failed: (error, result) {
-            _showSnackBarError(context, TextConstants.serverError);
-            return const SizedBox.shrink();
-          },
-          orElse: () => const SizedBox.shrink(),
-        );
       },
     );
   }
