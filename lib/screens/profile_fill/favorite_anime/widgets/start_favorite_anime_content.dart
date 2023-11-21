@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/core/profile_fill/favorite_anime/add_favorite_anime_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart';
 import 'package:senpai/core/widgets/icon_input.dart';
 
@@ -65,7 +64,6 @@ class StartFavoriteAnimeContent extends StatelessWidget {
   Widget _buildSubmitButton(BuildContext context) {
     final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
     final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
-    final addAnimeBloc = BlocProvider.of<AddFavoriteAnimeBloc>(context);
 
     return BlocConsumer<FavoriteAnimeBloc, FavoriteAnimeState>(
       listenWhen: (_, currState) => currState is FavoriteAnimeSucssesfulState,
@@ -78,11 +76,8 @@ class StartFavoriteAnimeContent extends StatelessWidget {
         return PrimaryButton(
           text: '${TextConstants.doneText} '
               '(${bloc.selectedAnimeList.length}/${bloc.maxAnimeCount})',
-          onPressed: () async {
-            addAnimeBloc.addFavoriteAnimeList(
-              userId: blocProfileFill.userId,
-              animeIds: bloc.selectedAnimeList.map((e) => e.id).toList(),
-            );
+          onPressed: () {
+            bloc.add(NextTappedEvent());
           },
         );
       },
