@@ -5,6 +5,7 @@ import 'package:senpai/screens/profile_fill/birthday/page/birthday_page.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/desired_gender/page/desired_gender_page.dart';
 import 'package:senpai/screens/profile_fill/first_name/page/first_name_page.dart';
+import 'package:senpai/screens/profile_fill/location/page/location_page.dart';
 import 'package:senpai/screens/profile_fill/occupation/page/occupation_page.dart';
 import 'package:senpai/screens/profile_fill/photos/page/photos_page.dart';
 import 'package:senpai/screens/profile_fill/user_gender/page/gender_page.dart';
@@ -61,6 +62,8 @@ class ProfileFillContent extends StatelessWidget {
       return BiographyPage(bio: bloc.user.bio);
     } else if (bloc.step == ProfileFillStep.photos) {
       return const PhotosPage();
+    } else if (bloc.step == ProfileFillStep.location) {
+      return LocationPage(location: bloc.location);
     } else {
       return const WelcomeSenpaiContent();
     }
