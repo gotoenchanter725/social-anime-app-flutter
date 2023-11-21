@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:senpai/utils/constants.dart';
 
 Size getSize(BuildContext context) {
   return MediaQuery.of(context).size;
@@ -140,4 +141,29 @@ TextSpan updateTextStyle(
   }
 
   return TextSpan(children: spans);
+}
+
+String calculateAge(DateTime birthDate) {
+  DateTime currentDate = DateTime.now();
+  int age = currentDate.year - birthDate.year;
+  int month1 = currentDate.month;
+  int month2 = birthDate.month;
+  if (month2 > month1) {
+    age--;
+  } else if (month1 == month2) {
+    int day1 = currentDate.day;
+    int day2 = birthDate.day;
+    if (day2 > day1) {
+      age--;
+    }
+  }
+  return age.toString();
+}
+
+BoxDecoration profileBoxDecoration() {
+  return BoxDecoration(
+    borderRadius: BorderRadius.circular($constants.corners.md),
+    shape: BoxShape.rectangle,
+    color: $constants.palette.lightBlue,
+  );
 }
