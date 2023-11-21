@@ -3,6 +3,13 @@ part of 'profile_fill_bloc.dart';
 @immutable
 abstract class ProfileFillEvent {}
 
+class OnInitUserInfoEvent extends ProfileFillEvent {
+  final String id;
+  final String phone;
+
+  OnInitUserInfoEvent({required this.id, required this.phone});
+}
+
 class OnChangeStepEvent extends ProfileFillEvent {
   final ProfileFillStep step;
 

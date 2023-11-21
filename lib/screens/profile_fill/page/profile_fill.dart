@@ -19,7 +19,8 @@ class ProfileFillPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<ProfileFillBloc>(
-      create: (context) => ProfileFillBloc(),
+      create: (context) =>
+          ProfileFillBloc()..add(OnInitUserInfoEvent(id: id, phone: phone)),
       child: Scaffold(
         backgroundColor: $constants.palette.darkBlue,
         body: const ProfileFillContent(),

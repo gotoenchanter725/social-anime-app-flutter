@@ -29,13 +29,21 @@ enum ProfileFillStep {
 
 class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
   ProfileFillStep step = ProfileFillStep.welcome;
-  UpdateUserModel user = const UpdateUserModel(id: '', phone: '');
+  UpdateUserModel user = UpdateUserModel.initial();
   List<UploadPhotoModel> uploadedPhotos = [];
   LocationUserModel? location;
   List<AnimeModel> animeList = [];
   File? verifyPhoto;
 
+  late int userId;
+
   ProfileFillBloc() : super(ProfileFillInitial()) {
+    on<OnInitUserInfoEvent>((event, emit) {
+      userId = int.parse(event.id);
+      user = user.copyWith(id: event.id.toString(), phone: event.phone);
+      emit(ProfileFillInitial());
+    });
+
     on<OnChangeStepEvent>((event, emit) {
       step = event.step;
       emit(ChangedStepSucssesfulState());
