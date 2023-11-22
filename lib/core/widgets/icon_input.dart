@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:senpai/core/widgets/search_suffix_icon.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class SenpaiIconInput extends StatelessWidget {
-  const SenpaiIconInput(
-      {super.key,
-      required this.iconPath,
-      required this.hintText,
-      required this.onChange});
+  const SenpaiIconInput({
+    super.key,
+    required this.iconPath,
+    required this.hintText,
+    required this.onChange,
+    this.controller,
+    this.onTapSuffix,
+    this.onTapInput,
+  });
 
   final String iconPath;
   final String hintText;
   final Function(String) onChange;
+  final TextEditingController? controller;
+  final VoidCallback? onTapSuffix;
+  final VoidCallback? onTapInput;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +36,8 @@ class SenpaiIconInput extends StatelessWidget {
         color: $constants.palette.buttonBackground,
       ),
       child: TextFormField(
+        readOnly: onTapInput != null,
+        onTap: onTapInput,
         decoration: InputDecoration(
           prefixIcon: Padding(
             padding: EdgeInsets.only(right: $constants.insets.xs),
@@ -42,6 +52,16 @@ class SenpaiIconInput extends StatelessWidget {
             maxWidth: 28,
             maxHeight: 20,
           ),
+          suffix: onTapSuffix != null
+              ? SearchSuffixIcon(
+                  onTap: onTapSuffix!,
+                )
+              : null,
+          suffixIconConstraints: const BoxConstraints(
+            maxWidth: 28,
+            maxHeight: 20,
+          ),
+          
           hintText: hintText,
           hintStyle: getTextTheme(context).bodyMedium!.copyWith(
                 color: $constants.palette.darkGrey,
@@ -49,6 +69,7 @@ class SenpaiIconInput extends StatelessWidget {
           border: InputBorder.none,
         ),
         onChanged: onChange,
+        controller: controller,
       ),
     );
   }

@@ -36,6 +36,7 @@ class _Times {
 
 @immutable
 class _Corners {
+  late final double xs = 6;
   late final double sm = 10;
   late final double md = 12;
   late final double lg = 16;

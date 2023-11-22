@@ -52,9 +52,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ProfileFillRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileFillRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ProfileFillPage(),
+        child: ProfileFillPage(
+          key: args.key,
+          phone: args.phone,
+          id: args.id,
+        ),
       );
     },
     ProfileRoute.name: (routeData) {
@@ -93,6 +98,16 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    VerifyCameraRoute.name: (routeData) {
+      final args = routeData.argsAs<VerifyCameraRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: VerifyCameraPage(
+          key: args.key,
+          bloc: args.bloc,
+        ),
+      );
+    },
     VerifyPhoneRoute.name: (routeData) {
       final args = routeData.argsAs<VerifyPhoneRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -105,9 +120,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     VerifyPhotoRoute.name: (routeData) {
+      final args = routeData.argsAs<VerifyPhotoRouteArgs>(
+          orElse: () => const VerifyPhotoRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const VerifyPhotoPage(),
+        child: VerifyPhotoPage(
+          key: args.key,
+          photo: args.photo,
+        ),
       );
     },
   };
@@ -199,16 +219,45 @@ class OnboardingRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ProfileFillPage]
-class ProfileFillRoute extends PageRouteInfo<void> {
-  const ProfileFillRoute({List<PageRouteInfo>? children})
-      : super(
+class ProfileFillRoute extends PageRouteInfo<ProfileFillRouteArgs> {
+  ProfileFillRoute({
+    Key? key,
+    required String phone,
+    required String id,
+    List<PageRouteInfo>? children,
+  }) : super(
           ProfileFillRoute.name,
+          args: ProfileFillRouteArgs(
+            key: key,
+            phone: phone,
+            id: id,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ProfileFillRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ProfileFillRouteArgs> page =
+      PageInfo<ProfileFillRouteArgs>(name);
+}
+
+class ProfileFillRouteArgs {
+  const ProfileFillRouteArgs({
+    this.key,
+    required this.phone,
+    required this.id,
+  });
+
+  final Key? key;
+
+  final String phone;
+
+  final String id;
+
+  @override
+  String toString() {
+    return 'ProfileFillRouteArgs{key: $key, phone: $phone, id: $id}';
+  }
 }
 
 /// generated route for
@@ -340,6 +389,44 @@ class UploadPhotosManagerRouteArgs {
 }
 
 /// generated route for
+/// [VerifyCameraPage]
+class VerifyCameraRoute extends PageRouteInfo<VerifyCameraRouteArgs> {
+  VerifyCameraRoute({
+    Key? key,
+    required VerifyPhotoBloc bloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          VerifyCameraRoute.name,
+          args: VerifyCameraRouteArgs(
+            key: key,
+            bloc: bloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'VerifyCameraRoute';
+
+  static const PageInfo<VerifyCameraRouteArgs> page =
+      PageInfo<VerifyCameraRouteArgs>(name);
+}
+
+class VerifyCameraRouteArgs {
+  const VerifyCameraRouteArgs({
+    this.key,
+    required this.bloc,
+  });
+
+  final Key? key;
+
+  final VerifyPhotoBloc bloc;
+
+  @override
+  String toString() {
+    return 'VerifyCameraRouteArgs{key: $key, bloc: $bloc}';
+  }
+}
+
+/// generated route for
 /// [VerifyPhonePage]
 class VerifyPhoneRoute extends PageRouteInfo<VerifyPhoneRouteArgs> {
   VerifyPhoneRoute({
@@ -384,14 +471,38 @@ class VerifyPhoneRouteArgs {
 
 /// generated route for
 /// [VerifyPhotoPage]
-class VerifyPhotoRoute extends PageRouteInfo<void> {
-  const VerifyPhotoRoute({List<PageRouteInfo>? children})
-      : super(
+class VerifyPhotoRoute extends PageRouteInfo<VerifyPhotoRouteArgs> {
+  VerifyPhotoRoute({
+    Key? key,
+    File? photo,
+    List<PageRouteInfo>? children,
+  }) : super(
           VerifyPhotoRoute.name,
+          args: VerifyPhotoRouteArgs(
+            key: key,
+            photo: photo,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'VerifyPhotoRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<VerifyPhotoRouteArgs> page =
+      PageInfo<VerifyPhotoRouteArgs>(name);
+}
+
+class VerifyPhotoRouteArgs {
+  const VerifyPhotoRouteArgs({
+    this.key,
+    this.photo,
+  });
+
+  final Key? key;
+
+  final File? photo;
+
+  @override
+  String toString() {
+    return 'VerifyPhotoRouteArgs{key: $key, photo: $photo}';
+  }
 }

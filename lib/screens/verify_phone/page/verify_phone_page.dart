@@ -9,6 +9,7 @@ import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/verify_phone/blocs/otp_form_bloc/otp_form_bloc.dart';
 import 'package:senpai/screens/verify_phone/widget/verify_phone_content.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -197,7 +198,10 @@ class VerifyPhonePage extends StatelessWidget {
                       if (hasFilledProfile) {
                         context.router.pushNamed("/home");
                       } else {
-                        context.router.pushNamed("/profile_fill");
+                        context.router.push(ProfileFillRoute(
+                          id: id,
+                          phone: phone,
+                        ));
                       }
 
                       return const SizedBox.shrink();

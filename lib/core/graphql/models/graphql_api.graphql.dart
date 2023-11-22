@@ -1595,6 +1595,63 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime extends JsonSerializable
+    with EquatableMixin {
+  DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime();
+
+  factory DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime.fromJson(
+          Map<String, dynamic> json) =>
+      _$DeleteFavoriteAnime$Mutation$DeleteFavoriteAnimeFromJson(json);
+
+  late bool deleted;
+
+  @override
+  List<Object?> get props => [deleted];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$DeleteFavoriteAnime$Mutation$DeleteFavoriteAnimeToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DeleteFavoriteAnime$Mutation extends JsonSerializable
+    with EquatableMixin {
+  DeleteFavoriteAnime$Mutation();
+
+  factory DeleteFavoriteAnime$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$DeleteFavoriteAnime$MutationFromJson(json);
+
+  DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime? deleteFavoriteAnime;
+
+  @override
+  List<Object?> get props => [deleteFavoriteAnime];
+  @override
+  Map<String, dynamic> toJson() => _$DeleteFavoriteAnime$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DeleteFavoriteAnimeInput extends JsonSerializable with EquatableMixin {
+  DeleteFavoriteAnimeInput({
+    required this.animeId,
+    this.clientMutationId,
+    required this.userId,
+  });
+
+  factory DeleteFavoriteAnimeInput.fromJson(Map<String, dynamic> json) =>
+      _$DeleteFavoriteAnimeInputFromJson(json);
+
+  late String animeId;
+
+  String? clientMutationId;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [animeId, clientMutationId, userId];
+  @override
+  Map<String, dynamic> toJson() => _$DeleteFavoriteAnimeInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class CreateUserArguments extends JsonSerializable with EquatableMixin {
   CreateUserArguments({required this.input});
 
@@ -3694,4 +3751,85 @@ class FetchStickersQuery
   @override
   FetchStickers$Query parse(Map<String, dynamic> json) =>
       FetchStickers$Query.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DeleteFavoriteAnimeArguments extends JsonSerializable
+    with EquatableMixin {
+  DeleteFavoriteAnimeArguments({required this.input});
+
+  @override
+  factory DeleteFavoriteAnimeArguments.fromJson(Map<String, dynamic> json) =>
+      _$DeleteFavoriteAnimeArgumentsFromJson(json);
+
+  late DeleteFavoriteAnimeInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$DeleteFavoriteAnimeArgumentsToJson(this);
+}
+
+final DELETE_FAVORITE_ANIME_MUTATION_DOCUMENT_OPERATION_NAME =
+    'deleteFavoriteAnime';
+final DELETE_FAVORITE_ANIME_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'deleteFavoriteAnime'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'DeleteFavoriteAnimeInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'deleteFavoriteAnime'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'deleted'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class DeleteFavoriteAnimeMutation extends GraphQLQuery<
+    DeleteFavoriteAnime$Mutation, DeleteFavoriteAnimeArguments> {
+  DeleteFavoriteAnimeMutation({required this.variables});
+
+  @override
+  final DocumentNode document = DELETE_FAVORITE_ANIME_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      DELETE_FAVORITE_ANIME_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final DeleteFavoriteAnimeArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  DeleteFavoriteAnime$Mutation parse(Map<String, dynamic> json) =>
+      DeleteFavoriteAnime$Mutation.fromJson(json);
 }

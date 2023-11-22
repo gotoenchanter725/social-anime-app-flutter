@@ -1175,6 +1175,48 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
+DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime
+    _$DeleteFavoriteAnime$Mutation$DeleteFavoriteAnimeFromJson(
+            Map<String, dynamic> json) =>
+        DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime()
+          ..deleted = json['deleted'] as bool;
+
+Map<String, dynamic> _$DeleteFavoriteAnime$Mutation$DeleteFavoriteAnimeToJson(
+        DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime instance) =>
+    <String, dynamic>{
+      'deleted': instance.deleted,
+    };
+
+DeleteFavoriteAnime$Mutation _$DeleteFavoriteAnime$MutationFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteAnime$Mutation()
+      ..deleteFavoriteAnime = json['deleteFavoriteAnime'] == null
+          ? null
+          : DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime.fromJson(
+              json['deleteFavoriteAnime'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DeleteFavoriteAnime$MutationToJson(
+        DeleteFavoriteAnime$Mutation instance) =>
+    <String, dynamic>{
+      'deleteFavoriteAnime': instance.deleteFavoriteAnime?.toJson(),
+    };
+
+DeleteFavoriteAnimeInput _$DeleteFavoriteAnimeInputFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteAnimeInput(
+      animeId: json['animeId'] as String,
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$DeleteFavoriteAnimeInputToJson(
+        DeleteFavoriteAnimeInput instance) =>
+    <String, dynamic>{
+      'animeId': instance.animeId,
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
 CreateUserArguments _$CreateUserArgumentsFromJson(Map<String, dynamic> json) =>
     CreateUserArguments(
       input: CreateUserInput.fromJson(json['input'] as Map<String, dynamic>),
@@ -1364,4 +1406,17 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
+    };
+
+DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteAnimeArguments(
+      input: DeleteFavoriteAnimeInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$DeleteFavoriteAnimeArgumentsToJson(
+        DeleteFavoriteAnimeArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
     };

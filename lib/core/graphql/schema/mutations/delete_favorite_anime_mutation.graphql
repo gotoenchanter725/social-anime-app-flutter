@@ -1,0 +1,5 @@
+mutation deleteFavoriteAnime($input: DeleteFavoriteAnimeInput!) {
+  deleteFavoriteAnime(input: $input) {
+    deleted
+  }
+}

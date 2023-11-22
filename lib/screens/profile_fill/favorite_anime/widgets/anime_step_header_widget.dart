@@ -44,7 +44,7 @@ class AnimeStepHeaderWidget extends StatelessWidget {
       onTapBackButton: () {
         bloc.add(
           OnChangeStepEvent(
-            step: ProfileFillStep.biography,
+            step: ProfileFillStep.location,
           ),
         );
       },

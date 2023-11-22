@@ -146,6 +146,7 @@ flutter:
     - assets/configs/
     - assets/images/onboarding/
     - assets/images/profile/
+    - assets/images/match/
     - assets/icons/
     - assets/licenses/
 

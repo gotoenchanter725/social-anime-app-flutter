@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:senpai/routes/guards/onboarding_guard.dart';
@@ -13,6 +14,8 @@ import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/page/upload_photos_manager_page.dart';
 import 'package:senpai/screens/signup/page/sign_up_page.dart';
 import 'package:senpai/screens/verify_phone/page/verify_phone_page.dart';
+import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
+import 'package:senpai/screens/verify_photo/camera_page/page/verify_camera_page.dart';
 import 'package:senpai/screens/verify_photo/page/verify_photo_page.dart';
 import 'package:senpai/screens/profile/page/profile.dart';
 part 'app_router.gr.dart';
@@ -40,6 +43,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: ChatRoute.page,
           path: '/chat',
-        )
+        ),
+        AutoRoute(page: UploadPhotosManagerRoute.page, path: '/photos_manager'),
+        AutoRoute(page: VerifyCameraRoute.page, path: '/verify_camera'),
       ];
 }

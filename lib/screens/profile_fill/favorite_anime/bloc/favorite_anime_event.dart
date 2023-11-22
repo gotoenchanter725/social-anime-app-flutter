@@ -33,6 +33,13 @@ class OnSearchAnimesEvent extends FavoriteAnimeEvent {
   OnSearchAnimesEvent({required this.searchText});
 }
 
+class OnSelectGenreAnimesEvent extends FavoriteAnimeEvent {
+  final AnimeGenresEnums genre;
+  final bool selected;
+
+  OnSelectGenreAnimesEvent({required this.genre, required this.selected});
+}
+
 class OnChangePaginationPageEvent extends FavoriteAnimeEvent {
   final int page;
 

@@ -9,7 +9,7 @@ import 'package:senpai/utils/methods/utils.dart';
 class HeaderSimpleField extends StatelessWidget {
   final String title;
   final String description;
-  final VoidCallback onTapBackButton;
+  final VoidCallback? onTapBackButton;
   final String? iconPath;
   final VoidCallback? onTapSkipkButton;
   final Color? backBorderColor;
@@ -19,7 +19,7 @@ class HeaderSimpleField extends StatelessWidget {
     super.key,
     required this.title,
     required this.description,
-    required this.onTapBackButton,
+    this.onTapBackButton,
     this.iconPath,
     this.onTapSkipkButton,
     this.backBorderColor,
@@ -35,7 +35,7 @@ class HeaderSimpleField extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            _buildBackButton(context),
+            if (onTapBackButton != null) _buildBackButton(context),
             if (onTapSkipkButton != null) _buildSkipButton(context),
           ],
         ),
@@ -68,7 +68,7 @@ class HeaderSimpleField extends StatelessWidget {
         bottom: $constants.insets.lg,
       ),
       child: SenpaiIconButton(
-        onPressed: onTapBackButton,
+        onPressed: onTapBackButton!,
         iconPath: iconPath ?? PathConstants.backIcon,
         borderColor: backBorderColor,
       ),

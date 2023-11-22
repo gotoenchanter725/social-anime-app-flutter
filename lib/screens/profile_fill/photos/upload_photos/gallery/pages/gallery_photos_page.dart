@@ -18,9 +18,7 @@ class GalleryPhotosPage extends StatelessWidget {
   String _appBarTitle(BuildContext context) {
     final bloc = BlocProvider.of<UploadPhotosBloc>(context);
 
-    if (bloc.assetsList.isEmpty) {
-      return '';
-    } else if (bloc.selectedAssetsList.isNotEmpty) {
+    if (bloc.selectedAssetsList.isNotEmpty) {
       return '${TextConstants.selectedText} ${bloc.selectedAssetsList.length} '
           '${TextConstants.ofText} ${bloc.maxCount}';
     } else {

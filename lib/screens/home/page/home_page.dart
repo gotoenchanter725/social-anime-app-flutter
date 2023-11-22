@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
       routes: const [
         MatchRoute(),
         ChatListRoute(),
-        ProfileFillRoute(),
+        ProfileRoute(),
       ],
       bottomNavigationBuilder: _createdBottomTabBar,
     );
