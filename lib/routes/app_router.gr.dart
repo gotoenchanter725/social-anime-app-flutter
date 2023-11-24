@@ -51,6 +51,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const OnboardingPage(),
       );
     },
+    PremiumRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PremiumPage(),
+      );
+    },
     ProfileFillRoute.name: (routeData) {
       final args = routeData.argsAs<ProfileFillRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -208,6 +214,20 @@ class OnboardingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'OnboardingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PremiumPage]
+class PremiumRoute extends PageRouteInfo<void> {
+  const PremiumRoute({List<PageRouteInfo>? children})
+      : super(
+          PremiumRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PremiumRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -8,6 +8,7 @@ import 'package:senpai/screens/home/page/home_page.dart';
 import 'package:senpai/screens/license/page/license_page.dart';
 import 'package:senpai/screens/match/page/match_page.dart';
 import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
+import 'package:senpai/screens/premium_screen/page/premium_page.dart';
 import 'package:senpai/screens/profile_fill/page/profile_fill.dart';
 import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/page/upload_photos_manager_page.dart';
@@ -45,5 +46,6 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(page: UploadPhotosManagerRoute.page, path: '/photos_manager'),
         AutoRoute(page: VerifyCameraRoute.page, path: '/verify_camera'),
+        AutoRoute(page: PremiumRoute.page, path: '/premium'),
       ];
 }
