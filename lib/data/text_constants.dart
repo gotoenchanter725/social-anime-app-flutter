@@ -161,6 +161,9 @@ class TextConstants {
       "Maybe there is a mistake in search? \nPlease check and try again";
   static const String selectedAnimeError =
       "Sorry, you have already selected 10 anime.";
+  static const String searchAnimesHintText = "Search animes";
+  static const String myAnimesText = "My animes";
+  static const String chooseTitle = "Choose";
 
   //  -> Favorite Anime Genres
   static const String actionGenresTitle = "Action";
@@ -197,4 +200,111 @@ class TextConstants {
   static const String connectYourSpotifyDescription =
       "Show potential matches your favorite artists";
   static const String connectSpotifyText = "Connect Spotify";
+
+  // -> Profile
+  static const String senpaiPremiumTitle = "Senpai Premium";
+  static const String premiumHigherText = "Higher visibility rates";
+  static const String premiumSuperLikesText = "30 Super Likes";
+  static const String premiumAbilityAnimesText =
+      "Ability to add up to 15 animes";
+  static const String premiumUpgradeText = "Upgrade for \$9.99";
+
+  static const String editProfileButton = "Edit profile";
+  static const String profileFindsButton = "Finds";
+  static const String verifyYourPhotosButton = "Verify your photos";
+  static const String restorePurchasesButton = "Restore purchases";
+  static const String activeNowTitle = "Active now";
+  static const String currentlyNotActiveTitle = "Currently not active";
+  static const String waitingForPhotoVerificationTitle =
+      "Waiting for photo verification";
+
+  // -> Edit Profile
+  static const String nameTitle = "Name";
+  static const String bioTitle = "Bio";
+  static const String birthdayTitle = "Birthday";
+  static const String genderTitle = "Gender";
+  static const String lookingForTitle = "Looking for";
+  static const String workAndEducationTitle = "Work and education";
+  static const String locationTitle = "Location";
+  static const String favoriteAnimesTitle = "Favorite animes";
+  static const String studiedAtTitle = "Studied at ";
+  static const String editTitle = "Edit";
+  static const String previewTitle = "Preview";
+  static const String hideLocationTitle = "Hide my location";
+  static const String addTitle = "Add";
+  static const String aboutMeTitle = "About me";
+  static const String workingAsTitle = "Working as ";
+
+  // -> Profile Filter
+  static const String findsFiltersTitle = "Finds filters";
+  static const String clearAllTitle = "Clear all";
+  static const String ageRangeTitle = "Age range";
+  static const String distanceTitle = "Distance (mi)";
+  static const String applyTitle = "Apply";
+  static const String wholeCountryTitle = "Whole country";
+  static const String kmTitle = "mi";
+  static const String photoVerifiedTitle = "Photo verified";
+  static const String hasBioTitle = "Has a bio";
+  static const String applyChangesTitle = "Apply changes";
+
+  // -> Settings Profile
+  static const String settingsTitle = "Settings";
+  static const String senpaiPremiumDescription =
+      "Higher visibility rates, 30 Super Likes \nand much more!";
+  static const String accountSettingsTitle = "Account settings";
+  static const String phoneNumberTitle = "Phone number";
+  static const String languageTitle = "Language";
+  static const String addLanguageTitle = "Add language";
+  static const String pushNotificationsTitle = "Push-notifications";
+  static const String activityStatusTitle = "Activity status";
+  static const String showActiveStatusTitle = "Show “Active” status";
+  static const String showActiveStatusDescription =
+      "The  “Activity” status is displayed in the profile if the Senpai  app has been used by you in the last 2 hours.";
+  static const String showRecentlyActivetatusTitle =
+      "Show “Recently active” status";
+  static const String showRecentlyActivetatusDescription =
+      "The “Recently activity” status is displayed in the profile if the Senpai  app has been used by you in the last 24 hours.";
+  static const String deleteAccountTitle = "Delete account";
+  static const String logoutTitle = "Logout";
+  static const String chooseLanguageTitle = "Choose language";
+  static const String feedbackTitle = "Feedback";
+  static const String feedbackOnSenpaiTitle = "Feedback on Senpai";
+  static const String feedbackOnSenpaiHintText =
+      "Write your feedback on Senpai";
+  static const String sendButton = "Send";
+  static const String rateSenpaiTitle = "Rate Senpai";
+
+  // -> Delete Profile
+  static const String areSureDeleteAccountTitle =
+      "Are you sure you want to delete your account? If you’d just like to hide for a while or start over, you can:";
+  static const String hideYourAccountTitle =
+      "Hide your account, like you delete it, but you can come back when you like";
+  static const String switchNotificationsOffTitle = "Switch notifications off";
+  static const String justLogoutInsteadTitle = "Just logout instead";
+  static const String deleteYourAccountTitle = "Delete your account";
+
+  // -> Push-notifications Profile
+  static const String newMatchesTitle = "New matches";
+  static const String newMessagesTitle = "New messages";
+  static const String superlikesTitle = "Superlikes";
+  static const String appSoundsTitle = "App sounds";
+
+  // -> Phone number Profile
+  static const String confirmedPhoneDescription = "Confirmed phone number";
+  static const String updateMyPhoneButton = "Update my phone number";
+
+  // -> Logout Profile
+  static const String areYouSureLogoutTitle =
+      "Are you sure you want to log out?";
+  static const String areYouSureLogoutDescription =
+      "If you ask Senpai to remember you, you will be able to log in again on this device with single tap.";
+  static const String forgetMeTitle = "Forget me on this device";
+  static const String rememberMeTitle = "Remember me on this device";
+
+  // -> Match Users
+  static const String itsTitle = "It’s a";
+  static const String likeWhatYouSeeTitle = "Like what you see?";
+  static const String notForYouTitle = "Not for you?";
+  static const String swipeRightDescription = "Swipe right if you like it";
+  static const String swipeLeftDescription = "Swipe left if not";
 }
