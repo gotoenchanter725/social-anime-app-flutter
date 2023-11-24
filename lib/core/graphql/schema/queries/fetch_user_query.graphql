@@ -2,6 +2,7 @@ query fetchUser($userId: ID!) {
   fetchUser(userId: $userId) {
     id
     role
+    firstName
     birthday
     bio
     gender
@@ -13,6 +14,7 @@ query fetchUser($userId: ID!) {
     displayCity
     displayState
     spotifyEmail
+    onlineStatus
     matches {
       id
       matcheeId
@@ -38,5 +40,6 @@ query fetchUser($userId: ID!) {
       musicType
       name
     }
+    premium
   }
 }
