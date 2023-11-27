@@ -83,10 +83,9 @@ class ProfileContent extends StatelessWidget {
                         icon: PathConstants.filterIcon,
                         title: TextConstants.profileFindsButton,
                         onTap: () async {
-                          // change after implement ProfileFilterRoute
-                          // await context.router.push(
-                          //   ProfileFilterRoute(user: bloc.user),
-                          // );
+                          await context.router.push(
+                            ProfileFilterRoute(animes: bloc.user.animes),
+                          );
                         },
                       ),
                       if (bloc.user.premium == false)
@@ -103,8 +102,7 @@ class ProfileContent extends StatelessWidget {
   }
 
   Widget _buildAppBar(BuildContext context) {
-    //change after implement EditProfileRoute
-    // final bloc = BlocProvider.of<ProfileBloc>(context);
+    final bloc = BlocProvider.of<ProfileBloc>(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -116,10 +114,9 @@ class ProfileContent extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () async {
-            // change after implement EditProfileRoute
-            // await context.router.push(
-            //   SettingsProfileRoute(user: bloc.user),
-            // );
+            await context.router.push(
+              SettingsProfileRoute(user: bloc.user),
+            );
           },
           child: SvgPicture.asset(
             PathConstants.settingsIcon,
