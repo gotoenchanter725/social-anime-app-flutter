@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:senpai/models/profile_fill/anime/anime_model.dart';
+import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/routes/guards/onboarding_guard.dart';
 import 'package:senpai/screens/chat/page/chat_page.dart';
 import 'package:senpai/screens/chat_list/page/chat_list_page.dart';
@@ -9,6 +11,8 @@ import 'package:senpai/screens/license/page/license_page.dart';
 import 'package:senpai/screens/match/page/match_page.dart';
 import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
 import 'package:senpai/screens/premium_screen/page/premium_page.dart';
+import 'package:senpai/screens/profile/profile_filter/profile_filter_page/profile_filter_page.dart';
+import 'package:senpai/screens/profile/settings_profile/settings_profile_page/settings_profile_page.dart';
 import 'package:senpai/screens/profile_fill/page/profile_fill.dart';
 import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/page/upload_photos_manager_page.dart';
@@ -47,5 +51,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: UploadPhotosManagerRoute.page, path: '/photos_manager'),
         AutoRoute(page: VerifyCameraRoute.page, path: '/verify_camera'),
         AutoRoute(page: PremiumRoute.page, path: '/premium'),
+        AutoRoute(page: SettingsProfileRoute.page, path: '/settings_profile'),
+        AutoRoute(page: ProfileFilterRoute.page, path: '/profile_filter'),
       ];
 }
