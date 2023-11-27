@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'user_model.dart';
+part of 'user_profile_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-UserModel _$UserModelFromJson(Map<String, dynamic> json) {
-  return _UserModel.fromJson(json);
+UserProfileModel _$UserProfileModelFromJson(Map<String, dynamic> json) {
+  return _UserProfileModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UserModel {
+mixin _$UserProfileModel {
   String get id => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String? get firstName => throw _privateConstructorUsedError;
@@ -33,25 +33,24 @@ mixin _$UserModel {
   String? get bio => throw _privateConstructorUsedError;
   String? get displayCity => throw _privateConstructorUsedError;
   String? get displayState => throw _privateConstructorUsedError;
-  String? get spotifyEmail =>
-      throw _privateConstructorUsedError; // List<UserAnimeModel>? animes,
+  String? get spotifyEmail => throw _privateConstructorUsedError;
   List<AnimeModel>? get animes => throw _privateConstructorUsedError;
   GalleryUserModel? get gallery => throw _privateConstructorUsedError;
-  String? get lonlat =>
-      throw _privateConstructorUsedError; // List<MatchUserData>? matches,
+  String? get lonlat => throw _privateConstructorUsedError;
   String? get onlineStatus => throw _privateConstructorUsedError;
   bool? get premium => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserModelCopyWith<UserModel> get copyWith =>
+  $UserProfileModelCopyWith<UserProfileModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserModelCopyWith<$Res> {
-  factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
-      _$UserModelCopyWithImpl<$Res, UserModel>;
+abstract class $UserProfileModelCopyWith<$Res> {
+  factory $UserProfileModelCopyWith(
+          UserProfileModel value, $Res Function(UserProfileModel) then) =
+      _$UserProfileModelCopyWithImpl<$Res, UserProfileModel>;
   @useResult
   $Res call(
       {String id,
@@ -78,9 +77,9 @@ abstract class $UserModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
-    implements $UserModelCopyWith<$Res> {
-  _$UserModelCopyWithImpl(this._value, this._then);
+class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
+    implements $UserProfileModelCopyWith<$Res> {
+  _$UserProfileModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -204,10 +203,11 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
 }
 
 /// @nodoc
-abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
-  factory _$$_UserModelCopyWith(
-          _$_UserModel value, $Res Function(_$_UserModel) then) =
-      __$$_UserModelCopyWithImpl<$Res>;
+abstract class _$$_UserProfileModelCopyWith<$Res>
+    implements $UserProfileModelCopyWith<$Res> {
+  factory _$$_UserProfileModelCopyWith(
+          _$_UserProfileModel value, $Res Function(_$_UserProfileModel) then) =
+      __$$_UserProfileModelCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -236,11 +236,11 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_UserModelCopyWithImpl<$Res>
-    extends _$UserModelCopyWithImpl<$Res, _$_UserModel>
-    implements _$$_UserModelCopyWith<$Res> {
-  __$$_UserModelCopyWithImpl(
-      _$_UserModel _value, $Res Function(_$_UserModel) _then)
+class __$$_UserProfileModelCopyWithImpl<$Res>
+    extends _$UserProfileModelCopyWithImpl<$Res, _$_UserProfileModel>
+    implements _$$_UserProfileModelCopyWith<$Res> {
+  __$$_UserProfileModelCopyWithImpl(
+      _$_UserProfileModel _value, $Res Function(_$_UserProfileModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -266,7 +266,7 @@ class __$$_UserModelCopyWithImpl<$Res>
     Object? onlineStatus = freezed,
     Object? premium = freezed,
   }) {
-    return _then(_$_UserModel(
+    return _then(_$_UserProfileModel(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -349,8 +349,8 @@ class __$$_UserModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserModel implements _UserModel {
-  const _$_UserModel(
+class _$_UserProfileModel implements _UserProfileModel {
+  const _$_UserProfileModel(
       {required this.id,
       required this.phone,
       this.firstName,
@@ -372,8 +372,8 @@ class _$_UserModel implements _UserModel {
       this.premium})
       : _animes = animes;
 
-  factory _$_UserModel.fromJson(Map<String, dynamic> json) =>
-      _$$_UserModelFromJson(json);
+  factory _$_UserProfileModel.fromJson(Map<String, dynamic> json) =>
+      _$$_UserProfileModelFromJson(json);
 
   @override
   final String id;
@@ -403,9 +403,7 @@ class _$_UserModel implements _UserModel {
   final String? displayState;
   @override
   final String? spotifyEmail;
-// List<UserAnimeModel>? animes,
   final List<AnimeModel>? _animes;
-// List<UserAnimeModel>? animes,
   @override
   List<AnimeModel>? get animes {
     final value = _animes;
@@ -419,7 +417,6 @@ class _$_UserModel implements _UserModel {
   final GalleryUserModel? gallery;
   @override
   final String? lonlat;
-// List<MatchUserData>? matches,
   @override
   final String? onlineStatus;
   @override
@@ -427,14 +424,14 @@ class _$_UserModel implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, phone: $phone, firstName: $firstName, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium)';
+    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserModel &&
+            other is _$_UserProfileModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.firstName, firstName) ||
@@ -493,19 +490,19 @@ class _$_UserModel implements _UserModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserModelCopyWith<_$_UserModel> get copyWith =>
-      __$$_UserModelCopyWithImpl<_$_UserModel>(this, _$identity);
+  _$$_UserProfileModelCopyWith<_$_UserProfileModel> get copyWith =>
+      __$$_UserProfileModelCopyWithImpl<_$_UserProfileModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserModelToJson(
+    return _$$_UserProfileModelToJson(
       this,
     );
   }
 }
 
-abstract class _UserModel implements UserModel {
-  const factory _UserModel(
+abstract class _UserProfileModel implements UserProfileModel {
+  const factory _UserProfileModel(
       {required final String id,
       required final String phone,
       final String? firstName,
@@ -524,10 +521,10 @@ abstract class _UserModel implements UserModel {
       final GalleryUserModel? gallery,
       final String? lonlat,
       final String? onlineStatus,
-      final bool? premium}) = _$_UserModel;
+      final bool? premium}) = _$_UserProfileModel;
 
-  factory _UserModel.fromJson(Map<String, dynamic> json) =
-      _$_UserModel.fromJson;
+  factory _UserProfileModel.fromJson(Map<String, dynamic> json) =
+      _$_UserProfileModel.fromJson;
 
   @override
   String get id;
@@ -557,18 +554,18 @@ abstract class _UserModel implements UserModel {
   String? get displayState;
   @override
   String? get spotifyEmail;
-  @override // List<UserAnimeModel>? animes,
+  @override
   List<AnimeModel>? get animes;
   @override
   GalleryUserModel? get gallery;
   @override
   String? get lonlat;
-  @override // List<MatchUserData>? matches,
+  @override
   String? get onlineStatus;
   @override
   bool? get premium;
   @override
   @JsonKey(ignore: true)
-  _$$_UserModelCopyWith<_$_UserModel> get copyWith =>
+  _$$_UserProfileModelCopyWith<_$_UserProfileModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_model.dart';
+part of 'user_profile_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
+_$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) =>
+    _$_UserProfileModel(
       id: json['id'] as String,
       phone: json['phone'] as String,
       firstName: json['firstName'] as String?,
@@ -34,7 +35,7 @@ _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
       premium: json['premium'] as bool?,
     );
 
-Map<String, dynamic> _$$_UserModelToJson(_$_UserModel instance) =>
+Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'phone': instance.phone,

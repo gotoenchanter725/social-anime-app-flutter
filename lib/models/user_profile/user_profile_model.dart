@@ -2,12 +2,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/user_profile/gallery_user/gallery_user_model.dart';
 
-part 'user_model.freezed.dart';
-part 'user_model.g.dart';
+part 'user_profile_model.freezed.dart';
+part 'user_profile_model.g.dart';
 
 @freezed
-class UserModel with _$UserModel {
-  const factory UserModel({
+class UserProfileModel with _$UserProfileModel {
+  const factory UserProfileModel({
     required String id,
     required String phone,
     String? firstName,
@@ -27,9 +27,9 @@ class UserModel with _$UserModel {
     String? lonlat,
     String? onlineStatus,
     bool? premium,
-  }) = _UserModel;
+  }) = _UserProfileModel;
 
-  factory UserModel.initial() => const UserModel(
+  factory UserProfileModel.initial() => const UserProfileModel(
         id: '',
         phone: '',
         firstName: '',
@@ -51,6 +51,6 @@ class UserModel with _$UserModel {
         gallery: null,
       );
 
-  factory UserModel.fromJson(Map<String, dynamic> json) =>
-      _$UserModelFromJson(json);
+  factory UserProfileModel.fromJson(Map<String, dynamic> json) =>
+      _$UserProfileModelFromJson(json);
 }
