@@ -1231,6 +1231,49 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
+GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers
+    _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersFromJson(
+            Map<String, dynamic> json) =>
+        GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers()
+          ..mi = json['mi'] as int;
+
+Map<String,
+    dynamic> _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersToJson(
+        GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers instance) =>
+    <String, dynamic>{
+      'mi': instance.mi,
+    };
+
+GetDistanceBetweenUsers$Mutation _$GetDistanceBetweenUsers$MutationFromJson(
+        Map<String, dynamic> json) =>
+    GetDistanceBetweenUsers$Mutation()
+      ..getDistanceBetweenUsers = json['getDistanceBetweenUsers'] == null
+          ? null
+          : GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers.fromJson(
+              json['getDistanceBetweenUsers'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$GetDistanceBetweenUsers$MutationToJson(
+        GetDistanceBetweenUsers$Mutation instance) =>
+    <String, dynamic>{
+      'getDistanceBetweenUsers': instance.getDistanceBetweenUsers?.toJson(),
+    };
+
+GetDistanceBetweenUsersInput _$GetDistanceBetweenUsersInputFromJson(
+        Map<String, dynamic> json) =>
+    GetDistanceBetweenUsersInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as int,
+      vieweeId: json['vieweeId'] as int,
+    );
+
+Map<String, dynamic> _$GetDistanceBetweenUsersInputToJson(
+        GetDistanceBetweenUsersInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+      'vieweeId': instance.vieweeId,
+    };
+
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -1433,4 +1476,17 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
+    };
+
+GetDistanceBetweenUsersArguments _$GetDistanceBetweenUsersArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    GetDistanceBetweenUsersArguments(
+      input: GetDistanceBetweenUsersInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$GetDistanceBetweenUsersArgumentsToJson(
+        GetDistanceBetweenUsersArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
     };
