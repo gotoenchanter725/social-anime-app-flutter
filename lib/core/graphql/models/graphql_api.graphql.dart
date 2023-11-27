@@ -579,10 +579,22 @@ class ValidatePhone$Mutation$ValidatePhone$User extends JsonSerializable
           Map<String, dynamic> json) =>
       _$ValidatePhone$Mutation$ValidatePhone$UserFromJson(json);
 
+  late String id;
+
   late String phone;
 
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
+      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
+  late DateTime createdAt;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
+      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
+  late DateTime updatedAt;
+
   @override
-  List<Object?> get props => [phone];
+  List<Object?> get props => [id, phone, createdAt, updatedAt];
   @override
   Map<String, dynamic> toJson() =>
       _$ValidatePhone$Mutation$ValidatePhone$UserToJson(this);
@@ -2332,12 +2344,33 @@ final VALIDATE_PHONE_MUTATION_DOCUMENT = DocumentNode(definitions: [
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
                 name: NameNode(value: 'phone'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: null,
-              )
+              ),
+              FieldNode(
+                name: NameNode(value: 'createdAt'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'updatedAt'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
             ]),
           ),
           FieldNode(

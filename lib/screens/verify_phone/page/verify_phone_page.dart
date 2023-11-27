@@ -2,13 +2,17 @@ import 'package:auto_route/auto_route.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:senpai/core/auth/blocs/resend_verification_code_bloc.dart';
 import 'package:senpai/core/auth/blocs/sign_in_bloc.dart';
 import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
+import 'package:senpai/core/secure_storage/secure_auth_storage.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/models/auth/auth_model.dart';
+import 'package:senpai/models/auth/user_model.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/verify_phone/blocs/otp_form_bloc/otp_form_bloc.dart';
 import 'package:senpai/screens/verify_phone/widget/verify_phone_content.dart';
@@ -104,9 +108,15 @@ class VerifyPhonePage extends StatelessWidget {
                       String token = response["validatePhone"]["token"];
                       bool hasFilledProfile =
                           response["validatePhone"]["profileFilled"];
+                      UserModel user =
+                          UserModel.fromJson(response["validatePhone"]["user"]);
                       final formBloc = BlocProvider.of<OTPFormBloc>(context);
                       formBloc.isProfileFilled = hasFilledProfile;
                       final serviceBloc = BlocProvider.of<SignInBloc>(context);
+
+                      const flutterSecureStorage = FlutterSecureStorage();
+                      final storage = SecureAuthStorage(flutterSecureStorage);
+                      storage.write(AuthModel(token: token, user: user));
                       serviceBloc.signInExistingUser(token);
                       return const SenpaiLoading();
                     },

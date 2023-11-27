@@ -400,12 +400,20 @@ ValidatePhone$Mutation$ValidatePhone$User
     _$ValidatePhone$Mutation$ValidatePhone$UserFromJson(
             Map<String, dynamic> json) =>
         ValidatePhone$Mutation$ValidatePhone$User()
-          ..phone = json['phone'] as String;
+          ..id = json['id'] as String
+          ..phone = json['phone'] as String
+          ..createdAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['createdAt'] as String)
+          ..updatedAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['updatedAt'] as String);
 
 Map<String, dynamic> _$ValidatePhone$Mutation$ValidatePhone$UserToJson(
         ValidatePhone$Mutation$ValidatePhone$User instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'phone': instance.phone,
+      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
+      'updatedAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.updatedAt),
     };
 
 ValidatePhone$Mutation$ValidatePhone
