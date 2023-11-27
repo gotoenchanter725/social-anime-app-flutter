@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
@@ -11,12 +10,16 @@ import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
 
 import 'package:senpai/screens/verify_photo/widgets/verify_photo_content.dart';
+import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
 @RoutePage()
 class VerifyPhotoPage extends StatelessWidget {
+  final int? userID;
+
   const VerifyPhotoPage({
     super.key,
+    this.userID,
   });
 
   @override
@@ -26,8 +29,7 @@ class VerifyPhotoPage extends StatelessWidget {
         BlocProvider<VerifyPhotoBloc>(
           create: (context) => VerifyPhotoBloc()
             ..add(OnVerifyPhotoInitEvent(
-              //TODO: change it get id from local storage 
-              userId: 190,
+              userId: userID,
             )),
         ),
         BlocProvider(
@@ -35,11 +37,13 @@ class VerifyPhotoPage extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        body: Stack(
-          children: [
-            const VerifyPhotoContent(),
-            _buildVerifyPhotoUserListeners(),
-          ],
+        body: SafeArea(
+          child: Stack(
+            children: [
+              const VerifyPhotoContent(),
+              _buildVerifyPhotoUserListeners(),
+            ],
+          ),
         ),
       ),
     );
@@ -51,7 +55,7 @@ class VerifyPhotoPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              _showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, TextConstants.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -64,7 +68,7 @@ class VerifyPhotoPage extends StatelessWidget {
               }
               final user = response["submitVerifyRequest"]["user"];
               if (user == null) {
-                _showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, TextConstants.nullUser);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }
@@ -72,27 +76,6 @@ class VerifyPhotoPage extends StatelessWidget {
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
-      },
-    );
-  }
-
-  _showSnackBarError(BuildContext context, String message) {
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) {
-        ScaffoldMessenger.of(context)
-          ..hideCurrentSnackBar()
-          ..showSnackBar(
-            SnackBar(
-              elevation: 0,
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.transparent,
-              content: AwesomeSnackbarContent(
-                title: 'On Snap!',
-                message: message,
-                contentType: ContentType.failure,
-              ),
-            ),
-          );
       },
     );
   }

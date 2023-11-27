@@ -62,7 +62,9 @@ class ProfileContent extends StatelessWidget {
                           title: TextConstants.verifyYourPhotosButton,
                           onTap: () async {
                             await context.router.push(
-                              const VerifyPhotoRoute(),
+                              VerifyPhotoRoute(
+                                userID: int.tryParse(bloc.userID),
+                              ),
                             );
                           },
                           hasBorder: true,
