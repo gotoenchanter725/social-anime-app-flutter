@@ -11,6 +11,7 @@ import 'package:senpai/screens/license/page/license_page.dart';
 import 'package:senpai/screens/match/page/match_page.dart';
 import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
 import 'package:senpai/screens/premium_screen/page/premium_page.dart';
+import 'package:senpai/screens/preview_profile/page/preview_profile_page.dart';
 import 'package:senpai/screens/profile/profile_filter/profile_filter_page/profile_filter_page.dart';
 import 'package:senpai/screens/profile/settings_profile/settings_profile_page/settings_profile_page.dart';
 import 'package:senpai/screens/profile_fill/page/profile_fill.dart';
@@ -53,5 +54,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: PremiumRoute.page, path: '/premium'),
         AutoRoute(page: SettingsProfileRoute.page, path: '/settings_profile'),
         AutoRoute(page: ProfileFilterRoute.page, path: '/profile_filter'),
+        AutoRoute(page: PreviewProfileRoute.page, path: '/preview_profile'),
       ];
 }
