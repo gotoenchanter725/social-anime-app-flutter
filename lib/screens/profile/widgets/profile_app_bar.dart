@@ -25,9 +25,11 @@ class ProfileAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      toolbarHeight: $constants.insets.offset,
       backgroundColor: $constants.palette.darkBlue,
       automaticallyImplyLeading: false,
       surfaceTintColor: $constants.palette.darkBlue,
+      centerTitle: true,
       leading: _buildLeading(context),
       title: Text(title),
       titleTextStyle: getTextTheme(context).titleMedium!.copyWith(
@@ -42,13 +44,11 @@ class ProfileAppBar extends StatelessWidget {
   Widget _buildLeading(BuildContext context) {
     if (hasLeading) {
       return Container(
-        margin: EdgeInsets.only(left: $constants.insets.xs),
-        padding: EdgeInsets.fromLTRB(
-          $constants.insets.xs,
-          $constants.insets.xs,
-          0,
-          $constants.insets.xs,
+        alignment: Alignment.centerLeft,
+        margin: EdgeInsets.only(
+          left: $constants.insets.sm,
         ),
+        height: 24,
         child: SenpaiIconButton(
           onPressed: () async {
             if (onTapLeading != null) {
