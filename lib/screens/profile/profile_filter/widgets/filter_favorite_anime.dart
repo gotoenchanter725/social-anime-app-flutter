@@ -201,7 +201,10 @@ class FilterFavoriteAnime extends StatelessWidget {
       title: anime.title ?? '',
       value: isSelectedAnime,
       onChanged: (_) {
-        bloc.add(OnFavoriteAnimeSelectEvent(favoriteAnime: anime));
+        bloc.add(OnFavoriteAnimeSelectEvent(
+          favoriteAnime: anime,
+          isSelectedAnime: isSelectedAnime,
+        ));
       },
       leading: UserAvatar(
         imageUrl: anime.cover!,

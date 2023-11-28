@@ -18,8 +18,12 @@ class OnFetchFavoriteAnimeListEvent extends FavoriteAnimeEvent {
 
 class OnFavoriteAnimeSelectEvent extends FavoriteAnimeEvent {
   final AnimeModel favoriteAnime;
+  final bool isSelectedAnime;
 
-  OnFavoriteAnimeSelectEvent({required this.favoriteAnime});
+  OnFavoriteAnimeSelectEvent({
+    required this.favoriteAnime,
+    required this.isSelectedAnime,
+  });
 }
 
 class OnChangeAnimeStepEvent extends FavoriteAnimeEvent {

@@ -32,7 +32,8 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
   FavoriteAnimeBloc() : super(FavoriteAnimeInitial()) {
     on<OnFavoriteAnimeInitEvent>((event, emit) {
       if (event.selectedAnimeList.isNotEmpty) {
-        selectedAnimeList = event.selectedAnimeList;
+        selectedAnimeList = [];
+        selectedAnimeList.addAll(event.selectedAnimeList);
       }
       if (event.myAnimeList != null) {
         myAnimeList = event.myAnimeList!;
@@ -85,21 +86,22 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
     });
 
     on<OnFavoriteAnimeSelectEvent>((event, emit) {
-      bool isSelectedAnime = selectedAnimeList.contains(event.favoriteAnime);
+      emit(LoadingState());
       if (selectedAnimeList.length >= 10) {
         emit(ErrorState(
           message: TextConstants.selectedAnimeError,
           isEnabled: false,
         ));
-        if (isSelectedAnime) {
+        if (event.isSelectedAnime) {
           selectedAnimeList.remove(event.favoriteAnime);
         }
       } else {
-        isSelectedAnime
-            ? selectedAnimeList.remove(event.favoriteAnime)
+        event.isSelectedAnime
+            ? selectedAnimeList.removeWhere(
+                (anime) => anime.id == event.favoriteAnime.id,
+              )
             : selectedAnimeList.add(event.favoriteAnime);
       }
-      emit(LoadingState());
       emit(ValidState());
     });
 
