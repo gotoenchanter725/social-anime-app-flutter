@@ -217,6 +217,7 @@ class TextConstants {
   static const String currentlyNotActiveTitle = "Currently not active";
   static const String waitingForPhotoVerificationTitle =
       "Waiting for photo verification";
+  static const String milesAwayText = "miles away";
 
   // -> Edit Profile
   static const String nameTitle = "Name";
