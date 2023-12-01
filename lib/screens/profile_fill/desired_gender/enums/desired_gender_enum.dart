@@ -1,5 +1,12 @@
 import 'package:senpai/data/text_constants.dart';
 
+//TODO: gender fron BE
+//desires_men
+//desires_women
+//desires_both
+const _genderFromServerMen = 'desires_men';
+const _genderFromServerWomen = 'desires_women';
+
 enum DesiredGender {
   male,
   female,
@@ -30,6 +37,16 @@ int genderToServer(DesiredGender desiredGender) {
   if (desiredGender == DesiredGender.male) {
     return 0;
   } else if (desiredGender == DesiredGender.female) {
+    return 1;
+  } else {
+    return 2;
+  }
+}
+
+int desiredGenderFromServerString(String? desiredGender) {
+  if (desiredGender == _genderFromServerMen) {
+    return 0;
+  } else if (desiredGender == _genderFromServerWomen) {
     return 1;
   } else {
     return 2;

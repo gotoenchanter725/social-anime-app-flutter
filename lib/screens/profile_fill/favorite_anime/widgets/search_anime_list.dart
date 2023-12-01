@@ -25,10 +25,16 @@ class SearchAnimeList extends StatelessWidget {
 
   Widget _buildAnimeItem(BuildContext context, AnimeModel animeModel) {
     final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
-    bool isSelectedAnime = bloc.selectedAnimeList.contains(animeModel);
+
+    final animeIds = bloc.selectedAnimeList.map((anime) => anime.id).toList();
+    bool isSelectedAnime = animeIds.contains(animeModel.id);
+
     return GestureDetector(
       onTap: () {
-        bloc.add(OnFavoriteAnimeSelectEvent(favoriteAnime: animeModel));
+        bloc.add(OnFavoriteAnimeSelectEvent(
+          favoriteAnime: animeModel,
+          isSelectedAnime: isSelectedAnime,
+        ));
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: $constants.insets.xs),

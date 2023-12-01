@@ -6,6 +6,48 @@ part of 'graphql_api.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime
+    _$DeleteFavoriteAnime$Mutation$DeleteFavoriteAnimeFromJson(
+            Map<String, dynamic> json) =>
+        DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime()
+          ..deleted = json['deleted'] as bool;
+
+Map<String, dynamic> _$DeleteFavoriteAnime$Mutation$DeleteFavoriteAnimeToJson(
+        DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime instance) =>
+    <String, dynamic>{
+      'deleted': instance.deleted,
+    };
+
+DeleteFavoriteAnime$Mutation _$DeleteFavoriteAnime$MutationFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteAnime$Mutation()
+      ..deleteFavoriteAnime = json['deleteFavoriteAnime'] == null
+          ? null
+          : DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime.fromJson(
+              json['deleteFavoriteAnime'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DeleteFavoriteAnime$MutationToJson(
+        DeleteFavoriteAnime$Mutation instance) =>
+    <String, dynamic>{
+      'deleteFavoriteAnime': instance.deleteFavoriteAnime?.toJson(),
+    };
+
+DeleteFavoriteAnimeInput _$DeleteFavoriteAnimeInputFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteAnimeInput(
+      animeId: json['animeId'] as String,
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$DeleteFavoriteAnimeInputToJson(
+        DeleteFavoriteAnimeInput instance) =>
+    <String, dynamic>{
+      'animeId': instance.animeId,
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
 CreateUser$Mutation$CreateUser$User
     _$CreateUser$Mutation$CreateUser$UserFromJson(Map<String, dynamic> json) =>
         CreateUser$Mutation$CreateUser$User()
@@ -358,12 +400,20 @@ ValidatePhone$Mutation$ValidatePhone$User
     _$ValidatePhone$Mutation$ValidatePhone$UserFromJson(
             Map<String, dynamic> json) =>
         ValidatePhone$Mutation$ValidatePhone$User()
-          ..phone = json['phone'] as String;
+          ..id = json['id'] as String
+          ..phone = json['phone'] as String
+          ..createdAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['createdAt'] as String)
+          ..updatedAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['updatedAt'] as String);
 
 Map<String, dynamic> _$ValidatePhone$Mutation$ValidatePhone$UserToJson(
         ValidatePhone$Mutation$ValidatePhone$User instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'phone': instance.phone,
+      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
+      'updatedAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.updatedAt),
     };
 
 ValidatePhone$Mutation$ValidatePhone
@@ -949,6 +999,7 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
     FetchUser$Query$FetchUser()
       ..id = json['id'] as String
       ..role = json['role'] as String
+      ..firstName = json['firstName'] as String
       ..birthday = fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
           json['birthday'] as String?)
       ..bio = json['bio'] as String?
@@ -961,6 +1012,7 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
       ..displayCity = json['displayCity'] as String?
       ..displayState = json['displayState'] as String?
       ..spotifyEmail = json['spotifyEmail'] as String?
+      ..onlineStatus = json['onlineStatus'] as String?
       ..matches = (json['matches'] as List<dynamic>?)
           ?.map((e) => FetchUser$Query$FetchUser$Matches.fromJson(
               e as Map<String, dynamic>))
@@ -976,13 +1028,15 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
       ..favoriteMusic = (json['favoriteMusic'] as List<dynamic>?)
           ?.map((e) => FetchUser$Query$FetchUser$FavoriteMusic.fromJson(
               e as Map<String, dynamic>))
-          .toList();
+          .toList()
+      ..premium = json['premium'] as bool;
 
 Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
         FetchUser$Query$FetchUser instance) =>
     <String, dynamic>{
       'id': instance.id,
       'role': instance.role,
+      'firstName': instance.firstName,
       'birthday': fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable(
           instance.birthday),
       'bio': instance.bio,
@@ -995,10 +1049,12 @@ Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
       'displayCity': instance.displayCity,
       'displayState': instance.displayState,
       'spotifyEmail': instance.spotifyEmail,
+      'onlineStatus': instance.onlineStatus,
       'matches': instance.matches?.map((e) => e.toJson()).toList(),
       'gallery': instance.gallery?.toJson(),
       'animes': instance.animes?.map((e) => e.toJson()).toList(),
       'favoriteMusic': instance.favoriteMusic?.map((e) => e.toJson()).toList(),
+      'premium': instance.premium,
     };
 
 FetchUser$Query _$FetchUser$QueryFromJson(Map<String, dynamic> json) =>
@@ -1175,46 +1231,60 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
-DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime
-    _$DeleteFavoriteAnime$Mutation$DeleteFavoriteAnimeFromJson(
+GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers
+    _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersFromJson(
             Map<String, dynamic> json) =>
-        DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime()
-          ..deleted = json['deleted'] as bool;
+        GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers()
+          ..mi = json['mi'] as int;
 
-Map<String, dynamic> _$DeleteFavoriteAnime$Mutation$DeleteFavoriteAnimeToJson(
-        DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime instance) =>
+Map<String,
+    dynamic> _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersToJson(
+        GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers instance) =>
     <String, dynamic>{
-      'deleted': instance.deleted,
+      'mi': instance.mi,
     };
 
-DeleteFavoriteAnime$Mutation _$DeleteFavoriteAnime$MutationFromJson(
+GetDistanceBetweenUsers$Mutation _$GetDistanceBetweenUsers$MutationFromJson(
         Map<String, dynamic> json) =>
-    DeleteFavoriteAnime$Mutation()
-      ..deleteFavoriteAnime = json['deleteFavoriteAnime'] == null
+    GetDistanceBetweenUsers$Mutation()
+      ..getDistanceBetweenUsers = json['getDistanceBetweenUsers'] == null
           ? null
-          : DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime.fromJson(
-              json['deleteFavoriteAnime'] as Map<String, dynamic>);
+          : GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers.fromJson(
+              json['getDistanceBetweenUsers'] as Map<String, dynamic>);
 
-Map<String, dynamic> _$DeleteFavoriteAnime$MutationToJson(
-        DeleteFavoriteAnime$Mutation instance) =>
+Map<String, dynamic> _$GetDistanceBetweenUsers$MutationToJson(
+        GetDistanceBetweenUsers$Mutation instance) =>
     <String, dynamic>{
-      'deleteFavoriteAnime': instance.deleteFavoriteAnime?.toJson(),
+      'getDistanceBetweenUsers': instance.getDistanceBetweenUsers?.toJson(),
     };
 
-DeleteFavoriteAnimeInput _$DeleteFavoriteAnimeInputFromJson(
+GetDistanceBetweenUsersInput _$GetDistanceBetweenUsersInputFromJson(
         Map<String, dynamic> json) =>
-    DeleteFavoriteAnimeInput(
-      animeId: json['animeId'] as String,
+    GetDistanceBetweenUsersInput(
       clientMutationId: json['clientMutationId'] as String?,
-      userId: json['userId'] as String,
+      userId: json['userId'] as int,
+      vieweeId: json['vieweeId'] as int,
     );
 
-Map<String, dynamic> _$DeleteFavoriteAnimeInputToJson(
-        DeleteFavoriteAnimeInput instance) =>
+Map<String, dynamic> _$GetDistanceBetweenUsersInputToJson(
+        GetDistanceBetweenUsersInput instance) =>
     <String, dynamic>{
-      'animeId': instance.animeId,
       'clientMutationId': instance.clientMutationId,
       'userId': instance.userId,
+      'vieweeId': instance.vieweeId,
+    };
+
+DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteAnimeArguments(
+      input: DeleteFavoriteAnimeInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$DeleteFavoriteAnimeArgumentsToJson(
+        DeleteFavoriteAnimeArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
     };
 
 CreateUserArguments _$CreateUserArgumentsFromJson(Map<String, dynamic> json) =>
@@ -1408,15 +1478,15 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
       'page': instance.page,
     };
 
-DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
+GetDistanceBetweenUsersArguments _$GetDistanceBetweenUsersArgumentsFromJson(
         Map<String, dynamic> json) =>
-    DeleteFavoriteAnimeArguments(
-      input: DeleteFavoriteAnimeInput.fromJson(
+    GetDistanceBetweenUsersArguments(
+      input: GetDistanceBetweenUsersInput.fromJson(
           json['input'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$DeleteFavoriteAnimeArgumentsToJson(
-        DeleteFavoriteAnimeArguments instance) =>
+Map<String, dynamic> _$GetDistanceBetweenUsersArgumentsToJson(
+        GetDistanceBetweenUsersArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };

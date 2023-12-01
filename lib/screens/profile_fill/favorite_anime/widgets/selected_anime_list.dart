@@ -28,7 +28,10 @@ class SelectedAnimeList extends StatelessWidget {
     final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
     return GestureDetector(
       onTap: () {
-        bloc.add(OnFavoriteAnimeSelectEvent(favoriteAnime: animeModel));
+        bloc.add(OnFavoriteAnimeSelectEvent(
+          favoriteAnime: animeModel,
+          isSelectedAnime: true,
+        ));
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical: $constants.insets.xs),

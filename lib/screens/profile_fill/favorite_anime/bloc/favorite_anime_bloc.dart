@@ -24,29 +24,38 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
   int page = 1;
   int maxAnimeCount = 10;
 
+  List<AnimeModel> myAnimeList = [];
+  bool showMyAnimeList = true;
+
   Set<AnimeGenresEnums> genresList = Set.identity();
 
   FavoriteAnimeBloc() : super(FavoriteAnimeInitial()) {
     on<OnFavoriteAnimeInitEvent>((event, emit) {
       if (event.selectedAnimeList.isNotEmpty) {
-        emit(ValidState());
-        selectedAnimeList = event.selectedAnimeList;
+        selectedAnimeList = [];
+        selectedAnimeList.addAll(event.selectedAnimeList);
       }
+      if (event.myAnimeList != null) {
+        myAnimeList = event.myAnimeList!;
+      }
+
       animeListController.addListener(_pagination);
+      emit(ValidState());
     });
 
     on<OnFetchFavoriteAnimeListEvent>((event, emit) {
       emit(LoadingState());
-      emit(ValidState());
       if (page == 1) {
         animeList = event.animeList;
       } else {
         animeList.addAll(event.animeList);
       }
+      emit(ValidState());
     });
 
     on<OnSearchAnimesEvent>((event, emit) {
       emit(LoadingState());
+      page = 1;
       searchText = event.searchText;
       emit(ValidState());
       emit(FavoriteAnimeFetchState());
@@ -54,8 +63,10 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
 
     on<OnSelectGenreAnimesEvent>((event, emit) {
       emit(LoadingState());
+      page = 1;
       if (event.selected) {
         genresList.add(event.genre);
+        showMyAnimeList = false;
       } else {
         genresList.remove(event.genre);
       }
@@ -75,21 +86,22 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
     });
 
     on<OnFavoriteAnimeSelectEvent>((event, emit) {
-      bool isSelectedAnime = selectedAnimeList.contains(event.favoriteAnime);
+      emit(LoadingState());
       if (selectedAnimeList.length >= 10) {
         emit(ErrorState(
           message: TextConstants.selectedAnimeError,
           isEnabled: false,
         ));
-        if (isSelectedAnime) {
+        if (event.isSelectedAnime) {
           selectedAnimeList.remove(event.favoriteAnime);
         }
       } else {
-        isSelectedAnime
-            ? selectedAnimeList.remove(event.favoriteAnime)
+        event.isSelectedAnime
+            ? selectedAnimeList.removeWhere(
+                (anime) => anime.id == event.favoriteAnime.id,
+              )
             : selectedAnimeList.add(event.favoriteAnime);
       }
-      emit(LoadingState());
       emit(ValidState());
     });
 
@@ -112,6 +124,16 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
       } else {
         emit(ErrorState(message: TextConstants.serverError, isEnabled: true));
       }
+    });
+
+    on<OnChangeShowMyAnimeListEvent>((event, emit) {
+      emit(LoadingState());
+      showMyAnimeList = event.showMyAnimeList;
+      if (event.showMyAnimeList) {
+        genresList = Set.identity();
+      }
+
+      emit(ValidState());
     });
   }
 

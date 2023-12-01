@@ -110,6 +110,28 @@ class _Palette {
     transform: GradientRotation(
         123.56 * 3.141592653589793 / 180), // Convert degrees to radians
   );
+
+  final matchGradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      const Color(0xFF0E1018).withOpacity(0),
+      const Color(0xFF0E1018).withOpacity(0.5),
+      const Color(0xFF0E1018).withOpacity(0.75),
+      const Color(0xFF0E1018).withOpacity(0.75),
+      const Color(0xFF0E1018),
+      const Color(0xFF0E1018),
+    ],
+  );
+
+  final matchDislikeGradient = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      const Color(0xFF0E1018).withOpacity(0),
+      const Color(0xFF0E1018),
+    ],
+  );
 }
 
 @immutable

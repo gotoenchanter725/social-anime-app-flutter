@@ -11,7 +11,7 @@ import 'package:senpai/screens/profile_fill/occupation/page/occupation_page.dart
 import 'package:senpai/screens/profile_fill/photos/page/photos_page.dart';
 import 'package:senpai/screens/profile_fill/user_gender/page/gender_page.dart';
 import 'package:senpai/screens/profile_fill/widgets/progress_line_widget.dart';
-import 'package:senpai/screens/verify_photo/page/verify_photo_page.dart';
+import 'package:senpai/screens/verify_photo/page/verify_photo_profile_fill_page.dart';
 import 'package:senpai/utils/constants.dart';
 
 import 'welcome_senpai_content.dart';
@@ -69,7 +69,7 @@ class ProfileFillContent extends StatelessWidget {
     } else if (bloc.step == ProfileFillStep.animes) {
       return FavoriteAnimePage(selectedAnimeList: bloc.animeList);
     } else if (bloc.step == ProfileFillStep.verify) {
-      return VerifyPhotoPage(photo: bloc.verifyPhoto);
+      return VerifyPhotoProfileFillPage(photo: bloc.verifyPhoto);
     } else {
       return const WelcomeSenpaiContent();
     }

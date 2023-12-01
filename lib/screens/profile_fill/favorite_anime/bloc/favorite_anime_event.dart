@@ -5,8 +5,9 @@ abstract class FavoriteAnimeEvent {}
 
 class OnFavoriteAnimeInitEvent extends FavoriteAnimeEvent {
   final List<AnimeModel> selectedAnimeList;
+  final List<AnimeModel>? myAnimeList;
 
-  OnFavoriteAnimeInitEvent({required this.selectedAnimeList});
+  OnFavoriteAnimeInitEvent({required this.selectedAnimeList, this.myAnimeList});
 }
 
 class OnFetchFavoriteAnimeListEvent extends FavoriteAnimeEvent {
@@ -17,8 +18,12 @@ class OnFetchFavoriteAnimeListEvent extends FavoriteAnimeEvent {
 
 class OnFavoriteAnimeSelectEvent extends FavoriteAnimeEvent {
   final AnimeModel favoriteAnime;
+  final bool isSelectedAnime;
 
-  OnFavoriteAnimeSelectEvent({required this.favoriteAnime});
+  OnFavoriteAnimeSelectEvent({
+    required this.favoriteAnime,
+    required this.isSelectedAnime,
+  });
 }
 
 class OnChangeAnimeStepEvent extends FavoriteAnimeEvent {
@@ -44,6 +49,12 @@ class OnChangePaginationPageEvent extends FavoriteAnimeEvent {
   final int page;
 
   OnChangePaginationPageEvent({required this.page});
+}
+
+class OnChangeShowMyAnimeListEvent extends FavoriteAnimeEvent {
+  final bool showMyAnimeList;
+
+  OnChangeShowMyAnimeListEvent({required this.showMyAnimeList});
 }
 
 class NextTappedEvent extends FavoriteAnimeEvent {}
