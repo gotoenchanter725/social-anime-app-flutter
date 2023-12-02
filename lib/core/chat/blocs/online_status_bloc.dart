@@ -21,7 +21,7 @@ class OnlineStatusBloc extends ActionCableBloc<Map<String, dynamic>> {
   @override
   void connect() {
     super.connect();
-    subscribe();
+    // subscribe();
   }
 
   @override

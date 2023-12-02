@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/action_cable/blocs/action_cable_bloc.dart';
+import 'package:senpai/core/chat/blocs/online_status_bloc.dart';
 import 'package:senpai/core/widgets/user_avator_named.dart';
 import 'package:senpai/models/match/match_user_data.dart';
 import 'package:senpai/utils/constants.dart';
@@ -10,20 +13,35 @@ class MatchList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: users.map((user) {
-          return Padding(
-            padding: EdgeInsets.only(right: $constants.corners.md),
-            child: UserAvatarWithName(
-              imageUrl: user.imageUrl,
-              userName: user.userName,
-              isOnline: user.isOnline,
-            ),
-          );
-        }).toList(),
-      ),
+    return BlocProvider<OnlineStatusBloc>(
+      create: (context) => OnlineStatusBloc()..connect(),
+      child: BlocBuilder<OnlineStatusBloc, ActionCableState>(
+          builder: (context, state) {
+        state.maybeWhen(
+          connected: () {
+            print("Connected to WebSocket");
+          },
+          disconnected: () {
+            print("Disconnected from WebSocket");
+          },
+          orElse: () {},
+        );
+        return SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: users.map((user) {
+              return Padding(
+                padding: EdgeInsets.only(right: $constants.corners.md),
+                child: UserAvatarWithName(
+                  imageUrl: user.imageUrl,
+                  userName: user.userName,
+                  isOnline: user.isOnline,
+                ),
+              );
+            }).toList(),
+          ),
+        );
+      }),
     );
   }
 }
