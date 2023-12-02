@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "61.0.0"
+  action_cable:
+    dependency: "direct main"
+    description:
+      name: action_cable
+      sha256: deca526752eb362df6b381fe2fd5306a292f9437be3b38e63813a6b79890754f
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   analyzer:
     dependency: transitive
     description:
