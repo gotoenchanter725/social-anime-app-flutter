@@ -16,13 +16,13 @@ class VerifyPhotoContent extends StatelessWidget {
       final bloc = BlocProvider.of<VerifyPhotoBloc>(context);
 
       if (bloc.verifyPhotoStep == VerifyPhotoStep.verifyByPhoto) {
-        return const VerifyByPhotoContent();
+        return VerifyByPhotoContent(bloc.hasProfileFillBloc);
       } else if (bloc.verifyPhotoStep == VerifyPhotoStep.checkPhoto) {
-        return const CheckPhotoContent();
+        return CheckPhotoContent(bloc.hasProfileFillBloc);
       } else if (bloc.verifyPhotoStep == VerifyPhotoStep.startMatch) {
         return const StartMatchContent();
       } else {
-        return const VerifyByPhotoContent();
+        return VerifyByPhotoContent(bloc.hasProfileFillBloc);
       }
     });
   }

@@ -51,6 +51,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const OnboardingPage(),
       );
     },
+    PremiumRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PremiumPage(),
+      );
+    },
     ProfileFillRoute.name: (routeData) {
       final args = routeData.argsAs<ProfileFillRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -59,6 +65,16 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           phone: args.phone,
           id: args.id,
+        ),
+      );
+    },
+    ProfileFilterRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileFilterRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ProfileFilterPage(
+          key: args.key,
+          animes: args.animes,
         ),
       );
     },
@@ -75,6 +91,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: SenpaiLicensePage(
           key: args.key,
           mdFileName: args.mdFileName,
+        ),
+      );
+    },
+    SettingsProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<SettingsProfileRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SettingsProfilePage(
+          key: args.key,
+          user: args.user,
         ),
       );
     },
@@ -126,7 +152,7 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: VerifyPhotoPage(
           key: args.key,
-          photo: args.photo,
+          userID: args.userID,
         ),
       );
     },
@@ -218,6 +244,20 @@ class OnboardingRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [PremiumPage]
+class PremiumRoute extends PageRouteInfo<void> {
+  const PremiumRoute({List<PageRouteInfo>? children})
+      : super(
+          PremiumRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PremiumRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [ProfileFillPage]
 class ProfileFillRoute extends PageRouteInfo<ProfileFillRouteArgs> {
   ProfileFillRoute({
@@ -257,6 +297,44 @@ class ProfileFillRouteArgs {
   @override
   String toString() {
     return 'ProfileFillRouteArgs{key: $key, phone: $phone, id: $id}';
+  }
+}
+
+/// generated route for
+/// [ProfileFilterPage]
+class ProfileFilterRoute extends PageRouteInfo<ProfileFilterRouteArgs> {
+  ProfileFilterRoute({
+    Key? key,
+    required List<AnimeModel>? animes,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ProfileFilterRoute.name,
+          args: ProfileFilterRouteArgs(
+            key: key,
+            animes: animes,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileFilterRoute';
+
+  static const PageInfo<ProfileFilterRouteArgs> page =
+      PageInfo<ProfileFilterRouteArgs>(name);
+}
+
+class ProfileFilterRouteArgs {
+  const ProfileFilterRouteArgs({
+    this.key,
+    required this.animes,
+  });
+
+  final Key? key;
+
+  final List<AnimeModel>? animes;
+
+  @override
+  String toString() {
+    return 'ProfileFilterRouteArgs{key: $key, animes: $animes}';
   }
 }
 
@@ -309,6 +387,44 @@ class SenpaiLicenseRouteArgs {
   @override
   String toString() {
     return 'SenpaiLicenseRouteArgs{key: $key, mdFileName: $mdFileName}';
+  }
+}
+
+/// generated route for
+/// [SettingsProfilePage]
+class SettingsProfileRoute extends PageRouteInfo<SettingsProfileRouteArgs> {
+  SettingsProfileRoute({
+    Key? key,
+    required UserProfileModel user,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SettingsProfileRoute.name,
+          args: SettingsProfileRouteArgs(
+            key: key,
+            user: user,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsProfileRoute';
+
+  static const PageInfo<SettingsProfileRouteArgs> page =
+      PageInfo<SettingsProfileRouteArgs>(name);
+}
+
+class SettingsProfileRouteArgs {
+  const SettingsProfileRouteArgs({
+    this.key,
+    required this.user,
+  });
+
+  final Key? key;
+
+  final UserProfileModel user;
+
+  @override
+  String toString() {
+    return 'SettingsProfileRouteArgs{key: $key, user: $user}';
   }
 }
 
@@ -474,13 +590,13 @@ class VerifyPhoneRouteArgs {
 class VerifyPhotoRoute extends PageRouteInfo<VerifyPhotoRouteArgs> {
   VerifyPhotoRoute({
     Key? key,
-    File? photo,
+    int? userID,
     List<PageRouteInfo>? children,
   }) : super(
           VerifyPhotoRoute.name,
           args: VerifyPhotoRouteArgs(
             key: key,
-            photo: photo,
+            userID: userID,
           ),
           initialChildren: children,
         );
@@ -494,15 +610,15 @@ class VerifyPhotoRoute extends PageRouteInfo<VerifyPhotoRouteArgs> {
 class VerifyPhotoRouteArgs {
   const VerifyPhotoRouteArgs({
     this.key,
-    this.photo,
+    this.userID,
   });
 
   final Key? key;
 
-  final File? photo;
+  final int? userID;
 
   @override
   String toString() {
-    return 'VerifyPhotoRouteArgs{key: $key, photo: $photo}';
+    return 'VerifyPhotoRouteArgs{key: $key, userID: $userID}';
   }
 }

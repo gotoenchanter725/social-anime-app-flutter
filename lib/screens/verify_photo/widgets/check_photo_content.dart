@@ -14,7 +14,12 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class CheckPhotoContent extends StatelessWidget {
-  const CheckPhotoContent({super.key});
+  final bool hasProfileFillBloc;
+
+  const CheckPhotoContent(
+    this.hasProfileFillBloc, {
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +29,9 @@ class CheckPhotoContent extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildBackButton(context),
+          hasProfileFillBloc
+              ? _buildBackButtonProfileFill(context)
+              : _buildBackButton(context),
           SizedBox(
             height: $constants.insets.md,
           ),
@@ -99,8 +106,29 @@ class CheckPhotoContent extends StatelessWidget {
   }
 
   Widget _buildBackButton(BuildContext context) {
-    final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
+    return Container(
+      margin: EdgeInsets.only(top: $constants.insets.lg),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: Column(
+          children: [
+            SizedBox(
+              height: $constants.insets.lg,
+            ),
+            SenpaiIconButton(
+              onPressed: () async {
+                await context.router.pop();
+              },
+              iconPath: PathConstants.backIcon,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 
+  Widget _buildBackButtonProfileFill(BuildContext context) {
+    final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
     return BlocBuilder<VerifyPhotoBloc, VerifyPhotoState>(
         builder: (context, state) {
       final bloc = BlocProvider.of<VerifyPhotoBloc>(context);
@@ -146,7 +174,7 @@ class CheckPhotoContent extends StatelessWidget {
       text: TextConstants.agreeAndSubmitButton,
       onPressed: () async {
         await MultipartFile.fromPath('image', bloc.photo!.path).then((value) {
-          serviceBloc.submitVerifyRequest(userId: 190, image: value);
+          serviceBloc.submitVerifyRequest(userId: bloc.userId, image: value);
         });
       },
     );

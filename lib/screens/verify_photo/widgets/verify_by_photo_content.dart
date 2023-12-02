@@ -12,7 +12,12 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class VerifyByPhotoContent extends StatelessWidget {
-  const VerifyByPhotoContent({super.key});
+  final bool hasProfileFillBloc;
+
+  const VerifyByPhotoContent(
+    this.hasProfileFillBloc, {
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +27,9 @@ class VerifyByPhotoContent extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          _buildHeader(context),
+          hasProfileFillBloc
+              ? _buildHeaderProfileFill(context)
+              : _buildHeader(context),
           SizedBox(
             height: $constants.insets.xl,
           ),
@@ -49,6 +56,20 @@ class VerifyByPhotoContent extends StatelessWidget {
   }
 
   Widget _buildHeader(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: $constants.insets.lg),
+      child: HeaderSimpleField(
+        title: TextConstants.verifyPhotoHeading,
+        description: TextConstants.verifyPhotoDescription,
+        isCenterTitle: true,
+        onTapBackButton: () async {
+          await context.router.pop();
+        },
+      ),
+    );
+  }
+
+  Widget _buildHeaderProfileFill(BuildContext context) {
     final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
     final bloc = BlocProvider.of<VerifyPhotoBloc>(context);
     return HeaderSimpleField(

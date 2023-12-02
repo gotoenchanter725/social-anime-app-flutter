@@ -16,17 +16,26 @@ class VerifyPhotoBloc extends Bloc<VerifyPhotoEvent, VerifyPhotoState> {
   VerifyPhotoStep verifyPhotoStep = VerifyPhotoStep.verifyByPhoto;
   File? photo;
 
+  bool hasProfileFillBloc = false;
+  late int userId;
+
   VerifyPhotoBloc() : super(VerifyPhotoInitial()) {
     on<OnVerifyPhotoInitEvent>((event, emit) {
       photo = null;
       verifyPhotoStep = VerifyPhotoStep.verifyByPhoto;
+      hasProfileFillBloc = event.hasProfileFillBloc ?? hasProfileFillBloc;
+
       if (event.photo != null) {
         emit(LoadingState());
         photo = event.photo;
         verifyPhotoStep = VerifyPhotoStep.checkPhoto;
-        emit(ValidState());
       }
+      if (event.userId != null) {
+        userId = event.userId!;
+      }
+      emit(ValidState());
     });
+
     on<OnOpenStartMatchSceenEvent>((event, emit) {
       emit(LoadingState());
       verifyPhotoStep = VerifyPhotoStep.startMatch;
