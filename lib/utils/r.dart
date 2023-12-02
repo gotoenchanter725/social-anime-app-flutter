@@ -44,6 +44,9 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/verify_user_photo.png)
   final verify_user_photo = r'assets/images/profile/verify_user_photo.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/premium_image.png)
+  final premium_image = r'assets/images/profile/premium_image.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/lines_bg.png)
   final lines_bg = r'assets/images/profile/lines_bg.png';
 
@@ -55,6 +58,9 @@ class _ImageResources {
 
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/spotify_bg.png)
   final spotify_bg = r'assets/images/profile/spotify_bg.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/match/match_successful.png)
+  final match_successful = r'assets/images/match/match_successful.png';
 }
 
 class _SvgResources {

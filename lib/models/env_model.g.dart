@@ -15,6 +15,7 @@ _$_EnvModel _$$_EnvModelFromJson(Map<String, dynamic> json) => _$_EnvModel(
       graphApiUrl: json['graphApiUrl'] as String,
       httpApiUrl: json['httpApiUrl'] as String,
       httpApiUrlUniversities: json['httpApiUrlUniversities'] as String,
+      webSocketUrl: json['webSocketUrl'] as String,
     );
 
 Map<String, dynamic> _$$_EnvModelToJson(_$_EnvModel instance) =>
@@ -27,4 +28,5 @@ Map<String, dynamic> _$$_EnvModelToJson(_$_EnvModel instance) =>
       'graphApiUrl': instance.graphApiUrl,
       'httpApiUrl': instance.httpApiUrl,
       'httpApiUrlUniversities': instance.httpApiUrlUniversities,
+      'webSocketUrl': instance.webSocketUrl,
     };

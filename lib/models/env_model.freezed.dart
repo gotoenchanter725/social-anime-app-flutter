@@ -28,6 +28,7 @@ mixin _$EnvModel {
   String get graphApiUrl => throw _privateConstructorUsedError;
   String get httpApiUrl => throw _privateConstructorUsedError;
   String get httpApiUrlUniversities => throw _privateConstructorUsedError;
+  String get webSocketUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +49,8 @@ abstract class $EnvModelCopyWith<$Res> {
       bool debugApiClient,
       String graphApiUrl,
       String httpApiUrl,
-      String httpApiUrlUniversities});
+      String httpApiUrlUniversities,
+      String webSocketUrl});
 }
 
 /// @nodoc
@@ -72,6 +74,7 @@ class _$EnvModelCopyWithImpl<$Res, $Val extends EnvModel>
     Object? graphApiUrl = null,
     Object? httpApiUrl = null,
     Object? httpApiUrlUniversities = null,
+    Object? webSocketUrl = null,
   }) {
     return _then(_value.copyWith(
       env: null == env
@@ -106,6 +109,10 @@ class _$EnvModelCopyWithImpl<$Res, $Val extends EnvModel>
           ? _value.httpApiUrlUniversities
           : httpApiUrlUniversities // ignore: cast_nullable_to_non_nullable
               as String,
+      webSocketUrl: null == webSocketUrl
+          ? _value.webSocketUrl
+          : webSocketUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -125,7 +132,8 @@ abstract class _$$_EnvModelCopyWith<$Res> implements $EnvModelCopyWith<$Res> {
       bool debugApiClient,
       String graphApiUrl,
       String httpApiUrl,
-      String httpApiUrlUniversities});
+      String httpApiUrlUniversities,
+      String webSocketUrl});
 }
 
 /// @nodoc
@@ -147,6 +155,7 @@ class __$$_EnvModelCopyWithImpl<$Res>
     Object? graphApiUrl = null,
     Object? httpApiUrl = null,
     Object? httpApiUrlUniversities = null,
+    Object? webSocketUrl = null,
   }) {
     return _then(_$_EnvModel(
       env: null == env
@@ -181,6 +190,10 @@ class __$$_EnvModelCopyWithImpl<$Res>
           ? _value.httpApiUrlUniversities
           : httpApiUrlUniversities // ignore: cast_nullable_to_non_nullable
               as String,
+      webSocketUrl: null == webSocketUrl
+          ? _value.webSocketUrl
+          : webSocketUrl // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -196,7 +209,8 @@ class _$_EnvModel extends _EnvModel {
       required this.debugApiClient,
       required this.graphApiUrl,
       required this.httpApiUrl,
-      required this.httpApiUrlUniversities})
+      required this.httpApiUrlUniversities,
+      required this.webSocketUrl})
       : super._();
 
   factory _$_EnvModel.fromJson(Map<String, dynamic> json) =>
@@ -218,10 +232,12 @@ class _$_EnvModel extends _EnvModel {
   final String httpApiUrl;
   @override
   final String httpApiUrlUniversities;
+  @override
+  final String webSocketUrl;
 
   @override
   String toString() {
-    return 'EnvModel(env: $env, debug: $debug, debugShowCheckedModeBanner: $debugShowCheckedModeBanner, debugShowMaterialGrid: $debugShowMaterialGrid, debugApiClient: $debugApiClient, graphApiUrl: $graphApiUrl, httpApiUrl: $httpApiUrl, httpApiUrlUniversities: $httpApiUrlUniversities)';
+    return 'EnvModel(env: $env, debug: $debug, debugShowCheckedModeBanner: $debugShowCheckedModeBanner, debugShowMaterialGrid: $debugShowMaterialGrid, debugApiClient: $debugApiClient, graphApiUrl: $graphApiUrl, httpApiUrl: $httpApiUrl, httpApiUrlUniversities: $httpApiUrlUniversities, webSocketUrl: $webSocketUrl)';
   }
 
   @override
@@ -244,7 +260,9 @@ class _$_EnvModel extends _EnvModel {
             (identical(other.httpApiUrl, httpApiUrl) ||
                 other.httpApiUrl == httpApiUrl) &&
             (identical(other.httpApiUrlUniversities, httpApiUrlUniversities) ||
-                other.httpApiUrlUniversities == httpApiUrlUniversities));
+                other.httpApiUrlUniversities == httpApiUrlUniversities) &&
+            (identical(other.webSocketUrl, webSocketUrl) ||
+                other.webSocketUrl == webSocketUrl));
   }
 
   @JsonKey(ignore: true)
@@ -258,7 +276,8 @@ class _$_EnvModel extends _EnvModel {
       debugApiClient,
       graphApiUrl,
       httpApiUrl,
-      httpApiUrlUniversities);
+      httpApiUrlUniversities,
+      webSocketUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -283,7 +302,8 @@ abstract class _EnvModel extends EnvModel {
       required final bool debugApiClient,
       required final String graphApiUrl,
       required final String httpApiUrl,
-      required final String httpApiUrlUniversities}) = _$_EnvModel;
+      required final String httpApiUrlUniversities,
+      required final String webSocketUrl}) = _$_EnvModel;
   _EnvModel._() : super._();
 
   factory _EnvModel.fromJson(Map<String, dynamic> json) = _$_EnvModel.fromJson;
@@ -304,6 +324,8 @@ abstract class _EnvModel extends EnvModel {
   String get httpApiUrl;
   @override
   String get httpApiUrlUniversities;
+  @override
+  String get webSocketUrl;
   @override
   @JsonKey(ignore: true)
   _$$_EnvModelCopyWith<_$_EnvModel> get copyWith =>

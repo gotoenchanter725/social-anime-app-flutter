@@ -661,6 +661,67 @@ class ValidatePhoneInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers
+    extends JsonSerializable with EquatableMixin {
+  GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers();
+
+  factory GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers.fromJson(
+          Map<String, dynamic> json) =>
+      _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersFromJson(json);
+
+  late int mi;
+
+  @override
+  List<Object?> get props => [mi];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class GetDistanceBetweenUsers$Mutation extends JsonSerializable
+    with EquatableMixin {
+  GetDistanceBetweenUsers$Mutation();
+
+  factory GetDistanceBetweenUsers$Mutation.fromJson(
+          Map<String, dynamic> json) =>
+      _$GetDistanceBetweenUsers$MutationFromJson(json);
+
+  GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers?
+      getDistanceBetweenUsers;
+
+  @override
+  List<Object?> get props => [getDistanceBetweenUsers];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$GetDistanceBetweenUsers$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class GetDistanceBetweenUsersInput extends JsonSerializable
+    with EquatableMixin {
+  GetDistanceBetweenUsersInput({
+    this.clientMutationId,
+    required this.userId,
+    required this.vieweeId,
+  });
+
+  factory GetDistanceBetweenUsersInput.fromJson(Map<String, dynamic> json) =>
+      _$GetDistanceBetweenUsersInputFromJson(json);
+
+  String? clientMutationId;
+
+  late int userId;
+
+  late int vieweeId;
+
+  @override
+  List<Object?> get props => [clientMutationId, userId, vieweeId];
+  @override
+  Map<String, dynamic> toJson() => _$GetDistanceBetweenUsersInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class ResendVerifyCode$Mutation$ResendVerifyText$User extends JsonSerializable
     with EquatableMixin {
   ResendVerifyCode$Mutation$ResendVerifyText$User();
@@ -1673,67 +1734,6 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers
-    extends JsonSerializable with EquatableMixin {
-  GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers();
-
-  factory GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersFromJson(json);
-
-  late int mi;
-
-  @override
-  List<Object?> get props => [mi];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GetDistanceBetweenUsers$Mutation extends JsonSerializable
-    with EquatableMixin {
-  GetDistanceBetweenUsers$Mutation();
-
-  factory GetDistanceBetweenUsers$Mutation.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetDistanceBetweenUsers$MutationFromJson(json);
-
-  GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers?
-      getDistanceBetweenUsers;
-
-  @override
-  List<Object?> get props => [getDistanceBetweenUsers];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$GetDistanceBetweenUsers$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GetDistanceBetweenUsersInput extends JsonSerializable
-    with EquatableMixin {
-  GetDistanceBetweenUsersInput({
-    this.clientMutationId,
-    required this.userId,
-    required this.vieweeId,
-  });
-
-  factory GetDistanceBetweenUsersInput.fromJson(Map<String, dynamic> json) =>
-      _$GetDistanceBetweenUsersInputFromJson(json);
-
-  String? clientMutationId;
-
-  late int userId;
-
-  late int vieweeId;
-
-  @override
-  List<Object?> get props => [clientMutationId, userId, vieweeId];
-  @override
-  Map<String, dynamic> toJson() => _$GetDistanceBetweenUsersInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
 class DeleteFavoriteAnimeArguments extends JsonSerializable
     with EquatableMixin {
   DeleteFavoriteAnimeArguments({required this.input});
@@ -2472,6 +2472,89 @@ class ValidatePhoneMutation
   @override
   ValidatePhone$Mutation parse(Map<String, dynamic> json) =>
       ValidatePhone$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class GetDistanceBetweenUsersArguments extends JsonSerializable
+    with EquatableMixin {
+  GetDistanceBetweenUsersArguments({required this.input});
+
+  @override
+  factory GetDistanceBetweenUsersArguments.fromJson(
+          Map<String, dynamic> json) =>
+      _$GetDistanceBetweenUsersArgumentsFromJson(json);
+
+  late GetDistanceBetweenUsersInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$GetDistanceBetweenUsersArgumentsToJson(this);
+}
+
+final GET_DISTANCE_BETWEEN_USERS_MUTATION_DOCUMENT_OPERATION_NAME =
+    'getDistanceBetweenUsers';
+final GET_DISTANCE_BETWEEN_USERS_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'getDistanceBetweenUsers'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'GetDistanceBetweenUsersInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'getDistanceBetweenUsers'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'mi'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class GetDistanceBetweenUsersMutation extends GraphQLQuery<
+    GetDistanceBetweenUsers$Mutation, GetDistanceBetweenUsersArguments> {
+  GetDistanceBetweenUsersMutation({required this.variables});
+
+  @override
+  final DocumentNode document = GET_DISTANCE_BETWEEN_USERS_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      GET_DISTANCE_BETWEEN_USERS_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final GetDistanceBetweenUsersArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  GetDistanceBetweenUsers$Mutation parse(Map<String, dynamic> json) =>
+      GetDistanceBetweenUsers$Mutation.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -3956,87 +4039,4 @@ class FetchStickersQuery
   @override
   FetchStickers$Query parse(Map<String, dynamic> json) =>
       FetchStickers$Query.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GetDistanceBetweenUsersArguments extends JsonSerializable
-    with EquatableMixin {
-  GetDistanceBetweenUsersArguments({required this.input});
-
-  @override
-  factory GetDistanceBetweenUsersArguments.fromJson(
-          Map<String, dynamic> json) =>
-      _$GetDistanceBetweenUsersArgumentsFromJson(json);
-
-  late GetDistanceBetweenUsersInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$GetDistanceBetweenUsersArgumentsToJson(this);
-}
-
-final GET_DISTANCE_BETWEEN_USERS_MUTATION_DOCUMENT_OPERATION_NAME =
-    'getDistanceBetweenUsers';
-final GET_DISTANCE_BETWEEN_USERS_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'getDistanceBetweenUsers'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'GetDistanceBetweenUsersInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'getDistanceBetweenUsers'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'mi'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class GetDistanceBetweenUsersMutation extends GraphQLQuery<
-    GetDistanceBetweenUsers$Mutation, GetDistanceBetweenUsersArguments> {
-  GetDistanceBetweenUsersMutation({required this.variables});
-
-  @override
-  final DocumentNode document = GET_DISTANCE_BETWEEN_USERS_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName =
-      GET_DISTANCE_BETWEEN_USERS_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final GetDistanceBetweenUsersArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  GetDistanceBetweenUsers$Mutation parse(Map<String, dynamic> json) =>
-      GetDistanceBetweenUsers$Mutation.fromJson(json);
 }
