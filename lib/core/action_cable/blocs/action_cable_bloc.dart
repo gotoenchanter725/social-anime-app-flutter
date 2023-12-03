@@ -1,6 +1,9 @@
 import 'package:action_cable/action_cable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:fresh_dio/fresh_dio.dart';
+import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/models/auth/auth_model.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
 part 'action_cable_event.dart';
@@ -25,18 +28,22 @@ abstract class ActionCableBloc<T>
     ActionCableEvent<T> event,
     Emitter<ActionCableState<T?>> emit,
   ) async {
-    event.map(
-      connect: (e) {
-        String url = env.webSocketUrl;
-        _actionCable = ActionCable.Connect(
-          url,
-          onConnected: () {
-            emit(const ActionCableState.connected());
-          },
-          onConnectionLost: () {
-            emit(const ActionCableState.disconnected());
-          },
-        );
+    await event.map(
+      connect: (e) async {
+        final storage = getIt<TokenStorage<AuthModel>>();
+        AuthModel? authModel = await storage.read();
+        if (authModel == null) {
+          emit(const ActionCableState.error());
+          return;
+        }
+        String url = "${env.webSocketUrl}?token=${authModel.token}";
+        _actionCable = ActionCable.Connect(url, onConnected: () {
+          emit(const ActionCableState.connected());
+        }, onConnectionLost: () {
+          emit(const ActionCableState.disconnected());
+        }, onCannotConnect: () {
+          emit(const ActionCableState.error());
+        });
       },
       disconnect: (e) {
         _actionCable.disconnect();
