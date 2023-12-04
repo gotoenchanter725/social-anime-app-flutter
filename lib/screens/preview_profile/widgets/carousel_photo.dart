@@ -32,17 +32,18 @@ class _CarouselPhotoState extends State<CarouselPhoto> {
 
   final ValueNotifier<int> _currentIndex = ValueNotifier(0);
 
-  void _onTapUp(TapUpDetails details, int current) {
-    if (details.localPosition.direction > 1.0 && current != 0) {
+  void _onTapUp(TapUpDetails details, int currentIndex) {
+    if (details.localPosition.direction > $constants.carousel.direction &&
+        currentIndex != 0) {
       _pageController.previousPage(
-        duration: const Duration(milliseconds: 300),
+        duration: $constants.times.fast,
         curve: Curves.linear,
       );
     }
-    if (details.localPosition.direction < 1.0 &&
-        current < widget.listImages.length - 1) {
+    if (details.localPosition.direction < $constants.carousel.direction &&
+        currentIndex < widget.listImages.length - 1) {
       _pageController.nextPage(
-        duration: const Duration(milliseconds: 300),
+        duration: $constants.times.fast,
         curve: Curves.linear,
       );
     }
@@ -51,7 +52,7 @@ class _CarouselPhotoState extends State<CarouselPhoto> {
   void _onTapIndicator(int index) {
     _pageController.animateToPage(
       index,
-      duration: const Duration(milliseconds: 300),
+      duration: $constants.times.fast,
       curve: Curves.linear,
     );
   }
@@ -64,9 +65,10 @@ class _CarouselPhotoState extends State<CarouselPhoto> {
 
   @override
   Widget build(BuildContext context) {
+    final width = getSize(context).width - $constants.carousel.marginAmount;
     return Container(
       margin: EdgeInsetsDirectional.symmetric(
-        horizontal: widget.isShowProfileInfo ? 16 : 0,
+        horizontal: widget.isShowProfileInfo ? $constants.insets.sm : 0,
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
@@ -94,8 +96,7 @@ class _CarouselPhotoState extends State<CarouselPhoto> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: widget.listImages.asMap().entries.map((entry) {
-              final itemWidth =
-                  (getSize(context).width - 64) / widget.listImages.length;
+              final itemWidth = width / widget.listImages.length;
               return GestureDetector(
                 onTap: () => _onTapIndicator(entry.key),
                 behavior: HitTestBehavior.deferToChild,
@@ -172,8 +173,8 @@ class _CarouselPhotoState extends State<CarouselPhoto> {
                 ? $constants.palette.white
                 : $constants.palette.white.withOpacity(0.3),
           ),
-          height: 2,
-          width: width - 4,
+          height: $constants.carousel.indicatorHeight,
+          width: width - $constants.insets.xxs,
         );
       },
     );
@@ -181,7 +182,10 @@ class _CarouselPhotoState extends State<CarouselPhoto> {
 
   Widget _buildUserInfo() {
     return Container(
-      margin: const EdgeInsetsDirectional.only(top: 34, start: 20),
+      margin: EdgeInsetsDirectional.only(
+        top: $constants.carousel.topMargin,
+        start: $constants.carousel.startMargin,
+      ),
       padding: EdgeInsetsDirectional.symmetric(
         vertical: $constants.insets.xs,
         horizontal: $constants.insets.sm,
