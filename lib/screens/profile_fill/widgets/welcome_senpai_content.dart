@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
@@ -70,10 +71,11 @@ class WelcomeSenpaiContent extends StatelessWidget {
 
   Widget _buildButton(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
+    final serverBloc = BlocProvider.of<UpdateUserBloc>(context);
     return PrimaryButton(
       text: TextConstants.fillProfileText,
-      onPressed: () {
-        bloc.add(OnChangeStepEvent(step: ProfileFillStep.firstName));
+      onPressed: () async {
+        await serverBloc.updateUserInfo(user: bloc.user);
       },
     );
   }
