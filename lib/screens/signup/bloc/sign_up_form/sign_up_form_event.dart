@@ -10,3 +10,9 @@ class OnTextChangedEvent extends SignUpFormEvent {
 }
 
 class SignUpTappedEvent extends SignUpFormEvent {}
+
+class TermsAndConditionsTappedEvent extends SignUpFormEvent {
+  final bool isAccepted;
+
+  TermsAndConditionsTappedEvent({required this.isAccepted});
+}

@@ -37,6 +37,8 @@ class TextConstants {
   static const String serverError = "Something went wrong, please try again";
   static const String nullUser =
       "There's no existing account associated with this phone number";
+  static const String termsAndConditions =
+      "I agree to receive SMS texts from Senpai at the phone number provided. Reply STOP to opt-out.";
 
   static const String verifyPhoneHeading = "Your code is";
   static const String verifyPhoneInstruction =

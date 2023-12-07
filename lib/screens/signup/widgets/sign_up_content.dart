@@ -76,6 +76,7 @@ class SignupContent extends StatelessWidget {
                       ),
                   textAlign: TextAlign.left,
                 ),
+                ..._buildTermsAndConditions(context),
                 SizedBox(
                   height: $constants.insets.lg,
                 ),
@@ -96,6 +97,45 @@ class SignupContent extends StatelessWidget {
     );
   }
 
+  List<Widget> _buildTermsAndConditions(BuildContext context) {
+    if (isExistingUser) {
+      return [];
+    }
+    final bloc = BlocProvider.of<SignUpFormBloc>(context);
+    return [
+      SizedBox(
+        height: $constants.insets.sm,
+      ),
+      BlocBuilder<SignUpFormBloc, SignUpFormState>(
+        builder: (context, state) {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Expanded(
+                child: CheckboxListTile(
+                  contentPadding: EdgeInsets.zero,
+                  checkColor: $constants.palette.white,
+                  fillColor:
+                      MaterialStateProperty.resolveWith(getCheckBoxColor),
+                  value: bloc.isAccepted,
+                  onChanged: bloc.onTermsAndConditionsTapped,
+                  title: Text(
+                    TextConstants.termsAndConditions,
+                    style: getTextTheme(context).labelMedium?.copyWith(
+                          color: $constants.palette.white,
+                        ),
+                    textAlign: TextAlign.left,
+                  ),
+                  controlAffinity: ListTileControlAffinity.leading,
+                ),
+              )
+            ],
+          );
+        },
+      )
+    ];
+  }
+
   Widget _buildSubmitButton(BuildContext context) {
     final formBloc = BlocProvider.of<SignUpFormBloc>(context);
     final serviceBloc = BlocProvider.of<CreateUserBloc>(context);
@@ -107,6 +147,9 @@ class SignupContent extends StatelessWidget {
         return PrimaryButton(
           text: TextConstants.continueText,
           onPressed: () {
+            if (!formBloc.isAccepted) {
+              return;
+            }
             if (isValidPhoneNumber(formBloc.phoneController.text)) {
               final String formattedPhone = formBloc.phoneNumber.phoneNumber!;
               if (isExistingUser) {

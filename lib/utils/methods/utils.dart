@@ -167,3 +167,13 @@ BoxDecoration profileBoxDecoration() {
     color: $constants.palette.lightBlue,
   );
 }
+
+Color getCheckBoxColor(Set<MaterialState> states) {
+  const Set<MaterialState> interactiveStates = <MaterialState>{
+    MaterialState.selected,
+  };
+  if (states.any(interactiveStates.contains)) {
+    return $constants.palette.pink;
+  }
+  return $constants.palette.buttonBorder;
+}

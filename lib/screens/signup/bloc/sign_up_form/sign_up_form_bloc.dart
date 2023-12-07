@@ -12,6 +12,8 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
 
   PhoneNumber phoneNumber = PhoneNumber();
 
+  bool isAccepted = false;
+
   SignUpFormBloc() : super(SignupInitial()) {
     on<OnTextChangedEvent>((event, emit) {
       if (isValidPhoneNumber(phoneController.text)) {
@@ -35,5 +37,14 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
             message: TextConstants.invalidPhoneError, isEnabled: true));
       }
     });
+
+    on<TermsAndConditionsTappedEvent>((event, emit) {
+      emit(SignUpButtonEnableChangedState(isEnabled: event.isAccepted));
+    });
+  }
+
+  void onTermsAndConditionsTapped(bool? value) {
+    isAccepted = value ?? false;
+    add(TermsAndConditionsTappedEvent(isAccepted: isAccepted));
   }
 }
