@@ -2,14 +2,13 @@ import 'dart:async';
 
 import 'package:fresh_dio/fresh_dio.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:injectable/injectable.dart';
 import 'package:senpai/core/chat/helpers/conversations_parse.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/auth/auth_model.dart';
+import 'package:senpai/models/chat/categorized_conversation.dart';
 
-@injectable
 class FetchConversationsBloc extends QueryBloc<FetchConversations$Query> {
   final Duration refetchInterval;
 
@@ -24,6 +23,10 @@ class FetchConversationsBloc extends QueryBloc<FetchConversations$Query> {
   }
 
   final _conversationsParser = ConversationsParser();
+  CategorizedConversations conversations = CategorizedConversations(
+    matches: [],
+    activeConversations: [],
+  );
   Timer? _refetchTimer;
 
   void startPeriodicFetch() {
@@ -55,6 +58,8 @@ class FetchConversationsBloc extends QueryBloc<FetchConversations$Query> {
 
   @override
   FetchConversations$Query parseData(Map<String, dynamic>? data) {
-    return _conversationsParser.parse(data) as FetchConversations$Query;
+    conversations = _conversationsParser.parse(data);
+
+    return FetchConversations$Query.fromJson(data ?? <String, dynamic>{});
   }
 }
