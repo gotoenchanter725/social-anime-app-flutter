@@ -12,7 +12,7 @@ import 'package:senpai/models/chat/categorized_conversation.dart';
 class FetchConversationsBloc extends QueryBloc<FetchConversations$Query> {
   final Duration refetchInterval;
 
-  FetchConversationsBloc({this.refetchInterval = const Duration(seconds: 5)})
+  FetchConversationsBloc({this.refetchInterval = const Duration(seconds: 30)})
       : super(options: _fetchConversationsQueryOptions());
 
   static WatchQueryOptions<Object?> _fetchConversationsQueryOptions() {

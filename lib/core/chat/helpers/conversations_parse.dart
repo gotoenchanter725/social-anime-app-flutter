@@ -2,6 +2,7 @@
 import 'package:senpai/models/chat/categorized_conversation.dart';
 import 'package:senpai/models/chat/chat_conversation.dart';
 import 'package:senpai/models/match/match_user_data.dart';
+import 'package:senpai/utils/methods/utils.dart';
 
 class ConversationsParser {
   CategorizedConversations parse(Map<String, dynamic>? data) {
@@ -44,7 +45,7 @@ class ConversationsParser {
           profileUrl: user["gallery"]["photos"][0]["url"],
           contactName: user["firstName"],
           lastMessage: messages[0]["content"],
-          lastMessageTime: DateTime.parse(messages[0]["createdAt"]),
+          lastMessageTime: parseTimezoneAwareDate(messages[0]["createdAt"]),
           unreadMessagesCount: unreadMessagesCount,
         ));
       }

@@ -69,6 +69,10 @@ bool isValidPhoneNumber(String phoneNumber) {
   return phoneNumber.length > 8 && phoneRegExp.hasMatch(phoneNumber);
 }
 
+DateTime parseTimezoneAwareDate(String dateString) {
+  return DateTime.parse(dateString).toLocal();
+}
+
 String formatDateTime(DateTime dateTime) {
   final now = DateTime.now();
 

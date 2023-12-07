@@ -33,7 +33,15 @@ class _ChatListControllerState extends State<ChatListController> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FetchConversationsBloc, QueryState>(
+    return BlocConsumer<FetchConversationsBloc, QueryState>(
+      listener: (context, state) {
+        state.maybeWhen(
+          orElse: () {},
+          error: (error, result) {
+            _fetchConversationsBloc.stopPeriodicFetch();
+          },
+        );
+      },
       builder: (context, state) {
         return state.maybeWhen(
           orElse: () {
