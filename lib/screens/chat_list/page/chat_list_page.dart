@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:senpai/screens/chat_list/widgets/chat_list_content.dart';
+import 'package:senpai/screens/chat_list/page/chat_list_controller.dart';
 
 @RoutePage()
 class ChatListPage extends StatelessWidget {
@@ -8,6 +8,6 @@ class ChatListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(child: ChatListContent());
+    return const SafeArea(child: ChatListController());
   }
 }

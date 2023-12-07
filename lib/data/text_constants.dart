@@ -82,6 +82,10 @@ class TextConstants {
   static const String firstNameText = "First Name";
   static const String nextText = "Next";
 
+  // Chat List
+  static const String conversationsDataErrorText =
+      "Failed to get conversations from the server";
+
   // Chat
   static const String searchHintText = "Search chat or match";
   static const String matchesTitle = "Matches";
