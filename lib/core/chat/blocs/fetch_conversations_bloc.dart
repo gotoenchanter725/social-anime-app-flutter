@@ -58,7 +58,11 @@ class FetchConversationsBloc extends QueryBloc<FetchConversations$Query> {
 
   @override
   FetchConversations$Query parseData(Map<String, dynamic>? data) {
-    conversations = _conversationsParser.parse(data);
+    try {
+      conversations = _conversationsParser.parse(data);
+    } catch (e) {
+      print(e);
+    }
 
     return FetchConversations$Query.fromJson(data ?? <String, dynamic>{});
   }

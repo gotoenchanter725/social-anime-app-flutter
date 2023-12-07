@@ -1,16 +1,44 @@
 query fetchConversations($userId: ID!) {
   fetchConversations(userId: $userId) {
     id
-    matchId
+    match {
+      id
+      user {
+        id
+        onlineStatus
+        firstName
+        gallery {
+          photos {
+            order
+            url
+          }
+        }
+      }
+      matchee {
+        id
+        onlineStatus
+      }
+    }
     messages {
+      attachment
+      attachmentType
       content
-      senderId
+      createdAt
       reaction
+      read
+      senderId
+      recommendation {
+        userId
+        recommendeeId
+        anime {
+          title
+          cover
+        }
+      }
       sticker {
         id
         url
       }
-      attachment
     }
   }
 }

@@ -1,4 +1,4 @@
-import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
+// import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
 import 'package:senpai/models/chat/categorized_conversation.dart';
 import 'package:senpai/models/chat/chat_conversation.dart';
 import 'package:senpai/models/match/match_user_data.dart';
@@ -9,9 +9,7 @@ class ConversationsParser {
       return CategorizedConversations(matches: [], activeConversations: []);
     }
 
-    Map<String, dynamic> responseJson =
-        FetchConversations$Query.fromJson(data) as Map<String, dynamic>;
-    var conversations = responseJson['data'] as List<dynamic>;
+    var conversations = data['fetchConversations'] as List<dynamic>;
 
     // Categorize conversations
     var matches = <MatchUserData>[];
@@ -19,11 +17,11 @@ class ConversationsParser {
 
     for (var conversation in conversations) {
       dynamic user = conversation["match"]["user"];
-      if (conversation.messages.isEmpty) {
+      if (conversation["messages"].isEmpty) {
         matches.add(MatchUserData(
           id: conversation["id"],
           imageUrl: user["gallery"]["photos"][0]["url"],
-          isOnline: user["isOnline"],
+          isOnline: user["onlineStatus"] == "offline" ? false : true,
           userName: user["firstName"],
         ));
       } else {

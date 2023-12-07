@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/data/mock_conversation_list_data.dart';
-import 'package:senpai/data/mock_match_data.dart';
+// import 'package:senpai/data/mock_match_data.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/categorized_conversation.dart';
@@ -75,7 +75,7 @@ class ChatListContent extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.only(left: $constants.insets.lg),
-          child: MatchList(users: mockMatchedUsers),
+          child: MatchList(users: conversation.matches),
         ),
         SizedBox(
           height: $constants.insets.lg,

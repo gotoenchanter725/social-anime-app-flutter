@@ -1614,6 +1614,162 @@ class AnimeInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class FetchConversations$Query$FetchConversations$Match$User$Gallery$Photos
+    extends JsonSerializable with EquatableMixin {
+  FetchConversations$Query$FetchConversations$Match$User$Gallery$Photos();
+
+  factory FetchConversations$Query$FetchConversations$Match$User$Gallery$Photos.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchConversations$Query$FetchConversations$Match$User$Gallery$PhotosFromJson(
+          json);
+
+  int? order;
+
+  late String url;
+
+  @override
+  List<Object?> get props => [order, url];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchConversations$Query$FetchConversations$Match$User$Gallery$PhotosToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchConversations$Query$FetchConversations$Match$User$Gallery
+    extends JsonSerializable with EquatableMixin {
+  FetchConversations$Query$FetchConversations$Match$User$Gallery();
+
+  factory FetchConversations$Query$FetchConversations$Match$User$Gallery.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchConversations$Query$FetchConversations$Match$User$GalleryFromJson(
+          json);
+
+  List<FetchConversations$Query$FetchConversations$Match$User$Gallery$Photos>?
+      photos;
+
+  @override
+  List<Object?> get props => [photos];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchConversations$Query$FetchConversations$Match$User$GalleryToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchConversations$Query$FetchConversations$Match$User
+    extends JsonSerializable with EquatableMixin {
+  FetchConversations$Query$FetchConversations$Match$User();
+
+  factory FetchConversations$Query$FetchConversations$Match$User.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchConversations$Query$FetchConversations$Match$UserFromJson(json);
+
+  late String id;
+
+  String? onlineStatus;
+
+  late String firstName;
+
+  FetchConversations$Query$FetchConversations$Match$User$Gallery? gallery;
+
+  @override
+  List<Object?> get props => [id, onlineStatus, firstName, gallery];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchConversations$Query$FetchConversations$Match$UserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchConversations$Query$FetchConversations$Match$Matchee
+    extends JsonSerializable with EquatableMixin {
+  FetchConversations$Query$FetchConversations$Match$Matchee();
+
+  factory FetchConversations$Query$FetchConversations$Match$Matchee.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchConversations$Query$FetchConversations$Match$MatcheeFromJson(json);
+
+  late String id;
+
+  String? onlineStatus;
+
+  @override
+  List<Object?> get props => [id, onlineStatus];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchConversations$Query$FetchConversations$Match$MatcheeToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchConversations$Query$FetchConversations$Match extends JsonSerializable
+    with EquatableMixin {
+  FetchConversations$Query$FetchConversations$Match();
+
+  factory FetchConversations$Query$FetchConversations$Match.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchConversations$Query$FetchConversations$MatchFromJson(json);
+
+  late String id;
+
+  late FetchConversations$Query$FetchConversations$Match$User user;
+
+  late FetchConversations$Query$FetchConversations$Match$Matchee matchee;
+
+  @override
+  List<Object?> get props => [id, user, matchee];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchConversations$Query$FetchConversations$MatchToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime
+    extends JsonSerializable with EquatableMixin {
+  FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime();
+
+  factory FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchConversations$Query$FetchConversations$Messages$Recommendation$AnimeFromJson(
+          json);
+
+  String? title;
+
+  String? cover;
+
+  @override
+  List<Object?> get props => [title, cover];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchConversations$Query$FetchConversations$Messages$Recommendation$AnimeToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchConversations$Query$FetchConversations$Messages$Recommendation
+    extends JsonSerializable with EquatableMixin {
+  FetchConversations$Query$FetchConversations$Messages$Recommendation();
+
+  factory FetchConversations$Query$FetchConversations$Messages$Recommendation.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchConversations$Query$FetchConversations$Messages$RecommendationFromJson(
+          json);
+
+  late int userId;
+
+  late int recommendeeId;
+
+  FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime?
+      anime;
+
+  @override
+  List<Object?> get props => [userId, recommendeeId, anime];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchConversations$Query$FetchConversations$Messages$RecommendationToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class FetchConversations$Query$FetchConversations$Messages$Sticker
     extends JsonSerializable with EquatableMixin {
   FetchConversations$Query$FetchConversations$Messages$Sticker();
@@ -1644,18 +1800,40 @@ class FetchConversations$Query$FetchConversations$Messages
           Map<String, dynamic> json) =>
       _$FetchConversations$Query$FetchConversations$MessagesFromJson(json);
 
+  String? attachment;
+
+  String? attachmentType;
+
   String? content;
 
-  int? senderId;
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
+      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
+  late DateTime createdAt;
 
   String? reaction;
 
+  bool? read;
+
+  int? senderId;
+
+  FetchConversations$Query$FetchConversations$Messages$Recommendation?
+      recommendation;
+
   FetchConversations$Query$FetchConversations$Messages$Sticker? sticker;
 
-  String? attachment;
-
   @override
-  List<Object?> get props => [content, senderId, reaction, sticker, attachment];
+  List<Object?> get props => [
+        attachment,
+        attachmentType,
+        content,
+        createdAt,
+        reaction,
+        read,
+        senderId,
+        recommendation,
+        sticker
+      ];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$MessagesToJson(this);
@@ -1672,12 +1850,12 @@ class FetchConversations$Query$FetchConversations extends JsonSerializable
 
   late String id;
 
-  late int matchId;
+  FetchConversations$Query$FetchConversations$Match? match;
 
   List<FetchConversations$Query$FetchConversations$Messages>? messages;
 
   @override
-  List<Object?> get props => [id, matchId, messages];
+  List<Object?> get props => [id, match, messages];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversationsToJson(this);
@@ -3865,11 +4043,100 @@ final FETCH_CONVERSATIONS_QUERY_DOCUMENT = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'matchId'),
+            name: NameNode(value: 'match'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'user'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'onlineStatus'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'firstName'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'gallery'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'photos'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'order'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'url'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      )
+                    ]),
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'matchee'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'onlineStatus'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+            ]),
           ),
           FieldNode(
             name: NameNode(value: 'messages'),
@@ -3878,7 +4145,42 @@ final FETCH_CONVERSATIONS_QUERY_DOCUMENT = DocumentNode(definitions: [
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
+                name: NameNode(value: 'attachment'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'attachmentType'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
                 name: NameNode(value: 'content'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'createdAt'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'reaction'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'read'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -3892,11 +4194,48 @@ final FETCH_CONVERSATIONS_QUERY_DOCUMENT = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'reaction'),
+                name: NameNode(value: 'recommendation'),
                 alias: null,
                 arguments: [],
                 directives: [],
-                selectionSet: null,
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'userId'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'recommendeeId'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'anime'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'title'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'cover'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
+                  ),
+                ]),
               ),
               FieldNode(
                 name: NameNode(value: 'sticker'),
@@ -3919,13 +4258,6 @@ final FETCH_CONVERSATIONS_QUERY_DOCUMENT = DocumentNode(definitions: [
                     selectionSet: null,
                   ),
                 ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'attachment'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
               ),
             ]),
           ),
