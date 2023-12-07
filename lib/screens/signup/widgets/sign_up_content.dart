@@ -147,7 +147,7 @@ class SignupContent extends StatelessWidget {
         return PrimaryButton(
           text: TextConstants.continueText,
           onPressed: () {
-            if (!formBloc.isAccepted) {
+            if (!formBloc.isAccepted && !isExistingUser) {
               return;
             }
             if (isValidPhoneNumber(formBloc.phoneController.text)) {
