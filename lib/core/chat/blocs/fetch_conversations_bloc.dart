@@ -12,6 +12,8 @@ import 'package:senpai/models/chat/categorized_conversation.dart';
 class FetchConversationsBloc extends QueryBloc<FetchConversations$Query> {
   final Duration refetchInterval;
 
+  late AuthModel _authModel;
+
   FetchConversationsBloc({this.refetchInterval = const Duration(seconds: 30)})
       : super(options: _fetchConversationsQueryOptions());
 
@@ -52,6 +54,7 @@ class FetchConversationsBloc extends QueryBloc<FetchConversations$Query> {
     if (authModel == null) {
       throw Exception("Could not find a signed in user");
     }
+    _authModel = authModel;
     final variables = FetchUserArguments(userId: authModel.user.id).toJson();
     run(variables: variables);
   }
@@ -59,7 +62,7 @@ class FetchConversationsBloc extends QueryBloc<FetchConversations$Query> {
   @override
   FetchConversations$Query parseData(Map<String, dynamic>? data) {
     try {
-      conversations = _conversationsParser.parse(data);
+      conversations = _conversationsParser.parse(data, _authModel.user.id);
     } catch (e) {
       print(e);
     }

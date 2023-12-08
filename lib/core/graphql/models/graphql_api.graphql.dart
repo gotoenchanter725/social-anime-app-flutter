@@ -1681,6 +1681,49 @@ class FetchConversations$Query$FetchConversations$Match$User
 }
 
 @JsonSerializable(explicitToJson: true)
+class FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos
+    extends JsonSerializable with EquatableMixin {
+  FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos();
+
+  factory FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$PhotosFromJson(
+          json);
+
+  int? order;
+
+  late String url;
+
+  @override
+  List<Object?> get props => [order, url];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$PhotosToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchConversations$Query$FetchConversations$Match$Matchee$Gallery
+    extends JsonSerializable with EquatableMixin {
+  FetchConversations$Query$FetchConversations$Match$Matchee$Gallery();
+
+  factory FetchConversations$Query$FetchConversations$Match$Matchee$Gallery.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchConversations$Query$FetchConversations$Match$Matchee$GalleryFromJson(
+          json);
+
+  List<FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos>?
+      photos;
+
+  @override
+  List<Object?> get props => [photos];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchConversations$Query$FetchConversations$Match$Matchee$GalleryToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class FetchConversations$Query$FetchConversations$Match$Matchee
     extends JsonSerializable with EquatableMixin {
   FetchConversations$Query$FetchConversations$Match$Matchee();
@@ -1693,8 +1736,12 @@ class FetchConversations$Query$FetchConversations$Match$Matchee
 
   String? onlineStatus;
 
+  late String firstName;
+
+  FetchConversations$Query$FetchConversations$Match$Matchee$Gallery? gallery;
+
   @override
-  List<Object?> get props => [id, onlineStatus];
+  List<Object?> get props => [id, onlineStatus, firstName, gallery];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$Match$MatcheeToJson(this);
@@ -4133,6 +4180,43 @@ final FETCH_CONVERSATIONS_QUERY_DOCUMENT = DocumentNode(definitions: [
                     arguments: [],
                     directives: [],
                     selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'firstName'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'gallery'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'photos'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'order'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'url'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      )
+                    ]),
                   ),
                 ]),
               ),

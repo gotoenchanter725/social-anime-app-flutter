@@ -5,7 +5,7 @@ import 'package:senpai/models/match/match_user_data.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class ConversationsParser {
-  CategorizedConversations parse(Map<String, dynamic>? data) {
+  CategorizedConversations parse(Map<String, dynamic>? data, String? userId) {
     if (data == null) {
       return CategorizedConversations(matches: [], activeConversations: []);
     }
@@ -18,6 +18,9 @@ class ConversationsParser {
 
     for (var conversation in conversations) {
       dynamic user = conversation["match"]["user"];
+      if (user["id"] == userId) {
+        user = conversation["match"]["matchee"];
+      }
       if (conversation["messages"].isEmpty) {
         matches.add(MatchUserData(
           id: conversation["id"],

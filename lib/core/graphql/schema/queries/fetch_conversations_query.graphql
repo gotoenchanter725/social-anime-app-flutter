@@ -17,6 +17,13 @@ query fetchConversations($userId: ID!) {
       matchee {
         id
         onlineStatus
+        firstName
+        gallery {
+          photos {
+            order
+            url
+          }
+        }
       }
     }
     messages {

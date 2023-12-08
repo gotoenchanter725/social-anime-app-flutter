@@ -1229,12 +1229,51 @@ Map<String, dynamic>
           'gallery': instance.gallery?.toJson(),
         };
 
+FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos
+    _$FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$PhotosFromJson(
+            Map<String, dynamic> json) =>
+        FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos()
+          ..order = json['order'] as int?
+          ..url = json['url'] as String;
+
+Map<String, dynamic>
+    _$FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$PhotosToJson(
+            FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos
+                instance) =>
+        <String, dynamic>{
+          'order': instance.order,
+          'url': instance.url,
+        };
+
+FetchConversations$Query$FetchConversations$Match$Matchee$Gallery
+    _$FetchConversations$Query$FetchConversations$Match$Matchee$GalleryFromJson(
+            Map<String, dynamic> json) =>
+        FetchConversations$Query$FetchConversations$Match$Matchee$Gallery()
+          ..photos = (json['photos'] as List<dynamic>?)
+              ?.map((e) =>
+                  FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic>
+    _$FetchConversations$Query$FetchConversations$Match$Matchee$GalleryToJson(
+            FetchConversations$Query$FetchConversations$Match$Matchee$Gallery
+                instance) =>
+        <String, dynamic>{
+          'photos': instance.photos?.map((e) => e.toJson()).toList(),
+        };
+
 FetchConversations$Query$FetchConversations$Match$Matchee
     _$FetchConversations$Query$FetchConversations$Match$MatcheeFromJson(
             Map<String, dynamic> json) =>
         FetchConversations$Query$FetchConversations$Match$Matchee()
           ..id = json['id'] as String
-          ..onlineStatus = json['onlineStatus'] as String?;
+          ..onlineStatus = json['onlineStatus'] as String?
+          ..firstName = json['firstName'] as String
+          ..gallery = json['gallery'] == null
+              ? null
+              : FetchConversations$Query$FetchConversations$Match$Matchee$Gallery
+                  .fromJson(json['gallery'] as Map<String, dynamic>);
 
 Map<String,
     dynamic> _$FetchConversations$Query$FetchConversations$Match$MatcheeToJson(
@@ -1242,6 +1281,8 @@ Map<String,
     <String, dynamic>{
       'id': instance.id,
       'onlineStatus': instance.onlineStatus,
+      'firstName': instance.firstName,
+      'gallery': instance.gallery?.toJson(),
     };
 
 FetchConversations$Query$FetchConversations$Match
