@@ -31,6 +31,8 @@ class ProfileContent extends StatelessWidget {
       },
       builder: (context, state) {
         final bloc = BlocProvider.of<ProfileBloc>(context);
+        final isUserHasPhotos =
+            bloc.user.gallery != null && bloc.user.gallery!.photos.isNotEmpty;
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
           child: Column(
@@ -45,7 +47,9 @@ class ProfileContent extends StatelessWidget {
                 height: $constants.insets.md,
               ),
               ProfileHeader(
-                avatar: bloc.user.gallery?.photos.first.url ?? '',
+                avatar: isUserHasPhotos
+                    ? bloc.user.gallery!.photos.last.url ?? ''
+                    : '',
                 name: bloc.user.firstName ?? '',
                 birthday: bloc.user.birthday,
                 verified: bloc.user.verified,
@@ -75,9 +79,14 @@ class ProfileContent extends StatelessWidget {
                         title: TextConstants.editProfileButton,
                         onTap: () async {
                           // change after implement EditProfileRoute
-                          // await context.router.push(
-                          //   EditProfileRoute(user: bloc.user),
-                          // );
+                          // await context.router
+                          //     .push(EditProfileRoute(userID: bloc.userID))
+                          //     .then((value) {
+                          //   final fetchUserBloc =
+                          //       BlocProvider.of<FetchUserBloc>(context);
+                          //   fetchUserBloc.fetchUser(
+                          //       userId: int.parse(bloc.userID));
+                          // });
                         },
                       ),
                       SizedBox(height: $constants.insets.xs),
@@ -116,9 +125,12 @@ class ProfileContent extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () async {
-            await context.router.push(
-              SettingsProfileRoute(user: bloc.user),
-            );
+            await context.router
+                .push(SettingsProfileRoute(user: bloc.user))
+                .then((value) {
+              final fetchUserBloc = BlocProvider.of<FetchUserBloc>(context);
+              fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
+            });
           },
           child: SvgPicture.asset(
             PathConstants.settingsIcon,
