@@ -85,6 +85,9 @@ class TextConstants {
   // Chat List
   static const String conversationsDataErrorText =
       "Failed to get conversations from the server";
+  static const String emptyConversationsPromptText = "Start liking";
+  static const String emptyConversationsText =
+      "When you match with other users they will appear here";
 
   // Chat
   static const String searchHintText = "Search chat or match";
