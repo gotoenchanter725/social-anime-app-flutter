@@ -12,7 +12,6 @@ import 'package:senpai/core/profile_fill/blocs/upload_photo/upload_photo_bloc.da
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/routes/app_router.dart';
-import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/dotted_border/dotted_border.dart';
 import 'package:senpai/screens/profile_fill/widgets/custom_close_button.dart';
@@ -22,7 +21,11 @@ import 'package:senpai/utils/constants.dart';
 const double _heightPhoto = 144;
 
 class ListPhotosWidget extends StatelessWidget {
-  const ListPhotosWidget({super.key});
+  final int userId;
+  const ListPhotosWidget({
+    super.key,
+    required this.userId,
+  });
 
   void _onTapOpenGallery(BuildContext context) {
     context.router.push(
@@ -34,7 +37,6 @@ class ListPhotosWidget extends StatelessWidget {
 
   Future<void> _uploadPhoto(BuildContext context) async {
     final bloc = BlocProvider.of<PhotosBloc>(context);
-    final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
     for (var i = 0; i < bloc.newPhotos.length; i++) {
       await MultipartFile.fromPath('image', bloc.newPhotos[i].path)
           .then((value) {
@@ -42,7 +44,7 @@ class ListPhotosWidget extends StatelessWidget {
         uploadPhotoBloc.uploadPhoto(
           image: value,
           order: bloc.uploadedPhotos.length + i,
-          userId: blocProfileFill.userId,
+          userId: userId,
         );
       });
     }
@@ -74,11 +76,9 @@ class ListPhotosWidget extends StatelessWidget {
 
   void _onPhotoDelete(BuildContext context, {required int index}) {
     final bloc = BlocProvider.of<PhotosBloc>(context);
-    final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
-
     final deletePhotoBloc = BlocProvider.of<DeletePhotoBloc>(context);
     deletePhotoBloc.deletePhoto(
-      userId: blocProfileFill.userId,
+      userId: userId,
       photoId: bloc.uploadedPhotos[index].id,
     );
   }
