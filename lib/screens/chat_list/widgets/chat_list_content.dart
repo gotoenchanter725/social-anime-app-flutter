@@ -16,6 +16,101 @@ class ChatListContent extends StatelessWidget {
 
   const ChatListContent({super.key, required this.conversation});
 
+  Widget _buildHeader() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image.asset(
+            PathConstants.launcher,
+            width: $constants.insets.lg,
+            height: $constants.insets.lg,
+            fit: BoxFit.contain,
+          ),
+          SvgPicture.asset(
+            PathConstants.crownIcon,
+            width: $constants.insets.lg,
+            height: $constants.insets.lg,
+            fit: BoxFit.contain,
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildSearchBar() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+      child: SenpaiIconInput(
+        iconPath: PathConstants.searchIcon,
+        hintText: TextConstants.searchHintText,
+        onChange: (text) {
+          print(text);
+        },
+      ),
+    );
+  }
+
+  _buildTitle(BuildContext context, String title) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+      child: Text(
+        title,
+        textAlign: TextAlign.left,
+        style: getTextTheme(context)
+            .headlineSmall!
+            .copyWith(color: $constants.palette.white),
+      ),
+    );
+  }
+
+  _buildMatchList(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: $constants.insets.lg),
+      child: MatchList(users: conversation.matches),
+    );
+  }
+
+  _buildConversationList(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+      child: ConversationList(chatList: conversation.activeConversations),
+    );
+  }
+
+  List<Widget> _buildConversationsContent(BuildContext context) {
+    return [
+      _buildSearchBar(),
+      SizedBox(
+        height: $constants.insets.md,
+      ),
+      _buildTitle(context, TextConstants.matchesTitle),
+      SizedBox(
+        height: $constants.insets.sm,
+      ),
+      _buildMatchList(context),
+      SizedBox(
+        height: $constants.insets.lg,
+      ),
+      _buildTitle(context, TextConstants.messagesTitle),
+      _buildConversationList(context),
+    ];
+  }
+
+  List<Widget> _buildEmptyConversationContent(BuildContext context) {
+    return [];
+  }
+
+  List<Widget> _buildCoversationContent(BuildContext context) {
+    if (conversation.activeConversations.isEmpty &&
+        conversation.matches.isEmpty) {
+      return _buildEmptyConversationContent(context);
+    } else {
+      return _buildConversationsContent(context);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -24,78 +119,11 @@ class ChatListContent extends StatelessWidget {
         SizedBox(
           height: $constants.insets.sm,
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Image.asset(
-                PathConstants.launcher,
-                width: $constants.insets.lg,
-                height: $constants.insets.lg,
-                fit: BoxFit.contain,
-              ),
-              SvgPicture.asset(
-                PathConstants.crownIcon,
-                width: $constants.insets.lg,
-                height: $constants.insets.lg,
-                fit: BoxFit.contain,
-              )
-            ],
-          ),
-        ),
+        _buildHeader(),
         SizedBox(
           height: $constants.insets.md,
         ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-          child: SenpaiIconInput(
-            iconPath: PathConstants.searchIcon,
-            hintText: TextConstants.searchHintText,
-            onChange: (text) {
-              print(text);
-            },
-          ),
-        ),
-        SizedBox(
-          height: $constants.insets.md,
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-          child: Text(
-            TextConstants.matchesTitle,
-            textAlign: TextAlign.left,
-            style: getTextTheme(context)
-                .headlineSmall!
-                .copyWith(color: $constants.palette.white),
-          ),
-        ),
-        SizedBox(
-          height: $constants.insets.sm,
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: $constants.insets.lg),
-          child: MatchList(users: conversation.matches),
-        ),
-        SizedBox(
-          height: $constants.insets.lg,
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-          child: Text(
-            TextConstants.messagesTitle,
-            textAlign: TextAlign.left,
-            style: getTextTheme(context)
-                .headlineSmall!
-                .copyWith(color: $constants.palette.white),
-          ),
-        ),
-        Expanded(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-            child: ConversationList(chatList: conversation.activeConversations),
-          ),
-        ),
+        ..._buildCoversationContent(context),
       ],
     );
   }
