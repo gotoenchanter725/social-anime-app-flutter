@@ -79,6 +79,13 @@ class ProfileContent extends StatelessWidget {
                         title: TextConstants.editProfileButton,
                         onTap: () async {
                           // change after implement EditProfileRoute
+
+                          context.router.push(PreviewProfileRoute(
+                            userId: bloc.userID,
+                            vieweeId: bloc.userID,
+                          ));
+
+                          // change after implement EditProfileRoute
                           // await context.router
                           //     .push(EditProfileRoute(userID: bloc.userID))
                           //     .then((value) {
