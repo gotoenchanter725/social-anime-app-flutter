@@ -3,6 +3,11 @@ part of 'profile_filter_bloc.dart';
 @immutable
 abstract class ProfileFilterEvent {}
 
+class OnInitFilters extends ProfileFilterEvent {
+  final ProfileFilterModel initialFilters;
+  OnInitFilters({required this.initialFilters});
+}
+
 class OnChangeAge extends ProfileFilterEvent {
   final RangeValues values;
   OnChangeAge({required this.values});
