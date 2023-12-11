@@ -30,6 +30,7 @@ class EmptyConversations extends StatelessWidget {
               textAlign: TextAlign.center,
               style: getTextTheme(context).bodyMedium!.copyWith(
                     color: $constants.palette.white,
+                    fontWeight: FontWeight.w600,
                   ),
             ),
             SizedBox(
