@@ -7,6 +7,7 @@ import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/categorized_conversation.dart';
 import 'package:senpai/screens/chat_list/widgets/conversation_list.dart';
+import 'package:senpai/screens/chat_list/widgets/empty_conversations.dart';
 import 'package:senpai/screens/chat_list/widgets/match_list.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -66,17 +67,35 @@ class ChatListContent extends StatelessWidget {
   }
 
   _buildMatchList(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: $constants.insets.lg),
-      child: MatchList(users: conversation.matches),
-    );
+    if (conversation.matches.isEmpty) {
+      return [];
+    }
+    return [
+      _buildTitle(context, TextConstants.matchesTitle),
+      SizedBox(
+        height: $constants.insets.sm,
+      ),
+      Padding(
+        padding: EdgeInsets.only(left: $constants.insets.lg),
+        child: MatchList(users: conversation.matches),
+      )
+    ];
   }
 
   _buildConversationList(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-      child: ConversationList(chatList: conversation.activeConversations),
-    );
+    if (conversation.activeConversations.isEmpty) {
+      return [];
+    }
+    return [
+      SizedBox(
+        height: $constants.insets.lg,
+      ),
+      _buildTitle(context, TextConstants.messagesTitle),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+        child: ConversationList(chatList: conversation.activeConversations),
+      )
+    ];
   }
 
   List<Widget> _buildConversationsContent(BuildContext context) {
@@ -85,21 +104,13 @@ class ChatListContent extends StatelessWidget {
       SizedBox(
         height: $constants.insets.md,
       ),
-      _buildTitle(context, TextConstants.matchesTitle),
-      SizedBox(
-        height: $constants.insets.sm,
-      ),
-      _buildMatchList(context),
-      SizedBox(
-        height: $constants.insets.lg,
-      ),
-      _buildTitle(context, TextConstants.messagesTitle),
-      _buildConversationList(context),
+      ..._buildMatchList(context),
+      ..._buildConversationList(context),
     ];
   }
 
   List<Widget> _buildEmptyConversationContent(BuildContext context) {
-    return [];
+    return [const EmptyConversations()];
   }
 
   List<Widget> _buildCoversationContent(BuildContext context) {
