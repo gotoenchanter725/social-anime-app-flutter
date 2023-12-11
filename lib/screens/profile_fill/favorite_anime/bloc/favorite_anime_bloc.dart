@@ -57,6 +57,9 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
       emit(LoadingState());
       page = 1;
       searchText = event.searchText;
+      if (searchText.isNotEmpty && showMyAnimeList) {
+        showMyAnimeList = false;
+      }
       emit(ValidState());
       emit(FavoriteAnimeFetchState());
     });

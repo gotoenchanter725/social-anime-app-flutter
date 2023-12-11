@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
+import 'package:senpai/screens/home/bloc/home_storage_bloc.dart';
 import 'package:senpai/screens/profile/profile_filter/profile_filter_bloc/profile_filter_bloc.dart';
 import 'package:senpai/screens/profile/profile_filter/widgets/age_range_slider.dart';
 import 'package:senpai/screens/profile/profile_filter/widgets/distance_slider.dart';
@@ -58,15 +59,15 @@ class ProfileFilterContent extends StatelessWidget {
 
   Widget _buildAppBarAction(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFilterBloc>(context);
-    return BlocListener<ProfileFilterBloc, ProfileFilterState>(
-      listenWhen: (_, currState) =>
-          currState is ValidSaveState || currState is ClearAllFiltersState,
+    final storageBloc = BlocProvider.of<HomeStorageBloc>(context);
+    return BlocListener<HomeStorageBloc, HomeStorageState>(
+      listenWhen: (_, currState) => currState is ValidSaveProfileFiltersState,
       listener: (context, state) async {
         await context.router.pop();
       },
       child: GestureDetector(
         onTap: () {
-          bloc.add(OnClearAllFilters());
+          storageBloc.add(OnApplyProfileFilters(filters: bloc.initialFilters));
         },
         child: Padding(
           padding: EdgeInsets.only(right: $constants.insets.sm),
@@ -109,9 +110,9 @@ class ProfileFilterContent extends StatelessWidget {
 
   Widget _buildSubmitButton(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFilterBloc>(context);
-
-    return BlocListener<ProfileFilterBloc, ProfileFilterState>(
-      listenWhen: (_, currState) => currState is ValidSaveState,
+    final storageBloc = BlocProvider.of<HomeStorageBloc>(context);
+    return BlocListener<HomeStorageBloc, HomeStorageState>(
+      listenWhen: (_, currState) => currState is ValidSaveProfileFiltersState,
       listener: (context, state) async {
         await context.router.pop();
       },
@@ -120,7 +121,7 @@ class ProfileFilterContent extends StatelessWidget {
             ? TextConstants.applyTitle
             : '${TextConstants.applyChangesTitle} (${bloc.counterChangesList.length})',
         onPressed: () {
-          bloc.add(OnApplyFilters());
+          storageBloc.add(OnApplyProfileFilters(filters: bloc.changedFilters));
         },
       ),
     );

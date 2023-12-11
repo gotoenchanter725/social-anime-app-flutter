@@ -78,9 +78,9 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
 
     on<OnChangeUploadedPhotosFromServerEvent>((event, emit) {
       emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
-      uploadedPhotos = event.uploadedPhotos
-        ..sort((a, b) => a.order!.compareTo(b.order!));
-      uploadedPhotos = event.uploadedPhotos;
+      uploadedPhotos = [];
+      uploadedPhotos.addAll(event.uploadedPhotos);
+      uploadedPhotos.sort((a, b) => a.order!.compareTo(b.order!));
       emit(ValidState());
     });
 

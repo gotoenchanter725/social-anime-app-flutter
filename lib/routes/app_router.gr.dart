@@ -57,6 +57,19 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const PremiumPage(),
       );
     },
+    PreviewProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<PreviewProfileRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PreviewProfilePage(
+          key: args.key,
+          userId: args.userId,
+          vieweeId: args.vieweeId,
+          onTapClose: args.onTapClose,
+          onTapLike: args.onTapLike,
+        ),
+      );
+    },
     ProfileFillRoute.name: (routeData) {
       final args = routeData.argsAs<ProfileFillRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -255,6 +268,59 @@ class PremiumRoute extends PageRouteInfo<void> {
   static const String name = 'PremiumRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PreviewProfilePage]
+class PreviewProfileRoute extends PageRouteInfo<PreviewProfileRouteArgs> {
+  PreviewProfileRoute({
+    Key? key,
+    required String userId,
+    required String vieweeId,
+    void Function()? onTapClose,
+    void Function()? onTapLike,
+    List<PageRouteInfo>? children,
+  }) : super(
+          PreviewProfileRoute.name,
+          args: PreviewProfileRouteArgs(
+            key: key,
+            userId: userId,
+            vieweeId: vieweeId,
+            onTapClose: onTapClose,
+            onTapLike: onTapLike,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'PreviewProfileRoute';
+
+  static const PageInfo<PreviewProfileRouteArgs> page =
+      PageInfo<PreviewProfileRouteArgs>(name);
+}
+
+class PreviewProfileRouteArgs {
+  const PreviewProfileRouteArgs({
+    this.key,
+    required this.userId,
+    required this.vieweeId,
+    this.onTapClose,
+    this.onTapLike,
+  });
+
+  final Key? key;
+
+  final String userId;
+
+  final String vieweeId;
+
+  final void Function()? onTapClose;
+
+  final void Function()? onTapLike;
+
+  @override
+  String toString() {
+    return 'PreviewProfileRouteArgs{key: $key, userId: $userId, vieweeId: $vieweeId, onTapClose: $onTapClose, onTapLike: $onTapLike}';
+  }
 }
 
 /// generated route for

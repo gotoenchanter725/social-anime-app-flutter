@@ -150,6 +150,7 @@ class TextConstants {
   static const String ofText = "of";
   static const String noPhotoFoundText = "Sorry, no photo found";
   static const String cameraError = "Something went wrong with your camera";
+  static const String copyPosePhotoText = "Copy the pose in the photo above";
 
   //  -> Add Favorite Anime
   static const String saveText = "Save";
@@ -202,6 +203,14 @@ class TextConstants {
   static const String connectYourSpotifyDescription =
       "Show potential matches your favorite artists";
   static const String connectSpotifyText = "Connect Spotify";
+  static const String topSpotifyArtistsText = "Top 5 Spotify Artists";
+  static const String topSpotifyListeningSongsText =
+      "Top 5 Spotify Listening Songs";
+  static const String connectText = "Connect";
+  static const String topListeningSongText = "Top Listening Song";
+  static const String topArtistsText = "Top Artists";
+  static const String shareInFeedText = "Share in feed";
+  static const String disconnectSpotifyText = "Disconnect Spotify";
 
   // -> Profile
   static const String senpaiPremiumTitle = "Senpai Premium";
@@ -220,6 +229,7 @@ class TextConstants {
   static const String waitingForPhotoVerificationTitle =
       "Waiting for photo verification";
   static const String milesAwayText = "miles away";
+  static const String findCityNearbyTitle = "Find a city nearby";
 
   // -> Edit Profile
   static const String nameTitle = "Name";

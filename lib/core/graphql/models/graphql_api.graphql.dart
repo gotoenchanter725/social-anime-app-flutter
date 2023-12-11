@@ -1353,14 +1353,14 @@ class FetchUser$Query$FetchUser$FavoriteMusic extends JsonSerializable
 
   late String id;
 
-  String? cover;
+  String? coverUrl;
 
   String? musicType;
 
   String? name;
 
   @override
-  List<Object?> get props => [id, cover, musicType, name];
+  List<Object?> get props => [id, coverUrl, musicType, name];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchUser$Query$FetchUser$FavoriteMusicToJson(this);
@@ -3520,7 +3520,7 @@ final FETCH_USER_QUERY_DOCUMENT = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'cover'),
+                name: NameNode(value: 'coverUrl'),
                 alias: null,
                 arguments: [],
                 directives: [],

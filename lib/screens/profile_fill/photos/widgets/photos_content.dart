@@ -27,7 +27,9 @@ class PhotosContent extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const ListPhotosWidget(),
+                  ListPhotosWidget(
+                    userId: BlocProvider.of<ProfileFillBloc>(context).userId,
+                  ),
                   SizedBox(
                     height: $constants.insets.sm,
                   ),
