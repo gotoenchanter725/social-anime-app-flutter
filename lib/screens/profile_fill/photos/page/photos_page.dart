@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
@@ -18,6 +17,7 @@ import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/widgets/photos_content.dart';
 import 'package:senpai/screens/profile_fill/photos/widgets/progress_upload_photos_widget.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
 class PhotosPage extends StatelessWidget {
@@ -67,7 +67,7 @@ class PhotosPage extends StatelessWidget {
             loading: (result) => const SenpaiLoading(),
             loaded: (data, result) {
               if (result.data == null) {
-                _showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, TextConstants.nullUser);
                 logIt.error("A successful empty response just got recorded");
                 return const SizedBox.shrink();
               } else {
@@ -84,7 +84,7 @@ class PhotosPage extends StatelessWidget {
               return const SizedBox.shrink();
             },
             error: (error, result) {
-              _showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, '_buildFetchUserListeners');
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
@@ -114,12 +114,12 @@ class PhotosPage extends StatelessWidget {
               final bloc = BlocProvider.of<FetchUserBloc>(context);
               bloc.fetchUser(userId: blocProfileFill.userId);
             } else {
-              _showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, TextConstants.serverError);
             }
             return const SizedBox.shrink();
           },
           failed: (error, result) {
-            _showSnackBarError(context, TextConstants.serverError);
+            showSnackBarError(context, TextConstants.serverError);
             return const SizedBox.shrink();
           },
           orElse: () => const SizedBox.shrink(),
@@ -147,7 +147,7 @@ class PhotosPage extends StatelessWidget {
                 context.router.pop();
               }
               bloc.add(OnRestartShowPhotosEvent());
-              _showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, '_buildUploadPhotoListeners');
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -165,7 +165,7 @@ class PhotosPage extends StatelessWidget {
                   response["uploadPhoto"]["user"]["gallery"]["photos"];
 
               if (photos == null) {
-                _showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, TextConstants.nullUser);
                 logIt.error("A user without photos");
                 return const SizedBox.shrink();
               }
@@ -190,7 +190,7 @@ class PhotosPage extends StatelessWidget {
               if (bloc.isShowProgressDialog) {
                 context.router.pop();
               }
-              _showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, TextConstants.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -215,31 +215,10 @@ class PhotosPage extends StatelessWidget {
       listenWhen: (_, currState) => currState is ErrorState,
       listener: (context, state) {
         if (state is ErrorState) {
-          state.isEnabled ? _showSnackBarError(context, state.message) : null;
+          state.isEnabled ? showSnackBarError(context, state.message) : null;
         }
       },
       child: const SizedBox.shrink(),
-    );
-  }
-
-  _showSnackBarError(BuildContext context, String message) {
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) {
-        ScaffoldMessenger.of(context)
-          ..hideCurrentSnackBar()
-          ..showSnackBar(
-            SnackBar(
-              elevation: 0,
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.transparent,
-              content: AwesomeSnackbarContent(
-                title: 'On Snap!',
-                message: message,
-                contentType: ContentType.failure,
-              ),
-            ),
-          );
-      },
     );
   }
 
