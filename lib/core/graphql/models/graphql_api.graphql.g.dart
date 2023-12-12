@@ -35,7 +35,8 @@ Map<String, dynamic> _$DeleteFavoriteAnime$MutationToJson(
 DeleteFavoriteAnimeInput _$DeleteFavoriteAnimeInputFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeInput(
-      animeId: json['animeId'] as String,
+      animeIds:
+          (json['animeIds'] as List<dynamic>).map((e) => e as String).toList(),
       clientMutationId: json['clientMutationId'] as String?,
       userId: json['userId'] as String,
     );
@@ -43,7 +44,7 @@ DeleteFavoriteAnimeInput _$DeleteFavoriteAnimeInputFromJson(
 Map<String, dynamic> _$DeleteFavoriteAnimeInputToJson(
         DeleteFavoriteAnimeInput instance) =>
     <String, dynamic>{
-      'animeId': instance.animeId,
+      'animeIds': instance.animeIds,
       'clientMutationId': instance.clientMutationId,
       'userId': instance.userId,
     };
@@ -834,16 +835,18 @@ FetchFeed$Query$FetchFeed$FavoriteMusic
             Map<String, dynamic> json) =>
         FetchFeed$Query$FetchFeed$FavoriteMusic()
           ..id = json['id'] as String
-          ..name = json['name'] as String?
-          ..cover = json['cover'] as String?
+          ..trackName = json['trackName'] as String?
+          ..artistName = json['artistName'] as String?
+          ..coverUrl = json['coverUrl'] as String?
           ..musicType = json['musicType'] as String?;
 
 Map<String, dynamic> _$FetchFeed$Query$FetchFeed$FavoriteMusicToJson(
         FetchFeed$Query$FetchFeed$FavoriteMusic instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'name': instance.name,
-      'cover': instance.cover,
+      'trackName': instance.trackName,
+      'artistName': instance.artistName,
+      'coverUrl': instance.coverUrl,
       'musicType': instance.musicType,
     };
 
@@ -983,7 +986,8 @@ FetchUser$Query$FetchUser$FavoriteMusic
           ..id = json['id'] as String
           ..coverUrl = json['coverUrl'] as String?
           ..musicType = json['musicType'] as String?
-          ..name = json['name'] as String?;
+          ..trackName = json['trackName'] as String?
+          ..artistName = json['artistName'] as String?;
 
 Map<String, dynamic> _$FetchUser$Query$FetchUser$FavoriteMusicToJson(
         FetchUser$Query$FetchUser$FavoriteMusic instance) =>
@@ -991,7 +995,8 @@ Map<String, dynamic> _$FetchUser$Query$FetchUser$FavoriteMusicToJson(
       'id': instance.id,
       'coverUrl': instance.coverUrl,
       'musicType': instance.musicType,
-      'name': instance.name,
+      'trackName': instance.trackName,
+      'artistName': instance.artistName,
     };
 
 FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
