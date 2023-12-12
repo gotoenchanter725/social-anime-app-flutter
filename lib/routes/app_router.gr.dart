@@ -84,6 +84,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfilePage(),
       );
     },
+    SearchChatListRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchChatListRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SearchChatListPage(
+          key: args.key,
+          categorizedConversations: args.categorizedConversations,
+        ),
+      );
+    },
     SenpaiLicenseRoute.name: (routeData) {
       final args = routeData.argsAs<SenpaiLicenseRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -350,6 +360,44 @@ class ProfileRoute extends PageRouteInfo<void> {
   static const String name = 'ProfileRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SearchChatListPage]
+class SearchChatListRoute extends PageRouteInfo<SearchChatListRouteArgs> {
+  SearchChatListRoute({
+    Key? key,
+    required CategorizedConversations categorizedConversations,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SearchChatListRoute.name,
+          args: SearchChatListRouteArgs(
+            key: key,
+            categorizedConversations: categorizedConversations,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchChatListRoute';
+
+  static const PageInfo<SearchChatListRouteArgs> page =
+      PageInfo<SearchChatListRouteArgs>(name);
+}
+
+class SearchChatListRouteArgs {
+  const SearchChatListRouteArgs({
+    this.key,
+    required this.categorizedConversations,
+  });
+
+  final Key? key;
+
+  final CategorizedConversations categorizedConversations;
+
+  @override
+  String toString() {
+    return 'SearchChatListRouteArgs{key: $key, categorizedConversations: $categorizedConversations}';
+  }
 }
 
 /// generated route for

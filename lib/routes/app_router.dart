@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:senpai/models/chat/categorized_conversation.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/routes/guards/onboarding_guard.dart';
@@ -22,6 +23,7 @@ import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
 import 'package:senpai/screens/verify_photo/camera_page/page/verify_camera_page.dart';
 import 'package:senpai/screens/verify_photo/page/verify_photo_page.dart';
 import 'package:senpai/screens/profile/page/profile.dart';
+import 'package:senpai/screens/chat_list/page/search_chat_list_page.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
@@ -48,6 +50,7 @@ class AppRouter extends _$AppRouter {
           page: ChatRoute.page,
           path: '/chat',
         ),
+        AutoRoute(page: SearchChatListRoute.page),
         AutoRoute(page: UploadPhotosManagerRoute.page, path: '/photos_manager'),
         AutoRoute(page: VerifyCameraRoute.page, path: '/verify_camera'),
         AutoRoute(page: PremiumRoute.page, path: '/premium'),
