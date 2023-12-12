@@ -50,7 +50,10 @@ class AppRouter extends _$AppRouter {
           page: ChatRoute.page,
           path: '/chat',
         ),
-        AutoRoute(page: SearchChatListRoute.page),
+        CustomRoute(
+          page: SearchChatListRoute.page,
+          transitionsBuilder: TransitionsBuilders.noTransition,
+        ),
         AutoRoute(page: UploadPhotosManagerRoute.page, path: '/photos_manager'),
         AutoRoute(page: VerifyCameraRoute.page, path: '/verify_camera'),
         AutoRoute(page: PremiumRoute.page, path: '/premium'),

@@ -127,6 +127,7 @@ class SearchChatListContent extends StatelessWidget {
   List<Widget> _buildConversationList(BuildContext context) {
     final bloc = BlocProvider.of<ConversationsFilterBloc>(context);
     final conversation = bloc.state.filteredConversations;
+
     if (conversation.activeConversations.isEmpty) {
       return [];
     }
@@ -154,6 +155,21 @@ class SearchChatListContent extends StatelessWidget {
 
   List<Widget> _buildConversations(BuildContext context) {
     final bloc = BlocProvider.of<ConversationsFilterBloc>(context);
+    final filter = bloc.state.filter;
+    if (filter.isEmpty) {
+      return [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+          child: Text(
+            TextConstants.emptySearchConversationsHintText,
+            textAlign: TextAlign.left,
+            style: getTextTheme(context)
+                .labelMedium!
+                .copyWith(color: $constants.palette.grey),
+          ),
+        )
+      ];
+    }
     final conversation = bloc.state.filteredConversations;
     if (conversation.activeConversations.isEmpty &&
         conversation.matches.isEmpty) {
