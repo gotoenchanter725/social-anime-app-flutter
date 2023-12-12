@@ -62,6 +62,9 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/match/match_successful.png)
   final match_successful = r'assets/images/match/match_successful.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/empty_conversation_search.png)
+  final empty_conversation_search = r'assets/images/chat/empty_conversation_search.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/empty_conversations.png)
   final empty_conversations = r'assets/images/chat/empty_conversations.png';
 }
