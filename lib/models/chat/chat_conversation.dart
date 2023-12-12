@@ -3,6 +3,7 @@ class ChatConversation {
   final String contactName;
   final String profileUrl;
   final String lastMessage;
+  final bool isOnline;
   final DateTime lastMessageTime;
   final int unreadMessagesCount;
   final bool isTyping;
@@ -21,5 +22,6 @@ class ChatConversation {
     this.isMuted = false,
     this.isPinned = false,
     this.hasAttachment = false,
+    this.isOnline = false,
   });
 }

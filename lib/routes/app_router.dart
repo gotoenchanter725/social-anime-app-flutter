@@ -25,6 +25,7 @@ import 'package:senpai/screens/verify_photo/camera_page/page/verify_camera_page.
 import 'package:senpai/screens/verify_photo/page/verify_photo_page.dart';
 import 'package:senpai/screens/profile/page/profile.dart';
 import 'package:senpai/screens/chat_list/page/search_chat_list_page.dart';
+import 'package:senpai/models/chat/chat_room_params.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()

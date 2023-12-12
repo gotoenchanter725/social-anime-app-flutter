@@ -50,6 +50,7 @@ class ConversationsParser {
           lastMessage: messages[0]["content"],
           lastMessageTime: parseTimezoneAwareDate(messages[0]["createdAt"]),
           unreadMessagesCount: unreadMessagesCount,
+          isOnline: user["onlineStatus"] == "offline" ? false : true,
         ));
       }
     }

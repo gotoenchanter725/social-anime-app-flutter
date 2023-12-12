@@ -6,12 +6,14 @@ import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/mock_conversation_list_data.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/screens/chat/widgets/messages_list.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class ChatContent extends StatelessWidget {
-  ChatContent({super.key});
+  final ChatRoomParams roomArgs;
+  ChatContent({super.key, required this.roomArgs});
 
   final receipientUser = mockChatItems[0];
 
@@ -55,13 +57,15 @@ class ChatContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  receipientUser.contactName,
+                  roomArgs.reciepientName,
                   style: getTextTheme(context).headlineSmall!.copyWith(
                         color: $constants.palette.white,
                       ),
                 ),
                 Text(
-                  "Active recently",
+                  roomArgs.isOnline
+                      ? TextConstants.userOnlineText
+                      : TextConstants.userOfflineText,
                   style: getTextTheme(context).labelMedium!.copyWith(
                         color: $constants.palette.grey,
                       ),
@@ -69,7 +73,7 @@ class ChatContent extends StatelessWidget {
               ],
             ),
             UserAvatar(
-              imageUrl: receipientUser.profileUrl,
+              imageUrl: roomArgs.reciepientProfileUrl,
               size: 40.0,
             )
           ],

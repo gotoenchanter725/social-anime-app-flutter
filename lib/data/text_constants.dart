@@ -105,6 +105,8 @@ class TextConstants {
   static const String chatInputHint = 'Send message...';
   static const String invalidFirstNameError =
       "Invalid first name. Please try again";
+  static const String userOnlineText = "Active now";
+  static const String userOfflineText = "Active recently";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";
