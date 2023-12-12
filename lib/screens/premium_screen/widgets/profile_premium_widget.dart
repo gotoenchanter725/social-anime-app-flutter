@@ -109,11 +109,13 @@ class ProfilePremiumWidget extends StatelessWidget {
           fit: BoxFit.contain,
         ),
         SizedBox(width: $constants.insets.xs),
-        Text(
-          text,
-          style: getTextTheme(context)
-              .bodyMedium
-              ?.copyWith(color: $constants.palette.white),
+        Flexible(
+          child: Text(
+            text,
+            style: getTextTheme(context)
+                .bodyMedium
+                ?.copyWith(color: $constants.palette.white),
+          ),
         ),
       ],
     );

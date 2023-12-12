@@ -36,9 +36,10 @@ query fetchUser($userId: ID!) {
     }
     favoriteMusic {
       id
-      cover
+      coverUrl
       musicType
-      name
+      trackName
+      artistName
     }
     premium
   }

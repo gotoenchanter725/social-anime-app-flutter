@@ -7,6 +7,8 @@ import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
+import 'package:senpai/models/user_profile/profile_filter/profile_filter_model.dart';
+import 'package:senpai/screens/home/bloc/home_storage_bloc.dart';
 import 'package:senpai/screens/profile/profile_filter/profile_filter_bloc/profile_filter_bloc.dart';
 import 'package:senpai/screens/profile/profile_filter/widgets/profile_filters.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/bloc/favorite_anime_bloc.dart';
@@ -28,7 +30,12 @@ class ProfileFilterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => ProfileFilterBloc()),
+        BlocProvider.value(value: getIt<HomeStorageBloc>()),
+        BlocProvider(create: (_) {
+          ProfileFilterModel initialFilters = getIt<HomeStorageBloc>().filters;
+          return ProfileFilterBloc()
+            ..add(OnInitFilters(initialFilters: initialFilters));
+        }),
         BlocProvider(
           create: (_) => FavoriteAnimeBloc()
             ..add(

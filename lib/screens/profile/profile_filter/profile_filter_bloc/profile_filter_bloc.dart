@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:senpai/data/storage_keys_constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/user_profile/profile_filter/profile_filter_model.dart';
 
@@ -21,8 +20,7 @@ enum ProfileFilterStep {
   animes;
 }
 
-class ProfileFilterBloc extends Bloc<ProfileFilterEvent, ProfileFilterState>
-    with HydratedMixin {
+class ProfileFilterBloc extends Bloc<ProfileFilterEvent, ProfileFilterState> {
   double minDistance = 1.0;
   double maxDistance = 75.0;
 
@@ -37,6 +35,13 @@ class ProfileFilterBloc extends Bloc<ProfileFilterEvent, ProfileFilterState>
   ProfileFilterStep step = ProfileFilterStep.filters;
 
   ProfileFilterBloc() : super(ProfileFilterInitial()) {
+    on<OnInitFilters>((event, emit) {
+      emit(LoadingProfileFilterState());
+      initialFilters = event.initialFilters;
+      changedFilters = event.initialFilters;
+      emit(ValidState());
+    });
+
     on<OnChangeAge>((event, emit) {
       emit(LoadingProfileFilterState());
       changedFilters = changedFilters.copyWith(
@@ -104,39 +109,12 @@ class ProfileFilterBloc extends Bloc<ProfileFilterEvent, ProfileFilterState>
       emit(ValidState());
     });
 
-    on<OnApplyFilters>((event, emit) async {
-      emit(LoadingProfileFilterState());
+    on<OnApplyFilters>((event, emit) {
       emit(ValidSaveState());
     });
 
-    on<OnClearAllFilters>((event, emit) async {
-      emit(LoadingProfileFilterState());
+    on<OnClearAllFilters>((event, emit) {
       emit(ClearAllFiltersState());
     });
-  }
-
-  @override
-  ProfileFilterState? fromJson(Map<String, dynamic> json) {
-    try {
-      initialFilters = ProfileFilterModel.fromJson(
-          json[StorageKeysConstants.profileFilters]);
-      changedFilters = ProfileFilterModel.fromJson(
-          json[StorageKeysConstants.profileFilters]);
-
-      return FetchSucssesfulState();
-    } catch (e) {
-      return null;
-    }
-  }
-
-  @override
-  Map<String, dynamic>? toJson(ProfileFilterState state) {
-    if (state is ValidSaveState) {
-      return {StorageKeysConstants.profileFilters: changedFilters};
-    } else if (state is ClearAllFiltersState) {
-      return {StorageKeysConstants.profileFilters: initialFilters};
-    } else {
-      return null;
-    }
   }
 }

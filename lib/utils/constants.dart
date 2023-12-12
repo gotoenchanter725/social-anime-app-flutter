@@ -24,6 +24,9 @@ class Constants {
 
   /// Color $constants.palette.
   late final palette = _Palette();
+
+  /// Constants for Carousel
+  late final carousel = _CarouselConstants();
 }
 
 @immutable
@@ -165,4 +168,13 @@ class _Shadows {
         offset: const Offset(0, 4),
         blurRadius: 6),
   ];
+}
+
+@immutable
+class _CarouselConstants {
+  late final double direction = 1.0;
+  late final double indicatorHeight = 2;
+  late final double topMargin = 34;
+  late final double startMargin = 20;
+  late final double marginAmount = 64;
 }

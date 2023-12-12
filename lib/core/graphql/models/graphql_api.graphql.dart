@@ -46,7 +46,7 @@ class DeleteFavoriteAnime$Mutation extends JsonSerializable
 @JsonSerializable(explicitToJson: true)
 class DeleteFavoriteAnimeInput extends JsonSerializable with EquatableMixin {
   DeleteFavoriteAnimeInput({
-    required this.animeId,
+    required this.animeIds,
     this.clientMutationId,
     required this.userId,
   });
@@ -54,14 +54,14 @@ class DeleteFavoriteAnimeInput extends JsonSerializable with EquatableMixin {
   factory DeleteFavoriteAnimeInput.fromJson(Map<String, dynamic> json) =>
       _$DeleteFavoriteAnimeInputFromJson(json);
 
-  late String animeId;
+  late List<String> animeIds;
 
   String? clientMutationId;
 
   late String userId;
 
   @override
-  List<Object?> get props => [animeId, clientMutationId, userId];
+  List<Object?> get props => [animeIds, clientMutationId, userId];
   @override
   Map<String, dynamic> toJson() => _$DeleteFavoriteAnimeInputToJson(this);
 }
@@ -1223,14 +1223,16 @@ class FetchFeed$Query$FetchFeed$FavoriteMusic extends JsonSerializable
 
   late String id;
 
-  String? name;
+  String? trackName;
 
-  String? cover;
+  String? artistName;
+
+  String? coverUrl;
 
   String? musicType;
 
   @override
-  List<Object?> get props => [id, name, cover, musicType];
+  List<Object?> get props => [id, trackName, artistName, coverUrl, musicType];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchFeed$Query$FetchFeed$FavoriteMusicToJson(this);
@@ -1414,14 +1416,16 @@ class FetchUser$Query$FetchUser$FavoriteMusic extends JsonSerializable
 
   late String id;
 
-  String? cover;
+  String? coverUrl;
 
   String? musicType;
 
-  String? name;
+  String? trackName;
+
+  String? artistName;
 
   @override
-  List<Object?> get props => [id, cover, musicType, name];
+  List<Object?> get props => [id, coverUrl, musicType, trackName, artistName];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchUser$Query$FetchUser$FavoriteMusicToJson(this);
@@ -3514,14 +3518,21 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'name'),
+                name: NameNode(value: 'trackName'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'cover'),
+                name: NameNode(value: 'artistName'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'coverUrl'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -3828,7 +3839,7 @@ final FETCH_USER_QUERY_DOCUMENT = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'cover'),
+                name: NameNode(value: 'coverUrl'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -3842,7 +3853,14 @@ final FETCH_USER_QUERY_DOCUMENT = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'name'),
+                name: NameNode(value: 'trackName'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'artistName'),
                 alias: null,
                 arguments: [],
                 directives: [],

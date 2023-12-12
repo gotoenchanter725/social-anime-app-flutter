@@ -57,7 +57,8 @@ class SearchFavoriteAnimeContent extends StatelessWidget {
           iconPath: PathConstants.searchIcon,
           onTapSuffix: () {
             final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
-            bloc.searchController.text = '';
+            bloc.searchController.clear();
+            bloc.add(OnSearchAnimesEvent(searchText: ''));
           },
         );
       },

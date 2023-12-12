@@ -115,6 +115,11 @@ dev_dependencies:
   r_resources: ^1.0.1
   flutter_launcher_icons: ^0.13.1
 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon/icon.png"
+
 dependency_overrides:
   intl: ^0.18.1
   http: ^1.1.0
