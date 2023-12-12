@@ -38,7 +38,8 @@ query fetchUser($userId: ID!) {
       id
       coverUrl
       musicType
-      name
+      trackName
+      artistName
     }
     premium
   }

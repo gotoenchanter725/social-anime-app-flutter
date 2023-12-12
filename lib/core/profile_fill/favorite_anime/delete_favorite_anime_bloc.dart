@@ -23,12 +23,12 @@ class DeleteFavoriteAnimeBloc
 
   deleteFavoriteAnimeList({
     required int userId,
-    required String animeId,
+    required List<String> animeIds,
   }) {
     final variables = DeleteFavoriteAnimeArguments(
       input: DeleteFavoriteAnimeInput(
         userId: '$userId',
-        animeId: animeId,
+        animeIds: animeIds,
       ),
     ).toJson();
 
