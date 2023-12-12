@@ -117,7 +117,13 @@ class ChatListContent extends StatelessWidget {
   }
 
   List<Widget> _buildEmptyConversationContent(BuildContext context) {
-    return [const EmptyConversations()];
+    return [
+      const EmptyConversations(
+        avatorImagePath: PathConstants.emptyConversationsImage,
+        title: TextConstants.emptyConversationsPromptText,
+        subtitle: TextConstants.emptyConversationsText,
+      )
+    ];
   }
 
   List<Widget> _buildCoversationContent(BuildContext context) {

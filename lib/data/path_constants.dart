@@ -31,6 +31,8 @@ class PathConstants {
   // chat list
   static const String emptyConversationsImage =
       'assets/images/chat/empty_conversations.png';
+  static const String emptySearchConversationImage =
+      'assets/images/chat/empty_conversation_search.png';
 
   // chat
   static const String crownIcon = 'assets/icons/crown.svg';

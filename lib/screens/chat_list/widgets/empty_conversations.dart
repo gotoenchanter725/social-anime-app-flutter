@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class EmptyConversations extends StatelessWidget {
-  const EmptyConversations({super.key});
+  final String avatorImagePath;
+  final String title;
+  final String subtitle;
+  const EmptyConversations(
+      {super.key,
+      required this.avatorImagePath,
+      required this.title,
+      required this.subtitle});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,7 @@ class EmptyConversations extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              PathConstants.emptyConversationsImage,
+              avatorImagePath,
               width: getSize(context).width * 0.539,
               height: getSize(context).height * 0.229,
               fit: BoxFit.contain,
@@ -26,7 +31,7 @@ class EmptyConversations extends StatelessWidget {
               height: $constants.insets.sm,
             ),
             Text(
-              TextConstants.emptyConversationsPromptText,
+              title,
               textAlign: TextAlign.center,
               style: getTextTheme(context).bodyMedium!.copyWith(
                     color: $constants.palette.white,
@@ -38,7 +43,7 @@ class EmptyConversations extends StatelessWidget {
             ),
             Flexible(
               child: Text(
-                TextConstants.emptyConversationsText,
+                subtitle,
                 textAlign: TextAlign.center,
                 style: getTextTheme(context).bodySmall!.copyWith(
                       color: $constants.palette.white,

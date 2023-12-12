@@ -6,6 +6,9 @@ import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/screens/chat_list/blocs/conversations_filter/conversations_filter_bloc.dart';
+import 'package:senpai/screens/chat_list/widgets/conversation_list.dart';
+import 'package:senpai/screens/chat_list/widgets/empty_conversations.dart';
+import 'package:senpai/screens/chat_list/widgets/match_list.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -90,9 +93,93 @@ class SearchChatListContent extends StatelessWidget {
     );
   }
 
+  _buildTitle(BuildContext context, String title) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+      child: Text(
+        title,
+        textAlign: TextAlign.left,
+        style: getTextTheme(context)
+            .headlineSmall!
+            .copyWith(color: $constants.palette.white),
+      ),
+    );
+  }
+
+  List<Widget> _buildMatchList(BuildContext context) {
+    final bloc = BlocProvider.of<ConversationsFilterBloc>(context);
+    final conversation = bloc.state.filteredConversations;
+    if (conversation.matches.isEmpty) {
+      return [];
+    }
+    return [
+      _buildTitle(context, TextConstants.matchesTitle),
+      SizedBox(
+        height: $constants.insets.sm,
+      ),
+      Padding(
+        padding: EdgeInsets.only(left: $constants.insets.lg),
+        child: MatchList(users: conversation.matches),
+      )
+    ];
+  }
+
+  List<Widget> _buildConversationList(BuildContext context) {
+    final bloc = BlocProvider.of<ConversationsFilterBloc>(context);
+    final conversation = bloc.state.filteredConversations;
+    if (conversation.activeConversations.isEmpty) {
+      return [];
+    }
+    return [
+      SizedBox(
+        height: $constants.insets.lg,
+      ),
+      _buildTitle(context, TextConstants.messagesTitle),
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+        child: ConversationList(chatList: conversation.activeConversations),
+      )
+    ];
+  }
+
+  List<Widget> _buildEmptyConversations(BuildContext context) {
+    return [
+      const EmptyConversations(
+        avatorImagePath: PathConstants.emptySearchConversationImage,
+        title: TextConstants.emptyConversationSearchPromptText,
+        subtitle: TextConstants.emptyConversationSearchText,
+      )
+    ];
+  }
+
+  List<Widget> _buildConversations(BuildContext context) {
+    final bloc = BlocProvider.of<ConversationsFilterBloc>(context);
+    final conversation = bloc.state.filteredConversations;
+    if (conversation.activeConversations.isEmpty &&
+        conversation.matches.isEmpty) {
+      return _buildEmptyConversations(context);
+    }
+    return [
+      ..._buildMatchList(context),
+      ..._buildConversationList(context),
+    ];
+  }
+
   List<Widget> _buildCoversationContent(BuildContext context) {
     return [
       _buildSearchBar(context),
+      SizedBox(
+        height: $constants.insets.md,
+      ),
+      BlocBuilder<ConversationsFilterBloc, ConversationsFilterState>(
+          builder: (context, state) {
+        return Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: _buildConversations(context),
+          ),
+        );
+      })
     ];
   }
 
