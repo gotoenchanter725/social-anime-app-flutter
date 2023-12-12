@@ -1,10 +1,115 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:senpai/core/widgets/icon_input.dart';
+import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/screens/chat_list/blocs/conversations_filter/conversations_filter_bloc.dart';
+import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/methods/utils.dart';
 
 class SearchChatListContent extends StatelessWidget {
   const SearchChatListContent({super.key});
 
+  Widget _buildHeader() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image.asset(
+            PathConstants.launcher,
+            width: $constants.insets.lg,
+            height: $constants.insets.lg,
+            fit: BoxFit.contain,
+          ),
+          SvgPicture.asset(
+            PathConstants.crownIcon,
+            width: $constants.insets.lg,
+            height: $constants.insets.lg,
+            fit: BoxFit.contain,
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCancelButton(BuildContext context) {
+    return TextButton(
+      onPressed: () {
+        context.router.pop();
+      },
+      child: Text(
+        TextConstants.cancelSearchText,
+        style: getTextTheme(context)
+            .labelMedium!
+            .copyWith(color: $constants.palette.white, fontSize: 14),
+      ),
+    );
+  }
+
+  Widget _buildSearchBar(BuildContext context) {
+    final bloc = BlocProvider.of<ConversationsFilterBloc>(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      bloc.setupSearch();
+    });
+    return BlocBuilder<ConversationsFilterBloc, ConversationsFilterState>(
+      builder: (context, state) {
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+          child: Row(
+            children: [
+              SizedBox(
+                width: getSize(context).width * 0.637,
+                child: SenpaiIconInput(
+                  iconPath: PathConstants.searchIcon,
+                  hintText: TextConstants.searchHintText,
+                  controller: bloc.searchController,
+                  focusNode: bloc.searchFocusNode,
+                  onChange: (text) {
+                    bloc.add(
+                      ConversationsFilterEvent.filterChanged(text),
+                    );
+                  },
+                  onTapSuffix: () {
+                    bloc.add(
+                      const ConversationsFilterEvent.filterChanged(''),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                width: $constants.insets.sm,
+              ),
+              _buildCancelButton(context),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  List<Widget> _buildCoversationContent(BuildContext context) {
+    return [
+      _buildSearchBar(context),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: $constants.insets.sm,
+        ),
+        _buildHeader(),
+        SizedBox(
+          height: $constants.insets.md,
+        ),
+        ..._buildCoversationContent(context),
+      ],
+    );
   }
 }

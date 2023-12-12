@@ -13,6 +13,7 @@ class SenpaiIconInput extends StatelessWidget {
     this.controller,
     this.onTapSuffix,
     this.onTapInput,
+    this.focusNode,
   });
 
   final String iconPath;
@@ -21,6 +22,7 @@ class SenpaiIconInput extends StatelessWidget {
   final TextEditingController? controller;
   final VoidCallback? onTapSuffix;
   final VoidCallback? onTapInput;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,7 @@ class SenpaiIconInput extends StatelessWidget {
       child: TextFormField(
         readOnly: onTapInput != null,
         onTap: onTapInput,
+        focusNode: focusNode,
         decoration: InputDecoration(
           prefixIcon: Padding(
             padding: EdgeInsets.only(right: $constants.insets.xs),
@@ -61,7 +64,6 @@ class SenpaiIconInput extends StatelessWidget {
             maxWidth: 28,
             maxHeight: 20,
           ),
-          
           hintText: hintText,
           hintStyle: getTextTheme(context).bodyMedium!.copyWith(
                 color: $constants.palette.darkGrey,

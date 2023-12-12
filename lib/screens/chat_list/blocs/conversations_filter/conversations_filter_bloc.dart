@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/models/chat/categorized_conversation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -13,10 +14,18 @@ class ConversationsFilterBloc
     extends Bloc<ConversationsFilterEvent, ConversationsFilterState> {
   final CategorizedConversations allConversations;
 
+  TextEditingController searchController = TextEditingController();
+
+  FocusNode searchFocusNode = FocusNode();
+
   ConversationsFilterBloc(this.allConversations)
       : super(ConversationsFilterState.initial(
             filteredConversations: allConversations, filter: '')) {
     on<_FilterChanged>(_onFilterChanged);
+  }
+
+  void setupSearch() {
+    searchFocusNode.requestFocus();
   }
 
   void _onFilterChanged(
@@ -25,6 +34,7 @@ class ConversationsFilterBloc
     CategorizedConversations filteredConversations;
 
     if (filter.isEmpty) {
+      searchController.clear();
       filteredConversations = allConversations;
     } else {
       List<ChatConversation> activeChats = allConversations.activeConversations;
