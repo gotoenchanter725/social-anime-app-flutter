@@ -1309,36 +1309,36 @@ Map<String, dynamic> _$FetchConversations$Query$FetchConversations$MatchToJson(
       'matchee': instance.matchee.toJson(),
     };
 
-FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime
-    _$FetchConversations$Query$FetchConversations$Messages$Recommendation$AnimeFromJson(
+FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime
+    _$FetchConversations$Query$FetchConversations$LastMessage$Recommendation$AnimeFromJson(
             Map<String, dynamic> json) =>
-        FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime()
+        FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime()
           ..title = json['title'] as String?
           ..cover = json['cover'] as String?;
 
 Map<String, dynamic>
-    _$FetchConversations$Query$FetchConversations$Messages$Recommendation$AnimeToJson(
-            FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime
+    _$FetchConversations$Query$FetchConversations$LastMessage$Recommendation$AnimeToJson(
+            FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime
                 instance) =>
         <String, dynamic>{
           'title': instance.title,
           'cover': instance.cover,
         };
 
-FetchConversations$Query$FetchConversations$Messages$Recommendation
-    _$FetchConversations$Query$FetchConversations$Messages$RecommendationFromJson(
+FetchConversations$Query$FetchConversations$LastMessage$Recommendation
+    _$FetchConversations$Query$FetchConversations$LastMessage$RecommendationFromJson(
             Map<String, dynamic> json) =>
-        FetchConversations$Query$FetchConversations$Messages$Recommendation()
+        FetchConversations$Query$FetchConversations$LastMessage$Recommendation()
           ..userId = json['userId'] as int
           ..recommendeeId = json['recommendeeId'] as int
           ..anime = json['anime'] == null
               ? null
-              : FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime
+              : FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime
                   .fromJson(json['anime'] as Map<String, dynamic>);
 
 Map<String, dynamic>
-    _$FetchConversations$Query$FetchConversations$Messages$RecommendationToJson(
-            FetchConversations$Query$FetchConversations$Messages$Recommendation
+    _$FetchConversations$Query$FetchConversations$LastMessage$RecommendationToJson(
+            FetchConversations$Query$FetchConversations$LastMessage$Recommendation
                 instance) =>
         <String, dynamic>{
           'userId': instance.userId,
@@ -1346,26 +1346,26 @@ Map<String, dynamic>
           'anime': instance.anime?.toJson(),
         };
 
-FetchConversations$Query$FetchConversations$Messages$Sticker
-    _$FetchConversations$Query$FetchConversations$Messages$StickerFromJson(
+FetchConversations$Query$FetchConversations$LastMessage$Sticker
+    _$FetchConversations$Query$FetchConversations$LastMessage$StickerFromJson(
             Map<String, dynamic> json) =>
-        FetchConversations$Query$FetchConversations$Messages$Sticker()
+        FetchConversations$Query$FetchConversations$LastMessage$Sticker()
           ..id = json['id'] as String
           ..url = json['url'] as String;
 
 Map<String, dynamic>
-    _$FetchConversations$Query$FetchConversations$Messages$StickerToJson(
-            FetchConversations$Query$FetchConversations$Messages$Sticker
+    _$FetchConversations$Query$FetchConversations$LastMessage$StickerToJson(
+            FetchConversations$Query$FetchConversations$LastMessage$Sticker
                 instance) =>
         <String, dynamic>{
           'id': instance.id,
           'url': instance.url,
         };
 
-FetchConversations$Query$FetchConversations$Messages
-    _$FetchConversations$Query$FetchConversations$MessagesFromJson(
+FetchConversations$Query$FetchConversations$LastMessage
+    _$FetchConversations$Query$FetchConversations$LastMessageFromJson(
             Map<String, dynamic> json) =>
-        FetchConversations$Query$FetchConversations$Messages()
+        FetchConversations$Query$FetchConversations$LastMessage()
           ..attachment = json['attachment'] as String?
           ..attachmentType = json['attachmentType'] as String?
           ..content = json['content'] as String?
@@ -1376,16 +1376,16 @@ FetchConversations$Query$FetchConversations$Messages
           ..senderId = json['senderId'] as int?
           ..recommendation = json['recommendation'] == null
               ? null
-              : FetchConversations$Query$FetchConversations$Messages$Recommendation
+              : FetchConversations$Query$FetchConversations$LastMessage$Recommendation
                   .fromJson(json['recommendation'] as Map<String, dynamic>)
           ..sticker = json['sticker'] == null
               ? null
-              : FetchConversations$Query$FetchConversations$Messages$Sticker
+              : FetchConversations$Query$FetchConversations$LastMessage$Sticker
                   .fromJson(json['sticker'] as Map<String, dynamic>);
 
 Map<String, dynamic>
-    _$FetchConversations$Query$FetchConversations$MessagesToJson(
-            FetchConversations$Query$FetchConversations$Messages instance) =>
+    _$FetchConversations$Query$FetchConversations$LastMessageToJson(
+            FetchConversations$Query$FetchConversations$LastMessage instance) =>
         <String, dynamic>{
           'attachment': instance.attachment,
           'attachmentType': instance.attachmentType,
@@ -1408,18 +1408,19 @@ FetchConversations$Query$FetchConversations
               ? null
               : FetchConversations$Query$FetchConversations$Match.fromJson(
                   json['match'] as Map<String, dynamic>)
-          ..messages = (json['messages'] as List<dynamic>?)
-              ?.map((e) =>
-                  FetchConversations$Query$FetchConversations$Messages.fromJson(
-                      e as Map<String, dynamic>))
-              .toList();
+          ..lastMessage = json['lastMessage'] == null
+              ? null
+              : FetchConversations$Query$FetchConversations$LastMessage
+                  .fromJson(json['lastMessage'] as Map<String, dynamic>)
+          ..unreadCount = json['unreadCount'] as int?;
 
 Map<String, dynamic> _$FetchConversations$Query$FetchConversationsToJson(
         FetchConversations$Query$FetchConversations instance) =>
     <String, dynamic>{
       'id': instance.id,
       'match': instance.match?.toJson(),
-      'messages': instance.messages?.map((e) => e.toJson()).toList(),
+      'lastMessage': instance.lastMessage?.toJson(),
+      'unreadCount': instance.unreadCount,
     };
 
 FetchConversations$Query _$FetchConversations$QueryFromJson(

@@ -21,7 +21,7 @@ class ConversationsParser {
       if (user["id"] == userId) {
         user = conversation["match"]["matchee"];
       }
-      if (conversation["messages"].isEmpty) {
+      if (conversation["lastMessage"] == null) {
         matches.add(MatchUserData(
           id: conversation["id"],
           imageUrl: user["gallery"]["photos"][0]["url"],
@@ -29,27 +29,14 @@ class ConversationsParser {
           userName: user["firstName"],
         ));
       } else {
-        List<dynamic> messages = conversation["messages"];
-
-        // sort message such that the last message sent is always at index 0
-        messages.sort((a, b) => DateTime.parse(b["createdAt"])
-            .compareTo(DateTime.parse(a["createdAt"])));
-
-        int unreadMessagesCount = 0;
-
-        for (var message in conversation["messages"]) {
-          if (!message["read"]) {
-            unreadMessagesCount++;
-          }
-        }
-
         activeConversations.add(ChatConversation(
           id: conversation["id"],
           profileUrl: user["gallery"]["photos"][0]["url"],
           contactName: user["firstName"],
-          lastMessage: messages[0]["content"],
-          lastMessageTime: parseTimezoneAwareDate(messages[0]["createdAt"]),
-          unreadMessagesCount: unreadMessagesCount,
+          lastMessage: conversation["lastMessage"]["content"],
+          lastMessageTime:
+              parseTimezoneAwareDate(conversation["lastMessage"]["createdAt"]),
+          unreadMessagesCount: conversation["unreadCount"],
           isOnline: user["onlineStatus"] == "offline" ? false : true,
         ));
       }

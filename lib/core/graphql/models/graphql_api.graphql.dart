@@ -1774,13 +1774,13 @@ class FetchConversations$Query$FetchConversations$Match extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
-class FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime
+class FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime
     extends JsonSerializable with EquatableMixin {
-  FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime();
+  FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime();
 
-  factory FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime.fromJson(
+  factory FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime.fromJson(
           Map<String, dynamic> json) =>
-      _$FetchConversations$Query$FetchConversations$Messages$Recommendation$AnimeFromJson(
+      _$FetchConversations$Query$FetchConversations$LastMessage$Recommendation$AnimeFromJson(
           json);
 
   String? title;
@@ -1791,43 +1791,43 @@ class FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime
   List<Object?> get props => [title, cover];
   @override
   Map<String, dynamic> toJson() =>
-      _$FetchConversations$Query$FetchConversations$Messages$Recommendation$AnimeToJson(
+      _$FetchConversations$Query$FetchConversations$LastMessage$Recommendation$AnimeToJson(
           this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class FetchConversations$Query$FetchConversations$Messages$Recommendation
+class FetchConversations$Query$FetchConversations$LastMessage$Recommendation
     extends JsonSerializable with EquatableMixin {
-  FetchConversations$Query$FetchConversations$Messages$Recommendation();
+  FetchConversations$Query$FetchConversations$LastMessage$Recommendation();
 
-  factory FetchConversations$Query$FetchConversations$Messages$Recommendation.fromJson(
+  factory FetchConversations$Query$FetchConversations$LastMessage$Recommendation.fromJson(
           Map<String, dynamic> json) =>
-      _$FetchConversations$Query$FetchConversations$Messages$RecommendationFromJson(
+      _$FetchConversations$Query$FetchConversations$LastMessage$RecommendationFromJson(
           json);
 
   late int userId;
 
   late int recommendeeId;
 
-  FetchConversations$Query$FetchConversations$Messages$Recommendation$Anime?
+  FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime?
       anime;
 
   @override
   List<Object?> get props => [userId, recommendeeId, anime];
   @override
   Map<String, dynamic> toJson() =>
-      _$FetchConversations$Query$FetchConversations$Messages$RecommendationToJson(
+      _$FetchConversations$Query$FetchConversations$LastMessage$RecommendationToJson(
           this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class FetchConversations$Query$FetchConversations$Messages$Sticker
+class FetchConversations$Query$FetchConversations$LastMessage$Sticker
     extends JsonSerializable with EquatableMixin {
-  FetchConversations$Query$FetchConversations$Messages$Sticker();
+  FetchConversations$Query$FetchConversations$LastMessage$Sticker();
 
-  factory FetchConversations$Query$FetchConversations$Messages$Sticker.fromJson(
+  factory FetchConversations$Query$FetchConversations$LastMessage$Sticker.fromJson(
           Map<String, dynamic> json) =>
-      _$FetchConversations$Query$FetchConversations$Messages$StickerFromJson(
+      _$FetchConversations$Query$FetchConversations$LastMessage$StickerFromJson(
           json);
 
   late String id;
@@ -1838,18 +1838,18 @@ class FetchConversations$Query$FetchConversations$Messages$Sticker
   List<Object?> get props => [id, url];
   @override
   Map<String, dynamic> toJson() =>
-      _$FetchConversations$Query$FetchConversations$Messages$StickerToJson(
+      _$FetchConversations$Query$FetchConversations$LastMessage$StickerToJson(
           this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class FetchConversations$Query$FetchConversations$Messages
+class FetchConversations$Query$FetchConversations$LastMessage
     extends JsonSerializable with EquatableMixin {
-  FetchConversations$Query$FetchConversations$Messages();
+  FetchConversations$Query$FetchConversations$LastMessage();
 
-  factory FetchConversations$Query$FetchConversations$Messages.fromJson(
+  factory FetchConversations$Query$FetchConversations$LastMessage.fromJson(
           Map<String, dynamic> json) =>
-      _$FetchConversations$Query$FetchConversations$MessagesFromJson(json);
+      _$FetchConversations$Query$FetchConversations$LastMessageFromJson(json);
 
   String? attachment;
 
@@ -1868,10 +1868,10 @@ class FetchConversations$Query$FetchConversations$Messages
 
   int? senderId;
 
-  FetchConversations$Query$FetchConversations$Messages$Recommendation?
+  FetchConversations$Query$FetchConversations$LastMessage$Recommendation?
       recommendation;
 
-  FetchConversations$Query$FetchConversations$Messages$Sticker? sticker;
+  FetchConversations$Query$FetchConversations$LastMessage$Sticker? sticker;
 
   @override
   List<Object?> get props => [
@@ -1887,7 +1887,7 @@ class FetchConversations$Query$FetchConversations$Messages
       ];
   @override
   Map<String, dynamic> toJson() =>
-      _$FetchConversations$Query$FetchConversations$MessagesToJson(this);
+      _$FetchConversations$Query$FetchConversations$LastMessageToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1903,10 +1903,12 @@ class FetchConversations$Query$FetchConversations extends JsonSerializable
 
   FetchConversations$Query$FetchConversations$Match? match;
 
-  List<FetchConversations$Query$FetchConversations$Messages>? messages;
+  FetchConversations$Query$FetchConversations$LastMessage? lastMessage;
+
+  int? unreadCount;
 
   @override
-  List<Object?> get props => [id, match, messages];
+  List<Object?> get props => [id, match, lastMessage, unreadCount];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversationsToJson(this);
@@ -4241,7 +4243,7 @@ final FETCH_CONVERSATIONS_QUERY_DOCUMENT = DocumentNode(definitions: [
             ]),
           ),
           FieldNode(
-            name: NameNode(value: 'messages'),
+            name: NameNode(value: 'lastMessage'),
             alias: null,
             arguments: [],
             directives: [],
@@ -4362,6 +4364,13 @@ final FETCH_CONVERSATIONS_QUERY_DOCUMENT = DocumentNode(definitions: [
                 ]),
               ),
             ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'unreadCount'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
           ),
         ]),
       )
