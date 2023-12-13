@@ -1965,6 +1965,130 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class FetchMessages$Query$FetchMessages$Recommendation$Anime
+    extends JsonSerializable with EquatableMixin {
+  FetchMessages$Query$FetchMessages$Recommendation$Anime();
+
+  factory FetchMessages$Query$FetchMessages$Recommendation$Anime.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchMessages$Query$FetchMessages$Recommendation$AnimeFromJson(json);
+
+  String? title;
+
+  String? cover;
+
+  @override
+  List<Object?> get props => [title, cover];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchMessages$Query$FetchMessages$Recommendation$AnimeToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchMessages$Query$FetchMessages$Recommendation extends JsonSerializable
+    with EquatableMixin {
+  FetchMessages$Query$FetchMessages$Recommendation();
+
+  factory FetchMessages$Query$FetchMessages$Recommendation.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchMessages$Query$FetchMessages$RecommendationFromJson(json);
+
+  late int userId;
+
+  late int recommendeeId;
+
+  FetchMessages$Query$FetchMessages$Recommendation$Anime? anime;
+
+  @override
+  List<Object?> get props => [userId, recommendeeId, anime];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchMessages$Query$FetchMessages$RecommendationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchMessages$Query$FetchMessages$Sticker extends JsonSerializable
+    with EquatableMixin {
+  FetchMessages$Query$FetchMessages$Sticker();
+
+  factory FetchMessages$Query$FetchMessages$Sticker.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchMessages$Query$FetchMessages$StickerFromJson(json);
+
+  late String id;
+
+  late String url;
+
+  @override
+  List<Object?> get props => [id, url];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchMessages$Query$FetchMessages$StickerToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchMessages$Query$FetchMessages extends JsonSerializable
+    with EquatableMixin {
+  FetchMessages$Query$FetchMessages();
+
+  factory FetchMessages$Query$FetchMessages.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchMessages$Query$FetchMessagesFromJson(json);
+
+  String? attachment;
+
+  String? attachmentType;
+
+  String? content;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
+      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
+  late DateTime createdAt;
+
+  String? reaction;
+
+  bool? read;
+
+  int? senderId;
+
+  FetchMessages$Query$FetchMessages$Recommendation? recommendation;
+
+  FetchMessages$Query$FetchMessages$Sticker? sticker;
+
+  @override
+  List<Object?> get props => [
+        attachment,
+        attachmentType,
+        content,
+        createdAt,
+        reaction,
+        read,
+        senderId,
+        recommendation,
+        sticker
+      ];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchMessages$Query$FetchMessagesToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchMessages$Query extends JsonSerializable with EquatableMixin {
+  FetchMessages$Query();
+
+  factory FetchMessages$Query.fromJson(Map<String, dynamic> json) =>
+      _$FetchMessages$QueryFromJson(json);
+
+  late List<FetchMessages$Query$FetchMessages> fetchMessages;
+
+  @override
+  List<Object?> get props => [fetchMessages];
+  @override
+  Map<String, dynamic> toJson() => _$FetchMessages$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class DeleteFavoriteAnimeArguments extends JsonSerializable
     with EquatableMixin {
   DeleteFavoriteAnimeArguments({required this.input});
@@ -4482,4 +4606,208 @@ class FetchStickersQuery
   @override
   FetchStickers$Query parse(Map<String, dynamic> json) =>
       FetchStickers$Query.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchMessagesArguments extends JsonSerializable with EquatableMixin {
+  FetchMessagesArguments({
+    required this.conversationId,
+    this.page,
+  });
+
+  @override
+  factory FetchMessagesArguments.fromJson(Map<String, dynamic> json) =>
+      _$FetchMessagesArgumentsFromJson(json);
+
+  late String conversationId;
+
+  final int? page;
+
+  @override
+  List<Object?> get props => [conversationId, page];
+  @override
+  Map<String, dynamic> toJson() => _$FetchMessagesArgumentsToJson(this);
+}
+
+final FETCH_MESSAGES_QUERY_DOCUMENT_OPERATION_NAME = 'fetchMessages';
+final FETCH_MESSAGES_QUERY_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'fetchMessages'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'conversationId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ID'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'fetchMessages'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'conversationId'),
+            value: VariableNode(name: NameNode(value: 'conversationId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'attachment'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'attachmentType'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'content'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'createdAt'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'reaction'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'read'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'senderId'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'recommendation'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'userId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'recommendeeId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'anime'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'title'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'cover'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'sticker'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'url'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class FetchMessagesQuery
+    extends GraphQLQuery<FetchMessages$Query, FetchMessagesArguments> {
+  FetchMessagesQuery({required this.variables});
+
+  @override
+  final DocumentNode document = FETCH_MESSAGES_QUERY_DOCUMENT;
+
+  @override
+  final String operationName = FETCH_MESSAGES_QUERY_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final FetchMessagesArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  FetchMessages$Query parse(Map<String, dynamic> json) =>
+      FetchMessages$Query.fromJson(json);
 }

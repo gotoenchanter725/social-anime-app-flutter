@@ -1464,6 +1464,101 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
+FetchMessages$Query$FetchMessages$Recommendation$Anime
+    _$FetchMessages$Query$FetchMessages$Recommendation$AnimeFromJson(
+            Map<String, dynamic> json) =>
+        FetchMessages$Query$FetchMessages$Recommendation$Anime()
+          ..title = json['title'] as String?
+          ..cover = json['cover'] as String?;
+
+Map<String, dynamic>
+    _$FetchMessages$Query$FetchMessages$Recommendation$AnimeToJson(
+            FetchMessages$Query$FetchMessages$Recommendation$Anime instance) =>
+        <String, dynamic>{
+          'title': instance.title,
+          'cover': instance.cover,
+        };
+
+FetchMessages$Query$FetchMessages$Recommendation
+    _$FetchMessages$Query$FetchMessages$RecommendationFromJson(
+            Map<String, dynamic> json) =>
+        FetchMessages$Query$FetchMessages$Recommendation()
+          ..userId = json['userId'] as int
+          ..recommendeeId = json['recommendeeId'] as int
+          ..anime = json['anime'] == null
+              ? null
+              : FetchMessages$Query$FetchMessages$Recommendation$Anime.fromJson(
+                  json['anime'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$FetchMessages$Query$FetchMessages$RecommendationToJson(
+        FetchMessages$Query$FetchMessages$Recommendation instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'recommendeeId': instance.recommendeeId,
+      'anime': instance.anime?.toJson(),
+    };
+
+FetchMessages$Query$FetchMessages$Sticker
+    _$FetchMessages$Query$FetchMessages$StickerFromJson(
+            Map<String, dynamic> json) =>
+        FetchMessages$Query$FetchMessages$Sticker()
+          ..id = json['id'] as String
+          ..url = json['url'] as String;
+
+Map<String, dynamic> _$FetchMessages$Query$FetchMessages$StickerToJson(
+        FetchMessages$Query$FetchMessages$Sticker instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'url': instance.url,
+    };
+
+FetchMessages$Query$FetchMessages _$FetchMessages$Query$FetchMessagesFromJson(
+        Map<String, dynamic> json) =>
+    FetchMessages$Query$FetchMessages()
+      ..attachment = json['attachment'] as String?
+      ..attachmentType = json['attachmentType'] as String?
+      ..content = json['content'] as String?
+      ..createdAt =
+          fromGraphQLISO8601DateTimeToDartDateTime(json['createdAt'] as String)
+      ..reaction = json['reaction'] as String?
+      ..read = json['read'] as bool?
+      ..senderId = json['senderId'] as int?
+      ..recommendation = json['recommendation'] == null
+          ? null
+          : FetchMessages$Query$FetchMessages$Recommendation.fromJson(
+              json['recommendation'] as Map<String, dynamic>)
+      ..sticker = json['sticker'] == null
+          ? null
+          : FetchMessages$Query$FetchMessages$Sticker.fromJson(
+              json['sticker'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$FetchMessages$Query$FetchMessagesToJson(
+        FetchMessages$Query$FetchMessages instance) =>
+    <String, dynamic>{
+      'attachment': instance.attachment,
+      'attachmentType': instance.attachmentType,
+      'content': instance.content,
+      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
+      'reaction': instance.reaction,
+      'read': instance.read,
+      'senderId': instance.senderId,
+      'recommendation': instance.recommendation?.toJson(),
+      'sticker': instance.sticker?.toJson(),
+    };
+
+FetchMessages$Query _$FetchMessages$QueryFromJson(Map<String, dynamic> json) =>
+    FetchMessages$Query()
+      ..fetchMessages = (json['fetchMessages'] as List<dynamic>)
+          .map((e) => FetchMessages$Query$FetchMessages.fromJson(
+              e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$FetchMessages$QueryToJson(
+        FetchMessages$Query instance) =>
+    <String, dynamic>{
+      'fetchMessages': instance.fetchMessages.map((e) => e.toJson()).toList(),
+    };
+
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -1678,5 +1773,19 @@ FetchStickersArguments _$FetchStickersArgumentsFromJson(
 Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
+      'page': instance.page,
+    };
+
+FetchMessagesArguments _$FetchMessagesArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    FetchMessagesArguments(
+      conversationId: json['conversationId'] as String,
+      page: json['page'] as int?,
+    );
+
+Map<String, dynamic> _$FetchMessagesArgumentsToJson(
+        FetchMessagesArguments instance) =>
+    <String, dynamic>{
+      'conversationId': instance.conversationId,
       'page': instance.page,
     };

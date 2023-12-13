@@ -1,0 +1,23 @@
+query fetchMessages($conversationId: ID!, $page: Int) {
+  fetchMessages(conversationId: $conversationId, page: $page) {
+    attachment
+    attachmentType
+    content
+    createdAt
+    reaction
+    read
+    senderId
+    recommendation {
+      userId
+      recommendeeId
+      anime {
+        title
+        cover
+      }
+    }
+    sticker {
+      id
+      url
+    }
+  }
+}
