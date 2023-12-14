@@ -95,9 +95,11 @@ input AnimeInput {
 type Conversation {
   createdAt: ISO8601DateTime!
   id: ID!
+  lastMessage: Message
   match: Match
   matchId: Int!
   messages: [Message!]
+  unreadCount: Int
   updatedAt: ISO8601DateTime!
 }
 
@@ -309,14 +311,14 @@ scalar ISO8601DateTime @specifiedBy(url: "https://tools.ietf.org/html/rfc3339")
 type Like {
   createdAt: ISO8601DateTime!
   id: ID!
-  likeType: Int
+  likeType: String
   likeeId: Int
   updatedAt: ISO8601DateTime!
   userId: Int!
 }
 
 input LikeInput {
-  likeType: Int!
+  likeType: String!
   likeeId: Int!
   userId: Int!
 }
@@ -531,10 +533,11 @@ type Photo {
 
 type Query {
   fetchAnime(params: AnimeInput!): [Anime!]!
-  fetchConversations(page: Int, userId: ID!): [Conversation!]!
+  fetchConversations(page: Int, search: String, userId: ID!): [Conversation!]!
   fetchFeed(params: FetchFeedInput!): [User!]!
+  fetchMessages(conversationId: ID!, page: Int): [Message!]!
   fetchReports(page: Int, perPage: Int, reason: Int, userId: ID!): [Report!]!
-  fetchSticker(stickerId: ID): Sticker!
+  fetchSticker(stickerId: ID!): Sticker!
   fetchStickers(page: Int): [Sticker!]!
   fetchUser(userId: ID!): User!
   fetchVerifyRequests(page: Int, perPage: Int, userId: ID!): [VerifyRequest!]!
