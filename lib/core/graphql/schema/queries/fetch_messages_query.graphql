@@ -1,5 +1,6 @@
 query fetchMessages($conversationId: ID!, $page: Int) {
   fetchMessages(conversationId: $conversationId, page: $page) {
+    id
     attachment
     attachmentType
     content
@@ -11,6 +12,7 @@ query fetchMessages($conversationId: ID!, $page: Int) {
       userId
       recommendeeId
       anime {
+        id
         title
         cover
       }

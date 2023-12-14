@@ -1468,6 +1468,7 @@ FetchMessages$Query$FetchMessages$Recommendation$Anime
     _$FetchMessages$Query$FetchMessages$Recommendation$AnimeFromJson(
             Map<String, dynamic> json) =>
         FetchMessages$Query$FetchMessages$Recommendation$Anime()
+          ..id = json['id'] as String
           ..title = json['title'] as String?
           ..cover = json['cover'] as String?;
 
@@ -1475,6 +1476,7 @@ Map<String, dynamic>
     _$FetchMessages$Query$FetchMessages$Recommendation$AnimeToJson(
             FetchMessages$Query$FetchMessages$Recommendation$Anime instance) =>
         <String, dynamic>{
+          'id': instance.id,
           'title': instance.title,
           'cover': instance.cover,
         };
@@ -1515,6 +1517,7 @@ Map<String, dynamic> _$FetchMessages$Query$FetchMessages$StickerToJson(
 FetchMessages$Query$FetchMessages _$FetchMessages$Query$FetchMessagesFromJson(
         Map<String, dynamic> json) =>
     FetchMessages$Query$FetchMessages()
+      ..id = json['id'] as String
       ..attachment = json['attachment'] as String?
       ..attachmentType = json['attachmentType'] as String?
       ..content = json['content'] as String?
@@ -1535,6 +1538,7 @@ FetchMessages$Query$FetchMessages _$FetchMessages$Query$FetchMessagesFromJson(
 Map<String, dynamic> _$FetchMessages$Query$FetchMessagesToJson(
         FetchMessages$Query$FetchMessages instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'attachment': instance.attachment,
       'attachmentType': instance.attachmentType,
       'content': instance.content,

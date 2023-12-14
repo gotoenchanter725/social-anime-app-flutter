@@ -1973,12 +1973,14 @@ class FetchMessages$Query$FetchMessages$Recommendation$Anime
           Map<String, dynamic> json) =>
       _$FetchMessages$Query$FetchMessages$Recommendation$AnimeFromJson(json);
 
+  late String id;
+
   String? title;
 
   String? cover;
 
   @override
-  List<Object?> get props => [title, cover];
+  List<Object?> get props => [id, title, cover];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchMessages$Query$FetchMessages$Recommendation$AnimeToJson(this);
@@ -2035,6 +2037,8 @@ class FetchMessages$Query$FetchMessages extends JsonSerializable
           Map<String, dynamic> json) =>
       _$FetchMessages$Query$FetchMessagesFromJson(json);
 
+  late String id;
+
   String? attachment;
 
   String? attachmentType;
@@ -2058,6 +2062,7 @@ class FetchMessages$Query$FetchMessages extends JsonSerializable
 
   @override
   List<Object?> get props => [
+        id,
         attachment,
         attachmentType,
         content,
@@ -4672,6 +4677,13 @@ final FETCH_MESSAGES_QUERY_DOCUMENT = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'attachment'),
             alias: null,
             arguments: [],
@@ -4746,6 +4758,13 @@ final FETCH_MESSAGES_QUERY_DOCUMENT = DocumentNode(definitions: [
                 arguments: [],
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
                   FieldNode(
                     name: NameNode(value: 'title'),
                     alias: null,
