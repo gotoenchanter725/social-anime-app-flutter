@@ -14,6 +14,6 @@ class FetchFiltersSucssesfulState extends HomeStorageState {}
 
 class ValidSaveProfileFiltersState extends HomeStorageState {}
 
-class ValidSaveIsVerifyPhoneState extends HomeStorageState {}
+class ValidSaveIsFirstOpenMatchState extends HomeStorageState {}
 
 class ClearAllDataStorageState extends HomeStorageState {}
