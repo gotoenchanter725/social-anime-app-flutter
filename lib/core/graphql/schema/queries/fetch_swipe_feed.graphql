@@ -1,15 +1,22 @@
-query fetchFeed($userId: ID!, $milesAway: Int!, $page: Int) {
-  fetchFeed(userId: $userId, milesAway: $milesAway, page: $page) {
+query fetchFeed($params: FetchFeedInput!) {
+  fetchFeed(params: $params) {
     id
     phone
+    firstName
+    birthday
     premium
+    occupation
+    school
     currentSignInAt
     currentSignInIp
     gender
     desiredGender
     bio
+    verified
+    onlineStatus
     gallery {
       photos {
+        id
         order
         url
       }
