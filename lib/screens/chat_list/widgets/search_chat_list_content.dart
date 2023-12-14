@@ -119,7 +119,7 @@ class SearchChatListContent extends StatelessWidget {
       ),
       Padding(
         padding: EdgeInsets.only(left: $constants.insets.lg),
-        child: MatchList(users: conversation.matches),
+        child: MatchList(matches: conversation.matches),
       )
     ];
   }

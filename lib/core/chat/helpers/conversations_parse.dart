@@ -1,6 +1,7 @@
 // import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
 import 'package:senpai/models/chat/categorized_conversation.dart';
 import 'package:senpai/models/chat/chat_conversation.dart';
+import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/models/match/match_user_data.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -17,9 +18,14 @@ class ConversationsParser {
     var activeConversations = <ChatConversation>[];
 
     for (var conversation in conversations) {
-      dynamic user = conversation["match"]["user"];
+      dynamic user;
+      late dynamic reciever;
       if (user["id"] == userId) {
         user = conversation["match"]["matchee"];
+        reciever = conversation["match"]["user"];
+      } else {
+        user = conversation["match"]["user"];
+        reciever = conversation["match"]["matchee"];
       }
       if (conversation["lastMessage"] == null) {
         matches.add(MatchUserData(
@@ -27,6 +33,18 @@ class ConversationsParser {
           imageUrl: user["gallery"]["photos"][0]["url"],
           isOnline: user["onlineStatus"] == "offline" ? false : true,
           userName: user["firstName"],
+          reciever: User(
+            id: reciever["id"],
+            name: reciever["firstName"],
+            profileUrl: reciever["gallery"]["photos"][0]["url"],
+            isOnline: reciever["onlineStatus"] == "offline" ? false : true,
+          ),
+          currentUser: User(
+            id: user["id"],
+            name: user["firstName"],
+            profileUrl: user["gallery"]["photos"][0]["url"],
+            isOnline: user["onlineStatus"] == "offline" ? false : true,
+          ),
         ));
       } else {
         activeConversations.add(ChatConversation(
@@ -38,6 +56,18 @@ class ConversationsParser {
               parseTimezoneAwareDate(conversation["lastMessage"]["createdAt"]),
           unreadMessagesCount: conversation["unreadCount"],
           isOnline: user["onlineStatus"] == "offline" ? false : true,
+          reciever: User(
+            id: reciever["id"],
+            name: reciever["firstName"],
+            profileUrl: reciever["gallery"]["photos"][0]["url"],
+            isOnline: reciever["onlineStatus"] == "offline" ? false : true,
+          ),
+          currentUser: User(
+            id: user["id"],
+            name: user["firstName"],
+            profileUrl: user["gallery"]["photos"][0]["url"],
+            isOnline: user["onlineStatus"] == "offline" ? false : true,
+          ),
         ));
       }
     }

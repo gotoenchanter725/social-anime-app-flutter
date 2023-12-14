@@ -2,7 +2,7 @@ import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class MessagesParser {
-  List<ChatMessage> parseMessages(List<Map<String, dynamic>> messages) {
+  List<ChatMessage> parseMessages(List<dynamic> messages) {
     List<ChatMessage> parsedMessages = [];
 
     if (messages.isNotEmpty) {
@@ -42,7 +42,7 @@ class MessagesParser {
 
         ChatMessage chatMessage = ChatMessage(
           id: message["id"],
-          senderId: message["senderId"],
+          senderId: message["senderId"].toString(),
           text: message["content"],
           timestamp: parseTimezoneAwareDate(message["createdAt"]),
           isRead: message["read"],

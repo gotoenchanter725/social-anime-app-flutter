@@ -22,11 +22,6 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
     );
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-  }
-
   Future<void> fetchMessages(String conversationId) async {
     final variables =
         FetchMessagesArguments(conversationId: conversationId, page: 1)
@@ -37,6 +32,7 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
   @override
   FetchMessages$Query parseData(Map<String, dynamic>? data) {
     messages = _messagesParser.parseMessages(data!["fetchMessages"]);
+
     return FetchMessages$Query.fromJson(data);
   }
 }

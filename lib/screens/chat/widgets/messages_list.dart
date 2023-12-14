@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
-import 'package:senpai/data/mock_chat_messages_data.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class MessagesList extends StatelessWidget {
-  MessagesList({super.key});
+  const MessagesList({
+    super.key,
+    required this.messages,
+    required this.currentUserId,
+    required this.recieverUserId,
+  });
 
-  final List<ChatMessage> messages = mockConversation;
+  final List<ChatMessage> messages;
 
-  final String currentUserId = 'user1';
+  final String currentUserId;
 
-  final String recieverUserId = 'user2';
+  final String recieverUserId;
 
   @override
   Widget build(BuildContext context) {

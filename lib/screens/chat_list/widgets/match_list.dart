@@ -10,9 +10,9 @@ import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/utils/constants.dart';
 
 class MatchList extends StatelessWidget {
-  final List<MatchUserData> users; // List of user data
+  final List<MatchUserData> matches; // List of user data
 
-  const MatchList({Key? key, required this.users}) : super(key: key);
+  const MatchList({Key? key, required this.matches}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class MatchList extends StatelessWidget {
         return SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: users.map((user) {
+            children: matches.map((match) {
               return Padding(
                 padding: EdgeInsets.only(right: $constants.corners.md),
                 child: GestureDetector(
@@ -31,18 +31,18 @@ class MatchList extends StatelessWidget {
                     context.router.push(
                       ChatRoute(
                         roomArgs: ChatRoomParams(
-                          reciepientName: user.userName,
-                          roomId: user.id,
-                          reciepientProfileUrl: user.imageUrl,
-                          isOnline: user.isOnline,
+                          roomId: match.id,
+                          isOnline: match.isOnline,
+                          reciepient: match.reciever,
+                          currentUser: match.currentUser,
                         ),
                       ),
                     );
                   },
                   child: UserAvatarWithName(
-                    imageUrl: user.imageUrl,
-                    userName: user.userName,
-                    isOnline: user.isOnline,
+                    imageUrl: match.imageUrl,
+                    userName: match.userName,
+                    isOnline: match.isOnline,
                   ),
                 ),
               );

@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
-import 'package:senpai/data/mock_conversation_list_data.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
@@ -12,10 +13,12 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class ChatContent extends StatelessWidget {
-  final ChatRoomParams roomArgs;
-  ChatContent({super.key, required this.roomArgs});
+  const ChatContent(
+      {super.key, required this.currentUser, required this.receipientUser});
 
-  final receipientUser = mockChatItems[0];
+  final User receipientUser;
+
+  final User currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class ChatContent extends StatelessWidget {
       child: Column(
         children: [
           _buildChatHeader(context),
-          Expanded(child: MessagesList()),
+          _buildMessagesList(context),
           SizedBox(
             height: $constants.insets.sm,
           ),
@@ -35,6 +38,18 @@ class ChatContent extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Widget _buildMessagesList(BuildContext context) {
+    FetchMessagesBloc bloc = BlocProvider.of<FetchMessagesBloc>(context);
+
+    return BlocBuilder(builder: (context, state) {
+      return MessagesList(
+        messages: bloc.messages,
+        currentUserId: currentUser.id,
+        recieverUserId: receipientUser.id,
+      );
+    });
   }
 
   Widget _buildChatHeader(BuildContext context) {
@@ -57,13 +72,13 @@ class ChatContent extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  roomArgs.reciepientName,
+                  receipientUser.name,
                   style: getTextTheme(context).headlineSmall!.copyWith(
                         color: $constants.palette.white,
                       ),
                 ),
                 Text(
-                  roomArgs.isOnline
+                  receipientUser.isOnline
                       ? TextConstants.userOnlineText
                       : TextConstants.userOfflineText,
                   style: getTextTheme(context).labelMedium!.copyWith(
@@ -73,7 +88,7 @@ class ChatContent extends StatelessWidget {
               ],
             ),
             UserAvatar(
-              imageUrl: roomArgs.reciepientProfileUrl,
+              imageUrl: receipientUser.profileUrl,
               size: 40.0,
             )
           ],

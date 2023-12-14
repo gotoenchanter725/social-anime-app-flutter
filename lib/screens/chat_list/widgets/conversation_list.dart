@@ -26,9 +26,9 @@ class ConversationList extends StatelessWidget {
                 context.router.push(
                   ChatRoute(
                     roomArgs: ChatRoomParams(
-                      reciepientName: chat.contactName,
+                      reciepient: chat.reciever,
                       roomId: chat.id,
-                      reciepientProfileUrl: chat.profileUrl,
+                      currentUser: chat.currentUser,
                       isOnline: chat.isOnline,
                     ),
                   ),
