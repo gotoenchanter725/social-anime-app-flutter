@@ -38,6 +38,9 @@ class Constants {
 @immutable
 class _Specials {
   final int pendingMessageIdLength = 16;
+
+  /// Constants for Match
+  late final match = _MatchConstants();
 }
 
 @immutable
@@ -132,7 +135,6 @@ class _Palette {
       const Color(0xFF0E1018).withOpacity(0),
       const Color(0xFF0E1018).withOpacity(0.5),
       const Color(0xFF0E1018).withOpacity(0.75),
-      const Color(0xFF0E1018).withOpacity(0.75),
       const Color(0xFF0E1018),
       const Color(0xFF0E1018),
     ],
@@ -198,4 +200,14 @@ class _EmojiNames {
   late final String vomit = 'nauseated_face';
   late final String anger = 'rage';
   late final String demon = 'imp';
+}
+
+@immutable
+class _MatchConstants {
+  late final double blur = 3.0;
+  late final double bottomMiddleButtons = 90.0;
+  late final double widthCenterMiddleButtons = 100.0;
+  late final double heightCenterBox = 95.0;
+  late final double widthCenterBox = 138.0;
+  late final double matchBottomHeight = 220.0;
 }
