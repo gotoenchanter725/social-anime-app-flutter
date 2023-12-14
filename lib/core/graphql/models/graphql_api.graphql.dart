@@ -1505,12 +1505,14 @@ class FetchFeed$Query$FetchFeed$Gallery$Photos extends JsonSerializable
           Map<String, dynamic> json) =>
       _$FetchFeed$Query$FetchFeed$Gallery$PhotosFromJson(json);
 
+  late String id;
+
   int? order;
 
   late String url;
 
   @override
-  List<Object?> get props => [order, url];
+  List<Object?> get props => [id, order, url];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchFeed$Query$FetchFeed$Gallery$PhotosToJson(this);
@@ -1593,7 +1595,18 @@ class FetchFeed$Query$FetchFeed extends JsonSerializable with EquatableMixin {
 
   late String phone;
 
+  late String firstName;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable,
+      toJson: fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable)
+  DateTime? birthday;
+
   late bool premium;
+
+  String? occupation;
+
+  String? school;
 
   @JsonKey(
       fromJson: fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable,
@@ -1608,6 +1621,10 @@ class FetchFeed$Query$FetchFeed extends JsonSerializable with EquatableMixin {
 
   String? bio;
 
+  late bool verified;
+
+  String? onlineStatus;
+
   FetchFeed$Query$FetchFeed$Gallery? gallery;
 
   List<FetchFeed$Query$FetchFeed$Animes>? animes;
@@ -1618,12 +1635,18 @@ class FetchFeed$Query$FetchFeed extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [
         id,
         phone,
+        firstName,
+        birthday,
         premium,
+        occupation,
+        school,
         currentSignInAt,
         currentSignInIp,
         gender,
         desiredGender,
         bio,
+        verified,
+        onlineStatus,
         gallery,
         animes,
         favoriteMusic
@@ -1645,6 +1668,45 @@ class FetchFeed$Query extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [fetchFeed];
   @override
   Map<String, dynamic> toJson() => _$FetchFeed$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchFeedInput extends JsonSerializable with EquatableMixin {
+  FetchFeedInput({
+    this.animeIds,
+    this.hasBio,
+    required this.maxAge,
+    required this.milesAway,
+    required this.minAge,
+    this.page,
+    required this.userId,
+    this.verified,
+  });
+
+  factory FetchFeedInput.fromJson(Map<String, dynamic> json) =>
+      _$FetchFeedInputFromJson(json);
+
+  List<String>? animeIds;
+
+  bool? hasBio;
+
+  late int maxAge;
+
+  late int milesAway;
+
+  late int minAge;
+
+  int? page;
+
+  late String userId;
+
+  bool? verified;
+
+  @override
+  List<Object?> get props =>
+      [animeIds, hasBio, maxAge, milesAway, minAge, page, userId, verified];
+  @override
+  Map<String, dynamic> toJson() => _$FetchFeedInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -4081,24 +4143,16 @@ class FetchMessagesQuery
 
 @JsonSerializable(explicitToJson: true)
 class FetchFeedArguments extends JsonSerializable with EquatableMixin {
-  FetchFeedArguments({
-    required this.userId,
-    required this.milesAway,
-    this.page,
-  });
+  FetchFeedArguments({required this.params});
 
   @override
   factory FetchFeedArguments.fromJson(Map<String, dynamic> json) =>
       _$FetchFeedArgumentsFromJson(json);
 
-  late String userId;
-
-  late int milesAway;
-
-  final int? page;
+  late FetchFeedInput params;
 
   @override
-  List<Object?> get props => [userId, milesAway, page];
+  List<Object?> get props => [params];
   @override
   Map<String, dynamic> toJson() => _$FetchFeedArgumentsToJson(this);
 }
@@ -4110,32 +4164,14 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
     name: NameNode(value: 'fetchFeed'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
+        variable: VariableNode(name: NameNode(value: 'params')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
+          name: NameNode(value: 'FetchFeedInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'milesAway')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
+      )
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -4144,17 +4180,9 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'userId'),
-            value: VariableNode(name: NameNode(value: 'userId')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'milesAway'),
-            value: VariableNode(name: NameNode(value: 'milesAway')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          ),
+            name: NameNode(value: 'params'),
+            value: VariableNode(name: NameNode(value: 'params')),
+          )
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -4173,7 +4201,35 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
+            name: NameNode(value: 'firstName'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'birthday'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'premium'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'occupation'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'school'),
             alias: null,
             arguments: [],
             directives: [],
@@ -4215,6 +4271,20 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
+            name: NameNode(value: 'verified'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'onlineStatus'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'gallery'),
             alias: null,
             arguments: [],
@@ -4226,6 +4296,13 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
                 arguments: [],
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
                   FieldNode(
                     name: NameNode(value: 'order'),
                     alias: null,
