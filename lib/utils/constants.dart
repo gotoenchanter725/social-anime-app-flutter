@@ -33,6 +33,9 @@ class Constants {
 
   /// Emoji names
   late final emojis = _EmojiNames();
+
+  /// Constants for Match
+  late final match = _MatchConstants();
 }
 
 @immutable
