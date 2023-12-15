@@ -97,6 +97,7 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
     on<OnChangeAnimeListEvent>((event, emit) {
       emit(LoadingEditProfileState());
       user = user.copyWith(animes: event.selectedAnimes);
+      userForPreview = userForPreview.copyWith(animes: event.selectedAnimes);
       emit(ValidState());
     });
 
