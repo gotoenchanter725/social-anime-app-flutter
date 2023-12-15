@@ -6,6 +6,9 @@ import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/routes/guards/onboarding_guard.dart';
 import 'package:senpai/screens/chat/page/chat_page.dart';
 import 'package:senpai/screens/chat_list/page/chat_list_page.dart';
+import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
+import 'package:senpai/screens/edit_profile/edit_favorite_anime/page/edit_favorite_anime_page.dart';
+import 'package:senpai/screens/edit_profile/work_education/page/work_education_page.dart';
 import 'package:senpai/screens/entry/page/entry_page.dart';
 import 'package:senpai/screens/home/page/home_page.dart';
 import 'package:senpai/screens/license/page/license_page.dart';
@@ -62,5 +65,8 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SettingsProfileRoute.page, path: '/settings_profile'),
         AutoRoute(page: ProfileFilterRoute.page, path: '/profile_filter'),
         AutoRoute(page: PreviewProfileRoute.page, path: '/preview_profile'),
+        AutoRoute(page: WorkEducationRoute.page, path: '/work_and_education'),
+        AutoRoute(
+            page: EditFavoriteAnimeRoute.page, path: '/edit_favorite_anime'),
       ];
 }
