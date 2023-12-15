@@ -41,6 +41,16 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    EditProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<EditProfileRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: EditProfilePage(
+          key: args.key,
+          userID: args.userID,
+        ),
+      );
+    },
     EntryRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -294,6 +304,44 @@ class EditFavoriteAnimeRouteArgs {
   @override
   String toString() {
     return 'EditFavoriteAnimeRouteArgs{key: $key, editBloc: $editBloc}';
+  }
+}
+
+/// generated route for
+/// [EditProfilePage]
+class EditProfileRoute extends PageRouteInfo<EditProfileRouteArgs> {
+  EditProfileRoute({
+    Key? key,
+    required String userID,
+    List<PageRouteInfo>? children,
+  }) : super(
+          EditProfileRoute.name,
+          args: EditProfileRouteArgs(
+            key: key,
+            userID: userID,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'EditProfileRoute';
+
+  static const PageInfo<EditProfileRouteArgs> page =
+      PageInfo<EditProfileRouteArgs>(name);
+}
+
+class EditProfileRouteArgs {
+  const EditProfileRouteArgs({
+    this.key,
+    required this.userID,
+  });
+
+  final Key? key;
+
+  final String userID;
+
+  @override
+  String toString() {
+    return 'EditProfileRouteArgs{key: $key, userID: $userID}';
   }
 }
 

@@ -78,22 +78,14 @@ class ProfileContent extends StatelessWidget {
                         icon: PathConstants.pencilIcon,
                         title: TextConstants.editProfileButton,
                         onTap: () async {
-                          // change after implement EditProfileRoute
-
-                          context.router.push(PreviewProfileRoute(
-                            userId: bloc.userID,
-                            vieweeId: bloc.userID,
-                          ));
-
-                          // change after implement EditProfileRoute
-                          // await context.router
-                          //     .push(EditProfileRoute(userID: bloc.userID))
-                          //     .then((value) {
-                          //   final fetchUserBloc =
-                          //       BlocProvider.of<FetchUserBloc>(context);
-                          //   fetchUserBloc.fetchUser(
-                          //       userId: int.parse(bloc.userID));
-                          // });
+                          await context.router
+                              .push(EditProfileRoute(userID: bloc.userID))
+                              .then((value) {
+                            final fetchUserBloc =
+                                BlocProvider.of<FetchUserBloc>(context);
+                            fetchUserBloc.fetchUser(
+                                userId: int.parse(bloc.userID));
+                          });
                         },
                       ),
                       SizedBox(height: $constants.insets.xs),
