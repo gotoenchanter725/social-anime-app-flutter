@@ -18,21 +18,22 @@ class ConversationsParser {
     var activeConversations = <ChatConversation>[];
 
     for (var conversation in conversations) {
-      dynamic user;
+      late dynamic user;
       late dynamic reciever;
-      if (user["id"] == userId) {
-        user = conversation["match"]["matchee"];
-        reciever = conversation["match"]["user"];
+      dynamic match = conversation["match"];
+      if (match["matchee"]["id"] == userId) {
+        user = match["matchee"];
+        reciever = match["user"];
       } else {
-        user = conversation["match"]["user"];
-        reciever = conversation["match"]["matchee"];
+        user = match["user"];
+        reciever = match["matchee"];
       }
       if (conversation["lastMessage"] == null) {
         matches.add(MatchUserData(
           id: conversation["id"],
-          imageUrl: user["gallery"]["photos"][0]["url"],
-          isOnline: user["onlineStatus"] == "offline" ? false : true,
-          userName: user["firstName"],
+          imageUrl: reciever["gallery"]["photos"][0]["url"],
+          isOnline: reciever["onlineStatus"] == "offline" ? false : true,
+          userName: reciever["firstName"],
           reciever: User(
             id: reciever["id"],
             name: reciever["firstName"],
@@ -49,13 +50,13 @@ class ConversationsParser {
       } else {
         activeConversations.add(ChatConversation(
           id: conversation["id"],
-          profileUrl: user["gallery"]["photos"][0]["url"],
-          contactName: user["firstName"],
+          profileUrl: reciever["gallery"]["photos"][0]["url"],
+          contactName: reciever["firstName"],
           lastMessage: conversation["lastMessage"]["content"],
           lastMessageTime:
               parseTimezoneAwareDate(conversation["lastMessage"]["createdAt"]),
           unreadMessagesCount: conversation["unreadCount"],
-          isOnline: user["onlineStatus"] == "offline" ? false : true,
+          isOnline: reciever["onlineStatus"] == "offline" ? false : true,
           reciever: User(
             id: reciever["id"],
             name: reciever["firstName"],

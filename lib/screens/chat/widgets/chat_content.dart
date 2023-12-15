@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
+import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/path_constants.dart';
@@ -43,13 +44,16 @@ class ChatContent extends StatelessWidget {
   Widget _buildMessagesList(BuildContext context) {
     FetchMessagesBloc bloc = BlocProvider.of<FetchMessagesBloc>(context);
 
-    return BlocBuilder(builder: (context, state) {
-      return MessagesList(
-        messages: bloc.messages,
-        currentUserId: currentUser.id,
-        recieverUserId: receipientUser.id,
-      );
-    });
+    return Expanded(
+      child:
+          BlocBuilder<FetchMessagesBloc, QueryState>(builder: (context, state) {
+        return MessagesList(
+          messages: bloc.messages,
+          currentUser: currentUser,
+          recieverUser: receipientUser,
+        );
+      }),
+    );
   }
 
   Widget _buildChatHeader(BuildContext context) {

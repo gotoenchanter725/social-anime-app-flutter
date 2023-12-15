@@ -39,25 +39,25 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (_) =>
-                    FetchMessagesBloc(conversationId: roomArgs.roomId)
-                      ..fetchMessages(roomArgs.roomId),
-              )
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<FetchMessagesBloc>(
+          create: (_) => FetchMessagesBloc(conversationId: roomArgs.roomId)
+            ..fetchMessages(roomArgs.roomId),
+        )
+      ],
+      child: Scaffold(
+        body: SafeArea(
+          child: Stack(
+            children: [
+              ChatContent(
+                receipientUser: roomArgs.reciepient,
+                currentUser: roomArgs.currentUser,
+              ),
+              _buildFetchMessagesListeners(),
             ],
-            child: Stack(
-              children: [
-                ChatContent(
-                  receipientUser: roomArgs.reciepient,
-                  currentUser: roomArgs.currentUser,
-                ),
-                _buildFetchMessagesListeners(),
-              ],
-            )),
+          ),
+        ),
       ),
     );
   }
