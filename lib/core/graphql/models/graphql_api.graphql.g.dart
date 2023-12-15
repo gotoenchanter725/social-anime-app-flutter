@@ -436,14 +436,52 @@ Map<String, dynamic> _$MessageInputToJson(MessageInput instance) =>
       'stickerId': instance.stickerId,
     };
 
+DeletePhoto$Mutation$DeletePhoto$Gallery$Photos
+    _$DeletePhoto$Mutation$DeletePhoto$Gallery$PhotosFromJson(
+            Map<String, dynamic> json) =>
+        DeletePhoto$Mutation$DeletePhoto$Gallery$Photos()
+          ..order = json['order'] as int?
+          ..url = json['url'] as String
+          ..id = json['id'] as String;
+
+Map<String, dynamic> _$DeletePhoto$Mutation$DeletePhoto$Gallery$PhotosToJson(
+        DeletePhoto$Mutation$DeletePhoto$Gallery$Photos instance) =>
+    <String, dynamic>{
+      'order': instance.order,
+      'url': instance.url,
+      'id': instance.id,
+    };
+
+DeletePhoto$Mutation$DeletePhoto$Gallery
+    _$DeletePhoto$Mutation$DeletePhoto$GalleryFromJson(
+            Map<String, dynamic> json) =>
+        DeletePhoto$Mutation$DeletePhoto$Gallery()
+          ..photos = (json['photos'] as List<dynamic>?)
+              ?.map((e) =>
+                  DeletePhoto$Mutation$DeletePhoto$Gallery$Photos.fromJson(
+                      e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic> _$DeletePhoto$Mutation$DeletePhoto$GalleryToJson(
+        DeletePhoto$Mutation$DeletePhoto$Gallery instance) =>
+    <String, dynamic>{
+      'photos': instance.photos?.map((e) => e.toJson()).toList(),
+    };
+
 DeletePhoto$Mutation$DeletePhoto _$DeletePhoto$Mutation$DeletePhotoFromJson(
         Map<String, dynamic> json) =>
-    DeletePhoto$Mutation$DeletePhoto()..deleted = json['deleted'] as bool;
+    DeletePhoto$Mutation$DeletePhoto()
+      ..deleted = json['deleted'] as bool
+      ..gallery = json['gallery'] == null
+          ? null
+          : DeletePhoto$Mutation$DeletePhoto$Gallery.fromJson(
+              json['gallery'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$DeletePhoto$Mutation$DeletePhotoToJson(
         DeletePhoto$Mutation$DeletePhoto instance) =>
     <String, dynamic>{
       'deleted': instance.deleted,
+      'gallery': instance.gallery?.toJson(),
     };
 
 DeletePhoto$Mutation _$DeletePhoto$MutationFromJson(
@@ -1556,6 +1594,7 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
       ..displayState = json['displayState'] as String?
       ..spotifyEmail = json['spotifyEmail'] as String?
       ..onlineStatus = json['onlineStatus'] as String?
+      ..lonlat = json['lonlat'] as String?
       ..matches = (json['matches'] as List<dynamic>?)
           ?.map((e) => FetchUser$Query$FetchUser$Matches.fromJson(
               e as Map<String, dynamic>))
@@ -1593,6 +1632,7 @@ Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
       'displayState': instance.displayState,
       'spotifyEmail': instance.spotifyEmail,
       'onlineStatus': instance.onlineStatus,
+      'lonlat': instance.lonlat,
       'matches': instance.matches?.map((e) => e.toJson()).toList(),
       'gallery': instance.gallery?.toJson(),
       'animes': instance.animes?.map((e) => e.toJson()).toList(),
@@ -1962,6 +2002,56 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
+UndoLike$Mutation$UndoLike$UndidUser
+    _$UndoLike$Mutation$UndoLike$UndidUserFromJson(Map<String, dynamic> json) =>
+        UndoLike$Mutation$UndoLike$UndidUser()..id = json['id'] as String;
+
+Map<String, dynamic> _$UndoLike$Mutation$UndoLike$UndidUserToJson(
+        UndoLike$Mutation$UndoLike$UndidUser instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+UndoLike$Mutation$UndoLike _$UndoLike$Mutation$UndoLikeFromJson(
+        Map<String, dynamic> json) =>
+    UndoLike$Mutation$UndoLike()
+      ..status = json['status'] as String
+      ..undidUser = json['undidUser'] == null
+          ? null
+          : UndoLike$Mutation$UndoLike$UndidUser.fromJson(
+              json['undidUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UndoLike$Mutation$UndoLikeToJson(
+        UndoLike$Mutation$UndoLike instance) =>
+    <String, dynamic>{
+      'status': instance.status,
+      'undidUser': instance.undidUser?.toJson(),
+    };
+
+UndoLike$Mutation _$UndoLike$MutationFromJson(Map<String, dynamic> json) =>
+    UndoLike$Mutation()
+      ..undoLike = json['undoLike'] == null
+          ? null
+          : UndoLike$Mutation$UndoLike.fromJson(
+              json['undoLike'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UndoLike$MutationToJson(UndoLike$Mutation instance) =>
+    <String, dynamic>{
+      'undoLike': instance.undoLike?.toJson(),
+    };
+
+UndoLikeInput _$UndoLikeInputFromJson(Map<String, dynamic> json) =>
+    UndoLikeInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$UndoLikeInputToJson(UndoLikeInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -2221,4 +2311,14 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
+    };
+
+UndoLikeArguments _$UndoLikeArgumentsFromJson(Map<String, dynamic> json) =>
+    UndoLikeArguments(
+      input: UndoLikeInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$UndoLikeArgumentsToJson(UndoLikeArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
     };
