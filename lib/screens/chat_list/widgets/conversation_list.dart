@@ -30,6 +30,7 @@ class ConversationList extends StatelessWidget {
                       roomId: chat.id,
                       currentUser: chat.currentUser,
                       isOnline: chat.isOnline,
+                      createdDate: chat.roomCreationDate,
                     ),
                   ),
                 );

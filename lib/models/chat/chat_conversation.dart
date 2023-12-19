@@ -6,6 +6,7 @@ class ChatConversation {
   final String profileUrl;
   final String lastMessage;
   final bool isOnline;
+  final DateTime roomCreationDate;
   final DateTime lastMessageTime;
   final int unreadMessagesCount;
   final bool isTyping;
@@ -24,6 +25,7 @@ class ChatConversation {
     required this.unreadMessagesCount,
     required this.currentUser,
     required this.reciever,
+    required this.roomCreationDate,
     this.isTyping = false,
     this.isMuted = false,
     this.isPinned = false,

@@ -1295,6 +1295,8 @@ FetchConversations$Query$FetchConversations$Match
             Map<String, dynamic> json) =>
         FetchConversations$Query$FetchConversations$Match()
           ..id = json['id'] as String
+          ..createdAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['createdAt'] as String)
           ..user =
               FetchConversations$Query$FetchConversations$Match$User.fromJson(
                   json['user'] as Map<String, dynamic>)
@@ -1305,6 +1307,7 @@ Map<String, dynamic> _$FetchConversations$Query$FetchConversations$MatchToJson(
         FetchConversations$Query$FetchConversations$Match instance) =>
     <String, dynamic>{
       'id': instance.id,
+      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
       'user': instance.user.toJson(),
       'matchee': instance.matchee.toJson(),
     };

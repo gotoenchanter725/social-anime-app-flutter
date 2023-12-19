@@ -3,6 +3,7 @@ query fetchConversations($userId: ID!) {
     id
     match {
       id
+      createdAt
       user {
         id
         onlineStatus

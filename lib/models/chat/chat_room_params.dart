@@ -3,12 +3,14 @@ class ChatRoomParams {
   final User reciepient;
   final User currentUser;
   final bool isOnline;
+  final DateTime createdDate;
 
   ChatRoomParams({
     required this.roomId,
     required this.reciepient,
     required this.currentUser,
     this.isOnline = false,
+    required this.createdDate,
   });
 }
 

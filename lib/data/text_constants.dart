@@ -88,6 +88,8 @@ class TextConstants {
   static const String emptyConversationsPromptText = "Start liking";
   static const String emptyConversationsText =
       "When you match with other users they will appear here";
+  static const String emptyChatTitle = "You matched with";
+  static const String emptyChatPromptText = "Don't wait too long, say hello :)";
 
   // -> Search Chat List
   static const String cancelSearchText = "Cancel";

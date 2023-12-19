@@ -89,6 +89,20 @@ String formatDateTime(DateTime dateTime) {
   }
 }
 
+String timeAgo(DateTime date) {
+  final now = DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  final aDate = DateTime(date.year, date.month, date.day);
+
+  final difference = today.difference(aDate).inDays;
+
+  if (difference == 0) {
+    return 'today';
+  } else {
+    return '$difference days ago';
+  }
+}
+
 String formatSystemDateTimeDisplay(DateTime dateTime) {
   final now = DateTime.now();
   final today = DateTime(now.year, now.month, now.day);

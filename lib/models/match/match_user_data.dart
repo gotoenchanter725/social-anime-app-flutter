@@ -7,6 +7,7 @@ class MatchUserData {
   final bool isOnline;
   final User currentUser;
   final User reciever;
+  final DateTime roomCreationDate;
 
   MatchUserData({
     required this.id,
@@ -14,6 +15,7 @@ class MatchUserData {
     required this.userName,
     required this.currentUser,
     required this.reciever,
+    required this.roomCreationDate,
     this.isOnline = false,
   });
 }

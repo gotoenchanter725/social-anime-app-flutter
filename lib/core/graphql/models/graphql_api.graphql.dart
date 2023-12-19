@@ -1762,12 +1762,17 @@ class FetchConversations$Query$FetchConversations$Match extends JsonSerializable
 
   late String id;
 
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
+      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
+  late DateTime createdAt;
+
   late FetchConversations$Query$FetchConversations$Match$User user;
 
   late FetchConversations$Query$FetchConversations$Match$Matchee matchee;
 
   @override
-  List<Object?> get props => [id, user, matchee];
+  List<Object?> get props => [id, createdAt, user, matchee];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$MatchToJson(this);
@@ -4246,6 +4251,13 @@ final FETCH_CONVERSATIONS_QUERY_DOCUMENT = DocumentNode(definitions: [
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
                 name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'createdAt'),
                 alias: null,
                 arguments: [],
                 directives: [],

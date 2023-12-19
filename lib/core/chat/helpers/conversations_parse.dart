@@ -28,12 +28,14 @@ class ConversationsParser {
         user = match["user"];
         reciever = match["matchee"];
       }
+      DateTime roomCreationDate = parseTimezoneAwareDate(match["createdAt"]);
       if (conversation["lastMessage"] == null) {
         matches.add(MatchUserData(
           id: conversation["id"],
           imageUrl: reciever["gallery"]["photos"][0]["url"],
           isOnline: reciever["onlineStatus"] == "offline" ? false : true,
           userName: reciever["firstName"],
+          roomCreationDate: roomCreationDate,
           reciever: User(
             id: reciever["id"],
             name: reciever["firstName"],
@@ -57,6 +59,7 @@ class ConversationsParser {
               parseTimezoneAwareDate(conversation["lastMessage"]["createdAt"]),
           unreadMessagesCount: conversation["unreadCount"],
           isOnline: reciever["onlineStatus"] == "offline" ? false : true,
+          roomCreationDate: roomCreationDate,
           reciever: User(
             id: reciever["id"],
             name: reciever["firstName"],

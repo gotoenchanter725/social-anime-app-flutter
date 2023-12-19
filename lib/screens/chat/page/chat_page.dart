@@ -53,6 +53,7 @@ class ChatPage extends StatelessWidget {
               ChatContent(
                 receipientUser: roomArgs.reciepient,
                 currentUser: roomArgs.currentUser,
+                roomCreationDate: roomArgs.createdDate,
               ),
               _buildFetchMessagesListeners(),
             ],

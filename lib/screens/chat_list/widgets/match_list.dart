@@ -35,6 +35,7 @@ class MatchList extends StatelessWidget {
                           isOnline: match.isOnline,
                           reciepient: match.reciever,
                           currentUser: match.currentUser,
+                          createdDate: match.roomCreationDate,
                         ),
                       ),
                     );

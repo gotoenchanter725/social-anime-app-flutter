@@ -9,17 +9,24 @@ import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/screens/chat/widgets/empty_messages.dart';
 import 'package:senpai/screens/chat/widgets/messages_list.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class ChatContent extends StatelessWidget {
-  const ChatContent(
-      {super.key, required this.currentUser, required this.receipientUser});
+  const ChatContent({
+    super.key,
+    required this.currentUser,
+    required this.receipientUser,
+    required this.roomCreationDate,
+  });
 
   final User receipientUser;
 
   final User currentUser;
+
+  final DateTime roomCreationDate;
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +50,15 @@ class ChatContent extends StatelessWidget {
 
   Widget _buildMessagesList(BuildContext context) {
     FetchMessagesBloc bloc = BlocProvider.of<FetchMessagesBloc>(context);
+
+    if (bloc.messages.isEmpty) {
+      return EmptyMessages(
+        avatorImagePath: receipientUser.profileUrl,
+        title: "${TextConstants.emptyChatTitle} ${receipientUser.name}",
+        subtitle:
+            "${timeAgo(roomCreationDate)}. \n${TextConstants.emptyChatPromptText}",
+      );
+    }
 
     return Expanded(
       child:
