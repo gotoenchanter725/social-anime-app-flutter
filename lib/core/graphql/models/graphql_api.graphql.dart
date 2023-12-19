@@ -2099,6 +2099,125 @@ class FetchMessages$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class SendMMessage$Mutation$SendMessage$Message extends JsonSerializable
+    with EquatableMixin {
+  SendMMessage$Mutation$SendMessage$Message();
+
+  factory SendMMessage$Mutation$SendMessage$Message.fromJson(
+          Map<String, dynamic> json) =>
+      _$SendMMessage$Mutation$SendMessage$MessageFromJson(json);
+
+  String? content;
+
+  int? senderId;
+
+  String? conversationId;
+
+  String? reaction;
+
+  @override
+  List<Object?> get props => [content, senderId, conversationId, reaction];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$SendMMessage$Mutation$SendMessage$MessageToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendMMessage$Mutation$SendMessage extends JsonSerializable
+    with EquatableMixin {
+  SendMMessage$Mutation$SendMessage();
+
+  factory SendMMessage$Mutation$SendMessage.fromJson(
+          Map<String, dynamic> json) =>
+      _$SendMMessage$Mutation$SendMessageFromJson(json);
+
+  late SendMMessage$Mutation$SendMessage$Message message;
+
+  @override
+  List<Object?> get props => [message];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$SendMMessage$Mutation$SendMessageToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendMMessage$Mutation extends JsonSerializable with EquatableMixin {
+  SendMMessage$Mutation();
+
+  factory SendMMessage$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$SendMMessage$MutationFromJson(json);
+
+  SendMMessage$Mutation$SendMessage? sendMessage;
+
+  @override
+  List<Object?> get props => [sendMessage];
+  @override
+  Map<String, dynamic> toJson() => _$SendMMessage$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendMessageInput extends JsonSerializable with EquatableMixin {
+  SendMessageInput({
+    this.clientMutationId,
+    required this.params,
+  });
+
+  factory SendMessageInput.fromJson(Map<String, dynamic> json) =>
+      _$SendMessageInputFromJson(json);
+
+  String? clientMutationId;
+
+  late MessageInput params;
+
+  @override
+  List<Object?> get props => [clientMutationId, params];
+  @override
+  Map<String, dynamic> toJson() => _$SendMessageInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class MessageInput extends JsonSerializable with EquatableMixin {
+  MessageInput({
+    this.attachment,
+    required this.content,
+    required this.conversationId,
+    this.recommendedAnimeId,
+    required this.senderId,
+    this.stickerId,
+  });
+
+  factory MessageInput.fromJson(Map<String, dynamic> json) =>
+      _$MessageInputFromJson(json);
+
+  @JsonKey(
+      fromJson: fromGraphQLUploadNullableToDartMultipartFileNullable,
+      toJson: fromDartMultipartFileNullableToGraphQLUploadNullable)
+  MultipartFile? attachment;
+
+  late String content;
+
+  late String conversationId;
+
+  String? recommendedAnimeId;
+
+  late int senderId;
+
+  String? stickerId;
+
+  @override
+  List<Object?> get props => [
+        attachment,
+        content,
+        conversationId,
+        recommendedAnimeId,
+        senderId,
+        stickerId
+      ];
+  @override
+  Map<String, dynamic> toJson() => _$MessageInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class DeleteFavoriteAnimeArguments extends JsonSerializable
     with EquatableMixin {
   DeleteFavoriteAnimeArguments({required this.input});
@@ -4841,4 +4960,111 @@ class FetchMessagesQuery
   @override
   FetchMessages$Query parse(Map<String, dynamic> json) =>
       FetchMessages$Query.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendMMessageArguments extends JsonSerializable with EquatableMixin {
+  SendMMessageArguments({required this.input});
+
+  @override
+  factory SendMMessageArguments.fromJson(Map<String, dynamic> json) =>
+      _$SendMMessageArgumentsFromJson(json);
+
+  late SendMessageInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$SendMMessageArgumentsToJson(this);
+}
+
+final SEND_M_MESSAGE_MUTATION_DOCUMENT_OPERATION_NAME = 'sendMMessage';
+final SEND_M_MESSAGE_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'sendMMessage'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'SendMessageInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'sendMessage'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'message'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'content'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'senderId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'conversationId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'reaction'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class SendMMessageMutation
+    extends GraphQLQuery<SendMMessage$Mutation, SendMMessageArguments> {
+  SendMMessageMutation({required this.variables});
+
+  @override
+  final DocumentNode document = SEND_M_MESSAGE_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = SEND_M_MESSAGE_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final SendMMessageArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  SendMMessage$Mutation parse(Map<String, dynamic> json) =>
+      SendMMessage$Mutation.fromJson(json);
 }
