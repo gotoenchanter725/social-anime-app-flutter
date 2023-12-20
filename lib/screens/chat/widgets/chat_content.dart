@@ -203,7 +203,6 @@ class ChatContent extends StatelessWidget {
                 child: GestureDetector(
                     onTap: () {
                       if (state.message.trim().isNotEmpty) {
-                        logIt.info("Sending message");
                         final message = ChatMessage(
                           id: generateRandomId(
                               $constants.specials.pendingMessageIdLength),

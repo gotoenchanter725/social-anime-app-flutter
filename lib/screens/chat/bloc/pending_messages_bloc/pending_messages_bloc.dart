@@ -14,7 +14,9 @@ class PendingMessagesBloc
         addMessage: (channelId, message) {
           final updatedMessages =
               Map<String, List<ChatMessage>>.from(state.pendingMessages);
-          final messages = (updatedMessages[channelId] ?? [])..add(message);
+          final messages =
+              List<ChatMessage>.from(updatedMessages[channelId] ?? [])
+                ..add(message);
           updatedMessages[channelId] = messages;
           emit(PendingMessagesState(pendingMessages: updatedMessages));
         },
