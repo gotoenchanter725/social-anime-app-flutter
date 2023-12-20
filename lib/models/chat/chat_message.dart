@@ -1,3 +1,8 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'chat_message.g.dart';
+
+@JsonSerializable()
 class ChatMessage {
   final String id;
   final String senderId;
@@ -9,6 +14,7 @@ class ChatMessage {
   final String? attachment;
   final Recommendation? recommendation;
   final ReactionType? reaction;
+  final MessageStatus? status;
 
   ChatMessage({
     required this.id,
@@ -16,14 +22,21 @@ class ChatMessage {
     required this.text,
     required this.timestamp,
     this.isRead = false,
+    this.status = MessageStatus.sent,
     this.sticker,
     this.attachmentType,
     this.attachment,
     this.recommendation,
     this.reaction,
   });
+
+  factory ChatMessage.fromJson(Map<String, dynamic> json) =>
+      _$ChatMessageFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ChatMessageToJson(this);
 }
 
+@JsonSerializable()
 class Recommendation {
   final String userId;
   final String recommendeeId;
@@ -38,8 +51,14 @@ class Recommendation {
     required this.animeName,
     required this.animeImageUrl,
   });
+
+  factory Recommendation.fromJson(Map<String, dynamic> json) =>
+      _$RecommendationFromJson(json);
+
+  Map<String, dynamic> toJson() => _$RecommendationToJson(this);
 }
 
+@JsonSerializable()
 class Sticker {
   final String id;
   final String url;
@@ -48,6 +67,11 @@ class Sticker {
     required this.id,
     required this.url,
   });
+
+  factory Sticker.fromJson(Map<String, dynamic> json) =>
+      _$StickerFromJson(json);
+
+  Map<String, dynamic> toJson() => _$StickerToJson(this);
 }
 
 enum AttachmentType {
@@ -62,4 +86,12 @@ enum ReactionType {
   puke,
   anger,
   demon,
+}
+
+enum MessageStatus {
+  sent,
+  delivered,
+  read,
+  error,
+  pending,
 }

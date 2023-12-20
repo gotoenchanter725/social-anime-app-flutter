@@ -2,10 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
+import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/screens/chat/bloc/pending_messages_bloc/pending_messages_bloc.dart';
+import 'package:senpai/screens/chat/bloc/text_editing_bloc/text_editing_bloc.dart';
 import 'package:senpai/screens/chat/widgets/chat_content.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -44,7 +47,10 @@ class ChatPage extends StatelessWidget {
         BlocProvider<FetchMessagesBloc>(
           create: (_) => FetchMessagesBloc(conversationId: roomArgs.roomId)
             ..fetchMessages(roomArgs.roomId),
-        )
+        ),
+        BlocProvider<SendMessageBloc>(create: (_) => SendMessageBloc()),
+        BlocProvider<TextEditingBloc>(create: (_) => TextEditingBloc()),
+        BlocProvider<PendingMessagesBloc>(create: (_) => PendingMessagesBloc()),
       ],
       child: Scaffold(
         body: SafeArea(
@@ -54,6 +60,7 @@ class ChatPage extends StatelessWidget {
                 receipientUser: roomArgs.reciepient,
                 currentUser: roomArgs.currentUser,
                 roomCreationDate: roomArgs.createdDate,
+                roomId: roomArgs.roomId,
               ),
               _buildFetchMessagesListeners(),
             ],

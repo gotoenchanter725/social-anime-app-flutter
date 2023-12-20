@@ -8,10 +8,14 @@ import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/screens/chat/bloc/pending_messages_bloc/pending_messages_bloc.dart';
+import 'package:senpai/screens/chat/bloc/text_editing_bloc/text_editing_bloc.dart';
 import 'package:senpai/screens/chat/widgets/empty_messages.dart';
 import 'package:senpai/screens/chat/widgets/messages_list.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class ChatContent extends StatelessWidget {
@@ -20,6 +24,7 @@ class ChatContent extends StatelessWidget {
     required this.currentUser,
     required this.receipientUser,
     required this.roomCreationDate,
+    required this.roomId,
   });
 
   final User receipientUser;
@@ -28,6 +33,8 @@ class ChatContent extends StatelessWidget {
 
   final DateTime roomCreationDate;
 
+  final String roomId;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,7 +42,11 @@ class ChatContent extends StatelessWidget {
       child: Column(
         children: [
           _buildChatHeader(context),
-          _buildMessagesList(context),
+          BlocBuilder<PendingMessagesBloc, PendingMessagesState>(
+            builder: (context, state) {
+              return _buildMessagesList(context);
+            },
+          ),
           SizedBox(
             height: $constants.insets.sm,
           ),
@@ -51,7 +62,15 @@ class ChatContent extends StatelessWidget {
   Widget _buildMessagesList(BuildContext context) {
     FetchMessagesBloc bloc = BlocProvider.of<FetchMessagesBloc>(context);
 
-    if (bloc.messages.isEmpty) {
+    PendingMessagesBloc pendingMessagesBloc =
+        BlocProvider.of<PendingMessagesBloc>(context);
+
+    List<ChatMessage> allMessages = [
+      ...bloc.messages,
+      ...pendingMessagesBloc.state.pendingMessages[roomId] ?? []
+    ];
+
+    if (allMessages.isEmpty) {
       return EmptyMessages(
         avatorImagePath: receipientUser.profileUrl,
         title: "${TextConstants.emptyChatTitle} ${receipientUser.name}",
@@ -64,7 +83,7 @@ class ChatContent extends StatelessWidget {
       child:
           BlocBuilder<FetchMessagesBloc, QueryState>(builder: (context, state) {
         return MessagesList(
-          messages: bloc.messages,
+          messages: allMessages,
           currentUser: currentUser,
           recieverUser: receipientUser,
         );
@@ -118,80 +137,112 @@ class ChatContent extends StatelessWidget {
   }
 
   Widget _buildInput(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 48.0,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Expanded(
-              child: Container(
-            height: 48,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: $constants.palette.lightBlue,
-              borderRadius: BorderRadius.circular($constants.corners.xxl),
-            ),
-            child: Padding(
-              padding: EdgeInsets.only(
-                left: $constants.insets.md,
-                right: $constants.insets.sm,
-              ),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      maxLines: null,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: TextConstants.chatInputHint,
-                        hintStyle: getTextTheme(context).bodySmall!.copyWith(
-                              color: $constants.palette.darkGrey,
-                              letterSpacing: 0.25,
-                            ),
-                      ),
-                      style: getTextTheme(context).bodySmall!.copyWith(
-                            color: $constants.palette.white,
-                            letterSpacing: 0.25,
+    final textEditingBloc = BlocProvider.of<TextEditingBloc>(context);
+    PendingMessagesBloc pendingMessagesBloc =
+        BlocProvider.of<PendingMessagesBloc>(context);
+
+    return BlocBuilder<TextEditingBloc, TextEditingState>(
+      builder: (context, state) {
+        return SizedBox(
+          width: double.infinity,
+          height: 48.0,
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                  child: Container(
+                height: 48,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: $constants.palette.lightBlue,
+                  borderRadius: BorderRadius.circular($constants.corners.xxl),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: $constants.insets.md,
+                    right: $constants.insets.sm,
+                  ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          maxLines: null,
+                          controller: textEditingBloc.controller,
+                          onChanged: (text) => textEditingBloc
+                              .add(MessageChanged(message: text)),
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: TextConstants.chatInputHint,
+                            hintStyle:
+                                getTextTheme(context).bodySmall!.copyWith(
+                                      color: $constants.palette.darkGrey,
+                                      letterSpacing: 0.25,
+                                    ),
                           ),
-                    ),
+                          style: getTextTheme(context).bodySmall!.copyWith(
+                                color: $constants.palette.white,
+                                letterSpacing: 0.25,
+                              ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {},
+                        child: SvgPicture.asset(
+                          PathConstants.stickerIcon,
+                          width: 24.0,
+                          height: 24.0,
+                        ),
+                      )
+                    ],
                   ),
-                  GestureDetector(
-                    onTap: () {},
-                    child: SvgPicture.asset(
-                      PathConstants.stickerIcon,
-                      width: 24.0,
-                      height: 24.0,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          )),
-          Padding(
-            padding: EdgeInsets.only(left: $constants.corners.md),
-            child: GestureDetector(
-                onTap: () {},
-                child: Container(
-                  width: 44.0,
-                  height: 44.0,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: $constants.palette.pink,
-                  ),
-                  child: Center(
-                    child: SvgPicture.asset(
-                      PathConstants.sendIcon,
-                      width: 24,
-                      height: 24,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                )),
-          )
-        ],
-      ),
+                ),
+              )),
+              Padding(
+                padding: EdgeInsets.only(left: $constants.corners.md),
+                child: GestureDetector(
+                    onTap: () {
+                      if (state.message.trim().isNotEmpty) {
+                        logIt.info("Sending message");
+                        final message = ChatMessage(
+                          id: generateRandomId(
+                              $constants.specials.pendingMessageIdLength),
+                          senderId: currentUser.id,
+                          text: state.message,
+                          timestamp: DateTime.now(),
+                        );
+                        pendingMessagesBloc.add(
+                          PendingMessagesEvent.addMessage(
+                            channelId: roomId,
+                            message: message,
+                          ),
+                        );
+                        textEditingBloc.add(MessageCleared());
+                      } else {
+                        logIt.error("Message is empty");
+                      }
+                    },
+                    child: Container(
+                      width: 44.0,
+                      height: 44.0,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: $constants.palette.pink,
+                      ),
+                      child: Center(
+                        child: SvgPicture.asset(
+                          PathConstants.sendIcon,
+                          width: 24,
+                          height: 24,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    )),
+              )
+            ],
+          ),
+        );
+      },
     );
   }
 }

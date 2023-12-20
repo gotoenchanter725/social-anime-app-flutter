@@ -27,6 +27,14 @@ class Constants {
 
   /// Constants for Carousel
   late final carousel = _CarouselConstants();
+
+  /// Special values.
+  late final specials = _Specials();
+}
+
+@immutable
+class _Specials {
+  final int pendingMessageIdLength = 16;
 }
 
 @immutable

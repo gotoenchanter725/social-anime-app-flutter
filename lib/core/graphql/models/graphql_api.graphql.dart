@@ -4628,7 +4628,12 @@ final FETCH_CONVERSATIONS_QUERY_DOCUMENT = DocumentNode(definitions: [
           FieldNode(
             name: NameNode(value: 'unreadCount'),
             alias: null,
-            arguments: [],
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'userId'),
+                value: VariableNode(name: NameNode(value: 'userId')),
+              )
+            ],
             directives: [],
             selectionSet: null,
           ),

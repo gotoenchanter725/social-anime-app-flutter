@@ -48,6 +48,6 @@ query fetchConversations($userId: ID!) {
         url
       }
     }
-    unreadCount
+    unreadCount(userId: $userId)
   }
 }

@@ -99,7 +99,7 @@ type Conversation {
   match: Match
   matchId: Int!
   messages: [Message!]
-  unreadCount: Int
+  unreadCount(userId: Int!): Int
   updatedAt: ISO8601DateTime!
 }
 
@@ -217,7 +217,7 @@ type DeleteUserPayload {
   A unique identifier for the client performing the mutation.
   """
   clientMutationId: String
-  softDeleted: Boolean!
+  softDeletedUser: User!
 }
 
 type FavoriteMusic {

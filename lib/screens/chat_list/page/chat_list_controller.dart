@@ -6,6 +6,7 @@ import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/screens/chat_list/widgets/chat_list_content.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 
 class ChatListController extends StatefulWidget {
   const ChatListController({super.key});
@@ -57,6 +58,7 @@ class _ChatListControllerState extends State<ChatListController> {
             return const SenpaiLoading();
           },
           error: (error, result) {
+            logIt.error(error);
             showSnackBarError(context, TextConstants.serverError);
             return const SizedBox.shrink();
           },
