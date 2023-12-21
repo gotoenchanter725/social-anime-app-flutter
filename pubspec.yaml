@@ -92,6 +92,8 @@ dependencies:
   geolocator: ^10.0.1
   camera: ^0.10.5+5
   action_cable: ^1.2.0
+  flutter_animate: ^4.3.0
+  flutter_emoji: ^2.5.1
 
 dev_dependencies:
   flutter_test:
