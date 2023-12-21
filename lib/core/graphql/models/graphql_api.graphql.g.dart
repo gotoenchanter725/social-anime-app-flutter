@@ -359,6 +359,83 @@ Map<String, dynamic> _$UserUpdateInputToJson(UserUpdateInput instance) =>
       'verified': instance.verified,
     };
 
+SendMessage$Mutation$SendMessage$Message
+    _$SendMessage$Mutation$SendMessage$MessageFromJson(
+            Map<String, dynamic> json) =>
+        SendMessage$Mutation$SendMessage$Message()
+          ..content = json['content'] as String?
+          ..senderId = json['senderId'] as int?
+          ..conversationId = json['conversationId'] as String?
+          ..reaction = json['reaction'] as String?;
+
+Map<String, dynamic> _$SendMessage$Mutation$SendMessage$MessageToJson(
+        SendMessage$Mutation$SendMessage$Message instance) =>
+    <String, dynamic>{
+      'content': instance.content,
+      'senderId': instance.senderId,
+      'conversationId': instance.conversationId,
+      'reaction': instance.reaction,
+    };
+
+SendMessage$Mutation$SendMessage _$SendMessage$Mutation$SendMessageFromJson(
+        Map<String, dynamic> json) =>
+    SendMessage$Mutation$SendMessage()
+      ..message = SendMessage$Mutation$SendMessage$Message.fromJson(
+          json['message'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$SendMessage$Mutation$SendMessageToJson(
+        SendMessage$Mutation$SendMessage instance) =>
+    <String, dynamic>{
+      'message': instance.message.toJson(),
+    };
+
+SendMessage$Mutation _$SendMessage$MutationFromJson(
+        Map<String, dynamic> json) =>
+    SendMessage$Mutation()
+      ..sendMessage = json['sendMessage'] == null
+          ? null
+          : SendMessage$Mutation$SendMessage.fromJson(
+              json['sendMessage'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$SendMessage$MutationToJson(
+        SendMessage$Mutation instance) =>
+    <String, dynamic>{
+      'sendMessage': instance.sendMessage?.toJson(),
+    };
+
+SendMessageInput _$SendMessageInputFromJson(Map<String, dynamic> json) =>
+    SendMessageInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      params: MessageInput.fromJson(json['params'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$SendMessageInputToJson(SendMessageInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'params': instance.params.toJson(),
+    };
+
+MessageInput _$MessageInputFromJson(Map<String, dynamic> json) => MessageInput(
+      attachment: fromGraphQLUploadNullableToDartMultipartFileNullable(
+          json['attachment'] as MultipartFile?),
+      content: json['content'] as String,
+      conversationId: json['conversationId'] as String,
+      recommendedAnimeId: json['recommendedAnimeId'] as String?,
+      senderId: json['senderId'] as int,
+      stickerId: json['stickerId'] as String?,
+    );
+
+Map<String, dynamic> _$MessageInputToJson(MessageInput instance) =>
+    <String, dynamic>{
+      'attachment': fromDartMultipartFileNullableToGraphQLUploadNullable(
+          instance.attachment),
+      'content': instance.content,
+      'conversationId': instance.conversationId,
+      'recommendedAnimeId': instance.recommendedAnimeId,
+      'senderId': instance.senderId,
+      'stickerId': instance.stickerId,
+    };
+
 DeletePhoto$Mutation$DeletePhoto _$DeletePhoto$Mutation$DeletePhotoFromJson(
         Map<String, dynamic> json) =>
     DeletePhoto$Mutation$DeletePhoto()..deleted = json['deleted'] as bool;
@@ -395,6 +472,73 @@ Map<String, dynamic> _$DeletePhotoInputToJson(DeletePhotoInput instance) =>
       'clientMutationId': instance.clientMutationId,
       'photoId': instance.photoId,
       'userId': instance.userId,
+    };
+
+UpdateMessage$Mutation$UpdateMessage$Message
+    _$UpdateMessage$Mutation$UpdateMessage$MessageFromJson(
+            Map<String, dynamic> json) =>
+        UpdateMessage$Mutation$UpdateMessage$Message()
+          ..id = json['id'] as String
+          ..reaction = json['reaction'] as String?;
+
+Map<String, dynamic> _$UpdateMessage$Mutation$UpdateMessage$MessageToJson(
+        UpdateMessage$Mutation$UpdateMessage$Message instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'reaction': instance.reaction,
+    };
+
+UpdateMessage$Mutation$UpdateMessage
+    _$UpdateMessage$Mutation$UpdateMessageFromJson(Map<String, dynamic> json) =>
+        UpdateMessage$Mutation$UpdateMessage()
+          ..message = UpdateMessage$Mutation$UpdateMessage$Message.fromJson(
+              json['message'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UpdateMessage$Mutation$UpdateMessageToJson(
+        UpdateMessage$Mutation$UpdateMessage instance) =>
+    <String, dynamic>{
+      'message': instance.message.toJson(),
+    };
+
+UpdateMessage$Mutation _$UpdateMessage$MutationFromJson(
+        Map<String, dynamic> json) =>
+    UpdateMessage$Mutation()
+      ..updateMessage = json['updateMessage'] == null
+          ? null
+          : UpdateMessage$Mutation$UpdateMessage.fromJson(
+              json['updateMessage'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UpdateMessage$MutationToJson(
+        UpdateMessage$Mutation instance) =>
+    <String, dynamic>{
+      'updateMessage': instance.updateMessage?.toJson(),
+    };
+
+UpdateMessageInput _$UpdateMessageInputFromJson(Map<String, dynamic> json) =>
+    UpdateMessageInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      params:
+          MessageUpdateInput.fromJson(json['params'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$UpdateMessageInputToJson(UpdateMessageInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'params': instance.params.toJson(),
+    };
+
+MessageUpdateInput _$MessageUpdateInputFromJson(Map<String, dynamic> json) =>
+    MessageUpdateInput(
+      content: json['content'] as String?,
+      messageId: json['messageId'] as String,
+      reaction: json['reaction'] as String?,
+    );
+
+Map<String, dynamic> _$MessageUpdateInputToJson(MessageUpdateInput instance) =>
+    <String, dynamic>{
+      'content': instance.content,
+      'messageId': instance.messageId,
+      'reaction': instance.reaction,
     };
 
 ValidatePhone$Mutation$ValidatePhone$User
@@ -828,6 +972,105 @@ Map<String, dynamic> _$UploadPhotoInputToJson(UploadPhotoInput instance) =>
           fromDartMultipartFileNullableToGraphQLUploadNullable(instance.image),
       'order': instance.order,
       'userId': instance.userId,
+    };
+
+FetchMessages$Query$FetchMessages$Recommendation$Anime
+    _$FetchMessages$Query$FetchMessages$Recommendation$AnimeFromJson(
+            Map<String, dynamic> json) =>
+        FetchMessages$Query$FetchMessages$Recommendation$Anime()
+          ..id = json['id'] as String
+          ..title = json['title'] as String?
+          ..cover = json['cover'] as String?;
+
+Map<String, dynamic>
+    _$FetchMessages$Query$FetchMessages$Recommendation$AnimeToJson(
+            FetchMessages$Query$FetchMessages$Recommendation$Anime instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'title': instance.title,
+          'cover': instance.cover,
+        };
+
+FetchMessages$Query$FetchMessages$Recommendation
+    _$FetchMessages$Query$FetchMessages$RecommendationFromJson(
+            Map<String, dynamic> json) =>
+        FetchMessages$Query$FetchMessages$Recommendation()
+          ..userId = json['userId'] as int
+          ..recommendeeId = json['recommendeeId'] as int
+          ..anime = json['anime'] == null
+              ? null
+              : FetchMessages$Query$FetchMessages$Recommendation$Anime.fromJson(
+                  json['anime'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$FetchMessages$Query$FetchMessages$RecommendationToJson(
+        FetchMessages$Query$FetchMessages$Recommendation instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'recommendeeId': instance.recommendeeId,
+      'anime': instance.anime?.toJson(),
+    };
+
+FetchMessages$Query$FetchMessages$Sticker
+    _$FetchMessages$Query$FetchMessages$StickerFromJson(
+            Map<String, dynamic> json) =>
+        FetchMessages$Query$FetchMessages$Sticker()
+          ..id = json['id'] as String
+          ..url = json['url'] as String;
+
+Map<String, dynamic> _$FetchMessages$Query$FetchMessages$StickerToJson(
+        FetchMessages$Query$FetchMessages$Sticker instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'url': instance.url,
+    };
+
+FetchMessages$Query$FetchMessages _$FetchMessages$Query$FetchMessagesFromJson(
+        Map<String, dynamic> json) =>
+    FetchMessages$Query$FetchMessages()
+      ..id = json['id'] as String
+      ..attachment = json['attachment'] as String?
+      ..attachmentType = json['attachmentType'] as String?
+      ..content = json['content'] as String?
+      ..createdAt =
+          fromGraphQLISO8601DateTimeToDartDateTime(json['createdAt'] as String)
+      ..reaction = json['reaction'] as String?
+      ..read = json['read'] as bool?
+      ..senderId = json['senderId'] as int?
+      ..recommendation = json['recommendation'] == null
+          ? null
+          : FetchMessages$Query$FetchMessages$Recommendation.fromJson(
+              json['recommendation'] as Map<String, dynamic>)
+      ..sticker = json['sticker'] == null
+          ? null
+          : FetchMessages$Query$FetchMessages$Sticker.fromJson(
+              json['sticker'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$FetchMessages$Query$FetchMessagesToJson(
+        FetchMessages$Query$FetchMessages instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'attachment': instance.attachment,
+      'attachmentType': instance.attachmentType,
+      'content': instance.content,
+      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
+      'reaction': instance.reaction,
+      'read': instance.read,
+      'senderId': instance.senderId,
+      'recommendation': instance.recommendation?.toJson(),
+      'sticker': instance.sticker?.toJson(),
+    };
+
+FetchMessages$Query _$FetchMessages$QueryFromJson(Map<String, dynamic> json) =>
+    FetchMessages$Query()
+      ..fetchMessages = (json['fetchMessages'] as List<dynamic>)
+          .map((e) => FetchMessages$Query$FetchMessages.fromJson(
+              e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$FetchMessages$QueryToJson(
+        FetchMessages$Query instance) =>
+    <String, dynamic>{
+      'fetchMessages': instance.fetchMessages.map((e) => e.toJson()).toList(),
     };
 
 FetchFeed$Query$FetchFeed$Gallery$Photos
@@ -1467,182 +1710,6 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
-FetchMessages$Query$FetchMessages$Recommendation$Anime
-    _$FetchMessages$Query$FetchMessages$Recommendation$AnimeFromJson(
-            Map<String, dynamic> json) =>
-        FetchMessages$Query$FetchMessages$Recommendation$Anime()
-          ..id = json['id'] as String
-          ..title = json['title'] as String?
-          ..cover = json['cover'] as String?;
-
-Map<String, dynamic>
-    _$FetchMessages$Query$FetchMessages$Recommendation$AnimeToJson(
-            FetchMessages$Query$FetchMessages$Recommendation$Anime instance) =>
-        <String, dynamic>{
-          'id': instance.id,
-          'title': instance.title,
-          'cover': instance.cover,
-        };
-
-FetchMessages$Query$FetchMessages$Recommendation
-    _$FetchMessages$Query$FetchMessages$RecommendationFromJson(
-            Map<String, dynamic> json) =>
-        FetchMessages$Query$FetchMessages$Recommendation()
-          ..userId = json['userId'] as int
-          ..recommendeeId = json['recommendeeId'] as int
-          ..anime = json['anime'] == null
-              ? null
-              : FetchMessages$Query$FetchMessages$Recommendation$Anime.fromJson(
-                  json['anime'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$FetchMessages$Query$FetchMessages$RecommendationToJson(
-        FetchMessages$Query$FetchMessages$Recommendation instance) =>
-    <String, dynamic>{
-      'userId': instance.userId,
-      'recommendeeId': instance.recommendeeId,
-      'anime': instance.anime?.toJson(),
-    };
-
-FetchMessages$Query$FetchMessages$Sticker
-    _$FetchMessages$Query$FetchMessages$StickerFromJson(
-            Map<String, dynamic> json) =>
-        FetchMessages$Query$FetchMessages$Sticker()
-          ..id = json['id'] as String
-          ..url = json['url'] as String;
-
-Map<String, dynamic> _$FetchMessages$Query$FetchMessages$StickerToJson(
-        FetchMessages$Query$FetchMessages$Sticker instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'url': instance.url,
-    };
-
-FetchMessages$Query$FetchMessages _$FetchMessages$Query$FetchMessagesFromJson(
-        Map<String, dynamic> json) =>
-    FetchMessages$Query$FetchMessages()
-      ..id = json['id'] as String
-      ..attachment = json['attachment'] as String?
-      ..attachmentType = json['attachmentType'] as String?
-      ..content = json['content'] as String?
-      ..createdAt =
-          fromGraphQLISO8601DateTimeToDartDateTime(json['createdAt'] as String)
-      ..reaction = json['reaction'] as String?
-      ..read = json['read'] as bool?
-      ..senderId = json['senderId'] as int?
-      ..recommendation = json['recommendation'] == null
-          ? null
-          : FetchMessages$Query$FetchMessages$Recommendation.fromJson(
-              json['recommendation'] as Map<String, dynamic>)
-      ..sticker = json['sticker'] == null
-          ? null
-          : FetchMessages$Query$FetchMessages$Sticker.fromJson(
-              json['sticker'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$FetchMessages$Query$FetchMessagesToJson(
-        FetchMessages$Query$FetchMessages instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'attachment': instance.attachment,
-      'attachmentType': instance.attachmentType,
-      'content': instance.content,
-      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
-      'reaction': instance.reaction,
-      'read': instance.read,
-      'senderId': instance.senderId,
-      'recommendation': instance.recommendation?.toJson(),
-      'sticker': instance.sticker?.toJson(),
-    };
-
-FetchMessages$Query _$FetchMessages$QueryFromJson(Map<String, dynamic> json) =>
-    FetchMessages$Query()
-      ..fetchMessages = (json['fetchMessages'] as List<dynamic>)
-          .map((e) => FetchMessages$Query$FetchMessages.fromJson(
-              e as Map<String, dynamic>))
-          .toList();
-
-Map<String, dynamic> _$FetchMessages$QueryToJson(
-        FetchMessages$Query instance) =>
-    <String, dynamic>{
-      'fetchMessages': instance.fetchMessages.map((e) => e.toJson()).toList(),
-    };
-
-SendMessage$Mutation$SendMessage$Message
-    _$SendMessage$Mutation$SendMessage$MessageFromJson(
-            Map<String, dynamic> json) =>
-        SendMessage$Mutation$SendMessage$Message()
-          ..content = json['content'] as String?
-          ..senderId = json['senderId'] as int?
-          ..conversationId = json['conversationId'] as String?
-          ..reaction = json['reaction'] as String?;
-
-Map<String, dynamic> _$SendMessage$Mutation$SendMessage$MessageToJson(
-        SendMessage$Mutation$SendMessage$Message instance) =>
-    <String, dynamic>{
-      'content': instance.content,
-      'senderId': instance.senderId,
-      'conversationId': instance.conversationId,
-      'reaction': instance.reaction,
-    };
-
-SendMessage$Mutation$SendMessage _$SendMessage$Mutation$SendMessageFromJson(
-        Map<String, dynamic> json) =>
-    SendMessage$Mutation$SendMessage()
-      ..message = SendMessage$Mutation$SendMessage$Message.fromJson(
-          json['message'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$SendMessage$Mutation$SendMessageToJson(
-        SendMessage$Mutation$SendMessage instance) =>
-    <String, dynamic>{
-      'message': instance.message.toJson(),
-    };
-
-SendMessage$Mutation _$SendMessage$MutationFromJson(
-        Map<String, dynamic> json) =>
-    SendMessage$Mutation()
-      ..sendMessage = json['sendMessage'] == null
-          ? null
-          : SendMessage$Mutation$SendMessage.fromJson(
-              json['sendMessage'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$SendMessage$MutationToJson(
-        SendMessage$Mutation instance) =>
-    <String, dynamic>{
-      'sendMessage': instance.sendMessage?.toJson(),
-    };
-
-SendMessageInput _$SendMessageInputFromJson(Map<String, dynamic> json) =>
-    SendMessageInput(
-      clientMutationId: json['clientMutationId'] as String?,
-      params: MessageInput.fromJson(json['params'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$SendMessageInputToJson(SendMessageInput instance) =>
-    <String, dynamic>{
-      'clientMutationId': instance.clientMutationId,
-      'params': instance.params.toJson(),
-    };
-
-MessageInput _$MessageInputFromJson(Map<String, dynamic> json) => MessageInput(
-      attachment: fromGraphQLUploadNullableToDartMultipartFileNullable(
-          json['attachment'] as MultipartFile?),
-      content: json['content'] as String,
-      conversationId: json['conversationId'] as String,
-      recommendedAnimeId: json['recommendedAnimeId'] as String?,
-      senderId: json['senderId'] as int,
-      stickerId: json['stickerId'] as String?,
-    );
-
-Map<String, dynamic> _$MessageInputToJson(MessageInput instance) =>
-    <String, dynamic>{
-      'attachment': fromDartMultipartFileNullableToGraphQLUploadNullable(
-          instance.attachment),
-      'content': instance.content,
-      'conversationId': instance.conversationId,
-      'recommendedAnimeId': instance.recommendedAnimeId,
-      'senderId': instance.senderId,
-      'stickerId': instance.stickerId,
-    };
-
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -1704,6 +1771,18 @@ Map<String, dynamic> _$UpdateUserArgumentsToJson(
       'input': instance.input.toJson(),
     };
 
+SendMessageArguments _$SendMessageArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    SendMessageArguments(
+      input: SendMessageInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$SendMessageArgumentsToJson(
+        SendMessageArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
 DeletePhotoArguments _$DeletePhotoArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeletePhotoArguments(
@@ -1712,6 +1791,18 @@ DeletePhotoArguments _$DeletePhotoArgumentsFromJson(
 
 Map<String, dynamic> _$DeletePhotoArgumentsToJson(
         DeletePhotoArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+UpdateMessageArguments _$UpdateMessageArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    UpdateMessageArguments(
+      input: UpdateMessageInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$UpdateMessageArgumentsToJson(
+        UpdateMessageArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };
@@ -1801,6 +1892,20 @@ Map<String, dynamic> _$UploadPhotoArgumentsToJson(
       'input': instance.input.toJson(),
     };
 
+FetchMessagesArguments _$FetchMessagesArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    FetchMessagesArguments(
+      conversationId: json['conversationId'] as String,
+      page: json['page'] as int?,
+    );
+
+Map<String, dynamic> _$FetchMessagesArgumentsToJson(
+        FetchMessagesArguments instance) =>
+    <String, dynamic>{
+      'conversationId': instance.conversationId,
+      'page': instance.page,
+    };
+
 FetchFeedArguments _$FetchFeedArgumentsFromJson(Map<String, dynamic> json) =>
     FetchFeedArguments(
       userId: json['userId'] as String,
@@ -1858,30 +1963,4 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
-    };
-
-FetchMessagesArguments _$FetchMessagesArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    FetchMessagesArguments(
-      conversationId: json['conversationId'] as String,
-      page: json['page'] as int?,
-    );
-
-Map<String, dynamic> _$FetchMessagesArgumentsToJson(
-        FetchMessagesArguments instance) =>
-    <String, dynamic>{
-      'conversationId': instance.conversationId,
-      'page': instance.page,
-    };
-
-SendMessageArguments _$SendMessageArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    SendMessageArguments(
-      input: SendMessageInput.fromJson(json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$SendMessageArgumentsToJson(
-        SendMessageArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
     };
