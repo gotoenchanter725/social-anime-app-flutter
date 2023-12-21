@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:senpai/core/widgets/senpai_emoji.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
@@ -65,20 +66,61 @@ class MessagesList extends StatelessWidget {
     return messageWidgets;
   }
 
+  Widget _buildEmojiReactions(BuildContext context) {
+    final List<String> _emojis = [
+      'joy',
+      'thumbsup',
+      'heart',
+      'nauseated_face',
+      'rage',
+      'imp',
+    ];
+    final double emojiSize = getSize(context).width * 0.06;
+    return Container(
+      height: 40,
+      width: getSize(context).width * 0.6,
+      decoration: BoxDecoration(
+        color: $constants.palette.lightBlue,
+        borderRadius: BorderRadius.circular($constants.corners.lg),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: _emojis.map((name) {
+          return GestureDetector(
+            onTap: () {},
+            child: SenpaiEmoji(
+              emojiName: name,
+              size: emojiSize,
+            ),
+          );
+        }).toList(),
+      ),
+    );
+  }
+
   Widget _buildRecieverMessage(BuildContext context, ChatMessage message) {
     return Padding(
       padding: EdgeInsets.only(top: $constants.insets.md),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
+      child: Stack(
         children: [
-          UserAvatar(
-            imageUrl: recieverUser.profileUrl,
-            size: 40,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              UserAvatar(
+                imageUrl: recieverUser.profileUrl,
+                size: 40,
+              ),
+              const SizedBox(
+                width: 8,
+              ),
+              _buildRecieverMessageContent(context, message)
+            ],
           ),
-          const SizedBox(
-            width: 8,
-          ),
-          _buildRecieverMessageContent(context, message)
+          Positioned(
+            top: 0,
+            left: 48,
+            child: _buildEmojiReactions(context),
+          )
         ],
       ),
     );
@@ -101,26 +143,31 @@ class MessagesList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: $constants.palette.lightBlue,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular($constants.corners.lg),
-              topRight: Radius.circular($constants.corners.lg),
-              bottomLeft: Radius.zero,
-              bottomRight: Radius.circular($constants.corners.lg),
+        ConstrainedBox(
+          constraints:
+              BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.7),
+          child: Container(
+            decoration: BoxDecoration(
+              color: $constants.palette.lightBlue,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular($constants.corners.lg),
+                topRight: Radius.circular($constants.corners.lg),
+                bottomLeft: Radius.zero,
+                bottomRight: Radius.circular($constants.corners.lg),
+              ),
             ),
-          ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: $constants.insets.sm,
-                vertical: $constants.insets.xs),
-            child: Text(
-              message.text,
-              style: getTextTheme(context).bodySmall!.copyWith(
-                    color: $constants.palette.white,
-                    letterSpacing: 0,
-                  ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: $constants.insets.sm,
+                  vertical: $constants.insets.xs),
+              child: Text(
+                message.text,
+                style: getTextTheme(context).bodySmall!.copyWith(
+                      color: $constants.palette.white,
+                      letterSpacing: 0,
+                    ),
+                softWrap: true,
+              ),
             ),
           ),
         ),
@@ -142,26 +189,31 @@ class MessagesList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        Container(
-          decoration: BoxDecoration(
-            color: $constants.palette.lightBlue,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular($constants.corners.lg),
-              topRight: Radius.circular($constants.corners.lg),
-              bottomRight: Radius.zero,
-              bottomLeft: Radius.circular($constants.corners.lg),
+        ConstrainedBox(
+          constraints:
+              BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.8),
+          child: Container(
+            decoration: BoxDecoration(
+              color: $constants.palette.lightBlue,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular($constants.corners.lg),
+                topRight: Radius.circular($constants.corners.lg),
+                bottomRight: Radius.zero,
+                bottomLeft: Radius.circular($constants.corners.lg),
+              ),
             ),
-          ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: $constants.insets.sm,
-                vertical: $constants.insets.xs),
-            child: Text(
-              message.text,
-              style: getTextTheme(context).bodySmall!.copyWith(
-                    color: $constants.palette.white,
-                    letterSpacing: 0,
-                  ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: $constants.insets.sm,
+                  vertical: $constants.insets.xs),
+              child: Text(
+                message.text,
+                style: getTextTheme(context).bodySmall!.copyWith(
+                      color: $constants.palette.white,
+                      letterSpacing: 0,
+                    ),
+                softWrap: true,
+              ),
             ),
           ),
         ),
