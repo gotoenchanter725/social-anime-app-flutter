@@ -42,9 +42,13 @@ class ChatContent extends StatelessWidget {
       child: Column(
         children: [
           _buildChatHeader(context),
-          BlocBuilder<PendingMessagesBloc, PendingMessagesState>(
+          BlocBuilder<FetchMessagesBloc, QueryState>(
             builder: (context, state) {
-              return _buildMessagesList(context);
+              return BlocBuilder<PendingMessagesBloc, PendingMessagesState>(
+                builder: (context, state) {
+                  return _buildMessagesList(context);
+                },
+              );
             },
           ),
           SizedBox(
@@ -80,14 +84,11 @@ class ChatContent extends StatelessWidget {
     }
 
     return Expanded(
-      child:
-          BlocBuilder<FetchMessagesBloc, QueryState>(builder: (context, state) {
-        return MessagesList(
-          messages: allMessages,
-          currentUser: currentUser,
-          recieverUser: receipientUser,
-        );
-      }),
+      child: MessagesList(
+        messages: allMessages,
+        currentUser: currentUser,
+        recieverUser: receipientUser,
+      ),
     );
   }
 
