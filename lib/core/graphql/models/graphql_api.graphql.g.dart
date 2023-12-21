@@ -1566,17 +1566,17 @@ Map<String, dynamic> _$FetchMessages$QueryToJson(
       'fetchMessages': instance.fetchMessages.map((e) => e.toJson()).toList(),
     };
 
-SendMMessage$Mutation$SendMessage$Message
-    _$SendMMessage$Mutation$SendMessage$MessageFromJson(
+SendMessage$Mutation$SendMessage$Message
+    _$SendMessage$Mutation$SendMessage$MessageFromJson(
             Map<String, dynamic> json) =>
-        SendMMessage$Mutation$SendMessage$Message()
+        SendMessage$Mutation$SendMessage$Message()
           ..content = json['content'] as String?
           ..senderId = json['senderId'] as int?
           ..conversationId = json['conversationId'] as String?
           ..reaction = json['reaction'] as String?;
 
-Map<String, dynamic> _$SendMMessage$Mutation$SendMessage$MessageToJson(
-        SendMMessage$Mutation$SendMessage$Message instance) =>
+Map<String, dynamic> _$SendMessage$Mutation$SendMessage$MessageToJson(
+        SendMessage$Mutation$SendMessage$Message instance) =>
     <String, dynamic>{
       'content': instance.content,
       'senderId': instance.senderId,
@@ -1584,28 +1584,28 @@ Map<String, dynamic> _$SendMMessage$Mutation$SendMessage$MessageToJson(
       'reaction': instance.reaction,
     };
 
-SendMMessage$Mutation$SendMessage _$SendMMessage$Mutation$SendMessageFromJson(
+SendMessage$Mutation$SendMessage _$SendMessage$Mutation$SendMessageFromJson(
         Map<String, dynamic> json) =>
-    SendMMessage$Mutation$SendMessage()
-      ..message = SendMMessage$Mutation$SendMessage$Message.fromJson(
+    SendMessage$Mutation$SendMessage()
+      ..message = SendMessage$Mutation$SendMessage$Message.fromJson(
           json['message'] as Map<String, dynamic>);
 
-Map<String, dynamic> _$SendMMessage$Mutation$SendMessageToJson(
-        SendMMessage$Mutation$SendMessage instance) =>
+Map<String, dynamic> _$SendMessage$Mutation$SendMessageToJson(
+        SendMessage$Mutation$SendMessage instance) =>
     <String, dynamic>{
       'message': instance.message.toJson(),
     };
 
-SendMMessage$Mutation _$SendMMessage$MutationFromJson(
+SendMessage$Mutation _$SendMessage$MutationFromJson(
         Map<String, dynamic> json) =>
-    SendMMessage$Mutation()
+    SendMessage$Mutation()
       ..sendMessage = json['sendMessage'] == null
           ? null
-          : SendMMessage$Mutation$SendMessage.fromJson(
+          : SendMessage$Mutation$SendMessage.fromJson(
               json['sendMessage'] as Map<String, dynamic>);
 
-Map<String, dynamic> _$SendMMessage$MutationToJson(
-        SendMMessage$Mutation instance) =>
+Map<String, dynamic> _$SendMessage$MutationToJson(
+        SendMessage$Mutation instance) =>
     <String, dynamic>{
       'sendMessage': instance.sendMessage?.toJson(),
     };
@@ -1874,14 +1874,14 @@ Map<String, dynamic> _$FetchMessagesArgumentsToJson(
       'page': instance.page,
     };
 
-SendMMessageArguments _$SendMMessageArgumentsFromJson(
+SendMessageArguments _$SendMessageArgumentsFromJson(
         Map<String, dynamic> json) =>
-    SendMMessageArguments(
+    SendMessageArguments(
       input: SendMessageInput.fromJson(json['input'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$SendMMessageArgumentsToJson(
-        SendMMessageArguments instance) =>
+Map<String, dynamic> _$SendMessageArgumentsToJson(
+        SendMessageArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };

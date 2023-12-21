@@ -2099,13 +2099,13 @@ class FetchMessages$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SendMMessage$Mutation$SendMessage$Message extends JsonSerializable
+class SendMessage$Mutation$SendMessage$Message extends JsonSerializable
     with EquatableMixin {
-  SendMMessage$Mutation$SendMessage$Message();
+  SendMessage$Mutation$SendMessage$Message();
 
-  factory SendMMessage$Mutation$SendMessage$Message.fromJson(
+  factory SendMessage$Mutation$SendMessage$Message.fromJson(
           Map<String, dynamic> json) =>
-      _$SendMMessage$Mutation$SendMessage$MessageFromJson(json);
+      _$SendMessage$Mutation$SendMessage$MessageFromJson(json);
 
   String? content;
 
@@ -2119,40 +2119,40 @@ class SendMMessage$Mutation$SendMessage$Message extends JsonSerializable
   List<Object?> get props => [content, senderId, conversationId, reaction];
   @override
   Map<String, dynamic> toJson() =>
-      _$SendMMessage$Mutation$SendMessage$MessageToJson(this);
+      _$SendMessage$Mutation$SendMessage$MessageToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class SendMMessage$Mutation$SendMessage extends JsonSerializable
+class SendMessage$Mutation$SendMessage extends JsonSerializable
     with EquatableMixin {
-  SendMMessage$Mutation$SendMessage();
+  SendMessage$Mutation$SendMessage();
 
-  factory SendMMessage$Mutation$SendMessage.fromJson(
+  factory SendMessage$Mutation$SendMessage.fromJson(
           Map<String, dynamic> json) =>
-      _$SendMMessage$Mutation$SendMessageFromJson(json);
+      _$SendMessage$Mutation$SendMessageFromJson(json);
 
-  late SendMMessage$Mutation$SendMessage$Message message;
+  late SendMessage$Mutation$SendMessage$Message message;
 
   @override
   List<Object?> get props => [message];
   @override
   Map<String, dynamic> toJson() =>
-      _$SendMMessage$Mutation$SendMessageToJson(this);
+      _$SendMessage$Mutation$SendMessageToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class SendMMessage$Mutation extends JsonSerializable with EquatableMixin {
-  SendMMessage$Mutation();
+class SendMessage$Mutation extends JsonSerializable with EquatableMixin {
+  SendMessage$Mutation();
 
-  factory SendMMessage$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$SendMMessage$MutationFromJson(json);
+  factory SendMessage$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$SendMessage$MutationFromJson(json);
 
-  SendMMessage$Mutation$SendMessage? sendMessage;
+  SendMessage$Mutation$SendMessage? sendMessage;
 
   @override
   List<Object?> get props => [sendMessage];
   @override
-  Map<String, dynamic> toJson() => _$SendMMessage$MutationToJson(this);
+  Map<String, dynamic> toJson() => _$SendMessage$MutationToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -4968,26 +4968,26 @@ class FetchMessagesQuery
 }
 
 @JsonSerializable(explicitToJson: true)
-class SendMMessageArguments extends JsonSerializable with EquatableMixin {
-  SendMMessageArguments({required this.input});
+class SendMessageArguments extends JsonSerializable with EquatableMixin {
+  SendMessageArguments({required this.input});
 
   @override
-  factory SendMMessageArguments.fromJson(Map<String, dynamic> json) =>
-      _$SendMMessageArgumentsFromJson(json);
+  factory SendMessageArguments.fromJson(Map<String, dynamic> json) =>
+      _$SendMessageArgumentsFromJson(json);
 
   late SendMessageInput input;
 
   @override
   List<Object?> get props => [input];
   @override
-  Map<String, dynamic> toJson() => _$SendMMessageArgumentsToJson(this);
+  Map<String, dynamic> toJson() => _$SendMessageArgumentsToJson(this);
 }
 
-final SEND_M_MESSAGE_MUTATION_DOCUMENT_OPERATION_NAME = 'sendMMessage';
-final SEND_M_MESSAGE_MUTATION_DOCUMENT = DocumentNode(definitions: [
+final SEND_MESSAGE_MUTATION_DOCUMENT_OPERATION_NAME = 'sendMessage';
+final SEND_MESSAGE_MUTATION_DOCUMENT = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.mutation,
-    name: NameNode(value: 'sendMMessage'),
+    name: NameNode(value: 'sendMessage'),
     variableDefinitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'input')),
@@ -5054,22 +5054,22 @@ final SEND_M_MESSAGE_MUTATION_DOCUMENT = DocumentNode(definitions: [
   )
 ]);
 
-class SendMMessageMutation
-    extends GraphQLQuery<SendMMessage$Mutation, SendMMessageArguments> {
-  SendMMessageMutation({required this.variables});
+class SendMessageMutation
+    extends GraphQLQuery<SendMessage$Mutation, SendMessageArguments> {
+  SendMessageMutation({required this.variables});
 
   @override
-  final DocumentNode document = SEND_M_MESSAGE_MUTATION_DOCUMENT;
+  final DocumentNode document = SEND_MESSAGE_MUTATION_DOCUMENT;
 
   @override
-  final String operationName = SEND_M_MESSAGE_MUTATION_DOCUMENT_OPERATION_NAME;
+  final String operationName = SEND_MESSAGE_MUTATION_DOCUMENT_OPERATION_NAME;
 
   @override
-  final SendMMessageArguments variables;
+  final SendMessageArguments variables;
 
   @override
   List<Object?> get props => [document, operationName, variables];
   @override
-  SendMMessage$Mutation parse(Map<String, dynamic> json) =>
-      SendMMessage$Mutation.fromJson(json);
+  SendMessage$Mutation parse(Map<String, dynamic> json) =>
+      SendMessage$Mutation.fromJson(json);
 }

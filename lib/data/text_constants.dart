@@ -109,6 +109,7 @@ class TextConstants {
       "Invalid first name. Please try again";
   static const String userOnlineText = "Active now";
   static const String userOfflineText = "Active recently";
+  static const String failedToSendMessageText = "Failed to send message";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";

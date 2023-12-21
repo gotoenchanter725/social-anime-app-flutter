@@ -4,12 +4,12 @@ import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/models/graphql_api.dart';
 
 @injectable
-class SendMessageBloc extends MutationBloc<SendMMessage$Mutation> {
+class SendMessageBloc extends MutationBloc<SendMessage$Mutation> {
   SendMessageBloc() : super(options: _sendMessageMutationOptions());
 
   static WatchQueryOptions<Object?> _sendMessageMutationOptions() {
     return WatchQueryOptions(
-      document: SEND_M_MESSAGE_MUTATION_DOCUMENT,
+      document: SEND_MESSAGE_MUTATION_DOCUMENT,
       fetchPolicy: FetchPolicy.noCache,
     );
   }
@@ -21,7 +21,7 @@ class SendMessageBloc extends MutationBloc<SendMMessage$Mutation> {
     String? recommendedAnimeId,
     String? stickerId,
   }) {
-    final variables = SendMMessageArguments(
+    final variables = SendMessageArguments(
       input: SendMessageInput(
         params: MessageInput(
           conversationId: conversationId,
@@ -36,7 +36,7 @@ class SendMessageBloc extends MutationBloc<SendMMessage$Mutation> {
   }
 
   @override
-  SendMMessage$Mutation parseData(Map<String, dynamic>? data) {
-    return SendMMessage$Mutation.fromJson(data ?? <String, dynamic>{});
+  SendMessage$Mutation parseData(Map<String, dynamic>? data) {
+    return SendMessage$Mutation.fromJson(data ?? <String, dynamic>{});
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
 import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
+import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
@@ -52,21 +53,72 @@ class ChatPage extends StatelessWidget {
         BlocProvider<TextEditingBloc>(create: (_) => TextEditingBloc()),
         BlocProvider<PendingMessagesBloc>(create: (_) => PendingMessagesBloc()),
       ],
-      child: Scaffold(
-        body: SafeArea(
-          child: Stack(
-            children: [
-              ChatContent(
-                receipientUser: roomArgs.reciepient,
-                currentUser: roomArgs.currentUser,
-                roomCreationDate: roomArgs.createdDate,
-                roomId: roomArgs.roomId,
+      child: BlocListener<SendMessageBloc, MutationState>(
+        listener: (context, state) {
+          _handleSendMessageState(context, state);
+        },
+        child: BlocListener<PendingMessagesBloc, PendingMessagesState>(
+          listener: (context, state) {
+            _handlePendingMessages(context, state);
+          },
+          child: Scaffold(
+            body: SafeArea(
+              child: Stack(
+                children: [
+                  ChatContent(
+                    receipientUser: roomArgs.reciepient,
+                    currentUser: roomArgs.currentUser,
+                    roomCreationDate: roomArgs.createdDate,
+                    roomId: roomArgs.roomId,
+                  ),
+                  _buildFetchMessagesListeners(),
+                ],
               ),
-              _buildFetchMessagesListeners(),
-            ],
+            ),
           ),
         ),
       ),
     );
+  }
+
+  void _handleSendMessageState(BuildContext context, MutationState state) {
+    final pendingMessagesBloc = BlocProvider.of<PendingMessagesBloc>(context);
+    final fetchMessagesBloc = BlocProvider.of<FetchMessagesBloc>(context);
+
+    state.when(
+      initial: () {}, // Handle initial state
+      loading: () {}, // Handle loading state
+      succeeded: (_, data) {
+        logIt.info("Message sent successfully");
+        final earliestPendingMessage = pendingMessagesBloc.state
+            .getEarliestPendingMessage(roomArgs.roomId);
+        if (earliestPendingMessage != null) {
+          pendingMessagesBloc.add(PendingMessagesEvent.removeMessage(
+            channelId: roomArgs.roomId,
+            messageId: earliestPendingMessage.id,
+          ));
+          fetchMessagesBloc.refetch();
+        }
+      },
+      failed: (error, result) {
+        logIt.error(error);
+        showSnackBarError(context, TextConstants.failedToSendMessageText);
+      },
+    );
+  }
+
+  void _handlePendingMessages(
+      BuildContext context, PendingMessagesState pendingState) {
+    final sendMessageBloc = BlocProvider.of<SendMessageBloc>(context);
+    final earliestPendingMessage =
+        pendingState.getEarliestPendingMessage(roomArgs.roomId);
+
+    if (earliestPendingMessage != null) {
+      sendMessageBloc.sendMessage(
+        message: earliestPendingMessage.text,
+        conversationId: roomArgs.roomId,
+        senderId: roomArgs.currentUser.id,
+      );
+    }
   }
 }

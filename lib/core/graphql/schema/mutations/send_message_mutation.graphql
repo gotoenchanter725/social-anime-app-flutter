@@ -1,4 +1,4 @@
-mutation sendMMessage($input: SendMessageInput!) {
+mutation sendMessage($input: SendMessageInput!) {
   sendMessage(input: $input) {
     message {
       content
