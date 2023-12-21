@@ -6,77 +6,43 @@ import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/screens/chat_list/widgets/chat_list_content.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
-import 'package:senpai/utils/methods/aliases.dart';
 
-class ChatListController extends StatefulWidget {
+class ChatListController extends StatelessWidget {
   const ChatListController({super.key});
 
-  @override
-  State<ChatListController> createState() => _ChatListControllerState();
-}
-
-class _ChatListControllerState extends State<ChatListController> {
-  final _fetchConversationsBloc = FetchConversationsBloc();
-
-  @override
-  void initState() {
-    super.initState();
-    _fetchConversationsBloc.fetchConversation();
-    _fetchConversationsBloc.startPeriodicFetch();
-  }
-
-  @override
-  void dispose() {
-    _fetchConversationsBloc.stopPeriodicFetch();
-    _fetchConversationsBloc.dispose();
-    super.dispose();
+  Widget _buildChatListContent(BuildContext context) {
+    final conversationsBloc = BlocProvider.of<FetchConversationsBloc>(context);
+    if (conversationsBloc.hasData) {
+      return ChatListContent(
+        conversation: conversationsBloc.conversations,
+      );
+    }
+    return const SizedBox.shrink();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<FetchConversationsBloc, QueryState>(
-      listener: (context, state) {
-        state.maybeWhen(
-          orElse: () {},
-          error: (error, result) {
-            _fetchConversationsBloc.stopPeriodicFetch();
-          },
-        );
-      },
-      builder: (context, state) {
-        return state.maybeWhen(
-          orElse: () {
-            if (_fetchConversationsBloc.hasData) {
-              final conversations = _fetchConversationsBloc.conversations;
-              return ChatListContent(
-                conversation: conversations,
-              );
-            }
-            return const SizedBox.shrink();
-          },
-          loading: (result) {
-            return const SenpaiLoading();
-          },
-          error: (error, result) {
-            logIt.error(error);
-            showSnackBarError(context, TextConstants.serverError);
-            return const SizedBox.shrink();
-          },
-          loaded: (data, result) {
-            if (result.data == null) {
-              showSnackBarError(
-                  context, TextConstants.conversationsDataErrorText);
-              return const SizedBox.shrink();
-            } else {
-              final conversations = _fetchConversationsBloc.conversations;
-              return ChatListContent(
-                conversation: conversations,
-              );
-            }
-          },
-        );
-      },
-      bloc: _fetchConversationsBloc,
+    return BlocProvider(
+      create: (_) => FetchConversationsBloc(),
+      child: BlocConsumer<FetchConversationsBloc, QueryState>(
+        listener: (context, state) {
+          state.maybeWhen(
+            error: (error, result) {
+              BlocProvider.of<FetchConversationsBloc>(context)
+                  .stopPeriodicFetch();
+              showSnackBarError(context, TextConstants.serverError);
+            },
+            orElse: () {},
+          );
+        },
+        builder: (context, state) {
+          return state.maybeWhen(
+            loading: (result) => const SenpaiLoading(),
+            error: (error, result) => const SizedBox.shrink(),
+            orElse: () => _buildChatListContent(context),
+          );
+        },
+      ),
     );
   }
 }
