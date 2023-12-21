@@ -18,4 +18,12 @@ class MessageReactionBloc
           showReactions: false, activeMessageId: null));
     });
   }
+
+  void showReactions({required String messageId}) {
+    add(MessageReactionEvent.showReactions(messageId));
+  }
+
+  void hideReactions() {
+    add(const MessageReactionEvent.hideReactions());
+  }
 }

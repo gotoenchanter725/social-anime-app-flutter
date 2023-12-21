@@ -30,6 +30,9 @@ class Constants {
 
   /// Special values.
   late final specials = _Specials();
+
+  /// Emoji names
+  late final emojis = _EmojiNames();
 }
 
 @immutable
@@ -185,4 +188,14 @@ class _CarouselConstants {
   late final double topMargin = 34;
   late final double startMargin = 20;
   late final double marginAmount = 64;
+}
+
+@immutable
+class _EmojiNames {
+  late final String happy = 'joy';
+  late final String like = 'thumbsup';
+  late final String heart = 'heart';
+  late final String vomit = 'nauseated_face';
+  late final String anger = 'rage';
+  late final String demon = 'imp';
 }

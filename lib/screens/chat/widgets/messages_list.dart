@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:senpai/core/widgets/senpai_emoji.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/screens/chat/bloc/message_reaction_bloc/message_reaction_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -66,62 +68,115 @@ class MessagesList extends StatelessWidget {
     return messageWidgets;
   }
 
-  Widget _buildEmojiReactions(BuildContext context) {
-    final List<String> _emojis = [
-      'joy',
-      'thumbsup',
-      'heart',
-      'nauseated_face',
-      'rage',
-      'imp',
+  Widget _buildEmojiReactionsSelector(
+      BuildContext context, ChatMessage message) {
+    final List<String> emojis = [
+      $constants.emojis.happy,
+      $constants.emojis.like,
+      $constants.emojis.heart,
+      $constants.emojis.vomit,
+      $constants.emojis.anger,
+      $constants.emojis.demon,
     ];
+    final MessageReactionBloc messageReactionBloc =
+        BlocProvider.of<MessageReactionBloc>(context);
+    bool showReactions = messageReactionBloc.state.showReactions &&
+        messageReactionBloc.state.activeMessageId == message.id;
+    double containerWidth = 0;
+    if (showReactions) {
+      containerWidth = getSize(context).width * 0.6;
+    }
     final double emojiSize = getSize(context).width * 0.06;
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeOut,
       height: 40,
-      width: getSize(context).width * 0.6,
+      width: containerWidth,
       decoration: BoxDecoration(
         color: $constants.palette.lightBlue,
         borderRadius: BorderRadius.circular($constants.corners.lg),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: _emojis.map((name) {
-          return GestureDetector(
-            onTap: () {},
-            child: SenpaiEmoji(
-              emojiName: name,
-              size: emojiSize,
-            ),
-          );
-        }).toList(),
+      child: ClipRect(
+        child: OverflowBox(
+          minWidth: 0,
+          maxWidth: getSize(context).width * 0.6,
+          alignment: Alignment.center,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: emojis.map((name) {
+              return GestureDetector(
+                onTap: () {},
+                child: SenpaiEmoji(
+                  emojiName: name,
+                  size: emojiSize,
+                ),
+              );
+            }).toList(),
+          ),
+        ),
       ),
     );
   }
 
+  Widget _buildMessageReaction(BuildContext context, ChatMessage message) {
+    if (message.reaction == null) {
+      return const SizedBox.shrink();
+    }
+
+    final Map<ReactionType, String> emojiNameMapping = {
+      ReactionType.anger: $constants.emojis.anger,
+      ReactionType.demon: $constants.emojis.demon,
+      ReactionType.heart: $constants.emojis.heart,
+      ReactionType.laughing: $constants.emojis.happy,
+      ReactionType.puke: $constants.emojis.vomit,
+      ReactionType.thumbsUp: $constants.emojis.like
+    };
+
+    return SenpaiEmoji(
+      emojiName: emojiNameMapping[message.reaction]!,
+      size: 20,
+    );
+  }
+
   Widget _buildRecieverMessage(BuildContext context, ChatMessage message) {
+    MessageReactionBloc messageReactionBloc =
+        BlocProvider.of<MessageReactionBloc>(context);
     return Padding(
       padding: EdgeInsets.only(top: $constants.insets.md),
-      child: Stack(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+      child: BlocBuilder<MessageReactionBloc, MessageReactionState>(
+        builder: (context, state) {
+          return Stack(
+            clipBehavior: Clip.none,
             children: [
-              UserAvatar(
-                imageUrl: recieverUser.profileUrl,
-                size: 40,
+              GestureDetector(
+                onLongPress: () {
+                  messageReactionBloc.showReactions(messageId: message.id);
+                },
+                onTap: () {
+                  messageReactionBloc.hideReactions();
+                },
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    UserAvatar(
+                      imageUrl: recieverUser.profileUrl,
+                      size: 40,
+                    ),
+                    const SizedBox(
+                      width: 8,
+                    ),
+                    _buildRecieverMessageContent(context, message)
+                  ],
+                ),
               ),
-              const SizedBox(
-                width: 8,
+              Positioned(
+                top: -20,
+                left: 48,
+                child: _buildEmojiReactionsSelector(context, message),
               ),
-              _buildRecieverMessageContent(context, message)
             ],
-          ),
-          Positioned(
-            top: 0,
-            left: 48,
-            child: _buildEmojiReactions(context),
-          )
-        ],
+          );
+        },
       ),
     );
   }
@@ -143,33 +198,43 @@ class MessagesList extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ConstrainedBox(
-          constraints:
-              BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.7),
-          child: Container(
-            decoration: BoxDecoration(
-              color: $constants.palette.lightBlue,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular($constants.corners.lg),
-                topRight: Radius.circular($constants.corners.lg),
-                bottomLeft: Radius.zero,
-                bottomRight: Radius.circular($constants.corners.lg),
+        Stack(
+          clipBehavior: Clip.none,
+          children: [
+            ConstrainedBox(
+              constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width * 0.7),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: $constants.palette.lightBlue,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular($constants.corners.lg),
+                    topRight: Radius.circular($constants.corners.lg),
+                    bottomLeft: Radius.zero,
+                    bottomRight: Radius.circular($constants.corners.lg),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: $constants.insets.sm,
+                      vertical: $constants.insets.xs),
+                  child: Text(
+                    message.text,
+                    style: getTextTheme(context).bodySmall!.copyWith(
+                          color: $constants.palette.white,
+                          letterSpacing: 0,
+                        ),
+                    softWrap: true,
+                  ),
+                ),
               ),
             ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: $constants.insets.sm,
-                  vertical: $constants.insets.xs),
-              child: Text(
-                message.text,
-                style: getTextTheme(context).bodySmall!.copyWith(
-                      color: $constants.palette.white,
-                      letterSpacing: 0,
-                    ),
-                softWrap: true,
-              ),
-            ),
-          ),
+            Positioned(
+              bottom: -10,
+              right: -10,
+              child: _buildMessageReaction(context, message),
+            )
+          ],
         ),
         const SizedBox(
           height: 4,

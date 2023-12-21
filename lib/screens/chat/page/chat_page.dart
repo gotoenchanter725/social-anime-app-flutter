@@ -8,6 +8,7 @@ import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/screens/chat/bloc/message_reaction_bloc/message_reaction_bloc.dart';
 import 'package:senpai/screens/chat/bloc/pending_messages_bloc/pending_messages_bloc.dart';
 import 'package:senpai/screens/chat/bloc/text_editing_bloc/text_editing_bloc.dart';
 import 'package:senpai/screens/chat/widgets/chat_content.dart';
@@ -52,6 +53,7 @@ class ChatPage extends StatelessWidget {
         BlocProvider<SendMessageBloc>(create: (_) => SendMessageBloc()),
         BlocProvider<TextEditingBloc>(create: (_) => TextEditingBloc()),
         BlocProvider<PendingMessagesBloc>(create: (_) => PendingMessagesBloc()),
+        BlocProvider<MessageReactionBloc>(create: (_) => MessageReactionBloc()),
       ],
       child: BlocListener<SendMessageBloc, MutationState>(
         listener: (context, state) {
