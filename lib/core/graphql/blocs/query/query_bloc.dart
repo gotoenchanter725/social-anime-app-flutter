@@ -54,6 +54,10 @@ abstract class QueryBloc<T> extends Bloc<QueryEvent<T>, QueryState<T>> {
     add(QueryEvent<T>.refetch());
   }
 
+  void fetchMore(FetchMoreOptions options) {
+    add(QueryEvent<T>.fetchMore(options: options));
+  }
+
   T parseData(Map<String, dynamic>? data);
 
   bool shouldFetchMore(int i, int threshold) => false;
