@@ -7,6 +7,7 @@ import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/auth/auth_model.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/entry/widgets/entry_content.dart';
 
 @RoutePage()
@@ -36,7 +37,13 @@ class EntryPage extends StatelessWidget {
           succeeded: (data, result) {
             print("Successful state");
             final signInBloc = BlocProvider.of<SignInBloc>(context);
-            signInBloc.signInUser(context.router, result.data);
+            final bool isSignedIn =
+                signInBloc.signInUser(context.router, result.data);
+            if (isSignedIn) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                context.router.replaceAll([const HomeRoute()]);
+              });
+            }
             return const SizedBox.shrink();
           },
           orElse: () => const SizedBox.shrink(),

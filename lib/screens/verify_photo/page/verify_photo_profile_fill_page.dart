@@ -11,6 +11,7 @@ import 'package:senpai/core/user/blocs/verify_photo_user/verify_photo_user_bloc.
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
 
@@ -117,7 +118,9 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }
-              context.router.pushNamed("/home");
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                context.router.replaceAll([const HomeRoute()]);
+              });
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());

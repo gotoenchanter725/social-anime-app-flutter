@@ -28,17 +28,17 @@ class SignInBloc extends MutationBloc<SignIn$Mutation> {
     run(variables);
   }
 
-  void signInUser(StackRouter router, dynamic data) {
+  bool signInUser(StackRouter router, dynamic data) {
     if (data == null) {
       // handle this fatal error
       logIt.wtf("A successful empty response just got recorded");
-      return;
+      return false;
     }
 
     String id = data["signIn"]["user"]["id"];
     String phone = data["signIn"]["user"]["phone"];
     logIt.info("signed in user of id $id and phone $phone");
 
-    router.pushNamed("/home");
+    return true;
   }
 }

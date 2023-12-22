@@ -155,7 +155,9 @@ class ChatPage extends StatelessWidget {
       error: (message) {
         showSnackBarError(context, message);
         if (message == TextConstants.actionCableAuthError) {
-          context.router.replaceAll([const EntryRoute()]);
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            context.router.replaceAll([const EntryRoute()]);
+          });
         }
       },
     );
