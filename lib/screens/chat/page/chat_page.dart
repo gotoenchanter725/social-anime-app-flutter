@@ -10,6 +10,7 @@ import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/chat/bloc/message_reaction_bloc/message_reaction_bloc.dart';
@@ -107,14 +108,15 @@ class ChatPage extends StatelessWidget {
       loading: () {}, // Handle loading state
       succeeded: (_, data) {
         logIt.info("Message sent successfully");
-        final earliestPendingMessage = pendingMessagesBloc.state
+        ChatMessage? earliestPendingMessage = pendingMessagesBloc.state
             .getEarliestPendingMessage(roomArgs.roomId);
         if (earliestPendingMessage != null) {
+          earliestPendingMessage.status = MessageStatus.sent;
+          fetchMessagesBloc.addMessage(earliestPendingMessage);
           pendingMessagesBloc.add(PendingMessagesEvent.removeMessage(
             channelId: roomArgs.roomId,
             messageId: earliestPendingMessage.id,
           ));
-          fetchMessagesBloc.refetch();
         }
       },
       failed: (error, result) {

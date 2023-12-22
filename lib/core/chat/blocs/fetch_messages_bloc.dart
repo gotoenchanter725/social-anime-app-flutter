@@ -29,6 +29,10 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
     run(variables: variables);
   }
 
+  void addMessage(ChatMessage message) {
+    messages.insert(0, message);
+  }
+
   @override
   FetchMessages$Query parseData(Map<String, dynamic>? data) {
     messages = _messagesParser.parseMessages(data!["fetchMessages"]);

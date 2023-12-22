@@ -14,7 +14,7 @@ class ChatMessage {
   final String? attachment;
   final Recommendation? recommendation;
   final ReactionType? reaction;
-  final MessageStatus? status;
+  MessageStatus? status;
 
   ChatMessage({
     required this.id,
