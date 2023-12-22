@@ -7,6 +7,7 @@ import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/widgets/bottom_sheet/animated_bottom_sheet.dart';
 import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
+import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
@@ -78,29 +79,40 @@ class ChatContent extends StatelessWidget {
   Widget _buildMessagesList(BuildContext context) {
     FetchMessagesBloc bloc = BlocProvider.of<FetchMessagesBloc>(context);
 
-    PendingMessagesBloc pendingMessagesBloc =
-        BlocProvider.of<PendingMessagesBloc>(context);
+    return BlocBuilder<FetchMessagesBloc, QueryState>(
+      builder: (context, state) {
+        return state.maybeWhen<Widget>(
+          orElse: () {
+            PendingMessagesBloc pendingMessagesBloc =
+                BlocProvider.of<PendingMessagesBloc>(context);
 
-    List<ChatMessage> allMessages = [
-      ...bloc.messages,
-      ...pendingMessagesBloc.state.pendingMessages[roomId] ?? []
-    ];
+            List<ChatMessage> allMessages = [
+              ...bloc.messages,
+              ...pendingMessagesBloc.state.pendingMessages[roomId] ?? []
+            ];
 
-    if (allMessages.isEmpty) {
-      return EmptyMessages(
-        avatorImagePath: receipientUser.profileUrl,
-        title: "${TextConstants.emptyChatTitle} ${receipientUser.name}",
-        subtitle:
-            "${timeAgo(roomCreationDate)}. \n${TextConstants.emptyChatPromptText}",
-      );
-    }
+            if (allMessages.isEmpty) {
+              return EmptyMessages(
+                avatorImagePath: receipientUser.profileUrl,
+                title: "${TextConstants.emptyChatTitle} ${receipientUser.name}",
+                subtitle:
+                    "${timeAgo(roomCreationDate)}. \n${TextConstants.emptyChatPromptText}",
+              );
+            }
 
-    return Expanded(
-      child: MessagesList(
-        messages: allMessages,
-        currentUser: currentUser,
-        recieverUser: receipientUser,
-      ),
+            return Expanded(
+              child: MessagesList(
+                messages: allMessages,
+                currentUser: currentUser,
+                recieverUser: receipientUser,
+              ),
+            );
+          },
+          loading: (_) {
+            return const Expanded(child: SenpaiLoading());
+          },
+        );
+      },
     );
   }
 
