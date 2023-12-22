@@ -5,6 +5,7 @@ import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
 import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
+import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
@@ -54,6 +55,7 @@ class ChatPage extends StatelessWidget {
         BlocProvider<TextEditingBloc>(create: (_) => TextEditingBloc()),
         BlocProvider<PendingMessagesBloc>(create: (_) => PendingMessagesBloc()),
         BlocProvider<MessageReactionBloc>(create: (_) => MessageReactionBloc()),
+        BlocProvider<BottomSheetBloc>(create: (_) => BottomSheetBloc()),
       ],
       child: BlocListener<SendMessageBloc, MutationState>(
         listener: (context, state) {

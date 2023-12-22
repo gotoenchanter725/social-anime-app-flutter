@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
+import 'package:senpai/core/widgets/bottom_sheet/animated_bottom_sheet.dart';
+import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/path_constants.dart';
@@ -37,30 +39,40 @@ class ChatContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-      child: Column(
-        children: [
-          _buildChatHeader(context),
-          BlocBuilder<FetchMessagesBloc, QueryState>(
-            builder: (context, state) {
-              return BlocBuilder<PendingMessagesBloc, PendingMessagesState>(
+    return Stack(
+      children: [
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+          child: Column(
+            children: [
+              _buildChatHeader(context),
+              BlocBuilder<FetchMessagesBloc, QueryState>(
                 builder: (context, state) {
-                  return _buildMessagesList(context);
+                  return BlocBuilder<PendingMessagesBloc, PendingMessagesState>(
+                    builder: (context, state) {
+                      return _buildMessagesList(context);
+                    },
+                  );
                 },
-              );
-            },
+              ),
+              SizedBox(
+                height: $constants.insets.sm,
+              ),
+              _buildInput(context),
+              SizedBox(
+                height: $constants.insets.sm,
+              ),
+            ],
           ),
-          SizedBox(
-            height: $constants.insets.sm,
-          ),
-          _buildInput(context),
-          SizedBox(
-            height: $constants.insets.sm,
-          ),
-        ],
-      ),
+        ),
+        _buildBottomSheet(context),
+      ],
     );
+  }
+
+  Widget _buildBottomSheet(BuildContext context) {
+    return AnimatedBottomSheetWidget(
+        height: getSize(context).height * 0.6, child: const Placeholder());
   }
 
   Widget _buildMessagesList(BuildContext context) {
@@ -188,7 +200,11 @@ class ChatContent extends StatelessWidget {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          final BottomSheetBloc bottomSheetBloc =
+                              BlocProvider.of<BottomSheetBloc>(context);
+                          bottomSheetBloc.show();
+                        },
                         child: SvgPicture.asset(
                           PathConstants.stickerIcon,
                           width: 24.0,
