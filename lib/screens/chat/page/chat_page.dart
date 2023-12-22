@@ -5,6 +5,7 @@ import 'package:senpai/core/action_cable/blocs/action_cable_bloc.dart';
 import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
 import 'package:senpai/core/chat/blocs/room_subscriptions/room_subscription_bloc.dart';
 import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
+import 'package:senpai/core/chat/blocs/update_message_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
@@ -61,34 +62,40 @@ class ChatPage extends StatelessWidget {
         BlocProvider<BottomSheetBloc>(create: (_) => BottomSheetBloc()),
         BlocProvider<RoomSubscriptionsBloc>(
             create: (_) => RoomSubscriptionsBloc(roomId: roomArgs.roomId)),
+        BlocProvider<UpdateMessageBloc>(create: (_) => UpdateMessageBloc()),
       ],
-      child: BlocListener<RoomSubscriptionsBloc, ActionCableState>(
+      child: BlocListener<UpdateMessageBloc, MutationState>(
         listener: (context, state) {
-          _handleRoomSubscriptions(context, state);
+          _handleUpdateMessageState(context, state);
         },
-        child: BlocListener<SendMessageBloc, MutationState>(
+        child: BlocListener<RoomSubscriptionsBloc, ActionCableState>(
           listener: (context, state) {
-            _handleSendMessageState(context, state);
+            _handleRoomSubscriptions(context, state);
           },
-          child: BlocListener<PendingMessagesBloc, PendingMessagesState>(
+          child: BlocListener<SendMessageBloc, MutationState>(
             listener: (context, state) {
-              _handlePendingMessages(context, state);
+              _handleSendMessageState(context, state);
             },
-            child: BlocListener<FetchMessagesBloc, QueryState>(
+            child: BlocListener<PendingMessagesBloc, PendingMessagesState>(
               listener: (context, state) {
-                _buildFetchMessagesListeners(context, state);
+                _handlePendingMessages(context, state);
               },
-              child: Scaffold(
-                body: SafeArea(
-                  child: Stack(
-                    children: [
-                      ChatContent(
-                        receipientUser: roomArgs.reciepient,
-                        currentUser: roomArgs.currentUser,
-                        roomCreationDate: roomArgs.createdDate,
-                        roomId: roomArgs.roomId,
-                      ),
-                    ],
+              child: BlocListener<FetchMessagesBloc, QueryState>(
+                listener: (context, state) {
+                  _buildFetchMessagesListeners(context, state);
+                },
+                child: Scaffold(
+                  body: SafeArea(
+                    child: Stack(
+                      children: [
+                        ChatContent(
+                          receipientUser: roomArgs.reciepient,
+                          currentUser: roomArgs.currentUser,
+                          roomCreationDate: roomArgs.createdDate,
+                          roomId: roomArgs.roomId,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -122,6 +129,23 @@ class ChatPage extends StatelessWidget {
       failed: (error, result) {
         logIt.error(error);
         showSnackBarError(context, TextConstants.failedToSendMessageText);
+      },
+    );
+  }
+
+  void _handleUpdateMessageState(BuildContext context, MutationState state) {
+    final fetchMessagesBloc = BlocProvider.of<FetchMessagesBloc>(context);
+
+    state.when(
+      initial: () {}, // Handle initial state
+      loading: () {}, // Handle loading state
+      succeeded: (_, data) {
+        logIt.info("Message updated successfully");
+        fetchMessagesBloc.refetch();
+      },
+      failed: (error, result) {
+        logIt.error(error);
+        showSnackBarError(context, TextConstants.failedToUpdateMessageText);
       },
     );
   }

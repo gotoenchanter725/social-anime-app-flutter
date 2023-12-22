@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:senpai/core/chat/blocs/update_message_bloc.dart';
 import 'package:senpai/core/widgets/senpai_emoji.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/screens/chat/bloc/message_reaction_bloc/message_reaction_bloc.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class IncomingMessage extends StatelessWidget {
@@ -95,16 +97,10 @@ class IncomingMessage extends StatelessWidget {
   }
 
   Widget _buildEmojiReactionsSelector(BuildContext context) {
-    final List<String> emojis = [
-      $constants.emojis.happy,
-      $constants.emojis.like,
-      $constants.emojis.heart,
-      $constants.emojis.vomit,
-      $constants.emojis.anger,
-      $constants.emojis.demon,
-    ];
     final MessageReactionBloc messageReactionBloc =
         BlocProvider.of<MessageReactionBloc>(context);
+    final UpdateMessageBloc updateMessageBloc =
+        BlocProvider.of<UpdateMessageBloc>(context);
     bool showReactions = messageReactionBloc.state.showReactions &&
         messageReactionBloc.state.activeMessageId == message.id;
     double containerWidth = 0;
@@ -112,34 +108,46 @@ class IncomingMessage extends StatelessWidget {
       containerWidth = getSize(context).width * 0.6;
     }
     final double emojiSize = getSize(context).width * 0.06;
-    return AnimatedContainer(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeOut,
-      height: 40,
-      width: containerWidth,
-      decoration: BoxDecoration(
-        color: $constants.palette.lightBlue,
-        borderRadius: BorderRadius.circular($constants.corners.lg),
-      ),
-      child: ClipRect(
-        child: OverflowBox(
-          minWidth: 0,
-          maxWidth: getSize(context).width * 0.6,
-          alignment: Alignment.center,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: emojis.map((name) {
-              return GestureDetector(
-                onTap: () {},
-                child: SenpaiEmoji(
-                  emojiName: name,
-                  size: emojiSize,
-                ),
-              );
-            }).toList(),
+    return BlocBuilder<MessageReactionBloc, MessageReactionState>(
+      builder: (context, state) {
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut,
+          height: 40,
+          width: containerWidth,
+          decoration: BoxDecoration(
+            color: $constants.palette.lightBlue,
+            borderRadius: BorderRadius.circular($constants.corners.lg),
           ),
-        ),
-      ),
+          child: ClipRect(
+            child: OverflowBox(
+              minWidth: 0,
+              maxWidth: getSize(context).width * 0.6,
+              alignment: Alignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: _emojis.map((item) {
+                  return GestureDetector(
+                    onTap: () {
+                      logIt.info("Emoji tapped");
+                      updateMessageBloc.updateMessage(
+                        messageId: message.id,
+                        reactionType: item.reactionType,
+                        content: message.text,
+                      );
+                      messageReactionBloc.hideReactions();
+                    },
+                    child: SenpaiEmoji(
+                      emojiName: item.emojiName,
+                      size: emojiSize,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -200,3 +208,24 @@ class IncomingMessage extends StatelessWidget {
     );
   }
 }
+
+class _EmojiItem {
+  final String emojiName;
+  final ReactionType reactionType;
+  _EmojiItem({required this.emojiName, required this.reactionType});
+}
+
+final List<_EmojiItem> _emojis = [
+  _EmojiItem(
+      emojiName: $constants.emojis.happy, reactionType: ReactionType.laughing),
+  _EmojiItem(
+      emojiName: $constants.emojis.like, reactionType: ReactionType.thumbsUp),
+  _EmojiItem(
+      emojiName: $constants.emojis.heart, reactionType: ReactionType.heart),
+  _EmojiItem(
+      emojiName: $constants.emojis.vomit, reactionType: ReactionType.puke),
+  _EmojiItem(
+      emojiName: $constants.emojis.anger, reactionType: ReactionType.anger),
+  _EmojiItem(
+      emojiName: $constants.emojis.demon, reactionType: ReactionType.demon),
+];

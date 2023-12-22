@@ -13,7 +13,7 @@ class ChatMessage {
   final AttachmentType? attachmentType;
   final String? attachment;
   final Recommendation? recommendation;
-  final ReactionType? reaction;
+  ReactionType? reaction;
   MessageStatus? status;
 
   ChatMessage({

@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/utils/constants.dart';
 
 Size getSize(BuildContext context) {
@@ -207,4 +208,47 @@ Color getCheckBoxColor(Set<MaterialState> states) {
     return $constants.palette.pink;
   }
   return $constants.palette.buttonBorder;
+}
+
+String mapReactionTypeToString(ReactionType reactionType) {
+  Map<ReactionType, String> reactionTypeMap = {
+    ReactionType.anger: 'angry',
+    ReactionType.demon: 'demon',
+    ReactionType.heart: 'heart',
+    ReactionType.laughing: 'funny',
+    ReactionType.puke: 'vomit',
+    ReactionType.thumbsUp: 'like',
+  };
+
+  String? reactionString = reactionTypeMap[reactionType];
+
+  if (reactionString != null) {
+    return reactionString;
+  } else {
+    return 'like';
+  }
+}
+
+ReactionType stringToReactionType(String reactionString) {
+  // Define the reverse map inside the function
+  Map<String, ReactionType> stringToReactionTypeMap = {
+    'angry': ReactionType.anger,
+    'demon': ReactionType.demon,
+    'heart': ReactionType.heart,
+    'funny': ReactionType.laughing,
+    'vomit': ReactionType.puke,
+    'like': ReactionType.thumbsUp,
+  };
+
+  // Lookup the string in the map
+  ReactionType? reactionType = stringToReactionTypeMap[reactionString];
+
+  if (reactionType != null) {
+    return reactionType;
+  } else {
+    // A default or error handling if the string is not in the map
+    // Depending on your application's logic, you might throw an error
+    // or return a default value. Here, I am throwing an exception.
+    throw ArgumentError('Invalid reaction string: $reactionString');
+  }
 }

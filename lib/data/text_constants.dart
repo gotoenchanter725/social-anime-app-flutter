@@ -110,6 +110,8 @@ class TextConstants {
   static const String userOnlineText = "Active now";
   static const String userOfflineText = "Active recently";
   static const String failedToSendMessageText = "Failed to send message";
+  static const String failedToUpdateMessageText =
+      "Failed to add reaction to message";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";

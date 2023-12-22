@@ -1,4 +1,5 @@
 import 'package:senpai/models/chat/chat_message.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class MessagesParser {
@@ -24,8 +25,11 @@ class MessagesParser {
 
         ReactionType? reaction;
         if (message["reaction"] != null) {
-          reaction = ReactionType.values.firstWhere(
-              (e) => e.toString() == "ReactionType.${message["reaction"]}");
+          try {
+            reaction = stringToReactionType(message["reaction"]);
+          } catch (e) {
+            logIt.error(e);
+          }
         }
 
         Recommendation? recommendation;
