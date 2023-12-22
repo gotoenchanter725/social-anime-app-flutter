@@ -24,25 +24,24 @@ class ChatPage extends StatelessWidget {
   final ChatRoomParams roomArgs;
   const ChatPage({super.key, required this.roomArgs});
 
-  Widget _buildFetchMessagesListeners() {
-    return BlocBuilder<FetchMessagesBloc, QueryState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: (result) => const SenpaiLoading(),
-            loaded: (data, result) {
-              if (result.data == null) {
-                showSnackBarError(context, TextConstants.serverError);
-                logIt.error("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              }
-              return const SizedBox.shrink();
-            },
-            error: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+  _buildFetchMessagesListeners(BuildContext context, QueryState state) {
+    final RoomSubscriptionsBloc roomSubscriptionsBloc =
+        BlocProvider.of<RoomSubscriptionsBloc>(context);
+    state.maybeWhen(
+      loading: (result) => const SenpaiLoading(),
+      loaded: (data, result) {
+        if (result.data == null) {
+          showSnackBarError(context, TextConstants.serverError);
+          logIt.error("A successful empty response just got recorded");
+        }
       },
+      error: (error, result) {
+        showSnackBarError(context, TextConstants.serverError);
+      },
+      refetch: (data, result) {
+        roomSubscriptionsBloc.enterRoom(roomArgs.roomId);
+      },
+      orElse: () {},
     );
   }
 
@@ -74,18 +73,22 @@ class ChatPage extends StatelessWidget {
             listener: (context, state) {
               _handlePendingMessages(context, state);
             },
-            child: Scaffold(
-              body: SafeArea(
-                child: Stack(
-                  children: [
-                    ChatContent(
-                      receipientUser: roomArgs.reciepient,
-                      currentUser: roomArgs.currentUser,
-                      roomCreationDate: roomArgs.createdDate,
-                      roomId: roomArgs.roomId,
-                    ),
-                    _buildFetchMessagesListeners(),
-                  ],
+            child: BlocListener<FetchMessagesBloc, QueryState>(
+              listener: (context, state) {
+                _buildFetchMessagesListeners(context, state);
+              },
+              child: Scaffold(
+                body: SafeArea(
+                  child: Stack(
+                    children: [
+                      ChatContent(
+                        receipientUser: roomArgs.reciepient,
+                        currentUser: roomArgs.currentUser,
+                        roomCreationDate: roomArgs.createdDate,
+                        roomId: roomArgs.roomId,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

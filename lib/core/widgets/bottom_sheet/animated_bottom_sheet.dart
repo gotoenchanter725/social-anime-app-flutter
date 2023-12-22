@@ -28,7 +28,7 @@ class AnimatedBottomSheetWidgetState extends State<AnimatedBottomSheetWidget>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 300));
+        vsync: this, duration: const Duration(milliseconds: 100));
     _heightAnimation = Tween<double>(begin: 0, end: widget.height)
         .animate(_animationController);
   }
