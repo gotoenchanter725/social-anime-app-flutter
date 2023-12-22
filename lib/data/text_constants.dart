@@ -341,4 +341,12 @@ class TextConstants {
   static const String notForYouTitle = "Not for you?";
   static const String swipeRightDescription = "Swipe right if you like it";
   static const String swipeLeftDescription = "Swipe left if not";
+
+  // -> ActionCable Error Messages
+  static const String actionCableConnectionError =
+      "Connection is lost. Please check your internet connection";
+  static const String actionCableCannotConnectError =
+      "Cannot establish a connection. Please check your internet connection";
+  static const String actionCableAuthError =
+      "User is not authorized. Please sign in again";
 }

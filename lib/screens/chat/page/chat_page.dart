@@ -11,6 +11,7 @@ import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/chat/bloc/message_reaction_bloc/message_reaction_bloc.dart';
 import 'package:senpai/screens/chat/bloc/pending_messages_bloc/pending_messages_bloc.dart';
 import 'package:senpai/screens/chat/bloc/text_editing_bloc/text_editing_bloc.dart';
@@ -59,7 +60,7 @@ class ChatPage extends StatelessWidget {
         BlocProvider<MessageReactionBloc>(create: (_) => MessageReactionBloc()),
         BlocProvider<BottomSheetBloc>(create: (_) => BottomSheetBloc()),
         BlocProvider<RoomSubscriptionsBloc>(
-            create: (_) => RoomSubscriptionsBloc()),
+            create: (_) => RoomSubscriptionsBloc(roomId: roomArgs.roomId)),
       ],
       child: BlocListener<RoomSubscriptionsBloc, ActionCableState>(
         listener: (context, state) {
@@ -149,11 +150,13 @@ class ChatPage extends StatelessWidget {
         roomSubscriptionsBloc.subscribeToRoom();
       },
       data: (data) {
-        logIt.info("Room subscription data: $data");
         fetchMessagesBloc.refetch();
       },
       error: (message) {
-        logIt.error("Room subscription error: $message");
+        showSnackBarError(context, message);
+        if (message == TextConstants.actionCableAuthError) {
+          context.router.replaceAll([const EntryRoute()]);
+        }
       },
     );
   }

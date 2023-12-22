@@ -2,7 +2,10 @@ import 'package:senpai/core/action_cable/blocs/action_cable_bloc.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 
 class RoomSubscriptionsBloc extends ActionCableBloc<Map<String, dynamic>> {
-  RoomSubscriptionsBloc() : super('RoomChannel', {}) {
+  final String roomId;
+  RoomSubscriptionsBloc({
+    required this.roomId,
+  }) : super('RoomChannel', {"room_id": roomId}) {
     connect();
   }
 

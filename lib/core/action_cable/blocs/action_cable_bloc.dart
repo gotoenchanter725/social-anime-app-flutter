@@ -2,6 +2,7 @@ import 'package:action_cable/action_cable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:fresh_dio/fresh_dio.dart';
+import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/auth/auth_model.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -55,17 +56,19 @@ abstract class ActionCableBloc<T>
     final storage = getIt<TokenStorage<AuthModel>>();
     AuthModel? authModel = await storage.read();
     if (authModel == null) {
-      add(const ActionCableEvent.error(message: "AuthModel is null"));
+      add(const ActionCableEvent.error(
+          message: TextConstants.actionCableAuthError));
       return;
     }
     String url = "${env.webSocketUrl}?token=${authModel.token}";
     _actionCable = ActionCable.Connect(url, onConnected: () {
       add(const ActionCableEvent.connect());
     }, onConnectionLost: () {
-      add(const ActionCableEvent.error(message: "Connection is lost"));
+      add(const ActionCableEvent.error(
+          message: TextConstants.actionCableConnectionError));
     }, onCannotConnect: () {
       add(const ActionCableEvent.error(
-          message: "Cannot Establish a connection"));
+          message: TextConstants.actionCableCannotConnectError));
     });
   }
 
@@ -80,15 +83,16 @@ abstract class ActionCableBloc<T>
       _channelName,
       channelParams: _params,
       onSubscribed: () {
-        logIt.info("ActionCable subscribed");
         add(const ActionCableEvent.subscribe());
       },
       onMessage: (Map<dynamic, dynamic> data) {
-        logIt.info("ActionCable message received");
-        add(ActionCableEvent.data(data: data as T));
+        try {
+          add(ActionCableEvent.data(data: data as T));
+        } catch (e) {
+          logIt.error(e);
+        }
       },
       onDisconnected: () {
-        logIt.error("ActionCable disconnected");
         add(const ActionCableEvent.unsubscribe());
       },
     );
