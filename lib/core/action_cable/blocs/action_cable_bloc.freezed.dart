@@ -24,6 +24,8 @@ mixin _$ActionCableEvent<T> {
     required TResult Function() unsubscribe,
     required TResult Function(String actionName, Map<String, dynamic> data)
         performAction,
+    required TResult Function(T data) data,
+    required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +36,8 @@ mixin _$ActionCableEvent<T> {
     TResult? Function()? unsubscribe,
     TResult? Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult? Function(T data)? data,
+    TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +48,8 @@ mixin _$ActionCableEvent<T> {
     TResult Function()? unsubscribe,
     TResult Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult Function(T data)? data,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +62,8 @@ mixin _$ActionCableEvent<T> {
         unsubscribe,
     required TResult Function(_ActionCableEventPerformAction<T> value)
         performAction,
+    required TResult Function(_ActionCableEventData<T> value) data,
+    required TResult Function(_ActionCableEventError<T> value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +73,8 @@ mixin _$ActionCableEvent<T> {
     TResult? Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult? Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult? Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult? Function(_ActionCableEventData<T> value)? data,
+    TResult? Function(_ActionCableEventError<T> value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -74,6 +84,8 @@ mixin _$ActionCableEvent<T> {
     TResult Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult Function(_ActionCableEventData<T> value)? data,
+    TResult Function(_ActionCableEventError<T> value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,6 +156,8 @@ class _$_ActionCableEventConnect<T> implements _ActionCableEventConnect<T> {
     required TResult Function() unsubscribe,
     required TResult Function(String actionName, Map<String, dynamic> data)
         performAction,
+    required TResult Function(T data) data,
+    required TResult Function(String message) error,
   }) {
     return connect();
   }
@@ -157,6 +171,8 @@ class _$_ActionCableEventConnect<T> implements _ActionCableEventConnect<T> {
     TResult? Function()? unsubscribe,
     TResult? Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult? Function(T data)? data,
+    TResult? Function(String message)? error,
   }) {
     return connect?.call();
   }
@@ -170,6 +186,8 @@ class _$_ActionCableEventConnect<T> implements _ActionCableEventConnect<T> {
     TResult Function()? unsubscribe,
     TResult Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult Function(T data)? data,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (connect != null) {
@@ -188,6 +206,8 @@ class _$_ActionCableEventConnect<T> implements _ActionCableEventConnect<T> {
         unsubscribe,
     required TResult Function(_ActionCableEventPerformAction<T> value)
         performAction,
+    required TResult Function(_ActionCableEventData<T> value) data,
+    required TResult Function(_ActionCableEventError<T> value) error,
   }) {
     return connect(this);
   }
@@ -200,6 +220,8 @@ class _$_ActionCableEventConnect<T> implements _ActionCableEventConnect<T> {
     TResult? Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult? Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult? Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult? Function(_ActionCableEventData<T> value)? data,
+    TResult? Function(_ActionCableEventError<T> value)? error,
   }) {
     return connect?.call(this);
   }
@@ -212,6 +234,8 @@ class _$_ActionCableEventConnect<T> implements _ActionCableEventConnect<T> {
     TResult Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult Function(_ActionCableEventData<T> value)? data,
+    TResult Function(_ActionCableEventError<T> value)? error,
     required TResult orElse(),
   }) {
     if (connect != null) {
@@ -274,6 +298,8 @@ class _$_ActionCableEventDisconnect<T>
     required TResult Function() unsubscribe,
     required TResult Function(String actionName, Map<String, dynamic> data)
         performAction,
+    required TResult Function(T data) data,
+    required TResult Function(String message) error,
   }) {
     return disconnect();
   }
@@ -287,6 +313,8 @@ class _$_ActionCableEventDisconnect<T>
     TResult? Function()? unsubscribe,
     TResult? Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult? Function(T data)? data,
+    TResult? Function(String message)? error,
   }) {
     return disconnect?.call();
   }
@@ -300,6 +328,8 @@ class _$_ActionCableEventDisconnect<T>
     TResult Function()? unsubscribe,
     TResult Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult Function(T data)? data,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (disconnect != null) {
@@ -318,6 +348,8 @@ class _$_ActionCableEventDisconnect<T>
         unsubscribe,
     required TResult Function(_ActionCableEventPerformAction<T> value)
         performAction,
+    required TResult Function(_ActionCableEventData<T> value) data,
+    required TResult Function(_ActionCableEventError<T> value) error,
   }) {
     return disconnect(this);
   }
@@ -330,6 +362,8 @@ class _$_ActionCableEventDisconnect<T>
     TResult? Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult? Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult? Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult? Function(_ActionCableEventData<T> value)? data,
+    TResult? Function(_ActionCableEventError<T> value)? error,
   }) {
     return disconnect?.call(this);
   }
@@ -342,6 +376,8 @@ class _$_ActionCableEventDisconnect<T>
     TResult Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult Function(_ActionCableEventData<T> value)? data,
+    TResult Function(_ActionCableEventError<T> value)? error,
     required TResult orElse(),
   }) {
     if (disconnect != null) {
@@ -404,6 +440,8 @@ class _$_ActionCableEventSubscribe<T> implements _ActionCableEventSubscribe<T> {
     required TResult Function() unsubscribe,
     required TResult Function(String actionName, Map<String, dynamic> data)
         performAction,
+    required TResult Function(T data) data,
+    required TResult Function(String message) error,
   }) {
     return subscribe();
   }
@@ -417,6 +455,8 @@ class _$_ActionCableEventSubscribe<T> implements _ActionCableEventSubscribe<T> {
     TResult? Function()? unsubscribe,
     TResult? Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult? Function(T data)? data,
+    TResult? Function(String message)? error,
   }) {
     return subscribe?.call();
   }
@@ -430,6 +470,8 @@ class _$_ActionCableEventSubscribe<T> implements _ActionCableEventSubscribe<T> {
     TResult Function()? unsubscribe,
     TResult Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult Function(T data)? data,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (subscribe != null) {
@@ -448,6 +490,8 @@ class _$_ActionCableEventSubscribe<T> implements _ActionCableEventSubscribe<T> {
         unsubscribe,
     required TResult Function(_ActionCableEventPerformAction<T> value)
         performAction,
+    required TResult Function(_ActionCableEventData<T> value) data,
+    required TResult Function(_ActionCableEventError<T> value) error,
   }) {
     return subscribe(this);
   }
@@ -460,6 +504,8 @@ class _$_ActionCableEventSubscribe<T> implements _ActionCableEventSubscribe<T> {
     TResult? Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult? Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult? Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult? Function(_ActionCableEventData<T> value)? data,
+    TResult? Function(_ActionCableEventError<T> value)? error,
   }) {
     return subscribe?.call(this);
   }
@@ -472,6 +518,8 @@ class _$_ActionCableEventSubscribe<T> implements _ActionCableEventSubscribe<T> {
     TResult Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult Function(_ActionCableEventData<T> value)? data,
+    TResult Function(_ActionCableEventError<T> value)? error,
     required TResult orElse(),
   }) {
     if (subscribe != null) {
@@ -534,6 +582,8 @@ class _$_ActionCableEventUnsubscribe<T>
     required TResult Function() unsubscribe,
     required TResult Function(String actionName, Map<String, dynamic> data)
         performAction,
+    required TResult Function(T data) data,
+    required TResult Function(String message) error,
   }) {
     return unsubscribe();
   }
@@ -547,6 +597,8 @@ class _$_ActionCableEventUnsubscribe<T>
     TResult? Function()? unsubscribe,
     TResult? Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult? Function(T data)? data,
+    TResult? Function(String message)? error,
   }) {
     return unsubscribe?.call();
   }
@@ -560,6 +612,8 @@ class _$_ActionCableEventUnsubscribe<T>
     TResult Function()? unsubscribe,
     TResult Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult Function(T data)? data,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (unsubscribe != null) {
@@ -578,6 +632,8 @@ class _$_ActionCableEventUnsubscribe<T>
         unsubscribe,
     required TResult Function(_ActionCableEventPerformAction<T> value)
         performAction,
+    required TResult Function(_ActionCableEventData<T> value) data,
+    required TResult Function(_ActionCableEventError<T> value) error,
   }) {
     return unsubscribe(this);
   }
@@ -590,6 +646,8 @@ class _$_ActionCableEventUnsubscribe<T>
     TResult? Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult? Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult? Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult? Function(_ActionCableEventData<T> value)? data,
+    TResult? Function(_ActionCableEventError<T> value)? error,
   }) {
     return unsubscribe?.call(this);
   }
@@ -602,6 +660,8 @@ class _$_ActionCableEventUnsubscribe<T>
     TResult Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult Function(_ActionCableEventData<T> value)? data,
+    TResult Function(_ActionCableEventError<T> value)? error,
     required TResult orElse(),
   }) {
     if (unsubscribe != null) {
@@ -709,8 +769,10 @@ class _$_ActionCableEventPerformAction<T>
     required TResult Function() unsubscribe,
     required TResult Function(String actionName, Map<String, dynamic> data)
         performAction,
+    required TResult Function(T data) data,
+    required TResult Function(String message) error,
   }) {
-    return performAction(actionName, data);
+    return performAction(actionName, this.data);
   }
 
   @override
@@ -722,8 +784,10 @@ class _$_ActionCableEventPerformAction<T>
     TResult? Function()? unsubscribe,
     TResult? Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult? Function(T data)? data,
+    TResult? Function(String message)? error,
   }) {
-    return performAction?.call(actionName, data);
+    return performAction?.call(actionName, this.data);
   }
 
   @override
@@ -735,10 +799,12 @@ class _$_ActionCableEventPerformAction<T>
     TResult Function()? unsubscribe,
     TResult Function(String actionName, Map<String, dynamic> data)?
         performAction,
+    TResult Function(T data)? data,
+    TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (performAction != null) {
-      return performAction(actionName, data);
+      return performAction(actionName, this.data);
     }
     return orElse();
   }
@@ -753,6 +819,8 @@ class _$_ActionCableEventPerformAction<T>
         unsubscribe,
     required TResult Function(_ActionCableEventPerformAction<T> value)
         performAction,
+    required TResult Function(_ActionCableEventData<T> value) data,
+    required TResult Function(_ActionCableEventError<T> value) error,
   }) {
     return performAction(this);
   }
@@ -765,6 +833,8 @@ class _$_ActionCableEventPerformAction<T>
     TResult? Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult? Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult? Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult? Function(_ActionCableEventData<T> value)? data,
+    TResult? Function(_ActionCableEventError<T> value)? error,
   }) {
     return performAction?.call(this);
   }
@@ -777,6 +847,8 @@ class _$_ActionCableEventPerformAction<T>
     TResult Function(_ActionCableEventSubscribe<T> value)? subscribe,
     TResult Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
     TResult Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult Function(_ActionCableEventData<T> value)? data,
+    TResult Function(_ActionCableEventError<T> value)? error,
     required TResult orElse(),
   }) {
     if (performAction != null) {
@@ -802,13 +874,355 @@ abstract class _ActionCableEventPerformAction<T>
 }
 
 /// @nodoc
+abstract class _$$_ActionCableEventDataCopyWith<T, $Res> {
+  factory _$$_ActionCableEventDataCopyWith(_$_ActionCableEventData<T> value,
+          $Res Function(_$_ActionCableEventData<T>) then) =
+      __$$_ActionCableEventDataCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T data});
+}
+
+/// @nodoc
+class __$$_ActionCableEventDataCopyWithImpl<T, $Res>
+    extends _$ActionCableEventCopyWithImpl<T, $Res, _$_ActionCableEventData<T>>
+    implements _$$_ActionCableEventDataCopyWith<T, $Res> {
+  __$$_ActionCableEventDataCopyWithImpl(_$_ActionCableEventData<T> _value,
+      $Res Function(_$_ActionCableEventData<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = freezed,
+  }) {
+    return _then(_$_ActionCableEventData<T>(
+      data: freezed == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ActionCableEventData<T> implements _ActionCableEventData<T> {
+  const _$_ActionCableEventData({required this.data});
+
+  @override
+  final T data;
+
+  @override
+  String toString() {
+    return 'ActionCableEvent<$T>.data(data: $data)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ActionCableEventData<T> &&
+            const DeepCollectionEquality().equals(other.data, data));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ActionCableEventDataCopyWith<T, _$_ActionCableEventData<T>>
+      get copyWith =>
+          __$$_ActionCableEventDataCopyWithImpl<T, _$_ActionCableEventData<T>>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() connect,
+    required TResult Function() disconnect,
+    required TResult Function() subscribe,
+    required TResult Function() unsubscribe,
+    required TResult Function(String actionName, Map<String, dynamic> data)
+        performAction,
+    required TResult Function(T data) data,
+    required TResult Function(String message) error,
+  }) {
+    return data(this.data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? connect,
+    TResult? Function()? disconnect,
+    TResult? Function()? subscribe,
+    TResult? Function()? unsubscribe,
+    TResult? Function(String actionName, Map<String, dynamic> data)?
+        performAction,
+    TResult? Function(T data)? data,
+    TResult? Function(String message)? error,
+  }) {
+    return data?.call(this.data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connect,
+    TResult Function()? disconnect,
+    TResult Function()? subscribe,
+    TResult Function()? unsubscribe,
+    TResult Function(String actionName, Map<String, dynamic> data)?
+        performAction,
+    TResult Function(T data)? data,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (data != null) {
+      return data(this.data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ActionCableEventConnect<T> value) connect,
+    required TResult Function(_ActionCableEventDisconnect<T> value) disconnect,
+    required TResult Function(_ActionCableEventSubscribe<T> value) subscribe,
+    required TResult Function(_ActionCableEventUnsubscribe<T> value)
+        unsubscribe,
+    required TResult Function(_ActionCableEventPerformAction<T> value)
+        performAction,
+    required TResult Function(_ActionCableEventData<T> value) data,
+    required TResult Function(_ActionCableEventError<T> value) error,
+  }) {
+    return data(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ActionCableEventConnect<T> value)? connect,
+    TResult? Function(_ActionCableEventDisconnect<T> value)? disconnect,
+    TResult? Function(_ActionCableEventSubscribe<T> value)? subscribe,
+    TResult? Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
+    TResult? Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult? Function(_ActionCableEventData<T> value)? data,
+    TResult? Function(_ActionCableEventError<T> value)? error,
+  }) {
+    return data?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ActionCableEventConnect<T> value)? connect,
+    TResult Function(_ActionCableEventDisconnect<T> value)? disconnect,
+    TResult Function(_ActionCableEventSubscribe<T> value)? subscribe,
+    TResult Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
+    TResult Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult Function(_ActionCableEventData<T> value)? data,
+    TResult Function(_ActionCableEventError<T> value)? error,
+    required TResult orElse(),
+  }) {
+    if (data != null) {
+      return data(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ActionCableEventData<T> implements ActionCableEvent<T> {
+  const factory _ActionCableEventData({required final T data}) =
+      _$_ActionCableEventData<T>;
+
+  T get data;
+  @JsonKey(ignore: true)
+  _$$_ActionCableEventDataCopyWith<T, _$_ActionCableEventData<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_ActionCableEventErrorCopyWith<T, $Res> {
+  factory _$$_ActionCableEventErrorCopyWith(_$_ActionCableEventError<T> value,
+          $Res Function(_$_ActionCableEventError<T>) then) =
+      __$$_ActionCableEventErrorCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$_ActionCableEventErrorCopyWithImpl<T, $Res>
+    extends _$ActionCableEventCopyWithImpl<T, $Res, _$_ActionCableEventError<T>>
+    implements _$$_ActionCableEventErrorCopyWith<T, $Res> {
+  __$$_ActionCableEventErrorCopyWithImpl(_$_ActionCableEventError<T> _value,
+      $Res Function(_$_ActionCableEventError<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_ActionCableEventError<T>(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ActionCableEventError<T> implements _ActionCableEventError<T> {
+  const _$_ActionCableEventError({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ActionCableEvent<$T>.error(message: $message)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_ActionCableEventError<T> &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ActionCableEventErrorCopyWith<T, _$_ActionCableEventError<T>>
+      get copyWith => __$$_ActionCableEventErrorCopyWithImpl<T,
+          _$_ActionCableEventError<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() connect,
+    required TResult Function() disconnect,
+    required TResult Function() subscribe,
+    required TResult Function() unsubscribe,
+    required TResult Function(String actionName, Map<String, dynamic> data)
+        performAction,
+    required TResult Function(T data) data,
+    required TResult Function(String message) error,
+  }) {
+    return error(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? connect,
+    TResult? Function()? disconnect,
+    TResult? Function()? subscribe,
+    TResult? Function()? unsubscribe,
+    TResult? Function(String actionName, Map<String, dynamic> data)?
+        performAction,
+    TResult? Function(T data)? data,
+    TResult? Function(String message)? error,
+  }) {
+    return error?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? connect,
+    TResult Function()? disconnect,
+    TResult Function()? subscribe,
+    TResult Function()? unsubscribe,
+    TResult Function(String actionName, Map<String, dynamic> data)?
+        performAction,
+    TResult Function(T data)? data,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ActionCableEventConnect<T> value) connect,
+    required TResult Function(_ActionCableEventDisconnect<T> value) disconnect,
+    required TResult Function(_ActionCableEventSubscribe<T> value) subscribe,
+    required TResult Function(_ActionCableEventUnsubscribe<T> value)
+        unsubscribe,
+    required TResult Function(_ActionCableEventPerformAction<T> value)
+        performAction,
+    required TResult Function(_ActionCableEventData<T> value) data,
+    required TResult Function(_ActionCableEventError<T> value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ActionCableEventConnect<T> value)? connect,
+    TResult? Function(_ActionCableEventDisconnect<T> value)? disconnect,
+    TResult? Function(_ActionCableEventSubscribe<T> value)? subscribe,
+    TResult? Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
+    TResult? Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult? Function(_ActionCableEventData<T> value)? data,
+    TResult? Function(_ActionCableEventError<T> value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ActionCableEventConnect<T> value)? connect,
+    TResult Function(_ActionCableEventDisconnect<T> value)? disconnect,
+    TResult Function(_ActionCableEventSubscribe<T> value)? subscribe,
+    TResult Function(_ActionCableEventUnsubscribe<T> value)? unsubscribe,
+    TResult Function(_ActionCableEventPerformAction<T> value)? performAction,
+    TResult Function(_ActionCableEventData<T> value)? data,
+    TResult Function(_ActionCableEventError<T> value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ActionCableEventError<T> implements ActionCableEvent<T> {
+  const factory _ActionCableEventError({required final String message}) =
+      _$_ActionCableEventError<T>;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$_ActionCableEventErrorCopyWith<T, _$_ActionCableEventError<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ActionCableState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() connected,
     required TResult Function() disconnected,
-    required TResult Function() error,
+    required TResult Function(String message) error,
     required TResult Function() subscribed,
     required TResult Function() unsubscribed,
     required TResult Function(Map<dynamic, dynamic> data) data,
@@ -819,7 +1233,7 @@ mixin _$ActionCableState<T> {
     TResult? Function()? initial,
     TResult? Function()? connected,
     TResult? Function()? disconnected,
-    TResult? Function()? error,
+    TResult? Function(String message)? error,
     TResult? Function()? subscribed,
     TResult? Function()? unsubscribed,
     TResult? Function(Map<dynamic, dynamic> data)? data,
@@ -830,7 +1244,7 @@ mixin _$ActionCableState<T> {
     TResult Function()? initial,
     TResult Function()? connected,
     TResult Function()? disconnected,
-    TResult Function()? error,
+    TResult Function(String message)? error,
     TResult Function()? subscribed,
     TResult Function()? unsubscribed,
     TResult Function(Map<dynamic, dynamic> data)? data,
@@ -937,7 +1351,7 @@ class _$_ActionCableStateInitial<T> implements _ActionCableStateInitial<T> {
     required TResult Function() initial,
     required TResult Function() connected,
     required TResult Function() disconnected,
-    required TResult Function() error,
+    required TResult Function(String message) error,
     required TResult Function() subscribed,
     required TResult Function() unsubscribed,
     required TResult Function(Map<dynamic, dynamic> data) data,
@@ -951,7 +1365,7 @@ class _$_ActionCableStateInitial<T> implements _ActionCableStateInitial<T> {
     TResult? Function()? initial,
     TResult? Function()? connected,
     TResult? Function()? disconnected,
-    TResult? Function()? error,
+    TResult? Function(String message)? error,
     TResult? Function()? subscribed,
     TResult? Function()? unsubscribed,
     TResult? Function(Map<dynamic, dynamic> data)? data,
@@ -965,7 +1379,7 @@ class _$_ActionCableStateInitial<T> implements _ActionCableStateInitial<T> {
     TResult Function()? initial,
     TResult Function()? connected,
     TResult Function()? disconnected,
-    TResult Function()? error,
+    TResult Function(String message)? error,
     TResult Function()? subscribed,
     TResult Function()? unsubscribed,
     TResult Function(Map<dynamic, dynamic> data)? data,
@@ -1075,7 +1489,7 @@ class _$_ActionCableStateConnected<T> implements _ActionCableStateConnected<T> {
     required TResult Function() initial,
     required TResult Function() connected,
     required TResult Function() disconnected,
-    required TResult Function() error,
+    required TResult Function(String message) error,
     required TResult Function() subscribed,
     required TResult Function() unsubscribed,
     required TResult Function(Map<dynamic, dynamic> data) data,
@@ -1089,7 +1503,7 @@ class _$_ActionCableStateConnected<T> implements _ActionCableStateConnected<T> {
     TResult? Function()? initial,
     TResult? Function()? connected,
     TResult? Function()? disconnected,
-    TResult? Function()? error,
+    TResult? Function(String message)? error,
     TResult? Function()? subscribed,
     TResult? Function()? unsubscribed,
     TResult? Function(Map<dynamic, dynamic> data)? data,
@@ -1103,7 +1517,7 @@ class _$_ActionCableStateConnected<T> implements _ActionCableStateConnected<T> {
     TResult Function()? initial,
     TResult Function()? connected,
     TResult Function()? disconnected,
-    TResult Function()? error,
+    TResult Function(String message)? error,
     TResult Function()? subscribed,
     TResult Function()? unsubscribed,
     TResult Function(Map<dynamic, dynamic> data)? data,
@@ -1214,7 +1628,7 @@ class _$_ActionCableStateDisconnected<T>
     required TResult Function() initial,
     required TResult Function() connected,
     required TResult Function() disconnected,
-    required TResult Function() error,
+    required TResult Function(String message) error,
     required TResult Function() subscribed,
     required TResult Function() unsubscribed,
     required TResult Function(Map<dynamic, dynamic> data) data,
@@ -1228,7 +1642,7 @@ class _$_ActionCableStateDisconnected<T>
     TResult? Function()? initial,
     TResult? Function()? connected,
     TResult? Function()? disconnected,
-    TResult? Function()? error,
+    TResult? Function(String message)? error,
     TResult? Function()? subscribed,
     TResult? Function()? unsubscribed,
     TResult? Function(Map<dynamic, dynamic> data)? data,
@@ -1242,7 +1656,7 @@ class _$_ActionCableStateDisconnected<T>
     TResult Function()? initial,
     TResult Function()? connected,
     TResult Function()? disconnected,
-    TResult Function()? error,
+    TResult Function(String message)? error,
     TResult Function()? subscribed,
     TResult Function()? unsubscribed,
     TResult Function(Map<dynamic, dynamic> data)? data,
@@ -1313,6 +1727,8 @@ abstract class _$$_ActionCableStateErrorCopyWith<T, $Res> {
   factory _$$_ActionCableStateErrorCopyWith(_$_ActionCableStateError<T> value,
           $Res Function(_$_ActionCableStateError<T>) then) =
       __$$_ActionCableStateErrorCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String message});
 }
 
 /// @nodoc
@@ -1322,27 +1738,51 @@ class __$$_ActionCableStateErrorCopyWithImpl<T, $Res>
   __$$_ActionCableStateErrorCopyWithImpl(_$_ActionCableStateError<T> _value,
       $Res Function(_$_ActionCableStateError<T>) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$_ActionCableStateError<T>(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_ActionCableStateError<T> implements _ActionCableStateError<T> {
-  const _$_ActionCableStateError();
+  const _$_ActionCableStateError({required this.message});
+
+  @override
+  final String message;
 
   @override
   String toString() {
-    return 'ActionCableState<$T>.error()';
+    return 'ActionCableState<$T>.error(message: $message)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableStateError<T>);
+            other is _$_ActionCableStateError<T> &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, message);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_ActionCableStateErrorCopyWith<T, _$_ActionCableStateError<T>>
+      get copyWith => __$$_ActionCableStateErrorCopyWithImpl<T,
+          _$_ActionCableStateError<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1350,12 +1790,12 @@ class _$_ActionCableStateError<T> implements _ActionCableStateError<T> {
     required TResult Function() initial,
     required TResult Function() connected,
     required TResult Function() disconnected,
-    required TResult Function() error,
+    required TResult Function(String message) error,
     required TResult Function() subscribed,
     required TResult Function() unsubscribed,
     required TResult Function(Map<dynamic, dynamic> data) data,
   }) {
-    return error();
+    return error(message);
   }
 
   @override
@@ -1364,12 +1804,12 @@ class _$_ActionCableStateError<T> implements _ActionCableStateError<T> {
     TResult? Function()? initial,
     TResult? Function()? connected,
     TResult? Function()? disconnected,
-    TResult? Function()? error,
+    TResult? Function(String message)? error,
     TResult? Function()? subscribed,
     TResult? Function()? unsubscribed,
     TResult? Function(Map<dynamic, dynamic> data)? data,
   }) {
-    return error?.call();
+    return error?.call(message);
   }
 
   @override
@@ -1378,14 +1818,14 @@ class _$_ActionCableStateError<T> implements _ActionCableStateError<T> {
     TResult Function()? initial,
     TResult Function()? connected,
     TResult Function()? disconnected,
-    TResult Function()? error,
+    TResult Function(String message)? error,
     TResult Function()? subscribed,
     TResult Function()? unsubscribed,
     TResult Function(Map<dynamic, dynamic> data)? data,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error();
+      return error(message);
     }
     return orElse();
   }
@@ -1440,7 +1880,13 @@ class _$_ActionCableStateError<T> implements _ActionCableStateError<T> {
 }
 
 abstract class _ActionCableStateError<T> implements ActionCableState<T> {
-  const factory _ActionCableStateError() = _$_ActionCableStateError<T>;
+  const factory _ActionCableStateError({required final String message}) =
+      _$_ActionCableStateError<T>;
+
+  String get message;
+  @JsonKey(ignore: true)
+  _$$_ActionCableStateErrorCopyWith<T, _$_ActionCableStateError<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1489,7 +1935,7 @@ class _$_ActionCableStateSubscribed<T>
     required TResult Function() initial,
     required TResult Function() connected,
     required TResult Function() disconnected,
-    required TResult Function() error,
+    required TResult Function(String message) error,
     required TResult Function() subscribed,
     required TResult Function() unsubscribed,
     required TResult Function(Map<dynamic, dynamic> data) data,
@@ -1503,7 +1949,7 @@ class _$_ActionCableStateSubscribed<T>
     TResult? Function()? initial,
     TResult? Function()? connected,
     TResult? Function()? disconnected,
-    TResult? Function()? error,
+    TResult? Function(String message)? error,
     TResult? Function()? subscribed,
     TResult? Function()? unsubscribed,
     TResult? Function(Map<dynamic, dynamic> data)? data,
@@ -1517,7 +1963,7 @@ class _$_ActionCableStateSubscribed<T>
     TResult Function()? initial,
     TResult Function()? connected,
     TResult Function()? disconnected,
-    TResult Function()? error,
+    TResult Function(String message)? error,
     TResult Function()? subscribed,
     TResult Function()? unsubscribed,
     TResult Function(Map<dynamic, dynamic> data)? data,
@@ -1629,7 +2075,7 @@ class _$_ActionCableStateUnsubscribed<T>
     required TResult Function() initial,
     required TResult Function() connected,
     required TResult Function() disconnected,
-    required TResult Function() error,
+    required TResult Function(String message) error,
     required TResult Function() subscribed,
     required TResult Function() unsubscribed,
     required TResult Function(Map<dynamic, dynamic> data) data,
@@ -1643,7 +2089,7 @@ class _$_ActionCableStateUnsubscribed<T>
     TResult? Function()? initial,
     TResult? Function()? connected,
     TResult? Function()? disconnected,
-    TResult? Function()? error,
+    TResult? Function(String message)? error,
     TResult? Function()? subscribed,
     TResult? Function()? unsubscribed,
     TResult? Function(Map<dynamic, dynamic> data)? data,
@@ -1657,7 +2103,7 @@ class _$_ActionCableStateUnsubscribed<T>
     TResult Function()? initial,
     TResult Function()? connected,
     TResult Function()? disconnected,
-    TResult Function()? error,
+    TResult Function(String message)? error,
     TResult Function()? subscribed,
     TResult Function()? unsubscribed,
     TResult Function(Map<dynamic, dynamic> data)? data,
@@ -1799,7 +2245,7 @@ class _$_ActionCableStateData<T> implements _ActionCableStateData<T> {
     required TResult Function() initial,
     required TResult Function() connected,
     required TResult Function() disconnected,
-    required TResult Function() error,
+    required TResult Function(String message) error,
     required TResult Function() subscribed,
     required TResult Function() unsubscribed,
     required TResult Function(Map<dynamic, dynamic> data) data,
@@ -1813,7 +2259,7 @@ class _$_ActionCableStateData<T> implements _ActionCableStateData<T> {
     TResult? Function()? initial,
     TResult? Function()? connected,
     TResult? Function()? disconnected,
-    TResult? Function()? error,
+    TResult? Function(String message)? error,
     TResult? Function()? subscribed,
     TResult? Function()? unsubscribed,
     TResult? Function(Map<dynamic, dynamic> data)? data,
@@ -1827,7 +2273,7 @@ class _$_ActionCableStateData<T> implements _ActionCableStateData<T> {
     TResult Function()? initial,
     TResult Function()? connected,
     TResult Function()? disconnected,
-    TResult Function()? error,
+    TResult Function(String message)? error,
     TResult Function()? subscribed,
     TResult Function()? unsubscribed,
     TResult Function(Map<dynamic, dynamic> data)? data,

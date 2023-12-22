@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/action_cable/blocs/action_cable_bloc.dart';
 import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
+import 'package:senpai/core/chat/blocs/room_subscriptions/room_subscription_bloc.dart';
 import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
@@ -56,27 +58,34 @@ class ChatPage extends StatelessWidget {
         BlocProvider<PendingMessagesBloc>(create: (_) => PendingMessagesBloc()),
         BlocProvider<MessageReactionBloc>(create: (_) => MessageReactionBloc()),
         BlocProvider<BottomSheetBloc>(create: (_) => BottomSheetBloc()),
+        BlocProvider<RoomSubscriptionsBloc>(
+            create: (_) => RoomSubscriptionsBloc()),
       ],
-      child: BlocListener<SendMessageBloc, MutationState>(
+      child: BlocListener<RoomSubscriptionsBloc, ActionCableState>(
         listener: (context, state) {
-          _handleSendMessageState(context, state);
+          _handleRoomSubscriptions(context, state);
         },
-        child: BlocListener<PendingMessagesBloc, PendingMessagesState>(
+        child: BlocListener<SendMessageBloc, MutationState>(
           listener: (context, state) {
-            _handlePendingMessages(context, state);
+            _handleSendMessageState(context, state);
           },
-          child: Scaffold(
-            body: SafeArea(
-              child: Stack(
-                children: [
-                  ChatContent(
-                    receipientUser: roomArgs.reciepient,
-                    currentUser: roomArgs.currentUser,
-                    roomCreationDate: roomArgs.createdDate,
-                    roomId: roomArgs.roomId,
-                  ),
-                  _buildFetchMessagesListeners(),
-                ],
+          child: BlocListener<PendingMessagesBloc, PendingMessagesState>(
+            listener: (context, state) {
+              _handlePendingMessages(context, state);
+            },
+            child: Scaffold(
+              body: SafeArea(
+                child: Stack(
+                  children: [
+                    ChatContent(
+                      receipientUser: roomArgs.reciepient,
+                      currentUser: roomArgs.currentUser,
+                      roomCreationDate: roomArgs.createdDate,
+                      roomId: roomArgs.roomId,
+                    ),
+                    _buildFetchMessagesListeners(),
+                  ],
+                ),
               ),
             ),
           ),
@@ -124,5 +133,28 @@ class ChatPage extends StatelessWidget {
         senderId: roomArgs.currentUser.id,
       );
     }
+  }
+
+  void _handleRoomSubscriptions(BuildContext context, ActionCableState state) {
+    final roomSubscriptionsBloc =
+        BlocProvider.of<RoomSubscriptionsBloc>(context);
+    final FetchMessagesBloc fetchMessagesBloc =
+        BlocProvider.of<FetchMessagesBloc>(context);
+    state.maybeWhen(
+      orElse: () {},
+      subscribed: () {
+        roomSubscriptionsBloc.enterRoom(roomArgs.roomId);
+      },
+      connected: () {
+        roomSubscriptionsBloc.subscribeToRoom();
+      },
+      data: (data) {
+        logIt.info("Room subscription data: $data");
+        fetchMessagesBloc.refetch();
+      },
+      error: (message) {
+        logIt.error("Room subscription error: $message");
+      },
+    );
   }
 }

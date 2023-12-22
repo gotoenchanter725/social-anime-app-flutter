@@ -8,7 +8,9 @@ class ActionCableState<T> with _$ActionCableState<T?> {
 
   const factory ActionCableState.disconnected() = _ActionCableStateDisconnected;
 
-  const factory ActionCableState.error() = _ActionCableStateError;
+  const factory ActionCableState.error({
+    required String message,
+  }) = _ActionCableStateError<T>;
 
   const factory ActionCableState.subscribed() = _ActionCableStateSubscribed;
 

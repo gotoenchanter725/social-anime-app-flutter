@@ -14,4 +14,12 @@ class ActionCableEvent<T> with _$ActionCableEvent<T> {
     required String actionName,
     required Map<String, dynamic> data,
   }) = _ActionCableEventPerformAction<T>;
+
+  const factory ActionCableEvent.data({
+    required T data,
+  }) = _ActionCableEventData<T>;
+
+  const factory ActionCableEvent.error({
+    required String message,
+  }) = _ActionCableEventError<T>;
 }

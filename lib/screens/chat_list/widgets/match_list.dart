@@ -17,7 +17,7 @@ class MatchList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<OnlineStatusBloc>(
-      create: (context) => OnlineStatusBloc()..connect(),
+      create: (context) => OnlineStatusBloc(),
       child: BlocBuilder<OnlineStatusBloc, ActionCableState>(
           builder: (context, state) {
         return SingleChildScrollView(
