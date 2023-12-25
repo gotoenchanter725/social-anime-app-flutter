@@ -1,3 +1,4 @@
+import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fresh_graphql/fresh_graphql.dart';
@@ -5,6 +6,7 @@ import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/auth/auth_model.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/screens/match/enums/match_enums.dart';
+import 'package:swipable_stack/swipable_stack.dart';
 
 part 'match_state.dart';
 part 'match_event.dart';
@@ -15,6 +17,9 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
   List<UserProfileModel> users = [];
   UserProfileModel userNow = UserProfileModel.initial();
   Swipe swipeUser = Swipe.none;
+
+  SwipableStackController cardSwipeController = SwipableStackController();
+  FlipCardController flipCardController = FlipCardController();
 
   int page = 1;
 
@@ -47,36 +52,60 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
     on<OnChangeViewUserEvent>((event, emit) {
       emit(LoadingState());
       if (event.index != 0) {
-        userNow = users[event.index - 1];
+        // userNow = users[event.index - 1];
+        userNow = users.last;
       }
-      users = users..removeAt(event.index);
+      // users = users..removeAt(event.index);
+      users = users..removeWhere((element) => element.id == users.last.id);
       emit(ValidState());
     });
 
     on<OnCancelUserEvent>((event, emit) {
       emit(LoadingState());
+      // cardSwipeController.next(swipeDirection: SwipeDirection.left);
       final selectedUserId = int.parse(userNow.id);
-      users = users..remove(userNow);
-      if (users.isNotEmpty) {
-        userNow = users.last;
-      }
-      if (users.length == 2) {
-        page += 1;
-      }
+      // users = users..remove(userNow);
+      // if (users.isNotEmpty) {
+      //   userNow = users.last;
+      // }
+      // if (users.length == 2) {
+      //   page += 1;
+      // }
       emit(NextUserState(swipe: Swipe.left, selectedUserId: selectedUserId));
     });
 
     on<OnLikeUserEvent>((event, emit) {
       emit(LoadingState());
+      // cardSwipeController.next(swipeDirection: SwipeDirection.right);
       final selectedUserId = int.parse(userNow.id);
-      users = users..remove(userNow);
-      if (users.isNotEmpty) {
-        userNow = users.last;
-      }
-      if (users.length == 2) {
-        page += 1;
-      }
+      // users = users..remove(userNow);
+      // if (users.isNotEmpty) {
+      //   userNow = users.last;
+      // }
+      // if (users.length == 2) {
+      //   page += 1;
+      // }
       emit(NextUserState(swipe: Swipe.right, selectedUserId: selectedUserId));
+    });
+
+
+    on<OnSuperLikeUserEvent>((event, emit) {
+      emit(LoadingState());
+      // flipCardController.toggleCard().whenComplete(() {
+      //   Future.delayed(Duration(milliseconds: 1500), () {
+      //     cardSwipeController.next(swipeDirection: SwipeDirection.up);
+      //   });
+      // });
+      // cardSwipeController.next(swipeDirection: SwipeDirection.up);
+      final selectedUserId = int.parse(userNow.id);
+      // users = users..remove(userNow);
+      // if (users.isNotEmpty) {
+      //   userNow = users.last;
+      // }
+      // if (users.length == 2) {
+      //   page += 1;
+      // }
+      emit(NextUserState(swipe: Swipe.up, selectedUserId: selectedUserId));
     });
 
     on<OnChangeSwipeUserEvent>((event, emit) {

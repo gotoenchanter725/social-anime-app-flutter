@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -9,6 +11,7 @@ class SenpaiMatchCircleButton extends StatelessWidget {
   final Widget? customIcon;
   final double? customPadding;
   final bool isReverceColor;
+  final bool isSuperLike;
 
   const SenpaiMatchCircleButton({
     super.key,
@@ -17,17 +20,21 @@ class SenpaiMatchCircleButton extends StatelessWidget {
     this.customIcon,
     this.customPadding,
     this.isReverceColor = false,
+    this.isSuperLike = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    log('super lke: $isSuperLike');
     return ElevatedButton(
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
         elevation: 0,
         backgroundColor: isReverceColor
-            ? $constants.palette.white
+            ? isSuperLike ? $constants.palette.gold
+            : $constants.palette.white
             : $constants.palette.lightBlue,
+        // backgroundColor: Colors.red,
         padding: const EdgeInsets.all(0),
       ),
       child: Container(

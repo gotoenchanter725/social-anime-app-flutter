@@ -95,6 +95,9 @@ dependencies:
   flutter_emoji: ^2.5.1
   shared_preferences: ^2.2.2
 
+  swipable_stack: ^2.0.0
+  flip_card: ^0.7.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

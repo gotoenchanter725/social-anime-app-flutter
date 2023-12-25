@@ -9,6 +9,7 @@ import 'package:senpai/core/app/app.dart';
 import 'package:senpai/core/sentry/sentry_module.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/i18n/strings.g.dart';
+import 'package:senpai/screens/match/page/match_page.dart';
 import 'package:senpai/theme/app_theme.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:universal_platform/universal_platform.dart';
@@ -36,6 +37,7 @@ Future<void> main() async {
         bundle: SentryAssetBundle(),
         child: TranslationProvider(
           child: MyApp(theme: theme),
+          // child: MatchPage(),
         ),
       ),
     );

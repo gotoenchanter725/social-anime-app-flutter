@@ -23,4 +23,4 @@ enum LikeType {
   }
 }
 
-enum Swipe { none, right, left }
+enum Swipe { none, right, left, up }
