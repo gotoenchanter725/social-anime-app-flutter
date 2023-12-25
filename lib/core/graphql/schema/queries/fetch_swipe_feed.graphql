@@ -32,6 +32,7 @@ query fetchFeed($params: FetchFeedInput!) {
       artistName
       coverUrl
       musicType
+      spotifyId
     }
   }
 }

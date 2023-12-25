@@ -1957,8 +1957,11 @@ class FetchFeed$Query$FetchFeed$FavoriteMusic extends JsonSerializable
 
   String? musicType;
 
+  String? spotifyId;
+
   @override
-  List<Object?> get props => [id, trackName, artistName, coverUrl, musicType];
+  List<Object?> get props =>
+      [id, trackName, artistName, coverUrl, musicType, spotifyId];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchFeed$Query$FetchFeed$FavoriteMusicToJson(this);
@@ -2210,8 +2213,11 @@ class FetchUser$Query$FetchUser$FavoriteMusic extends JsonSerializable
 
   String? artistName;
 
+  String? spotifyId;
+
   @override
-  List<Object?> get props => [id, coverUrl, musicType, trackName, artistName];
+  List<Object?> get props =>
+      [id, coverUrl, musicType, trackName, artistName, spotifyId];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchUser$Query$FetchUser$FavoriteMusicToJson(this);
@@ -5173,6 +5179,13 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
                 directives: [],
                 selectionSet: null,
               ),
+              FieldNode(
+                name: NameNode(value: 'spotifyId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
             ]),
           ),
         ]),
@@ -5496,6 +5509,13 @@ final FETCH_USER_QUERY_DOCUMENT = DocumentNode(definitions: [
               ),
               FieldNode(
                 name: NameNode(value: 'artistName'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'spotifyId'),
                 alias: null,
                 arguments: [],
                 directives: [],

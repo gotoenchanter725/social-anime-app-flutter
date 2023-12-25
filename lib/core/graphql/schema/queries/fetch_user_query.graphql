@@ -41,6 +41,7 @@ query fetchUser($userId: ID!) {
       musicType
       trackName
       artistName
+      spotifyId
     }
     premium
   }
