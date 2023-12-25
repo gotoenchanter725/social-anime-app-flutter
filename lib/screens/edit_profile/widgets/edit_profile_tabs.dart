@@ -27,6 +27,7 @@ class EditProfileTabs extends StatelessWidget {
               appBar: AppBar(
                 backgroundColor: $constants.palette.darkBlue,
                 automaticallyImplyLeading: false,
+                centerTitle: true,
                 title: const Text(TextConstants.editProfileButton),
                 titleTextStyle: getTextTheme(context).titleMedium!.copyWith(
                       fontSize: 18,
