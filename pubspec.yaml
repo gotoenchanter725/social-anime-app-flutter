@@ -92,6 +92,9 @@ dependencies:
   geolocator: ^10.0.1
   camera: ^0.10.5+5
 
+  swipable_stack: ^2.0.0
+  flip_card: ^0.7.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

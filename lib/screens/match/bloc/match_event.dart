@@ -19,6 +19,8 @@ class OnCancelUserEvent extends MatchEvent {}
 
 class OnLikeUserEvent extends MatchEvent {}
 
+class OnSuperLikeUserEvent extends MatchEvent {}
+
 class OnChangeSwipeUserEvent extends MatchEvent {
   final Swipe swipe;
 

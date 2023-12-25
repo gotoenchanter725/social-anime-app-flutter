@@ -9,6 +9,7 @@ import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/enums/match_enums.dart';
 import 'package:senpai/screens/preview_profile/widgets/senpai_match_circle_button.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:swipable_stack/swipable_stack.dart';
 
 class MatchBottomContainer extends StatelessWidget {
   const MatchBottomContainer({super.key});
@@ -97,8 +98,16 @@ class MatchBottomContainer extends StatelessWidget {
               BlendMode.srcIn,
             ),
           ),
+          isReverceColor: bloc.swipeUser == Swipe.up,
+          isSuperLike: bloc.swipeUser == Swipe.up,
           onTap: () async {
             // todo change it
+            bloc.flipCardController.toggleCard().whenComplete(() {
+              Future.delayed(Duration(milliseconds: 1500), () {
+                bloc.cardSwipeController.next(swipeDirection: SwipeDirection.up);
+              });
+            });
+            bloc.add(OnSuperLikeUserEvent());
             // context.router
             //     .push(MatchUsersRoute(likeUserModel: LikeUserModel.initial()));
           },
@@ -112,7 +121,7 @@ class MatchBottomContainer extends StatelessWidget {
               onTap: () => bloc.add(OnChangePageEvent(isRefresh: true)),
             ),
             SizedBox(width: $constants.insets.md),
-            _buildLogoBox(),
+            Flexible(child: _buildLogoBox()),
             SizedBox(width: $constants.insets.md),
             SenpaiMatchCircleButton(
               onTap: () async {
@@ -151,6 +160,7 @@ class MatchBottomContainer extends StatelessWidget {
         SenpaiMatchCircleButton(
           icon: PathConstants.closeIcon,
           onTap: () {
+            bloc.cardSwipeController.next(swipeDirection: SwipeDirection.left);
             bloc.add(OnCancelUserEvent());
           },
           customPadding: $constants.insets.xs,
@@ -160,6 +170,7 @@ class MatchBottomContainer extends StatelessWidget {
         SenpaiMatchCircleButton(
           icon: PathConstants.matchIcon,
           onTap: () {
+            bloc.cardSwipeController.next(swipeDirection: SwipeDirection.right);
             bloc.add(OnLikeUserEvent());
           },
           isReverceColor: bloc.swipeUser == Swipe.right,
