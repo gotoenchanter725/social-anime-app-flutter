@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/models/graphql_api.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 
 @injectable
 class SignInBloc extends MutationBloc<SignIn$Mutation> {
@@ -24,5 +26,19 @@ class SignInBloc extends MutationBloc<SignIn$Mutation> {
         SignInArguments(input: SignInInput(token: token)).toJson();
 
     run(variables);
+  }
+
+  bool signInUser(StackRouter router, dynamic data) {
+    if (data == null) {
+      // handle this fatal error
+      logIt.wtf("A successful empty response just got recorded");
+      return false;
+    }
+
+    String id = data["signIn"]["user"]["id"];
+    String phone = data["signIn"]["user"]["phone"];
+    logIt.info("signed in user of id $id and phone $phone");
+
+    return true;
   }
 }

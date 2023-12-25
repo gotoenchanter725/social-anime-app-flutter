@@ -1,0 +1,8 @@
+mutation updateMessage($input: UpdateMessageInput!) {
+  updateMessage(input: $input) {
+    message {
+      id
+      reaction
+    }
+  }
+}

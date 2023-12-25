@@ -6,5 +6,6 @@
   "debugApiClient": false,
   "graphApiUrl": "https://staging.senpaiapp.com/graphql",
   "httpApiUrl": "https://staging.senpaiapp.com",
-  "httpApiUrlUniversities": "http://universities.hipolabs.com"
+  "httpApiUrlUniversities": "http://universities.hipolabs.com",
+  "webSocketUrl": "wss://staging.senpaiapp.com/cable"
 }

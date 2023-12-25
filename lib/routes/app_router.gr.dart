@@ -22,9 +22,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ChatRoute.name: (routeData) {
+      final args = routeData.argsAs<ChatRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ChatPage(),
+        child: ChatPage(
+          key: args.key,
+          roomArgs: args.roomArgs,
+        ),
       );
     },
     EntryRoute.name: (routeData) {
@@ -95,6 +99,16 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ProfilePage(),
+      );
+    },
+    SearchChatListRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchChatListRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SearchChatListPage(
+          key: args.key,
+          categorizedConversations: args.categorizedConversations,
+        ),
       );
     },
     SenpaiLicenseRoute.name: (routeData) {
@@ -188,16 +202,39 @@ class ChatListRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ChatPage]
-class ChatRoute extends PageRouteInfo<void> {
-  const ChatRoute({List<PageRouteInfo>? children})
-      : super(
+class ChatRoute extends PageRouteInfo<ChatRouteArgs> {
+  ChatRoute({
+    Key? key,
+    required ChatRoomParams roomArgs,
+    List<PageRouteInfo>? children,
+  }) : super(
           ChatRoute.name,
+          args: ChatRouteArgs(
+            key: key,
+            roomArgs: roomArgs,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ChatRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ChatRouteArgs> page = PageInfo<ChatRouteArgs>(name);
+}
+
+class ChatRouteArgs {
+  const ChatRouteArgs({
+    this.key,
+    required this.roomArgs,
+  });
+
+  final Key? key;
+
+  final ChatRoomParams roomArgs;
+
+  @override
+  String toString() {
+    return 'ChatRouteArgs{key: $key, roomArgs: $roomArgs}';
+  }
 }
 
 /// generated route for
@@ -416,6 +453,44 @@ class ProfileRoute extends PageRouteInfo<void> {
   static const String name = 'ProfileRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SearchChatListPage]
+class SearchChatListRoute extends PageRouteInfo<SearchChatListRouteArgs> {
+  SearchChatListRoute({
+    Key? key,
+    required CategorizedConversations categorizedConversations,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SearchChatListRoute.name,
+          args: SearchChatListRouteArgs(
+            key: key,
+            categorizedConversations: categorizedConversations,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchChatListRoute';
+
+  static const PageInfo<SearchChatListRouteArgs> page =
+      PageInfo<SearchChatListRouteArgs>(name);
+}
+
+class SearchChatListRouteArgs {
+  const SearchChatListRouteArgs({
+    this.key,
+    required this.categorizedConversations,
+  });
+
+  final Key? key;
+
+  final CategorizedConversations categorizedConversations;
+
+  @override
+  String toString() {
+    return 'SearchChatListRouteArgs{key: $key, categorizedConversations: $categorizedConversations}';
+  }
 }
 
 /// generated route for

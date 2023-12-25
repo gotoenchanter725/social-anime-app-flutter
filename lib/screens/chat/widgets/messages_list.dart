@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:senpai/core/widgets/user_avator.dart';
-import 'package:senpai/data/mock_chat_messages_data.dart';
 import 'package:senpai/models/chat/chat_message.dart';
-import 'package:senpai/utils/constants.dart';
+import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/screens/chat/widgets/incoming_message.dart';
+import 'package:senpai/screens/chat/widgets/outgoing_message.dart';
+import 'package:senpai/screens/chat/widgets/system_message.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class MessagesList extends StatelessWidget {
-  MessagesList({super.key});
+  const MessagesList({
+    super.key,
+    required this.messages,
+    required this.currentUser,
+    required this.recieverUser,
+  });
 
-  final List<ChatMessage> messages = mockConversation;
+  final List<ChatMessage> messages;
 
-  final String currentUserId = 'user1';
+  final User currentUser;
 
-  final String recieverUserId = 'user2';
+  final User recieverUser;
 
   @override
   Widget build(BuildContext context) {
@@ -41,174 +47,22 @@ class MessagesList extends StatelessWidget {
               .format(message.timestamp)
               .contains(DateFormat('yyyy-MM-dd').format(messageDate))) {
         messageDate = message.timestamp;
-        messageWidgets.add(_buildSystemMessage(
-            context,
-            ChatMessage(
+        messageWidgets.add(SystemMessage(
+            message: ChatMessage(
                 id: "SYSTEM",
                 senderId: "SENPAI_SYSTEM_MESSAGE",
                 text: formatSystemDateTimeDisplay(message.timestamp),
                 timestamp: message.timestamp)));
       }
 
-      if (message.senderId == currentUserId) {
-        messageWidgets.add(_buildCurrentUserMessage(context, message));
+      if (message.senderId == currentUser.id) {
+        messageWidgets.add(OutgoingMessage(message: message));
       } else {
-        messageWidgets.add(_buildRecieverMessage(context, message));
+        messageWidgets
+            .add(IncomingMessage(message: message, user: recieverUser));
       }
     }
 
     return messageWidgets;
-  }
-
-  Widget _buildCurrentUserMessage(BuildContext context, ChatMessage message) {
-    return Padding(
-      padding: EdgeInsets.only(top: $constants.insets.md),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const UserAvatar(
-            imageUrl:
-                "https://images.pexels.com/photos/6426224/pexels-photo-6426224.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-            size: 40,
-          ),
-          const SizedBox(
-            width: 8,
-          ),
-          _buildCurrentUserMessageContent(context, message)
-        ],
-      ),
-    );
-  }
-
-  Widget _buildRecieverMessage(BuildContext context, ChatMessage message) {
-    return Padding(
-      padding: EdgeInsets.only(top: $constants.insets.md),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          _buildRecieverMessageContent(context, message),
-          const SizedBox(
-            width: 8,
-          ),
-          const UserAvatar(
-            imageUrl:
-                "https://images.pexels.com/photos/5226193/pexels-photo-5226193.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-            size: 40,
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildCurrentUserMessageContent(
-      BuildContext context, ChatMessage message) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: $constants.palette.lightBlue,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular($constants.corners.lg),
-              topRight: Radius.circular($constants.corners.lg),
-              bottomLeft: Radius.zero,
-              bottomRight: Radius.circular($constants.corners.lg),
-            ),
-          ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: $constants.insets.sm,
-                vertical: $constants.insets.xs),
-            child: Text(
-              message.text,
-              style: getTextTheme(context).bodySmall!.copyWith(
-                    color: $constants.palette.white,
-                    letterSpacing: 0,
-                  ),
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 4,
-        ),
-        Text(
-          DateFormat('hh:mm').format(message.timestamp),
-          style: getTextTheme(context)
-              .labelMedium!
-              .copyWith(color: $constants.palette.grey),
-        )
-      ],
-    );
-  }
-
-  Widget _buildRecieverMessageContent(
-      BuildContext context, ChatMessage message) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: $constants.palette.lightBlue,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular($constants.corners.lg),
-              topRight: Radius.circular($constants.corners.lg),
-              bottomRight: Radius.zero,
-              bottomLeft: Radius.circular($constants.corners.lg),
-            ),
-          ),
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: $constants.insets.sm,
-                vertical: $constants.insets.xs),
-            child: Text(
-              message.text,
-              style: getTextTheme(context).bodySmall!.copyWith(
-                    color: $constants.palette.white,
-                    letterSpacing: 0,
-                  ),
-            ),
-          ),
-        ),
-        const SizedBox(
-          height: 4,
-        ),
-        Text(
-          DateFormat('hh:mm').format(message.timestamp),
-          style: getTextTheme(context)
-              .labelMedium!
-              .copyWith(color: $constants.palette.grey),
-        )
-      ],
-    );
-  }
-
-  Widget _buildSystemMessage(BuildContext context, ChatMessage message) {
-    return Padding(
-      padding: EdgeInsets.only(top: $constants.insets.sm),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              color: $constants.palette.lightBlue,
-              borderRadius: BorderRadius.circular($constants.corners.lg),
-            ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: $constants.insets.sm,
-                  vertical: $constants.insets.xs),
-              child: Text(
-                message.text,
-                style: getTextTheme(context).labelMedium!.copyWith(
-                      color: $constants.palette.grey,
-                      letterSpacing: 0,
-                    ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
   }
 }

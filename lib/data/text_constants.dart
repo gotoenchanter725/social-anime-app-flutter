@@ -82,6 +82,24 @@ class TextConstants {
   static const String firstNameText = "First Name";
   static const String nextText = "Next";
 
+  // -> Chat List
+  static const String conversationsDataErrorText =
+      "Failed to get conversations from the server";
+  static const String emptyConversationsPromptText = "Start liking";
+  static const String emptyConversationsText =
+      "When you match with other users they will appear here";
+  static const String emptyChatTitle = "You matched with";
+  static const String emptyChatPromptText = "Don't wait too long, say hello :)";
+
+  // -> Search Chat List
+  static const String cancelSearchText = "Cancel";
+  static const String emptySearchConversationsHintText =
+      "Try to search your matches or chats";
+  static const String emptyConversationSearchPromptText =
+      "Oops. No matches found";
+  static const String emptyConversationSearchText =
+      "Maybe there is a mistake in search?\n Please check and try again";
+
   // Chat
   static const String searchHintText = "Search chat or match";
   static const String matchesTitle = "Matches";
@@ -89,6 +107,11 @@ class TextConstants {
   static const String chatInputHint = 'Send message...';
   static const String invalidFirstNameError =
       "Invalid first name. Please try again";
+  static const String userOnlineText = "Active now";
+  static const String userOfflineText = "Active recently";
+  static const String failedToSendMessageText = "Failed to send message";
+  static const String failedToUpdateMessageText =
+      "Failed to add reaction to message";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";
@@ -320,4 +343,12 @@ class TextConstants {
   static const String notForYouTitle = "Not for you?";
   static const String swipeRightDescription = "Swipe right if you like it";
   static const String swipeLeftDescription = "Swipe left if not";
+
+  // -> ActionCable Error Messages
+  static const String actionCableConnectionError =
+      "Connection is lost. Please check your internet connection";
+  static const String actionCableCannotConnectError =
+      "Cannot establish a connection. Please check your internet connection";
+  static const String actionCableAuthError =
+      "User is not authorized. Please sign in again";
 }

@@ -19,6 +19,7 @@ class EnvModel with _$EnvModel {
     required String graphApiUrl,
     required String httpApiUrl,
     required String httpApiUrlUniversities,
+    required String webSocketUrl,
   }) = _EnvModel;
 
   EnvModel._();

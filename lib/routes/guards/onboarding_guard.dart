@@ -1,29 +1,31 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:senpai/routes/app_router.dart';
 
 class ExistingUserGuard extends AutoRouteGuard {
-  Future<bool> isFirstVisit() async {
-    const storage = FlutterSecureStorage();
-    final firstVisit = await storage.read(key: 'first_visit');
-    return firstVisit == null;
+  // A method to check if the app has been opened before.
+  Future<bool> hasOpenedAppBefore() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('hasOpenedAppBefore') ?? false;
   }
 
-  Future<void> setFirstVisit() async {
-    const storage = FlutterSecureStorage();
-    await storage.write(key: 'first_visit', value: 'visited');
+  // A method to mark the app as opened.
+  Future<void> markAppAsOpened() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('hasOpenedAppBefore', true);
   }
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) async {
-    final isNewUser = await isFirstVisit();
+    final hasOpenedBefore = await hasOpenedAppBefore();
 
-    if (isNewUser) {
-      await setFirstVisit();
+    if (!hasOpenedBefore) {
+      // If the app hasn't been opened before, mark it as opened and proceed.
+      await markAppAsOpened();
       resolver.next(true);
     } else {
-      await router.push(const EntryRoute());
-      resolver.next(true);
+      // If the app has been opened before, redirect to the EntryRoute.
+      await router.replaceAll([const EntryRoute()]);
     }
   }
 }

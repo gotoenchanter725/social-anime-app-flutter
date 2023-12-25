@@ -28,6 +28,12 @@ class PathConstants {
   static const String chatIcon = 'assets/icons/chat.svg';
   static const String profileIcon = 'assets/icons/profile.svg';
 
+  // chat list
+  static const String emptyConversationsImage =
+      'assets/images/chat/empty_conversations.png';
+  static const String emptySearchConversationImage =
+      'assets/images/chat/empty_conversation_search.png';
+
   // chat
   static const String crownIcon = 'assets/icons/crown.svg';
   static const String sendIcon = 'assets/icons/up.svg';
