@@ -72,14 +72,20 @@ class PhotosPage extends StatelessWidget {
                 return const SizedBox.shrink();
               } else {
                 final bloc = BlocProvider.of<PhotosBloc>(context);
-                List<dynamic>? photos =
-                    result.data!["fetchUser"]["gallery"]["photos"];
-                List<UploadPhotoModel> uploadPhotos = [];
-                if (photos != null && photos.isNotEmpty) {
-                  uploadPhotos =
-                      photos.map((e) => UploadPhotoModel.fromJson(e)).toList();
+                dynamic gallery = result.data!["fetchUser"]["gallery"];
+                if (gallery != null) {
+                  List<dynamic>? photos =
+                      result.data!["fetchUser"]["gallery"]["photos"];
+                  List<UploadPhotoModel> uploadPhotos = [];
+                  if (photos != null && photos.isNotEmpty) {
+                    uploadPhotos = photos
+                        .map((e) => UploadPhotoModel.fromJson(e))
+                        .toList();
+                  }
+                  bloc.add(OnChangeUploadedPhotosFromServerEvent(uploadPhotos));
+                } else {
+                  return const SizedBox.shrink();
                 }
-                bloc.add(OnChangeUploadedPhotosFromServerEvent(uploadPhotos));
               }
               return const SizedBox.shrink();
             },
