@@ -171,7 +171,7 @@ class EditProfilePage extends StatelessWidget {
               List<dynamic>? photos =
                   response["uploadPhoto"]["user"]["gallery"]["photos"];
               if (photos == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, TextConstants.noPhotoFoundText);
                 logIt.error("A user without photos");
                 return const SizedBox.shrink();
               }
@@ -207,7 +207,7 @@ class EditProfilePage extends StatelessWidget {
               List<dynamic>? photos =
                   response["deletePhoto"]["gallery"]["photos"];
               if (photos == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, TextConstants.noPhotoFoundText);
                 logIt.error("A user without photos");
                 return const SizedBox.shrink();
               }
