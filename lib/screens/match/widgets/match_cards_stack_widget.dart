@@ -101,6 +101,17 @@ class _MatchCardsStackWidgetState extends State<MatchCardsStackWidget> {
                     controller: bloc.cardSwipeController,
                     stackClipBehaviour: Clip.none,
                     onSwipeCompleted: (index, direction) {
+                    //TODO: Uncommented for Herbert to check.
+                      if (direction == SwipeDirection.left) {
+                        print('-------------OnCancelUserEvent $direction');
+                        bloc.add(OnCancelUserEvent());
+                      } else if (direction == SwipeDirection.right) {
+                        print('-------------OnLikeUserEvent $direction');
+                        bloc.add(OnLikeUserEvent());
+                          //TODO: superLike ?
+                        // } else if (direction == SwipeDirection.up) {
+                        //   print('-------------SwipeDirection up$direction');
+                      }
                       // if(direction == SwipeDirection.left) {
                       //   // bloc.add(OnCancelUserEvent());
                       // } else if(direction == SwipeDirection.right) {
