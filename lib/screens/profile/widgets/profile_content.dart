@@ -10,6 +10,7 @@ import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/screens/profile/widgets/profile_header.dart';
 import 'package:senpai/screens/premium_screen/widgets/profile_premium_widget.dart';
+import 'package:senpai/screens/profile/widgets/profile_photo_verify_widget.dart';
 
 import 'package:senpai/utils/constants.dart';
 
@@ -60,19 +61,7 @@ class ProfileContent extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   child: Column(
                     children: [
-                      if (bloc.user.verified != true)
-                        ProfileListTileButton(
-                          icon: PathConstants.verifyFaceIcon,
-                          title: TextConstants.verifyYourPhotosButton,
-                          onTap: () async {
-                            await context.router.push(
-                              VerifyPhotoRoute(
-                                userID: int.tryParse(bloc.userID),
-                              ),
-                            );
-                          },
-                          hasBorder: true,
-                        ),
+                      const ProfilePhotoVerifyWidget(),
                       SizedBox(height: $constants.insets.xs),
                       ProfileListTileButton(
                         icon: PathConstants.pencilIcon,
