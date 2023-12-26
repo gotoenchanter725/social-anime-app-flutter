@@ -56,7 +56,7 @@ class ProfileContent extends StatelessWidget {
               ),
               ProfileHeader(
                 avatar: isUserHasPhotos
-                    ? bloc.user.gallery!.photos.last.url ?? ''
+                    ? bloc.user.gallery!.photos.first.url ?? ''
                     : '',
                 name: bloc.user.firstName ?? '',
                 birthday: bloc.user.birthday,
