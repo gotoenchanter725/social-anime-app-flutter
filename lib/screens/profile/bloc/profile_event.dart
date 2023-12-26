@@ -12,3 +12,8 @@ class OnFetchUser extends ProfileEvent {
 class OnInitUserID extends ProfileEvent {
   OnInitUserID();
 }
+
+class OnChangeUserStatus extends ProfileEvent {
+  final bool isPendingUserStatus;
+  OnChangeUserStatus(this.isPendingUserStatus);
+}
