@@ -17,6 +17,7 @@ import 'profile_list_tile_button.dart';
 class ProfilePhotoVerifyWidget extends StatelessWidget {
   const ProfilePhotoVerifyWidget({super.key});
 
+  // TODO : change after push notification (its show when user answe in push)
   void _verifyPhotoDialog(BuildContext context, bool isVerified) {
     final bloc = BlocProvider.of<ProfileBloc>(context);
 
@@ -56,13 +57,10 @@ class ProfilePhotoVerifyWidget extends StatelessWidget {
           return const SizedBox();
         }
         if (bloc.user.verified != true && bloc.isPendingUserStatus) {
-          return ProfileListTileButton(
+          return const ProfileListTileButton(
             icon: PathConstants.alarmIcon,
             title: TextConstants.waitingForPhotoVerificationTitle,
             hasBorder: false,
-            onTap: () {
-              _verifyPhotoDialog(context, false);
-            },
           );
         } else {
           return ProfileListTileButton(
