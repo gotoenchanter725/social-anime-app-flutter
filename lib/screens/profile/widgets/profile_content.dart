@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
+import 'package:senpai/core/user/blocs/verify_request_user/fetch_verify_requests.dart';
 
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
@@ -28,6 +29,12 @@ class ProfileContent extends StatelessWidget {
         if (state is ProfileInitial && bloc.userID.isNotEmpty) {
           final fetchUserBloc = BlocProvider.of<FetchUserBloc>(context);
           fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
+
+          final fetchVerifyRequestsBloc =
+              BlocProvider.of<FetchVerifyRequestsBloc>(context);
+          fetchVerifyRequestsBloc.fetchVerifyRequests(
+            userId: int.parse(bloc.userID),
+          );
         }
       },
       builder: (context, state) {
