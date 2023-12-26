@@ -56,7 +56,7 @@ class _EditProfileInputWidgetState extends State<EditProfileInputWidget> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (widget.maxLines != 1) ...{
-                      const SizedBox(height: 16),
+                      SizedBox(height: $constants.insets.sm),
                       _buildPrefixWidget(),
                     },
                     Row(
@@ -64,6 +64,13 @@ class _EditProfileInputWidgetState extends State<EditProfileInputWidget> {
                         if (widget.maxLines == 1) _buildPrefixWidget(),
                         Flexible(
                           child: TextField(
+                            buildCounter: (
+                              BuildContext context, {
+                              required int currentLength,
+                              required int? maxLength,
+                              required bool isFocused,
+                            }) =>
+                                _buildCounterWidget(currentLength),
                             textAlign: widget.maxLines == 1
                                 ? TextAlign.end
                                 : TextAlign.start,
@@ -119,6 +126,21 @@ class _EditProfileInputWidgetState extends State<EditProfileInputWidget> {
             ),
       ),
     );
+  }
+
+  Widget? _buildCounterWidget(int currentLength) {
+    if (widget.maxLines != 1) {
+      return Padding(
+        padding: EdgeInsets.only(bottom: $constants.insets.xs),
+        child: Text(
+          '$currentLength',
+          style: getTextTheme(context).labelMedium?.copyWith(
+                color: $constants.palette.darkGrey,
+              ),
+        ),
+      );
+    }
+    return null;
   }
 
   Widget _createError(BuildContext context) {
