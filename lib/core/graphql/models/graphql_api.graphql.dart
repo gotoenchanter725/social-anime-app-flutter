@@ -1558,76 +1558,6 @@ class SetUserLocationInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UndoLike$Mutation$UndoLike$UndidUser extends JsonSerializable
-    with EquatableMixin {
-  UndoLike$Mutation$UndoLike$UndidUser();
-
-  factory UndoLike$Mutation$UndoLike$UndidUser.fromJson(
-          Map<String, dynamic> json) =>
-      _$UndoLike$Mutation$UndoLike$UndidUserFromJson(json);
-
-  late String id;
-
-  @override
-  List<Object?> get props => [id];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$UndoLike$Mutation$UndoLike$UndidUserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UndoLike$Mutation$UndoLike extends JsonSerializable with EquatableMixin {
-  UndoLike$Mutation$UndoLike();
-
-  factory UndoLike$Mutation$UndoLike.fromJson(Map<String, dynamic> json) =>
-      _$UndoLike$Mutation$UndoLikeFromJson(json);
-
-  late String status;
-
-  UndoLike$Mutation$UndoLike$UndidUser? undidUser;
-
-  @override
-  List<Object?> get props => [status, undidUser];
-  @override
-  Map<String, dynamic> toJson() => _$UndoLike$Mutation$UndoLikeToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UndoLike$Mutation extends JsonSerializable with EquatableMixin {
-  UndoLike$Mutation();
-
-  factory UndoLike$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$UndoLike$MutationFromJson(json);
-
-  UndoLike$Mutation$UndoLike? undoLike;
-
-  @override
-  List<Object?> get props => [undoLike];
-  @override
-  Map<String, dynamic> toJson() => _$UndoLike$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UndoLikeInput extends JsonSerializable with EquatableMixin {
-  UndoLikeInput({
-    this.clientMutationId,
-    required this.userId,
-  });
-
-  factory UndoLikeInput.fromJson(Map<String, dynamic> json) =>
-      _$UndoLikeInputFromJson(json);
-
-  String? clientMutationId;
-
-  late String userId;
-
-  @override
-  List<Object?> get props => [clientMutationId, userId];
-  @override
-  Map<String, dynamic> toJson() => _$UndoLikeInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
 class UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos
     extends JsonSerializable with EquatableMixin {
   UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos();
@@ -2762,6 +2692,111 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [fetchStickers];
   @override
   Map<String, dynamic> toJson() => _$FetchStickers$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLike$Mutation$UndoLike$UndidUser extends JsonSerializable
+    with EquatableMixin {
+  UndoLike$Mutation$UndoLike$UndidUser();
+
+  factory UndoLike$Mutation$UndoLike$UndidUser.fromJson(
+          Map<String, dynamic> json) =>
+      _$UndoLike$Mutation$UndoLike$UndidUserFromJson(json);
+
+  late String id;
+
+  @override
+  List<Object?> get props => [id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$UndoLike$Mutation$UndoLike$UndidUserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLike$Mutation$UndoLike extends JsonSerializable with EquatableMixin {
+  UndoLike$Mutation$UndoLike();
+
+  factory UndoLike$Mutation$UndoLike.fromJson(Map<String, dynamic> json) =>
+      _$UndoLike$Mutation$UndoLikeFromJson(json);
+
+  late String status;
+
+  UndoLike$Mutation$UndoLike$UndidUser? undidUser;
+
+  @override
+  List<Object?> get props => [status, undidUser];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLike$Mutation$UndoLikeToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLike$Mutation extends JsonSerializable with EquatableMixin {
+  UndoLike$Mutation();
+
+  factory UndoLike$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$UndoLike$MutationFromJson(json);
+
+  UndoLike$Mutation$UndoLike? undoLike;
+
+  @override
+  List<Object?> get props => [undoLike];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLike$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLikeInput extends JsonSerializable with EquatableMixin {
+  UndoLikeInput({
+    this.clientMutationId,
+    required this.userId,
+  });
+
+  factory UndoLikeInput.fromJson(Map<String, dynamic> json) =>
+      _$UndoLikeInputFromJson(json);
+
+  String? clientMutationId;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [clientMutationId, userId];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLikeInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchVerifyRequests$Query$FetchVerifyRequests extends JsonSerializable
+    with EquatableMixin {
+  FetchVerifyRequests$Query$FetchVerifyRequests();
+
+  factory FetchVerifyRequests$Query$FetchVerifyRequests.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchVerifyRequests$Query$FetchVerifyRequestsFromJson(json);
+
+  late int userId;
+
+  late String status;
+
+  @override
+  List<Object?> get props => [userId, status];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchVerifyRequests$Query$FetchVerifyRequestsToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchVerifyRequests$Query extends JsonSerializable with EquatableMixin {
+  FetchVerifyRequests$Query();
+
+  factory FetchVerifyRequests$Query.fromJson(Map<String, dynamic> json) =>
+      _$FetchVerifyRequests$QueryFromJson(json);
+
+  late List<FetchVerifyRequests$Query$FetchVerifyRequests> fetchVerifyRequests;
+
+  @override
+  List<Object?> get props => [fetchVerifyRequests];
+  @override
+  Map<String, dynamic> toJson() => _$FetchVerifyRequests$QueryToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -4503,99 +4538,6 @@ class SetUserLocationMutation
 }
 
 @JsonSerializable(explicitToJson: true)
-class UndoLikeArguments extends JsonSerializable with EquatableMixin {
-  UndoLikeArguments({required this.input});
-
-  @override
-  factory UndoLikeArguments.fromJson(Map<String, dynamic> json) =>
-      _$UndoLikeArgumentsFromJson(json);
-
-  late UndoLikeInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$UndoLikeArgumentsToJson(this);
-}
-
-final UNDO_LIKE_MUTATION_DOCUMENT_OPERATION_NAME = 'undoLike';
-final UNDO_LIKE_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'undoLike'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'UndoLikeInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'undoLike'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'status'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'undidUser'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              )
-            ]),
-          ),
-        ]),
-      )
-    ]),
-  )
-]);
-
-class UndoLikeMutation
-    extends GraphQLQuery<UndoLike$Mutation, UndoLikeArguments> {
-  UndoLikeMutation({required this.variables});
-
-  @override
-  final DocumentNode document = UNDO_LIKE_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName = UNDO_LIKE_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final UndoLikeArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  UndoLike$Mutation parse(Map<String, dynamic> json) =>
-      UndoLike$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
 class UploadPhotoArguments extends JsonSerializable with EquatableMixin {
   UploadPhotoArguments({required this.input});
 
@@ -6147,4 +6089,185 @@ class FetchStickersQuery
   @override
   FetchStickers$Query parse(Map<String, dynamic> json) =>
       FetchStickers$Query.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLikeArguments extends JsonSerializable with EquatableMixin {
+  UndoLikeArguments({required this.input});
+
+  @override
+  factory UndoLikeArguments.fromJson(Map<String, dynamic> json) =>
+      _$UndoLikeArgumentsFromJson(json);
+
+  late UndoLikeInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLikeArgumentsToJson(this);
+}
+
+final UNDO_LIKE_MUTATION_DOCUMENT_OPERATION_NAME = 'undoLike';
+final UNDO_LIKE_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'undoLike'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'UndoLikeInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'undoLike'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'status'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'undidUser'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              )
+            ]),
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class UndoLikeMutation
+    extends GraphQLQuery<UndoLike$Mutation, UndoLikeArguments> {
+  UndoLikeMutation({required this.variables});
+
+  @override
+  final DocumentNode document = UNDO_LIKE_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = UNDO_LIKE_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final UndoLikeArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  UndoLike$Mutation parse(Map<String, dynamic> json) =>
+      UndoLike$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchVerifyRequestsArguments extends JsonSerializable
+    with EquatableMixin {
+  FetchVerifyRequestsArguments({required this.userId});
+
+  @override
+  factory FetchVerifyRequestsArguments.fromJson(Map<String, dynamic> json) =>
+      _$FetchVerifyRequestsArgumentsFromJson(json);
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [userId];
+  @override
+  Map<String, dynamic> toJson() => _$FetchVerifyRequestsArgumentsToJson(this);
+}
+
+final FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT_OPERATION_NAME =
+    'fetchVerifyRequests';
+final FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'fetchVerifyRequests'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ID'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'fetchVerifyRequests'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'userId'),
+            value: VariableNode(name: NameNode(value: 'userId')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'userId'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'status'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class FetchVerifyRequestsQuery extends GraphQLQuery<FetchVerifyRequests$Query,
+    FetchVerifyRequestsArguments> {
+  FetchVerifyRequestsQuery({required this.variables});
+
+  @override
+  final DocumentNode document = FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT;
+
+  @override
+  final String operationName =
+      FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final FetchVerifyRequestsArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  FetchVerifyRequests$Query parse(Map<String, dynamic> json) =>
+      FetchVerifyRequests$Query.fromJson(json);
 }

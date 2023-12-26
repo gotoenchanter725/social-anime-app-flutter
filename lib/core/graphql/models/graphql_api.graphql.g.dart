@@ -1130,56 +1130,6 @@ Map<String, dynamic> _$SetUserLocationInputToJson(
       'userId': instance.userId,
     };
 
-UndoLike$Mutation$UndoLike$UndidUser
-    _$UndoLike$Mutation$UndoLike$UndidUserFromJson(Map<String, dynamic> json) =>
-        UndoLike$Mutation$UndoLike$UndidUser()..id = json['id'] as String;
-
-Map<String, dynamic> _$UndoLike$Mutation$UndoLike$UndidUserToJson(
-        UndoLike$Mutation$UndoLike$UndidUser instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-    };
-
-UndoLike$Mutation$UndoLike _$UndoLike$Mutation$UndoLikeFromJson(
-        Map<String, dynamic> json) =>
-    UndoLike$Mutation$UndoLike()
-      ..status = json['status'] as String
-      ..undidUser = json['undidUser'] == null
-          ? null
-          : UndoLike$Mutation$UndoLike$UndidUser.fromJson(
-              json['undidUser'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$UndoLike$Mutation$UndoLikeToJson(
-        UndoLike$Mutation$UndoLike instance) =>
-    <String, dynamic>{
-      'status': instance.status,
-      'undidUser': instance.undidUser?.toJson(),
-    };
-
-UndoLike$Mutation _$UndoLike$MutationFromJson(Map<String, dynamic> json) =>
-    UndoLike$Mutation()
-      ..undoLike = json['undoLike'] == null
-          ? null
-          : UndoLike$Mutation$UndoLike.fromJson(
-              json['undoLike'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$UndoLike$MutationToJson(UndoLike$Mutation instance) =>
-    <String, dynamic>{
-      'undoLike': instance.undoLike?.toJson(),
-    };
-
-UndoLikeInput _$UndoLikeInputFromJson(Map<String, dynamic> json) =>
-    UndoLikeInput(
-      clientMutationId: json['clientMutationId'] as String?,
-      userId: json['userId'] as String,
-    );
-
-Map<String, dynamic> _$UndoLikeInputToJson(UndoLikeInput instance) =>
-    <String, dynamic>{
-      'clientMutationId': instance.clientMutationId,
-      'userId': instance.userId,
-    };
-
 UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos
     _$UploadPhoto$Mutation$UploadPhoto$User$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
@@ -2056,6 +2006,85 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
+UndoLike$Mutation$UndoLike$UndidUser
+    _$UndoLike$Mutation$UndoLike$UndidUserFromJson(Map<String, dynamic> json) =>
+        UndoLike$Mutation$UndoLike$UndidUser()..id = json['id'] as String;
+
+Map<String, dynamic> _$UndoLike$Mutation$UndoLike$UndidUserToJson(
+        UndoLike$Mutation$UndoLike$UndidUser instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+UndoLike$Mutation$UndoLike _$UndoLike$Mutation$UndoLikeFromJson(
+        Map<String, dynamic> json) =>
+    UndoLike$Mutation$UndoLike()
+      ..status = json['status'] as String
+      ..undidUser = json['undidUser'] == null
+          ? null
+          : UndoLike$Mutation$UndoLike$UndidUser.fromJson(
+              json['undidUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UndoLike$Mutation$UndoLikeToJson(
+        UndoLike$Mutation$UndoLike instance) =>
+    <String, dynamic>{
+      'status': instance.status,
+      'undidUser': instance.undidUser?.toJson(),
+    };
+
+UndoLike$Mutation _$UndoLike$MutationFromJson(Map<String, dynamic> json) =>
+    UndoLike$Mutation()
+      ..undoLike = json['undoLike'] == null
+          ? null
+          : UndoLike$Mutation$UndoLike.fromJson(
+              json['undoLike'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UndoLike$MutationToJson(UndoLike$Mutation instance) =>
+    <String, dynamic>{
+      'undoLike': instance.undoLike?.toJson(),
+    };
+
+UndoLikeInput _$UndoLikeInputFromJson(Map<String, dynamic> json) =>
+    UndoLikeInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$UndoLikeInputToJson(UndoLikeInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
+FetchVerifyRequests$Query$FetchVerifyRequests
+    _$FetchVerifyRequests$Query$FetchVerifyRequestsFromJson(
+            Map<String, dynamic> json) =>
+        FetchVerifyRequests$Query$FetchVerifyRequests()
+          ..userId = json['userId'] as int
+          ..status = json['status'] as String;
+
+Map<String, dynamic> _$FetchVerifyRequests$Query$FetchVerifyRequestsToJson(
+        FetchVerifyRequests$Query$FetchVerifyRequests instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'status': instance.status,
+    };
+
+FetchVerifyRequests$Query _$FetchVerifyRequests$QueryFromJson(
+        Map<String, dynamic> json) =>
+    FetchVerifyRequests$Query()
+      ..fetchVerifyRequests = (json['fetchVerifyRequests'] as List<dynamic>)
+          .map((e) => FetchVerifyRequests$Query$FetchVerifyRequests.fromJson(
+              e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$FetchVerifyRequests$QueryToJson(
+        FetchVerifyRequests$Query instance) =>
+    <String, dynamic>{
+      'fetchVerifyRequests':
+          instance.fetchVerifyRequests.map((e) => e.toJson()).toList(),
+    };
+
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -2236,16 +2265,6 @@ Map<String, dynamic> _$SetUserLocationArgumentsToJson(
       'input': instance.input.toJson(),
     };
 
-UndoLikeArguments _$UndoLikeArgumentsFromJson(Map<String, dynamic> json) =>
-    UndoLikeArguments(
-      input: UndoLikeInput.fromJson(json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$UndoLikeArgumentsToJson(UndoLikeArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
-    };
-
 UploadPhotoArguments _$UploadPhotoArgumentsFromJson(
         Map<String, dynamic> json) =>
     UploadPhotoArguments(
@@ -2325,4 +2344,26 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
+    };
+
+UndoLikeArguments _$UndoLikeArgumentsFromJson(Map<String, dynamic> json) =>
+    UndoLikeArguments(
+      input: UndoLikeInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$UndoLikeArgumentsToJson(UndoLikeArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+FetchVerifyRequestsArguments _$FetchVerifyRequestsArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    FetchVerifyRequestsArguments(
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$FetchVerifyRequestsArgumentsToJson(
+        FetchVerifyRequestsArguments instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
     };
