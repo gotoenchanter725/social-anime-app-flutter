@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
+import 'package:senpai/core/user/blocs/verify_request_user/fetch_verify_requests.dart';
 
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
@@ -10,6 +11,7 @@ import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/screens/profile/widgets/profile_header.dart';
 import 'package:senpai/screens/premium_screen/widgets/profile_premium_widget.dart';
+import 'package:senpai/screens/profile/widgets/profile_photo_verify_widget.dart';
 
 import 'package:senpai/utils/constants.dart';
 
@@ -27,6 +29,12 @@ class ProfileContent extends StatelessWidget {
         if (state is ProfileInitial && bloc.userID.isNotEmpty) {
           final fetchUserBloc = BlocProvider.of<FetchUserBloc>(context);
           fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
+
+          final fetchVerifyRequestsBloc =
+              BlocProvider.of<FetchVerifyRequestsBloc>(context);
+          fetchVerifyRequestsBloc.fetchVerifyRequests(
+            userId: int.parse(bloc.userID),
+          );
         }
       },
       builder: (context, state) {
@@ -48,7 +56,7 @@ class ProfileContent extends StatelessWidget {
               ),
               ProfileHeader(
                 avatar: isUserHasPhotos
-                    ? bloc.user.gallery!.photos.last.url ?? ''
+                    ? bloc.user.gallery!.photos.first.url ?? ''
                     : '',
                 name: bloc.user.firstName ?? '',
                 birthday: bloc.user.birthday,
@@ -60,40 +68,20 @@ class ProfileContent extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   child: Column(
                     children: [
-                      if (bloc.user.verified != true)
-                        ProfileListTileButton(
-                          icon: PathConstants.verifyFaceIcon,
-                          title: TextConstants.verifyYourPhotosButton,
-                          onTap: () async {
-                            await context.router.push(
-                              VerifyPhotoRoute(
-                                userID: int.tryParse(bloc.userID),
-                              ),
-                            );
-                          },
-                          hasBorder: true,
-                        ),
+                      const ProfilePhotoVerifyWidget(),
                       SizedBox(height: $constants.insets.xs),
                       ProfileListTileButton(
                         icon: PathConstants.pencilIcon,
                         title: TextConstants.editProfileButton,
                         onTap: () async {
-                          // change after implement EditProfileRoute
-
-                          context.router.push(PreviewProfileRoute(
-                            userId: bloc.userID,
-                            vieweeId: bloc.userID,
-                          ));
-
-                          // change after implement EditProfileRoute
-                          // await context.router
-                          //     .push(EditProfileRoute(userID: bloc.userID))
-                          //     .then((value) {
-                          //   final fetchUserBloc =
-                          //       BlocProvider.of<FetchUserBloc>(context);
-                          //   fetchUserBloc.fetchUser(
-                          //       userId: int.parse(bloc.userID));
-                          // });
+                          await context.router
+                              .push(EditProfileRoute(userID: bloc.userID))
+                              .then((value) {
+                            final fetchUserBloc =
+                                BlocProvider.of<FetchUserBloc>(context);
+                            fetchUserBloc.fetchUser(
+                                userId: int.parse(bloc.userID));
+                          });
                         },
                       ),
                       SizedBox(height: $constants.insets.xs),

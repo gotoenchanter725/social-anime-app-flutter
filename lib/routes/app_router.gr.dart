@@ -31,6 +31,26 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    EditFavoriteAnimeRoute.name: (routeData) {
+      final args = routeData.argsAs<EditFavoriteAnimeRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: EditFavoriteAnimePage(
+          key: args.key,
+          editBloc: args.editBloc,
+        ),
+      );
+    },
+    EditProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<EditProfileRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: EditProfilePage(
+          key: args.key,
+          userID: args.userID,
+        ),
+      );
+    },
     EntryRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -183,6 +203,18 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    WorkEducationRoute.name: (routeData) {
+      final args = routeData.argsAs<WorkEducationRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WorkEducationPage(
+          key: args.key,
+          editBloc: args.editBloc,
+          school: args.school,
+          occupation: args.occupation,
+        ),
+      );
+    },
   };
 }
 
@@ -234,6 +266,82 @@ class ChatRouteArgs {
   @override
   String toString() {
     return 'ChatRouteArgs{key: $key, roomArgs: $roomArgs}';
+  }
+}
+
+/// generated route for
+/// [EditFavoriteAnimePage]
+class EditFavoriteAnimeRoute extends PageRouteInfo<EditFavoriteAnimeRouteArgs> {
+  EditFavoriteAnimeRoute({
+    Key? key,
+    required EditProfileBloc editBloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          EditFavoriteAnimeRoute.name,
+          args: EditFavoriteAnimeRouteArgs(
+            key: key,
+            editBloc: editBloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'EditFavoriteAnimeRoute';
+
+  static const PageInfo<EditFavoriteAnimeRouteArgs> page =
+      PageInfo<EditFavoriteAnimeRouteArgs>(name);
+}
+
+class EditFavoriteAnimeRouteArgs {
+  const EditFavoriteAnimeRouteArgs({
+    this.key,
+    required this.editBloc,
+  });
+
+  final Key? key;
+
+  final EditProfileBloc editBloc;
+
+  @override
+  String toString() {
+    return 'EditFavoriteAnimeRouteArgs{key: $key, editBloc: $editBloc}';
+  }
+}
+
+/// generated route for
+/// [EditProfilePage]
+class EditProfileRoute extends PageRouteInfo<EditProfileRouteArgs> {
+  EditProfileRoute({
+    Key? key,
+    required String userID,
+    List<PageRouteInfo>? children,
+  }) : super(
+          EditProfileRoute.name,
+          args: EditProfileRouteArgs(
+            key: key,
+            userID: userID,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'EditProfileRoute';
+
+  static const PageInfo<EditProfileRouteArgs> page =
+      PageInfo<EditProfileRouteArgs>(name);
+}
+
+class EditProfileRouteArgs {
+  const EditProfileRouteArgs({
+    this.key,
+    required this.userID,
+  });
+
+  final Key? key;
+
+  final String userID;
+
+  @override
+  String toString() {
+    return 'EditProfileRouteArgs{key: $key, userID: $userID}';
   }
 }
 
@@ -761,5 +869,53 @@ class VerifyPhotoRouteArgs {
   @override
   String toString() {
     return 'VerifyPhotoRouteArgs{key: $key, userID: $userID}';
+  }
+}
+
+/// generated route for
+/// [WorkEducationPage]
+class WorkEducationRoute extends PageRouteInfo<WorkEducationRouteArgs> {
+  WorkEducationRoute({
+    Key? key,
+    required EditProfileBloc editBloc,
+    String? school,
+    String? occupation,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WorkEducationRoute.name,
+          args: WorkEducationRouteArgs(
+            key: key,
+            editBloc: editBloc,
+            school: school,
+            occupation: occupation,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkEducationRoute';
+
+  static const PageInfo<WorkEducationRouteArgs> page =
+      PageInfo<WorkEducationRouteArgs>(name);
+}
+
+class WorkEducationRouteArgs {
+  const WorkEducationRouteArgs({
+    this.key,
+    required this.editBloc,
+    this.school,
+    this.occupation,
+  });
+
+  final Key? key;
+
+  final EditProfileBloc editBloc;
+
+  final String? school;
+
+  final String? occupation;
+
+  @override
+  String toString() {
+    return 'WorkEducationRouteArgs{key: $key, editBloc: $editBloc, school: $school, occupation: $occupation}';
   }
 }

@@ -1,0 +1,8 @@
+mutation undoLike($input: UndoLikeInput!) {
+  undoLike(input: $input) {
+    status
+    undidUser {
+      id
+    }
+  }
+}

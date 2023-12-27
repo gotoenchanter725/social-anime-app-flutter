@@ -10,6 +10,7 @@ part 'home_storage_state.dart';
 @injectable
 class HomeStorageBloc extends HydratedBloc<HomeStorageEvent, HomeStorageState> {
   ProfileFilterModel filters = ProfileFilterModel.initial();
+  bool isFirstOpenMatch = true;
 
   HomeStorageBloc() : super(HomeStorageInitial()) {
     on<OnClearStorageData>((event, emit) async {
@@ -20,11 +21,17 @@ class HomeStorageBloc extends HydratedBloc<HomeStorageEvent, HomeStorageState> {
       filters = event.filters;
       emit(ValidSaveProfileFiltersState());
     });
+
+    on<OnSaveFirstOpenMatch>((event, emit) {
+      isFirstOpenMatch = false;
+      emit(ValidSaveIsFirstOpenMatchState());
+    });
   }
 
   @override
   HomeStorageState? fromJson(Map<String, dynamic> json) {
     try {
+      isFirstOpenMatch = json[StorageKeysConstants.isFirstOpenMatch];
       filters = ProfileFilterModel.fromJson(
         json[StorageKeysConstants.profileFilters],
       );
@@ -36,8 +43,12 @@ class HomeStorageBloc extends HydratedBloc<HomeStorageEvent, HomeStorageState> {
 
   @override
   Map<String, dynamic>? toJson(HomeStorageState state) {
-    if (state is ValidSaveProfileFiltersState) {
-      return {StorageKeysConstants.profileFilters: filters};
+    if (state is ValidSaveProfileFiltersState ||
+        state is ValidSaveIsFirstOpenMatchState) {
+      return {
+        StorageKeysConstants.profileFilters: filters,
+        StorageKeysConstants.isFirstOpenMatch: isFirstOpenMatch
+      };
     } else {
       return null;
     }

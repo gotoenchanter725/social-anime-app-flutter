@@ -1,0 +1,40 @@
+mutation likeUser($input: LikeUserInput!) {
+  likeUser(input: $input) {
+    like {
+      userId
+      likeeId
+      likeType
+    }
+    match {
+      conversation {
+        id
+      }
+      matchee {
+        id
+        phone
+        firstName
+        verified
+        gallery {
+          photos {
+            order
+            url
+            id
+          }
+        }
+      }
+      user {
+        id
+        phone
+        firstName
+        verified
+        gallery {
+          photos {
+            order
+            url
+            id
+          }
+        }
+      }
+    }
+  }
+}

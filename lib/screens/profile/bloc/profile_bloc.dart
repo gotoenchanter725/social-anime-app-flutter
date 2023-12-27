@@ -11,6 +11,7 @@ part 'profile_state.dart';
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   String userID = '';
   UserProfileModel user = UserProfileModel.initial();
+  bool isPendingUserStatus = false;
 
   ProfileBloc() : super(ProfileInitial()) {
     on<OnInitUserID>((event, emit) async {
@@ -29,6 +30,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<OnFetchUser>((event, emit) {
       emit(LoadingProfileState());
       user = event.user;
+      emit(FetchSucssesfulState());
+    });
+
+    on<OnChangeUserStatus>((event, emit) {
+      emit(LoadingProfileState());
+      isPendingUserStatus = event.isPendingUserStatus;
       emit(FetchSucssesfulState());
     });
   }

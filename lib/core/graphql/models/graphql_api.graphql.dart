@@ -634,6 +634,46 @@ class MessageInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class DeletePhoto$Mutation$DeletePhoto$Gallery$Photos extends JsonSerializable
+    with EquatableMixin {
+  DeletePhoto$Mutation$DeletePhoto$Gallery$Photos();
+
+  factory DeletePhoto$Mutation$DeletePhoto$Gallery$Photos.fromJson(
+          Map<String, dynamic> json) =>
+      _$DeletePhoto$Mutation$DeletePhoto$Gallery$PhotosFromJson(json);
+
+  int? order;
+
+  late String url;
+
+  late String id;
+
+  @override
+  List<Object?> get props => [order, url, id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$DeletePhoto$Mutation$DeletePhoto$Gallery$PhotosToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DeletePhoto$Mutation$DeletePhoto$Gallery extends JsonSerializable
+    with EquatableMixin {
+  DeletePhoto$Mutation$DeletePhoto$Gallery();
+
+  factory DeletePhoto$Mutation$DeletePhoto$Gallery.fromJson(
+          Map<String, dynamic> json) =>
+      _$DeletePhoto$Mutation$DeletePhoto$GalleryFromJson(json);
+
+  List<DeletePhoto$Mutation$DeletePhoto$Gallery$Photos>? photos;
+
+  @override
+  List<Object?> get props => [photos];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$DeletePhoto$Mutation$DeletePhoto$GalleryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class DeletePhoto$Mutation$DeletePhoto extends JsonSerializable
     with EquatableMixin {
   DeletePhoto$Mutation$DeletePhoto();
@@ -644,8 +684,10 @@ class DeletePhoto$Mutation$DeletePhoto extends JsonSerializable
 
   late bool deleted;
 
+  DeletePhoto$Mutation$DeletePhoto$Gallery? gallery;
+
   @override
-  List<Object?> get props => [deleted];
+  List<Object?> get props => [deleted, gallery];
   @override
   Map<String, dynamic> toJson() =>
       _$DeletePhoto$Mutation$DeletePhotoToJson(this);
@@ -1007,6 +1049,274 @@ class ResendVerifyTextInput extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [clientMutationId, phone];
   @override
   Map<String, dynamic> toJson() => _$ResendVerifyTextInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUser$Mutation$LikeUser$Like extends JsonSerializable
+    with EquatableMixin {
+  LikeUser$Mutation$LikeUser$Like();
+
+  factory LikeUser$Mutation$LikeUser$Like.fromJson(Map<String, dynamic> json) =>
+      _$LikeUser$Mutation$LikeUser$LikeFromJson(json);
+
+  late int userId;
+
+  int? likeeId;
+
+  String? likeType;
+
+  @override
+  List<Object?> get props => [userId, likeeId, likeType];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$LikeUser$Mutation$LikeUser$LikeToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUser$Mutation$LikeUser$Match$Conversation extends JsonSerializable
+    with EquatableMixin {
+  LikeUser$Mutation$LikeUser$Match$Conversation();
+
+  factory LikeUser$Mutation$LikeUser$Match$Conversation.fromJson(
+          Map<String, dynamic> json) =>
+      _$LikeUser$Mutation$LikeUser$Match$ConversationFromJson(json);
+
+  late String id;
+
+  @override
+  List<Object?> get props => [id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$LikeUser$Mutation$LikeUser$Match$ConversationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$Photos
+    extends JsonSerializable with EquatableMixin {
+  LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$Photos();
+
+  factory LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$Photos.fromJson(
+          Map<String, dynamic> json) =>
+      _$LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$PhotosFromJson(json);
+
+  int? order;
+
+  late String url;
+
+  late String id;
+
+  @override
+  List<Object?> get props => [order, url, id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$PhotosToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUser$Mutation$LikeUser$Match$Matchee$Gallery extends JsonSerializable
+    with EquatableMixin {
+  LikeUser$Mutation$LikeUser$Match$Matchee$Gallery();
+
+  factory LikeUser$Mutation$LikeUser$Match$Matchee$Gallery.fromJson(
+          Map<String, dynamic> json) =>
+      _$LikeUser$Mutation$LikeUser$Match$Matchee$GalleryFromJson(json);
+
+  List<LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$Photos>? photos;
+
+  @override
+  List<Object?> get props => [photos];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$LikeUser$Mutation$LikeUser$Match$Matchee$GalleryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUser$Mutation$LikeUser$Match$Matchee extends JsonSerializable
+    with EquatableMixin {
+  LikeUser$Mutation$LikeUser$Match$Matchee();
+
+  factory LikeUser$Mutation$LikeUser$Match$Matchee.fromJson(
+          Map<String, dynamic> json) =>
+      _$LikeUser$Mutation$LikeUser$Match$MatcheeFromJson(json);
+
+  late String id;
+
+  late String phone;
+
+  late String firstName;
+
+  late bool verified;
+
+  LikeUser$Mutation$LikeUser$Match$Matchee$Gallery? gallery;
+
+  @override
+  List<Object?> get props => [id, phone, firstName, verified, gallery];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$LikeUser$Mutation$LikeUser$Match$MatcheeToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUser$Mutation$LikeUser$Match$User$Gallery$Photos
+    extends JsonSerializable with EquatableMixin {
+  LikeUser$Mutation$LikeUser$Match$User$Gallery$Photos();
+
+  factory LikeUser$Mutation$LikeUser$Match$User$Gallery$Photos.fromJson(
+          Map<String, dynamic> json) =>
+      _$LikeUser$Mutation$LikeUser$Match$User$Gallery$PhotosFromJson(json);
+
+  int? order;
+
+  late String url;
+
+  late String id;
+
+  @override
+  List<Object?> get props => [order, url, id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$LikeUser$Mutation$LikeUser$Match$User$Gallery$PhotosToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUser$Mutation$LikeUser$Match$User$Gallery extends JsonSerializable
+    with EquatableMixin {
+  LikeUser$Mutation$LikeUser$Match$User$Gallery();
+
+  factory LikeUser$Mutation$LikeUser$Match$User$Gallery.fromJson(
+          Map<String, dynamic> json) =>
+      _$LikeUser$Mutation$LikeUser$Match$User$GalleryFromJson(json);
+
+  List<LikeUser$Mutation$LikeUser$Match$User$Gallery$Photos>? photos;
+
+  @override
+  List<Object?> get props => [photos];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$LikeUser$Mutation$LikeUser$Match$User$GalleryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUser$Mutation$LikeUser$Match$User extends JsonSerializable
+    with EquatableMixin {
+  LikeUser$Mutation$LikeUser$Match$User();
+
+  factory LikeUser$Mutation$LikeUser$Match$User.fromJson(
+          Map<String, dynamic> json) =>
+      _$LikeUser$Mutation$LikeUser$Match$UserFromJson(json);
+
+  late String id;
+
+  late String phone;
+
+  late String firstName;
+
+  late bool verified;
+
+  LikeUser$Mutation$LikeUser$Match$User$Gallery? gallery;
+
+  @override
+  List<Object?> get props => [id, phone, firstName, verified, gallery];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$LikeUser$Mutation$LikeUser$Match$UserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUser$Mutation$LikeUser$Match extends JsonSerializable
+    with EquatableMixin {
+  LikeUser$Mutation$LikeUser$Match();
+
+  factory LikeUser$Mutation$LikeUser$Match.fromJson(
+          Map<String, dynamic> json) =>
+      _$LikeUser$Mutation$LikeUser$MatchFromJson(json);
+
+  late LikeUser$Mutation$LikeUser$Match$Conversation conversation;
+
+  late LikeUser$Mutation$LikeUser$Match$Matchee matchee;
+
+  late LikeUser$Mutation$LikeUser$Match$User user;
+
+  @override
+  List<Object?> get props => [conversation, matchee, user];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$LikeUser$Mutation$LikeUser$MatchToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUser$Mutation$LikeUser extends JsonSerializable with EquatableMixin {
+  LikeUser$Mutation$LikeUser();
+
+  factory LikeUser$Mutation$LikeUser.fromJson(Map<String, dynamic> json) =>
+      _$LikeUser$Mutation$LikeUserFromJson(json);
+
+  late LikeUser$Mutation$LikeUser$Like like;
+
+  LikeUser$Mutation$LikeUser$Match? match;
+
+  @override
+  List<Object?> get props => [like, match];
+  @override
+  Map<String, dynamic> toJson() => _$LikeUser$Mutation$LikeUserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUser$Mutation extends JsonSerializable with EquatableMixin {
+  LikeUser$Mutation();
+
+  factory LikeUser$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$LikeUser$MutationFromJson(json);
+
+  LikeUser$Mutation$LikeUser? likeUser;
+
+  @override
+  List<Object?> get props => [likeUser];
+  @override
+  Map<String, dynamic> toJson() => _$LikeUser$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUserInput extends JsonSerializable with EquatableMixin {
+  LikeUserInput({
+    this.clientMutationId,
+    required this.params,
+  });
+
+  factory LikeUserInput.fromJson(Map<String, dynamic> json) =>
+      _$LikeUserInputFromJson(json);
+
+  String? clientMutationId;
+
+  late LikeInput params;
+
+  @override
+  List<Object?> get props => [clientMutationId, params];
+  @override
+  Map<String, dynamic> toJson() => _$LikeUserInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeInput extends JsonSerializable with EquatableMixin {
+  LikeInput({
+    required this.likeType,
+    required this.likeeId,
+    required this.userId,
+  });
+
+  factory LikeInput.fromJson(Map<String, dynamic> json) =>
+      _$LikeInputFromJson(json);
+
+  late String likeType;
+
+  late int likeeId;
+
+  late int userId;
+
+  @override
+  List<Object?> get props => [likeType, likeeId, userId];
+  @override
+  Map<String, dynamic> toJson() => _$LikeInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1505,12 +1815,14 @@ class FetchFeed$Query$FetchFeed$Gallery$Photos extends JsonSerializable
           Map<String, dynamic> json) =>
       _$FetchFeed$Query$FetchFeed$Gallery$PhotosFromJson(json);
 
+  late String id;
+
   int? order;
 
   late String url;
 
   @override
-  List<Object?> get props => [order, url];
+  List<Object?> get props => [id, order, url];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchFeed$Query$FetchFeed$Gallery$PhotosToJson(this);
@@ -1575,8 +1887,11 @@ class FetchFeed$Query$FetchFeed$FavoriteMusic extends JsonSerializable
 
   String? musicType;
 
+  String? spotifyId;
+
   @override
-  List<Object?> get props => [id, trackName, artistName, coverUrl, musicType];
+  List<Object?> get props =>
+      [id, trackName, artistName, coverUrl, musicType, spotifyId];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchFeed$Query$FetchFeed$FavoriteMusicToJson(this);
@@ -1593,7 +1908,18 @@ class FetchFeed$Query$FetchFeed extends JsonSerializable with EquatableMixin {
 
   late String phone;
 
+  late String firstName;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable,
+      toJson: fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable)
+  DateTime? birthday;
+
   late bool premium;
+
+  String? occupation;
+
+  String? school;
 
   @JsonKey(
       fromJson: fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable,
@@ -1608,6 +1934,10 @@ class FetchFeed$Query$FetchFeed extends JsonSerializable with EquatableMixin {
 
   String? bio;
 
+  late bool verified;
+
+  String? onlineStatus;
+
   FetchFeed$Query$FetchFeed$Gallery? gallery;
 
   List<FetchFeed$Query$FetchFeed$Animes>? animes;
@@ -1618,12 +1948,18 @@ class FetchFeed$Query$FetchFeed extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [
         id,
         phone,
+        firstName,
+        birthday,
         premium,
+        occupation,
+        school,
         currentSignInAt,
         currentSignInIp,
         gender,
         desiredGender,
         bio,
+        verified,
+        onlineStatus,
         gallery,
         animes,
         favoriteMusic
@@ -1645,6 +1981,45 @@ class FetchFeed$Query extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [fetchFeed];
   @override
   Map<String, dynamic> toJson() => _$FetchFeed$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchFeedInput extends JsonSerializable with EquatableMixin {
+  FetchFeedInput({
+    this.animeIds,
+    this.hasBio,
+    required this.maxAge,
+    required this.milesAway,
+    required this.minAge,
+    this.page,
+    required this.userId,
+    this.verified,
+  });
+
+  factory FetchFeedInput.fromJson(Map<String, dynamic> json) =>
+      _$FetchFeedInputFromJson(json);
+
+  List<String>? animeIds;
+
+  bool? hasBio;
+
+  late int maxAge;
+
+  late int milesAway;
+
+  late int minAge;
+
+  int? page;
+
+  late String userId;
+
+  bool? verified;
+
+  @override
+  List<Object?> get props =>
+      [animeIds, hasBio, maxAge, milesAway, minAge, page, userId, verified];
+  @override
+  Map<String, dynamic> toJson() => _$FetchFeedInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1768,8 +2143,11 @@ class FetchUser$Query$FetchUser$FavoriteMusic extends JsonSerializable
 
   String? artistName;
 
+  String? spotifyId;
+
   @override
-  List<Object?> get props => [id, coverUrl, musicType, trackName, artistName];
+  List<Object?> get props =>
+      [id, coverUrl, musicType, trackName, artistName, spotifyId];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchUser$Query$FetchUser$FavoriteMusicToJson(this);
@@ -1815,6 +2193,8 @@ class FetchUser$Query$FetchUser extends JsonSerializable with EquatableMixin {
 
   String? onlineStatus;
 
+  String? lonlat;
+
   List<FetchUser$Query$FetchUser$Matches>? matches;
 
   FetchUser$Query$FetchUser$Gallery? gallery;
@@ -1842,6 +2222,7 @@ class FetchUser$Query$FetchUser extends JsonSerializable with EquatableMixin {
         displayState,
         spotifyEmail,
         onlineStatus,
+        lonlat,
         matches,
         gallery,
         animes,
@@ -2311,6 +2692,111 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [fetchStickers];
   @override
   Map<String, dynamic> toJson() => _$FetchStickers$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLike$Mutation$UndoLike$UndidUser extends JsonSerializable
+    with EquatableMixin {
+  UndoLike$Mutation$UndoLike$UndidUser();
+
+  factory UndoLike$Mutation$UndoLike$UndidUser.fromJson(
+          Map<String, dynamic> json) =>
+      _$UndoLike$Mutation$UndoLike$UndidUserFromJson(json);
+
+  late String id;
+
+  @override
+  List<Object?> get props => [id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$UndoLike$Mutation$UndoLike$UndidUserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLike$Mutation$UndoLike extends JsonSerializable with EquatableMixin {
+  UndoLike$Mutation$UndoLike();
+
+  factory UndoLike$Mutation$UndoLike.fromJson(Map<String, dynamic> json) =>
+      _$UndoLike$Mutation$UndoLikeFromJson(json);
+
+  late String status;
+
+  UndoLike$Mutation$UndoLike$UndidUser? undidUser;
+
+  @override
+  List<Object?> get props => [status, undidUser];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLike$Mutation$UndoLikeToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLike$Mutation extends JsonSerializable with EquatableMixin {
+  UndoLike$Mutation();
+
+  factory UndoLike$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$UndoLike$MutationFromJson(json);
+
+  UndoLike$Mutation$UndoLike? undoLike;
+
+  @override
+  List<Object?> get props => [undoLike];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLike$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLikeInput extends JsonSerializable with EquatableMixin {
+  UndoLikeInput({
+    this.clientMutationId,
+    required this.userId,
+  });
+
+  factory UndoLikeInput.fromJson(Map<String, dynamic> json) =>
+      _$UndoLikeInputFromJson(json);
+
+  String? clientMutationId;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [clientMutationId, userId];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLikeInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchVerifyRequests$Query$FetchVerifyRequests extends JsonSerializable
+    with EquatableMixin {
+  FetchVerifyRequests$Query$FetchVerifyRequests();
+
+  factory FetchVerifyRequests$Query$FetchVerifyRequests.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchVerifyRequests$Query$FetchVerifyRequestsFromJson(json);
+
+  late int userId;
+
+  late String status;
+
+  @override
+  List<Object?> get props => [userId, status];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchVerifyRequests$Query$FetchVerifyRequestsToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchVerifyRequests$Query extends JsonSerializable with EquatableMixin {
+  FetchVerifyRequests$Query();
+
+  factory FetchVerifyRequests$Query.fromJson(Map<String, dynamic> json) =>
+      _$FetchVerifyRequests$QueryFromJson(json);
+
+  late List<FetchVerifyRequests$Query$FetchVerifyRequests> fetchVerifyRequests;
+
+  @override
+  List<Object?> get props => [fetchVerifyRequests];
+  @override
+  Map<String, dynamic> toJson() => _$FetchVerifyRequests$QueryToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -3013,7 +3499,44 @@ final DELETE_PHOTO_MUTATION_DOCUMENT = DocumentNode(definitions: [
             arguments: [],
             directives: [],
             selectionSet: null,
-          )
+          ),
+          FieldNode(
+            name: NameNode(value: 'gallery'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'photos'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'order'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'url'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              )
+            ]),
+          ),
         ]),
       )
     ]),
@@ -3429,6 +3952,275 @@ class ResendVerifyCodeMutation
   @override
   ResendVerifyCode$Mutation parse(Map<String, dynamic> json) =>
       ResendVerifyCode$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class LikeUserArguments extends JsonSerializable with EquatableMixin {
+  LikeUserArguments({required this.input});
+
+  @override
+  factory LikeUserArguments.fromJson(Map<String, dynamic> json) =>
+      _$LikeUserArgumentsFromJson(json);
+
+  late LikeUserInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$LikeUserArgumentsToJson(this);
+}
+
+final LIKE_USER_MUTATION_DOCUMENT_OPERATION_NAME = 'likeUser';
+final LIKE_USER_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'likeUser'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'LikeUserInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'likeUser'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'like'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'userId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'likeeId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'likeType'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'match'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'conversation'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  )
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'matchee'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'phone'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'firstName'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'verified'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'gallery'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'photos'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'order'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'url'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'id'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      )
+                    ]),
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'user'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'phone'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'firstName'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'verified'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'gallery'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'photos'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'order'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'url'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'id'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      )
+                    ]),
+                  ),
+                ]),
+              ),
+            ]),
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class LikeUserMutation
+    extends GraphQLQuery<LikeUser$Mutation, LikeUserArguments> {
+  LikeUserMutation({required this.variables});
+
+  @override
+  final DocumentNode document = LIKE_USER_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = LIKE_USER_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final LikeUserArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  LikeUser$Mutation parse(Map<String, dynamic> json) =>
+      LikeUser$Mutation.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -4081,24 +4873,16 @@ class FetchMessagesQuery
 
 @JsonSerializable(explicitToJson: true)
 class FetchFeedArguments extends JsonSerializable with EquatableMixin {
-  FetchFeedArguments({
-    required this.userId,
-    required this.milesAway,
-    this.page,
-  });
+  FetchFeedArguments({required this.params});
 
   @override
   factory FetchFeedArguments.fromJson(Map<String, dynamic> json) =>
       _$FetchFeedArgumentsFromJson(json);
 
-  late String userId;
-
-  late int milesAway;
-
-  final int? page;
+  late FetchFeedInput params;
 
   @override
-  List<Object?> get props => [userId, milesAway, page];
+  List<Object?> get props => [params];
   @override
   Map<String, dynamic> toJson() => _$FetchFeedArgumentsToJson(this);
 }
@@ -4110,32 +4894,14 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
     name: NameNode(value: 'fetchFeed'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
+        variable: VariableNode(name: NameNode(value: 'params')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
+          name: NameNode(value: 'FetchFeedInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'milesAway')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
+      )
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -4144,17 +4910,9 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'userId'),
-            value: VariableNode(name: NameNode(value: 'userId')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'milesAway'),
-            value: VariableNode(name: NameNode(value: 'milesAway')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          ),
+            name: NameNode(value: 'params'),
+            value: VariableNode(name: NameNode(value: 'params')),
+          )
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -4173,7 +4931,35 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
+            name: NameNode(value: 'firstName'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'birthday'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'premium'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'occupation'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'school'),
             alias: null,
             arguments: [],
             directives: [],
@@ -4215,6 +5001,20 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
+            name: NameNode(value: 'verified'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'onlineStatus'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'gallery'),
             alias: null,
             arguments: [],
@@ -4226,6 +5026,13 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
                 arguments: [],
                 directives: [],
                 selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
                   FieldNode(
                     name: NameNode(value: 'order'),
                     alias: null,
@@ -4309,6 +5116,13 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
               ),
               FieldNode(
                 name: NameNode(value: 'musicType'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'spotifyId'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -4492,6 +5306,13 @@ final FETCH_USER_QUERY_DOCUMENT = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
+            name: NameNode(value: 'lonlat'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'matches'),
             alias: null,
             arguments: [],
@@ -4630,6 +5451,13 @@ final FETCH_USER_QUERY_DOCUMENT = DocumentNode(definitions: [
               ),
               FieldNode(
                 name: NameNode(value: 'artistName'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'spotifyId'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -5261,4 +6089,185 @@ class FetchStickersQuery
   @override
   FetchStickers$Query parse(Map<String, dynamic> json) =>
       FetchStickers$Query.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLikeArguments extends JsonSerializable with EquatableMixin {
+  UndoLikeArguments({required this.input});
+
+  @override
+  factory UndoLikeArguments.fromJson(Map<String, dynamic> json) =>
+      _$UndoLikeArgumentsFromJson(json);
+
+  late UndoLikeInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLikeArgumentsToJson(this);
+}
+
+final UNDO_LIKE_MUTATION_DOCUMENT_OPERATION_NAME = 'undoLike';
+final UNDO_LIKE_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'undoLike'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'UndoLikeInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'undoLike'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'status'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'undidUser'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              )
+            ]),
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class UndoLikeMutation
+    extends GraphQLQuery<UndoLike$Mutation, UndoLikeArguments> {
+  UndoLikeMutation({required this.variables});
+
+  @override
+  final DocumentNode document = UNDO_LIKE_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = UNDO_LIKE_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final UndoLikeArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  UndoLike$Mutation parse(Map<String, dynamic> json) =>
+      UndoLike$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchVerifyRequestsArguments extends JsonSerializable
+    with EquatableMixin {
+  FetchVerifyRequestsArguments({required this.userId});
+
+  @override
+  factory FetchVerifyRequestsArguments.fromJson(Map<String, dynamic> json) =>
+      _$FetchVerifyRequestsArgumentsFromJson(json);
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [userId];
+  @override
+  Map<String, dynamic> toJson() => _$FetchVerifyRequestsArgumentsToJson(this);
+}
+
+final FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT_OPERATION_NAME =
+    'fetchVerifyRequests';
+final FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'fetchVerifyRequests'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ID'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'fetchVerifyRequests'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'userId'),
+            value: VariableNode(name: NameNode(value: 'userId')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'userId'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'status'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class FetchVerifyRequestsQuery extends GraphQLQuery<FetchVerifyRequests$Query,
+    FetchVerifyRequestsArguments> {
+  FetchVerifyRequestsQuery({required this.variables});
+
+  @override
+  final DocumentNode document = FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT;
+
+  @override
+  final String operationName =
+      FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final FetchVerifyRequestsArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  FetchVerifyRequests$Query parse(Map<String, dynamic> json) =>
+      FetchVerifyRequests$Query.fromJson(json);
 }

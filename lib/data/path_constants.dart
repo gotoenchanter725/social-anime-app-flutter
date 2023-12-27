@@ -22,6 +22,11 @@ class PathConstants {
   static const String closeIcon = 'assets/icons/close.svg';
 
   static const String searchIcon = 'assets/icons/search.svg';
+  static const String photoVerifedImage =
+      'assets/images/profile/photo_verifed.png';
+  static const String photoNotVerifiedImage =
+      'assets/images/profile/photo_not_verified.png';
+  static const String alarmIcon = 'assets/icons/alarm_icon.svg';
 
   // navigation
   static const String matchIcon = 'assets/icons/heart.svg';
@@ -71,6 +76,9 @@ class PathConstants {
   static const String universityIcon = 'assets/icons/university_icon.svg';
   static const String matchLikeImage =
       'assets/images/match/match_successful.png';
+  static const String markerIcon = 'assets/images/profile/marker_icon.png';
+  static const String locationIcon = 'assets/icons/location_icon.svg';
+  static const String spotifyIcon = 'assets/icons/spotify.svg';
 
   //Match
   static const String catsPawIcon = 'assets/icons/cats_paw.svg';

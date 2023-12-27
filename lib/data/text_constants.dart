@@ -234,6 +234,13 @@ class TextConstants {
   static const String topArtistsText = "Top Artists";
   static const String shareInFeedText = "Share in feed";
   static const String disconnectSpotifyText = "Disconnect Spotify";
+  static const String myTopSpotifyListeningSongsText =
+      "My top 5 Spotify listening songs";
+  static const String myTopSpotifyArtistsText = "My top 5 Spotify artists";
+  static const String selectedArtistsText = "Selected Artists";
+  static const String selectedTracksText = "Selected Tracks";
+  static const String spotifyServerError =
+      "Something went wrong, please disconnect spotify and try again";
 
   // -> Profile
   static const String senpaiPremiumTitle = "Senpai Premium";
@@ -253,6 +260,16 @@ class TextConstants {
       "Waiting for photo verification";
   static const String milesAwayText = "miles away";
   static const String findCityNearbyTitle = "Find a city nearby";
+  static const String yourPhotosHaveBeenVerifiedTitle =
+      "Your photos have \n been verified!";
+  static const String yourPhotosHaveNotBeenVerifiedTitle =
+      "Your photos have not \n been verified :(";
+  static const String nowEveryoneWillKnowThatYouText =
+      "Now everyone will know that you're not pretending to be someone else";
+  static const String thereSeemsToBeSomethingWrongYourPhotoText =
+      "There seems to be something wrong with your photo. Please try to pass the verification again";
+  static const String closeButton = "Close";
+  static const String tryAgainButton = "Try again";
 
   // -> Edit Profile
   static const String nameTitle = "Name";
@@ -309,6 +326,12 @@ class TextConstants {
       "Write your feedback on Senpai";
   static const String sendButton = "Send";
   static const String rateSenpaiTitle = "Rate Senpai";
+  static const String deleteAccountDescriprion =
+      "Are you sure you want to delete your account? We'll keep it for 30 days, if you change your mind.";
+  static const String noButton = "No";
+  static const String yesButton = "Yes";
+  static const String loggingOutTitle = "Logging out...";
+  static const String pleaseWaitText = "Please wait...";
 
   // -> Delete Profile
   static const String areSureDeleteAccountTitle =
@@ -343,6 +366,9 @@ class TextConstants {
   static const String notForYouTitle = "Not for you?";
   static const String swipeRightDescription = "Swipe right if you like it";
   static const String swipeLeftDescription = "Swipe left if not";
+  static const String youAndText = "You and";
+  static const String haveLikedEachOtherText = "have liked each other";
+  static const String saySomethingNiceText = "Say something nice";
 
   // -> ActionCable Error Messages
   static const String actionCableConnectionError =

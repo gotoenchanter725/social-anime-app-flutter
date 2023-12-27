@@ -99,7 +99,7 @@ type Conversation {
   match: Match
   matchId: Int!
   messages: [Message!]
-  unreadCount(userId: Int!): Int
+  unreadCount(userId: ID!): Int
   updatedAt: ISO8601DateTime!
 }
 
