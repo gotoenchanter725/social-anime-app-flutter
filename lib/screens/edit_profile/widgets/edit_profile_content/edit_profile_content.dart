@@ -10,6 +10,7 @@ import 'package:senpai/screens/edit_profile/widgets/edit_profile_content/edit_pr
 import 'package:senpai/screens/edit_profile/widgets/edit_profile_content/edit_profile_input_widget.dart';
 import 'package:senpai/screens/edit_profile/widgets/edit_profile_content/edit_profile_location_widget.dart';
 import 'package:senpai/screens/edit_profile/widgets/edit_profile_content/edit_profile_occupation_widget.dart';
+import 'package:senpai/screens/edit_profile/widgets/edit_profile_content/edit_spotify_content.dart';
 import 'package:senpai/screens/edit_profile/widgets/edit_profile_content/user_favorite_anime_widget.dart';
 import 'package:senpai/screens/profile_fill/desired_gender/enums/desired_gender_enum.dart';
 import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
@@ -24,80 +25,81 @@ class EditProfileContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<EditProfileBloc, EditProfileState>(
-        builder: (context, state) {
-      final bloc = BlocProvider.of<EditProfileBloc>(context);
-      return Padding(
-        padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: $constants.insets.md,
-            ),
-            Expanded(
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  children: [
-                    _buildListPhotos(context),
-                    SizedBox(height: $constants.insets.md),
-                    _buildNameWidget(context, state),
-                    SizedBox(height: $constants.insets.sm),
-                    _buildBioWidget(context),
-                    SizedBox(height: $constants.insets.sm),
-                    EditProfileBirthday(
-                      birthday:
-                          bloc.updateUserModel.birthday ?? bloc.user.birthday,
-                    ),
-                    SizedBox(height: $constants.insets.sm),
-                    EditProfileGender(
-                      gender: bloc.updateUserModel.gender ??
-                          genderFromServerString(bloc.user.gender),
-                      desiredGender: bloc.updateUserModel.desiredGender ??
-                          desiredGenderFromServerString(
-                              bloc.user.desiredGender),
-                    ),
-                    SizedBox(height: $constants.insets.sm),
-                    EditProfileOccupationWidget(
-                      occupation: bloc.updateUserModel.occupation ??
-                          bloc.user.occupation ??
-                          '',
-                      school:
-                          bloc.updateUserModel.school ?? bloc.user.school ?? '',
-                    ),
-                    SizedBox(height: $constants.insets.sm),
-                    EditProfileLocationWidget(
-                      displayCity: bloc.user.displayCity ?? '',
-                      displayState: bloc.user.displayState ?? '',
-                    ),
-                    SizedBox(height: $constants.insets.xs),
-                    SenpaiSwitchWithTitle(
-                      value: bloc.hideLocation,
-                      title: TextConstants.hideLocationTitle,
-                      height: $constants.insets.xl,
-                      onChanged: (isHideLocation) {
-                        bloc.add(OnChangeHideLocationEvent(
-                          isHideLocation: isHideLocation,
-                        ));
-                      },
-                    ),
-                    SizedBox(height: $constants.insets.sm),
-                    //TODO: change after add  EditSpotifyContent
-                    // const EditSpotifyContent(),
-                    // SizedBox(height: $constants.insets.sm),
-                    UserFavoriteAnimeWidget(
-                      animes: bloc.user.animes ?? [],
-                    ),
-                    SizedBox(height: $constants.insets.sm),
-                  ],
+      builder: (context, state) {
+        final bloc = BlocProvider.of<EditProfileBloc>(context);
+        return Padding(
+          padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: $constants.insets.md,
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: Column(
+                    children: [
+                      _buildListPhotos(context),
+                      SizedBox(height: $constants.insets.md),
+                      _buildNameWidget(context, state),
+                      SizedBox(height: $constants.insets.sm),
+                      _buildBioWidget(context),
+                      SizedBox(height: $constants.insets.sm),
+                      EditProfileBirthday(
+                        birthday:
+                            bloc.updateUserModel.birthday ?? bloc.user.birthday,
+                      ),
+                      SizedBox(height: $constants.insets.sm),
+                      EditProfileGender(
+                        gender: bloc.updateUserModel.gender ??
+                            genderFromServerString(bloc.user.gender),
+                        desiredGender: bloc.updateUserModel.desiredGender ??
+                            desiredGenderFromServerString(
+                                bloc.user.desiredGender),
+                      ),
+                      SizedBox(height: $constants.insets.sm),
+                      EditProfileOccupationWidget(
+                        occupation: bloc.updateUserModel.occupation ??
+                            bloc.user.occupation ??
+                            '',
+                        school: bloc.updateUserModel.school ??
+                            bloc.user.school ??
+                            '',
+                      ),
+                      SizedBox(height: $constants.insets.sm),
+                      EditProfileLocationWidget(
+                        displayCity: bloc.user.displayCity ?? '',
+                        displayState: bloc.user.displayState ?? '',
+                      ),
+                      SizedBox(height: $constants.insets.xs),
+                      SenpaiSwitchWithTitle(
+                        value: bloc.hideLocation,
+                        title: TextConstants.hideLocationTitle,
+                        height: $constants.insets.xl,
+                        onChanged: (isHideLocation) {
+                          bloc.add(OnChangeHideLocationEvent(
+                            isHideLocation: isHideLocation,
+                          ));
+                        },
+                      ),
+                      SizedBox(height: $constants.insets.sm),
+                      const EditSpotifyContent(),
+                      SizedBox(height: $constants.insets.sm),
+                      UserFavoriteAnimeWidget(
+                        animes: bloc.user.animes ?? [],
+                      ),
+                      SizedBox(height: $constants.insets.sm),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-      );
-    });
+            ],
+          ),
+        );
+      },
+    );
   }
 
   Widget _buildListPhotos(BuildContext context) {
