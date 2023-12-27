@@ -69,3 +69,13 @@ class OnUpdateUserLocationEvent extends EditProfileEvent {
     this.displayState,
   });
 }
+
+class OnChangeShareTopSongsEvent extends EditProfileEvent {
+  final bool isShareTopSongs;
+  OnChangeShareTopSongsEvent({required this.isShareTopSongs});
+}
+
+class OnChangeShareTopArtistsEvent extends EditProfileEvent {
+  final bool isShareTopArtists;
+  OnChangeShareTopArtistsEvent({required this.isShareTopArtists});
+}

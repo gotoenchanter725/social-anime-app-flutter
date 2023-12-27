@@ -18,6 +18,8 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
   TextEditingController biographyController = TextEditingController();
 
   bool hideLocation = false;
+  bool shareTopSongs = false;
+  bool shareTopArtists = false;
 
   EditProfileBloc() : super(EditProfileInitial()) {
     on<OnFetchUser>((event, emit) {
@@ -25,7 +27,7 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
       user = event.user;
       userForPreview = event.user;
       updateUserModel = event.user.toUpdateModel();
-
+      //hideLocation = event.user.hasLocationHidden == true;
       firstNameController = TextEditingController(text: event.user.firstName);
       biographyController = TextEditingController(text: event.user.bio);
 
@@ -75,6 +77,7 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
       updateUserModel = updateUserModel.copyWith(desiredGender: event.gender);
       emit(ValidState());
     });
+
     on<OnOccupationSaveEvent>((event, emit) {
       emit(LoadingEditProfileState());
       updateUserModel = updateUserModel.copyWith(
@@ -108,6 +111,18 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
         displayCity: event.displayCity,
         displayState: event.displayState,
       );
+      emit(ValidState());
+    });
+
+    on<OnChangeShareTopSongsEvent>((event, emit) {
+      emit(LoadingEditProfileState());
+      shareTopSongs = event.isShareTopSongs;
+      emit(ValidState());
+    });
+
+    on<OnChangeShareTopArtistsEvent>((event, emit) {
+      emit(LoadingEditProfileState());
+      shareTopArtists = event.isShareTopArtists;
       emit(ValidState());
     });
   }
