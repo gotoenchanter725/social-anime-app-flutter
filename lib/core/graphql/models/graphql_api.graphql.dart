@@ -979,6 +979,144 @@ class GetDistanceBetweenUsersInput extends JsonSerializable
 }
 
 @JsonSerializable(explicitToJson: true)
+class AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic
+    extends JsonSerializable with EquatableMixin {
+  AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic();
+
+  factory AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic.fromJson(
+          Map<String, dynamic> json) =>
+      _$AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusicFromJson(
+          json);
+
+  late String id;
+
+  String? musicType;
+
+  String? trackName;
+
+  String? artistName;
+
+  String? coverUrl;
+
+  String? spotifyId;
+
+  @override
+  List<Object?> get props =>
+      [id, musicType, trackName, artistName, coverUrl, spotifyId];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusicToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddFavoriteMusic$Mutation$AddFavoriteMusic$User extends JsonSerializable
+    with EquatableMixin {
+  AddFavoriteMusic$Mutation$AddFavoriteMusic$User();
+
+  factory AddFavoriteMusic$Mutation$AddFavoriteMusic$User.fromJson(
+          Map<String, dynamic> json) =>
+      _$AddFavoriteMusic$Mutation$AddFavoriteMusic$UserFromJson(json);
+
+  late String id;
+
+  List<AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic>?
+      favoriteMusic;
+
+  @override
+  List<Object?> get props => [id, favoriteMusic];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$AddFavoriteMusic$Mutation$AddFavoriteMusic$UserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddFavoriteMusic$Mutation$AddFavoriteMusic extends JsonSerializable
+    with EquatableMixin {
+  AddFavoriteMusic$Mutation$AddFavoriteMusic();
+
+  factory AddFavoriteMusic$Mutation$AddFavoriteMusic.fromJson(
+          Map<String, dynamic> json) =>
+      _$AddFavoriteMusic$Mutation$AddFavoriteMusicFromJson(json);
+
+  late AddFavoriteMusic$Mutation$AddFavoriteMusic$User user;
+
+  @override
+  List<Object?> get props => [user];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$AddFavoriteMusic$Mutation$AddFavoriteMusicToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddFavoriteMusic$Mutation extends JsonSerializable with EquatableMixin {
+  AddFavoriteMusic$Mutation();
+
+  factory AddFavoriteMusic$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$AddFavoriteMusic$MutationFromJson(json);
+
+  AddFavoriteMusic$Mutation$AddFavoriteMusic? addFavoriteMusic;
+
+  @override
+  List<Object?> get props => [addFavoriteMusic];
+  @override
+  Map<String, dynamic> toJson() => _$AddFavoriteMusic$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddFavoriteMusicInput extends JsonSerializable with EquatableMixin {
+  AddFavoriteMusicInput({
+    this.clientMutationId,
+    required this.params,
+  });
+
+  factory AddFavoriteMusicInput.fromJson(Map<String, dynamic> json) =>
+      _$AddFavoriteMusicInputFromJson(json);
+
+  String? clientMutationId;
+
+  late List<FavoriteMusicInput> params;
+
+  @override
+  List<Object?> get props => [clientMutationId, params];
+  @override
+  Map<String, dynamic> toJson() => _$AddFavoriteMusicInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FavoriteMusicInput extends JsonSerializable with EquatableMixin {
+  FavoriteMusicInput({
+    this.artistName,
+    required this.coverUrl,
+    required this.musicType,
+    required this.spotifyId,
+    this.trackName,
+    required this.userId,
+  });
+
+  factory FavoriteMusicInput.fromJson(Map<String, dynamic> json) =>
+      _$FavoriteMusicInputFromJson(json);
+
+  String? artistName;
+
+  late String coverUrl;
+
+  late String musicType;
+
+  late String spotifyId;
+
+  String? trackName;
+
+  late int userId;
+
+  @override
+  List<Object?> get props =>
+      [artistName, coverUrl, musicType, spotifyId, trackName, userId];
+  @override
+  Map<String, dynamic> toJson() => _$FavoriteMusicInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class ResendVerifyCode$Mutation$ResendVerifyText$User extends JsonSerializable
     with EquatableMixin {
   ResendVerifyCode$Mutation$ResendVerifyText$User();
@@ -1320,6 +1458,79 @@ class LikeInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class DeleteUser$Mutation$DeleteUser$SoftDeletedUser extends JsonSerializable
+    with EquatableMixin {
+  DeleteUser$Mutation$DeleteUser$SoftDeletedUser();
+
+  factory DeleteUser$Mutation$DeleteUser$SoftDeletedUser.fromJson(
+          Map<String, dynamic> json) =>
+      _$DeleteUser$Mutation$DeleteUser$SoftDeletedUserFromJson(json);
+
+  late String id;
+
+  late String phone;
+
+  late bool verified;
+
+  @override
+  List<Object?> get props => [id, phone, verified];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$DeleteUser$Mutation$DeleteUser$SoftDeletedUserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DeleteUser$Mutation$DeleteUser extends JsonSerializable
+    with EquatableMixin {
+  DeleteUser$Mutation$DeleteUser();
+
+  factory DeleteUser$Mutation$DeleteUser.fromJson(Map<String, dynamic> json) =>
+      _$DeleteUser$Mutation$DeleteUserFromJson(json);
+
+  late DeleteUser$Mutation$DeleteUser$SoftDeletedUser softDeletedUser;
+
+  @override
+  List<Object?> get props => [softDeletedUser];
+  @override
+  Map<String, dynamic> toJson() => _$DeleteUser$Mutation$DeleteUserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DeleteUser$Mutation extends JsonSerializable with EquatableMixin {
+  DeleteUser$Mutation();
+
+  factory DeleteUser$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$DeleteUser$MutationFromJson(json);
+
+  DeleteUser$Mutation$DeleteUser? deleteUser;
+
+  @override
+  List<Object?> get props => [deleteUser];
+  @override
+  Map<String, dynamic> toJson() => _$DeleteUser$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DeleteUserInput extends JsonSerializable with EquatableMixin {
+  DeleteUserInput({
+    this.clientMutationId,
+    required this.userId,
+  });
+
+  factory DeleteUserInput.fromJson(Map<String, dynamic> json) =>
+      _$DeleteUserInputFromJson(json);
+
+  String? clientMutationId;
+
+  late int userId;
+
+  @override
+  List<Object?> get props => [clientMutationId, userId];
+  @override
+  Map<String, dynamic> toJson() => _$DeleteUserInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class SignIn$Mutation$SignIn$User extends JsonSerializable with EquatableMixin {
   SignIn$Mutation$SignIn$User();
 
@@ -1558,6 +1769,76 @@ class SetUserLocationInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class UndoLike$Mutation$UndoLike$UndidUser extends JsonSerializable
+    with EquatableMixin {
+  UndoLike$Mutation$UndoLike$UndidUser();
+
+  factory UndoLike$Mutation$UndoLike$UndidUser.fromJson(
+          Map<String, dynamic> json) =>
+      _$UndoLike$Mutation$UndoLike$UndidUserFromJson(json);
+
+  late String id;
+
+  @override
+  List<Object?> get props => [id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$UndoLike$Mutation$UndoLike$UndidUserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLike$Mutation$UndoLike extends JsonSerializable with EquatableMixin {
+  UndoLike$Mutation$UndoLike();
+
+  factory UndoLike$Mutation$UndoLike.fromJson(Map<String, dynamic> json) =>
+      _$UndoLike$Mutation$UndoLikeFromJson(json);
+
+  late String status;
+
+  UndoLike$Mutation$UndoLike$UndidUser? undidUser;
+
+  @override
+  List<Object?> get props => [status, undidUser];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLike$Mutation$UndoLikeToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLike$Mutation extends JsonSerializable with EquatableMixin {
+  UndoLike$Mutation();
+
+  factory UndoLike$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$UndoLike$MutationFromJson(json);
+
+  UndoLike$Mutation$UndoLike? undoLike;
+
+  @override
+  List<Object?> get props => [undoLike];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLike$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UndoLikeInput extends JsonSerializable with EquatableMixin {
+  UndoLikeInput({
+    this.clientMutationId,
+    required this.userId,
+  });
+
+  factory UndoLikeInput.fromJson(Map<String, dynamic> json) =>
+      _$UndoLikeInputFromJson(json);
+
+  String? clientMutationId;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [clientMutationId, userId];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLikeInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos
     extends JsonSerializable with EquatableMixin {
   UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos();
@@ -1675,6 +1956,63 @@ class UploadPhotoInput extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [clientMutationId, image, order, userId];
   @override
   Map<String, dynamic> toJson() => _$UploadPhotoInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic extends JsonSerializable
+    with EquatableMixin {
+  DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic();
+
+  factory DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic.fromJson(
+          Map<String, dynamic> json) =>
+      _$DeleteFavoriteMusic$Mutation$DeleteFavoriteMusicFromJson(json);
+
+  late bool deleted;
+
+  @override
+  List<Object?> get props => [deleted];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$DeleteFavoriteMusic$Mutation$DeleteFavoriteMusicToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DeleteFavoriteMusic$Mutation extends JsonSerializable
+    with EquatableMixin {
+  DeleteFavoriteMusic$Mutation();
+
+  factory DeleteFavoriteMusic$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$DeleteFavoriteMusic$MutationFromJson(json);
+
+  DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic? deleteFavoriteMusic;
+
+  @override
+  List<Object?> get props => [deleteFavoriteMusic];
+  @override
+  Map<String, dynamic> toJson() => _$DeleteFavoriteMusic$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DeleteFavoriteMusicInput extends JsonSerializable with EquatableMixin {
+  DeleteFavoriteMusicInput({
+    this.clientMutationId,
+    required this.musicIds,
+    required this.userId,
+  });
+
+  factory DeleteFavoriteMusicInput.fromJson(Map<String, dynamic> json) =>
+      _$DeleteFavoriteMusicInputFromJson(json);
+
+  String? clientMutationId;
+
+  late List<String> musicIds;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [clientMutationId, musicIds, userId];
+  @override
+  Map<String, dynamic> toJson() => _$DeleteFavoriteMusicInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -2660,111 +2998,6 @@ class FetchConversations$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FetchStickers$Query$FetchStickers extends JsonSerializable
-    with EquatableMixin {
-  FetchStickers$Query$FetchStickers();
-
-  factory FetchStickers$Query$FetchStickers.fromJson(
-          Map<String, dynamic> json) =>
-      _$FetchStickers$Query$FetchStickersFromJson(json);
-
-  late String id;
-
-  late String url;
-
-  @override
-  List<Object?> get props => [id, url];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$FetchStickers$Query$FetchStickersToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class FetchStickers$Query extends JsonSerializable with EquatableMixin {
-  FetchStickers$Query();
-
-  factory FetchStickers$Query.fromJson(Map<String, dynamic> json) =>
-      _$FetchStickers$QueryFromJson(json);
-
-  late List<FetchStickers$Query$FetchStickers> fetchStickers;
-
-  @override
-  List<Object?> get props => [fetchStickers];
-  @override
-  Map<String, dynamic> toJson() => _$FetchStickers$QueryToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UndoLike$Mutation$UndoLike$UndidUser extends JsonSerializable
-    with EquatableMixin {
-  UndoLike$Mutation$UndoLike$UndidUser();
-
-  factory UndoLike$Mutation$UndoLike$UndidUser.fromJson(
-          Map<String, dynamic> json) =>
-      _$UndoLike$Mutation$UndoLike$UndidUserFromJson(json);
-
-  late String id;
-
-  @override
-  List<Object?> get props => [id];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$UndoLike$Mutation$UndoLike$UndidUserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UndoLike$Mutation$UndoLike extends JsonSerializable with EquatableMixin {
-  UndoLike$Mutation$UndoLike();
-
-  factory UndoLike$Mutation$UndoLike.fromJson(Map<String, dynamic> json) =>
-      _$UndoLike$Mutation$UndoLikeFromJson(json);
-
-  late String status;
-
-  UndoLike$Mutation$UndoLike$UndidUser? undidUser;
-
-  @override
-  List<Object?> get props => [status, undidUser];
-  @override
-  Map<String, dynamic> toJson() => _$UndoLike$Mutation$UndoLikeToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UndoLike$Mutation extends JsonSerializable with EquatableMixin {
-  UndoLike$Mutation();
-
-  factory UndoLike$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$UndoLike$MutationFromJson(json);
-
-  UndoLike$Mutation$UndoLike? undoLike;
-
-  @override
-  List<Object?> get props => [undoLike];
-  @override
-  Map<String, dynamic> toJson() => _$UndoLike$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UndoLikeInput extends JsonSerializable with EquatableMixin {
-  UndoLikeInput({
-    this.clientMutationId,
-    required this.userId,
-  });
-
-  factory UndoLikeInput.fromJson(Map<String, dynamic> json) =>
-      _$UndoLikeInputFromJson(json);
-
-  String? clientMutationId;
-
-  late String userId;
-
-  @override
-  List<Object?> get props => [clientMutationId, userId];
-  @override
-  Map<String, dynamic> toJson() => _$UndoLikeInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
 class FetchVerifyRequests$Query$FetchVerifyRequests extends JsonSerializable
     with EquatableMixin {
   FetchVerifyRequests$Query$FetchVerifyRequests();
@@ -2800,271 +3033,38 @@ class FetchVerifyRequests$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic
-    extends JsonSerializable with EquatableMixin {
-  AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic();
+class FetchStickers$Query$FetchStickers extends JsonSerializable
+    with EquatableMixin {
+  FetchStickers$Query$FetchStickers();
 
-  factory AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic.fromJson(
+  factory FetchStickers$Query$FetchStickers.fromJson(
           Map<String, dynamic> json) =>
-      _$AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusicFromJson(
-          json);
+      _$FetchStickers$Query$FetchStickersFromJson(json);
 
   late String id;
 
-  String? musicType;
-
-  String? trackName;
-
-  String? artistName;
-
-  String? coverUrl;
-
-  String? spotifyId;
+  late String url;
 
   @override
-  List<Object?> get props =>
-      [id, musicType, trackName, artistName, coverUrl, spotifyId];
+  List<Object?> get props => [id, url];
   @override
   Map<String, dynamic> toJson() =>
-      _$AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusicToJson(
-          this);
+      _$FetchStickers$Query$FetchStickersToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddFavoriteMusic$Mutation$AddFavoriteMusic$User extends JsonSerializable
-    with EquatableMixin {
-  AddFavoriteMusic$Mutation$AddFavoriteMusic$User();
+class FetchStickers$Query extends JsonSerializable with EquatableMixin {
+  FetchStickers$Query();
 
-  factory AddFavoriteMusic$Mutation$AddFavoriteMusic$User.fromJson(
-          Map<String, dynamic> json) =>
-      _$AddFavoriteMusic$Mutation$AddFavoriteMusic$UserFromJson(json);
+  factory FetchStickers$Query.fromJson(Map<String, dynamic> json) =>
+      _$FetchStickers$QueryFromJson(json);
 
-  late String id;
-
-  List<AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic>?
-      favoriteMusic;
+  late List<FetchStickers$Query$FetchStickers> fetchStickers;
 
   @override
-  List<Object?> get props => [id, favoriteMusic];
+  List<Object?> get props => [fetchStickers];
   @override
-  Map<String, dynamic> toJson() =>
-      _$AddFavoriteMusic$Mutation$AddFavoriteMusic$UserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AddFavoriteMusic$Mutation$AddFavoriteMusic extends JsonSerializable
-    with EquatableMixin {
-  AddFavoriteMusic$Mutation$AddFavoriteMusic();
-
-  factory AddFavoriteMusic$Mutation$AddFavoriteMusic.fromJson(
-          Map<String, dynamic> json) =>
-      _$AddFavoriteMusic$Mutation$AddFavoriteMusicFromJson(json);
-
-  late AddFavoriteMusic$Mutation$AddFavoriteMusic$User user;
-
-  @override
-  List<Object?> get props => [user];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$AddFavoriteMusic$Mutation$AddFavoriteMusicToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AddFavoriteMusic$Mutation extends JsonSerializable with EquatableMixin {
-  AddFavoriteMusic$Mutation();
-
-  factory AddFavoriteMusic$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$AddFavoriteMusic$MutationFromJson(json);
-
-  AddFavoriteMusic$Mutation$AddFavoriteMusic? addFavoriteMusic;
-
-  @override
-  List<Object?> get props => [addFavoriteMusic];
-  @override
-  Map<String, dynamic> toJson() => _$AddFavoriteMusic$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AddFavoriteMusicInput extends JsonSerializable with EquatableMixin {
-  AddFavoriteMusicInput({
-    this.clientMutationId,
-    required this.params,
-  });
-
-  factory AddFavoriteMusicInput.fromJson(Map<String, dynamic> json) =>
-      _$AddFavoriteMusicInputFromJson(json);
-
-  String? clientMutationId;
-
-  late List<FavoriteMusicInput> params;
-
-  @override
-  List<Object?> get props => [clientMutationId, params];
-  @override
-  Map<String, dynamic> toJson() => _$AddFavoriteMusicInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class FavoriteMusicInput extends JsonSerializable with EquatableMixin {
-  FavoriteMusicInput({
-    this.artistName,
-    required this.coverUrl,
-    required this.musicType,
-    required this.spotifyId,
-    this.trackName,
-    required this.userId,
-  });
-
-  factory FavoriteMusicInput.fromJson(Map<String, dynamic> json) =>
-      _$FavoriteMusicInputFromJson(json);
-
-  String? artistName;
-
-  late String coverUrl;
-
-  late String musicType;
-
-  late String spotifyId;
-
-  String? trackName;
-
-  late int userId;
-
-  @override
-  List<Object?> get props =>
-      [artistName, coverUrl, musicType, spotifyId, trackName, userId];
-  @override
-  Map<String, dynamic> toJson() => _$FavoriteMusicInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeleteUser$Mutation$DeleteUser$SoftDeletedUser extends JsonSerializable
-    with EquatableMixin {
-  DeleteUser$Mutation$DeleteUser$SoftDeletedUser();
-
-  factory DeleteUser$Mutation$DeleteUser$SoftDeletedUser.fromJson(
-          Map<String, dynamic> json) =>
-      _$DeleteUser$Mutation$DeleteUser$SoftDeletedUserFromJson(json);
-
-  late String id;
-
-  late String phone;
-
-  late bool verified;
-
-  @override
-  List<Object?> get props => [id, phone, verified];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$DeleteUser$Mutation$DeleteUser$SoftDeletedUserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeleteUser$Mutation$DeleteUser extends JsonSerializable
-    with EquatableMixin {
-  DeleteUser$Mutation$DeleteUser();
-
-  factory DeleteUser$Mutation$DeleteUser.fromJson(Map<String, dynamic> json) =>
-      _$DeleteUser$Mutation$DeleteUserFromJson(json);
-
-  late DeleteUser$Mutation$DeleteUser$SoftDeletedUser softDeletedUser;
-
-  @override
-  List<Object?> get props => [softDeletedUser];
-  @override
-  Map<String, dynamic> toJson() => _$DeleteUser$Mutation$DeleteUserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeleteUser$Mutation extends JsonSerializable with EquatableMixin {
-  DeleteUser$Mutation();
-
-  factory DeleteUser$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$DeleteUser$MutationFromJson(json);
-
-  DeleteUser$Mutation$DeleteUser? deleteUser;
-
-  @override
-  List<Object?> get props => [deleteUser];
-  @override
-  Map<String, dynamic> toJson() => _$DeleteUser$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeleteUserInput extends JsonSerializable with EquatableMixin {
-  DeleteUserInput({
-    this.clientMutationId,
-    required this.userId,
-  });
-
-  factory DeleteUserInput.fromJson(Map<String, dynamic> json) =>
-      _$DeleteUserInputFromJson(json);
-
-  String? clientMutationId;
-
-  late int userId;
-
-  @override
-  List<Object?> get props => [clientMutationId, userId];
-  @override
-  Map<String, dynamic> toJson() => _$DeleteUserInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic extends JsonSerializable
-    with EquatableMixin {
-  DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic();
-
-  factory DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic.fromJson(
-          Map<String, dynamic> json) =>
-      _$DeleteFavoriteMusic$Mutation$DeleteFavoriteMusicFromJson(json);
-
-  late bool deleted;
-
-  @override
-  List<Object?> get props => [deleted];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$DeleteFavoriteMusic$Mutation$DeleteFavoriteMusicToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeleteFavoriteMusic$Mutation extends JsonSerializable
-    with EquatableMixin {
-  DeleteFavoriteMusic$Mutation();
-
-  factory DeleteFavoriteMusic$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$DeleteFavoriteMusic$MutationFromJson(json);
-
-  DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic? deleteFavoriteMusic;
-
-  @override
-  List<Object?> get props => [deleteFavoriteMusic];
-  @override
-  Map<String, dynamic> toJson() => _$DeleteFavoriteMusic$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeleteFavoriteMusicInput extends JsonSerializable with EquatableMixin {
-  DeleteFavoriteMusicInput({
-    this.clientMutationId,
-    required this.musicIds,
-    required this.userId,
-  });
-
-  factory DeleteFavoriteMusicInput.fromJson(Map<String, dynamic> json) =>
-      _$DeleteFavoriteMusicInputFromJson(json);
-
-  String? clientMutationId;
-
-  late List<String> musicIds;
-
-  late String userId;
-
-  @override
-  List<Object?> get props => [clientMutationId, musicIds, userId];
-  @override
-  Map<String, dynamic> toJson() => _$DeleteFavoriteMusicInputToJson(this);
+  Map<String, dynamic> toJson() => _$FetchStickers$QueryToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -4129,6 +4129,143 @@ class GetDistanceBetweenUsersMutation extends GraphQLQuery<
 }
 
 @JsonSerializable(explicitToJson: true)
+class AddFavoriteMusicArguments extends JsonSerializable with EquatableMixin {
+  AddFavoriteMusicArguments({required this.input});
+
+  @override
+  factory AddFavoriteMusicArguments.fromJson(Map<String, dynamic> json) =>
+      _$AddFavoriteMusicArgumentsFromJson(json);
+
+  late AddFavoriteMusicInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$AddFavoriteMusicArgumentsToJson(this);
+}
+
+final ADD_FAVORITE_MUSIC_MUTATION_DOCUMENT_OPERATION_NAME = 'addFavoriteMusic';
+final ADD_FAVORITE_MUSIC_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'addFavoriteMusic'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'AddFavoriteMusicInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'addFavoriteMusic'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'favoriteMusic'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'musicType'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'trackName'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'artistName'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'coverUrl'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'spotifyId'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class AddFavoriteMusicMutation
+    extends GraphQLQuery<AddFavoriteMusic$Mutation, AddFavoriteMusicArguments> {
+  AddFavoriteMusicMutation({required this.variables});
+
+  @override
+  final DocumentNode document = ADD_FAVORITE_MUSIC_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      ADD_FAVORITE_MUSIC_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final AddFavoriteMusicArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  AddFavoriteMusic$Mutation parse(Map<String, dynamic> json) =>
+      AddFavoriteMusic$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
 class ResendVerifyCodeArguments extends JsonSerializable with EquatableMixin {
   ResendVerifyCodeArguments({required this.input});
 
@@ -4492,6 +4629,106 @@ class LikeUserMutation
 }
 
 @JsonSerializable(explicitToJson: true)
+class DeleteUserArguments extends JsonSerializable with EquatableMixin {
+  DeleteUserArguments({required this.input});
+
+  @override
+  factory DeleteUserArguments.fromJson(Map<String, dynamic> json) =>
+      _$DeleteUserArgumentsFromJson(json);
+
+  late DeleteUserInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$DeleteUserArgumentsToJson(this);
+}
+
+final DELETE_USER_MUTATION_DOCUMENT_OPERATION_NAME = 'deleteUser';
+final DELETE_USER_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'deleteUser'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'DeleteUserInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'deleteUser'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'softDeletedUser'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'phone'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'verified'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class DeleteUserMutation
+    extends GraphQLQuery<DeleteUser$Mutation, DeleteUserArguments> {
+  DeleteUserMutation({required this.variables});
+
+  @override
+  final DocumentNode document = DELETE_USER_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = DELETE_USER_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final DeleteUserArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  DeleteUser$Mutation parse(Map<String, dynamic> json) =>
+      DeleteUser$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
 class SignInArguments extends JsonSerializable with EquatableMixin {
   SignInArguments({required this.input});
 
@@ -4806,6 +5043,99 @@ class SetUserLocationMutation
 }
 
 @JsonSerializable(explicitToJson: true)
+class UndoLikeArguments extends JsonSerializable with EquatableMixin {
+  UndoLikeArguments({required this.input});
+
+  @override
+  factory UndoLikeArguments.fromJson(Map<String, dynamic> json) =>
+      _$UndoLikeArgumentsFromJson(json);
+
+  late UndoLikeInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$UndoLikeArgumentsToJson(this);
+}
+
+final UNDO_LIKE_MUTATION_DOCUMENT_OPERATION_NAME = 'undoLike';
+final UNDO_LIKE_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'undoLike'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'UndoLikeInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'undoLike'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'status'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'undidUser'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              )
+            ]),
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class UndoLikeMutation
+    extends GraphQLQuery<UndoLike$Mutation, UndoLikeArguments> {
+  UndoLikeMutation({required this.variables});
+
+  @override
+  final DocumentNode document = UNDO_LIKE_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = UNDO_LIKE_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final UndoLikeArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  UndoLike$Mutation parse(Map<String, dynamic> json) =>
+      UndoLike$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
 class UploadPhotoArguments extends JsonSerializable with EquatableMixin {
   UploadPhotoArguments({required this.input});
 
@@ -4919,6 +5249,87 @@ class UploadPhotoMutation
   @override
   UploadPhoto$Mutation parse(Map<String, dynamic> json) =>
       UploadPhoto$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DeleteFavoriteMusicArguments extends JsonSerializable
+    with EquatableMixin {
+  DeleteFavoriteMusicArguments({required this.input});
+
+  @override
+  factory DeleteFavoriteMusicArguments.fromJson(Map<String, dynamic> json) =>
+      _$DeleteFavoriteMusicArgumentsFromJson(json);
+
+  late DeleteFavoriteMusicInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$DeleteFavoriteMusicArgumentsToJson(this);
+}
+
+final DELETE_FAVORITE_MUSIC_MUTATION_DOCUMENT_OPERATION_NAME =
+    'deleteFavoriteMusic';
+final DELETE_FAVORITE_MUSIC_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'deleteFavoriteMusic'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'DeleteFavoriteMusicInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'deleteFavoriteMusic'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'deleted'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class DeleteFavoriteMusicMutation extends GraphQLQuery<
+    DeleteFavoriteMusic$Mutation, DeleteFavoriteMusicArguments> {
+  DeleteFavoriteMusicMutation({required this.variables});
+
+  @override
+  final DocumentNode document = DELETE_FAVORITE_MUSIC_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      DELETE_FAVORITE_MUSIC_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final DeleteFavoriteMusicArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  DeleteFavoriteMusic$Mutation parse(Map<String, dynamic> json) =>
+      DeleteFavoriteMusic$Mutation.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -6275,184 +6686,6 @@ class FetchConversationsQuery extends GraphQLQuery<FetchConversations$Query,
 }
 
 @JsonSerializable(explicitToJson: true)
-class FetchStickersArguments extends JsonSerializable with EquatableMixin {
-  FetchStickersArguments({required this.page});
-
-  @override
-  factory FetchStickersArguments.fromJson(Map<String, dynamic> json) =>
-      _$FetchStickersArgumentsFromJson(json);
-
-  late int page;
-
-  @override
-  List<Object?> get props => [page];
-  @override
-  Map<String, dynamic> toJson() => _$FetchStickersArgumentsToJson(this);
-}
-
-final FETCH_STICKERS_QUERY_DOCUMENT_OPERATION_NAME = 'fetchStickers';
-final FETCH_STICKERS_QUERY_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'fetchStickers'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'fetchStickers'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'url'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      )
-    ]),
-  )
-]);
-
-class FetchStickersQuery
-    extends GraphQLQuery<FetchStickers$Query, FetchStickersArguments> {
-  FetchStickersQuery({required this.variables});
-
-  @override
-  final DocumentNode document = FETCH_STICKERS_QUERY_DOCUMENT;
-
-  @override
-  final String operationName = FETCH_STICKERS_QUERY_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final FetchStickersArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  FetchStickers$Query parse(Map<String, dynamic> json) =>
-      FetchStickers$Query.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UndoLikeArguments extends JsonSerializable with EquatableMixin {
-  UndoLikeArguments({required this.input});
-
-  @override
-  factory UndoLikeArguments.fromJson(Map<String, dynamic> json) =>
-      _$UndoLikeArgumentsFromJson(json);
-
-  late UndoLikeInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$UndoLikeArgumentsToJson(this);
-}
-
-final UNDO_LIKE_MUTATION_DOCUMENT_OPERATION_NAME = 'undoLike';
-final UNDO_LIKE_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'undoLike'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'UndoLikeInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'undoLike'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'status'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'undidUser'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              )
-            ]),
-          ),
-        ]),
-      )
-    ]),
-  )
-]);
-
-class UndoLikeMutation
-    extends GraphQLQuery<UndoLike$Mutation, UndoLikeArguments> {
-  UndoLikeMutation({required this.variables});
-
-  @override
-  final DocumentNode document = UNDO_LIKE_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName = UNDO_LIKE_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final UndoLikeArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  UndoLike$Mutation parse(Map<String, dynamic> json) =>
-      UndoLike$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
 class FetchVerifyRequestsArguments extends JsonSerializable
     with EquatableMixin {
   FetchVerifyRequestsArguments({required this.userId});
@@ -6541,31 +6774,31 @@ class FetchVerifyRequestsQuery extends GraphQLQuery<FetchVerifyRequests$Query,
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddFavoriteMusicArguments extends JsonSerializable with EquatableMixin {
-  AddFavoriteMusicArguments({required this.input});
+class FetchStickersArguments extends JsonSerializable with EquatableMixin {
+  FetchStickersArguments({required this.page});
 
   @override
-  factory AddFavoriteMusicArguments.fromJson(Map<String, dynamic> json) =>
-      _$AddFavoriteMusicArgumentsFromJson(json);
+  factory FetchStickersArguments.fromJson(Map<String, dynamic> json) =>
+      _$FetchStickersArgumentsFromJson(json);
 
-  late AddFavoriteMusicInput input;
+  late int page;
 
   @override
-  List<Object?> get props => [input];
+  List<Object?> get props => [page];
   @override
-  Map<String, dynamic> toJson() => _$AddFavoriteMusicArgumentsToJson(this);
+  Map<String, dynamic> toJson() => _$FetchStickersArgumentsToJson(this);
 }
 
-final ADD_FAVORITE_MUSIC_MUTATION_DOCUMENT_OPERATION_NAME = 'addFavoriteMusic';
-final ADD_FAVORITE_MUSIC_MUTATION_DOCUMENT = DocumentNode(definitions: [
+final FETCH_STICKERS_QUERY_DOCUMENT_OPERATION_NAME = 'fetchStickers';
+final FETCH_STICKERS_QUERY_DOCUMENT = DocumentNode(definitions: [
   OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'addFavoriteMusic'),
+    type: OperationType.query,
+    name: NameNode(value: 'fetchStickers'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
+        variable: VariableNode(name: NameNode(value: 'page')),
         type: NamedTypeNode(
-          name: NameNode(value: 'AddFavoriteMusicInput'),
+          name: NameNode(value: 'Int'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -6575,285 +6808,52 @@ final ADD_FAVORITE_MUSIC_MUTATION_DOCUMENT = DocumentNode(definitions: [
     directives: [],
     selectionSet: SelectionSetNode(selections: [
       FieldNode(
-        name: NameNode(value: 'addFavoriteMusic'),
+        name: NameNode(value: 'fetchStickers'),
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
           )
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FieldNode(
-            name: NameNode(value: 'user'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'favoriteMusic'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'musicType'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'trackName'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'artistName'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'coverUrl'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'spotifyId'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class AddFavoriteMusicMutation
-    extends GraphQLQuery<AddFavoriteMusic$Mutation, AddFavoriteMusicArguments> {
-  AddFavoriteMusicMutation({required this.variables});
-
-  @override
-  final DocumentNode document = ADD_FAVORITE_MUSIC_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName =
-      ADD_FAVORITE_MUSIC_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final AddFavoriteMusicArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  AddFavoriteMusic$Mutation parse(Map<String, dynamic> json) =>
-      AddFavoriteMusic$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeleteUserArguments extends JsonSerializable with EquatableMixin {
-  DeleteUserArguments({required this.input});
-
-  @override
-  factory DeleteUserArguments.fromJson(Map<String, dynamic> json) =>
-      _$DeleteUserArgumentsFromJson(json);
-
-  late DeleteUserInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$DeleteUserArgumentsToJson(this);
-}
-
-final DELETE_USER_MUTATION_DOCUMENT_OPERATION_NAME = 'deleteUser';
-final DELETE_USER_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'deleteUser'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'DeleteUserInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'deleteUser'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'softDeletedUser'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'phone'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'verified'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class DeleteUserMutation
-    extends GraphQLQuery<DeleteUser$Mutation, DeleteUserArguments> {
-  DeleteUserMutation({required this.variables});
-
-  @override
-  final DocumentNode document = DELETE_USER_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName = DELETE_USER_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final DeleteUserArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  DeleteUser$Mutation parse(Map<String, dynamic> json) =>
-      DeleteUser$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeleteFavoriteMusicArguments extends JsonSerializable
-    with EquatableMixin {
-  DeleteFavoriteMusicArguments({required this.input});
-
-  @override
-  factory DeleteFavoriteMusicArguments.fromJson(Map<String, dynamic> json) =>
-      _$DeleteFavoriteMusicArgumentsFromJson(json);
-
-  late DeleteFavoriteMusicInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$DeleteFavoriteMusicArgumentsToJson(this);
-}
-
-final DELETE_FAVORITE_MUSIC_MUTATION_DOCUMENT_OPERATION_NAME =
-    'deleteFavoriteMusic';
-final DELETE_FAVORITE_MUSIC_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'deleteFavoriteMusic'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'DeleteFavoriteMusicInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'deleteFavoriteMusic'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'deleted'),
+            name: NameNode(value: 'id'),
             alias: null,
             arguments: [],
             directives: [],
             selectionSet: null,
-          )
+          ),
+          FieldNode(
+            name: NameNode(value: 'url'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
         ]),
       )
     ]),
   )
 ]);
 
-class DeleteFavoriteMusicMutation extends GraphQLQuery<
-    DeleteFavoriteMusic$Mutation, DeleteFavoriteMusicArguments> {
-  DeleteFavoriteMusicMutation({required this.variables});
+class FetchStickersQuery
+    extends GraphQLQuery<FetchStickers$Query, FetchStickersArguments> {
+  FetchStickersQuery({required this.variables});
 
   @override
-  final DocumentNode document = DELETE_FAVORITE_MUSIC_MUTATION_DOCUMENT;
+  final DocumentNode document = FETCH_STICKERS_QUERY_DOCUMENT;
 
   @override
-  final String operationName =
-      DELETE_FAVORITE_MUSIC_MUTATION_DOCUMENT_OPERATION_NAME;
+  final String operationName = FETCH_STICKERS_QUERY_DOCUMENT_OPERATION_NAME;
 
   @override
-  final DeleteFavoriteMusicArguments variables;
+  final FetchStickersArguments variables;
 
   @override
   List<Object?> get props => [document, operationName, variables];
   @override
-  DeleteFavoriteMusic$Mutation parse(Map<String, dynamic> json) =>
-      DeleteFavoriteMusic$Mutation.fromJson(json);
+  FetchStickers$Query parse(Map<String, dynamic> json) =>
+      FetchStickers$Query.fromJson(json);
 }
