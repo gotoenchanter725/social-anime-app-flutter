@@ -14,3 +14,15 @@ class OnFetchDistanceBeetwenUsersEvent extends PreviewProfileEvent {
 
   OnFetchDistanceBeetwenUsersEvent({required this.distance});
 }
+
+class OnChangePaginationTracksEvent extends PreviewProfileEvent {
+  OnChangePaginationTracksEvent();
+}
+
+class OnChangePaginationArtistsEvent extends PreviewProfileEvent {
+  OnChangePaginationArtistsEvent();
+}
+
+class OnInitPaginationEvent extends PreviewProfileEvent {
+  OnInitPaginationEvent();
+}
