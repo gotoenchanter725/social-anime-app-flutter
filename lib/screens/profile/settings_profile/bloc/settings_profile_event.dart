@@ -52,3 +52,22 @@ class OnChangeFeedbackStartEvent extends SettingsProfileEvent {
   final int index;
   OnChangeFeedbackStartEvent({required this.index});
 }
+
+class OnChangePhoneNumberEvent extends SettingsProfileEvent {
+  final PhoneNumber phoneNumber;
+  OnChangePhoneNumberEvent({required this.phoneNumber});
+}
+
+class OnChangeIsVerifyPhone extends SettingsProfileEvent {
+  final bool isVerifyPhone;
+  OnChangeIsVerifyPhone({required this.isVerifyPhone});
+}
+
+class OnTapUpdatePhoneEvent extends SettingsProfileEvent {
+  OnTapUpdatePhoneEvent();
+}
+
+class OnLogoutUserEvent extends SettingsProfileEvent {
+  final bool isDeleteStorage;
+  OnLogoutUserEvent({required this.isDeleteStorage});
+}

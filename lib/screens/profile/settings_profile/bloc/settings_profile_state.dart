@@ -17,3 +17,11 @@ class ValidState extends SettingsProfileState {}
 class LoadingState extends SettingsProfileState {}
 
 class SettingsProfileSucssesfulState extends SettingsProfileState {}
+
+class ChangePhoneNumberState extends SettingsProfileState {}
+
+class ValidSaveIsVerifyPhoneState extends SettingsProfileState {}
+
+class LogoutSucssesfulState extends SettingsProfileState {}
+
+class LogoutLoadingState extends SettingsProfileState {}
