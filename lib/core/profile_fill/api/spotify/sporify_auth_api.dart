@@ -46,9 +46,6 @@ class SpotifyAuthApi {
             refreshToken: refreshToken,
           ),
         );
-        //TODO: delete it before push code
-        print('Access Token: $accessToken');
-        print('Refresh Token: $refreshToken');
         return accessToken;
       } else {
         throw const SpotifyAuthError();
