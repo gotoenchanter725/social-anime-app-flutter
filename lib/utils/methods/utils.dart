@@ -252,3 +252,8 @@ ReactionType stringToReactionType(String reactionString) {
     throw ArgumentError('Invalid reaction string: $reactionString');
   }
 }
+
+double matchRadius(int milesAway) {
+  int meterToMiles = 1609;
+  return milesAway * (meterToMiles / 2);
+}
