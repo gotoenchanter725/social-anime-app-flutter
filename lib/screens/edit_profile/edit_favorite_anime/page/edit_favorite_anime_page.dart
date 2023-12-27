@@ -46,6 +46,7 @@ class EditFavoriteAnimePage extends StatelessWidget {
       ],
       child: Scaffold(
         backgroundColor: $constants.palette.darkBlue,
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Stack(
             children: [
