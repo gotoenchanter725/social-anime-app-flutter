@@ -49,13 +49,6 @@ class AnimeStepHeaderWidget extends StatelessWidget {
         );
       },
       backBorderColor: $constants.palette.white,
-      onTapSkipkButton: () {
-        bloc.add(
-          OnChangeStepEvent(
-            step: ProfileFillStep.verify,
-          ),
-        );
-      },
     );
   }
 

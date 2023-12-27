@@ -54,7 +54,7 @@ class SpotifyContent extends StatelessWidget {
       isCenterTitle: true,
       onTapSkipkButton: () {
         bloc.add(
-          OnChangeStepEvent(step: ProfileFillStep.verify),
+          OnChangeStepEvent(step: ProfileFillStep.animes),
         );
       },
       onTapBackButton: () {
