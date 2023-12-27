@@ -9,7 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:dio/dio.dart' as _i35;
+import 'package:dio/dio.dart' as _i37;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i13;
 import 'package:fresh_dio/fresh_dio.dart' as _i27;
 import 'package:get_it/get_it.dart' as _i1;
@@ -21,19 +21,19 @@ import 'package:senpai/core/auth/blocs/create_user_bloc.dart' as _i5;
 import 'package:senpai/core/auth/blocs/resend_verification_code_bloc.dart'
     as _i22;
 import 'package:senpai/core/auth/blocs/sign_in_bloc.dart' as _i25;
-import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart' as _i33;
+import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart' as _i35;
 import 'package:senpai/core/chat/blocs/send_message_bloc.dart' as _i23;
 import 'package:senpai/core/feed/blocs/fetch_feed_bloc.dart' as _i10;
 import 'package:senpai/core/feed/blocs/get_distance_between_users_bloc.dart'
     as _i14;
 import 'package:senpai/core/feed/blocs/like_user_bloc.dart' as _i19;
-import 'package:senpai/core/profile_fill/api/universities_api.dart' as _i30;
+import 'package:senpai/core/profile_fill/api/universities_api.dart' as _i32;
 import 'package:senpai/core/profile_fill/blocs/delete_photo/delete_photo_bloc.dart'
     as _i7;
 import 'package:senpai/core/profile_fill/blocs/reorder_photos/reorder_photos_bloc.dart'
     as _i21;
 import 'package:senpai/core/profile_fill/blocs/upload_photo/upload_photo_bloc.dart'
-    as _i32;
+    as _i34;
 import 'package:senpai/core/profile_fill/favorite_anime/add_favorite_anime_bloc.dart'
     as _i3;
 import 'package:senpai/core/profile_fill/favorite_anime/delete_favorite_anime_bloc.dart'
@@ -42,23 +42,26 @@ import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart'
     as _i9;
 import 'package:senpai/core/profile_fill/set_user_location/set_user_location_bloc.dart'
     as _i24;
-import 'package:senpai/core/secure_storage/secure_auth_storage.dart' as _i29;
+import 'package:senpai/core/secure_storage/secure_auth_storage.dart' as _i31;
+import 'package:senpai/core/secure_storage/secure_spotify_auth_storage.dart'
+    as _i29;
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart' as _i11;
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart'
-    as _i31;
+    as _i33;
 import 'package:senpai/core/user/blocs/verify_photo_user/verify_photo_user_bloc.dart'
-    as _i34;
+    as _i36;
 import 'package:senpai/core/user/blocs/verify_request_user/fetch_verify_requests.dart'
     as _i12;
-import 'package:senpai/dependency_injection/dio_client_di.dart' as _i41;
-import 'package:senpai/dependency_injection/graphql_client_di.dart' as _i39;
-import 'package:senpai/dependency_injection/network_info_di.dart' as _i40;
-import 'package:senpai/dependency_injection/router_di.dart' as _i36;
-import 'package:senpai/dependency_injection/secure_storage_di.dart' as _i37;
-import 'package:senpai/dependency_injection/university_module_di.dart' as _i38;
+import 'package:senpai/dependency_injection/dio_client_di.dart' as _i43;
+import 'package:senpai/dependency_injection/graphql_client_di.dart' as _i41;
+import 'package:senpai/dependency_injection/network_info_di.dart' as _i42;
+import 'package:senpai/dependency_injection/router_di.dart' as _i38;
+import 'package:senpai/dependency_injection/secure_storage_di.dart' as _i39;
+import 'package:senpai/dependency_injection/university_module_di.dart' as _i40;
 import 'package:senpai/domain/profile_fill/universities_usecase.dart' as _i15;
-import 'package:senpai/models/auth/auth_model.dart' as _i28;
+import 'package:senpai/models/auth/auth_model.dart' as _i30;
 import 'package:senpai/models/env_model.dart' as _i8;
+import 'package:senpai/models/spotify_auth/spotify_auth_model.dart' as _i28;
 import 'package:senpai/models/theme_model.dart' as _i26;
 import 'package:senpai/routes/app_router.dart' as _i4;
 import 'package:senpai/screens/home/bloc/home_storage_bloc.dart' as _i17;
@@ -118,27 +121,29 @@ extension GetItInjectableX on _i1.GetIt {
       () => _i26.ThemeModel.create(),
       preResolve: true,
     );
-    gh.lazySingleton<_i27.TokenStorage<_i28.AuthModel>>(
-        () => _i29.SecureAuthStorage(gh<_i13.FlutterSecureStorage>()));
-    gh.factory<_i30.UniversitiesApi>(
+    gh.lazySingleton<_i27.TokenStorage<_i28.SpotifyAuthModel>>(
+        () => _i29.SecureSpotifyAuthStorage(gh<_i13.FlutterSecureStorage>()));
+    gh.lazySingleton<_i27.TokenStorage<_i30.AuthModel>>(
+        () => _i31.SecureAuthStorage(gh<_i13.FlutterSecureStorage>()));
+    gh.factory<_i32.UniversitiesApi>(
         () => universityInjectionModule.universitiesApi(gh<_i8.EnvModel>()));
-    gh.factory<_i31.UpdateUserBloc>(() => _i31.UpdateUserBloc());
-    gh.factory<_i32.UploadPhotoBloc>(() => _i32.UploadPhotoBloc());
-    gh.factory<_i33.ValidatePhoneBloc>(() => _i33.ValidatePhoneBloc());
-    gh.factory<_i34.VerifyPhotoUserBloc>(() => _i34.VerifyPhotoUserBloc());
-    gh.factory<_i35.Dio>(() => dioInjection.dio(gh<_i8.EnvModel>()));
+    gh.factory<_i33.UpdateUserBloc>(() => _i33.UpdateUserBloc());
+    gh.factory<_i34.UploadPhotoBloc>(() => _i34.UploadPhotoBloc());
+    gh.factory<_i35.ValidatePhoneBloc>(() => _i35.ValidatePhoneBloc());
+    gh.factory<_i36.VerifyPhotoUserBloc>(() => _i36.VerifyPhotoUserBloc());
+    gh.factory<_i37.Dio>(() => dioInjection.dio(gh<_i8.EnvModel>()));
     return this;
   }
 }
 
-class _$RouterInjection extends _i36.RouterInjection {}
+class _$RouterInjection extends _i38.RouterInjection {}
 
-class _$SecureStorageInjection extends _i37.SecureStorageInjection {}
+class _$SecureStorageInjection extends _i39.SecureStorageInjection {}
 
-class _$UniversityInjectionModule extends _i38.UniversityInjectionModule {}
+class _$UniversityInjectionModule extends _i40.UniversityInjectionModule {}
 
-class _$GraphQLInjection extends _i39.GraphQLInjection {}
+class _$GraphQLInjection extends _i41.GraphQLInjection {}
 
-class _$NetworkInfoInjection extends _i40.NetworkInfoInjection {}
+class _$NetworkInfoInjection extends _i42.NetworkInfoInjection {}
 
-class _$DioInjection extends _i41.DioInjection {}
+class _$DioInjection extends _i43.DioInjection {}

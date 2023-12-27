@@ -1,0 +1,15 @@
+mutation addFavoriteMusic($input: AddFavoriteMusicInput!) {
+  addFavoriteMusic(input: $input) {
+    user {
+      id
+      favoriteMusic {
+        id
+        musicType
+        trackName
+        artistName
+        coverUrl
+        spotifyId
+      }
+    }
+  }
+}

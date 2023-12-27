@@ -2085,6 +2085,208 @@ Map<String, dynamic> _$FetchVerifyRequests$QueryToJson(
           instance.fetchVerifyRequests.map((e) => e.toJson()).toList(),
     };
 
+AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic
+    _$AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusicFromJson(
+            Map<String, dynamic> json) =>
+        AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic()
+          ..id = json['id'] as String
+          ..musicType = json['musicType'] as String?
+          ..trackName = json['trackName'] as String?
+          ..artistName = json['artistName'] as String?
+          ..coverUrl = json['coverUrl'] as String?
+          ..spotifyId = json['spotifyId'] as String?;
+
+Map<String, dynamic>
+    _$AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusicToJson(
+            AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic
+                instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'musicType': instance.musicType,
+          'trackName': instance.trackName,
+          'artistName': instance.artistName,
+          'coverUrl': instance.coverUrl,
+          'spotifyId': instance.spotifyId,
+        };
+
+AddFavoriteMusic$Mutation$AddFavoriteMusic$User
+    _$AddFavoriteMusic$Mutation$AddFavoriteMusic$UserFromJson(
+            Map<String, dynamic> json) =>
+        AddFavoriteMusic$Mutation$AddFavoriteMusic$User()
+          ..id = json['id'] as String
+          ..favoriteMusic = (json['favoriteMusic'] as List<dynamic>?)
+              ?.map((e) =>
+                  AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic> _$AddFavoriteMusic$Mutation$AddFavoriteMusic$UserToJson(
+        AddFavoriteMusic$Mutation$AddFavoriteMusic$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'favoriteMusic': instance.favoriteMusic?.map((e) => e.toJson()).toList(),
+    };
+
+AddFavoriteMusic$Mutation$AddFavoriteMusic
+    _$AddFavoriteMusic$Mutation$AddFavoriteMusicFromJson(
+            Map<String, dynamic> json) =>
+        AddFavoriteMusic$Mutation$AddFavoriteMusic()
+          ..user = AddFavoriteMusic$Mutation$AddFavoriteMusic$User.fromJson(
+              json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AddFavoriteMusic$Mutation$AddFavoriteMusicToJson(
+        AddFavoriteMusic$Mutation$AddFavoriteMusic instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+AddFavoriteMusic$Mutation _$AddFavoriteMusic$MutationFromJson(
+        Map<String, dynamic> json) =>
+    AddFavoriteMusic$Mutation()
+      ..addFavoriteMusic = json['addFavoriteMusic'] == null
+          ? null
+          : AddFavoriteMusic$Mutation$AddFavoriteMusic.fromJson(
+              json['addFavoriteMusic'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AddFavoriteMusic$MutationToJson(
+        AddFavoriteMusic$Mutation instance) =>
+    <String, dynamic>{
+      'addFavoriteMusic': instance.addFavoriteMusic?.toJson(),
+    };
+
+AddFavoriteMusicInput _$AddFavoriteMusicInputFromJson(
+        Map<String, dynamic> json) =>
+    AddFavoriteMusicInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      params: (json['params'] as List<dynamic>)
+          .map((e) => FavoriteMusicInput.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$AddFavoriteMusicInputToJson(
+        AddFavoriteMusicInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'params': instance.params.map((e) => e.toJson()).toList(),
+    };
+
+FavoriteMusicInput _$FavoriteMusicInputFromJson(Map<String, dynamic> json) =>
+    FavoriteMusicInput(
+      artistName: json['artistName'] as String?,
+      coverUrl: json['coverUrl'] as String,
+      musicType: json['musicType'] as String,
+      spotifyId: json['spotifyId'] as String,
+      trackName: json['trackName'] as String?,
+      userId: json['userId'] as int,
+    );
+
+Map<String, dynamic> _$FavoriteMusicInputToJson(FavoriteMusicInput instance) =>
+    <String, dynamic>{
+      'artistName': instance.artistName,
+      'coverUrl': instance.coverUrl,
+      'musicType': instance.musicType,
+      'spotifyId': instance.spotifyId,
+      'trackName': instance.trackName,
+      'userId': instance.userId,
+    };
+
+DeleteUser$Mutation$DeleteUser$SoftDeletedUser
+    _$DeleteUser$Mutation$DeleteUser$SoftDeletedUserFromJson(
+            Map<String, dynamic> json) =>
+        DeleteUser$Mutation$DeleteUser$SoftDeletedUser()
+          ..id = json['id'] as String
+          ..phone = json['phone'] as String
+          ..verified = json['verified'] as bool;
+
+Map<String, dynamic> _$DeleteUser$Mutation$DeleteUser$SoftDeletedUserToJson(
+        DeleteUser$Mutation$DeleteUser$SoftDeletedUser instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'phone': instance.phone,
+      'verified': instance.verified,
+    };
+
+DeleteUser$Mutation$DeleteUser _$DeleteUser$Mutation$DeleteUserFromJson(
+        Map<String, dynamic> json) =>
+    DeleteUser$Mutation$DeleteUser()
+      ..softDeletedUser =
+          DeleteUser$Mutation$DeleteUser$SoftDeletedUser.fromJson(
+              json['softDeletedUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DeleteUser$Mutation$DeleteUserToJson(
+        DeleteUser$Mutation$DeleteUser instance) =>
+    <String, dynamic>{
+      'softDeletedUser': instance.softDeletedUser.toJson(),
+    };
+
+DeleteUser$Mutation _$DeleteUser$MutationFromJson(Map<String, dynamic> json) =>
+    DeleteUser$Mutation()
+      ..deleteUser = json['deleteUser'] == null
+          ? null
+          : DeleteUser$Mutation$DeleteUser.fromJson(
+              json['deleteUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DeleteUser$MutationToJson(
+        DeleteUser$Mutation instance) =>
+    <String, dynamic>{
+      'deleteUser': instance.deleteUser?.toJson(),
+    };
+
+DeleteUserInput _$DeleteUserInputFromJson(Map<String, dynamic> json) =>
+    DeleteUserInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as int,
+    );
+
+Map<String, dynamic> _$DeleteUserInputToJson(DeleteUserInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
+DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic
+    _$DeleteFavoriteMusic$Mutation$DeleteFavoriteMusicFromJson(
+            Map<String, dynamic> json) =>
+        DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic()
+          ..deleted = json['deleted'] as bool;
+
+Map<String, dynamic> _$DeleteFavoriteMusic$Mutation$DeleteFavoriteMusicToJson(
+        DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic instance) =>
+    <String, dynamic>{
+      'deleted': instance.deleted,
+    };
+
+DeleteFavoriteMusic$Mutation _$DeleteFavoriteMusic$MutationFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteMusic$Mutation()
+      ..deleteFavoriteMusic = json['deleteFavoriteMusic'] == null
+          ? null
+          : DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic.fromJson(
+              json['deleteFavoriteMusic'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DeleteFavoriteMusic$MutationToJson(
+        DeleteFavoriteMusic$Mutation instance) =>
+    <String, dynamic>{
+      'deleteFavoriteMusic': instance.deleteFavoriteMusic?.toJson(),
+    };
+
+DeleteFavoriteMusicInput _$DeleteFavoriteMusicInputFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteMusicInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      musicIds:
+          (json['musicIds'] as List<dynamic>).map((e) => e as String).toList(),
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$DeleteFavoriteMusicInputToJson(
+        DeleteFavoriteMusicInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'musicIds': instance.musicIds,
+      'userId': instance.userId,
+    };
+
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -2366,4 +2568,41 @@ Map<String, dynamic> _$FetchVerifyRequestsArgumentsToJson(
         FetchVerifyRequestsArguments instance) =>
     <String, dynamic>{
       'userId': instance.userId,
+    };
+
+AddFavoriteMusicArguments _$AddFavoriteMusicArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    AddFavoriteMusicArguments(
+      input:
+          AddFavoriteMusicInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$AddFavoriteMusicArgumentsToJson(
+        AddFavoriteMusicArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+DeleteUserArguments _$DeleteUserArgumentsFromJson(Map<String, dynamic> json) =>
+    DeleteUserArguments(
+      input: DeleteUserInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$DeleteUserArgumentsToJson(
+        DeleteUserArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+DeleteFavoriteMusicArguments _$DeleteFavoriteMusicArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteMusicArguments(
+      input: DeleteFavoriteMusicInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$DeleteFavoriteMusicArgumentsToJson(
+        DeleteFavoriteMusicArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
     };
