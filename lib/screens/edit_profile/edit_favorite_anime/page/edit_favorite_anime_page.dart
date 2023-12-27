@@ -54,10 +54,23 @@ class EditFavoriteAnimePage extends StatelessWidget {
               _buildFetchAnimeListeners(),
               _buildDeleteAnimeListeners(),
               _buildAddAnimeListListeners(),
+              _buildFavoriteAnimeBlocErrorListeners(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildFavoriteAnimeBlocErrorListeners() {
+    return BlocListener<FavoriteAnimeBloc, FavoriteAnimeState>(
+      listenWhen: (_, currState) => currState is ErrorState,
+      listener: (context, state) {
+        if (state is ErrorState) {
+          state.isEnabled ? showSnackBarError(context, state.message) : null;
+        }
+      },
+      child: const SizedBox.shrink(),
     );
   }
 
