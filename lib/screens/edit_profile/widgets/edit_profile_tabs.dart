@@ -48,6 +48,13 @@ class EditProfileTabs extends StatelessWidget {
                   labelColor: $constants.palette.white,
                   unselectedLabelColor: $constants.palette.darkGrey,
                   indicatorColor: $constants.palette.white,
+                  onTap: (page) {
+                    if (page == 1) {
+                      final previewProfileBloc =
+                          BlocProvider.of<PreviewProfileBloc>(context);
+                      previewProfileBloc.add(OnInitPaginationEvent());
+                    }
+                  },
                   tabs: const <Widget>[
                     Tab(text: TextConstants.editTitle),
                     Tab(text: TextConstants.previewTitle),
