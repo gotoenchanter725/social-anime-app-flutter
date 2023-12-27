@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/profile_fill/favorite_music/add_favorite_music_bloc.dart';
+import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
+import 'package:senpai/screens/profile_fill/spotify/bloc/spotify_bloc.dart';
 import 'package:senpai/screens/profile_fill/widgets/header_simple_field.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -32,7 +35,7 @@ class SpotifyContent extends StatelessWidget {
           Expanded(
             child: Align(
               alignment: Alignment.bottomCenter,
-              child: _buildLocationButton(context),
+              child: _buildSpotifyButton(context),
             ),
           ),
           SizedBox(
@@ -62,14 +65,36 @@ class SpotifyContent extends StatelessWidget {
     );
   }
 
-  Widget _buildLocationButton(BuildContext context) {
+  Widget _buildSpotifyButton(BuildContext context) {
+    final bloc = BlocProvider.of<SpotifyBloc>(context);
     final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
+    final serviceBloc = BlocProvider.of<AddFavoriteMusicBloc>(context);
+    final serverFetchUserBloc = BlocProvider.of<FetchUserBloc>(context);
 
-    return PrimaryButton(
-      text: TextConstants.connectSpotifyText,
-      onPressed: () async {
-        blocProfileFill.add(OnChangeStepEvent(step: ProfileFillStep.verify));
+    return BlocListener<SpotifyBloc, SpotifyState>(
+      listener: (context, state) {
+        if (state is SpotifyFetchArtistsSucssesfulState) {
+          bloc.add(OnSpotifyFetchTracksEvent());
+        }
+        if (state is SpotifyTracksSucssesfulState) {
+          serviceBloc.addFavoriteMusicList(
+            userId: blocProfileFill.userId,
+            listFavoriteMusic: bloc.favoriteMusicList,
+          );
+        }
       },
+      child: PrimaryButton(
+        text: TextConstants.connectSpotifyText,
+        onPressed: () async {
+          if (bloc.selectedFavoriteMusicList.isNotEmpty) {
+            blocProfileFill.add(
+              OnChangeStepEvent(step: ProfileFillStep.animes),
+            );
+          } else {
+            serverFetchUserBloc.fetchUser(userId: blocProfileFill.userId);
+          }
+        },
+      ),
     );
   }
 }
