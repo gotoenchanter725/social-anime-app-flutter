@@ -190,6 +190,7 @@ class TextConstants {
   static const String searchAnimesHintText = "Search animes";
   static const String myAnimesText = "My animes";
   static const String chooseTitle = "Choose";
+  static const String animeError = "Add at least 1 anime to continue";
 
   //  -> Favorite Anime Genres
   static const String actionGenresTitle = "Action";
