@@ -51,6 +51,17 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    EditSpotifyMusicRoute.name: (routeData) {
+      final args = routeData.argsAs<EditSpotifyMusicRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: EditSpotifyMusicPage(
+          key: args.key,
+          editBloc: args.editBloc,
+          isSpotifyArtists: args.isSpotifyArtists,
+        ),
+      );
+    },
     EntryRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -342,6 +353,49 @@ class EditProfileRouteArgs {
   @override
   String toString() {
     return 'EditProfileRouteArgs{key: $key, userID: $userID}';
+  }
+}
+
+/// generated route for
+/// [EditSpotifyMusicPage]
+class EditSpotifyMusicRoute extends PageRouteInfo<EditSpotifyMusicRouteArgs> {
+  EditSpotifyMusicRoute({
+    Key? key,
+    required EditProfileBloc editBloc,
+    bool isSpotifyArtists = true,
+    List<PageRouteInfo>? children,
+  }) : super(
+          EditSpotifyMusicRoute.name,
+          args: EditSpotifyMusicRouteArgs(
+            key: key,
+            editBloc: editBloc,
+            isSpotifyArtists: isSpotifyArtists,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'EditSpotifyMusicRoute';
+
+  static const PageInfo<EditSpotifyMusicRouteArgs> page =
+      PageInfo<EditSpotifyMusicRouteArgs>(name);
+}
+
+class EditSpotifyMusicRouteArgs {
+  const EditSpotifyMusicRouteArgs({
+    this.key,
+    required this.editBloc,
+    this.isSpotifyArtists = true,
+  });
+
+  final Key? key;
+
+  final EditProfileBloc editBloc;
+
+  final bool isSpotifyArtists;
+
+  @override
+  String toString() {
+    return 'EditSpotifyMusicRouteArgs{key: $key, editBloc: $editBloc, isSpotifyArtists: $isSpotifyArtists}';
   }
 }
 
