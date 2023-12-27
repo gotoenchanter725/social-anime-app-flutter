@@ -95,7 +95,7 @@ class LocationContent extends StatelessWidget {
       listenWhen: (_, currState) => currState is LocationSucssesfulState,
       listener: (context, state) {
         if (bloc.location != null) {
-          blocProfileFill.add(OnChangeStepEvent(step: ProfileFillStep.animes));
+          blocProfileFill.add(OnChangeStepEvent(step: ProfileFillStep.spotify));
         } else {
           if (bloc.position != null) {
             serviceBloc.setUserLocation(
