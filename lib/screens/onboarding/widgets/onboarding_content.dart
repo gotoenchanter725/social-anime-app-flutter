@@ -33,7 +33,6 @@ class OnboardingContent extends StatelessWidget {
               ),
             ),
           ),
-          _buildSkipButton(context),
           Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -43,6 +42,7 @@ class OnboardingContent extends StatelessWidget {
               _createStatic(bloc),
             ],
           ),
+          _buildSkipButton(context),
         ],
       ),
     );
