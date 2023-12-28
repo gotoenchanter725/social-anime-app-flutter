@@ -39,6 +39,8 @@ mixin _$UserProfileModel {
   String? get lonlat => throw _privateConstructorUsedError;
   String? get onlineStatus => throw _privateConstructorUsedError;
   bool? get premium => throw _privateConstructorUsedError;
+  List<UserFavoriteMusicModel>? get favoriteMusic =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,7 +73,8 @@ abstract class $UserProfileModelCopyWith<$Res> {
       GalleryUserModel? gallery,
       String? lonlat,
       String? onlineStatus,
-      bool? premium});
+      bool? premium,
+      List<UserFavoriteMusicModel>? favoriteMusic});
 
   $GalleryUserModelCopyWith<$Res>? get gallery;
 }
@@ -108,6 +111,7 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
     Object? lonlat = freezed,
     Object? onlineStatus = freezed,
     Object? premium = freezed,
+    Object? favoriteMusic = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -186,6 +190,10 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
           ? _value.premium
           : premium // ignore: cast_nullable_to_non_nullable
               as bool?,
+      favoriteMusic: freezed == favoriteMusic
+          ? _value.favoriteMusic
+          : favoriteMusic // ignore: cast_nullable_to_non_nullable
+              as List<UserFavoriteMusicModel>?,
     ) as $Val);
   }
 
@@ -229,7 +237,8 @@ abstract class _$$_UserProfileModelCopyWith<$Res>
       GalleryUserModel? gallery,
       String? lonlat,
       String? onlineStatus,
-      bool? premium});
+      bool? premium,
+      List<UserFavoriteMusicModel>? favoriteMusic});
 
   @override
   $GalleryUserModelCopyWith<$Res>? get gallery;
@@ -265,6 +274,7 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
     Object? lonlat = freezed,
     Object? onlineStatus = freezed,
     Object? premium = freezed,
+    Object? favoriteMusic = freezed,
   }) {
     return _then(_$_UserProfileModel(
       id: null == id
@@ -343,6 +353,10 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
           ? _value.premium
           : premium // ignore: cast_nullable_to_non_nullable
               as bool?,
+      favoriteMusic: freezed == favoriteMusic
+          ? _value._favoriteMusic
+          : favoriteMusic // ignore: cast_nullable_to_non_nullable
+              as List<UserFavoriteMusicModel>?,
     ));
   }
 }
@@ -369,8 +383,10 @@ class _$_UserProfileModel implements _UserProfileModel {
       this.gallery,
       this.lonlat,
       this.onlineStatus,
-      this.premium})
-      : _animes = animes;
+      this.premium,
+      final List<UserFavoriteMusicModel>? favoriteMusic})
+      : _animes = animes,
+        _favoriteMusic = favoriteMusic;
 
   factory _$_UserProfileModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserProfileModelFromJson(json);
@@ -421,10 +437,19 @@ class _$_UserProfileModel implements _UserProfileModel {
   final String? onlineStatus;
   @override
   final bool? premium;
+  final List<UserFavoriteMusicModel>? _favoriteMusic;
+  @override
+  List<UserFavoriteMusicModel>? get favoriteMusic {
+    final value = _favoriteMusic;
+    if (value == null) return null;
+    if (_favoriteMusic is EqualUnmodifiableListView) return _favoriteMusic;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium)';
+    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium, favoriteMusic: $favoriteMusic)';
   }
 
   @override
@@ -459,7 +484,9 @@ class _$_UserProfileModel implements _UserProfileModel {
             (identical(other.lonlat, lonlat) || other.lonlat == lonlat) &&
             (identical(other.onlineStatus, onlineStatus) ||
                 other.onlineStatus == onlineStatus) &&
-            (identical(other.premium, premium) || other.premium == premium));
+            (identical(other.premium, premium) || other.premium == premium) &&
+            const DeepCollectionEquality()
+                .equals(other._favoriteMusic, _favoriteMusic));
   }
 
   @JsonKey(ignore: true)
@@ -484,7 +511,8 @@ class _$_UserProfileModel implements _UserProfileModel {
         gallery,
         lonlat,
         onlineStatus,
-        premium
+        premium,
+        const DeepCollectionEquality().hash(_favoriteMusic)
       ]);
 
   @JsonKey(ignore: true)
@@ -521,7 +549,8 @@ abstract class _UserProfileModel implements UserProfileModel {
       final GalleryUserModel? gallery,
       final String? lonlat,
       final String? onlineStatus,
-      final bool? premium}) = _$_UserProfileModel;
+      final bool? premium,
+      final List<UserFavoriteMusicModel>? favoriteMusic}) = _$_UserProfileModel;
 
   factory _UserProfileModel.fromJson(Map<String, dynamic> json) =
       _$_UserProfileModel.fromJson;
@@ -564,6 +593,8 @@ abstract class _UserProfileModel implements UserProfileModel {
   String? get onlineStatus;
   @override
   bool? get premium;
+  @override
+  List<UserFavoriteMusicModel>? get favoriteMusic;
   @override
   @JsonKey(ignore: true)
   _$$_UserProfileModelCopyWith<_$_UserProfileModel> get copyWith =>

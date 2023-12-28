@@ -154,6 +154,7 @@ class TextConstants {
   static const String uploadPhotosText = "Upload photos";
   static const String uploadPhotosDescription =
       "Add at least 2 photos to continue";
+  static const String uploadPhotoError = "Add at least 1 photo to continue";
   static const String youCanChangeOrder =
       "You can change the order of the photos.";
   static const String justDragPhoto = "Just drag the photo to a new place.";
@@ -190,6 +191,7 @@ class TextConstants {
   static const String searchAnimesHintText = "Search animes";
   static const String myAnimesText = "My animes";
   static const String chooseTitle = "Choose";
+  static const String animeError = "Add at least 1 anime to continue";
 
   //  -> Favorite Anime Genres
   static const String actionGenresTitle = "Action";
@@ -369,6 +371,9 @@ class TextConstants {
   static const String youAndText = "You and";
   static const String haveLikedEachOtherText = "have liked each other";
   static const String saySomethingNiceText = "Say something nice";
+  static const String successText = "Success!";
+  static const String messageToText = "Message to ";
+  static const String sentText = "sent";
 
   // -> ActionCable Error Messages
   static const String actionCableConnectionError =

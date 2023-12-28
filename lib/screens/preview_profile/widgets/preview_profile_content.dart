@@ -6,6 +6,8 @@ import 'package:senpai/screens/preview_profile/widgets/active_status_widget.dart
 import 'package:senpai/screens/preview_profile/bloc/preview_profile_bloc.dart';
 import 'package:senpai/screens/preview_profile/widgets/cupertino_modal_element.dart';
 import 'package:senpai/screens/preview_profile/widgets/preview_bottom_buttons.dart';
+import 'package:senpai/screens/preview_profile/widgets/preview_spotify_artists_widget.dart';
+import 'package:senpai/screens/preview_profile/widgets/preview_spotify_tracks_widget.dart';
 import 'package:senpai/screens/preview_profile/widgets/preview_title_info_widget.dart';
 import 'package:senpai/screens/preview_profile/widgets/user_favorite_anime_list.dart';
 import 'package:senpai/screens/preview_profile/widgets/carousel_photo.dart';
@@ -30,75 +32,79 @@ class DesiredPreviewProfileContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PreviewProfileBloc, PreviewProfileState>(
-        builder: (context, state) {
-      final bloc = BlocProvider.of<PreviewProfileBloc>(context);
-      List<String> listImages = [];
-      if (bloc.user.gallery != null && bloc.user.gallery!.photos.isNotEmpty) {
-        listImages = bloc.user.gallery!.photos.map((e) => e.url ?? '').toList();
-      }
-
-      return Stack(
-        children: <Widget>[
-          CarouselPhoto(
-            listImages: listImages,
-            isShowProfileInfo: false,
-          ),
-          SizedBox.expand(
-            child: DraggableScrollableSheet(
-              minChildSize: isShowBottomButtons ? 0.4 : 0.2,
-              builder: (
-                BuildContext context,
-                ScrollController scrollController,
-              ) {
-                return Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: $constants.insets.sm,
-                  ),
-                  decoration: BoxDecoration(
-                    color: $constants.palette.appBackground,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular($constants.insets.md),
-                      topRight: Radius.circular($constants.insets.md),
+      builder: (context, state) {
+        final bloc = BlocProvider.of<PreviewProfileBloc>(context);
+        List<String> listImages = [];
+        if (bloc.user.gallery != null && bloc.user.gallery!.photos.isNotEmpty) {
+          listImages =
+              bloc.user.gallery!.photos.map((e) => e.url ?? '').toList();
+        }
+        return Stack(
+          children: <Widget>[
+            CarouselPhoto(
+              listImages: listImages,
+              isShowProfileInfo: false,
+            ),
+            SizedBox.expand(
+              child: DraggableScrollableSheet(
+                minChildSize: isShowBottomButtons ? 0.4 : 0.2,
+                builder: (
+                  BuildContext context,
+                  ScrollController scrollController,
+                ) {
+                  return Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: $constants.insets.sm,
                     ),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      SizedBox(
-                        height: $constants.insets.md,
-                        child: const CupertinoModalElement(),
+                    decoration: BoxDecoration(
+                      color: $constants.palette.appBackground,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular($constants.insets.md),
+                        topRight: Radius.circular($constants.insets.md),
                       ),
-                      Flexible(
-                        child: SingleChildScrollView(
-                          controller: scrollController,
-                          physics: const ClampingScrollPhysics(),
-                          child: Padding(
-                            padding: EdgeInsets.all($constants.insets.xs),
-                            child: _buildSlidingPanelContent(context),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        SizedBox(
+                          height: $constants.insets.md,
+                          child: const CupertinoModalElement(),
+                        ),
+                        Flexible(
+                          child: SingleChildScrollView(
+                            controller: scrollController,
+                            physics: const ClampingScrollPhysics(),
+                            child: Padding(
+                              padding: EdgeInsets.all($constants.insets.xs),
+                              child: _buildSlidingPanelContent(context),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
-          ),
-          if (isShowBottomButtons)
-            Positioned(
-              bottom: 0,
-              child: PreviewBottomButtons(
-                onTapClose: onTapClose,
-                onTapLike: onTapLike,
+                      ],
+                    ),
+                  );
+                },
               ),
             ),
-        ],
-      );
-    });
+            if (isShowBottomButtons)
+              Positioned(
+                bottom: 0,
+                child: PreviewBottomButtons(
+                  onTapClose: onTapClose,
+                  onTapLike: onTapLike,
+                ),
+              ),
+          ],
+        );
+      },
+    );
   }
 
   Widget _buildSlidingPanelContent(BuildContext context) {
     final bloc = BlocProvider.of<PreviewProfileBloc>(context);
+    final bio = bloc.user.bio ?? '';
+    final school = bloc.user.school ?? '';
+    final occupation = bloc.user.occupation ?? '';
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,21 +124,29 @@ class DesiredPreviewProfileContent extends StatelessWidget {
             icon: PathConstants.locationMarkerIcon,
           ),
         },
-        Divider(
-          color: $constants.palette.buttonBorder,
-          height: $constants.insets.xl,
-        ),
-        ..._buildBio(context, bloc.user.bio ?? ''),
-        ..._buildSchool(bloc.user.school ?? ''),
-        _buildOccupation(bloc.user.occupation ?? ''),
-        Divider(
-          color: $constants.palette.buttonBorder,
-          height: $constants.insets.xl,
-        ),
-        if (bloc.user.animes != null && bloc.user.animes!.isNotEmpty)
+        if (bio.isNotEmpty || school.isNotEmpty || occupation.isNotEmpty)
+          Divider(
+            color: $constants.palette.buttonBorder,
+            height: $constants.insets.xl,
+          ),
+        ..._buildBio(context, bio),
+        ..._buildSchool(school),
+        _buildOccupation(occupation),
+        if (bloc.user.animes != null && bloc.user.animes!.isNotEmpty) ...{
+          Divider(
+            color: $constants.palette.buttonBorder,
+            height: $constants.insets.xl,
+          ),
           _buildTitle(context, TextConstants.favoriteAnimesTitle),
-        SizedBox(height: $constants.insets.sm),
-        UserFavoriteAnimeList(animes: bloc.user.animes ?? []),
+          SizedBox(height: $constants.insets.sm),
+          UserFavoriteAnimeList(animes: bloc.user.animes ?? []),
+        },
+        PreviewSpotifyArtistsWidget(
+          favoriteMusicList: bloc.user.favoriteMusic ?? [],
+        ),
+        PreviewSpotifyTracksWidget(
+          favoriteMusicList: bloc.user.favoriteMusic ?? [],
+        ),
         if (isShowBottomButtons) SizedBox(height: $constants.insets.offset),
       ],
     );

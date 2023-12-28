@@ -83,6 +83,9 @@ class _SenpaiInputState extends State<SenpaiInput> {
   InputDecoration _getDecoration() {
     return InputDecoration(
       hintText: widget.placeholder,
+      hintStyle: getTextTheme(context)
+          .bodyMedium!
+          .copyWith(color: $constants.palette.darkGrey),
       border: const OutlineInputBorder(
         borderSide: BorderSide.none,
       ),

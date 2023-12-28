@@ -46,6 +46,7 @@ class EditFavoriteAnimePage extends StatelessWidget {
       ],
       child: Scaffold(
         backgroundColor: $constants.palette.darkBlue,
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Stack(
             children: [
@@ -53,10 +54,23 @@ class EditFavoriteAnimePage extends StatelessWidget {
               _buildFetchAnimeListeners(),
               _buildDeleteAnimeListeners(),
               _buildAddAnimeListListeners(),
+              _buildFavoriteAnimeBlocErrorListeners(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildFavoriteAnimeBlocErrorListeners() {
+    return BlocListener<FavoriteAnimeBloc, FavoriteAnimeState>(
+      listenWhen: (_, currState) => currState is ErrorState,
+      listener: (context, state) {
+        if (state is ErrorState) {
+          state.isEnabled ? showSnackBarError(context, state.message) : null;
+        }
+      },
+      child: const SizedBox.shrink(),
     );
   }
 

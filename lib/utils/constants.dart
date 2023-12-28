@@ -36,6 +36,9 @@ class Constants {
 
   /// Constants for Match
   late final match = _MatchConstants();
+
+  /// Constants for Spotify
+  late final spotify = _SpotifyConstants();
 }
 
 @immutable
@@ -210,4 +213,14 @@ class _MatchConstants {
   late final double heightCenterBox = 95.0;
   late final double widthCenterBox = 138.0;
   late final double matchBottomHeight = 220.0;
+}
+
+@immutable
+class _SpotifyConstants {
+  late final double spotifyImageSize = 98;
+  late final double spotifyPlayPadding = 28;
+  late final double spotifyTracksHeight = 170;
+  late final double spotifyArtistsHeight = 130;
+  late final double spotifyCheckBoxHeight = 84;
+  late final double spotifyImageTrackHeight = 68;
 }

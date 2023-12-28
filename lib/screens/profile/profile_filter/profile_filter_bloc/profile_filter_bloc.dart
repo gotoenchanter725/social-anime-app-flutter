@@ -22,10 +22,10 @@ enum ProfileFilterStep {
 
 class ProfileFilterBloc extends Bloc<ProfileFilterEvent, ProfileFilterState> {
   double minDistance = 1.0;
-  double maxDistance = 75.0;
+  double maxDistance = 200.0;
 
-  double minAgeRange = 16.0;
-  double maxAgeRange = 99.0;
+  double minAgeRange = 18.0;
+  double maxAgeRange = 50.0;
 
   ProfileFilterModel changedFilters = ProfileFilterModel.initial();
   ProfileFilterModel initialFilters = ProfileFilterModel.initial();

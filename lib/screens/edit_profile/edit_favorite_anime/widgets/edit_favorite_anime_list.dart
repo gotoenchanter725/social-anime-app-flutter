@@ -84,7 +84,9 @@ class EditFavoriteAnimeList extends StatelessWidget {
         hasLeading: true,
         onDoneTap: () {
           int userId = int.parse(editBloc.user.id);
-          if (editBloc.user.animes != null &&
+          if (bloc.selectedAnimeList.isEmpty) {
+            bloc.add(NextTappedEvent());
+          } else if (editBloc.user.animes != null &&
               editBloc.user.animes!.isNotEmpty) {
             final userAnimeIds =
                 editBloc.user.animes!.map((anime) => anime.id).toList();

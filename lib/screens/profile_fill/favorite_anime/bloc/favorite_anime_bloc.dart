@@ -125,7 +125,7 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
         emit(LoadingState());
         emit(FavoriteAnimeSucssesfulState());
       } else {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: true));
+        emit(ErrorState(message: TextConstants.animeError, isEnabled: true));
       }
     });
 

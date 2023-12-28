@@ -15,9 +15,9 @@ class ProfileFilterModel with _$ProfileFilterModel {
   }) = _ProfileFilterModel;
 
   factory ProfileFilterModel.initial() => const ProfileFilterModel(
-        milesAway: 75,
-        minAge: 16,
-        maxAge: 99,
+        milesAway: 200,
+        minAge: 18,
+        maxAge: 50,
         hasBio: false,
         verified: false,
         animeIds: [],

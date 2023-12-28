@@ -9,30 +9,48 @@ class OnboardingTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-      child: Column(
-        children: [
-          Image.asset(
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        final maxHeight = constraints.maxHeight;
+        return Container(
+          height: maxHeight,
+          padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              _buildImage(),
+              SizedBox(
+                height: $constants.insets.md,
+              ),
+              Text(
+                title,
+                style: getTextTheme(context).displayMedium,
+              ),
+              SizedBox(
+                height: $constants.insets.sm,
+              ),
+              Text(
+                subTitle,
+                style: getTextTheme(context).displayLarge,
+              )
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildImage() {
+    return Expanded(
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          final maxHeight = constraints.maxHeight;
+          return Image.asset(
             imagePath,
-            height: getSize(context).height * 0.4,
+            height: maxHeight,
             fit: BoxFit.contain,
-          ),
-          SizedBox(
-            height: $constants.insets.md,
-          ),
-          Text(
-            title,
-            style: getTextTheme(context).displayMedium,
-          ),
-          SizedBox(
-            height: $constants.insets.sm,
-          ),
-          Text(
-            subTitle,
-            style: getTextTheme(context).displayLarge,
-          )
-        ],
+          );
+        },
       ),
     );
   }

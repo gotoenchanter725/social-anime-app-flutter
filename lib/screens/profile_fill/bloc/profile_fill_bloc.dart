@@ -6,6 +6,7 @@ import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/profile_fill/location/location_user_model.dart';
 import 'package:senpai/models/profile_fill/photos/upload_photo_model.dart';
+import 'package:senpai/models/user_profile/user_favorite_music/user_favorite_music_model.dart';
 
 import '../../../models/profile_fill/update_user_model.dart';
 
@@ -34,6 +35,7 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
   LocationUserModel? location;
   List<AnimeModel> animeList = [];
   File? verifyPhoto;
+  List<UserFavoriteMusicModel> favoriteMusicList = [];
 
   late int userId;
 
@@ -121,6 +123,13 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
 
     on<OnLocationSaveEvent>((event, emit) {
       location = event.location;
+      step = ProfileFillStep.spotify;
+      emit(LoadingProfileFillState());
+      emit(ChangedStepSucssesfulState());
+    });
+
+    on<OnFavoriteMusicSaveEvent>((event, emit) {
+      favoriteMusicList = event.favoriteMusicList;
       step = ProfileFillStep.animes;
       emit(LoadingProfileFillState());
       emit(ChangedStepSucssesfulState());

@@ -17,11 +17,13 @@ class WelcomeSenpaiContent extends StatelessWidget {
     return Column(
       children: [
         _buildHeader(context),
-        Image.asset(
-          PathConstants.welcomeImage,
-          fit: BoxFit.fitWidth,
-          height: getSize(context).width,
-          width: getSize(context).width,
+        Expanded(
+          child: Image.asset(
+            PathConstants.welcomeImage,
+            fit: BoxFit.fitWidth,
+            height: getSize(context).width,
+            width: getSize(context).width,
+          ),
         ),
         Padding(
           padding: EdgeInsets.all($constants.insets.sm),
@@ -32,40 +34,41 @@ class WelcomeSenpaiContent extends StatelessWidget {
   }
 
   Widget _buildHeader(BuildContext context) {
-    return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: $constants.insets.sm,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          height: $constants.insets.xl,
+        ),
+        Center(
+          child: SvgPicture.asset(
+            PathConstants.senpaiLogoIcon,
+            width: 40,
+            height: 40,
+            fit: BoxFit.contain,
+            alignment: Alignment.center,
           ),
-          Center(
-            child: SvgPicture.asset(
-              PathConstants.senpaiLogoIcon,
-              width: 40,
-              height: 40,
-              fit: BoxFit.contain,
-              alignment: Alignment.center,
-            ),
-          ),
-          SizedBox(
-            height: $constants.insets.sm,
-          ),
-          Text(
-            TextConstants.welcomeSenpaiTitle,
-            style: getTextTheme(context)
-                .headlineLarge
-                ?.copyWith(color: $constants.palette.white),
-          ),
-          Text(
-            TextConstants.welcomeSenpaiDescription,
-            style: getTextTheme(context).bodySmall?.copyWith(
-                  color: $constants.palette.grey,
-                  letterSpacing: 0,
-                ),
-          ),
-        ],
-      ),
+        ),
+        SizedBox(
+          height: $constants.insets.sm,
+        ),
+        Text(
+          TextConstants.welcomeSenpaiTitle,
+          style: getTextTheme(context)
+              .headlineLarge
+              ?.copyWith(color: $constants.palette.white),
+        ),
+        Text(
+          TextConstants.welcomeSenpaiDescription,
+          style: getTextTheme(context).bodySmall?.copyWith(
+                color: $constants.palette.grey,
+                letterSpacing: 0,
+              ),
+        ),
+        SizedBox(
+          height: $constants.insets.sm,
+        ),
+      ],
     );
   }
 

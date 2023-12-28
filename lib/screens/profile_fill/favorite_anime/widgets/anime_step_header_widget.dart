@@ -44,18 +44,11 @@ class AnimeStepHeaderWidget extends StatelessWidget {
       onTapBackButton: () {
         bloc.add(
           OnChangeStepEvent(
-            step: ProfileFillStep.location,
+            step: ProfileFillStep.spotify,
           ),
         );
       },
       backBorderColor: $constants.palette.white,
-      onTapSkipkButton: () {
-        bloc.add(
-          OnChangeStepEvent(
-            step: ProfileFillStep.verify,
-          ),
-        );
-      },
     );
   }
 
