@@ -371,6 +371,9 @@ class TextConstants {
   static const String youAndText = "You and";
   static const String haveLikedEachOtherText = "have liked each other";
   static const String saySomethingNiceText = "Say something nice";
+  static const String successText = "Success!";
+  static const String messageToText = "Message to ";
+  static const String sentText = "sent";
 
   // -> ActionCable Error Messages
   static const String actionCableConnectionError =
