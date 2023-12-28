@@ -154,6 +154,7 @@ class TextConstants {
   static const String uploadPhotosText = "Upload photos";
   static const String uploadPhotosDescription =
       "Add at least 2 photos to continue";
+  static const String uploadPhotoError = "Add at least 1 photo to continue";
   static const String youCanChangeOrder =
       "You can change the order of the photos.";
   static const String justDragPhoto = "Just drag the photo to a new place.";
