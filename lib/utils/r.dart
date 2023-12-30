@@ -35,6 +35,12 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/start_match_bg.png)
   final start_match_bg = r'assets/images/profile/start_match_bg.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/photo_not_verified.png)
+  final photo_not_verified = r'assets/images/profile/photo_not_verified.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/photo_verifed.png)
+  final photo_verifed = r'assets/images/profile/photo_verifed.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/location_bg.png)
   final location_bg = r'assets/images/profile/location_bg.png';
 
@@ -49,6 +55,9 @@ class _ImageResources {
 
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/lines_bg.png)
   final lines_bg = r'assets/images/profile/lines_bg.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/marker_icon.png)
+  final marker_icon = r'assets/images/profile/marker_icon.png';
 
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/anime_empty.png)
   final anime_empty = r'assets/images/profile/anime_empty.png';
