@@ -52,7 +52,7 @@ class ChatPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<FetchMessagesBloc>(
-          create: (_) => FetchMessagesBloc(conversationId: roomArgs.roomId)
+          create: (_) => FetchMessagesBloc(roomArgs.roomId)
             ..fetchMessages(roomArgs.roomId),
         ),
         BlocProvider<SendMessageBloc>(create: (_) => SendMessageBloc()),
