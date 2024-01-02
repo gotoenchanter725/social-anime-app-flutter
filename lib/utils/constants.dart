@@ -42,6 +42,9 @@ class Constants {
 
   /// API configuration.
   late final api = _API();
+
+  /// Element sizes.
+  late final sizes = _Sizes();
 }
 
 @immutable
@@ -231,4 +234,9 @@ class _SpotifyConstants {
 @immutable
 class _API {
   final maxMessagesToBeFetchedAtOneTime = 50;
+}
+
+@immutable
+class _Sizes {
+  late final double buttonHeight = 28;
 }
