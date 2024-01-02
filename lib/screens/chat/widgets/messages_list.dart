@@ -7,6 +7,7 @@ import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/screens/chat/widgets/incoming_message.dart';
 import 'package:senpai/screens/chat/widgets/outgoing_message.dart';
 import 'package:senpai/screens/chat/widgets/system_message.dart';
+import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class MessagesList extends StatelessWidget {
@@ -30,8 +31,8 @@ class MessagesList extends StatelessWidget {
       reverse: true,
       itemCount: messages.length,
       itemBuilder: (context, index) {
-        if (BlocProvider.of<FetchMessagesBloc>(context)
-            .shouldFetchMore(index, 15)) {
+        if (BlocProvider.of<FetchMessagesBloc>(context).shouldFetchMore(
+            index, $constants.api.maxMessagesToBeFetchedAtOneTime)) {
           BlocProvider.of<FetchMessagesBloc>(context).fetchNextPage();
         }
         final message = messages[index];

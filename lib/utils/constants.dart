@@ -39,6 +39,9 @@ class Constants {
 
   /// Constants for Spotify
   late final spotify = _SpotifyConstants();
+
+  /// API configuration.
+  late final api = _API();
 }
 
 @immutable
@@ -223,4 +226,9 @@ class _SpotifyConstants {
   late final double spotifyArtistsHeight = 130;
   late final double spotifyCheckBoxHeight = 84;
   late final double spotifyImageTrackHeight = 68;
+}
+
+@immutable
+class _API {
+  final maxMessagesToBeFetchedAtOneTime = 20;
 }
