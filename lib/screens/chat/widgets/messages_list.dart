@@ -24,45 +24,59 @@ class MessagesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     messages.sort((a, b) => a.timestamp.compareTo(b.timestamp));
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
+    return ListView.builder(
       reverse: true,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        mainAxisSize: MainAxisSize.max,
-        children: _buildMessages(context),
-      ),
+      itemCount: messages.length,
+      itemBuilder: (context, index) {
+        final message = messages[index];
+        return _buildMessageItem(context, message, index);
+      },
     );
   }
 
-  List<Widget> _buildMessages(BuildContext context) {
-    final List<Widget> messageWidgets = [];
+  Widget _buildMessageItem(
+    BuildContext context,
+    ChatMessage message,
+    int index,
+  ) {
+    DateTime messageDate;
 
-    DateTime? messageDate;
-
-    for (final message in messages) {
-      // Check if a system message should be displayed for the current date
-      if (messageDate == null ||
-          !DateFormat('yyyy-MM-dd')
-              .format(message.timestamp)
-              .contains(DateFormat('yyyy-MM-dd').format(messageDate))) {
-        messageDate = message.timestamp;
-        messageWidgets.add(SystemMessage(
+    // Check for system message (date change)
+    if (index == 0 || _shouldDisplayDateSeparator(messages, index)) {
+      messageDate = message.timestamp;
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SystemMessage(
             message: ChatMessage(
-                id: "SYSTEM",
-                senderId: "SENPAI_SYSTEM_MESSAGE",
-                text: formatSystemDateTimeDisplay(message.timestamp),
-                timestamp: message.timestamp)));
-      }
-
-      if (message.senderId == currentUser.id) {
-        messageWidgets.add(OutgoingMessage(message: message));
-      } else {
-        messageWidgets
-            .add(IncomingMessage(message: message, user: recieverUser));
-      }
+              id: "SYSTEM",
+              senderId: "SENPAI_SYSTEM_MESSAGE",
+              text: formatSystemDateTimeDisplay(messageDate),
+              timestamp: messageDate,
+            ),
+          ),
+          _buildChatMessage(message),
+        ],
+      );
+    } else {
+      return _buildChatMessage(message);
     }
+  }
 
-    return messageWidgets;
+  bool _shouldDisplayDateSeparator(List<ChatMessage> messages, int index) {
+    if (index == 0) return false;
+    final previousMessage = messages[index - 1];
+    final currentMessage = messages[index];
+    return !DateFormat('yyyy-MM-dd')
+        .format(currentMessage.timestamp)
+        .contains(DateFormat('yyyy-MM-dd').format(previousMessage.timestamp));
+  }
+
+  Widget _buildChatMessage(ChatMessage message) {
+    if (message.senderId == currentUser.id) {
+      return OutgoingMessage(message: message);
+    } else {
+      return IncomingMessage(message: message, user: recieverUser);
+    }
   }
 }
