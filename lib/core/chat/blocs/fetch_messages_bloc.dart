@@ -14,7 +14,7 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
 
   int currentPage = 1;
 
-  late int lastCheckedPage;
+  int lastCheckedPage = 0;
 
   FetchMessagesBloc(this.conversationId)
       : super(options: _fetchMessagesQueryOptions(conversationId));
@@ -32,6 +32,7 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
   Future<void> fetchMessages(String conversationId) async {
     // This always fetches the first page of messages
     currentPage = 1;
+    lastCheckedPage = 0;
     final variables = FetchMessagesArguments(
       conversationId: conversationId,
       page: currentPage,
