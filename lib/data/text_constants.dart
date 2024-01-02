@@ -90,6 +90,7 @@ class TextConstants {
       "When you match with other users they will appear here";
   static const String emptyChatTitle = "You matched with";
   static const String emptyChatPromptText = "Don't wait too long, say hello :)";
+  static const String stickerMessageText = "🌄 Sticker";
 
   // -> Search Chat List
   static const String cancelSearchText = "Cancel";
