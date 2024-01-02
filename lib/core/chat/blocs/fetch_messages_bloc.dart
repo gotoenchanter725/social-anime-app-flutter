@@ -14,6 +14,8 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
 
   int currentPage = 1;
 
+  late int lastCheckedPage;
+
   FetchMessagesBloc(this.conversationId)
       : super(options: _fetchMessagesQueryOptions(conversationId));
 
@@ -49,31 +51,34 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
         try {
           // check that the index is a multiple of the threshold to fetch more
           // this is to make sure that each page is fetched only once
-          if (i % threshold != 0) {
+          final int currentMessageCount = i + 1;
+          if (currentMessageCount % threshold != 0) {
             return false;
           }
-          // check that the data is not null
-          Map<String, dynamic>? messagesJson = data!.toJson();
-          List<dynamic>? messagesJsonList = messagesJson['fetchMessages'];
-          if (messagesJsonList == null) {
+
+          // check if the last page is the same as the current page
+          if (lastCheckedPage == currentPage) {
             return false;
           }
 
           // check that the index is within the bounds of the list
-          if (i >= messagesJsonList.length) {
+          if (i >= messages.length) {
             return false;
           }
 
           // parse the messages and check if the length is greater than the threshold
-          final List<ChatMessage> messages =
-              _messagesParser.parseMessages(messagesJsonList);
+
           if (messages.isEmpty) {
             return false;
           }
 
-          if (messages.length < threshold) {
+          // check if the last page is full
+          // if the last page is not full, then there are no more messages to fetch
+          if (messages.length % threshold != 0) {
             return false;
           }
+
+          logIt.info("Fetching more messages");
 
           // if all the conditions are met, return true
           return true;
@@ -87,6 +92,7 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
   }
 
   void fetchNextPage() {
+    lastCheckedPage = currentPage;
     currentPage++;
     add(
       QueryEvent.fetchMore(

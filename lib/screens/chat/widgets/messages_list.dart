@@ -26,9 +26,10 @@ class MessagesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    messages.sort((a, b) => a.timestamp.compareTo(b.timestamp));
+    messages.sort((a, b) => b.timestamp.compareTo(a.timestamp));
     return ListView.builder(
       reverse: true,
+      scrollDirection: Axis.vertical,
       itemCount: messages.length,
       itemBuilder: (context, index) {
         if (BlocProvider.of<FetchMessagesBloc>(context).shouldFetchMore(
@@ -49,7 +50,7 @@ class MessagesList extends StatelessWidget {
     DateTime messageDate;
 
     // Check for system message (date change)
-    if (index == 0 || _shouldDisplayDateSeparator(messages, index)) {
+    if (_shouldDisplayDateSeparator(messages, index)) {
       messageDate = message.timestamp;
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,12 +72,15 @@ class MessagesList extends StatelessWidget {
   }
 
   bool _shouldDisplayDateSeparator(List<ChatMessage> messages, int index) {
-    if (index == 0) return false;
-    final previousMessage = messages[index - 1];
+    if (index == messages.length - 1) {
+      return true; // Always display for the first message in the list
+    }
     final currentMessage = messages[index];
+    final nextMessage = messages[index + 1];
+
     return !DateFormat('yyyy-MM-dd')
         .format(currentMessage.timestamp)
-        .contains(DateFormat('yyyy-MM-dd').format(previousMessage.timestamp));
+        .contains(DateFormat('yyyy-MM-dd').format(nextMessage.timestamp));
   }
 
   Widget _buildChatMessage(ChatMessage message) {
