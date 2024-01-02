@@ -41,19 +41,42 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
     messages.insert(0, message);
   }
 
+  // The parameter i stands for the index of the item that is about to be rendered
   @override
   bool shouldFetchMore(int i, int threshold) {
     return state.maybeWhen(
       loaded: (data, result) {
         try {
+          // check that the index is a multiple of the threshold to fetch more
+          // this is to make sure that each page is fetched only once
+          if (i % threshold != 0) {
+            return false;
+          }
+          // check that the data is not null
           Map<String, dynamic>? messagesJson = data!.toJson();
           List<dynamic>? messagesJsonList = messagesJson['fetchMessages'];
           if (messagesJsonList == null) {
             return false;
           }
+
+          // check that the index is within the bounds of the list
+          if (i >= messagesJsonList.length) {
+            return false;
+          }
+
+          // parse the messages and check if the length is greater than the threshold
           final List<ChatMessage> messages =
               _messagesParser.parseMessages(messagesJsonList);
-          return messages.length >= threshold;
+          if (messages.isEmpty) {
+            return false;
+          }
+
+          if (messages.length < threshold) {
+            return false;
+          }
+
+          // if all the conditions are met, return true
+          return true;
         } catch (e) {
           logIt.error(e);
           return false;
