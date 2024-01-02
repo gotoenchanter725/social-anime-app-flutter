@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/screens/chat/widgets/incoming_message.dart';
@@ -28,6 +30,10 @@ class MessagesList extends StatelessWidget {
       reverse: true,
       itemCount: messages.length,
       itemBuilder: (context, index) {
+        if (BlocProvider.of<FetchMessagesBloc>(context)
+            .shouldFetchMore(index, 15)) {
+          BlocProvider.of<FetchMessagesBloc>(context).fetchNextPage();
+        }
         final message = messages[index];
         return _buildMessageItem(context, message, index);
       },

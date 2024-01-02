@@ -46,8 +46,13 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
     return state.maybeWhen(
       loaded: (data, result) {
         try {
+          Map<String, dynamic>? messagesJson = data!.toJson();
+          List<dynamic>? messagesJsonList = messagesJson['fetchMessages'];
+          if (messagesJsonList == null) {
+            return false;
+          }
           final List<ChatMessage> messages =
-              _messagesParser.parseMessages(data!.fetchMessages);
+              _messagesParser.parseMessages(messagesJsonList);
           return messages.length >= threshold;
         } catch (e) {
           logIt.error(e);
