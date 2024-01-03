@@ -15,6 +15,7 @@ import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/screens/chat/bloc/pending_messages_bloc/pending_messages_bloc.dart';
 import 'package:senpai/screens/chat/bloc/text_editing_bloc/text_editing_bloc.dart';
+import 'package:senpai/screens/chat/widgets/chat_bottom_sheet_content.dart';
 import 'package:senpai/screens/chat/widgets/empty_messages.dart';
 import 'package:senpai/screens/chat/widgets/messages_list.dart';
 import 'package:senpai/utils/constants.dart';
@@ -73,7 +74,26 @@ class ChatContent extends StatelessWidget {
 
   Widget _buildBottomSheet(BuildContext context) {
     return AnimatedBottomSheetWidget(
-        height: getSize(context).height * 0.6, child: const Placeholder());
+      height: getSize(context).height * 0.6,
+      child: ChatBottomSheetContent(
+        onMessageSent: (message) {
+          _addPendingMessage(context, message);
+        },
+        currentUser: currentUser,
+        receipientUser: receipientUser,
+      ),
+    );
+  }
+
+  void _addPendingMessage(BuildContext context, ChatMessage message) {
+    PendingMessagesBloc pendingMessagesBloc =
+        BlocProvider.of<PendingMessagesBloc>(context);
+    pendingMessagesBloc.add(
+      PendingMessagesEvent.addMessage(
+        channelId: roomId,
+        message: message,
+      ),
+    );
   }
 
   Widget _buildMessagesList(BuildContext context) {
@@ -163,8 +183,6 @@ class ChatContent extends StatelessWidget {
 
   Widget _buildInput(BuildContext context) {
     final textEditingBloc = BlocProvider.of<TextEditingBloc>(context);
-    PendingMessagesBloc pendingMessagesBloc =
-        BlocProvider.of<PendingMessagesBloc>(context);
 
     return BlocBuilder<TextEditingBloc, TextEditingState>(
       builder: (context, state) {
@@ -239,12 +257,7 @@ class ChatContent extends StatelessWidget {
                           text: state.message,
                           timestamp: DateTime.now(),
                         );
-                        pendingMessagesBloc.add(
-                          PendingMessagesEvent.addMessage(
-                            channelId: roomId,
-                            message: message,
-                          ),
-                        );
+                        _addPendingMessage(context, message);
                         textEditingBloc.add(MessageCleared());
                       } else {
                         logIt.error("Message is empty");

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/screens/chat/widgets/incoming_message.dart';
 import 'package:senpai/screens/chat/widgets/outgoing_message.dart';
 import 'package:senpai/screens/chat/widgets/system_message.dart';
+import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class MessagesList extends StatelessWidget {
@@ -23,46 +26,68 @@ class MessagesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    messages.sort((a, b) => a.timestamp.compareTo(b.timestamp));
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
+    messages.sort((a, b) => b.timestamp.compareTo(a.timestamp));
+    return ListView.builder(
       reverse: true,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        mainAxisSize: MainAxisSize.max,
-        children: _buildMessages(context),
-      ),
+      scrollDirection: Axis.vertical,
+      itemCount: messages.length,
+      itemBuilder: (context, index) {
+        if (BlocProvider.of<FetchMessagesBloc>(context).shouldFetchMore(
+            index, $constants.api.maxMessagesToBeFetchedAtOneTime)) {
+          BlocProvider.of<FetchMessagesBloc>(context).fetchNextPage();
+        }
+        final message = messages[index];
+        return _buildMessageItem(context, message, index);
+      },
     );
   }
 
-  List<Widget> _buildMessages(BuildContext context) {
-    final List<Widget> messageWidgets = [];
+  Widget _buildMessageItem(
+    BuildContext context,
+    ChatMessage message,
+    int index,
+  ) {
+    DateTime messageDate;
 
-    DateTime? messageDate;
-
-    for (final message in messages) {
-      // Check if a system message should be displayed for the current date
-      if (messageDate == null ||
-          !DateFormat('yyyy-MM-dd')
-              .format(message.timestamp)
-              .contains(DateFormat('yyyy-MM-dd').format(messageDate))) {
-        messageDate = message.timestamp;
-        messageWidgets.add(SystemMessage(
+    // Check for system message (date change)
+    if (_shouldDisplayDateSeparator(messages, index)) {
+      messageDate = message.timestamp;
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SystemMessage(
             message: ChatMessage(
-                id: "SYSTEM",
-                senderId: "SENPAI_SYSTEM_MESSAGE",
-                text: formatSystemDateTimeDisplay(message.timestamp),
-                timestamp: message.timestamp)));
-      }
-
-      if (message.senderId == currentUser.id) {
-        messageWidgets.add(OutgoingMessage(message: message));
-      } else {
-        messageWidgets
-            .add(IncomingMessage(message: message, user: recieverUser));
-      }
+              id: "SYSTEM",
+              senderId: "SENPAI_SYSTEM_MESSAGE",
+              text: formatSystemDateTimeDisplay(messageDate),
+              timestamp: messageDate,
+            ),
+          ),
+          _buildChatMessage(message),
+        ],
+      );
+    } else {
+      return _buildChatMessage(message);
     }
+  }
 
-    return messageWidgets;
+  bool _shouldDisplayDateSeparator(List<ChatMessage> messages, int index) {
+    if (index == messages.length - 1) {
+      return true; // Always display for the first message in the list
+    }
+    final currentMessage = messages[index];
+    final nextMessage = messages[index + 1];
+
+    return !DateFormat('yyyy-MM-dd')
+        .format(currentMessage.timestamp)
+        .contains(DateFormat('yyyy-MM-dd').format(nextMessage.timestamp));
+  }
+
+  Widget _buildChatMessage(ChatMessage message) {
+    if (message.senderId == currentUser.id) {
+      return OutgoingMessage(message: message);
+    } else {
+      return IncomingMessage(message: message, user: recieverUser);
+    }
   }
 }

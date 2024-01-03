@@ -1,4 +1,5 @@
 // import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
+import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/categorized_conversation.dart';
 import 'package:senpai/models/chat/chat_conversation.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
@@ -50,11 +51,16 @@ class ConversationsParser {
           ),
         ));
       } else {
+        dynamic lastMessage = conversation["lastMessage"];
+        String lastMessageContent = lastMessage["content"];
+        if (lastMessage["sticker"] != null) {
+          lastMessageContent = TextConstants.stickerMessageText;
+        }
         activeConversations.add(ChatConversation(
           id: conversation["id"],
           profileUrl: reciever["gallery"]["photos"][0]["url"],
           contactName: reciever["firstName"],
-          lastMessage: conversation["lastMessage"]["content"],
+          lastMessage: lastMessageContent,
           lastMessageTime:
               parseTimezoneAwareDate(conversation["lastMessage"]["createdAt"]),
           unreadMessagesCount: conversation["unreadCount"],

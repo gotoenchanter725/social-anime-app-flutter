@@ -28,6 +28,7 @@ class SendMessageBloc extends MutationBloc<SendMessage$Mutation> {
           content: message,
           senderId: int.parse(senderId),
           recommendedAnimeId: recommendedAnimeId,
+          stickerId: stickerId,
         ),
       ),
     ).toJson();

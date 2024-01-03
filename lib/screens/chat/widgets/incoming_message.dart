@@ -36,6 +36,7 @@ class IncomingMessage extends StatelessWidget {
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     UserAvatar(
                       imageUrl: user.profileUrl,
@@ -93,6 +94,9 @@ class IncomingMessage extends StatelessWidget {
   }
 
   Widget _buildMessage(BuildContext context) {
+    if (message.sticker != null) {
+      return _buildStickerMessage(context);
+    }
     return _buildTextMessage(context);
   }
 
@@ -175,6 +179,16 @@ class IncomingMessage extends StatelessWidget {
     return _buildChatBubble(
       context,
       _buildTextWidget(context),
+    );
+  }
+
+  Widget _buildStickerMessage(BuildContext context) {
+    final double size = getSize(context).width * 0.341;
+    return Image.network(
+      message.sticker!.url,
+      width: size,
+      height: size,
+      fit: BoxFit.contain,
     );
   }
 

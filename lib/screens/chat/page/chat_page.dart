@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/action_cable/blocs/action_cable_bloc.dart';
 import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
+import 'package:senpai/core/chat/blocs/fetch_stickers_bloc.dart';
 import 'package:senpai/core/chat/blocs/room_subscriptions/room_subscription_bloc.dart';
 import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
 import 'package:senpai/core/chat/blocs/update_message_bloc.dart';
@@ -29,12 +30,16 @@ class ChatPage extends StatelessWidget {
   _buildFetchMessagesListeners(BuildContext context, QueryState state) {
     final RoomSubscriptionsBloc roomSubscriptionsBloc =
         BlocProvider.of<RoomSubscriptionsBloc>(context);
+    final pendingMessagesBloc = context.read<PendingMessagesBloc>();
     state.maybeWhen(
       loading: (result) => const SenpaiLoading(),
       loaded: (data, result) {
         if (result.data == null) {
           showSnackBarError(context, TextConstants.serverError);
           logIt.error("A successful empty response just got recorded");
+        }
+        if (pendingMessagesBloc.hasPendingMessages(roomArgs.roomId)) {
+          _sendEarliestPendingMessage(context);
         }
       },
       error: (error, result) {
@@ -52,7 +57,7 @@ class ChatPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<FetchMessagesBloc>(
-          create: (_) => FetchMessagesBloc(conversationId: roomArgs.roomId)
+          create: (_) => FetchMessagesBloc(roomArgs.roomId)
             ..fetchMessages(roomArgs.roomId),
         ),
         BlocProvider<SendMessageBloc>(create: (_) => SendMessageBloc()),
@@ -63,6 +68,7 @@ class ChatPage extends StatelessWidget {
         BlocProvider<RoomSubscriptionsBloc>(
             create: (_) => RoomSubscriptionsBloc(roomId: roomArgs.roomId)),
         BlocProvider<UpdateMessageBloc>(create: (_) => UpdateMessageBloc()),
+        BlocProvider<FetchStickersBloc>(create: (_) => FetchStickersBloc()),
       ],
       child: BlocListener<UpdateMessageBloc, MutationState>(
         listener: (context, state) {
@@ -129,6 +135,14 @@ class ChatPage extends StatelessWidget {
       failed: (error, result) {
         logIt.error(error);
         showSnackBarError(context, TextConstants.failedToSendMessageText);
+        ChatMessage? earliestPendingMessage = pendingMessagesBloc.state
+            .getEarliestPendingMessage(roomArgs.roomId);
+        if (earliestPendingMessage != null) {
+          pendingMessagesBloc.add(PendingMessagesEvent.removeMessage(
+            channelId: roomArgs.roomId,
+            messageId: earliestPendingMessage.id,
+          ));
+        }
       },
     );
   }
@@ -152,15 +166,20 @@ class ChatPage extends StatelessWidget {
 
   void _handlePendingMessages(
       BuildContext context, PendingMessagesState pendingState) {
-    final sendMessageBloc = BlocProvider.of<SendMessageBloc>(context);
-    final earliestPendingMessage =
-        pendingState.getEarliestPendingMessage(roomArgs.roomId);
+    _sendEarliestPendingMessage(context);
+  }
 
+  void _sendEarliestPendingMessage(BuildContext context) {
+    final pendingMessagesBloc = BlocProvider.of<PendingMessagesBloc>(context);
+    final earliestPendingMessage =
+        pendingMessagesBloc.state.getEarliestPendingMessage(roomArgs.roomId);
     if (earliestPendingMessage != null) {
+      final sendMessageBloc = BlocProvider.of<SendMessageBloc>(context);
       sendMessageBloc.sendMessage(
         message: earliestPendingMessage.text,
         conversationId: roomArgs.roomId,
         senderId: roomArgs.currentUser.id,
+        stickerId: earliestPendingMessage.sticker?.id,
       );
     }
   }

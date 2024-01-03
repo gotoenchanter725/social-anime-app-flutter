@@ -90,6 +90,7 @@ class TextConstants {
       "When you match with other users they will appear here";
   static const String emptyChatTitle = "You matched with";
   static const String emptyChatPromptText = "Don't wait too long, say hello :)";
+  static const String stickerMessageText = "🌄 Sticker";
 
   // -> Search Chat List
   static const String cancelSearchText = "Cancel";
@@ -99,6 +100,9 @@ class TextConstants {
       "Oops. No matches found";
   static const String emptyConversationSearchText =
       "Maybe there is a mistake in search?\n Please check and try again";
+  static const String stickersTabText = "Stickers";
+  static const String gifsTabText = "GIPHY";
+  static const String animeTabText = "Anime";
 
   // Chat
   static const String searchHintText = "Search chat or match";

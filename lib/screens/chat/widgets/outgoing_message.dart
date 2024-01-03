@@ -40,6 +40,9 @@ class OutgoingMessage extends StatelessWidget {
   }
 
   Widget _buildMessageContent(BuildContext context) {
+    if (message.sticker != null) {
+      return _buildStickerMessage(context);
+    }
     return _buildTextMessage(context);
   }
 
@@ -58,6 +61,16 @@ class OutgoingMessage extends StatelessWidget {
             letterSpacing: 0,
           ),
       softWrap: true,
+    );
+  }
+
+  Widget _buildStickerMessage(BuildContext context) {
+    final double size = getSize(context).width * 0.341;
+    return Image.network(
+      message.sticker!.url,
+      width: size,
+      height: size,
+      fit: BoxFit.contain,
     );
   }
 
