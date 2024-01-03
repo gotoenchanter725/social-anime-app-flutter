@@ -39,7 +39,7 @@ class FetchStickersBloc extends QueryBloc<FetchStickers$Query> {
             return false;
           }
 
-          // parse the messages and check if the length is greater than the threshold
+          // parse the stickers and check if the length is greater than the threshold
 
           if (stickers.isEmpty) {
             return false;
@@ -51,7 +51,7 @@ class FetchStickersBloc extends QueryBloc<FetchStickers$Query> {
           }
 
           // check if the last page is full
-          // if the last page is not full, then there are no more messages to fetch
+          // if the last page is not full, then there are no more stickers to fetch
           if (stickers.length % threshold != 0) {
             return false;
           }
@@ -60,7 +60,7 @@ class FetchStickersBloc extends QueryBloc<FetchStickers$Query> {
           currentPage = stickers.length ~/ threshold;
 
           // check if the last page checked is the same as the next page
-          // if the last page is the same as the next page, then there are no more messages to fetch
+          // if the last page is the same as the next page, then there are no more stickers to fetch
           int nextPage = currentPage + 1;
           if (lastCheckedPage == nextPage) {
             return false;

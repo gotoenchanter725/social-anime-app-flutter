@@ -12,9 +12,9 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
 
   final String conversationId;
 
-  int currentPage = 1;
+  int _currentLastPageNumber = 0;
 
-  int lastCheckedPage = 0;
+  int _lastPageNumberChecked = 0;
 
   FetchMessagesBloc(this.conversationId)
       : super(options: _fetchMessagesQueryOptions(conversationId));
@@ -31,11 +31,11 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
 
   Future<void> fetchMessages(String conversationId) async {
     // This always fetches the first page of messages
-    currentPage = 1;
-    lastCheckedPage = 0;
+    _currentLastPageNumber = 1;
+    _lastPageNumberChecked = 0;
     final variables = FetchMessagesArguments(
       conversationId: conversationId,
-      page: currentPage,
+      page: _currentLastPageNumber,
     ).toJson();
     run(variables: variables);
   }
@@ -52,18 +52,8 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
         try {
           // check that the index is a multiple of the threshold to fetch more
           // this is to make sure that each page is fetched only once
-          final int currentMessageCount = i + 1;
-          if (currentMessageCount % threshold != 0) {
-            return false;
-          }
-
-          // check if the last page is the same as the current page
-          if (lastCheckedPage == currentPage) {
-            return false;
-          }
-
-          // check that the index is within the bounds of the list
-          if (i >= messages.length) {
+          final int lastRenderedMessageNumber = i + 1;
+          if (lastRenderedMessageNumber % threshold != 0) {
             return false;
           }
 
@@ -73,9 +63,24 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
             return false;
           }
 
+          // only fetch more messages if we have reached the end of the last loaded page
+          if (lastRenderedMessageNumber != messages.length) {
+            return false;
+          }
+
           // check if the last page is full
           // if the last page is not full, then there are no more messages to fetch
           if (messages.length % threshold != 0) {
+            return false;
+          }
+
+          // get last page as a perfect multiple of the threshold
+          _currentLastPageNumber = messages.length ~/ threshold;
+
+          // check if the last page checked is the same as the next page
+          // if the last page is the same as the next page, then there are no more messages to fetch
+          int nextPage = _currentLastPageNumber + 1;
+          if (_lastPageNumberChecked == nextPage) {
             return false;
           }
 
@@ -93,14 +98,14 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
   }
 
   void fetchNextPage() {
-    lastCheckedPage = currentPage;
-    currentPage++;
+    _currentLastPageNumber++;
+    _lastPageNumberChecked = _currentLastPageNumber;
     add(
       QueryEvent.fetchMore(
         options: FetchMoreOptions(
           variables: FetchMessagesArguments(
             conversationId: conversationId,
-            page: currentPage,
+            page: _currentLastPageNumber,
           ).toJson(),
           updateQuery: (previousResultData, fetchMoreResultData) {
             final prevResultData =
