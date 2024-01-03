@@ -33,6 +33,11 @@ class PendingMessagesBloc
     });
   }
 
+  // Method to check if there are pending messages for a given conversation ID
+  bool hasPendingMessages(String conversationId) {
+    return state.pendingMessages[conversationId]?.isNotEmpty ?? false;
+  }
+
   @override
   PendingMessagesState? fromJson(Map<String, dynamic> json) {
     try {

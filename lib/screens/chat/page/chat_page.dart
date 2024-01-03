@@ -30,12 +30,16 @@ class ChatPage extends StatelessWidget {
   _buildFetchMessagesListeners(BuildContext context, QueryState state) {
     final RoomSubscriptionsBloc roomSubscriptionsBloc =
         BlocProvider.of<RoomSubscriptionsBloc>(context);
+    final pendingMessagesBloc = context.read<PendingMessagesBloc>();
     state.maybeWhen(
       loading: (result) => const SenpaiLoading(),
       loaded: (data, result) {
         if (result.data == null) {
           showSnackBarError(context, TextConstants.serverError);
           logIt.error("A successful empty response just got recorded");
+        }
+        if (pendingMessagesBloc.hasPendingMessages(roomArgs.roomId)) {
+          _sendEarliestPendingMessage(context);
         }
       },
       error: (error, result) {
@@ -162,11 +166,15 @@ class ChatPage extends StatelessWidget {
 
   void _handlePendingMessages(
       BuildContext context, PendingMessagesState pendingState) {
-    final sendMessageBloc = BlocProvider.of<SendMessageBloc>(context);
-    final earliestPendingMessage =
-        pendingState.getEarliestPendingMessage(roomArgs.roomId);
+    _sendEarliestPendingMessage(context);
+  }
 
+  void _sendEarliestPendingMessage(BuildContext context) {
+    final pendingMessagesBloc = BlocProvider.of<PendingMessagesBloc>(context);
+    final earliestPendingMessage =
+        pendingMessagesBloc.state.getEarliestPendingMessage(roomArgs.roomId);
     if (earliestPendingMessage != null) {
+      final sendMessageBloc = BlocProvider.of<SendMessageBloc>(context);
       sendMessageBloc.sendMessage(
         message: earliestPendingMessage.text,
         conversationId: roomArgs.roomId,
