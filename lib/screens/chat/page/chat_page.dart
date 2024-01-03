@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/action_cable/blocs/action_cable_bloc.dart';
 import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
+import 'package:senpai/core/chat/blocs/fetch_stickers_bloc.dart';
 import 'package:senpai/core/chat/blocs/room_subscriptions/room_subscription_bloc.dart';
 import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
 import 'package:senpai/core/chat/blocs/update_message_bloc.dart';
@@ -63,6 +64,7 @@ class ChatPage extends StatelessWidget {
         BlocProvider<RoomSubscriptionsBloc>(
             create: (_) => RoomSubscriptionsBloc(roomId: roomArgs.roomId)),
         BlocProvider<UpdateMessageBloc>(create: (_) => UpdateMessageBloc()),
+        BlocProvider<FetchStickersBloc>(create: (_) => FetchStickersBloc()),
       ],
       child: BlocListener<UpdateMessageBloc, MutationState>(
         listener: (context, state) {
@@ -161,6 +163,7 @@ class ChatPage extends StatelessWidget {
         message: earliestPendingMessage.text,
         conversationId: roomArgs.roomId,
         senderId: roomArgs.currentUser.id,
+        stickerId: earliestPendingMessage.sticker?.id,
       );
     }
   }
