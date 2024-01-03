@@ -131,6 +131,14 @@ class ChatPage extends StatelessWidget {
       failed: (error, result) {
         logIt.error(error);
         showSnackBarError(context, TextConstants.failedToSendMessageText);
+        ChatMessage? earliestPendingMessage = pendingMessagesBloc.state
+            .getEarliestPendingMessage(roomArgs.roomId);
+        if (earliestPendingMessage != null) {
+          pendingMessagesBloc.add(PendingMessagesEvent.removeMessage(
+            channelId: roomArgs.roomId,
+            messageId: earliestPendingMessage.id,
+          ));
+        }
       },
     );
   }
