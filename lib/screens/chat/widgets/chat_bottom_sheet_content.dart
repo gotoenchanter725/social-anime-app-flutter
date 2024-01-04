@@ -4,7 +4,9 @@ import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/chat/bloc/tab_bar_bloc/tab_bar_bloc.dart';
+import 'package:senpai/screens/chat/widgets/anime_selector.dart';
 import 'package:senpai/screens/chat/widgets/stickers_selector.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -98,6 +100,13 @@ class ChatBottomSheetContent extends StatelessWidget {
       );
     }
 
+    if (item.id == "03") {
+      // Animes
+      return AnimeSelector(onAnimeSelected: (anime) {
+        _selectAnime(context, anime);
+      });
+    }
+
     logIt.debug("Tab bar item with id ${item.id} is not implemented yet!");
 
     return const Placeholder();
@@ -115,6 +124,10 @@ class ChatBottomSheetContent extends StatelessWidget {
       timestamp: DateTime.now(),
       sticker: sticker,
     ));
+  }
+
+  void _selectAnime(BuildContext context, AnimeModel anime) {
+    // TODO: Implement anime selection
   }
 }
 
