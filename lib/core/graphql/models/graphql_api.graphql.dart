@@ -5013,6 +5013,13 @@ final SET_USER_LOCATION_MUTATION_DOCUMENT = DocumentNode(definitions: [
                 directives: [],
                 selectionSet: null,
               ),
+              FieldNode(
+                name: NameNode(value: 'superLikeCount'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              )
             ]),
           )
         ]),

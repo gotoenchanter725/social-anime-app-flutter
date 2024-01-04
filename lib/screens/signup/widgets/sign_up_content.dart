@@ -23,74 +23,85 @@ class SignupContent extends StatelessWidget {
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
+        child: Stack(
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          // mainAxisSize: MainAxisSize.max,
           children: [
-            Expanded(
-                child: Column(
+            SingleChildScrollView(
+                child: Container(
+                  // height: MediaQuery.of(context).size.height,
+                  // width: MediaQuery.of(context).size.width,
+                  child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: $constants.insets.xl,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SenpaiIconButton(
-                      onPressed: () {
-                        context.router.pop();
-                      },
-                      iconPath: PathConstants.backIcon,
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: $constants.insets.lg,
-                ),
-                Text(
-                  TextConstants.hello,
-                  style: getTextTheme(context)
-                      .headlineLarge
-                      ?.copyWith(color: $constants.palette.white),
-                  textAlign: TextAlign.left,
-                ),
-                Text(
-                  TextConstants.createUserPrompt,
-                  style: getTextTheme(context).headlineLarge?.copyWith(
-                        color: $constants.palette.white,
-                      ),
-                  textAlign: TextAlign.left,
-                ),
-                SizedBox(
-                  height: $constants.insets.lg,
-                ),
-                _buildTextInput(context),
-                SizedBox(
-                  height: $constants.insets.sm,
-                ),
-                Text(
-                  TextConstants.createUserInstructions,
-                  style: getTextTheme(context).labelMedium?.copyWith(
-                        color: $constants.palette.grey2,
-                      ),
-                  textAlign: TextAlign.left,
-                ),
-                ..._buildTermsAndConditions(context),
-                SizedBox(
-                  height: $constants.insets.lg,
-                ),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.bottomCenter,
-                    child: _buildSubmitButton(context),
+                  SizedBox(
+                    height: $constants.insets.xl,
                   ),
-                ),
-                SizedBox(
-                  height: $constants.insets.sm,
-                ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SenpaiIconButton(
+                        onPressed: () {
+                          context.router.pop();
+                        },
+                        iconPath: PathConstants.backIcon,
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: $constants.insets.lg,
+                  ),
+                  Text(
+                    TextConstants.hello,
+                    style: getTextTheme(context)
+                        .headlineLarge
+                        ?.copyWith(color: $constants.palette.white),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    TextConstants.createUserPrompt,
+                    style: getTextTheme(context).headlineLarge?.copyWith(
+                          color: $constants.palette.white,
+                        ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(
+                    height: $constants.insets.lg,
+                  ),
+                  _buildTextInput(context),
+                  SizedBox(
+                    height: $constants.insets.sm,
+                  ),
+                  Text(
+                    TextConstants.createUserInstructions,
+                    style: getTextTheme(context).labelMedium?.copyWith(
+                          color: $constants.palette.grey2,
+                        ),
+                    textAlign: TextAlign.left,
+                  ),
+                  ..._buildTermsAndConditions(context),
+                  SizedBox(
+                    height: $constants.insets.lg,
+                  ),
+                  // Expanded(
+                  //   child: Align(
+                  //     alignment: Alignment.bottomCenter,
+                  //     child: _buildSubmitButton(context),
+                  //   ),
+                  // ),
+                  SizedBox(
+                    height: $constants.insets.lg,
+                  ),
               ],
-            ))
+            ),
+                )),
+            Container(
+              margin: EdgeInsets.only(bottom: $constants.insets.sm),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: _buildSubmitButton(context),
+              ),
+            ),
           ],
         ),
       ),
