@@ -50,6 +50,9 @@ class Constants {
 @immutable
 class _Specials {
   final int pendingMessageIdLength = 16;
+
+  /// Constants for Match
+  late final match = _MatchConstants();
 }
 
 @immutable

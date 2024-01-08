@@ -6,8 +6,9 @@ part of 'user_profile_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) =>
-    _$_UserProfileModel(
+_$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) {
+      print('user model datat json: $json');
+   return _$_UserProfileModel(
       id: json['id'] as String,
       phone: json['phone'] as String,
       firstName: json['firstName'] as String?,
@@ -37,7 +38,8 @@ _$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) =>
           ?.map(
               (e) => UserFavoriteMusicModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-    );
+      superLikeCount: json['superLikeCount'] as int?,
+    );}
 
 Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
     <String, dynamic>{
@@ -60,5 +62,6 @@ Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
       'lonlat': instance.lonlat,
       'onlineStatus': instance.onlineStatus,
       'premium': instance.premium,
+      'superLikeCount': instance.superLikeCount,
       'favoriteMusic': instance.favoriteMusic,
     };

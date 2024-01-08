@@ -28,7 +28,7 @@ class UserProfileModel with _$UserProfileModel {
     String? lonlat,
     String? onlineStatus,
     bool? premium,
-    List<UserFavoriteMusicModel>? favoriteMusic,
+    int? superLikeCount,
   }) = _UserProfileModel;
 
   factory UserProfileModel.initial() => const UserProfileModel(
@@ -52,6 +52,7 @@ class UserProfileModel with _$UserProfileModel {
         premium: false,
         gallery: null,
         favoriteMusic: [],
+        superLikeCount: 0,
       );
 
   factory UserProfileModel.fromJson(Map<String, dynamic> json) =>

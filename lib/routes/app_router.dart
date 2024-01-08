@@ -40,6 +40,7 @@ class AppRouter extends _$AppRouter {
         // add your routes here
         AutoRoute(
             page: OnboardingRoute.page,
+          // page: MatchRoute.page,
             initial: true,
             guards: [ExistingUserGuard()]),
         AutoRoute(page: EntryRoute.page, path: '/entry'),
