@@ -97,5 +97,17 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
         ));
       }
     });
+
+    on<DeleteLastPhotoEvent>((event, emit) async {
+      if (uploadedPhotos.length > 1) {
+        emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+        emit(ValidState());
+      } else {
+        emit(ErrorState(
+          message: TextConstants.uploadPhotoError,
+          isEnabled: true,
+        ));
+      }
+    });
   }
 }
