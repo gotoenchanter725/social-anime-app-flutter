@@ -40,7 +40,7 @@ class AppRouter extends _$AppRouter {
         // add your routes here
         AutoRoute(
             page: OnboardingRoute.page,
-          // page: MatchRoute.page,
+            // page: MatchRoute.page,
             initial: true,
             guards: [ExistingUserGuard()]),
         AutoRoute(page: EntryRoute.page, path: '/entry'),
@@ -75,6 +75,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: EditSpotifyMusicRoute.page,
           path: '/edit_spotify_music',
+        ),
+        AutoRoute(
+          page: SettingsVerifyPhoneRoute.page,
+          path: '/settings_verify_phone',
         ),
       ];
 }
