@@ -20,8 +20,8 @@ MatchesUsersModel _$MatchesUsersModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MatchesUsersModel {
-//add match with Conversation
-//  conversation,
+  MatchesUsersConversationModel? get conversation =>
+      throw _privateConstructorUsedError;
   UserProfileModel? get user => throw _privateConstructorUsedError;
   UserProfileModel? get matchee => throw _privateConstructorUsedError;
 
@@ -37,8 +37,12 @@ abstract class $MatchesUsersModelCopyWith<$Res> {
           MatchesUsersModel value, $Res Function(MatchesUsersModel) then) =
       _$MatchesUsersModelCopyWithImpl<$Res, MatchesUsersModel>;
   @useResult
-  $Res call({UserProfileModel? user, UserProfileModel? matchee});
+  $Res call(
+      {MatchesUsersConversationModel? conversation,
+      UserProfileModel? user,
+      UserProfileModel? matchee});
 
+  $MatchesUsersConversationModelCopyWith<$Res>? get conversation;
   $UserProfileModelCopyWith<$Res>? get user;
   $UserProfileModelCopyWith<$Res>? get matchee;
 }
@@ -56,10 +60,15 @@ class _$MatchesUsersModelCopyWithImpl<$Res, $Val extends MatchesUsersModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? conversation = freezed,
     Object? user = freezed,
     Object? matchee = freezed,
   }) {
     return _then(_value.copyWith(
+      conversation: freezed == conversation
+          ? _value.conversation
+          : conversation // ignore: cast_nullable_to_non_nullable
+              as MatchesUsersConversationModel?,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -69,6 +78,19 @@ class _$MatchesUsersModelCopyWithImpl<$Res, $Val extends MatchesUsersModel>
           : matchee // ignore: cast_nullable_to_non_nullable
               as UserProfileModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MatchesUsersConversationModelCopyWith<$Res>? get conversation {
+    if (_value.conversation == null) {
+      return null;
+    }
+
+    return $MatchesUsersConversationModelCopyWith<$Res>(_value.conversation!,
+        (value) {
+      return _then(_value.copyWith(conversation: value) as $Val);
+    });
   }
 
   @override
@@ -104,8 +126,13 @@ abstract class _$$_MatchesUsersModelCopyWith<$Res>
       __$$_MatchesUsersModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserProfileModel? user, UserProfileModel? matchee});
+  $Res call(
+      {MatchesUsersConversationModel? conversation,
+      UserProfileModel? user,
+      UserProfileModel? matchee});
 
+  @override
+  $MatchesUsersConversationModelCopyWith<$Res>? get conversation;
   @override
   $UserProfileModelCopyWith<$Res>? get user;
   @override
@@ -123,10 +150,15 @@ class __$$_MatchesUsersModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? conversation = freezed,
     Object? user = freezed,
     Object? matchee = freezed,
   }) {
     return _then(_$_MatchesUsersModel(
+      conversation: freezed == conversation
+          ? _value.conversation
+          : conversation // ignore: cast_nullable_to_non_nullable
+              as MatchesUsersConversationModel?,
       user: freezed == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
@@ -142,13 +174,13 @@ class __$$_MatchesUsersModelCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_MatchesUsersModel implements _MatchesUsersModel {
-  const _$_MatchesUsersModel({this.user, this.matchee});
+  const _$_MatchesUsersModel({this.conversation, this.user, this.matchee});
 
   factory _$_MatchesUsersModel.fromJson(Map<String, dynamic> json) =>
       _$$_MatchesUsersModelFromJson(json);
 
-//add match with Conversation
-//  conversation,
+  @override
+  final MatchesUsersConversationModel? conversation;
   @override
   final UserProfileModel? user;
   @override
@@ -156,7 +188,7 @@ class _$_MatchesUsersModel implements _MatchesUsersModel {
 
   @override
   String toString() {
-    return 'MatchesUsersModel(user: $user, matchee: $matchee)';
+    return 'MatchesUsersModel(conversation: $conversation, user: $user, matchee: $matchee)';
   }
 
   @override
@@ -164,13 +196,15 @@ class _$_MatchesUsersModel implements _MatchesUsersModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_MatchesUsersModel &&
+            (identical(other.conversation, conversation) ||
+                other.conversation == conversation) &&
             (identical(other.user, user) || other.user == user) &&
             (identical(other.matchee, matchee) || other.matchee == matchee));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, user, matchee);
+  int get hashCode => Object.hash(runtimeType, conversation, user, matchee);
 
   @JsonKey(ignore: true)
   @override
@@ -189,14 +223,16 @@ class _$_MatchesUsersModel implements _MatchesUsersModel {
 
 abstract class _MatchesUsersModel implements MatchesUsersModel {
   const factory _MatchesUsersModel(
-      {final UserProfileModel? user,
+      {final MatchesUsersConversationModel? conversation,
+      final UserProfileModel? user,
       final UserProfileModel? matchee}) = _$_MatchesUsersModel;
 
   factory _MatchesUsersModel.fromJson(Map<String, dynamic> json) =
       _$_MatchesUsersModel.fromJson;
 
-  @override //add match with Conversation
-//  conversation,
+  @override
+  MatchesUsersConversationModel? get conversation;
+  @override
   UserProfileModel? get user;
   @override
   UserProfileModel? get matchee;
@@ -204,4 +240,152 @@ abstract class _MatchesUsersModel implements MatchesUsersModel {
   @JsonKey(ignore: true)
   _$$_MatchesUsersModelCopyWith<_$_MatchesUsersModel> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+MatchesUsersConversationModel _$MatchesUsersConversationModelFromJson(
+    Map<String, dynamic> json) {
+  return _MatchesUsersConversationModel.fromJson(json);
+}
+
+/// @nodoc
+mixin _$MatchesUsersConversationModel {
+  String get id => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $MatchesUsersConversationModelCopyWith<MatchesUsersConversationModel>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $MatchesUsersConversationModelCopyWith<$Res> {
+  factory $MatchesUsersConversationModelCopyWith(
+          MatchesUsersConversationModel value,
+          $Res Function(MatchesUsersConversationModel) then) =
+      _$MatchesUsersConversationModelCopyWithImpl<$Res,
+          MatchesUsersConversationModel>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class _$MatchesUsersConversationModelCopyWithImpl<$Res,
+        $Val extends MatchesUsersConversationModel>
+    implements $MatchesUsersConversationModelCopyWith<$Res> {
+  _$MatchesUsersConversationModelCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_MatchesUsersConversationModelCopyWith<$Res>
+    implements $MatchesUsersConversationModelCopyWith<$Res> {
+  factory _$$_MatchesUsersConversationModelCopyWith(
+          _$_MatchesUsersConversationModel value,
+          $Res Function(_$_MatchesUsersConversationModel) then) =
+      __$$_MatchesUsersConversationModelCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$_MatchesUsersConversationModelCopyWithImpl<$Res>
+    extends _$MatchesUsersConversationModelCopyWithImpl<$Res,
+        _$_MatchesUsersConversationModel>
+    implements _$$_MatchesUsersConversationModelCopyWith<$Res> {
+  __$$_MatchesUsersConversationModelCopyWithImpl(
+      _$_MatchesUsersConversationModel _value,
+      $Res Function(_$_MatchesUsersConversationModel) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$_MatchesUsersConversationModel(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_MatchesUsersConversationModel
+    implements _MatchesUsersConversationModel {
+  const _$_MatchesUsersConversationModel({required this.id});
+
+  factory _$_MatchesUsersConversationModel.fromJson(
+          Map<String, dynamic> json) =>
+      _$$_MatchesUsersConversationModelFromJson(json);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'MatchesUsersConversationModel(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_MatchesUsersConversationModel &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_MatchesUsersConversationModelCopyWith<_$_MatchesUsersConversationModel>
+      get copyWith => __$$_MatchesUsersConversationModelCopyWithImpl<
+          _$_MatchesUsersConversationModel>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MatchesUsersConversationModelToJson(
+      this,
+    );
+  }
+}
+
+abstract class _MatchesUsersConversationModel
+    implements MatchesUsersConversationModel {
+  const factory _MatchesUsersConversationModel({required final String id}) =
+      _$_MatchesUsersConversationModel;
+
+  factory _MatchesUsersConversationModel.fromJson(Map<String, dynamic> json) =
+      _$_MatchesUsersConversationModel.fromJson;
+
+  @override
+  String get id;
+  @override
+  @JsonKey(ignore: true)
+  _$$_MatchesUsersConversationModelCopyWith<_$_MatchesUsersConversationModel>
+      get copyWith => throw _privateConstructorUsedError;
 }
