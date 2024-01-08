@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:senpai/models/chat/categorized_conversation.dart';
+import 'package:senpai/models/match/like_user_model/like_user_model.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/routes/guards/onboarding_guard.dart';
@@ -16,6 +17,7 @@ import 'package:senpai/screens/entry/page/entry_page.dart';
 import 'package:senpai/screens/home/page/home_page.dart';
 import 'package:senpai/screens/license/page/license_page.dart';
 import 'package:senpai/screens/match/page/match_page.dart';
+import 'package:senpai/screens/match_users/page/match_users_page.dart';
 import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
 import 'package:senpai/screens/premium_screen/page/premium_page.dart';
 import 'package:senpai/screens/preview_profile/page/preview_profile_page.dart';
@@ -84,5 +86,6 @@ class AppRouter extends _$AppRouter {
           path: '/settings_verify_phone',
         ),
         AutoRoute(page: EditLocationRoute.page, path: '/edit_location'),
+        AutoRoute(page: MatchUsersRoute.page, path: '/match_users'),
       ];
 }

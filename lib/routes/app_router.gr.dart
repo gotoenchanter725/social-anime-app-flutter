@@ -90,6 +90,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const MatchPage(),
       );
     },
+    MatchUsersRoute.name: (routeData) {
+      final args = routeData.argsAs<MatchUsersRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MatchUsersPage(
+          key: args.key,
+          likeUserModel: args.likeUserModel,
+        ),
+      );
+    },
     OnboardingRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -497,6 +507,44 @@ class MatchRoute extends PageRouteInfo<void> {
   static const String name = 'MatchRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MatchUsersPage]
+class MatchUsersRoute extends PageRouteInfo<MatchUsersRouteArgs> {
+  MatchUsersRoute({
+    Key? key,
+    required LikeUserModel likeUserModel,
+    List<PageRouteInfo>? children,
+  }) : super(
+          MatchUsersRoute.name,
+          args: MatchUsersRouteArgs(
+            key: key,
+            likeUserModel: likeUserModel,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'MatchUsersRoute';
+
+  static const PageInfo<MatchUsersRouteArgs> page =
+      PageInfo<MatchUsersRouteArgs>(name);
+}
+
+class MatchUsersRouteArgs {
+  const MatchUsersRouteArgs({
+    this.key,
+    required this.likeUserModel,
+  });
+
+  final Key? key;
+
+  final LikeUserModel likeUserModel;
+
+  @override
+  String toString() {
+    return 'MatchUsersRouteArgs{key: $key, likeUserModel: $likeUserModel}';
+  }
 }
 
 /// generated route for
