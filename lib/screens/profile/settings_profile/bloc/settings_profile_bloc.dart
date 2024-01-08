@@ -38,8 +38,6 @@ class SettingsProfileBloc
 
   final feedbackController = TextEditingController();
 
-  DeleteAccountOptions? deleteAccountOptions;
-
   bool isShowActiveStatus = true;
   bool isRecentlyActiveStatus = true;
 
@@ -75,12 +73,6 @@ class SettingsProfileBloc
     on<OnChangeRecentlyActiveStatusEvent>((event, emit) {
       emit(LoadingState());
       isRecentlyActiveStatus = event.isStatusOn;
-      emit(ValidState());
-    });
-
-    on<OnChangeDeleteAccointOptionEvent>((event, emit) {
-      emit(LoadingState());
-      deleteAccountOptions = event.option;
       emit(ValidState());
     });
 
