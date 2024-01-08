@@ -387,6 +387,8 @@ class UpdateUser$Mutation$UpdateUser$User extends JsonSerializable
 
   String? occupation;
 
+  bool? hasLocationHidden;
+
   @override
   List<Object?> get props => [
         id,
@@ -398,7 +400,8 @@ class UpdateUser$Mutation$UpdateUser$User extends JsonSerializable
         desiredGender,
         verified,
         school,
-        occupation
+        occupation,
+        hasLocationHidden
       ];
   @override
   Map<String, dynamic> toJson() =>
@@ -3595,6 +3598,13 @@ final UPDATE_USER_MUTATION_DOCUMENT = DocumentNode(definitions: [
               ),
               FieldNode(
                 name: NameNode(value: 'occupation'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'hasLocationHidden'),
                 alias: null,
                 arguments: [],
                 directives: [],

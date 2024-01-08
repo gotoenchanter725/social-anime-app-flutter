@@ -274,7 +274,8 @@ UpdateUser$Mutation$UpdateUser$User
           ..desiredGender = json['desiredGender'] as String?
           ..verified = json['verified'] as bool
           ..school = json['school'] as String?
-          ..occupation = json['occupation'] as String?;
+          ..occupation = json['occupation'] as String?
+          ..hasLocationHidden = json['hasLocationHidden'] as bool?;
 
 Map<String, dynamic> _$UpdateUser$Mutation$UpdateUser$UserToJson(
         UpdateUser$Mutation$UpdateUser$User instance) =>
@@ -290,6 +291,7 @@ Map<String, dynamic> _$UpdateUser$Mutation$UpdateUser$UserToJson(
       'verified': instance.verified,
       'school': instance.school,
       'occupation': instance.occupation,
+      'hasLocationHidden': instance.hasLocationHidden,
     };
 
 UpdateUser$Mutation$UpdateUser _$UpdateUser$Mutation$UpdateUserFromJson(

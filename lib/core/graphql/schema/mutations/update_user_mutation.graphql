@@ -11,6 +11,7 @@ mutation updateUser($input: UpdateUserInput!) {
       verified
       school
       occupation
+      hasLocationHidden
     }
   }
 }
