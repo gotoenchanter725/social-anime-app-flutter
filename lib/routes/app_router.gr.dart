@@ -162,6 +162,16 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    SettingsVerifyPhoneRoute.name: (routeData) {
+      final args = routeData.argsAs<SettingsVerifyPhoneRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SettingsVerifyPhonePage(
+          key: args.key,
+          settingsBloc: args.settingsBloc,
+        ),
+      );
+    },
     SignUpRoute.name: (routeData) {
       final args = routeData.argsAs<SignUpRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -728,6 +738,45 @@ class SettingsProfileRouteArgs {
   @override
   String toString() {
     return 'SettingsProfileRouteArgs{key: $key, user: $user}';
+  }
+}
+
+/// generated route for
+/// [SettingsVerifyPhonePage]
+class SettingsVerifyPhoneRoute
+    extends PageRouteInfo<SettingsVerifyPhoneRouteArgs> {
+  SettingsVerifyPhoneRoute({
+    Key? key,
+    required SettingsProfileBloc settingsBloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SettingsVerifyPhoneRoute.name,
+          args: SettingsVerifyPhoneRouteArgs(
+            key: key,
+            settingsBloc: settingsBloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsVerifyPhoneRoute';
+
+  static const PageInfo<SettingsVerifyPhoneRouteArgs> page =
+      PageInfo<SettingsVerifyPhoneRouteArgs>(name);
+}
+
+class SettingsVerifyPhoneRouteArgs {
+  const SettingsVerifyPhoneRouteArgs({
+    this.key,
+    required this.settingsBloc,
+  });
+
+  final Key? key;
+
+  final SettingsProfileBloc settingsBloc;
+
+  @override
+  String toString() {
+    return 'SettingsVerifyPhoneRouteArgs{key: $key, settingsBloc: $settingsBloc}';
   }
 }
 

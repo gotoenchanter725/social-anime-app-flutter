@@ -19,6 +19,8 @@ import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
 import 'package:senpai/screens/premium_screen/page/premium_page.dart';
 import 'package:senpai/screens/preview_profile/page/preview_profile_page.dart';
 import 'package:senpai/screens/profile/profile_filter/profile_filter_page/profile_filter_page.dart';
+import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
+import 'package:senpai/screens/profile/settings_profile/phone_number_content/settings_verify_phone/page/settings_verify_phone_page.dart';
 import 'package:senpai/screens/profile/settings_profile/settings_profile_page/settings_profile_page.dart';
 import 'package:senpai/screens/profile_fill/page/profile_fill.dart';
 import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
