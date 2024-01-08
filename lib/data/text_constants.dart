@@ -103,6 +103,7 @@ class TextConstants {
   static const String stickersTabText = "Stickers";
   static const String gifsTabText = "GIPHY";
   static const String animeTabText = "Anime";
+  static const String favouriteAnimeTitle = "My favorite animes";
 
   // Chat
   static const String searchHintText = "Search chat or match";

@@ -9,6 +9,7 @@ import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
 import 'package:senpai/core/chat/blocs/update_message_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
+import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
@@ -69,6 +70,9 @@ class ChatPage extends StatelessWidget {
             create: (_) => RoomSubscriptionsBloc(roomId: roomArgs.roomId)),
         BlocProvider<UpdateMessageBloc>(create: (_) => UpdateMessageBloc()),
         BlocProvider<FetchStickersBloc>(create: (_) => FetchStickersBloc()),
+        BlocProvider<FetchUserBloc>(
+            create: (_) => FetchUserBloc()
+              ..fetchUser(userId: int.parse(roomArgs.currentUser.id))),
       ],
       child: BlocListener<UpdateMessageBloc, MutationState>(
         listener: (context, state) {
