@@ -17,6 +17,7 @@ class UpdateUserBloc extends MutationBloc<UpdateUser$Mutation> {
 
   updateUserInfo({
     required UpdateUserModel user,
+    bool? verified,
   }) {
     final variables = UpdateUserArguments(
       input: UpdateUserInput(
@@ -30,7 +31,8 @@ class UpdateUserBloc extends MutationBloc<UpdateUser$Mutation> {
           gender: user.gender,
           occupation: user.occupation,
           school: user.school ?? '',
-          verified: false,
+          hasLocationHidden: user.hasLocationHidden,
+          verified: verified ?? false,
         ),
       ),
     ).toJson();

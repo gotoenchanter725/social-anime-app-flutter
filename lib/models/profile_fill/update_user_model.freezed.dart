@@ -29,6 +29,7 @@ mixin _$UpdateUserModel {
   String? get occupation => throw _privateConstructorUsedError;
   String? get school => throw _privateConstructorUsedError;
   String? get bio => throw _privateConstructorUsedError;
+  bool? get hasLocationHidden => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -51,7 +52,8 @@ abstract class $UpdateUserModelCopyWith<$Res> {
       int? desiredGender,
       String? occupation,
       String? school,
-      String? bio});
+      String? bio,
+      bool? hasLocationHidden});
 }
 
 /// @nodoc
@@ -76,6 +78,7 @@ class _$UpdateUserModelCopyWithImpl<$Res, $Val extends UpdateUserModel>
     Object? occupation = freezed,
     Object? school = freezed,
     Object? bio = freezed,
+    Object? hasLocationHidden = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -114,6 +117,10 @@ class _$UpdateUserModelCopyWithImpl<$Res, $Val extends UpdateUserModel>
           ? _value.bio
           : bio // ignore: cast_nullable_to_non_nullable
               as String?,
+      hasLocationHidden: freezed == hasLocationHidden
+          ? _value.hasLocationHidden
+          : hasLocationHidden // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -135,7 +142,8 @@ abstract class _$$_UpdateUserModelCopyWith<$Res>
       int? desiredGender,
       String? occupation,
       String? school,
-      String? bio});
+      String? bio,
+      bool? hasLocationHidden});
 }
 
 /// @nodoc
@@ -158,6 +166,7 @@ class __$$_UpdateUserModelCopyWithImpl<$Res>
     Object? occupation = freezed,
     Object? school = freezed,
     Object? bio = freezed,
+    Object? hasLocationHidden = freezed,
   }) {
     return _then(_$_UpdateUserModel(
       id: null == id
@@ -196,6 +205,10 @@ class __$$_UpdateUserModelCopyWithImpl<$Res>
           ? _value.bio
           : bio // ignore: cast_nullable_to_non_nullable
               as String?,
+      hasLocationHidden: freezed == hasLocationHidden
+          ? _value.hasLocationHidden
+          : hasLocationHidden // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -212,7 +225,8 @@ class _$_UpdateUserModel implements _UpdateUserModel {
       this.desiredGender,
       this.occupation,
       this.school,
-      this.bio});
+      this.bio,
+      this.hasLocationHidden});
 
   factory _$_UpdateUserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateUserModelFromJson(json);
@@ -235,10 +249,12 @@ class _$_UpdateUserModel implements _UpdateUserModel {
   final String? school;
   @override
   final String? bio;
+  @override
+  final bool? hasLocationHidden;
 
   @override
   String toString() {
-    return 'UpdateUserModel(id: $id, phone: $phone, firstName: $firstName, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, occupation: $occupation, school: $school, bio: $bio)';
+    return 'UpdateUserModel(id: $id, phone: $phone, firstName: $firstName, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, occupation: $occupation, school: $school, bio: $bio, hasLocationHidden: $hasLocationHidden)';
   }
 
   @override
@@ -258,13 +274,15 @@ class _$_UpdateUserModel implements _UpdateUserModel {
             (identical(other.occupation, occupation) ||
                 other.occupation == occupation) &&
             (identical(other.school, school) || other.school == school) &&
-            (identical(other.bio, bio) || other.bio == bio));
+            (identical(other.bio, bio) || other.bio == bio) &&
+            (identical(other.hasLocationHidden, hasLocationHidden) ||
+                other.hasLocationHidden == hasLocationHidden));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, phone, firstName, birthday,
-      gender, desiredGender, occupation, school, bio);
+      gender, desiredGender, occupation, school, bio, hasLocationHidden);
 
   @JsonKey(ignore: true)
   @override
@@ -290,7 +308,8 @@ abstract class _UpdateUserModel implements UpdateUserModel {
       final int? desiredGender,
       final String? occupation,
       final String? school,
-      final String? bio}) = _$_UpdateUserModel;
+      final String? bio,
+      final bool? hasLocationHidden}) = _$_UpdateUserModel;
 
   factory _UpdateUserModel.fromJson(Map<String, dynamic> json) =
       _$_UpdateUserModel.fromJson;
@@ -313,6 +332,8 @@ abstract class _UpdateUserModel implements UpdateUserModel {
   String? get school;
   @override
   String? get bio;
+  @override
+  bool? get hasLocationHidden;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateUserModelCopyWith<_$_UpdateUserModel> get copyWith =>
