@@ -12,6 +12,7 @@ import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/screens/home/bloc/home_storage_bloc.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/widgets/match_content.dart';
+import 'package:senpai/screens/profile/bloc/profile_bloc.dart' as user;
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -26,6 +27,8 @@ class MatchPage extends StatelessWidget {
       providers: [
         BlocProvider.value(value: getIt<HomeStorageBloc>()),
         BlocProvider(create: (_) => MatchBloc()..add(OnInitUserID())),
+        BlocProvider(
+            create: (_) => user.ProfileBloc()..add(user.OnInitUserID())),
         BlocProvider(create: (_) => getIt<FetchFeedBloc>()),
         BlocProvider(create: (_) => getIt<LikeUserBloc>()),
       ],

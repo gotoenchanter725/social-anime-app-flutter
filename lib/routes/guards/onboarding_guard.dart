@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:senpai/routes/app_router.dart';
@@ -19,9 +21,12 @@ class ExistingUserGuard extends AutoRouteGuard {
     final isNewUser = await isFirstVisit();
 
     if (isNewUser) {
+      log('entry route first visit');
       await setFirstVisit();
+      // await router.push(const EntryRoute());
       resolver.next(true);
     } else {
+      log('entry route started');
       await router.push(const EntryRoute());
       resolver.next(true);
     }

@@ -1,20 +1,18 @@
 import 'dart:developer';
 
 import 'package:flip_card/flip_card.dart';
-import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
-import 'package:senpai/screens/match/enums/match_enums.dart';
 import 'package:senpai/screens/match/widgets/empty_match_widget.dart';
-import 'package:senpai/screens/match/widgets/match_drag_widget.dart';
 import 'package:senpai/screens/match/widgets/profile_card_widget.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 import 'package:swipable_stack/swipable_stack.dart';
 
-import '../../../data/path_constants.dart';
+import '../../profile/bloc/profile_bloc.dart';
 
 class MatchCardsStackWidget extends StatefulWidget {
   const MatchCardsStackWidget({Key? key}) : super(key: key);
@@ -24,7 +22,6 @@ class MatchCardsStackWidget extends StatefulWidget {
 }
 
 class _MatchCardsStackWidgetState extends State<MatchCardsStackWidget> {
-
   late final SwipableStackController _controller;
   // final FlipCardController flipCardController = FlipCardController();
 
@@ -79,171 +76,142 @@ class _MatchCardsStackWidgetState extends State<MatchCardsStackWidget> {
         // }
 
         // final swipe = bloc.swipeUser;
+
+        bloc.generateList();
+        final userBloc = BlocProvider.of<ProfileBloc>(context);
         return Stack(
           clipBehavior: Clip.none,
           children: [
-
             /// new
-            // ...List.generate(
-            //   bloc.users.length,
-            //       (index) {
-            //     return
-        Positioned.fill(
-                  child: SwipableStack(
-                    detectableSwipeDirections: const {
-                      SwipeDirection.right,
-                      SwipeDirection.left,
-                      SwipeDirection.up,
-                      // SwipeDirection.down,
-                    },
-                    itemCount: bloc.users.length,
-                    // controller: _controller,
-                    controller: bloc.cardSwipeController,
-                    stackClipBehaviour: Clip.none,
-                    onSwipeCompleted: (index, direction) {
-                      // if(direction == SwipeDirection.left) {
-                      //   // bloc.add(OnCancelUserEvent());
-                      // } else if(direction == SwipeDirection.right) {
-                      //   // bloc.add(OnLikeUserEvent());
-                      // }
-
-                      // bloc.users = bloc.users..remove(bloc.userNow);
-                      // bloc.users = bloc.users..removeWhere((element) => element.id == bloc.);
-                      if (bloc.users.isNotEmpty) {
-                        // bloc.userNow = bloc.users.last;
-                        bloc.userNow = bloc.users.where((element) => element.id == bloc.users[(bloc.users.length - (index + 1)).toInt()].id).first;
-                      }
-                      if (bloc.users.length == 2) {
-                        bloc.page += 1;
-                      }
-
-                      if(kDebugMode){
-                        log('$index, $direction');
-                      }
-                    },
-                    horizontalSwipeThreshold: 0.8,
-                    verticalSwipeThreshold: 0.8,
-                    builder: (context, properties) {
-                      final itemIndex = properties.index % bloc.users.length;
-
-                      log('user list length: ${bloc.users.length} '
-                          '<<>> item index: $itemIndex '
-                          '<<>> property index: ${properties.index} '
-                          '<<>> userId: ${bloc.userID} '
-                          '<<>> usernow: ${bloc.userNow.id} == ${bloc.userNow.firstName} == '
-                          '${bloc.users.indexWhere((element) => element.id == bloc.userNow.id)}'
-                          '<<>> user item index ${bloc.users[itemIndex].id} == ${bloc.users[itemIndex].firstName} '
-                          '<<>> last user ${bloc.users[bloc.users.length - 1]}');
-
-                      log('swipe card direction: ${properties.direction} == ${properties.swipeProgress}');
-
-                      if(properties.direction == SwipeDirection.up && properties.swipeProgress > 0.2) {
-                        log("@@1");
-                        if(bloc.flipCardController.state != null) {
-                          log("@@2");
-                          if (!bloc.flipCardController.state!.isFront) {
-                            log("@@3");
-                            bloc.flipCardController.toggleCard();
+            Positioned.fill(
+              child: SwipableStack(
+                detectableSwipeDirections:
+                    (userBloc.user.superLikeCount != null &&
+                            userBloc.user.superLikeCount! <= 0)
+                        ? const {
+                            SwipeDirection.right,
+                            SwipeDirection.left,
                           }
-                        }
-                      } else {
-                        log("@@7");
-                        if(bloc.flipCardController.state != null) {
-                          log("@@8");
-                          if (bloc.flipCardController.state!.isFront) {
-                            log("@@9");
-                            bloc.flipCardController.toggleCard();
-                          }
+                        : const {
+                            SwipeDirection.right,
+                            SwipeDirection.left,
+                            SwipeDirection.up,
+                            // SwipeDirection.down,
+                          },
+                itemCount: bloc.users.length,
+                // itemCount: 1,
+                // controller: _controller,
+                controller: bloc.cardSwipeController,
+                stackClipBehaviour: Clip.none,
+                onSwipeCompleted: (index, direction) {
+                  if (bloc.users.isNotEmpty) {
+                    // bloc.userNow = bloc.users.last;
+
+                    UserProfileModel userProfileNow =
+                        bloc.users[bloc.users.length - (index + 2)];
+                    int currentUserIndex = bloc.users.indexWhere(
+                        (element) => element.id == userProfileNow.id);
+                    bloc.userNow = bloc.users[currentUserIndex];
+
+                    log('after swipe complete user: ${bloc.userNow}');
+
+                    // bloc.userNow = bloc.users.where((element) => element.id == bloc.users[(bloc.users.length - (index + 1)).toInt()].id).first;
+                  }
+                  if (bloc.users.length == 2) {
+                    bloc.page += 1;
+                  }
+
+                  if (kDebugMode) {
+                    log('$index, $direction');
+                  }
+                },
+                horizontalSwipeThreshold: 0.8,
+                verticalSwipeThreshold: 0.8,
+                builder: (context, properties) {
+                  final itemIndex = properties.index % bloc.users.length;
+
+                  if (bloc.users[bloc.users.length - (itemIndex + 1)] ==
+                      bloc.userNow) {
+                    if (properties.direction == SwipeDirection.up &&
+                        properties.swipeProgress > 0.2) {
+                      if (bloc
+                              .flipCardController[
+                                  bloc.users.length - (itemIndex + 1)]
+                              .state !=
+                          null) {
+                        if (!bloc
+                            .flipCardController[
+                                bloc.users.length - (itemIndex + 1)]
+                            .state!
+                            .isFront) {
+                          bloc.flipCardController[
+                                  bloc.users.length - (itemIndex + 1)]
+                              .toggleCard();
                         }
                       }
+                    } else {
+                      if (bloc
+                              .flipCardController[
+                                  bloc.users.length - (itemIndex + 1)]
+                              .state !=
+                          null) {
+                        if (bloc
+                            .flipCardController[
+                                bloc.users.length - (itemIndex + 1)]
+                            .state!
+                            .isFront) {
+                          bloc.flipCardController[
+                                  bloc.users.length - (itemIndex + 1)]
+                              .toggleCard();
+                        }
+                      }
+                    }
+                  }
 
-                      return FlipCard(
-                        // key: GlobalKey(),
-                          // controller: flipCardController,
-                          controller: bloc.flipCardController,
-                          side: CardSide.BACK,
-                          direction: FlipDirection.VERTICAL,
-                          flipOnTouch: false,
-                          speed: 500,
-                          front: Container(
-                            color: Colors.black,
-                            alignment: Alignment.center,
-                            child: Image.asset(
-                              'assets/images/match/super_like_bg.png',
-                              height: 190,
-                              width: 190,
-                              color: Colors.white,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                          back: Stack(
-                          children: [
-                            ProfileCard(user: bloc.users[bloc.users.length - (itemIndex + 1)]),
+                  return FlipCard(
+                    controller: bloc.flipCardController[
+                        bloc.users.length - (itemIndex + 1)],
+                    side: CardSide.BACK,
+                    direction: FlipDirection.VERTICAL,
+                    flipOnTouch: false,
+                    speed: 500,
+                    front: Container(
+                      color: Colors.black,
+                      alignment: Alignment.center,
+                      child: Image.asset(
+                        'assets/images/match/super_like_bg.png',
+                        height: 190,
+                        width: 190,
+                        color: Colors.white,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                    back: Stack(
+                      children: [
+                        ProfileCard(
+                            user: bloc
+                                .users[bloc.users.length - (itemIndex + 1)]),
+                        // ProfileCard(user: bloc.users[itemIndex]),
 
-                            // if(properties.direction == SwipeDirection.right
-                            //     && properties.swipeProgress > 0.2
-                            // && properties.index == 0)
-                            //   Positioned(
-                            //     right: 0,
-                            //     child: Image.asset(
-                            //       PathConstants.matchLikeImage,
-                            //       width: getSize(context).width,
-                            //       fit: BoxFit.fitWidth,
-                            //     ),
-                            //   ),
+                        // if(properties.direction == SwipeDirection.right
+                        //     && properties.swipeProgress > 0.2
+                        // && properties.index == 0)
+                        //   Positioned(
+                        //     right: 0,
+                        //     child: Image.asset(
+                        //       PathConstants.matchLikeImage,
+                        //       width: getSize(context).width,
+                        //       fit: BoxFit.fitWidth,
+                        //     ),
+                        //   ),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
 
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ),
-
-              // },
-            // ),
             ///
-
-            // ...List.generate(
-            //   bloc.users.length,
-            //   (index) {
-            //     return MatchDragWidget(
-            //       user: bloc.users[index],
-            //       index: index,
-            //       swipe: swipe,
-            //       bloc: bloc,
-            //     );
-            //   },
-            // ),
-            // Positioned(
-            //   left: 0,
-            //   child: DragTarget<int>(
-            //     builder: (
-            //       BuildContext context,
-            //       List<dynamic> accepted,
-            //       List<dynamic> rejected,
-            //     ) {
-            //       return IgnorePointer(child: _buildIgnoreContainer(context));
-            //     },
-            //     onAccept: (int index) {
-            //       bloc.add(OnCancelUserEvent());
-            //     },
-            //   ),
-            // ),
-            // Positioned(
-            //   right: 0,
-            //   child: DragTarget<int>(
-            //     builder: (
-            //       BuildContext context,
-            //       List<dynamic> accepted,
-            //       List<dynamic> rejected,
-            //     ) {
-            //       return IgnorePointer(child: _buildIgnoreContainer(context));
-            //     },
-            //     onAccept: (int index) {
-            //       bloc.add(OnLikeUserEvent());
-            //     },
-            //   ),
-            // ),
           ],
         );
       },

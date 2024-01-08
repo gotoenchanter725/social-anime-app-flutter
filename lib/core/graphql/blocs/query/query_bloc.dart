@@ -37,6 +37,7 @@ abstract class QueryBloc<T> extends Bloc<QueryEvent<T>, QueryState<T>> {
 
       final exception = result.exception;
       if (exception != null) {
+        print('fetch user exception: $exception');
         add(QueryEvent<T>.error(error: exception, result: result));
       }
     });

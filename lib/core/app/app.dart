@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:senpai/i18n/strings.g.dart';
+import 'package:senpai/screens/premium_screen/widgets/premium_content.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
@@ -20,6 +21,20 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+    // return MaterialApp(
+    //   title: $constants.appTitle,
+    //   theme: theme,
+    //   home: PremiumContent(),
+    //
+    //   /// EasyLocalization configuration.
+    //   locale: TranslationProvider.of(context).flutterLocale,
+    //   supportedLocales: AppLocaleUtils.supportedLocales,
+    //   localizationsDelegates: const [
+    //     GlobalMaterialLocalizations.delegate,
+    //     GlobalWidgetsLocalizations.delegate,
+    //     GlobalCupertinoLocalizations.delegate,
+    //   ],
+    // );
     return MaterialApp.router(
       title: $constants.appTitle,
       theme: theme,

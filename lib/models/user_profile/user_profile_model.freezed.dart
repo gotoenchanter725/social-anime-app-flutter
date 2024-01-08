@@ -39,6 +39,7 @@ mixin _$UserProfileModel {
   String? get lonlat => throw _privateConstructorUsedError;
   String? get onlineStatus => throw _privateConstructorUsedError;
   bool? get premium => throw _privateConstructorUsedError;
+  int? get superLikeCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,7 +72,8 @@ abstract class $UserProfileModelCopyWith<$Res> {
       GalleryUserModel? gallery,
       String? lonlat,
       String? onlineStatus,
-      bool? premium});
+      bool? premium,
+      int? superLikeCount,});
 
   $GalleryUserModelCopyWith<$Res>? get gallery;
 }
@@ -108,6 +110,7 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
     Object? lonlat = freezed,
     Object? onlineStatus = freezed,
     Object? premium = freezed,
+    Object? superLikeCount = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -186,6 +189,10 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
           ? _value.premium
           : premium // ignore: cast_nullable_to_non_nullable
               as bool?,
+      superLikeCount: freezed == superLikeCount
+          ? _value.superLikeCount
+          : superLikeCount // ignore: cast_nullable_to_non_nullable
+      as int?,
     ) as $Val);
   }
 
@@ -229,7 +236,8 @@ abstract class _$$_UserProfileModelCopyWith<$Res>
       GalleryUserModel? gallery,
       String? lonlat,
       String? onlineStatus,
-      bool? premium});
+      bool? premium,
+      int? superLikeCount,});
 
   @override
   $GalleryUserModelCopyWith<$Res>? get gallery;
@@ -265,6 +273,7 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
     Object? lonlat = freezed,
     Object? onlineStatus = freezed,
     Object? premium = freezed,
+    Object? superLikeCount = freezed,
   }) {
     return _then(_$_UserProfileModel(
       id: null == id
@@ -343,6 +352,10 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
           ? _value.premium
           : premium // ignore: cast_nullable_to_non_nullable
               as bool?,
+      superLikeCount: freezed == superLikeCount
+          ? _value.superLikeCount
+          : superLikeCount // ignore: cast_nullable_to_non_nullable
+      as int?,
     ));
   }
 }
@@ -369,7 +382,8 @@ class _$_UserProfileModel implements _UserProfileModel {
       this.gallery,
       this.lonlat,
       this.onlineStatus,
-      this.premium})
+      this.premium,
+      this.superLikeCount,})
       : _animes = animes;
 
   factory _$_UserProfileModel.fromJson(Map<String, dynamic> json) =>
@@ -421,10 +435,12 @@ class _$_UserProfileModel implements _UserProfileModel {
   final String? onlineStatus;
   @override
   final bool? premium;
+  @override
+  final int? superLikeCount;
 
   @override
   String toString() {
-    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium)';
+    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium, superLikeCount: $superLikeCount)';
   }
 
   @override
@@ -459,7 +475,9 @@ class _$_UserProfileModel implements _UserProfileModel {
             (identical(other.lonlat, lonlat) || other.lonlat == lonlat) &&
             (identical(other.onlineStatus, onlineStatus) ||
                 other.onlineStatus == onlineStatus) &&
-            (identical(other.premium, premium) || other.premium == premium));
+            (identical(other.premium, premium) || other.premium == premium) &&
+            (identical(other.superLikeCount, superLikeCount) ||
+                other.superLikeCount == superLikeCount));
   }
 
   @JsonKey(ignore: true)
@@ -484,7 +502,8 @@ class _$_UserProfileModel implements _UserProfileModel {
         gallery,
         lonlat,
         onlineStatus,
-        premium
+        premium,
+        superLikeCount,
       ]);
 
   @JsonKey(ignore: true)
@@ -521,7 +540,8 @@ abstract class _UserProfileModel implements UserProfileModel {
       final GalleryUserModel? gallery,
       final String? lonlat,
       final String? onlineStatus,
-      final bool? premium}) = _$_UserProfileModel;
+      final bool? premium,
+      final int? superLikeCount,}) = _$_UserProfileModel;
 
   factory _UserProfileModel.fromJson(Map<String, dynamic> json) =
       _$_UserProfileModel.fromJson;
@@ -564,6 +584,8 @@ abstract class _UserProfileModel implements UserProfileModel {
   String? get onlineStatus;
   @override
   bool? get premium;
+  @override
+  int? get superLikeCount;
   @override
   @JsonKey(ignore: true)
   _$$_UserProfileModelCopyWith<_$_UserProfileModel> get copyWith =>

@@ -320,4 +320,9 @@ class TextConstants {
   static const String notForYouTitle = "Not for you?";
   static const String swipeRightDescription = "Swipe right if you like it";
   static const String swipeLeftDescription = "Swipe left if not";
+
+  // -> Premium dialog
+  static const String outOfSuperLikes = "Out of Super Likes!";
+  static const String doNotLoseDiamonds = "Don't lose diamonds, Refill now!";
+  static const String noThanks = "No, Thanks";
 }
