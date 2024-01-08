@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
+import 'package:senpai/core/widgets/phone_input.dart';
 
 import 'package:senpai/core/widgets/secondary_button.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/models/user_profile/mappers/user_profile_mapper.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 
 import 'package:senpai/screens/profile/widgets/profile_app_bar.dart';
@@ -37,31 +41,38 @@ class PhoneNumberContent extends StatelessWidget {
           },
         ),
         SizedBox(height: $constants.insets.md),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                TextConstants.phoneNumberTitle,
-                style: getTextTheme(context).headlineSmall,
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    TextConstants.phoneNumberTitle,
+                    style: getTextTheme(context).headlineSmall,
+                  ),
+                  _buildTextInput(context),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: $constants.insets.sm,
+                      top: $constants.insets.xs,
+                    ),
+                    child: Text(
+                      TextConstants.confirmedPhoneDescription,
+                      style: getTextTheme(context)
+                          .labelMedium
+                          ?.copyWith(color: $constants.palette.grey),
+                    ),
+                  ),
+                  SizedBox(height: $constants.insets.md),
+                  _buildTextPhoneInput(context),
+                  SizedBox(height: $constants.insets.md),
+                  _buildUpdatePhoneButton(context),
+                ],
               ),
-              _buildTextInput(context),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: $constants.insets.sm,
-                  top: $constants.insets.xs,
-                ),
-                child: Text(
-                  TextConstants.confirmedPhoneDescription,
-                  style: getTextTheme(context)
-                      .labelMedium
-                      ?.copyWith(color: $constants.palette.grey),
-                ),
-              ),
-              SizedBox(height: $constants.insets.md),
-              _buildUpdatePhoneButton(),
-            ],
+            ),
           ),
         ),
       ],
@@ -81,21 +92,59 @@ class PhoneNumberContent extends StatelessWidget {
             bloc.user.phone,
             style: getTextTheme(context).bodyMedium,
           ),
-          Icon(
-            Icons.done,
-            color: $constants.palette.white,
-            size: 14,
-          ),
+          if (bloc.isVerifyPhone)
+            Icon(
+              Icons.done,
+              color: $constants.palette.white,
+              size: 14,
+            ),
         ],
       ),
     );
   }
 
-  Widget _buildUpdatePhoneButton() {
-    return SecondaryButton(
-      text: TextConstants.updateMyPhoneButton,
-      onPressed: () {},
-      hasBackgroundColor: true,
+  Widget _buildUpdatePhoneButton(BuildContext context) {
+    final bloc = BlocProvider.of<SettingsProfileBloc>(context);
+    final serverBloc = BlocProvider.of<UpdateUserBloc>(context);
+
+    return BlocListener<SettingsProfileBloc, SettingsProfileState>(
+      listenWhen: (_, currState) => currState is ChangePhoneNumberState,
+      listener: (context, state) {
+        serverBloc.updateUserInfo(user: bloc.user.toUpdateModel());
+      },
+      child: SecondaryButton(
+        text: TextConstants.updateMyPhoneButton,
+        onPressed: () {
+          bloc.add(OnTapUpdatePhoneEvent());
+        },
+        hasBackgroundColor: true,
+      ),
+    );
+  }
+
+  Widget _buildTextPhoneInput(BuildContext context) {
+    final bloc = BlocProvider.of<SettingsProfileBloc>(context);
+    return BlocBuilder<SettingsProfileBloc, SettingsProfileState>(
+      builder: (context, state) {
+        if (bloc.isShowPhoneInput) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SenpaiPhoneInput(
+              placeholder: '000-000-0000',
+              controller: bloc.phoneController,
+              onTextChanged: (PhoneNumber phoneNumber) {
+                bloc.add(OnChangePhoneNumberEvent(phoneNumber: phoneNumber));
+              },
+              errorText: TextConstants.invalidPhoneError,
+              isError: state is ErrorState ? state.isEnabled : false,
+              isValid: bloc.state is ValidState
+                  ? true
+                  : isValidPhoneNumber(bloc.phoneController.text),
+            ),
+          );
+        }
+        return const SizedBox();
+      },
     );
   }
 }
