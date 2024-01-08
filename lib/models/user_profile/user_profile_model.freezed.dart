@@ -75,7 +75,7 @@ abstract class $UserProfileModelCopyWith<$Res> {
       String? lonlat,
       String? onlineStatus,
       bool? premium,
-      int? superLikeCount,,
+      int? superLikeCount,
       List<UserFavoriteMusicModel>? favoriteMusic});
 
   $GalleryUserModelCopyWith<$Res>? get gallery;
@@ -245,7 +245,7 @@ abstract class _$$_UserProfileModelCopyWith<$Res>
       String? lonlat,
       String? onlineStatus,
       bool? premium,
-      int? superLikeCount,,
+      int? superLikeCount,
       List<UserFavoriteMusicModel>? favoriteMusic});
 
   @override
@@ -397,7 +397,7 @@ class _$_UserProfileModel implements _UserProfileModel {
       this.lonlat,
       this.onlineStatus,
       this.premium,
-      this.superLikeCount,,
+      this.superLikeCount,
       final List<UserFavoriteMusicModel>? favoriteMusic})
       : _animes = animes,
         _favoriteMusic = favoriteMusic;
