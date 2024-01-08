@@ -41,6 +41,16 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    EditLocationRoute.name: (routeData) {
+      final args = routeData.argsAs<EditLocationRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: EditLocationPage(
+          key: args.key,
+          editBloc: args.editBloc,
+        ),
+      );
+    },
     EditProfileRoute.name: (routeData) {
       final args = routeData.argsAs<EditProfileRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -325,6 +335,44 @@ class EditFavoriteAnimeRouteArgs {
   @override
   String toString() {
     return 'EditFavoriteAnimeRouteArgs{key: $key, editBloc: $editBloc}';
+  }
+}
+
+/// generated route for
+/// [EditLocationPage]
+class EditLocationRoute extends PageRouteInfo<EditLocationRouteArgs> {
+  EditLocationRoute({
+    Key? key,
+    required EditProfileBloc editBloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          EditLocationRoute.name,
+          args: EditLocationRouteArgs(
+            key: key,
+            editBloc: editBloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'EditLocationRoute';
+
+  static const PageInfo<EditLocationRouteArgs> page =
+      PageInfo<EditLocationRouteArgs>(name);
+}
+
+class EditLocationRouteArgs {
+  const EditLocationRouteArgs({
+    this.key,
+    required this.editBloc,
+  });
+
+  final Key? key;
+
+  final EditProfileBloc editBloc;
+
+  @override
+  String toString() {
+    return 'EditLocationRouteArgs{key: $key, editBloc: $editBloc}';
   }
 }
 

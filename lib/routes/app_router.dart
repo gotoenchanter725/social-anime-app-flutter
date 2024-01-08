@@ -8,6 +8,7 @@ import 'package:senpai/screens/chat/page/chat_page.dart';
 import 'package:senpai/screens/chat_list/page/chat_list_page.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/edit_profile/edit_favorite_anime/page/edit_favorite_anime_page.dart';
+import 'package:senpai/screens/edit_profile/edit_location/page/edit_location_page.dart';
 import 'package:senpai/screens/edit_profile/edit_spotify/page/edit_spotify_music_page.dart';
 import 'package:senpai/screens/edit_profile/page/edit_profile_page.dart';
 import 'package:senpai/screens/edit_profile/work_education/page/work_education_page.dart';
@@ -82,5 +83,6 @@ class AppRouter extends _$AppRouter {
           page: SettingsVerifyPhoneRoute.page,
           path: '/settings_verify_phone',
         ),
+        AutoRoute(page: EditLocationRoute.page, path: '/edit_location'),
       ];
 }
