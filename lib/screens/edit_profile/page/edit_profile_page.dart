@@ -61,11 +61,24 @@ class EditProfilePage extends StatelessWidget {
               _buildUploadPhotoListeners(),
               _buildReorderPhotosListeners(),
               _buildPhotosBlocErrorListeners(),
-              _buildDeletePhotoListeners()
+              _buildDeletePhotoListeners(),
+              _buildPhotoBlocErrorListeners(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildPhotoBlocErrorListeners() {
+    return BlocListener<PhotosBloc, PhotosState>(
+      listenWhen: (_, currState) => currState is ErrorState,
+      listener: (context, state) {
+        if (state is ErrorState) {
+          state.isEnabled ? showSnackBarError(context, state.message) : null;
+        }
+      },
+      child: const SizedBox.shrink(),
     );
   }
 
