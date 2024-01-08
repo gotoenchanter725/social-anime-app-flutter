@@ -21,20 +21,6 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    // return MaterialApp(
-    //   title: $constants.appTitle,
-    //   theme: theme,
-    //   home: PremiumContent(),
-    //
-    //   /// EasyLocalization configuration.
-    //   locale: TranslationProvider.of(context).flutterLocale,
-    //   supportedLocales: AppLocaleUtils.supportedLocales,
-    //   localizationsDelegates: const [
-    //     GlobalMaterialLocalizations.delegate,
-    //     GlobalWidgetsLocalizations.delegate,
-    //     GlobalCupertinoLocalizations.delegate,
-    //   ],
-    // );
     return MaterialApp.router(
       title: $constants.appTitle,
       theme: theme,

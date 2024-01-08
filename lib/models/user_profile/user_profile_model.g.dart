@@ -34,6 +34,10 @@ _$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) {
       lonlat: json['lonlat'] as String?,
       onlineStatus: json['onlineStatus'] as String?,
       premium: json['premium'] as bool?,
+      favoriteMusic: (json['favoriteMusic'] as List<dynamic>?)
+          ?.map(
+              (e) => UserFavoriteMusicModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       superLikeCount: json['superLikeCount'] as int?,
     );}
 
@@ -59,4 +63,5 @@ Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
       'onlineStatus': instance.onlineStatus,
       'premium': instance.premium,
       'superLikeCount': instance.superLikeCount,
+      'favoriteMusic': instance.favoriteMusic,
     };

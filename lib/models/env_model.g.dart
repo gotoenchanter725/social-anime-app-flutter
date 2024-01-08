@@ -15,6 +15,13 @@ _$_EnvModel _$$_EnvModelFromJson(Map<String, dynamic> json) => _$_EnvModel(
       graphApiUrl: json['graphApiUrl'] as String,
       httpApiUrl: json['httpApiUrl'] as String,
       httpApiUrlUniversities: json['httpApiUrlUniversities'] as String,
+      webSocketUrl: json['webSocketUrl'] as String,
+      httpApiAccountsSpotify: json['httpApiAccountsSpotify'] as String,
+      httpApiSpotify: json['httpApiSpotify'] as String,
+      spotifyClientId: json['spotifyClientId'] as String,
+      spotifyClientSecret: json['spotifyClientSecret'] as String,
+      spotifyRedirectUri: json['spotifyRedirectUri'] as String,
+      spotifyCallbackUrlScheme: json['spotifyCallbackUrlScheme'] as String,
     );
 
 Map<String, dynamic> _$$_EnvModelToJson(_$_EnvModel instance) =>
@@ -27,4 +34,11 @@ Map<String, dynamic> _$$_EnvModelToJson(_$_EnvModel instance) =>
       'graphApiUrl': instance.graphApiUrl,
       'httpApiUrl': instance.httpApiUrl,
       'httpApiUrlUniversities': instance.httpApiUrlUniversities,
+      'webSocketUrl': instance.webSocketUrl,
+      'httpApiAccountsSpotify': instance.httpApiAccountsSpotify,
+      'httpApiSpotify': instance.httpApiSpotify,
+      'spotifyClientId': instance.spotifyClientId,
+      'spotifyClientSecret': instance.spotifyClientSecret,
+      'spotifyRedirectUri': instance.spotifyRedirectUri,
+      'spotifyCallbackUrlScheme': instance.spotifyCallbackUrlScheme,
     };

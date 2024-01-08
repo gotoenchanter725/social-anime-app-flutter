@@ -35,6 +35,12 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/start_match_bg.png)
   final start_match_bg = r'assets/images/profile/start_match_bg.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/photo_not_verified.png)
+  final photo_not_verified = r'assets/images/profile/photo_not_verified.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/photo_verifed.png)
+  final photo_verifed = r'assets/images/profile/photo_verifed.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/location_bg.png)
   final location_bg = r'assets/images/profile/location_bg.png';
 
@@ -44,8 +50,14 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/verify_user_photo.png)
   final verify_user_photo = r'assets/images/profile/verify_user_photo.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/premium_image.png)
+  final premium_image = r'assets/images/profile/premium_image.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/lines_bg.png)
   final lines_bg = r'assets/images/profile/lines_bg.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/marker_icon.png)
+  final marker_icon = r'assets/images/profile/marker_icon.png';
 
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/anime_empty.png)
   final anime_empty = r'assets/images/profile/anime_empty.png';
@@ -55,6 +67,15 @@ class _ImageResources {
 
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/spotify_bg.png)
   final spotify_bg = r'assets/images/profile/spotify_bg.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/match/match_successful.png)
+  final match_successful = r'assets/images/match/match_successful.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/empty_conversation_search.png)
+  final empty_conversation_search = r'assets/images/chat/empty_conversation_search.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/empty_conversations.png)
+  final empty_conversations = r'assets/images/chat/empty_conversations.png';
 }
 
 class _SvgResources {

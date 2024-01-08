@@ -1,0 +1,10 @@
+mutation sendMessage($input: SendMessageInput!) {
+  sendMessage(input: $input) {
+    message {
+      content
+      senderId
+      conversationId
+      reaction
+    }
+  }
+}

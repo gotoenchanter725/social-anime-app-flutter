@@ -82,6 +82,28 @@ class TextConstants {
   static const String firstNameText = "First Name";
   static const String nextText = "Next";
 
+  // -> Chat List
+  static const String conversationsDataErrorText =
+      "Failed to get conversations from the server";
+  static const String emptyConversationsPromptText = "Start liking";
+  static const String emptyConversationsText =
+      "When you match with other users they will appear here";
+  static const String emptyChatTitle = "You matched with";
+  static const String emptyChatPromptText = "Don't wait too long, say hello :)";
+  static const String stickerMessageText = "🌄 Sticker";
+
+  // -> Search Chat List
+  static const String cancelSearchText = "Cancel";
+  static const String emptySearchConversationsHintText =
+      "Try to search your matches or chats";
+  static const String emptyConversationSearchPromptText =
+      "Oops. No matches found";
+  static const String emptyConversationSearchText =
+      "Maybe there is a mistake in search?\n Please check and try again";
+  static const String stickersTabText = "Stickers";
+  static const String gifsTabText = "GIPHY";
+  static const String animeTabText = "Anime";
+
   // Chat
   static const String searchHintText = "Search chat or match";
   static const String matchesTitle = "Matches";
@@ -89,6 +111,11 @@ class TextConstants {
   static const String chatInputHint = 'Send message...';
   static const String invalidFirstNameError =
       "Invalid first name. Please try again";
+  static const String userOnlineText = "Active now";
+  static const String userOfflineText = "Active recently";
+  static const String failedToSendMessageText = "Failed to send message";
+  static const String failedToUpdateMessageText =
+      "Failed to add reaction to message";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";
@@ -131,6 +158,7 @@ class TextConstants {
   static const String uploadPhotosText = "Upload photos";
   static const String uploadPhotosDescription =
       "Add at least 2 photos to continue";
+  static const String uploadPhotoError = "Add at least 1 photo to continue";
   static const String youCanChangeOrder =
       "You can change the order of the photos.";
   static const String justDragPhoto = "Just drag the photo to a new place.";
@@ -167,6 +195,7 @@ class TextConstants {
   static const String searchAnimesHintText = "Search animes";
   static const String myAnimesText = "My animes";
   static const String chooseTitle = "Choose";
+  static const String animeError = "Add at least 1 anime to continue";
 
   //  -> Favorite Anime Genres
   static const String actionGenresTitle = "Action";
@@ -211,6 +240,13 @@ class TextConstants {
   static const String topArtistsText = "Top Artists";
   static const String shareInFeedText = "Share in feed";
   static const String disconnectSpotifyText = "Disconnect Spotify";
+  static const String myTopSpotifyListeningSongsText =
+      "My top 5 Spotify listening songs";
+  static const String myTopSpotifyArtistsText = "My top 5 Spotify artists";
+  static const String selectedArtistsText = "Selected Artists";
+  static const String selectedTracksText = "Selected Tracks";
+  static const String spotifyServerError =
+      "Something went wrong, please disconnect spotify and try again";
 
   // -> Profile
   static const String senpaiPremiumTitle = "Senpai Premium";
@@ -230,6 +266,16 @@ class TextConstants {
       "Waiting for photo verification";
   static const String milesAwayText = "miles away";
   static const String findCityNearbyTitle = "Find a city nearby";
+  static const String yourPhotosHaveBeenVerifiedTitle =
+      "Your photos have \n been verified!";
+  static const String yourPhotosHaveNotBeenVerifiedTitle =
+      "Your photos have not \n been verified :(";
+  static const String nowEveryoneWillKnowThatYouText =
+      "Now everyone will know that you're not pretending to be someone else";
+  static const String thereSeemsToBeSomethingWrongYourPhotoText =
+      "There seems to be something wrong with your photo. Please try to pass the verification again";
+  static const String closeButton = "Close";
+  static const String tryAgainButton = "Try again";
 
   // -> Edit Profile
   static const String nameTitle = "Name";
@@ -286,6 +332,12 @@ class TextConstants {
       "Write your feedback on Senpai";
   static const String sendButton = "Send";
   static const String rateSenpaiTitle = "Rate Senpai";
+  static const String deleteAccountDescriprion =
+      "Are you sure you want to delete your account? We'll keep it for 30 days, if you change your mind.";
+  static const String noButton = "No";
+  static const String yesButton = "Yes";
+  static const String loggingOutTitle = "Logging out...";
+  static const String pleaseWaitText = "Please wait...";
 
   // -> Delete Profile
   static const String areSureDeleteAccountTitle =
@@ -320,6 +372,20 @@ class TextConstants {
   static const String notForYouTitle = "Not for you?";
   static const String swipeRightDescription = "Swipe right if you like it";
   static const String swipeLeftDescription = "Swipe left if not";
+  static const String youAndText = "You and";
+  static const String haveLikedEachOtherText = "have liked each other";
+  static const String saySomethingNiceText = "Say something nice";
+  static const String successText = "Success!";
+  static const String messageToText = "Message to ";
+  static const String sentText = "sent";
+
+  // -> ActionCable Error Messages
+  static const String actionCableConnectionError =
+      "Connection is lost. Please check your internet connection";
+  static const String actionCableCannotConnectError =
+      "Cannot establish a connection. Please check your internet connection";
+  static const String actionCableAuthError =
+      "User is not authorized. Please sign in again";
 
   // -> Premium dialog
   static const String outOfSuperLikes = "Out of Super Likes!";

@@ -28,6 +28,13 @@ mixin _$EnvModel {
   String get graphApiUrl => throw _privateConstructorUsedError;
   String get httpApiUrl => throw _privateConstructorUsedError;
   String get httpApiUrlUniversities => throw _privateConstructorUsedError;
+  String get webSocketUrl => throw _privateConstructorUsedError;
+  String get httpApiAccountsSpotify => throw _privateConstructorUsedError;
+  String get httpApiSpotify => throw _privateConstructorUsedError;
+  String get spotifyClientId => throw _privateConstructorUsedError;
+  String get spotifyClientSecret => throw _privateConstructorUsedError;
+  String get spotifyRedirectUri => throw _privateConstructorUsedError;
+  String get spotifyCallbackUrlScheme => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +55,14 @@ abstract class $EnvModelCopyWith<$Res> {
       bool debugApiClient,
       String graphApiUrl,
       String httpApiUrl,
-      String httpApiUrlUniversities});
+      String httpApiUrlUniversities,
+      String webSocketUrl,
+      String httpApiAccountsSpotify,
+      String httpApiSpotify,
+      String spotifyClientId,
+      String spotifyClientSecret,
+      String spotifyRedirectUri,
+      String spotifyCallbackUrlScheme});
 }
 
 /// @nodoc
@@ -72,6 +86,13 @@ class _$EnvModelCopyWithImpl<$Res, $Val extends EnvModel>
     Object? graphApiUrl = null,
     Object? httpApiUrl = null,
     Object? httpApiUrlUniversities = null,
+    Object? webSocketUrl = null,
+    Object? httpApiAccountsSpotify = null,
+    Object? httpApiSpotify = null,
+    Object? spotifyClientId = null,
+    Object? spotifyClientSecret = null,
+    Object? spotifyRedirectUri = null,
+    Object? spotifyCallbackUrlScheme = null,
   }) {
     return _then(_value.copyWith(
       env: null == env
@@ -106,6 +127,34 @@ class _$EnvModelCopyWithImpl<$Res, $Val extends EnvModel>
           ? _value.httpApiUrlUniversities
           : httpApiUrlUniversities // ignore: cast_nullable_to_non_nullable
               as String,
+      webSocketUrl: null == webSocketUrl
+          ? _value.webSocketUrl
+          : webSocketUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      httpApiAccountsSpotify: null == httpApiAccountsSpotify
+          ? _value.httpApiAccountsSpotify
+          : httpApiAccountsSpotify // ignore: cast_nullable_to_non_nullable
+              as String,
+      httpApiSpotify: null == httpApiSpotify
+          ? _value.httpApiSpotify
+          : httpApiSpotify // ignore: cast_nullable_to_non_nullable
+              as String,
+      spotifyClientId: null == spotifyClientId
+          ? _value.spotifyClientId
+          : spotifyClientId // ignore: cast_nullable_to_non_nullable
+              as String,
+      spotifyClientSecret: null == spotifyClientSecret
+          ? _value.spotifyClientSecret
+          : spotifyClientSecret // ignore: cast_nullable_to_non_nullable
+              as String,
+      spotifyRedirectUri: null == spotifyRedirectUri
+          ? _value.spotifyRedirectUri
+          : spotifyRedirectUri // ignore: cast_nullable_to_non_nullable
+              as String,
+      spotifyCallbackUrlScheme: null == spotifyCallbackUrlScheme
+          ? _value.spotifyCallbackUrlScheme
+          : spotifyCallbackUrlScheme // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -125,7 +174,14 @@ abstract class _$$_EnvModelCopyWith<$Res> implements $EnvModelCopyWith<$Res> {
       bool debugApiClient,
       String graphApiUrl,
       String httpApiUrl,
-      String httpApiUrlUniversities});
+      String httpApiUrlUniversities,
+      String webSocketUrl,
+      String httpApiAccountsSpotify,
+      String httpApiSpotify,
+      String spotifyClientId,
+      String spotifyClientSecret,
+      String spotifyRedirectUri,
+      String spotifyCallbackUrlScheme});
 }
 
 /// @nodoc
@@ -147,6 +203,13 @@ class __$$_EnvModelCopyWithImpl<$Res>
     Object? graphApiUrl = null,
     Object? httpApiUrl = null,
     Object? httpApiUrlUniversities = null,
+    Object? webSocketUrl = null,
+    Object? httpApiAccountsSpotify = null,
+    Object? httpApiSpotify = null,
+    Object? spotifyClientId = null,
+    Object? spotifyClientSecret = null,
+    Object? spotifyRedirectUri = null,
+    Object? spotifyCallbackUrlScheme = null,
   }) {
     return _then(_$_EnvModel(
       env: null == env
@@ -181,6 +244,34 @@ class __$$_EnvModelCopyWithImpl<$Res>
           ? _value.httpApiUrlUniversities
           : httpApiUrlUniversities // ignore: cast_nullable_to_non_nullable
               as String,
+      webSocketUrl: null == webSocketUrl
+          ? _value.webSocketUrl
+          : webSocketUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      httpApiAccountsSpotify: null == httpApiAccountsSpotify
+          ? _value.httpApiAccountsSpotify
+          : httpApiAccountsSpotify // ignore: cast_nullable_to_non_nullable
+              as String,
+      httpApiSpotify: null == httpApiSpotify
+          ? _value.httpApiSpotify
+          : httpApiSpotify // ignore: cast_nullable_to_non_nullable
+              as String,
+      spotifyClientId: null == spotifyClientId
+          ? _value.spotifyClientId
+          : spotifyClientId // ignore: cast_nullable_to_non_nullable
+              as String,
+      spotifyClientSecret: null == spotifyClientSecret
+          ? _value.spotifyClientSecret
+          : spotifyClientSecret // ignore: cast_nullable_to_non_nullable
+              as String,
+      spotifyRedirectUri: null == spotifyRedirectUri
+          ? _value.spotifyRedirectUri
+          : spotifyRedirectUri // ignore: cast_nullable_to_non_nullable
+              as String,
+      spotifyCallbackUrlScheme: null == spotifyCallbackUrlScheme
+          ? _value.spotifyCallbackUrlScheme
+          : spotifyCallbackUrlScheme // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -196,7 +287,14 @@ class _$_EnvModel extends _EnvModel {
       required this.debugApiClient,
       required this.graphApiUrl,
       required this.httpApiUrl,
-      required this.httpApiUrlUniversities})
+      required this.httpApiUrlUniversities,
+      required this.webSocketUrl,
+      required this.httpApiAccountsSpotify,
+      required this.httpApiSpotify,
+      required this.spotifyClientId,
+      required this.spotifyClientSecret,
+      required this.spotifyRedirectUri,
+      required this.spotifyCallbackUrlScheme})
       : super._();
 
   factory _$_EnvModel.fromJson(Map<String, dynamic> json) =>
@@ -218,10 +316,24 @@ class _$_EnvModel extends _EnvModel {
   final String httpApiUrl;
   @override
   final String httpApiUrlUniversities;
+  @override
+  final String webSocketUrl;
+  @override
+  final String httpApiAccountsSpotify;
+  @override
+  final String httpApiSpotify;
+  @override
+  final String spotifyClientId;
+  @override
+  final String spotifyClientSecret;
+  @override
+  final String spotifyRedirectUri;
+  @override
+  final String spotifyCallbackUrlScheme;
 
   @override
   String toString() {
-    return 'EnvModel(env: $env, debug: $debug, debugShowCheckedModeBanner: $debugShowCheckedModeBanner, debugShowMaterialGrid: $debugShowMaterialGrid, debugApiClient: $debugApiClient, graphApiUrl: $graphApiUrl, httpApiUrl: $httpApiUrl, httpApiUrlUniversities: $httpApiUrlUniversities)';
+    return 'EnvModel(env: $env, debug: $debug, debugShowCheckedModeBanner: $debugShowCheckedModeBanner, debugShowMaterialGrid: $debugShowMaterialGrid, debugApiClient: $debugApiClient, graphApiUrl: $graphApiUrl, httpApiUrl: $httpApiUrl, httpApiUrlUniversities: $httpApiUrlUniversities, webSocketUrl: $webSocketUrl, httpApiAccountsSpotify: $httpApiAccountsSpotify, httpApiSpotify: $httpApiSpotify, spotifyClientId: $spotifyClientId, spotifyClientSecret: $spotifyClientSecret, spotifyRedirectUri: $spotifyRedirectUri, spotifyCallbackUrlScheme: $spotifyCallbackUrlScheme)';
   }
 
   @override
@@ -244,7 +356,22 @@ class _$_EnvModel extends _EnvModel {
             (identical(other.httpApiUrl, httpApiUrl) ||
                 other.httpApiUrl == httpApiUrl) &&
             (identical(other.httpApiUrlUniversities, httpApiUrlUniversities) ||
-                other.httpApiUrlUniversities == httpApiUrlUniversities));
+                other.httpApiUrlUniversities == httpApiUrlUniversities) &&
+            (identical(other.webSocketUrl, webSocketUrl) ||
+                other.webSocketUrl == webSocketUrl) &&
+            (identical(other.httpApiAccountsSpotify, httpApiAccountsSpotify) ||
+                other.httpApiAccountsSpotify == httpApiAccountsSpotify) &&
+            (identical(other.httpApiSpotify, httpApiSpotify) ||
+                other.httpApiSpotify == httpApiSpotify) &&
+            (identical(other.spotifyClientId, spotifyClientId) ||
+                other.spotifyClientId == spotifyClientId) &&
+            (identical(other.spotifyClientSecret, spotifyClientSecret) ||
+                other.spotifyClientSecret == spotifyClientSecret) &&
+            (identical(other.spotifyRedirectUri, spotifyRedirectUri) ||
+                other.spotifyRedirectUri == spotifyRedirectUri) &&
+            (identical(
+                    other.spotifyCallbackUrlScheme, spotifyCallbackUrlScheme) ||
+                other.spotifyCallbackUrlScheme == spotifyCallbackUrlScheme));
   }
 
   @JsonKey(ignore: true)
@@ -258,7 +385,14 @@ class _$_EnvModel extends _EnvModel {
       debugApiClient,
       graphApiUrl,
       httpApiUrl,
-      httpApiUrlUniversities);
+      httpApiUrlUniversities,
+      webSocketUrl,
+      httpApiAccountsSpotify,
+      httpApiSpotify,
+      spotifyClientId,
+      spotifyClientSecret,
+      spotifyRedirectUri,
+      spotifyCallbackUrlScheme);
 
   @JsonKey(ignore: true)
   @override
@@ -283,7 +417,14 @@ abstract class _EnvModel extends EnvModel {
       required final bool debugApiClient,
       required final String graphApiUrl,
       required final String httpApiUrl,
-      required final String httpApiUrlUniversities}) = _$_EnvModel;
+      required final String httpApiUrlUniversities,
+      required final String webSocketUrl,
+      required final String httpApiAccountsSpotify,
+      required final String httpApiSpotify,
+      required final String spotifyClientId,
+      required final String spotifyClientSecret,
+      required final String spotifyRedirectUri,
+      required final String spotifyCallbackUrlScheme}) = _$_EnvModel;
   _EnvModel._() : super._();
 
   factory _EnvModel.fromJson(Map<String, dynamic> json) = _$_EnvModel.fromJson;
@@ -304,6 +445,20 @@ abstract class _EnvModel extends EnvModel {
   String get httpApiUrl;
   @override
   String get httpApiUrlUniversities;
+  @override
+  String get webSocketUrl;
+  @override
+  String get httpApiAccountsSpotify;
+  @override
+  String get httpApiSpotify;
+  @override
+  String get spotifyClientId;
+  @override
+  String get spotifyClientSecret;
+  @override
+  String get spotifyRedirectUri;
+  @override
+  String get spotifyCallbackUrlScheme;
   @override
   @JsonKey(ignore: true)
   _$$_EnvModelCopyWith<_$_EnvModel> get copyWith =>

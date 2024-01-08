@@ -15,4 +15,6 @@ class ValidState extends PreviewProfileState {}
 
 class LoadingState extends PreviewProfileState {}
 
-class PreviewProfileSucssesfulState extends PreviewProfileState {}
+class ValidSpotifyArtistsState extends PreviewProfileState {}
+
+class ValidSpotifyTracksState extends PreviewProfileState {}

@@ -32,23 +32,27 @@ class CheckPhotoContent extends StatelessWidget {
           hasProfileFillBloc
               ? _buildBackButtonProfileFill(context)
               : _buildBackButton(context),
-          SizedBox(
-            height: $constants.insets.md,
-          ),
-          _buildPhotos(context),
           SizedBox(height: $constants.insets.md),
-          ..._buildTitle(context),
           Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                _buildRetakeButton(context),
-                SizedBox(height: $constants.insets.xs),
-                _buildVerifyByPhotoButton(context),
-              ],
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  _buildPhotos(context),
+                  SizedBox(height: $constants.insets.md),
+                  ..._buildTitle(context),
+                ],
+              ),
             ),
           ),
-          SizedBox(height: $constants.insets.sm),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              _buildRetakeButton(context),
+              SizedBox(height: $constants.insets.xs),
+              _buildVerifyByPhotoButton(context),
+              SizedBox(height: $constants.insets.sm),
+            ],
+          ),
         ],
       ),
     );

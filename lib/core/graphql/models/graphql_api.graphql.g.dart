@@ -359,14 +359,129 @@ Map<String, dynamic> _$UserUpdateInputToJson(UserUpdateInput instance) =>
       'verified': instance.verified,
     };
 
+SendMessage$Mutation$SendMessage$Message
+    _$SendMessage$Mutation$SendMessage$MessageFromJson(
+            Map<String, dynamic> json) =>
+        SendMessage$Mutation$SendMessage$Message()
+          ..content = json['content'] as String?
+          ..senderId = json['senderId'] as int?
+          ..conversationId = json['conversationId'] as String?
+          ..reaction = json['reaction'] as String?;
+
+Map<String, dynamic> _$SendMessage$Mutation$SendMessage$MessageToJson(
+        SendMessage$Mutation$SendMessage$Message instance) =>
+    <String, dynamic>{
+      'content': instance.content,
+      'senderId': instance.senderId,
+      'conversationId': instance.conversationId,
+      'reaction': instance.reaction,
+    };
+
+SendMessage$Mutation$SendMessage _$SendMessage$Mutation$SendMessageFromJson(
+        Map<String, dynamic> json) =>
+    SendMessage$Mutation$SendMessage()
+      ..message = SendMessage$Mutation$SendMessage$Message.fromJson(
+          json['message'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$SendMessage$Mutation$SendMessageToJson(
+        SendMessage$Mutation$SendMessage instance) =>
+    <String, dynamic>{
+      'message': instance.message.toJson(),
+    };
+
+SendMessage$Mutation _$SendMessage$MutationFromJson(
+        Map<String, dynamic> json) =>
+    SendMessage$Mutation()
+      ..sendMessage = json['sendMessage'] == null
+          ? null
+          : SendMessage$Mutation$SendMessage.fromJson(
+              json['sendMessage'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$SendMessage$MutationToJson(
+        SendMessage$Mutation instance) =>
+    <String, dynamic>{
+      'sendMessage': instance.sendMessage?.toJson(),
+    };
+
+SendMessageInput _$SendMessageInputFromJson(Map<String, dynamic> json) =>
+    SendMessageInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      params: MessageInput.fromJson(json['params'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$SendMessageInputToJson(SendMessageInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'params': instance.params.toJson(),
+    };
+
+MessageInput _$MessageInputFromJson(Map<String, dynamic> json) => MessageInput(
+      attachment: fromGraphQLUploadNullableToDartMultipartFileNullable(
+          json['attachment'] as MultipartFile?),
+      content: json['content'] as String,
+      conversationId: json['conversationId'] as String,
+      recommendedAnimeId: json['recommendedAnimeId'] as String?,
+      senderId: json['senderId'] as int,
+      stickerId: json['stickerId'] as String?,
+    );
+
+Map<String, dynamic> _$MessageInputToJson(MessageInput instance) =>
+    <String, dynamic>{
+      'attachment': fromDartMultipartFileNullableToGraphQLUploadNullable(
+          instance.attachment),
+      'content': instance.content,
+      'conversationId': instance.conversationId,
+      'recommendedAnimeId': instance.recommendedAnimeId,
+      'senderId': instance.senderId,
+      'stickerId': instance.stickerId,
+    };
+
+DeletePhoto$Mutation$DeletePhoto$Gallery$Photos
+    _$DeletePhoto$Mutation$DeletePhoto$Gallery$PhotosFromJson(
+            Map<String, dynamic> json) =>
+        DeletePhoto$Mutation$DeletePhoto$Gallery$Photos()
+          ..order = json['order'] as int?
+          ..url = json['url'] as String
+          ..id = json['id'] as String;
+
+Map<String, dynamic> _$DeletePhoto$Mutation$DeletePhoto$Gallery$PhotosToJson(
+        DeletePhoto$Mutation$DeletePhoto$Gallery$Photos instance) =>
+    <String, dynamic>{
+      'order': instance.order,
+      'url': instance.url,
+      'id': instance.id,
+    };
+
+DeletePhoto$Mutation$DeletePhoto$Gallery
+    _$DeletePhoto$Mutation$DeletePhoto$GalleryFromJson(
+            Map<String, dynamic> json) =>
+        DeletePhoto$Mutation$DeletePhoto$Gallery()
+          ..photos = (json['photos'] as List<dynamic>?)
+              ?.map((e) =>
+                  DeletePhoto$Mutation$DeletePhoto$Gallery$Photos.fromJson(
+                      e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic> _$DeletePhoto$Mutation$DeletePhoto$GalleryToJson(
+        DeletePhoto$Mutation$DeletePhoto$Gallery instance) =>
+    <String, dynamic>{
+      'photos': instance.photos?.map((e) => e.toJson()).toList(),
+    };
+
 DeletePhoto$Mutation$DeletePhoto _$DeletePhoto$Mutation$DeletePhotoFromJson(
         Map<String, dynamic> json) =>
-    DeletePhoto$Mutation$DeletePhoto()..deleted = json['deleted'] as bool;
+    DeletePhoto$Mutation$DeletePhoto()
+      ..deleted = json['deleted'] as bool
+      ..gallery = json['gallery'] == null
+          ? null
+          : DeletePhoto$Mutation$DeletePhoto$Gallery.fromJson(
+              json['gallery'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$DeletePhoto$Mutation$DeletePhotoToJson(
         DeletePhoto$Mutation$DeletePhoto instance) =>
     <String, dynamic>{
       'deleted': instance.deleted,
+      'gallery': instance.gallery?.toJson(),
     };
 
 DeletePhoto$Mutation _$DeletePhoto$MutationFromJson(
@@ -395,6 +510,73 @@ Map<String, dynamic> _$DeletePhotoInputToJson(DeletePhotoInput instance) =>
       'clientMutationId': instance.clientMutationId,
       'photoId': instance.photoId,
       'userId': instance.userId,
+    };
+
+UpdateMessage$Mutation$UpdateMessage$Message
+    _$UpdateMessage$Mutation$UpdateMessage$MessageFromJson(
+            Map<String, dynamic> json) =>
+        UpdateMessage$Mutation$UpdateMessage$Message()
+          ..id = json['id'] as String
+          ..reaction = json['reaction'] as String?;
+
+Map<String, dynamic> _$UpdateMessage$Mutation$UpdateMessage$MessageToJson(
+        UpdateMessage$Mutation$UpdateMessage$Message instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'reaction': instance.reaction,
+    };
+
+UpdateMessage$Mutation$UpdateMessage
+    _$UpdateMessage$Mutation$UpdateMessageFromJson(Map<String, dynamic> json) =>
+        UpdateMessage$Mutation$UpdateMessage()
+          ..message = UpdateMessage$Mutation$UpdateMessage$Message.fromJson(
+              json['message'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UpdateMessage$Mutation$UpdateMessageToJson(
+        UpdateMessage$Mutation$UpdateMessage instance) =>
+    <String, dynamic>{
+      'message': instance.message.toJson(),
+    };
+
+UpdateMessage$Mutation _$UpdateMessage$MutationFromJson(
+        Map<String, dynamic> json) =>
+    UpdateMessage$Mutation()
+      ..updateMessage = json['updateMessage'] == null
+          ? null
+          : UpdateMessage$Mutation$UpdateMessage.fromJson(
+              json['updateMessage'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UpdateMessage$MutationToJson(
+        UpdateMessage$Mutation instance) =>
+    <String, dynamic>{
+      'updateMessage': instance.updateMessage?.toJson(),
+    };
+
+UpdateMessageInput _$UpdateMessageInputFromJson(Map<String, dynamic> json) =>
+    UpdateMessageInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      params:
+          MessageUpdateInput.fromJson(json['params'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$UpdateMessageInputToJson(UpdateMessageInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'params': instance.params.toJson(),
+    };
+
+MessageUpdateInput _$MessageUpdateInputFromJson(Map<String, dynamic> json) =>
+    MessageUpdateInput(
+      content: json['content'] as String?,
+      messageId: json['messageId'] as String,
+      reaction: json['reaction'] as String?,
+    );
+
+Map<String, dynamic> _$MessageUpdateInputToJson(MessageUpdateInput instance) =>
+    <String, dynamic>{
+      'content': instance.content,
+      'messageId': instance.messageId,
+      'reaction': instance.reaction,
     };
 
 ValidatePhone$Mutation$ValidatePhone$User
@@ -461,6 +643,154 @@ Map<String, dynamic> _$ValidatePhoneInputToJson(ValidatePhoneInput instance) =>
       'userId': instance.userId,
     };
 
+GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers
+    _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersFromJson(
+            Map<String, dynamic> json) =>
+        GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers()
+          ..mi = json['mi'] as int;
+
+Map<String,
+    dynamic> _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersToJson(
+        GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers instance) =>
+    <String, dynamic>{
+      'mi': instance.mi,
+    };
+
+GetDistanceBetweenUsers$Mutation _$GetDistanceBetweenUsers$MutationFromJson(
+        Map<String, dynamic> json) =>
+    GetDistanceBetweenUsers$Mutation()
+      ..getDistanceBetweenUsers = json['getDistanceBetweenUsers'] == null
+          ? null
+          : GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers.fromJson(
+              json['getDistanceBetweenUsers'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$GetDistanceBetweenUsers$MutationToJson(
+        GetDistanceBetweenUsers$Mutation instance) =>
+    <String, dynamic>{
+      'getDistanceBetweenUsers': instance.getDistanceBetweenUsers?.toJson(),
+    };
+
+GetDistanceBetweenUsersInput _$GetDistanceBetweenUsersInputFromJson(
+        Map<String, dynamic> json) =>
+    GetDistanceBetweenUsersInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as int,
+      vieweeId: json['vieweeId'] as int,
+    );
+
+Map<String, dynamic> _$GetDistanceBetweenUsersInputToJson(
+        GetDistanceBetweenUsersInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+      'vieweeId': instance.vieweeId,
+    };
+
+AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic
+    _$AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusicFromJson(
+            Map<String, dynamic> json) =>
+        AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic()
+          ..id = json['id'] as String
+          ..musicType = json['musicType'] as String?
+          ..trackName = json['trackName'] as String?
+          ..artistName = json['artistName'] as String?
+          ..coverUrl = json['coverUrl'] as String?
+          ..spotifyId = json['spotifyId'] as String?;
+
+Map<String, dynamic>
+    _$AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusicToJson(
+            AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic
+                instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'musicType': instance.musicType,
+          'trackName': instance.trackName,
+          'artistName': instance.artistName,
+          'coverUrl': instance.coverUrl,
+          'spotifyId': instance.spotifyId,
+        };
+
+AddFavoriteMusic$Mutation$AddFavoriteMusic$User
+    _$AddFavoriteMusic$Mutation$AddFavoriteMusic$UserFromJson(
+            Map<String, dynamic> json) =>
+        AddFavoriteMusic$Mutation$AddFavoriteMusic$User()
+          ..id = json['id'] as String
+          ..favoriteMusic = (json['favoriteMusic'] as List<dynamic>?)
+              ?.map((e) =>
+                  AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic> _$AddFavoriteMusic$Mutation$AddFavoriteMusic$UserToJson(
+        AddFavoriteMusic$Mutation$AddFavoriteMusic$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'favoriteMusic': instance.favoriteMusic?.map((e) => e.toJson()).toList(),
+    };
+
+AddFavoriteMusic$Mutation$AddFavoriteMusic
+    _$AddFavoriteMusic$Mutation$AddFavoriteMusicFromJson(
+            Map<String, dynamic> json) =>
+        AddFavoriteMusic$Mutation$AddFavoriteMusic()
+          ..user = AddFavoriteMusic$Mutation$AddFavoriteMusic$User.fromJson(
+              json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AddFavoriteMusic$Mutation$AddFavoriteMusicToJson(
+        AddFavoriteMusic$Mutation$AddFavoriteMusic instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+AddFavoriteMusic$Mutation _$AddFavoriteMusic$MutationFromJson(
+        Map<String, dynamic> json) =>
+    AddFavoriteMusic$Mutation()
+      ..addFavoriteMusic = json['addFavoriteMusic'] == null
+          ? null
+          : AddFavoriteMusic$Mutation$AddFavoriteMusic.fromJson(
+              json['addFavoriteMusic'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AddFavoriteMusic$MutationToJson(
+        AddFavoriteMusic$Mutation instance) =>
+    <String, dynamic>{
+      'addFavoriteMusic': instance.addFavoriteMusic?.toJson(),
+    };
+
+AddFavoriteMusicInput _$AddFavoriteMusicInputFromJson(
+        Map<String, dynamic> json) =>
+    AddFavoriteMusicInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      params: (json['params'] as List<dynamic>)
+          .map((e) => FavoriteMusicInput.fromJson(e as Map<String, dynamic>))
+          .toList(),
+    );
+
+Map<String, dynamic> _$AddFavoriteMusicInputToJson(
+        AddFavoriteMusicInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'params': instance.params.map((e) => e.toJson()).toList(),
+    };
+
+FavoriteMusicInput _$FavoriteMusicInputFromJson(Map<String, dynamic> json) =>
+    FavoriteMusicInput(
+      artistName: json['artistName'] as String?,
+      coverUrl: json['coverUrl'] as String,
+      musicType: json['musicType'] as String,
+      spotifyId: json['spotifyId'] as String,
+      trackName: json['trackName'] as String?,
+      userId: json['userId'] as int,
+    );
+
+Map<String, dynamic> _$FavoriteMusicInputToJson(FavoriteMusicInput instance) =>
+    <String, dynamic>{
+      'artistName': instance.artistName,
+      'coverUrl': instance.coverUrl,
+      'musicType': instance.musicType,
+      'spotifyId': instance.spotifyId,
+      'trackName': instance.trackName,
+      'userId': instance.userId,
+    };
+
 ResendVerifyCode$Mutation$ResendVerifyText$User
     _$ResendVerifyCode$Mutation$ResendVerifyText$UserFromJson(
             Map<String, dynamic> json) =>
@@ -516,6 +846,270 @@ Map<String, dynamic> _$ResendVerifyTextInputToJson(
     <String, dynamic>{
       'clientMutationId': instance.clientMutationId,
       'phone': instance.phone,
+    };
+
+LikeUser$Mutation$LikeUser$Like _$LikeUser$Mutation$LikeUser$LikeFromJson(
+        Map<String, dynamic> json) =>
+    LikeUser$Mutation$LikeUser$Like()
+      ..userId = json['userId'] as int
+      ..likeeId = json['likeeId'] as int?
+      ..likeType = json['likeType'] as String?;
+
+Map<String, dynamic> _$LikeUser$Mutation$LikeUser$LikeToJson(
+        LikeUser$Mutation$LikeUser$Like instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'likeeId': instance.likeeId,
+      'likeType': instance.likeType,
+    };
+
+LikeUser$Mutation$LikeUser$Match$Conversation
+    _$LikeUser$Mutation$LikeUser$Match$ConversationFromJson(
+            Map<String, dynamic> json) =>
+        LikeUser$Mutation$LikeUser$Match$Conversation()
+          ..id = json['id'] as String;
+
+Map<String, dynamic> _$LikeUser$Mutation$LikeUser$Match$ConversationToJson(
+        LikeUser$Mutation$LikeUser$Match$Conversation instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$Photos
+    _$LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$PhotosFromJson(
+            Map<String, dynamic> json) =>
+        LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$Photos()
+          ..order = json['order'] as int?
+          ..url = json['url'] as String
+          ..id = json['id'] as String;
+
+Map<String, dynamic>
+    _$LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$PhotosToJson(
+            LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$Photos instance) =>
+        <String, dynamic>{
+          'order': instance.order,
+          'url': instance.url,
+          'id': instance.id,
+        };
+
+LikeUser$Mutation$LikeUser$Match$Matchee$Gallery
+    _$LikeUser$Mutation$LikeUser$Match$Matchee$GalleryFromJson(
+            Map<String, dynamic> json) =>
+        LikeUser$Mutation$LikeUser$Match$Matchee$Gallery()
+          ..photos = (json['photos'] as List<dynamic>?)
+              ?.map((e) =>
+                  LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$Photos
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic> _$LikeUser$Mutation$LikeUser$Match$Matchee$GalleryToJson(
+        LikeUser$Mutation$LikeUser$Match$Matchee$Gallery instance) =>
+    <String, dynamic>{
+      'photos': instance.photos?.map((e) => e.toJson()).toList(),
+    };
+
+LikeUser$Mutation$LikeUser$Match$Matchee
+    _$LikeUser$Mutation$LikeUser$Match$MatcheeFromJson(
+            Map<String, dynamic> json) =>
+        LikeUser$Mutation$LikeUser$Match$Matchee()
+          ..id = json['id'] as String
+          ..phone = json['phone'] as String
+          ..firstName = json['firstName'] as String
+          ..verified = json['verified'] as bool
+          ..gallery = json['gallery'] == null
+              ? null
+              : LikeUser$Mutation$LikeUser$Match$Matchee$Gallery.fromJson(
+                  json['gallery'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$LikeUser$Mutation$LikeUser$Match$MatcheeToJson(
+        LikeUser$Mutation$LikeUser$Match$Matchee instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'phone': instance.phone,
+      'firstName': instance.firstName,
+      'verified': instance.verified,
+      'gallery': instance.gallery?.toJson(),
+    };
+
+LikeUser$Mutation$LikeUser$Match$User$Gallery$Photos
+    _$LikeUser$Mutation$LikeUser$Match$User$Gallery$PhotosFromJson(
+            Map<String, dynamic> json) =>
+        LikeUser$Mutation$LikeUser$Match$User$Gallery$Photos()
+          ..order = json['order'] as int?
+          ..url = json['url'] as String
+          ..id = json['id'] as String;
+
+Map<String, dynamic>
+    _$LikeUser$Mutation$LikeUser$Match$User$Gallery$PhotosToJson(
+            LikeUser$Mutation$LikeUser$Match$User$Gallery$Photos instance) =>
+        <String, dynamic>{
+          'order': instance.order,
+          'url': instance.url,
+          'id': instance.id,
+        };
+
+LikeUser$Mutation$LikeUser$Match$User$Gallery
+    _$LikeUser$Mutation$LikeUser$Match$User$GalleryFromJson(
+            Map<String, dynamic> json) =>
+        LikeUser$Mutation$LikeUser$Match$User$Gallery()
+          ..photos = (json['photos'] as List<dynamic>?)
+              ?.map((e) =>
+                  LikeUser$Mutation$LikeUser$Match$User$Gallery$Photos.fromJson(
+                      e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic> _$LikeUser$Mutation$LikeUser$Match$User$GalleryToJson(
+        LikeUser$Mutation$LikeUser$Match$User$Gallery instance) =>
+    <String, dynamic>{
+      'photos': instance.photos?.map((e) => e.toJson()).toList(),
+    };
+
+LikeUser$Mutation$LikeUser$Match$User
+    _$LikeUser$Mutation$LikeUser$Match$UserFromJson(
+            Map<String, dynamic> json) =>
+        LikeUser$Mutation$LikeUser$Match$User()
+          ..id = json['id'] as String
+          ..phone = json['phone'] as String
+          ..firstName = json['firstName'] as String
+          ..verified = json['verified'] as bool
+          ..gallery = json['gallery'] == null
+              ? null
+              : LikeUser$Mutation$LikeUser$Match$User$Gallery.fromJson(
+                  json['gallery'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$LikeUser$Mutation$LikeUser$Match$UserToJson(
+        LikeUser$Mutation$LikeUser$Match$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'phone': instance.phone,
+      'firstName': instance.firstName,
+      'verified': instance.verified,
+      'gallery': instance.gallery?.toJson(),
+    };
+
+LikeUser$Mutation$LikeUser$Match _$LikeUser$Mutation$LikeUser$MatchFromJson(
+        Map<String, dynamic> json) =>
+    LikeUser$Mutation$LikeUser$Match()
+      ..conversation = LikeUser$Mutation$LikeUser$Match$Conversation.fromJson(
+          json['conversation'] as Map<String, dynamic>)
+      ..matchee = LikeUser$Mutation$LikeUser$Match$Matchee.fromJson(
+          json['matchee'] as Map<String, dynamic>)
+      ..user = LikeUser$Mutation$LikeUser$Match$User.fromJson(
+          json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$LikeUser$Mutation$LikeUser$MatchToJson(
+        LikeUser$Mutation$LikeUser$Match instance) =>
+    <String, dynamic>{
+      'conversation': instance.conversation.toJson(),
+      'matchee': instance.matchee.toJson(),
+      'user': instance.user.toJson(),
+    };
+
+LikeUser$Mutation$LikeUser _$LikeUser$Mutation$LikeUserFromJson(
+        Map<String, dynamic> json) =>
+    LikeUser$Mutation$LikeUser()
+      ..like = LikeUser$Mutation$LikeUser$Like.fromJson(
+          json['like'] as Map<String, dynamic>)
+      ..match = json['match'] == null
+          ? null
+          : LikeUser$Mutation$LikeUser$Match.fromJson(
+              json['match'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$LikeUser$Mutation$LikeUserToJson(
+        LikeUser$Mutation$LikeUser instance) =>
+    <String, dynamic>{
+      'like': instance.like.toJson(),
+      'match': instance.match?.toJson(),
+    };
+
+LikeUser$Mutation _$LikeUser$MutationFromJson(Map<String, dynamic> json) =>
+    LikeUser$Mutation()
+      ..likeUser = json['likeUser'] == null
+          ? null
+          : LikeUser$Mutation$LikeUser.fromJson(
+              json['likeUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$LikeUser$MutationToJson(LikeUser$Mutation instance) =>
+    <String, dynamic>{
+      'likeUser': instance.likeUser?.toJson(),
+    };
+
+LikeUserInput _$LikeUserInputFromJson(Map<String, dynamic> json) =>
+    LikeUserInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      params: LikeInput.fromJson(json['params'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$LikeUserInputToJson(LikeUserInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'params': instance.params.toJson(),
+    };
+
+LikeInput _$LikeInputFromJson(Map<String, dynamic> json) => LikeInput(
+      likeType: json['likeType'] as String,
+      likeeId: json['likeeId'] as int,
+      userId: json['userId'] as int,
+    );
+
+Map<String, dynamic> _$LikeInputToJson(LikeInput instance) => <String, dynamic>{
+      'likeType': instance.likeType,
+      'likeeId': instance.likeeId,
+      'userId': instance.userId,
+    };
+
+DeleteUser$Mutation$DeleteUser$SoftDeletedUser
+    _$DeleteUser$Mutation$DeleteUser$SoftDeletedUserFromJson(
+            Map<String, dynamic> json) =>
+        DeleteUser$Mutation$DeleteUser$SoftDeletedUser()
+          ..id = json['id'] as String
+          ..phone = json['phone'] as String
+          ..verified = json['verified'] as bool;
+
+Map<String, dynamic> _$DeleteUser$Mutation$DeleteUser$SoftDeletedUserToJson(
+        DeleteUser$Mutation$DeleteUser$SoftDeletedUser instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'phone': instance.phone,
+      'verified': instance.verified,
+    };
+
+DeleteUser$Mutation$DeleteUser _$DeleteUser$Mutation$DeleteUserFromJson(
+        Map<String, dynamic> json) =>
+    DeleteUser$Mutation$DeleteUser()
+      ..softDeletedUser =
+          DeleteUser$Mutation$DeleteUser$SoftDeletedUser.fromJson(
+              json['softDeletedUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DeleteUser$Mutation$DeleteUserToJson(
+        DeleteUser$Mutation$DeleteUser instance) =>
+    <String, dynamic>{
+      'softDeletedUser': instance.softDeletedUser.toJson(),
+    };
+
+DeleteUser$Mutation _$DeleteUser$MutationFromJson(Map<String, dynamic> json) =>
+    DeleteUser$Mutation()
+      ..deleteUser = json['deleteUser'] == null
+          ? null
+          : DeleteUser$Mutation$DeleteUser.fromJson(
+              json['deleteUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DeleteUser$MutationToJson(
+        DeleteUser$Mutation instance) =>
+    <String, dynamic>{
+      'deleteUser': instance.deleteUser?.toJson(),
+    };
+
+DeleteUserInput _$DeleteUserInputFromJson(Map<String, dynamic> json) =>
+    DeleteUserInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as int,
+    );
+
+Map<String, dynamic> _$DeleteUserInputToJson(DeleteUserInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
     };
 
 SignIn$Mutation$SignIn$User _$SignIn$Mutation$SignIn$UserFromJson(
@@ -695,6 +1289,56 @@ Map<String, dynamic> _$SetUserLocationInputToJson(
       'userId': instance.userId,
     };
 
+UndoLike$Mutation$UndoLike$UndidUser
+    _$UndoLike$Mutation$UndoLike$UndidUserFromJson(Map<String, dynamic> json) =>
+        UndoLike$Mutation$UndoLike$UndidUser()..id = json['id'] as String;
+
+Map<String, dynamic> _$UndoLike$Mutation$UndoLike$UndidUserToJson(
+        UndoLike$Mutation$UndoLike$UndidUser instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+UndoLike$Mutation$UndoLike _$UndoLike$Mutation$UndoLikeFromJson(
+        Map<String, dynamic> json) =>
+    UndoLike$Mutation$UndoLike()
+      ..status = json['status'] as String
+      ..undidUser = json['undidUser'] == null
+          ? null
+          : UndoLike$Mutation$UndoLike$UndidUser.fromJson(
+              json['undidUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UndoLike$Mutation$UndoLikeToJson(
+        UndoLike$Mutation$UndoLike instance) =>
+    <String, dynamic>{
+      'status': instance.status,
+      'undidUser': instance.undidUser?.toJson(),
+    };
+
+UndoLike$Mutation _$UndoLike$MutationFromJson(Map<String, dynamic> json) =>
+    UndoLike$Mutation()
+      ..undoLike = json['undoLike'] == null
+          ? null
+          : UndoLike$Mutation$UndoLike.fromJson(
+              json['undoLike'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UndoLike$MutationToJson(UndoLike$Mutation instance) =>
+    <String, dynamic>{
+      'undoLike': instance.undoLike?.toJson(),
+    };
+
+UndoLikeInput _$UndoLikeInputFromJson(Map<String, dynamic> json) =>
+    UndoLikeInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$UndoLikeInputToJson(UndoLikeInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
 UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos
     _$UploadPhoto$Mutation$UploadPhoto$User$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
@@ -787,6 +1431,148 @@ Map<String, dynamic> _$UploadPhotoInputToJson(UploadPhotoInput instance) =>
       'userId': instance.userId,
     };
 
+DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic
+    _$DeleteFavoriteMusic$Mutation$DeleteFavoriteMusicFromJson(
+            Map<String, dynamic> json) =>
+        DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic()
+          ..deleted = json['deleted'] as bool;
+
+Map<String, dynamic> _$DeleteFavoriteMusic$Mutation$DeleteFavoriteMusicToJson(
+        DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic instance) =>
+    <String, dynamic>{
+      'deleted': instance.deleted,
+    };
+
+DeleteFavoriteMusic$Mutation _$DeleteFavoriteMusic$MutationFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteMusic$Mutation()
+      ..deleteFavoriteMusic = json['deleteFavoriteMusic'] == null
+          ? null
+          : DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic.fromJson(
+              json['deleteFavoriteMusic'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DeleteFavoriteMusic$MutationToJson(
+        DeleteFavoriteMusic$Mutation instance) =>
+    <String, dynamic>{
+      'deleteFavoriteMusic': instance.deleteFavoriteMusic?.toJson(),
+    };
+
+DeleteFavoriteMusicInput _$DeleteFavoriteMusicInputFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteMusicInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      musicIds:
+          (json['musicIds'] as List<dynamic>).map((e) => e as String).toList(),
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$DeleteFavoriteMusicInputToJson(
+        DeleteFavoriteMusicInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'musicIds': instance.musicIds,
+      'userId': instance.userId,
+    };
+
+FetchMessages$Query$FetchMessages$Recommendation$Anime
+    _$FetchMessages$Query$FetchMessages$Recommendation$AnimeFromJson(
+            Map<String, dynamic> json) =>
+        FetchMessages$Query$FetchMessages$Recommendation$Anime()
+          ..id = json['id'] as String
+          ..title = json['title'] as String?
+          ..cover = json['cover'] as String?;
+
+Map<String, dynamic>
+    _$FetchMessages$Query$FetchMessages$Recommendation$AnimeToJson(
+            FetchMessages$Query$FetchMessages$Recommendation$Anime instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'title': instance.title,
+          'cover': instance.cover,
+        };
+
+FetchMessages$Query$FetchMessages$Recommendation
+    _$FetchMessages$Query$FetchMessages$RecommendationFromJson(
+            Map<String, dynamic> json) =>
+        FetchMessages$Query$FetchMessages$Recommendation()
+          ..userId = json['userId'] as int
+          ..recommendeeId = json['recommendeeId'] as int
+          ..anime = json['anime'] == null
+              ? null
+              : FetchMessages$Query$FetchMessages$Recommendation$Anime.fromJson(
+                  json['anime'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$FetchMessages$Query$FetchMessages$RecommendationToJson(
+        FetchMessages$Query$FetchMessages$Recommendation instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'recommendeeId': instance.recommendeeId,
+      'anime': instance.anime?.toJson(),
+    };
+
+FetchMessages$Query$FetchMessages$Sticker
+    _$FetchMessages$Query$FetchMessages$StickerFromJson(
+            Map<String, dynamic> json) =>
+        FetchMessages$Query$FetchMessages$Sticker()
+          ..id = json['id'] as String
+          ..url = json['url'] as String;
+
+Map<String, dynamic> _$FetchMessages$Query$FetchMessages$StickerToJson(
+        FetchMessages$Query$FetchMessages$Sticker instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'url': instance.url,
+    };
+
+FetchMessages$Query$FetchMessages _$FetchMessages$Query$FetchMessagesFromJson(
+        Map<String, dynamic> json) =>
+    FetchMessages$Query$FetchMessages()
+      ..id = json['id'] as String
+      ..attachment = json['attachment'] as String?
+      ..attachmentType = json['attachmentType'] as String?
+      ..content = json['content'] as String?
+      ..createdAt =
+          fromGraphQLISO8601DateTimeToDartDateTime(json['createdAt'] as String)
+      ..reaction = json['reaction'] as String?
+      ..read = json['read'] as bool?
+      ..senderId = json['senderId'] as int?
+      ..recommendation = json['recommendation'] == null
+          ? null
+          : FetchMessages$Query$FetchMessages$Recommendation.fromJson(
+              json['recommendation'] as Map<String, dynamic>)
+      ..sticker = json['sticker'] == null
+          ? null
+          : FetchMessages$Query$FetchMessages$Sticker.fromJson(
+              json['sticker'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$FetchMessages$Query$FetchMessagesToJson(
+        FetchMessages$Query$FetchMessages instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'attachment': instance.attachment,
+      'attachmentType': instance.attachmentType,
+      'content': instance.content,
+      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
+      'reaction': instance.reaction,
+      'read': instance.read,
+      'senderId': instance.senderId,
+      'recommendation': instance.recommendation?.toJson(),
+      'sticker': instance.sticker?.toJson(),
+    };
+
+FetchMessages$Query _$FetchMessages$QueryFromJson(Map<String, dynamic> json) =>
+    FetchMessages$Query()
+      ..fetchMessages = (json['fetchMessages'] as List<dynamic>)
+          .map((e) => FetchMessages$Query$FetchMessages.fromJson(
+              e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$FetchMessages$QueryToJson(
+        FetchMessages$Query instance) =>
+    <String, dynamic>{
+      'fetchMessages': instance.fetchMessages.map((e) => e.toJson()).toList(),
+    };
+
 FetchFeed$Query$FetchFeed$Gallery$Photos
     _$FetchFeed$Query$FetchFeed$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
@@ -840,7 +1626,8 @@ FetchFeed$Query$FetchFeed$FavoriteMusic
           ..trackName = json['trackName'] as String?
           ..artistName = json['artistName'] as String?
           ..coverUrl = json['coverUrl'] as String?
-          ..musicType = json['musicType'] as String?;
+          ..musicType = json['musicType'] as String?
+          ..spotifyId = json['spotifyId'] as String?;
 
 Map<String, dynamic> _$FetchFeed$Query$FetchFeed$FavoriteMusicToJson(
         FetchFeed$Query$FetchFeed$FavoriteMusic instance) =>
@@ -850,6 +1637,7 @@ Map<String, dynamic> _$FetchFeed$Query$FetchFeed$FavoriteMusicToJson(
       'artistName': instance.artistName,
       'coverUrl': instance.coverUrl,
       'musicType': instance.musicType,
+      'spotifyId': instance.spotifyId,
     };
 
 FetchFeed$Query$FetchFeed _$FetchFeed$Query$FetchFeedFromJson(
@@ -1029,7 +1817,8 @@ FetchUser$Query$FetchUser$FavoriteMusic
           ..coverUrl = json['coverUrl'] as String?
           ..musicType = json['musicType'] as String?
           ..trackName = json['trackName'] as String?
-          ..artistName = json['artistName'] as String?;
+          ..artistName = json['artistName'] as String?
+          ..spotifyId = json['spotifyId'] as String?;
 
 Map<String, dynamic> _$FetchUser$Query$FetchUser$FavoriteMusicToJson(
         FetchUser$Query$FetchUser$FavoriteMusic instance) =>
@@ -1039,6 +1828,7 @@ Map<String, dynamic> _$FetchUser$Query$FetchUser$FavoriteMusicToJson(
       'musicType': instance.musicType,
       'trackName': instance.trackName,
       'artistName': instance.artistName,
+      'spotifyId': instance.spotifyId,
     };
 
 FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
@@ -1060,6 +1850,7 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
       ..displayState = json['displayState'] as String?
       ..spotifyEmail = json['spotifyEmail'] as String?
       ..onlineStatus = json['onlineStatus'] as String?
+      ..lonlat = json['lonlat'] as String?
       ..matches = (json['matches'] as List<dynamic>?)
           ?.map((e) => FetchUser$Query$FetchUser$Matches.fromJson(
               e as Map<String, dynamic>))
@@ -1097,6 +1888,7 @@ Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
       'displayState': instance.displayState,
       'spotifyEmail': instance.spotifyEmail,
       'onlineStatus': instance.onlineStatus,
+      'lonlat': instance.lonlat,
       'matches': instance.matches?.map((e) => e.toJson()).toList(),
       'gallery': instance.gallery?.toJson(),
       'animes': instance.animes?.map((e) => e.toJson()).toList(),
@@ -1177,44 +1969,228 @@ Map<String, dynamic> _$AnimeInputToJson(AnimeInput instance) =>
       'title': instance.title,
     };
 
-FetchConversations$Query$FetchConversations$Messages$Sticker
-    _$FetchConversations$Query$FetchConversations$Messages$StickerFromJson(
+FetchConversations$Query$FetchConversations$Match$User$Gallery$Photos
+    _$FetchConversations$Query$FetchConversations$Match$User$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
-        FetchConversations$Query$FetchConversations$Messages$Sticker()
+        FetchConversations$Query$FetchConversations$Match$User$Gallery$Photos()
+          ..order = json['order'] as int?
+          ..url = json['url'] as String;
+
+Map<String, dynamic>
+    _$FetchConversations$Query$FetchConversations$Match$User$Gallery$PhotosToJson(
+            FetchConversations$Query$FetchConversations$Match$User$Gallery$Photos
+                instance) =>
+        <String, dynamic>{
+          'order': instance.order,
+          'url': instance.url,
+        };
+
+FetchConversations$Query$FetchConversations$Match$User$Gallery
+    _$FetchConversations$Query$FetchConversations$Match$User$GalleryFromJson(
+            Map<String, dynamic> json) =>
+        FetchConversations$Query$FetchConversations$Match$User$Gallery()
+          ..photos = (json['photos'] as List<dynamic>?)
+              ?.map((e) =>
+                  FetchConversations$Query$FetchConversations$Match$User$Gallery$Photos
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic>
+    _$FetchConversations$Query$FetchConversations$Match$User$GalleryToJson(
+            FetchConversations$Query$FetchConversations$Match$User$Gallery
+                instance) =>
+        <String, dynamic>{
+          'photos': instance.photos?.map((e) => e.toJson()).toList(),
+        };
+
+FetchConversations$Query$FetchConversations$Match$User
+    _$FetchConversations$Query$FetchConversations$Match$UserFromJson(
+            Map<String, dynamic> json) =>
+        FetchConversations$Query$FetchConversations$Match$User()
+          ..id = json['id'] as String
+          ..onlineStatus = json['onlineStatus'] as String?
+          ..firstName = json['firstName'] as String
+          ..gallery = json['gallery'] == null
+              ? null
+              : FetchConversations$Query$FetchConversations$Match$User$Gallery
+                  .fromJson(json['gallery'] as Map<String, dynamic>);
+
+Map<String, dynamic>
+    _$FetchConversations$Query$FetchConversations$Match$UserToJson(
+            FetchConversations$Query$FetchConversations$Match$User instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'onlineStatus': instance.onlineStatus,
+          'firstName': instance.firstName,
+          'gallery': instance.gallery?.toJson(),
+        };
+
+FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos
+    _$FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$PhotosFromJson(
+            Map<String, dynamic> json) =>
+        FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos()
+          ..order = json['order'] as int?
+          ..url = json['url'] as String;
+
+Map<String, dynamic>
+    _$FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$PhotosToJson(
+            FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos
+                instance) =>
+        <String, dynamic>{
+          'order': instance.order,
+          'url': instance.url,
+        };
+
+FetchConversations$Query$FetchConversations$Match$Matchee$Gallery
+    _$FetchConversations$Query$FetchConversations$Match$Matchee$GalleryFromJson(
+            Map<String, dynamic> json) =>
+        FetchConversations$Query$FetchConversations$Match$Matchee$Gallery()
+          ..photos = (json['photos'] as List<dynamic>?)
+              ?.map((e) =>
+                  FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic>
+    _$FetchConversations$Query$FetchConversations$Match$Matchee$GalleryToJson(
+            FetchConversations$Query$FetchConversations$Match$Matchee$Gallery
+                instance) =>
+        <String, dynamic>{
+          'photos': instance.photos?.map((e) => e.toJson()).toList(),
+        };
+
+FetchConversations$Query$FetchConversations$Match$Matchee
+    _$FetchConversations$Query$FetchConversations$Match$MatcheeFromJson(
+            Map<String, dynamic> json) =>
+        FetchConversations$Query$FetchConversations$Match$Matchee()
+          ..id = json['id'] as String
+          ..onlineStatus = json['onlineStatus'] as String?
+          ..firstName = json['firstName'] as String
+          ..gallery = json['gallery'] == null
+              ? null
+              : FetchConversations$Query$FetchConversations$Match$Matchee$Gallery
+                  .fromJson(json['gallery'] as Map<String, dynamic>);
+
+Map<String,
+    dynamic> _$FetchConversations$Query$FetchConversations$Match$MatcheeToJson(
+        FetchConversations$Query$FetchConversations$Match$Matchee instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'onlineStatus': instance.onlineStatus,
+      'firstName': instance.firstName,
+      'gallery': instance.gallery?.toJson(),
+    };
+
+FetchConversations$Query$FetchConversations$Match
+    _$FetchConversations$Query$FetchConversations$MatchFromJson(
+            Map<String, dynamic> json) =>
+        FetchConversations$Query$FetchConversations$Match()
+          ..id = json['id'] as String
+          ..createdAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['createdAt'] as String)
+          ..user =
+              FetchConversations$Query$FetchConversations$Match$User.fromJson(
+                  json['user'] as Map<String, dynamic>)
+          ..matchee = FetchConversations$Query$FetchConversations$Match$Matchee
+              .fromJson(json['matchee'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$FetchConversations$Query$FetchConversations$MatchToJson(
+        FetchConversations$Query$FetchConversations$Match instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
+      'user': instance.user.toJson(),
+      'matchee': instance.matchee.toJson(),
+    };
+
+FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime
+    _$FetchConversations$Query$FetchConversations$LastMessage$Recommendation$AnimeFromJson(
+            Map<String, dynamic> json) =>
+        FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime()
+          ..title = json['title'] as String?
+          ..cover = json['cover'] as String?;
+
+Map<String, dynamic>
+    _$FetchConversations$Query$FetchConversations$LastMessage$Recommendation$AnimeToJson(
+            FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime
+                instance) =>
+        <String, dynamic>{
+          'title': instance.title,
+          'cover': instance.cover,
+        };
+
+FetchConversations$Query$FetchConversations$LastMessage$Recommendation
+    _$FetchConversations$Query$FetchConversations$LastMessage$RecommendationFromJson(
+            Map<String, dynamic> json) =>
+        FetchConversations$Query$FetchConversations$LastMessage$Recommendation()
+          ..userId = json['userId'] as int
+          ..recommendeeId = json['recommendeeId'] as int
+          ..anime = json['anime'] == null
+              ? null
+              : FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime
+                  .fromJson(json['anime'] as Map<String, dynamic>);
+
+Map<String, dynamic>
+    _$FetchConversations$Query$FetchConversations$LastMessage$RecommendationToJson(
+            FetchConversations$Query$FetchConversations$LastMessage$Recommendation
+                instance) =>
+        <String, dynamic>{
+          'userId': instance.userId,
+          'recommendeeId': instance.recommendeeId,
+          'anime': instance.anime?.toJson(),
+        };
+
+FetchConversations$Query$FetchConversations$LastMessage$Sticker
+    _$FetchConversations$Query$FetchConversations$LastMessage$StickerFromJson(
+            Map<String, dynamic> json) =>
+        FetchConversations$Query$FetchConversations$LastMessage$Sticker()
           ..id = json['id'] as String
           ..url = json['url'] as String;
 
 Map<String, dynamic>
-    _$FetchConversations$Query$FetchConversations$Messages$StickerToJson(
-            FetchConversations$Query$FetchConversations$Messages$Sticker
+    _$FetchConversations$Query$FetchConversations$LastMessage$StickerToJson(
+            FetchConversations$Query$FetchConversations$LastMessage$Sticker
                 instance) =>
         <String, dynamic>{
           'id': instance.id,
           'url': instance.url,
         };
 
-FetchConversations$Query$FetchConversations$Messages
-    _$FetchConversations$Query$FetchConversations$MessagesFromJson(
+FetchConversations$Query$FetchConversations$LastMessage
+    _$FetchConversations$Query$FetchConversations$LastMessageFromJson(
             Map<String, dynamic> json) =>
-        FetchConversations$Query$FetchConversations$Messages()
+        FetchConversations$Query$FetchConversations$LastMessage()
+          ..attachment = json['attachment'] as String?
+          ..attachmentType = json['attachmentType'] as String?
           ..content = json['content'] as String?
-          ..senderId = json['senderId'] as int?
+          ..createdAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['createdAt'] as String)
           ..reaction = json['reaction'] as String?
+          ..read = json['read'] as bool?
+          ..senderId = json['senderId'] as int?
+          ..recommendation = json['recommendation'] == null
+              ? null
+              : FetchConversations$Query$FetchConversations$LastMessage$Recommendation
+                  .fromJson(json['recommendation'] as Map<String, dynamic>)
           ..sticker = json['sticker'] == null
               ? null
-              : FetchConversations$Query$FetchConversations$Messages$Sticker
-                  .fromJson(json['sticker'] as Map<String, dynamic>)
-          ..attachment = json['attachment'] as String?;
+              : FetchConversations$Query$FetchConversations$LastMessage$Sticker
+                  .fromJson(json['sticker'] as Map<String, dynamic>);
 
 Map<String, dynamic>
-    _$FetchConversations$Query$FetchConversations$MessagesToJson(
-            FetchConversations$Query$FetchConversations$Messages instance) =>
+    _$FetchConversations$Query$FetchConversations$LastMessageToJson(
+            FetchConversations$Query$FetchConversations$LastMessage instance) =>
         <String, dynamic>{
-          'content': instance.content,
-          'senderId': instance.senderId,
-          'reaction': instance.reaction,
-          'sticker': instance.sticker?.toJson(),
           'attachment': instance.attachment,
+          'attachmentType': instance.attachmentType,
+          'content': instance.content,
+          'createdAt':
+              fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
+          'reaction': instance.reaction,
+          'read': instance.read,
+          'senderId': instance.senderId,
+          'recommendation': instance.recommendation?.toJson(),
+          'sticker': instance.sticker?.toJson(),
         };
 
 FetchConversations$Query$FetchConversations
@@ -1222,19 +2198,23 @@ FetchConversations$Query$FetchConversations
             Map<String, dynamic> json) =>
         FetchConversations$Query$FetchConversations()
           ..id = json['id'] as String
-          ..matchId = json['matchId'] as int
-          ..messages = (json['messages'] as List<dynamic>?)
-              ?.map((e) =>
-                  FetchConversations$Query$FetchConversations$Messages.fromJson(
-                      e as Map<String, dynamic>))
-              .toList();
+          ..match = json['match'] == null
+              ? null
+              : FetchConversations$Query$FetchConversations$Match.fromJson(
+                  json['match'] as Map<String, dynamic>)
+          ..lastMessage = json['lastMessage'] == null
+              ? null
+              : FetchConversations$Query$FetchConversations$LastMessage
+                  .fromJson(json['lastMessage'] as Map<String, dynamic>)
+          ..unreadCount = json['unreadCount'] as int?;
 
 Map<String, dynamic> _$FetchConversations$Query$FetchConversationsToJson(
         FetchConversations$Query$FetchConversations instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'matchId': instance.matchId,
-      'messages': instance.messages?.map((e) => e.toJson()).toList(),
+      'match': instance.match?.toJson(),
+      'lastMessage': instance.lastMessage?.toJson(),
+      'unreadCount': instance.unreadCount,
     };
 
 FetchConversations$Query _$FetchConversations$QueryFromJson(
@@ -1250,6 +2230,35 @@ Map<String, dynamic> _$FetchConversations$QueryToJson(
     <String, dynamic>{
       'fetchConversations':
           instance.fetchConversations.map((e) => e.toJson()).toList(),
+    };
+
+FetchVerifyRequests$Query$FetchVerifyRequests
+    _$FetchVerifyRequests$Query$FetchVerifyRequestsFromJson(
+            Map<String, dynamic> json) =>
+        FetchVerifyRequests$Query$FetchVerifyRequests()
+          ..userId = json['userId'] as int
+          ..status = json['status'] as String;
+
+Map<String, dynamic> _$FetchVerifyRequests$Query$FetchVerifyRequestsToJson(
+        FetchVerifyRequests$Query$FetchVerifyRequests instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'status': instance.status,
+    };
+
+FetchVerifyRequests$Query _$FetchVerifyRequests$QueryFromJson(
+        Map<String, dynamic> json) =>
+    FetchVerifyRequests$Query()
+      ..fetchVerifyRequests = (json['fetchVerifyRequests'] as List<dynamic>)
+          .map((e) => FetchVerifyRequests$Query$FetchVerifyRequests.fromJson(
+              e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$FetchVerifyRequests$QueryToJson(
+        FetchVerifyRequests$Query instance) =>
+    <String, dynamic>{
+      'fetchVerifyRequests':
+          instance.fetchVerifyRequests.map((e) => e.toJson()).toList(),
     };
 
 FetchStickers$Query$FetchStickers _$FetchStickers$Query$FetchStickersFromJson(
@@ -1592,6 +2601,18 @@ Map<String, dynamic> _$UpdateUserArgumentsToJson(
       'input': instance.input.toJson(),
     };
 
+SendMessageArguments _$SendMessageArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    SendMessageArguments(
+      input: SendMessageInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$SendMessageArgumentsToJson(
+        SendMessageArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
 DeletePhotoArguments _$DeletePhotoArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeletePhotoArguments(
@@ -1600,6 +2621,18 @@ DeletePhotoArguments _$DeletePhotoArgumentsFromJson(
 
 Map<String, dynamic> _$DeletePhotoArgumentsToJson(
         DeletePhotoArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+UpdateMessageArguments _$UpdateMessageArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    UpdateMessageArguments(
+      input: UpdateMessageInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$UpdateMessageArgumentsToJson(
+        UpdateMessageArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };
@@ -1616,6 +2649,32 @@ Map<String, dynamic> _$ValidatePhoneArgumentsToJson(
       'input': instance.input.toJson(),
     };
 
+GetDistanceBetweenUsersArguments _$GetDistanceBetweenUsersArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    GetDistanceBetweenUsersArguments(
+      input: GetDistanceBetweenUsersInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$GetDistanceBetweenUsersArgumentsToJson(
+        GetDistanceBetweenUsersArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+AddFavoriteMusicArguments _$AddFavoriteMusicArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    AddFavoriteMusicArguments(
+      input:
+          AddFavoriteMusicInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$AddFavoriteMusicArgumentsToJson(
+        AddFavoriteMusicArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
 ResendVerifyCodeArguments _$ResendVerifyCodeArgumentsFromJson(
         Map<String, dynamic> json) =>
     ResendVerifyCodeArguments(
@@ -1625,6 +2684,27 @@ ResendVerifyCodeArguments _$ResendVerifyCodeArgumentsFromJson(
 
 Map<String, dynamic> _$ResendVerifyCodeArgumentsToJson(
         ResendVerifyCodeArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+LikeUserArguments _$LikeUserArgumentsFromJson(Map<String, dynamic> json) =>
+    LikeUserArguments(
+      input: LikeUserInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$LikeUserArgumentsToJson(LikeUserArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+DeleteUserArguments _$DeleteUserArgumentsFromJson(Map<String, dynamic> json) =>
+    DeleteUserArguments(
+      input: DeleteUserInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$DeleteUserArgumentsToJson(
+        DeleteUserArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };
@@ -1664,6 +2744,16 @@ Map<String, dynamic> _$SetUserLocationArgumentsToJson(
       'input': instance.input.toJson(),
     };
 
+UndoLikeArguments _$UndoLikeArgumentsFromJson(Map<String, dynamic> json) =>
+    UndoLikeArguments(
+      input: UndoLikeInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$UndoLikeArgumentsToJson(UndoLikeArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
 UploadPhotoArguments _$UploadPhotoArgumentsFromJson(
         Map<String, dynamic> json) =>
     UploadPhotoArguments(
@@ -1674,6 +2764,33 @@ Map<String, dynamic> _$UploadPhotoArgumentsToJson(
         UploadPhotoArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
+    };
+
+DeleteFavoriteMusicArguments _$DeleteFavoriteMusicArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    DeleteFavoriteMusicArguments(
+      input: DeleteFavoriteMusicInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$DeleteFavoriteMusicArgumentsToJson(
+        DeleteFavoriteMusicArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+FetchMessagesArguments _$FetchMessagesArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    FetchMessagesArguments(
+      conversationId: json['conversationId'] as String,
+      page: json['page'] as int?,
+    );
+
+Map<String, dynamic> _$FetchMessagesArgumentsToJson(
+        FetchMessagesArguments instance) =>
+    <String, dynamic>{
+      'conversationId': instance.conversationId,
+      'page': instance.page,
     };
 
 FetchFeedArguments _$FetchFeedArgumentsFromJson(Map<String, dynamic> json) =>
@@ -1715,6 +2832,18 @@ FetchConversationsArguments _$FetchConversationsArgumentsFromJson(
 
 Map<String, dynamic> _$FetchConversationsArgumentsToJson(
         FetchConversationsArguments instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+    };
+
+FetchVerifyRequestsArguments _$FetchVerifyRequestsArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    FetchVerifyRequestsArguments(
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$FetchVerifyRequestsArgumentsToJson(
+        FetchVerifyRequestsArguments instance) =>
     <String, dynamic>{
       'userId': instance.userId,
     };

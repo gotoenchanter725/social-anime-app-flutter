@@ -19,6 +19,13 @@ class EnvModel with _$EnvModel {
     required String graphApiUrl,
     required String httpApiUrl,
     required String httpApiUrlUniversities,
+    required String webSocketUrl,
+    required String httpApiAccountsSpotify,
+    required String httpApiSpotify,
+    required String spotifyClientId,
+    required String spotifyClientSecret,
+    required String spotifyRedirectUri,
+    required String spotifyCallbackUrlScheme,
   }) = _EnvModel;
 
   EnvModel._();

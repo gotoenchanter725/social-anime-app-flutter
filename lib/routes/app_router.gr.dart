@@ -22,9 +22,44 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     ChatRoute.name: (routeData) {
+      final args = routeData.argsAs<ChatRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const ChatPage(),
+        child: ChatPage(
+          key: args.key,
+          roomArgs: args.roomArgs,
+        ),
+      );
+    },
+    EditFavoriteAnimeRoute.name: (routeData) {
+      final args = routeData.argsAs<EditFavoriteAnimeRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: EditFavoriteAnimePage(
+          key: args.key,
+          editBloc: args.editBloc,
+        ),
+      );
+    },
+    EditProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<EditProfileRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: EditProfilePage(
+          key: args.key,
+          userID: args.userID,
+        ),
+      );
+    },
+    EditSpotifyMusicRoute.name: (routeData) {
+      final args = routeData.argsAs<EditSpotifyMusicRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: EditSpotifyMusicPage(
+          key: args.key,
+          editBloc: args.editBloc,
+          isSpotifyArtists: args.isSpotifyArtists,
+        ),
       );
     },
     EntryRoute.name: (routeData) {
@@ -95,6 +130,16 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const ProfilePage(),
+      );
+    },
+    SearchChatListRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchChatListRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SearchChatListPage(
+          key: args.key,
+          categorizedConversations: args.categorizedConversations,
+        ),
       );
     },
     SenpaiLicenseRoute.name: (routeData) {
@@ -169,6 +214,18 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    WorkEducationRoute.name: (routeData) {
+      final args = routeData.argsAs<WorkEducationRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: WorkEducationPage(
+          key: args.key,
+          editBloc: args.editBloc,
+          school: args.school,
+          occupation: args.occupation,
+        ),
+      );
+    },
   };
 }
 
@@ -188,16 +245,158 @@ class ChatListRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [ChatPage]
-class ChatRoute extends PageRouteInfo<void> {
-  const ChatRoute({List<PageRouteInfo>? children})
-      : super(
+class ChatRoute extends PageRouteInfo<ChatRouteArgs> {
+  ChatRoute({
+    Key? key,
+    required ChatRoomParams roomArgs,
+    List<PageRouteInfo>? children,
+  }) : super(
           ChatRoute.name,
+          args: ChatRouteArgs(
+            key: key,
+            roomArgs: roomArgs,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'ChatRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<ChatRouteArgs> page = PageInfo<ChatRouteArgs>(name);
+}
+
+class ChatRouteArgs {
+  const ChatRouteArgs({
+    this.key,
+    required this.roomArgs,
+  });
+
+  final Key? key;
+
+  final ChatRoomParams roomArgs;
+
+  @override
+  String toString() {
+    return 'ChatRouteArgs{key: $key, roomArgs: $roomArgs}';
+  }
+}
+
+/// generated route for
+/// [EditFavoriteAnimePage]
+class EditFavoriteAnimeRoute extends PageRouteInfo<EditFavoriteAnimeRouteArgs> {
+  EditFavoriteAnimeRoute({
+    Key? key,
+    required EditProfileBloc editBloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          EditFavoriteAnimeRoute.name,
+          args: EditFavoriteAnimeRouteArgs(
+            key: key,
+            editBloc: editBloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'EditFavoriteAnimeRoute';
+
+  static const PageInfo<EditFavoriteAnimeRouteArgs> page =
+      PageInfo<EditFavoriteAnimeRouteArgs>(name);
+}
+
+class EditFavoriteAnimeRouteArgs {
+  const EditFavoriteAnimeRouteArgs({
+    this.key,
+    required this.editBloc,
+  });
+
+  final Key? key;
+
+  final EditProfileBloc editBloc;
+
+  @override
+  String toString() {
+    return 'EditFavoriteAnimeRouteArgs{key: $key, editBloc: $editBloc}';
+  }
+}
+
+/// generated route for
+/// [EditProfilePage]
+class EditProfileRoute extends PageRouteInfo<EditProfileRouteArgs> {
+  EditProfileRoute({
+    Key? key,
+    required String userID,
+    List<PageRouteInfo>? children,
+  }) : super(
+          EditProfileRoute.name,
+          args: EditProfileRouteArgs(
+            key: key,
+            userID: userID,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'EditProfileRoute';
+
+  static const PageInfo<EditProfileRouteArgs> page =
+      PageInfo<EditProfileRouteArgs>(name);
+}
+
+class EditProfileRouteArgs {
+  const EditProfileRouteArgs({
+    this.key,
+    required this.userID,
+  });
+
+  final Key? key;
+
+  final String userID;
+
+  @override
+  String toString() {
+    return 'EditProfileRouteArgs{key: $key, userID: $userID}';
+  }
+}
+
+/// generated route for
+/// [EditSpotifyMusicPage]
+class EditSpotifyMusicRoute extends PageRouteInfo<EditSpotifyMusicRouteArgs> {
+  EditSpotifyMusicRoute({
+    Key? key,
+    required EditProfileBloc editBloc,
+    bool isSpotifyArtists = true,
+    List<PageRouteInfo>? children,
+  }) : super(
+          EditSpotifyMusicRoute.name,
+          args: EditSpotifyMusicRouteArgs(
+            key: key,
+            editBloc: editBloc,
+            isSpotifyArtists: isSpotifyArtists,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'EditSpotifyMusicRoute';
+
+  static const PageInfo<EditSpotifyMusicRouteArgs> page =
+      PageInfo<EditSpotifyMusicRouteArgs>(name);
+}
+
+class EditSpotifyMusicRouteArgs {
+  const EditSpotifyMusicRouteArgs({
+    this.key,
+    required this.editBloc,
+    this.isSpotifyArtists = true,
+  });
+
+  final Key? key;
+
+  final EditProfileBloc editBloc;
+
+  final bool isSpotifyArtists;
+
+  @override
+  String toString() {
+    return 'EditSpotifyMusicRouteArgs{key: $key, editBloc: $editBloc, isSpotifyArtists: $isSpotifyArtists}';
+  }
 }
 
 /// generated route for
@@ -416,6 +615,44 @@ class ProfileRoute extends PageRouteInfo<void> {
   static const String name = 'ProfileRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SearchChatListPage]
+class SearchChatListRoute extends PageRouteInfo<SearchChatListRouteArgs> {
+  SearchChatListRoute({
+    Key? key,
+    required CategorizedConversations categorizedConversations,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SearchChatListRoute.name,
+          args: SearchChatListRouteArgs(
+            key: key,
+            categorizedConversations: categorizedConversations,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchChatListRoute';
+
+  static const PageInfo<SearchChatListRouteArgs> page =
+      PageInfo<SearchChatListRouteArgs>(name);
+}
+
+class SearchChatListRouteArgs {
+  const SearchChatListRouteArgs({
+    this.key,
+    required this.categorizedConversations,
+  });
+
+  final Key? key;
+
+  final CategorizedConversations categorizedConversations;
+
+  @override
+  String toString() {
+    return 'SearchChatListRouteArgs{key: $key, categorizedConversations: $categorizedConversations}';
+  }
 }
 
 /// generated route for
@@ -686,5 +923,53 @@ class VerifyPhotoRouteArgs {
   @override
   String toString() {
     return 'VerifyPhotoRouteArgs{key: $key, userID: $userID}';
+  }
+}
+
+/// generated route for
+/// [WorkEducationPage]
+class WorkEducationRoute extends PageRouteInfo<WorkEducationRouteArgs> {
+  WorkEducationRoute({
+    Key? key,
+    required EditProfileBloc editBloc,
+    String? school,
+    String? occupation,
+    List<PageRouteInfo>? children,
+  }) : super(
+          WorkEducationRoute.name,
+          args: WorkEducationRouteArgs(
+            key: key,
+            editBloc: editBloc,
+            school: school,
+            occupation: occupation,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'WorkEducationRoute';
+
+  static const PageInfo<WorkEducationRouteArgs> page =
+      PageInfo<WorkEducationRouteArgs>(name);
+}
+
+class WorkEducationRouteArgs {
+  const WorkEducationRouteArgs({
+    this.key,
+    required this.editBloc,
+    this.school,
+    this.occupation,
+  });
+
+  final Key? key;
+
+  final EditProfileBloc editBloc;
+
+  final String? school;
+
+  final String? occupation;
+
+  @override
+  String toString() {
+    return 'WorkEducationRouteArgs{key: $key, editBloc: $editBloc, school: $school, occupation: $occupation}';
   }
 }

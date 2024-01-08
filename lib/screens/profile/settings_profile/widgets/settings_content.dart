@@ -22,7 +22,10 @@ class SettingsContent extends StatelessWidget {
   void _showActionSheet(BuildContext context) {
     showCupertinoModalPopup<void>(
       context: context,
-      builder: (BuildContext context) => const CupertinoLogoutWidget(),
+      builder: (_) => BlocProvider.value(
+        value: BlocProvider.of<SettingsProfileBloc>(context),
+        child: const CupertinoLogoutWidget(),
+      ),
     );
   }
 

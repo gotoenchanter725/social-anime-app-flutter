@@ -39,6 +39,8 @@ mixin _$UserProfileModel {
   String? get lonlat => throw _privateConstructorUsedError;
   String? get onlineStatus => throw _privateConstructorUsedError;
   bool? get premium => throw _privateConstructorUsedError;
+  List<UserFavoriteMusicModel>? get favoriteMusic =>
+      throw _privateConstructorUsedError;
   int? get superLikeCount => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -73,7 +75,8 @@ abstract class $UserProfileModelCopyWith<$Res> {
       String? lonlat,
       String? onlineStatus,
       bool? premium,
-      int? superLikeCount,});
+      int? superLikeCount,,
+      List<UserFavoriteMusicModel>? favoriteMusic});
 
   $GalleryUserModelCopyWith<$Res>? get gallery;
 }
@@ -111,6 +114,7 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
     Object? onlineStatus = freezed,
     Object? premium = freezed,
     Object? superLikeCount = freezed,
+    Object? favoriteMusic = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -193,6 +197,10 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
           ? _value.superLikeCount
           : superLikeCount // ignore: cast_nullable_to_non_nullable
       as int?,
+      favoriteMusic: freezed == favoriteMusic
+          ? _value.favoriteMusic
+          : favoriteMusic // ignore: cast_nullable_to_non_nullable
+              as List<UserFavoriteMusicModel>?,
     ) as $Val);
   }
 
@@ -237,7 +245,8 @@ abstract class _$$_UserProfileModelCopyWith<$Res>
       String? lonlat,
       String? onlineStatus,
       bool? premium,
-      int? superLikeCount,});
+      int? superLikeCount,,
+      List<UserFavoriteMusicModel>? favoriteMusic});
 
   @override
   $GalleryUserModelCopyWith<$Res>? get gallery;
@@ -274,6 +283,7 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
     Object? onlineStatus = freezed,
     Object? premium = freezed,
     Object? superLikeCount = freezed,
+    Object? favoriteMusic = freezed,
   }) {
     return _then(_$_UserProfileModel(
       id: null == id
@@ -356,6 +366,10 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
           ? _value.superLikeCount
           : superLikeCount // ignore: cast_nullable_to_non_nullable
       as int?,
+      favoriteMusic: freezed == favoriteMusic
+          ? _value._favoriteMusic
+          : favoriteMusic // ignore: cast_nullable_to_non_nullable
+              as List<UserFavoriteMusicModel>?,
     ));
   }
 }
@@ -383,8 +397,10 @@ class _$_UserProfileModel implements _UserProfileModel {
       this.lonlat,
       this.onlineStatus,
       this.premium,
-      this.superLikeCount,})
-      : _animes = animes;
+      this.superLikeCount,,
+      final List<UserFavoriteMusicModel>? favoriteMusic})
+      : _animes = animes,
+        _favoriteMusic = favoriteMusic;
 
   factory _$_UserProfileModel.fromJson(Map<String, dynamic> json) =>
       _$$_UserProfileModelFromJson(json);
@@ -437,10 +453,19 @@ class _$_UserProfileModel implements _UserProfileModel {
   final bool? premium;
   @override
   final int? superLikeCount;
+  final List<UserFavoriteMusicModel>? _favoriteMusic;
+  @override
+  List<UserFavoriteMusicModel>? get favoriteMusic {
+    final value = _favoriteMusic;
+    if (value == null) return null;
+    if (_favoriteMusic is EqualUnmodifiableListView) return _favoriteMusic;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium, superLikeCount: $superLikeCount)';
+    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium, superLikeCount: $superLikeCount, favoriteMusic: $favoriteMusic)';
   }
 
   @override
@@ -504,6 +529,8 @@ class _$_UserProfileModel implements _UserProfileModel {
         onlineStatus,
         premium,
         superLikeCount,
+        premium,
+        const DeepCollectionEquality().hash(_favoriteMusic)
       ]);
 
   @JsonKey(ignore: true)

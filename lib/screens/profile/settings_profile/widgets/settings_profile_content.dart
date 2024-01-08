@@ -1,5 +1,9 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile/settings_profile/add_language_content/add_language_content.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 import 'package:senpai/screens/profile/settings_profile/delete_account_content/delete_account_content.dart';
@@ -9,15 +13,55 @@ import 'package:senpai/screens/profile/settings_profile/push_notifcations_conten
 import 'package:senpai/screens/profile/settings_profile/widgets/settings_content.dart';
 
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/methods/utils.dart';
 
 class SettingsProfileContent extends StatelessWidget {
   const SettingsProfileContent({
     super.key,
   });
 
+  Future<void> _openLoadingDialog(BuildContext context) async {
+    await showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) => AlertDialog(
+        backgroundColor: $constants.palette.appBackground,
+        surfaceTintColor: $constants.palette.appBackground,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular($constants.corners.sm),
+        ),
+        title: CupertinoActivityIndicator(radius: $constants.insets.sm),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              TextConstants.loggingOutTitle,
+              style: getTextTheme(context).headlineSmall,
+            ),
+            Text(
+              TextConstants.pleaseWaitText,
+              style: getTextTheme(context).titleSmall,
+            ),
+          ],
+        ),
+      ),
+    ).timeout(
+      $constants.times.slow,
+      onTimeout: () => Navigator.pop(context),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SettingsProfileBloc, SettingsProfileState>(
+    return BlocConsumer<SettingsProfileBloc, SettingsProfileState>(
+      listener: (context, state) async {
+        if (state is LogoutLoadingState) {
+          _openLoadingDialog(context);
+        }
+        if (state is LogoutSucssesfulState) {
+          await context.router.replaceAll([const EntryRoute()]);
+        }
+      },
       builder: (context, state) {
         return Column(
           children: [
@@ -51,3 +95,4 @@ class SettingsProfileContent extends StatelessWidget {
     }
   }
 }
+//

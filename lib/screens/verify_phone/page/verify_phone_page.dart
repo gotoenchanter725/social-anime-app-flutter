@@ -205,7 +205,9 @@ class VerifyPhonePage extends StatelessWidget {
                       bool hasFilledProfile = formBloc.isProfileFilled;
 
                       if (hasFilledProfile) {
-                        context.router.pushNamed("/home");
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          context.router.replaceAll([const HomeRoute()]);
+                        });
                       } else {
                         context.router.push(ProfileFillRoute(
                           id: id,

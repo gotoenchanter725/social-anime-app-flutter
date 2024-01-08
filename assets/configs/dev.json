@@ -6,5 +6,12 @@
   "debugApiClient": false,
   "graphApiUrl": "https://staging.senpaiapp.com/graphql",
   "httpApiUrl": "https://staging.senpaiapp.com",
-  "httpApiUrlUniversities": "http://universities.hipolabs.com"
+  "httpApiUrlUniversities": "http://universities.hipolabs.com",
+  "webSocketUrl": "wss://staging.senpaiapp.com/cable",
+  "httpApiAccountsSpotify": "https://accounts.spotify.com",
+  "httpApiSpotify": "https://api.spotify.com/v1",
+  "spotifyClientId" : "6f81b8df5df14a138e4aff694ccbca5c",
+  "spotifyClientSecret" : "56cd9a379f8e41dd8d850627767d5fff",
+  "spotifyRedirectUri" : "senpaiflutterapp://callback",
+  "spotifyCallbackUrlScheme" : "senpaiflutterapp"
 }

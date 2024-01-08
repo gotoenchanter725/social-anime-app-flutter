@@ -7,6 +7,8 @@ class SenpaiCheckBox extends StatelessWidget {
   final ValueChanged<bool?> onChanged;
   final String title;
   final Widget? leading;
+  final Widget? optionalContent;
+  final double? height;
 
   const SenpaiCheckBox({
     super.key,
@@ -14,6 +16,8 @@ class SenpaiCheckBox extends StatelessWidget {
     required this.onChanged,
     required this.title,
     this.leading,
+    this.optionalContent,
+    this.height,
   });
 
   Color _getColor(Set<MaterialState> states) {
@@ -30,7 +34,7 @@ class SenpaiCheckBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(left: $constants.insets.sm),
-      height: $constants.insets.xxl,
+      height: height ?? $constants.insets.xxl,
       decoration: profileBoxDecoration(),
       child: Row(
         children: [
@@ -40,11 +44,18 @@ class SenpaiCheckBox extends StatelessWidget {
               child: leading!,
             ),
           Expanded(
-            child: Text(
-              title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              style: getTextTheme(context).bodyMedium,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: getTextTheme(context).bodyMedium,
+                ),
+                if (optionalContent != null) optionalContent!
+              ],
             ),
           ),
           Transform.scale(

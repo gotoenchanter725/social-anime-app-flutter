@@ -1,4 +1,3 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
@@ -10,6 +9,7 @@ import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/bloc/favorite_anime_bloc.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/widgets/favorite_anime_content.dart';
+import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
 class FavoriteAnimePage extends StatelessWidget {
@@ -35,6 +35,7 @@ class FavoriteAnimePage extends StatelessWidget {
           const FavoriteAnimeContent(),
           _buildFavoriteAnimeListeners(),
           _buildFetchAnimeListeners(),
+          _buildFavoriteAnimeBlocErrorListeners(),
         ],
       ),
     );
@@ -50,6 +51,18 @@ class FavoriteAnimePage extends StatelessWidget {
     );
   }
 
+  Widget _buildFavoriteAnimeBlocErrorListeners() {
+    return BlocListener<FavoriteAnimeBloc, FavoriteAnimeState>(
+      listenWhen: (_, currState) => currState is ErrorState,
+      listener: (context, state) {
+        if (state is ErrorState) {
+          state.isEnabled ? showSnackBarError(context, state.message) : null;
+        }
+      },
+      child: const SizedBox.shrink(),
+    );
+  }
+
   Widget _buildFetchAnimeListeners() {
     return BlocBuilder<FetchAnimeBloc, QueryState>(
       builder: (context, state) {
@@ -57,7 +70,7 @@ class FavoriteAnimePage extends StatelessWidget {
             loading: (result) => const SenpaiLoading(),
             loaded: (data, result) {
               if (result.data == null) {
-                _showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, TextConstants.nullUser);
                 logIt.error("A successful empty response just got recorded");
                 return const SizedBox.shrink();
               } else {
@@ -70,31 +83,10 @@ class FavoriteAnimePage extends StatelessWidget {
               return const SizedBox.shrink();
             },
             error: (error, result) {
-              _showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, TextConstants.serverError);
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
-      },
-    );
-  }
-
-  _showSnackBarError(BuildContext context, String message) {
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) {
-        ScaffoldMessenger.of(context)
-          ..hideCurrentSnackBar()
-          ..showSnackBar(
-            SnackBar(
-              elevation: 0,
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.transparent,
-              content: AwesomeSnackbarContent(
-                title: 'On Snap!',
-                message: message,
-                contentType: ContentType.failure,
-              ),
-            ),
-          );
       },
     );
   }

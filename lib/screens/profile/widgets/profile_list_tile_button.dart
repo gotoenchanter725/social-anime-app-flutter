@@ -7,14 +7,14 @@ import 'package:senpai/utils/methods/utils.dart';
 class ProfileListTileButton extends StatelessWidget {
   final String title;
   final String icon;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final bool hasBorder;
 
   const ProfileListTileButton({
     super.key,
     required this.title,
     required this.icon,
-    required this.onTap,
+    this.onTap,
     this.hasBorder = false,
   });
 
@@ -42,10 +42,12 @@ class ProfileListTileButton extends StatelessWidget {
           title,
           style: getTextTheme(context).bodyMedium,
         ),
-        trailing: Icon(
-          hasBorder ? Icons.error : Icons.chevron_right,
-          color: $constants.palette.white,
-        ),
+        trailing: onTap != null
+            ? Icon(
+                hasBorder ? Icons.error : Icons.chevron_right,
+                color: $constants.palette.white,
+              )
+            : null,
       ),
     );
   }

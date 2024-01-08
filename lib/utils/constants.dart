@@ -28,6 +28,29 @@ class Constants {
   /// Constants for Carousel
   late final carousel = _CarouselConstants();
 
+  /// Special values.
+  late final specials = _Specials();
+
+  /// Emoji names
+  late final emojis = _EmojiNames();
+
+  /// Constants for Match
+  late final match = _MatchConstants();
+
+  /// Constants for Spotify
+  late final spotify = _SpotifyConstants();
+
+  /// API configuration.
+  late final api = _API();
+
+  /// Element sizes.
+  late final sizes = _Sizes();
+}
+
+@immutable
+class _Specials {
+  final int pendingMessageIdLength = 16;
+
   /// Constants for Match
   late final match = _MatchConstants();
 }
@@ -183,6 +206,16 @@ class _CarouselConstants {
 }
 
 @immutable
+class _EmojiNames {
+  late final String happy = 'joy';
+  late final String like = 'thumbsup';
+  late final String heart = 'heart';
+  late final String vomit = 'nauseated_face';
+  late final String anger = 'rage';
+  late final String demon = 'imp';
+}
+
+@immutable
 class _MatchConstants {
   late final double blur = 3.0;
   late final double bottomMiddleButtons = 90.0;
@@ -190,4 +223,25 @@ class _MatchConstants {
   late final double heightCenterBox = 95.0;
   late final double widthCenterBox = 138.0;
   late final double matchBottomHeight = 220.0;
+}
+
+@immutable
+class _SpotifyConstants {
+  late final double spotifyImageSize = 98;
+  late final double spotifyPlayPadding = 28;
+  late final double spotifyTracksHeight = 170;
+  late final double spotifyArtistsHeight = 130;
+  late final double spotifyCheckBoxHeight = 84;
+  late final double spotifyImageTrackHeight = 68;
+}
+
+@immutable
+class _API {
+  final maxMessagesToBeFetchedAtOneTime = 50;
+  final maxStickersToBeFetchedAtOneTime = 30;
+}
+
+@immutable
+class _Sizes {
+  late final double buttonHeight = 28;
 }

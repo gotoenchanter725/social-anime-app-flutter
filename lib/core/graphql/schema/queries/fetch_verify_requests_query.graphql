@@ -1,0 +1,6 @@
+query fetchVerifyRequests($userId: ID!) {
+  fetchVerifyRequests(userId: $userId) {
+    userId
+    status
+  }
+}

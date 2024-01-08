@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/user_profile/gallery_user/gallery_user_model.dart';
+import 'package:senpai/models/user_profile/user_favorite_music/user_favorite_music_model.dart';
 
 part 'user_profile_model.freezed.dart';
 part 'user_profile_model.g.dart';
@@ -50,6 +51,7 @@ class UserProfileModel with _$UserProfileModel {
         onlineStatus: '',
         premium: false,
         gallery: null,
+        favoriteMusic: [],
         superLikeCount: 0,
       );
 

@@ -1,0 +1,9 @@
+mutation deleteUser($input: DeleteUserInput!) {
+  deleteUser(input: $input) {
+    softDeletedUser {
+      id
+      phone
+      verified
+    }
+  }
+}

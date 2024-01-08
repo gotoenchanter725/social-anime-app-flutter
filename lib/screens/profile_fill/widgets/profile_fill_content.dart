@@ -9,6 +9,7 @@ import 'package:senpai/screens/profile_fill/first_name/page/first_name_page.dart
 import 'package:senpai/screens/profile_fill/location/page/location_page.dart';
 import 'package:senpai/screens/profile_fill/occupation/page/occupation_page.dart';
 import 'package:senpai/screens/profile_fill/photos/page/photos_page.dart';
+import 'package:senpai/screens/profile_fill/spotify/page/spotify_page.dart';
 import 'package:senpai/screens/profile_fill/user_gender/page/gender_page.dart';
 import 'package:senpai/screens/profile_fill/widgets/progress_line_widget.dart';
 import 'package:senpai/screens/verify_photo/page/verify_photo_profile_fill_page.dart';
@@ -66,6 +67,8 @@ class ProfileFillContent extends StatelessWidget {
       return const PhotosPage();
     } else if (bloc.step == ProfileFillStep.location) {
       return LocationPage(location: bloc.location);
+    } else if (bloc.step == ProfileFillStep.spotify) {
+      return SpotifyPage(favoriteMusicList: bloc.favoriteMusicList);
     } else if (bloc.step == ProfileFillStep.animes) {
       return FavoriteAnimePage(selectedAnimeList: bloc.animeList);
     } else if (bloc.step == ProfileFillStep.verify) {

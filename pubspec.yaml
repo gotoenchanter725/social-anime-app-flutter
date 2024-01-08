@@ -91,6 +91,15 @@ dependencies:
   photo_manager: ^2.7.1
   geolocator: ^10.0.1
   camera: ^0.10.5+5
+  action_cable: ^1.2.0
+  flutter_emoji: ^2.5.1
+  shared_preferences: ^2.2.2
+  flutter_map: ^6.1.0
+  flutter_map_dragmarker: ^6.0.0
+  flutter_web_auth_2: ^3.0.4
+
+  swipable_stack: ^2.0.0
+  flip_card: ^0.7.0
 
   swipable_stack: ^2.0.0
   flip_card: ^0.7.0
@@ -122,7 +131,6 @@ flutter_icons:
   android: "launcher_icon"
   ios: true
   image_path: "assets/icon/icon.png"
-
 
 dependency_overrides:
   intl: ^0.18.1
@@ -158,6 +166,7 @@ flutter:
     - assets/images/match/
     - assets/icons/
     - assets/licenses/
+    - assets/images/chat/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

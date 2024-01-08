@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -13,7 +15,11 @@ class CupertinoLogoutWidget extends StatelessWidget {
       message: _buildTitle(context, TextConstants.areYouSureLogoutDescription),
       actions: <CupertinoActionSheetAction>[
         CupertinoActionSheetAction(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            Navigator.pop(context);
+            final bloc = BlocProvider.of<SettingsProfileBloc>(context);
+            bloc.add(OnLogoutUserEvent(isDeleteStorage: true));
+          },
           child: Text(
             TextConstants.forgetMeTitle,
             style: getTextTheme(context).headlineMedium!.copyWith(
@@ -24,7 +30,11 @@ class CupertinoLogoutWidget extends StatelessWidget {
         ),
         CupertinoActionSheetAction(
           isDestructiveAction: true,
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            Navigator.pop(context);
+            final bloc = BlocProvider.of<SettingsProfileBloc>(context);
+            bloc.add(OnLogoutUserEvent(isDeleteStorage: false));
+          },
           child: Text(
             TextConstants.rememberMeTitle,
             style: getTextTheme(context).headlineMedium!.copyWith(

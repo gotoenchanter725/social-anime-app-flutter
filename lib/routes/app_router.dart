@@ -1,10 +1,16 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:senpai/models/chat/categorized_conversation.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/routes/guards/onboarding_guard.dart';
 import 'package:senpai/screens/chat/page/chat_page.dart';
 import 'package:senpai/screens/chat_list/page/chat_list_page.dart';
+import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
+import 'package:senpai/screens/edit_profile/edit_favorite_anime/page/edit_favorite_anime_page.dart';
+import 'package:senpai/screens/edit_profile/edit_spotify/page/edit_spotify_music_page.dart';
+import 'package:senpai/screens/edit_profile/page/edit_profile_page.dart';
+import 'package:senpai/screens/edit_profile/work_education/page/work_education_page.dart';
 import 'package:senpai/screens/entry/page/entry_page.dart';
 import 'package:senpai/screens/home/page/home_page.dart';
 import 'package:senpai/screens/license/page/license_page.dart';
@@ -23,6 +29,8 @@ import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
 import 'package:senpai/screens/verify_photo/camera_page/page/verify_camera_page.dart';
 import 'package:senpai/screens/verify_photo/page/verify_photo_page.dart';
 import 'package:senpai/screens/profile/page/profile.dart';
+import 'package:senpai/screens/chat_list/page/search_chat_list_page.dart';
+import 'package:senpai/models/chat/chat_room_params.dart';
 part 'app_router.gr.dart';
 
 @AutoRouterConfig()
@@ -50,11 +58,23 @@ class AppRouter extends _$AppRouter {
           page: ChatRoute.page,
           path: '/chat',
         ),
+        CustomRoute(
+          page: SearchChatListRoute.page,
+          transitionsBuilder: TransitionsBuilders.noTransition,
+        ),
         AutoRoute(page: UploadPhotosManagerRoute.page, path: '/photos_manager'),
         AutoRoute(page: VerifyCameraRoute.page, path: '/verify_camera'),
         AutoRoute(page: PremiumRoute.page, path: '/premium'),
         AutoRoute(page: SettingsProfileRoute.page, path: '/settings_profile'),
         AutoRoute(page: ProfileFilterRoute.page, path: '/profile_filter'),
         AutoRoute(page: PreviewProfileRoute.page, path: '/preview_profile'),
+        AutoRoute(page: EditProfileRoute.page, path: '/edit_profile'),
+        AutoRoute(page: WorkEducationRoute.page, path: '/work_and_education'),
+        AutoRoute(
+            page: EditFavoriteAnimeRoute.page, path: '/edit_favorite_anime'),
+        AutoRoute(
+          page: EditSpotifyMusicRoute.page,
+          path: '/edit_spotify_music',
+        ),
       ];
 }
