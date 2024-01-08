@@ -44,5 +44,7 @@ query fetchUser($userId: ID!) {
       spotifyId
     }
     premium
+    superLikeCount
+    hasLocationHidden
   }
 }
