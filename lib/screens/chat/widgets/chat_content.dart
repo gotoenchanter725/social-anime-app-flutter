@@ -231,6 +231,8 @@ class ChatContent extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
+                          // Hide the keyboard before showing the bottom sheet
+                          FocusScope.of(context).unfocus();
                           final BottomSheetBloc bottomSheetBloc =
                               BlocProvider.of<BottomSheetBloc>(context);
                           bottomSheetBloc.show();
