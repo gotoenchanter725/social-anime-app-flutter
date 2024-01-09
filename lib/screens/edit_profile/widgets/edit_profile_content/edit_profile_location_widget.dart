@@ -1,5 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/routes/app_router.dart';
+import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/profile/widgets/profile_item_header.dart';
 
 import 'package:senpai/utils/constants.dart';
@@ -26,12 +30,11 @@ class EditProfileLocationWidget extends StatelessWidget {
           ProfileItemHeader(
             title: TextConstants.locationTitle,
             onTap: () async {
-              //TODO: change after add Location route
-              // await context.router.push(
-              //   EditLocationRoute(
-              //     editBloc: BlocProvider.of<EditProfileBloc>(context),
-              //   ),
-              // );
+              await context.router.push(
+                EditLocationRoute(
+                  editBloc: BlocProvider.of<EditProfileBloc>(context),
+                ),
+              );
             },
           ),
           if (displayCity.isNotEmpty || displayState.isNotEmpty)

@@ -80,7 +80,10 @@ class EditProfileTabs extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         final serverBloc = BlocProvider.of<UpdateUserBloc>(context);
-        serverBloc.updateUserInfo(user: bloc.updateUserModel);
+        serverBloc.updateUserInfo(
+          user: bloc.updateUserModel,
+          verified: bloc.user.verified,
+        );
       },
       child: Padding(
         padding: EdgeInsets.only(right: $constants.insets.sm),

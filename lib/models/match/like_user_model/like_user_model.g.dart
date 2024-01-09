@@ -8,9 +8,7 @@ part of 'like_user_model.dart';
 
 _$_LikeUserModel _$$_LikeUserModelFromJson(Map<String, dynamic> json) =>
     _$_LikeUserModel(
-      userId: json['userId'] as int,
-      likeeId: json['likeeId'] as int,
-      likeType: json['likeType'] as String,
+      like: LikeModel.fromJson(json['like'] as Map<String, dynamic>),
       match: json['match'] == null
           ? null
           : MatchesUsersModel.fromJson(json['match'] as Map<String, dynamic>),
@@ -18,8 +16,6 @@ _$_LikeUserModel _$$_LikeUserModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_LikeUserModelToJson(_$_LikeUserModel instance) =>
     <String, dynamic>{
-      'userId': instance.userId,
-      'likeeId': instance.likeeId,
-      'likeType': instance.likeType,
+      'like': instance.like,
       'match': instance.match,
     };

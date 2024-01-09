@@ -1,25 +1,5 @@
 import 'package:senpai/data/text_constants.dart';
 
-enum DeleteAccountOptions {
-  hideAccount,
-  swithNotification,
-  justLogout,
-  deleteAccount;
-}
-
-extension DeleteAccountOptionsX on DeleteAccountOptions {
-  String get optionsString =>
-      const {
-        DeleteAccountOptions.hideAccount: TextConstants.hideYourAccountTitle,
-        DeleteAccountOptions.swithNotification:
-            TextConstants.switchNotificationsOffTitle,
-        DeleteAccountOptions.justLogout: TextConstants.justLogoutInsteadTitle,
-        DeleteAccountOptions.deleteAccount:
-            TextConstants.deleteYourAccountTitle,
-      }[this] ??
-      '';
-}
-
 enum PushNotificationOptions {
   newMatches,
   newMessages,

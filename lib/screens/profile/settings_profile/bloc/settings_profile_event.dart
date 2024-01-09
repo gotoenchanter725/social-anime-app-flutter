@@ -27,12 +27,6 @@ class OnChangeRecentlyActiveStatusEvent extends SettingsProfileEvent {
   OnChangeRecentlyActiveStatusEvent({required this.isStatusOn});
 }
 
-class OnChangeDeleteAccointOptionEvent extends SettingsProfileEvent {
-  final DeleteAccountOptions option;
-
-  OnChangeDeleteAccointOptionEvent({required this.option});
-}
-
 class OnChangePushNotificationOptionsEvent extends SettingsProfileEvent {
   final PushNotificationOptions option;
   final bool isOn;

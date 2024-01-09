@@ -112,7 +112,7 @@ class EditProfileContent extends StatelessWidget {
           return Container(
             padding: EdgeInsets.symmetric(vertical: $constants.insets.sm),
             color: $constants.palette.appBackground,
-            child: ListPhotosWidget(userId: userId),
+            child: ListPhotosWidget(userId: userId, isEditProfile: true),
           );
         }
         return const SizedBox();

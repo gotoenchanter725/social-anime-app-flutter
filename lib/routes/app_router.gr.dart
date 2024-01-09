@@ -41,6 +41,16 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    EditLocationRoute.name: (routeData) {
+      final args = routeData.argsAs<EditLocationRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: EditLocationPage(
+          key: args.key,
+          editBloc: args.editBloc,
+        ),
+      );
+    },
     EditProfileRoute.name: (routeData) {
       final args = routeData.argsAs<EditProfileRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -78,6 +88,16 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const MatchPage(),
+      );
+    },
+    MatchUsersRoute.name: (routeData) {
+      final args = routeData.argsAs<MatchUsersRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MatchUsersPage(
+          key: args.key,
+          likeUserModel: args.likeUserModel,
+        ),
       );
     },
     OnboardingRoute.name: (routeData) {
@@ -159,6 +179,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: SettingsProfilePage(
           key: args.key,
           user: args.user,
+        ),
+      );
+    },
+    SettingsVerifyPhoneRoute.name: (routeData) {
+      final args = routeData.argsAs<SettingsVerifyPhoneRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SettingsVerifyPhonePage(
+          key: args.key,
+          settingsBloc: args.settingsBloc,
         ),
       );
     },
@@ -319,6 +349,44 @@ class EditFavoriteAnimeRouteArgs {
 }
 
 /// generated route for
+/// [EditLocationPage]
+class EditLocationRoute extends PageRouteInfo<EditLocationRouteArgs> {
+  EditLocationRoute({
+    Key? key,
+    required EditProfileBloc editBloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          EditLocationRoute.name,
+          args: EditLocationRouteArgs(
+            key: key,
+            editBloc: editBloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'EditLocationRoute';
+
+  static const PageInfo<EditLocationRouteArgs> page =
+      PageInfo<EditLocationRouteArgs>(name);
+}
+
+class EditLocationRouteArgs {
+  const EditLocationRouteArgs({
+    this.key,
+    required this.editBloc,
+  });
+
+  final Key? key;
+
+  final EditProfileBloc editBloc;
+
+  @override
+  String toString() {
+    return 'EditLocationRouteArgs{key: $key, editBloc: $editBloc}';
+  }
+}
+
+/// generated route for
 /// [EditProfilePage]
 class EditProfileRoute extends PageRouteInfo<EditProfileRouteArgs> {
   EditProfileRoute({
@@ -439,6 +507,44 @@ class MatchRoute extends PageRouteInfo<void> {
   static const String name = 'MatchRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MatchUsersPage]
+class MatchUsersRoute extends PageRouteInfo<MatchUsersRouteArgs> {
+  MatchUsersRoute({
+    Key? key,
+    required LikeUserModel likeUserModel,
+    List<PageRouteInfo>? children,
+  }) : super(
+          MatchUsersRoute.name,
+          args: MatchUsersRouteArgs(
+            key: key,
+            likeUserModel: likeUserModel,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'MatchUsersRoute';
+
+  static const PageInfo<MatchUsersRouteArgs> page =
+      PageInfo<MatchUsersRouteArgs>(name);
+}
+
+class MatchUsersRouteArgs {
+  const MatchUsersRouteArgs({
+    this.key,
+    required this.likeUserModel,
+  });
+
+  final Key? key;
+
+  final LikeUserModel likeUserModel;
+
+  @override
+  String toString() {
+    return 'MatchUsersRouteArgs{key: $key, likeUserModel: $likeUserModel}';
+  }
 }
 
 /// generated route for
@@ -728,6 +834,45 @@ class SettingsProfileRouteArgs {
   @override
   String toString() {
     return 'SettingsProfileRouteArgs{key: $key, user: $user}';
+  }
+}
+
+/// generated route for
+/// [SettingsVerifyPhonePage]
+class SettingsVerifyPhoneRoute
+    extends PageRouteInfo<SettingsVerifyPhoneRouteArgs> {
+  SettingsVerifyPhoneRoute({
+    Key? key,
+    required SettingsProfileBloc settingsBloc,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SettingsVerifyPhoneRoute.name,
+          args: SettingsVerifyPhoneRouteArgs(
+            key: key,
+            settingsBloc: settingsBloc,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsVerifyPhoneRoute';
+
+  static const PageInfo<SettingsVerifyPhoneRouteArgs> page =
+      PageInfo<SettingsVerifyPhoneRouteArgs>(name);
+}
+
+class SettingsVerifyPhoneRouteArgs {
+  const SettingsVerifyPhoneRouteArgs({
+    this.key,
+    required this.settingsBloc,
+  });
+
+  final Key? key;
+
+  final SettingsProfileBloc settingsBloc;
+
+  @override
+  String toString() {
+    return 'SettingsVerifyPhoneRouteArgs{key: $key, settingsBloc: $settingsBloc}';
   }
 }
 
