@@ -10,31 +10,29 @@ part 'anime_selector_bloc.freezed.dart';
 class AnimeSelectorBloc extends Bloc<AnimeSelectorEvent, AnimeSelectorState> {
   final TextEditingController searchTextController = TextEditingController();
 
-  AnimeSelectorBloc() : super(const AnimeSelectorState.initial()) {
+  AnimeSelectorBloc() : super(AnimeSelectorState.initial()) {
     on<AnimeSelectorEvent>((event, emit) {
       event.when(
-        enterSearchMode: () {
+        toggleSearchMode: () {
+          // reset text controller when toggling search mode
           searchTextController.clear();
-          emit(const AnimeSelectorState.searchMode(true, ''));
+          final newState = state.copyWith(
+            isSearchMode: !state.isSearchMode,
+            selectedAnime:
+                null, // Reset selected anime when toggling search mode
+            description: null, // Reset description when toggling search mode
+          );
+          emit(newState);
         },
-        exitSearchMode: () {
-          searchTextController.clear();
-          emit(const AnimeSelectorState.searchMode(false, ''));
+        selectAnime: (AnimeModel selectedAnime) {
+          emit(state.copyWith(selectedAnime: selectedAnime));
         },
-        updateSearchText: (searchText) {
-          searchTextController.text = searchText;
-          emit(AnimeSelectorState.searchMode(true, searchText));
+        updateDescription: (String description) {
+          emit(state.copyWith(description: description));
         },
-        resetSearchText: () {
-          searchTextController.clear();
-          emit(const AnimeSelectorState.searchMode(true, ''));
-        },
-        selectAnime: (anime) => emit(AnimeSelectorState.animeInput(anime, '')),
-        setDescription: (description) {
-          final currentState = state;
-          if (currentState is _AnimeInput) {
-            emit(currentState.copyWith(description: description));
-          }
+        performSearch: (String query) {
+          // Implement search logic here
+          // For example, fetch search results and emit new state
         },
       );
     });

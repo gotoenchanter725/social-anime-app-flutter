@@ -15,22 +15,16 @@ import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class AnimeSelector extends StatelessWidget {
-  final void Function(AnimeModel) onAnimeSelected;
+  final void Function(AnimeModel, String) onAnimeRecommendaytionSent;
 
-  const AnimeSelector({super.key, required this.onAnimeSelected});
+  const AnimeSelector({super.key, required this.onAnimeRecommendaytionSent});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider<AnimeSelectorBloc>(
       create: (context) => AnimeSelectorBloc(),
-      child: Column(
-        children: [
-          SizedBox(height: $constants.insets.sm),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-            child: _buildAnimeSelectorContent(context),
-          ),
-        ],
+      child: SizedBox.expand(
+        child: _buildAnimeSelectorContent(context),
       ),
     );
   }
@@ -38,36 +32,39 @@ class AnimeSelector extends StatelessWidget {
   Widget _buildAnimeSelectorContent(BuildContext context) {
     return BlocBuilder<AnimeSelectorBloc, AnimeSelectorState>(
       builder: (context, state) {
-        return state.maybeWhen(
-          orElse: () {
-            return const SizedBox.shrink();
-          },
-          searchMode: (isInSearchMode, searchText) {
-            if (isInSearchMode) {
-              return FilterAnimeSelector(
-                onAnimeSelected: onAnimeSelected,
-              );
-            } else {
-              return _buildAnimeList(context);
-            }
-          },
+        return Column(
+          children: [
+            _buildAnimeSelectorMainContent(context, state),
+          ],
         );
       },
     );
   }
 
+  Widget _buildAnimeSelectorMainContent(
+      BuildContext context, AnimeSelectorState state) {
+    if (state.isSearchMode) {
+      return FilterAnimeSelector(
+          onAnimeRecommendaytionSent: onAnimeRecommendaytionSent);
+    }
+
+    return _buildFavouriteAnimeSelectorContent(context);
+  }
+
   Widget _buildSearchInput(BuildContext context) {
+    AnimeSelectorBloc bloc = BlocProvider.of<AnimeSelectorBloc>(context);
     return SenpaiIconInput(
       iconPath: PathConstants.searchIcon,
       hintText: TextConstants.searchText,
       onChange: (_) {},
       onTapSuffix: () {
-        // TODO: implement onTapSuffix
+        bloc.add(const AnimeSelectorEvent.toggleSearchMode());
       },
     );
   }
 
-  Widget _buildAnimeList(BuildContext context) {
+  Widget _buildFavouriteAnimeSelectorContent(BuildContext context) {
+    AnimeSelectorBloc bloc = BlocProvider.of<AnimeSelectorBloc>(context);
     return BlocBuilder<FetchUserBloc, QueryState>(
       builder: (context, state) {
         return state.maybeWhen(
@@ -76,29 +73,49 @@ class AnimeSelector extends StatelessWidget {
           },
           loaded: (data, result) {
             if (result.data == null) {
+              logIt.error("Data is null for the fetch user query");
               showSnackBarError(context, TextConstants.nullUser);
-              logIt.error("A successful empty response just got recorded");
               return const SizedBox.shrink();
             }
 
-            List<dynamic> animesList = result.data!["fetchUser"]["animes"];
+            Map<String, dynamic>? activeUser = result.data!["fetchUser"];
+            if (activeUser == null) {
+              logIt.error("Active user is null for the fetch user query");
+              showSnackBarError(context, TextConstants.nullUser);
+              return const SizedBox.shrink();
+            }
 
-            List<AnimeModel> parsedAnimeList =
-                animesList.map((e) => AnimeModel.fromJson(e)).toList();
+            List<dynamic> favoriteAnimes = activeUser["animes"];
+            List<AnimeModel> animeList = favoriteAnimes
+                .map((anime) => AnimeModel.fromJson(anime))
+                .toList();
 
-            return Column(
-              children: [
-                _buildSearchInput(context),
-                Text(TextConstants.favoriteAnimesTitle,
-                    style: getTextTheme(context).headlineMedium?.copyWith(
-                          color: $constants.palette.white,
-                        ),
-                    textAlign: TextAlign.center),
-                AnimeList(
-                  animeList: parsedAnimeList,
-                  onAnimeTap: onAnimeSelected,
-                )
-              ],
+            return Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildSearchInput(context),
+                    SizedBox(height: $constants.insets.sm),
+                    Text(
+                      TextConstants.favouriteAnimeSelectionTitle,
+                      style: getTextTheme(context).bodyMedium?.copyWith(
+                            color: $constants.palette.white,
+                          ),
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(height: $constants.insets.sm),
+                    AnimeList(
+                      animeList: animeList,
+                      onAnimeTap: (anime) {
+                        bloc.add(AnimeSelectorEvent.selectAnime(anime));
+                      },
+                      selectedAnime: bloc.state.selectedAnime,
+                    ),
+                  ],
+                ),
+              ),
             );
           },
         );

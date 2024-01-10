@@ -2,9 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
-import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
-import 'package:senpai/core/widgets/anime/anime_list.dart';
 import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
@@ -14,9 +11,10 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class FilterAnimeSelector extends StatelessWidget {
-  final void Function(AnimeModel) onAnimeSelected;
+  final void Function(AnimeModel, String) onAnimeRecommendaytionSent;
 
-  const FilterAnimeSelector({super.key, required this.onAnimeSelected});
+  const FilterAnimeSelector(
+      {super.key, required this.onAnimeRecommendaytionSent});
 
   @override
   Widget build(BuildContext context) {
@@ -71,23 +69,6 @@ class FilterAnimeSelector extends StatelessWidget {
             .labelMedium!
             .copyWith(color: $constants.palette.white, fontSize: 14),
       ),
-    );
-  }
-
-  Widget _buildAnimeList(BuildContext context) {
-    return BlocBuilder<FetchUserBloc, QueryState>(
-      builder: (context, state) {
-        return state.maybeWhen(orElse: () {
-          return const SizedBox.shrink();
-        }, loaded: (data, result) {
-          return AnimeList(
-            animeList: bloc.animeList,
-            onAnimeTap: (anime) {
-              // TODO: implement onAnimeTap
-            },
-          );
-        });
-      },
     );
   }
 }

@@ -240,4 +240,5 @@ class _API {
 @immutable
 class _Sizes {
   late final double buttonHeight = 28;
+  late final double animeTileHeight = 72;
 }

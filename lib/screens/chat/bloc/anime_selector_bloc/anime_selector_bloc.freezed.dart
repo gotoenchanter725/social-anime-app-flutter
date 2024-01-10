@@ -18,63 +18,51 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AnimeSelectorEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() enterSearchMode,
-    required TResult Function() exitSearchMode,
-    required TResult Function(String searchText) updateSearchText,
-    required TResult Function() resetSearchText,
-    required TResult Function(AnimeModel anime) selectAnime,
-    required TResult Function(String description) setDescription,
+    required TResult Function() toggleSearchMode,
+    required TResult Function(AnimeModel selectedAnime) selectAnime,
+    required TResult Function(String description) updateDescription,
+    required TResult Function(String query) performSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? enterSearchMode,
-    TResult? Function()? exitSearchMode,
-    TResult? Function(String searchText)? updateSearchText,
-    TResult? Function()? resetSearchText,
-    TResult? Function(AnimeModel anime)? selectAnime,
-    TResult? Function(String description)? setDescription,
+    TResult? Function()? toggleSearchMode,
+    TResult? Function(AnimeModel selectedAnime)? selectAnime,
+    TResult? Function(String description)? updateDescription,
+    TResult? Function(String query)? performSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? enterSearchMode,
-    TResult Function()? exitSearchMode,
-    TResult Function(String searchText)? updateSearchText,
-    TResult Function()? resetSearchText,
-    TResult Function(AnimeModel anime)? selectAnime,
-    TResult Function(String description)? setDescription,
+    TResult Function()? toggleSearchMode,
+    TResult Function(AnimeModel selectedAnime)? selectAnime,
+    TResult Function(String description)? updateDescription,
+    TResult Function(String query)? performSearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EnterSearchMode value) enterSearchMode,
-    required TResult Function(_ExitSearchMode value) exitSearchMode,
-    required TResult Function(_UpdateSearchText value) updateSearchText,
-    required TResult Function(_ResetSearchText value) resetSearchText,
+    required TResult Function(_ToggleSearchMode value) toggleSearchMode,
     required TResult Function(_SelectAnime value) selectAnime,
-    required TResult Function(_SetDescription value) setDescription,
+    required TResult Function(_UpdateDescription value) updateDescription,
+    required TResult Function(_PerformSearch value) performSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EnterSearchMode value)? enterSearchMode,
-    TResult? Function(_ExitSearchMode value)? exitSearchMode,
-    TResult? Function(_UpdateSearchText value)? updateSearchText,
-    TResult? Function(_ResetSearchText value)? resetSearchText,
+    TResult? Function(_ToggleSearchMode value)? toggleSearchMode,
     TResult? Function(_SelectAnime value)? selectAnime,
-    TResult? Function(_SetDescription value)? setDescription,
+    TResult? Function(_UpdateDescription value)? updateDescription,
+    TResult? Function(_PerformSearch value)? performSearch,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EnterSearchMode value)? enterSearchMode,
-    TResult Function(_ExitSearchMode value)? exitSearchMode,
-    TResult Function(_UpdateSearchText value)? updateSearchText,
-    TResult Function(_ResetSearchText value)? resetSearchText,
+    TResult Function(_ToggleSearchMode value)? toggleSearchMode,
     TResult Function(_SelectAnime value)? selectAnime,
-    TResult Function(_SetDescription value)? setDescription,
+    TResult Function(_UpdateDescription value)? updateDescription,
+    TResult Function(_PerformSearch value)? performSearch,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -99,35 +87,35 @@ class _$AnimeSelectorEventCopyWithImpl<$Res, $Val extends AnimeSelectorEvent>
 }
 
 /// @nodoc
-abstract class _$$_EnterSearchModeCopyWith<$Res> {
-  factory _$$_EnterSearchModeCopyWith(
-          _$_EnterSearchMode value, $Res Function(_$_EnterSearchMode) then) =
-      __$$_EnterSearchModeCopyWithImpl<$Res>;
+abstract class _$$_ToggleSearchModeCopyWith<$Res> {
+  factory _$$_ToggleSearchModeCopyWith(
+          _$_ToggleSearchMode value, $Res Function(_$_ToggleSearchMode) then) =
+      __$$_ToggleSearchModeCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_EnterSearchModeCopyWithImpl<$Res>
-    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_EnterSearchMode>
-    implements _$$_EnterSearchModeCopyWith<$Res> {
-  __$$_EnterSearchModeCopyWithImpl(
-      _$_EnterSearchMode _value, $Res Function(_$_EnterSearchMode) _then)
+class __$$_ToggleSearchModeCopyWithImpl<$Res>
+    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_ToggleSearchMode>
+    implements _$$_ToggleSearchModeCopyWith<$Res> {
+  __$$_ToggleSearchModeCopyWithImpl(
+      _$_ToggleSearchMode _value, $Res Function(_$_ToggleSearchMode) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_EnterSearchMode implements _EnterSearchMode {
-  const _$_EnterSearchMode();
+class _$_ToggleSearchMode implements _ToggleSearchMode {
+  const _$_ToggleSearchMode();
 
   @override
   String toString() {
-    return 'AnimeSelectorEvent.enterSearchMode()';
+    return 'AnimeSelectorEvent.toggleSearchMode()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_EnterSearchMode);
+        (other.runtimeType == runtimeType && other is _$_ToggleSearchMode);
   }
 
   @override
@@ -136,42 +124,36 @@ class _$_EnterSearchMode implements _EnterSearchMode {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() enterSearchMode,
-    required TResult Function() exitSearchMode,
-    required TResult Function(String searchText) updateSearchText,
-    required TResult Function() resetSearchText,
-    required TResult Function(AnimeModel anime) selectAnime,
-    required TResult Function(String description) setDescription,
+    required TResult Function() toggleSearchMode,
+    required TResult Function(AnimeModel selectedAnime) selectAnime,
+    required TResult Function(String description) updateDescription,
+    required TResult Function(String query) performSearch,
   }) {
-    return enterSearchMode();
+    return toggleSearchMode();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? enterSearchMode,
-    TResult? Function()? exitSearchMode,
-    TResult? Function(String searchText)? updateSearchText,
-    TResult? Function()? resetSearchText,
-    TResult? Function(AnimeModel anime)? selectAnime,
-    TResult? Function(String description)? setDescription,
+    TResult? Function()? toggleSearchMode,
+    TResult? Function(AnimeModel selectedAnime)? selectAnime,
+    TResult? Function(String description)? updateDescription,
+    TResult? Function(String query)? performSearch,
   }) {
-    return enterSearchMode?.call();
+    return toggleSearchMode?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? enterSearchMode,
-    TResult Function()? exitSearchMode,
-    TResult Function(String searchText)? updateSearchText,
-    TResult Function()? resetSearchText,
-    TResult Function(AnimeModel anime)? selectAnime,
-    TResult Function(String description)? setDescription,
+    TResult Function()? toggleSearchMode,
+    TResult Function(AnimeModel selectedAnime)? selectAnime,
+    TResult Function(String description)? updateDescription,
+    TResult Function(String query)? performSearch,
     required TResult orElse(),
   }) {
-    if (enterSearchMode != null) {
-      return enterSearchMode();
+    if (toggleSearchMode != null) {
+      return toggleSearchMode();
     }
     return orElse();
   }
@@ -179,459 +161,43 @@ class _$_EnterSearchMode implements _EnterSearchMode {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_EnterSearchMode value) enterSearchMode,
-    required TResult Function(_ExitSearchMode value) exitSearchMode,
-    required TResult Function(_UpdateSearchText value) updateSearchText,
-    required TResult Function(_ResetSearchText value) resetSearchText,
+    required TResult Function(_ToggleSearchMode value) toggleSearchMode,
     required TResult Function(_SelectAnime value) selectAnime,
-    required TResult Function(_SetDescription value) setDescription,
+    required TResult Function(_UpdateDescription value) updateDescription,
+    required TResult Function(_PerformSearch value) performSearch,
   }) {
-    return enterSearchMode(this);
+    return toggleSearchMode(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EnterSearchMode value)? enterSearchMode,
-    TResult? Function(_ExitSearchMode value)? exitSearchMode,
-    TResult? Function(_UpdateSearchText value)? updateSearchText,
-    TResult? Function(_ResetSearchText value)? resetSearchText,
+    TResult? Function(_ToggleSearchMode value)? toggleSearchMode,
     TResult? Function(_SelectAnime value)? selectAnime,
-    TResult? Function(_SetDescription value)? setDescription,
+    TResult? Function(_UpdateDescription value)? updateDescription,
+    TResult? Function(_PerformSearch value)? performSearch,
   }) {
-    return enterSearchMode?.call(this);
+    return toggleSearchMode?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EnterSearchMode value)? enterSearchMode,
-    TResult Function(_ExitSearchMode value)? exitSearchMode,
-    TResult Function(_UpdateSearchText value)? updateSearchText,
-    TResult Function(_ResetSearchText value)? resetSearchText,
+    TResult Function(_ToggleSearchMode value)? toggleSearchMode,
     TResult Function(_SelectAnime value)? selectAnime,
-    TResult Function(_SetDescription value)? setDescription,
+    TResult Function(_UpdateDescription value)? updateDescription,
+    TResult Function(_PerformSearch value)? performSearch,
     required TResult orElse(),
   }) {
-    if (enterSearchMode != null) {
-      return enterSearchMode(this);
+    if (toggleSearchMode != null) {
+      return toggleSearchMode(this);
     }
     return orElse();
   }
 }
 
-abstract class _EnterSearchMode implements AnimeSelectorEvent {
-  const factory _EnterSearchMode() = _$_EnterSearchMode;
-}
-
-/// @nodoc
-abstract class _$$_ExitSearchModeCopyWith<$Res> {
-  factory _$$_ExitSearchModeCopyWith(
-          _$_ExitSearchMode value, $Res Function(_$_ExitSearchMode) then) =
-      __$$_ExitSearchModeCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_ExitSearchModeCopyWithImpl<$Res>
-    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_ExitSearchMode>
-    implements _$$_ExitSearchModeCopyWith<$Res> {
-  __$$_ExitSearchModeCopyWithImpl(
-      _$_ExitSearchMode _value, $Res Function(_$_ExitSearchMode) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_ExitSearchMode implements _ExitSearchMode {
-  const _$_ExitSearchMode();
-
-  @override
-  String toString() {
-    return 'AnimeSelectorEvent.exitSearchMode()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ExitSearchMode);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() enterSearchMode,
-    required TResult Function() exitSearchMode,
-    required TResult Function(String searchText) updateSearchText,
-    required TResult Function() resetSearchText,
-    required TResult Function(AnimeModel anime) selectAnime,
-    required TResult Function(String description) setDescription,
-  }) {
-    return exitSearchMode();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? enterSearchMode,
-    TResult? Function()? exitSearchMode,
-    TResult? Function(String searchText)? updateSearchText,
-    TResult? Function()? resetSearchText,
-    TResult? Function(AnimeModel anime)? selectAnime,
-    TResult? Function(String description)? setDescription,
-  }) {
-    return exitSearchMode?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? enterSearchMode,
-    TResult Function()? exitSearchMode,
-    TResult Function(String searchText)? updateSearchText,
-    TResult Function()? resetSearchText,
-    TResult Function(AnimeModel anime)? selectAnime,
-    TResult Function(String description)? setDescription,
-    required TResult orElse(),
-  }) {
-    if (exitSearchMode != null) {
-      return exitSearchMode();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_EnterSearchMode value) enterSearchMode,
-    required TResult Function(_ExitSearchMode value) exitSearchMode,
-    required TResult Function(_UpdateSearchText value) updateSearchText,
-    required TResult Function(_ResetSearchText value) resetSearchText,
-    required TResult Function(_SelectAnime value) selectAnime,
-    required TResult Function(_SetDescription value) setDescription,
-  }) {
-    return exitSearchMode(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EnterSearchMode value)? enterSearchMode,
-    TResult? Function(_ExitSearchMode value)? exitSearchMode,
-    TResult? Function(_UpdateSearchText value)? updateSearchText,
-    TResult? Function(_ResetSearchText value)? resetSearchText,
-    TResult? Function(_SelectAnime value)? selectAnime,
-    TResult? Function(_SetDescription value)? setDescription,
-  }) {
-    return exitSearchMode?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EnterSearchMode value)? enterSearchMode,
-    TResult Function(_ExitSearchMode value)? exitSearchMode,
-    TResult Function(_UpdateSearchText value)? updateSearchText,
-    TResult Function(_ResetSearchText value)? resetSearchText,
-    TResult Function(_SelectAnime value)? selectAnime,
-    TResult Function(_SetDescription value)? setDescription,
-    required TResult orElse(),
-  }) {
-    if (exitSearchMode != null) {
-      return exitSearchMode(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ExitSearchMode implements AnimeSelectorEvent {
-  const factory _ExitSearchMode() = _$_ExitSearchMode;
-}
-
-/// @nodoc
-abstract class _$$_UpdateSearchTextCopyWith<$Res> {
-  factory _$$_UpdateSearchTextCopyWith(
-          _$_UpdateSearchText value, $Res Function(_$_UpdateSearchText) then) =
-      __$$_UpdateSearchTextCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String searchText});
-}
-
-/// @nodoc
-class __$$_UpdateSearchTextCopyWithImpl<$Res>
-    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_UpdateSearchText>
-    implements _$$_UpdateSearchTextCopyWith<$Res> {
-  __$$_UpdateSearchTextCopyWithImpl(
-      _$_UpdateSearchText _value, $Res Function(_$_UpdateSearchText) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? searchText = null,
-  }) {
-    return _then(_$_UpdateSearchText(
-      null == searchText
-          ? _value.searchText
-          : searchText // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_UpdateSearchText implements _UpdateSearchText {
-  _$_UpdateSearchText(this.searchText);
-
-  @override
-  final String searchText;
-
-  @override
-  String toString() {
-    return 'AnimeSelectorEvent.updateSearchText(searchText: $searchText)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_UpdateSearchText &&
-            (identical(other.searchText, searchText) ||
-                other.searchText == searchText));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, searchText);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_UpdateSearchTextCopyWith<_$_UpdateSearchText> get copyWith =>
-      __$$_UpdateSearchTextCopyWithImpl<_$_UpdateSearchText>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() enterSearchMode,
-    required TResult Function() exitSearchMode,
-    required TResult Function(String searchText) updateSearchText,
-    required TResult Function() resetSearchText,
-    required TResult Function(AnimeModel anime) selectAnime,
-    required TResult Function(String description) setDescription,
-  }) {
-    return updateSearchText(searchText);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? enterSearchMode,
-    TResult? Function()? exitSearchMode,
-    TResult? Function(String searchText)? updateSearchText,
-    TResult? Function()? resetSearchText,
-    TResult? Function(AnimeModel anime)? selectAnime,
-    TResult? Function(String description)? setDescription,
-  }) {
-    return updateSearchText?.call(searchText);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? enterSearchMode,
-    TResult Function()? exitSearchMode,
-    TResult Function(String searchText)? updateSearchText,
-    TResult Function()? resetSearchText,
-    TResult Function(AnimeModel anime)? selectAnime,
-    TResult Function(String description)? setDescription,
-    required TResult orElse(),
-  }) {
-    if (updateSearchText != null) {
-      return updateSearchText(searchText);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_EnterSearchMode value) enterSearchMode,
-    required TResult Function(_ExitSearchMode value) exitSearchMode,
-    required TResult Function(_UpdateSearchText value) updateSearchText,
-    required TResult Function(_ResetSearchText value) resetSearchText,
-    required TResult Function(_SelectAnime value) selectAnime,
-    required TResult Function(_SetDescription value) setDescription,
-  }) {
-    return updateSearchText(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EnterSearchMode value)? enterSearchMode,
-    TResult? Function(_ExitSearchMode value)? exitSearchMode,
-    TResult? Function(_UpdateSearchText value)? updateSearchText,
-    TResult? Function(_ResetSearchText value)? resetSearchText,
-    TResult? Function(_SelectAnime value)? selectAnime,
-    TResult? Function(_SetDescription value)? setDescription,
-  }) {
-    return updateSearchText?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EnterSearchMode value)? enterSearchMode,
-    TResult Function(_ExitSearchMode value)? exitSearchMode,
-    TResult Function(_UpdateSearchText value)? updateSearchText,
-    TResult Function(_ResetSearchText value)? resetSearchText,
-    TResult Function(_SelectAnime value)? selectAnime,
-    TResult Function(_SetDescription value)? setDescription,
-    required TResult orElse(),
-  }) {
-    if (updateSearchText != null) {
-      return updateSearchText(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UpdateSearchText implements AnimeSelectorEvent {
-  factory _UpdateSearchText(final String searchText) = _$_UpdateSearchText;
-
-  String get searchText;
-  @JsonKey(ignore: true)
-  _$$_UpdateSearchTextCopyWith<_$_UpdateSearchText> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_ResetSearchTextCopyWith<$Res> {
-  factory _$$_ResetSearchTextCopyWith(
-          _$_ResetSearchText value, $Res Function(_$_ResetSearchText) then) =
-      __$$_ResetSearchTextCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_ResetSearchTextCopyWithImpl<$Res>
-    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_ResetSearchText>
-    implements _$$_ResetSearchTextCopyWith<$Res> {
-  __$$_ResetSearchTextCopyWithImpl(
-      _$_ResetSearchText _value, $Res Function(_$_ResetSearchText) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_ResetSearchText implements _ResetSearchText {
-  const _$_ResetSearchText();
-
-  @override
-  String toString() {
-    return 'AnimeSelectorEvent.resetSearchText()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ResetSearchText);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() enterSearchMode,
-    required TResult Function() exitSearchMode,
-    required TResult Function(String searchText) updateSearchText,
-    required TResult Function() resetSearchText,
-    required TResult Function(AnimeModel anime) selectAnime,
-    required TResult Function(String description) setDescription,
-  }) {
-    return resetSearchText();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? enterSearchMode,
-    TResult? Function()? exitSearchMode,
-    TResult? Function(String searchText)? updateSearchText,
-    TResult? Function()? resetSearchText,
-    TResult? Function(AnimeModel anime)? selectAnime,
-    TResult? Function(String description)? setDescription,
-  }) {
-    return resetSearchText?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? enterSearchMode,
-    TResult Function()? exitSearchMode,
-    TResult Function(String searchText)? updateSearchText,
-    TResult Function()? resetSearchText,
-    TResult Function(AnimeModel anime)? selectAnime,
-    TResult Function(String description)? setDescription,
-    required TResult orElse(),
-  }) {
-    if (resetSearchText != null) {
-      return resetSearchText();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_EnterSearchMode value) enterSearchMode,
-    required TResult Function(_ExitSearchMode value) exitSearchMode,
-    required TResult Function(_UpdateSearchText value) updateSearchText,
-    required TResult Function(_ResetSearchText value) resetSearchText,
-    required TResult Function(_SelectAnime value) selectAnime,
-    required TResult Function(_SetDescription value) setDescription,
-  }) {
-    return resetSearchText(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EnterSearchMode value)? enterSearchMode,
-    TResult? Function(_ExitSearchMode value)? exitSearchMode,
-    TResult? Function(_UpdateSearchText value)? updateSearchText,
-    TResult? Function(_ResetSearchText value)? resetSearchText,
-    TResult? Function(_SelectAnime value)? selectAnime,
-    TResult? Function(_SetDescription value)? setDescription,
-  }) {
-    return resetSearchText?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EnterSearchMode value)? enterSearchMode,
-    TResult Function(_ExitSearchMode value)? exitSearchMode,
-    TResult Function(_UpdateSearchText value)? updateSearchText,
-    TResult Function(_ResetSearchText value)? resetSearchText,
-    TResult Function(_SelectAnime value)? selectAnime,
-    TResult Function(_SetDescription value)? setDescription,
-    required TResult orElse(),
-  }) {
-    if (resetSearchText != null) {
-      return resetSearchText(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ResetSearchText implements AnimeSelectorEvent {
-  const factory _ResetSearchText() = _$_ResetSearchText;
+abstract class _ToggleSearchMode implements AnimeSelectorEvent {
+  const factory _ToggleSearchMode() = _$_ToggleSearchMode;
 }
 
 /// @nodoc
@@ -640,9 +206,9 @@ abstract class _$$_SelectAnimeCopyWith<$Res> {
           _$_SelectAnime value, $Res Function(_$_SelectAnime) then) =
       __$$_SelectAnimeCopyWithImpl<$Res>;
   @useResult
-  $Res call({AnimeModel anime});
+  $Res call({AnimeModel selectedAnime});
 
-  $AnimeModelCopyWith<$Res> get anime;
+  $AnimeModelCopyWith<$Res> get selectedAnime;
 }
 
 /// @nodoc
@@ -656,673 +222,13 @@ class __$$_SelectAnimeCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? anime = null,
+    Object? selectedAnime = null,
   }) {
     return _then(_$_SelectAnime(
-      null == anime
-          ? _value.anime
-          : anime // ignore: cast_nullable_to_non_nullable
-              as AnimeModel,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AnimeModelCopyWith<$Res> get anime {
-    return $AnimeModelCopyWith<$Res>(_value.anime, (value) {
-      return _then(_value.copyWith(anime: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_SelectAnime implements _SelectAnime {
-  const _$_SelectAnime(this.anime);
-
-  @override
-  final AnimeModel anime;
-
-  @override
-  String toString() {
-    return 'AnimeSelectorEvent.selectAnime(anime: $anime)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_SelectAnime &&
-            (identical(other.anime, anime) || other.anime == anime));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, anime);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SelectAnimeCopyWith<_$_SelectAnime> get copyWith =>
-      __$$_SelectAnimeCopyWithImpl<_$_SelectAnime>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() enterSearchMode,
-    required TResult Function() exitSearchMode,
-    required TResult Function(String searchText) updateSearchText,
-    required TResult Function() resetSearchText,
-    required TResult Function(AnimeModel anime) selectAnime,
-    required TResult Function(String description) setDescription,
-  }) {
-    return selectAnime(anime);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? enterSearchMode,
-    TResult? Function()? exitSearchMode,
-    TResult? Function(String searchText)? updateSearchText,
-    TResult? Function()? resetSearchText,
-    TResult? Function(AnimeModel anime)? selectAnime,
-    TResult? Function(String description)? setDescription,
-  }) {
-    return selectAnime?.call(anime);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? enterSearchMode,
-    TResult Function()? exitSearchMode,
-    TResult Function(String searchText)? updateSearchText,
-    TResult Function()? resetSearchText,
-    TResult Function(AnimeModel anime)? selectAnime,
-    TResult Function(String description)? setDescription,
-    required TResult orElse(),
-  }) {
-    if (selectAnime != null) {
-      return selectAnime(anime);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_EnterSearchMode value) enterSearchMode,
-    required TResult Function(_ExitSearchMode value) exitSearchMode,
-    required TResult Function(_UpdateSearchText value) updateSearchText,
-    required TResult Function(_ResetSearchText value) resetSearchText,
-    required TResult Function(_SelectAnime value) selectAnime,
-    required TResult Function(_SetDescription value) setDescription,
-  }) {
-    return selectAnime(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EnterSearchMode value)? enterSearchMode,
-    TResult? Function(_ExitSearchMode value)? exitSearchMode,
-    TResult? Function(_UpdateSearchText value)? updateSearchText,
-    TResult? Function(_ResetSearchText value)? resetSearchText,
-    TResult? Function(_SelectAnime value)? selectAnime,
-    TResult? Function(_SetDescription value)? setDescription,
-  }) {
-    return selectAnime?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EnterSearchMode value)? enterSearchMode,
-    TResult Function(_ExitSearchMode value)? exitSearchMode,
-    TResult Function(_UpdateSearchText value)? updateSearchText,
-    TResult Function(_ResetSearchText value)? resetSearchText,
-    TResult Function(_SelectAnime value)? selectAnime,
-    TResult Function(_SetDescription value)? setDescription,
-    required TResult orElse(),
-  }) {
-    if (selectAnime != null) {
-      return selectAnime(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SelectAnime implements AnimeSelectorEvent {
-  const factory _SelectAnime(final AnimeModel anime) = _$_SelectAnime;
-
-  AnimeModel get anime;
-  @JsonKey(ignore: true)
-  _$$_SelectAnimeCopyWith<_$_SelectAnime> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_SetDescriptionCopyWith<$Res> {
-  factory _$$_SetDescriptionCopyWith(
-          _$_SetDescription value, $Res Function(_$_SetDescription) then) =
-      __$$_SetDescriptionCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String description});
-}
-
-/// @nodoc
-class __$$_SetDescriptionCopyWithImpl<$Res>
-    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_SetDescription>
-    implements _$$_SetDescriptionCopyWith<$Res> {
-  __$$_SetDescriptionCopyWithImpl(
-      _$_SetDescription _value, $Res Function(_$_SetDescription) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? description = null,
-  }) {
-    return _then(_$_SetDescription(
-      null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_SetDescription implements _SetDescription {
-  const _$_SetDescription(this.description);
-
-  @override
-  final String description;
-
-  @override
-  String toString() {
-    return 'AnimeSelectorEvent.setDescription(description: $description)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_SetDescription &&
-            (identical(other.description, description) ||
-                other.description == description));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, description);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SetDescriptionCopyWith<_$_SetDescription> get copyWith =>
-      __$$_SetDescriptionCopyWithImpl<_$_SetDescription>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() enterSearchMode,
-    required TResult Function() exitSearchMode,
-    required TResult Function(String searchText) updateSearchText,
-    required TResult Function() resetSearchText,
-    required TResult Function(AnimeModel anime) selectAnime,
-    required TResult Function(String description) setDescription,
-  }) {
-    return setDescription(description);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? enterSearchMode,
-    TResult? Function()? exitSearchMode,
-    TResult? Function(String searchText)? updateSearchText,
-    TResult? Function()? resetSearchText,
-    TResult? Function(AnimeModel anime)? selectAnime,
-    TResult? Function(String description)? setDescription,
-  }) {
-    return setDescription?.call(description);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? enterSearchMode,
-    TResult Function()? exitSearchMode,
-    TResult Function(String searchText)? updateSearchText,
-    TResult Function()? resetSearchText,
-    TResult Function(AnimeModel anime)? selectAnime,
-    TResult Function(String description)? setDescription,
-    required TResult orElse(),
-  }) {
-    if (setDescription != null) {
-      return setDescription(description);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_EnterSearchMode value) enterSearchMode,
-    required TResult Function(_ExitSearchMode value) exitSearchMode,
-    required TResult Function(_UpdateSearchText value) updateSearchText,
-    required TResult Function(_ResetSearchText value) resetSearchText,
-    required TResult Function(_SelectAnime value) selectAnime,
-    required TResult Function(_SetDescription value) setDescription,
-  }) {
-    return setDescription(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_EnterSearchMode value)? enterSearchMode,
-    TResult? Function(_ExitSearchMode value)? exitSearchMode,
-    TResult? Function(_UpdateSearchText value)? updateSearchText,
-    TResult? Function(_ResetSearchText value)? resetSearchText,
-    TResult? Function(_SelectAnime value)? selectAnime,
-    TResult? Function(_SetDescription value)? setDescription,
-  }) {
-    return setDescription?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_EnterSearchMode value)? enterSearchMode,
-    TResult Function(_ExitSearchMode value)? exitSearchMode,
-    TResult Function(_UpdateSearchText value)? updateSearchText,
-    TResult Function(_ResetSearchText value)? resetSearchText,
-    TResult Function(_SelectAnime value)? selectAnime,
-    TResult Function(_SetDescription value)? setDescription,
-    required TResult orElse(),
-  }) {
-    if (setDescription != null) {
-      return setDescription(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SetDescription implements AnimeSelectorEvent {
-  const factory _SetDescription(final String description) = _$_SetDescription;
-
-  String get description;
-  @JsonKey(ignore: true)
-  _$$_SetDescriptionCopyWith<_$_SetDescription> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-mixin _$AnimeSelectorState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(bool isInSearchMode, String searchText)
-        searchMode,
-    required TResult Function(AnimeModel selectedAnime, String description)
-        animeInput,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(bool isInSearchMode, String searchText)? searchMode,
-    TResult? Function(AnimeModel selectedAnime, String description)? animeInput,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool isInSearchMode, String searchText)? searchMode,
-    TResult Function(AnimeModel selectedAnime, String description)? animeInput,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_SearchMode value) searchMode,
-    required TResult Function(_AnimeInput value) animeInput,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_SearchMode value)? searchMode,
-    TResult? Function(_AnimeInput value)? animeInput,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_SearchMode value)? searchMode,
-    TResult Function(_AnimeInput value)? animeInput,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $AnimeSelectorStateCopyWith<$Res> {
-  factory $AnimeSelectorStateCopyWith(
-          AnimeSelectorState value, $Res Function(AnimeSelectorState) then) =
-      _$AnimeSelectorStateCopyWithImpl<$Res, AnimeSelectorState>;
-}
-
-/// @nodoc
-class _$AnimeSelectorStateCopyWithImpl<$Res, $Val extends AnimeSelectorState>
-    implements $AnimeSelectorStateCopyWith<$Res> {
-  _$AnimeSelectorStateCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$_InitialCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$AnimeSelectorStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_Initial implements _Initial {
-  const _$_Initial();
-
-  @override
-  String toString() {
-    return 'AnimeSelectorState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Initial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(bool isInSearchMode, String searchText)
-        searchMode,
-    required TResult Function(AnimeModel selectedAnime, String description)
-        animeInput,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(bool isInSearchMode, String searchText)? searchMode,
-    TResult? Function(AnimeModel selectedAnime, String description)? animeInput,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool isInSearchMode, String searchText)? searchMode,
-    TResult Function(AnimeModel selectedAnime, String description)? animeInput,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_SearchMode value) searchMode,
-    required TResult Function(_AnimeInput value) animeInput,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_SearchMode value)? searchMode,
-    TResult? Function(_AnimeInput value)? animeInput,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_SearchMode value)? searchMode,
-    TResult Function(_AnimeInput value)? animeInput,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Initial implements AnimeSelectorState {
-  const factory _Initial() = _$_Initial;
-}
-
-/// @nodoc
-abstract class _$$_SearchModeCopyWith<$Res> {
-  factory _$$_SearchModeCopyWith(
-          _$_SearchMode value, $Res Function(_$_SearchMode) then) =
-      __$$_SearchModeCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool isInSearchMode, String searchText});
-}
-
-/// @nodoc
-class __$$_SearchModeCopyWithImpl<$Res>
-    extends _$AnimeSelectorStateCopyWithImpl<$Res, _$_SearchMode>
-    implements _$$_SearchModeCopyWith<$Res> {
-  __$$_SearchModeCopyWithImpl(
-      _$_SearchMode _value, $Res Function(_$_SearchMode) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isInSearchMode = null,
-    Object? searchText = null,
-  }) {
-    return _then(_$_SearchMode(
-      null == isInSearchMode
-          ? _value.isInSearchMode
-          : isInSearchMode // ignore: cast_nullable_to_non_nullable
-              as bool,
-      null == searchText
-          ? _value.searchText
-          : searchText // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_SearchMode implements _SearchMode {
-  const _$_SearchMode(this.isInSearchMode, this.searchText);
-
-  @override
-  final bool isInSearchMode;
-  @override
-  final String searchText;
-
-  @override
-  String toString() {
-    return 'AnimeSelectorState.searchMode(isInSearchMode: $isInSearchMode, searchText: $searchText)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_SearchMode &&
-            (identical(other.isInSearchMode, isInSearchMode) ||
-                other.isInSearchMode == isInSearchMode) &&
-            (identical(other.searchText, searchText) ||
-                other.searchText == searchText));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, isInSearchMode, searchText);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SearchModeCopyWith<_$_SearchMode> get copyWith =>
-      __$$_SearchModeCopyWithImpl<_$_SearchMode>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(bool isInSearchMode, String searchText)
-        searchMode,
-    required TResult Function(AnimeModel selectedAnime, String description)
-        animeInput,
-  }) {
-    return searchMode(isInSearchMode, searchText);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(bool isInSearchMode, String searchText)? searchMode,
-    TResult? Function(AnimeModel selectedAnime, String description)? animeInput,
-  }) {
-    return searchMode?.call(isInSearchMode, searchText);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool isInSearchMode, String searchText)? searchMode,
-    TResult Function(AnimeModel selectedAnime, String description)? animeInput,
-    required TResult orElse(),
-  }) {
-    if (searchMode != null) {
-      return searchMode(isInSearchMode, searchText);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_SearchMode value) searchMode,
-    required TResult Function(_AnimeInput value) animeInput,
-  }) {
-    return searchMode(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_SearchMode value)? searchMode,
-    TResult? Function(_AnimeInput value)? animeInput,
-  }) {
-    return searchMode?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_SearchMode value)? searchMode,
-    TResult Function(_AnimeInput value)? animeInput,
-    required TResult orElse(),
-  }) {
-    if (searchMode != null) {
-      return searchMode(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SearchMode implements AnimeSelectorState {
-  const factory _SearchMode(
-      final bool isInSearchMode, final String searchText) = _$_SearchMode;
-
-  bool get isInSearchMode;
-  String get searchText;
-  @JsonKey(ignore: true)
-  _$$_SearchModeCopyWith<_$_SearchMode> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_AnimeInputCopyWith<$Res> {
-  factory _$$_AnimeInputCopyWith(
-          _$_AnimeInput value, $Res Function(_$_AnimeInput) then) =
-      __$$_AnimeInputCopyWithImpl<$Res>;
-  @useResult
-  $Res call({AnimeModel selectedAnime, String description});
-
-  $AnimeModelCopyWith<$Res> get selectedAnime;
-}
-
-/// @nodoc
-class __$$_AnimeInputCopyWithImpl<$Res>
-    extends _$AnimeSelectorStateCopyWithImpl<$Res, _$_AnimeInput>
-    implements _$$_AnimeInputCopyWith<$Res> {
-  __$$_AnimeInputCopyWithImpl(
-      _$_AnimeInput _value, $Res Function(_$_AnimeInput) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? selectedAnime = null,
-    Object? description = null,
-  }) {
-    return _then(_$_AnimeInput(
       null == selectedAnime
           ? _value.selectedAnime
           : selectedAnime // ignore: cast_nullable_to_non_nullable
               as AnimeModel,
-      null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 
@@ -1337,71 +243,68 @@ class __$$_AnimeInputCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnimeInput implements _AnimeInput {
-  const _$_AnimeInput(this.selectedAnime, this.description);
+class _$_SelectAnime implements _SelectAnime {
+  const _$_SelectAnime(this.selectedAnime);
 
   @override
   final AnimeModel selectedAnime;
-  @override
-  final String description;
 
   @override
   String toString() {
-    return 'AnimeSelectorState.animeInput(selectedAnime: $selectedAnime, description: $description)';
+    return 'AnimeSelectorEvent.selectAnime(selectedAnime: $selectedAnime)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AnimeInput &&
+            other is _$_SelectAnime &&
             (identical(other.selectedAnime, selectedAnime) ||
-                other.selectedAnime == selectedAnime) &&
-            (identical(other.description, description) ||
-                other.description == description));
+                other.selectedAnime == selectedAnime));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, selectedAnime, description);
+  int get hashCode => Object.hash(runtimeType, selectedAnime);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AnimeInputCopyWith<_$_AnimeInput> get copyWith =>
-      __$$_AnimeInputCopyWithImpl<_$_AnimeInput>(this, _$identity);
+  _$$_SelectAnimeCopyWith<_$_SelectAnime> get copyWith =>
+      __$$_SelectAnimeCopyWithImpl<_$_SelectAnime>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function(bool isInSearchMode, String searchText)
-        searchMode,
-    required TResult Function(AnimeModel selectedAnime, String description)
-        animeInput,
+    required TResult Function() toggleSearchMode,
+    required TResult Function(AnimeModel selectedAnime) selectAnime,
+    required TResult Function(String description) updateDescription,
+    required TResult Function(String query) performSearch,
   }) {
-    return animeInput(selectedAnime, description);
+    return selectAnime(selectedAnime);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function(bool isInSearchMode, String searchText)? searchMode,
-    TResult? Function(AnimeModel selectedAnime, String description)? animeInput,
+    TResult? Function()? toggleSearchMode,
+    TResult? Function(AnimeModel selectedAnime)? selectAnime,
+    TResult? Function(String description)? updateDescription,
+    TResult? Function(String query)? performSearch,
   }) {
-    return animeInput?.call(selectedAnime, description);
+    return selectAnime?.call(selectedAnime);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function(bool isInSearchMode, String searchText)? searchMode,
-    TResult Function(AnimeModel selectedAnime, String description)? animeInput,
+    TResult Function()? toggleSearchMode,
+    TResult Function(AnimeModel selectedAnime)? selectAnime,
+    TResult Function(String description)? updateDescription,
+    TResult Function(String query)? performSearch,
     required TResult orElse(),
   }) {
-    if (animeInput != null) {
-      return animeInput(selectedAnime, description);
+    if (selectAnime != null) {
+      return selectAnime(selectedAnime);
     }
     return orElse();
   }
@@ -1409,45 +312,517 @@ class _$_AnimeInput implements _AnimeInput {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_SearchMode value) searchMode,
-    required TResult Function(_AnimeInput value) animeInput,
+    required TResult Function(_ToggleSearchMode value) toggleSearchMode,
+    required TResult Function(_SelectAnime value) selectAnime,
+    required TResult Function(_UpdateDescription value) updateDescription,
+    required TResult Function(_PerformSearch value) performSearch,
   }) {
-    return animeInput(this);
+    return selectAnime(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_SearchMode value)? searchMode,
-    TResult? Function(_AnimeInput value)? animeInput,
+    TResult? Function(_ToggleSearchMode value)? toggleSearchMode,
+    TResult? Function(_SelectAnime value)? selectAnime,
+    TResult? Function(_UpdateDescription value)? updateDescription,
+    TResult? Function(_PerformSearch value)? performSearch,
   }) {
-    return animeInput?.call(this);
+    return selectAnime?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_SearchMode value)? searchMode,
-    TResult Function(_AnimeInput value)? animeInput,
+    TResult Function(_ToggleSearchMode value)? toggleSearchMode,
+    TResult Function(_SelectAnime value)? selectAnime,
+    TResult Function(_UpdateDescription value)? updateDescription,
+    TResult Function(_PerformSearch value)? performSearch,
     required TResult orElse(),
   }) {
-    if (animeInput != null) {
-      return animeInput(this);
+    if (selectAnime != null) {
+      return selectAnime(this);
     }
     return orElse();
   }
 }
 
-abstract class _AnimeInput implements AnimeSelectorState {
-  const factory _AnimeInput(
-      final AnimeModel selectedAnime, final String description) = _$_AnimeInput;
+abstract class _SelectAnime implements AnimeSelectorEvent {
+  const factory _SelectAnime(final AnimeModel selectedAnime) = _$_SelectAnime;
 
   AnimeModel get selectedAnime;
+  @JsonKey(ignore: true)
+  _$$_SelectAnimeCopyWith<_$_SelectAnime> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_UpdateDescriptionCopyWith<$Res> {
+  factory _$$_UpdateDescriptionCopyWith(_$_UpdateDescription value,
+          $Res Function(_$_UpdateDescription) then) =
+      __$$_UpdateDescriptionCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String description});
+}
+
+/// @nodoc
+class __$$_UpdateDescriptionCopyWithImpl<$Res>
+    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_UpdateDescription>
+    implements _$$_UpdateDescriptionCopyWith<$Res> {
+  __$$_UpdateDescriptionCopyWithImpl(
+      _$_UpdateDescription _value, $Res Function(_$_UpdateDescription) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? description = null,
+  }) {
+    return _then(_$_UpdateDescription(
+      null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateDescription implements _UpdateDescription {
+  const _$_UpdateDescription(this.description);
+
+  @override
+  final String description;
+
+  @override
+  String toString() {
+    return 'AnimeSelectorEvent.updateDescription(description: $description)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdateDescription &&
+            (identical(other.description, description) ||
+                other.description == description));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, description);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdateDescriptionCopyWith<_$_UpdateDescription> get copyWith =>
+      __$$_UpdateDescriptionCopyWithImpl<_$_UpdateDescription>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() toggleSearchMode,
+    required TResult Function(AnimeModel selectedAnime) selectAnime,
+    required TResult Function(String description) updateDescription,
+    required TResult Function(String query) performSearch,
+  }) {
+    return updateDescription(description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? toggleSearchMode,
+    TResult? Function(AnimeModel selectedAnime)? selectAnime,
+    TResult? Function(String description)? updateDescription,
+    TResult? Function(String query)? performSearch,
+  }) {
+    return updateDescription?.call(description);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? toggleSearchMode,
+    TResult Function(AnimeModel selectedAnime)? selectAnime,
+    TResult Function(String description)? updateDescription,
+    TResult Function(String query)? performSearch,
+    required TResult orElse(),
+  }) {
+    if (updateDescription != null) {
+      return updateDescription(description);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ToggleSearchMode value) toggleSearchMode,
+    required TResult Function(_SelectAnime value) selectAnime,
+    required TResult Function(_UpdateDescription value) updateDescription,
+    required TResult Function(_PerformSearch value) performSearch,
+  }) {
+    return updateDescription(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ToggleSearchMode value)? toggleSearchMode,
+    TResult? Function(_SelectAnime value)? selectAnime,
+    TResult? Function(_UpdateDescription value)? updateDescription,
+    TResult? Function(_PerformSearch value)? performSearch,
+  }) {
+    return updateDescription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ToggleSearchMode value)? toggleSearchMode,
+    TResult Function(_SelectAnime value)? selectAnime,
+    TResult Function(_UpdateDescription value)? updateDescription,
+    TResult Function(_PerformSearch value)? performSearch,
+    required TResult orElse(),
+  }) {
+    if (updateDescription != null) {
+      return updateDescription(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateDescription implements AnimeSelectorEvent {
+  const factory _UpdateDescription(final String description) =
+      _$_UpdateDescription;
+
   String get description;
   @JsonKey(ignore: true)
-  _$$_AnimeInputCopyWith<_$_AnimeInput> get copyWith =>
+  _$$_UpdateDescriptionCopyWith<_$_UpdateDescription> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_PerformSearchCopyWith<$Res> {
+  factory _$$_PerformSearchCopyWith(
+          _$_PerformSearch value, $Res Function(_$_PerformSearch) then) =
+      __$$_PerformSearchCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String query});
+}
+
+/// @nodoc
+class __$$_PerformSearchCopyWithImpl<$Res>
+    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_PerformSearch>
+    implements _$$_PerformSearchCopyWith<$Res> {
+  __$$_PerformSearchCopyWithImpl(
+      _$_PerformSearch _value, $Res Function(_$_PerformSearch) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? query = null,
+  }) {
+    return _then(_$_PerformSearch(
+      null == query
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PerformSearch implements _PerformSearch {
+  const _$_PerformSearch(this.query);
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'AnimeSelectorEvent.performSearch(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PerformSearch &&
+            (identical(other.query, query) || other.query == query));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, query);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_PerformSearchCopyWith<_$_PerformSearch> get copyWith =>
+      __$$_PerformSearchCopyWithImpl<_$_PerformSearch>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() toggleSearchMode,
+    required TResult Function(AnimeModel selectedAnime) selectAnime,
+    required TResult Function(String description) updateDescription,
+    required TResult Function(String query) performSearch,
+  }) {
+    return performSearch(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? toggleSearchMode,
+    TResult? Function(AnimeModel selectedAnime)? selectAnime,
+    TResult? Function(String description)? updateDescription,
+    TResult? Function(String query)? performSearch,
+  }) {
+    return performSearch?.call(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? toggleSearchMode,
+    TResult Function(AnimeModel selectedAnime)? selectAnime,
+    TResult Function(String description)? updateDescription,
+    TResult Function(String query)? performSearch,
+    required TResult orElse(),
+  }) {
+    if (performSearch != null) {
+      return performSearch(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ToggleSearchMode value) toggleSearchMode,
+    required TResult Function(_SelectAnime value) selectAnime,
+    required TResult Function(_UpdateDescription value) updateDescription,
+    required TResult Function(_PerformSearch value) performSearch,
+  }) {
+    return performSearch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ToggleSearchMode value)? toggleSearchMode,
+    TResult? Function(_SelectAnime value)? selectAnime,
+    TResult? Function(_UpdateDescription value)? updateDescription,
+    TResult? Function(_PerformSearch value)? performSearch,
+  }) {
+    return performSearch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ToggleSearchMode value)? toggleSearchMode,
+    TResult Function(_SelectAnime value)? selectAnime,
+    TResult Function(_UpdateDescription value)? updateDescription,
+    TResult Function(_PerformSearch value)? performSearch,
+    required TResult orElse(),
+  }) {
+    if (performSearch != null) {
+      return performSearch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PerformSearch implements AnimeSelectorEvent {
+  const factory _PerformSearch(final String query) = _$_PerformSearch;
+
+  String get query;
+  @JsonKey(ignore: true)
+  _$$_PerformSearchCopyWith<_$_PerformSearch> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$AnimeSelectorState {
+  bool get isSearchMode => throw _privateConstructorUsedError;
+  AnimeModel? get selectedAnime => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AnimeSelectorStateCopyWith<AnimeSelectorState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AnimeSelectorStateCopyWith<$Res> {
+  factory $AnimeSelectorStateCopyWith(
+          AnimeSelectorState value, $Res Function(AnimeSelectorState) then) =
+      _$AnimeSelectorStateCopyWithImpl<$Res, AnimeSelectorState>;
+  @useResult
+  $Res call(
+      {bool isSearchMode, AnimeModel? selectedAnime, String? description});
+
+  $AnimeModelCopyWith<$Res>? get selectedAnime;
+}
+
+/// @nodoc
+class _$AnimeSelectorStateCopyWithImpl<$Res, $Val extends AnimeSelectorState>
+    implements $AnimeSelectorStateCopyWith<$Res> {
+  _$AnimeSelectorStateCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isSearchMode = null,
+    Object? selectedAnime = freezed,
+    Object? description = freezed,
+  }) {
+    return _then(_value.copyWith(
+      isSearchMode: null == isSearchMode
+          ? _value.isSearchMode
+          : isSearchMode // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedAnime: freezed == selectedAnime
+          ? _value.selectedAnime
+          : selectedAnime // ignore: cast_nullable_to_non_nullable
+              as AnimeModel?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AnimeModelCopyWith<$Res>? get selectedAnime {
+    if (_value.selectedAnime == null) {
+      return null;
+    }
+
+    return $AnimeModelCopyWith<$Res>(_value.selectedAnime!, (value) {
+      return _then(_value.copyWith(selectedAnime: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_AnimeSelectorStateCopyWith<$Res>
+    implements $AnimeSelectorStateCopyWith<$Res> {
+  factory _$$_AnimeSelectorStateCopyWith(_$_AnimeSelectorState value,
+          $Res Function(_$_AnimeSelectorState) then) =
+      __$$_AnimeSelectorStateCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {bool isSearchMode, AnimeModel? selectedAnime, String? description});
+
+  @override
+  $AnimeModelCopyWith<$Res>? get selectedAnime;
+}
+
+/// @nodoc
+class __$$_AnimeSelectorStateCopyWithImpl<$Res>
+    extends _$AnimeSelectorStateCopyWithImpl<$Res, _$_AnimeSelectorState>
+    implements _$$_AnimeSelectorStateCopyWith<$Res> {
+  __$$_AnimeSelectorStateCopyWithImpl(
+      _$_AnimeSelectorState _value, $Res Function(_$_AnimeSelectorState) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? isSearchMode = null,
+    Object? selectedAnime = freezed,
+    Object? description = freezed,
+  }) {
+    return _then(_$_AnimeSelectorState(
+      isSearchMode: null == isSearchMode
+          ? _value.isSearchMode
+          : isSearchMode // ignore: cast_nullable_to_non_nullable
+              as bool,
+      selectedAnime: freezed == selectedAnime
+          ? _value.selectedAnime
+          : selectedAnime // ignore: cast_nullable_to_non_nullable
+              as AnimeModel?,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AnimeSelectorState implements _AnimeSelectorState {
+  const _$_AnimeSelectorState(
+      {this.isSearchMode = false, this.selectedAnime, this.description});
+
+  @override
+  @JsonKey()
+  final bool isSearchMode;
+  @override
+  final AnimeModel? selectedAnime;
+  @override
+  final String? description;
+
+  @override
+  String toString() {
+    return 'AnimeSelectorState(isSearchMode: $isSearchMode, selectedAnime: $selectedAnime, description: $description)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AnimeSelectorState &&
+            (identical(other.isSearchMode, isSearchMode) ||
+                other.isSearchMode == isSearchMode) &&
+            (identical(other.selectedAnime, selectedAnime) ||
+                other.selectedAnime == selectedAnime) &&
+            (identical(other.description, description) ||
+                other.description == description));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, isSearchMode, selectedAnime, description);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_AnimeSelectorStateCopyWith<_$_AnimeSelectorState> get copyWith =>
+      __$$_AnimeSelectorStateCopyWithImpl<_$_AnimeSelectorState>(
+          this, _$identity);
+}
+
+abstract class _AnimeSelectorState implements AnimeSelectorState {
+  const factory _AnimeSelectorState(
+      {final bool isSearchMode,
+      final AnimeModel? selectedAnime,
+      final String? description}) = _$_AnimeSelectorState;
+
+  @override
+  bool get isSearchMode;
+  @override
+  AnimeModel? get selectedAnime;
+  @override
+  String? get description;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AnimeSelectorStateCopyWith<_$_AnimeSelectorState> get copyWith =>
       throw _privateConstructorUsedError;
 }

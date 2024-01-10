@@ -102,8 +102,8 @@ class ChatBottomSheetContent extends StatelessWidget {
 
     if (item.id == "03") {
       // Animes
-      return AnimeSelector(onAnimeSelected: (anime) {
-        _selectAnime(context, anime);
+      return AnimeSelector(onAnimeRecommendaytionSent: (anime, description) {
+        _sendAnime(context, anime, description);
       });
     }
 
@@ -126,7 +126,7 @@ class ChatBottomSheetContent extends StatelessWidget {
     ));
   }
 
-  void _selectAnime(BuildContext context, AnimeModel anime) {
+  void _sendAnime(BuildContext context, AnimeModel anime, String description) {
     // TODO: Implement anime selection
   }
 }
