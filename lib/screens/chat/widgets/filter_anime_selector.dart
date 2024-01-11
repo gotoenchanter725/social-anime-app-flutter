@@ -5,16 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
-import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/bloc/favorite_anime_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class FilterAnimeSelector extends StatelessWidget {
-  final void Function(AnimeModel, String) onAnimeRecommendaytionSent;
-
-  const FilterAnimeSelector(
-      {super.key, required this.onAnimeRecommendaytionSent});
+  const FilterAnimeSelector({super.key});
 
   @override
   Widget build(BuildContext context) {

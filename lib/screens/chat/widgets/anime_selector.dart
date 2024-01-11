@@ -15,9 +15,9 @@ import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class AnimeSelector extends StatelessWidget {
-  final void Function(AnimeModel, String) onAnimeRecommendaytionSent;
+  final void Function(AnimeModel, String) onAnimeRecommendationSent;
 
-  const AnimeSelector({super.key, required this.onAnimeRecommendaytionSent});
+  const AnimeSelector({super.key, required this.onAnimeRecommendationSent});
 
   @override
   Widget build(BuildContext context) {
@@ -32,20 +32,119 @@ class AnimeSelector extends StatelessWidget {
   Widget _buildAnimeSelectorContent(BuildContext context) {
     return BlocBuilder<AnimeSelectorBloc, AnimeSelectorState>(
       builder: (context, state) {
-        return Column(
+        return Stack(
           children: [
-            _buildAnimeSelectorMainContent(context, state),
+            Column(
+              children: [
+                _buildAnimeSelectorMainContent(context, state),
+              ],
+            ),
+            _buildDescriptionInput(context, state),
           ],
         );
       },
     );
   }
 
+  Widget _buildDescriptionInput(
+      BuildContext context, AnimeSelectorState state) {
+    if (state.selectedAnime == null) {
+      return const SizedBox.shrink();
+    }
+
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        width: double.infinity,
+        height: getSize(context).height * 0.08867,
+        padding: EdgeInsets.symmetric(
+          horizontal: $constants.insets.sm,
+          vertical: $constants.insets.sm,
+        ),
+        decoration: BoxDecoration(
+          color: $constants.palette.buttonBorder,
+          border: Border(
+            top: BorderSide(
+              color: $constants.palette.darkGrey,
+              width: 1,
+            ),
+          ),
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: TextField(
+                maxLines: null,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: $constants.palette.lightBlue,
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: $constants.insets.sm,
+                    vertical: $constants.insets.xxs,
+                  ),
+                  hintText: TextConstants.animeDescriptionHint,
+                  hintStyle: getTextTheme(context).bodySmall?.copyWith(
+                        color: $constants.palette.darkGrey,
+                      ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular($constants.corners.xxl),
+                    borderSide: BorderSide.none, // No border
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular($constants.corners.xxl),
+                    borderSide: BorderSide.none,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular($constants.corners.xxl),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+                style: getTextTheme(context).bodyMedium?.copyWith(
+                      color: $constants.palette.white,
+                    ),
+                onChanged: (value) {
+                  BlocProvider.of<AnimeSelectorBloc>(context)
+                      .add(AnimeSelectorEvent.updateDescription(value));
+                },
+              ),
+            ),
+            SizedBox(width: $constants.insets.sm),
+            GestureDetector(
+              onTap: () {
+                // Handle button tap
+                final AnimeSelectorBloc bloc =
+                    BlocProvider.of<AnimeSelectorBloc>(context);
+                onAnimeRecommendationSent(
+                    bloc.state.selectedAnime!, bloc.state.description ?? "");
+              },
+              child: Container(
+                width: $constants.sizes.smallButtonWidth,
+                height: $constants.sizes.smallButtonHeight,
+                decoration: BoxDecoration(
+                  color: $constants.palette.pink,
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
+                child: Center(
+                  child: Text(
+                    TextConstants.sendButton,
+                    style: getTextTheme(context).bodySmall?.copyWith(
+                          color: $constants.palette.white,
+                          fontWeight: FontWeight.w600,
+                        ),
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildAnimeSelectorMainContent(
       BuildContext context, AnimeSelectorState state) {
     if (state.isSearchMode) {
-      return FilterAnimeSelector(
-          onAnimeRecommendaytionSent: onAnimeRecommendaytionSent);
+      return const FilterAnimeSelector();
     }
 
     return _buildFavouriteAnimeSelectorContent(context);

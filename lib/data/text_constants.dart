@@ -117,6 +117,7 @@ class TextConstants {
   static const String failedToSendMessageText = "Failed to send message";
   static const String failedToUpdateMessageText =
       "Failed to add reaction to message";
+  static const String animeDescriptionHint = "Add a description";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";

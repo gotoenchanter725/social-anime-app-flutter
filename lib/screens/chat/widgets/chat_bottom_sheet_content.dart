@@ -102,7 +102,7 @@ class ChatBottomSheetContent extends StatelessWidget {
 
     if (item.id == "03") {
       // Animes
-      return AnimeSelector(onAnimeRecommendaytionSent: (anime, description) {
+      return AnimeSelector(onAnimeRecommendationSent: (anime, description) {
         _sendAnime(context, anime, description);
       });
     }
@@ -127,7 +127,22 @@ class ChatBottomSheetContent extends StatelessWidget {
   }
 
   void _sendAnime(BuildContext context, AnimeModel anime, String description) {
-    // TODO: Implement anime selection
+    final BottomSheetBloc bottomSheetBloc =
+        BlocProvider.of<BottomSheetBloc>(context);
+    bottomSheetBloc.hide();
+    onMessageSent(ChatMessage(
+        id: generateRandomId($constants.specials.pendingMessageIdLength),
+        text: description,
+        status: MessageStatus.pending,
+        senderId: currentUser.id,
+        timestamp: DateTime.now(),
+        recommendation: Recommendation(
+          userId: currentUser.id,
+          recommendeeId: receipientUser.id,
+          animeId: anime.id,
+          animeName: anime.title!,
+          animeImageUrl: anime.cover!,
+        )));
   }
 }
 

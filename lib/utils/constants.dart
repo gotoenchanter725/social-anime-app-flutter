@@ -241,4 +241,6 @@ class _API {
 class _Sizes {
   late final double buttonHeight = 28;
   late final double animeTileHeight = 72;
+  late final double smallButtonWidth = 100;
+  late final double smallButtonHeight = 32;
 }
