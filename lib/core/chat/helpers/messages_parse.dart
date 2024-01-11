@@ -36,11 +36,12 @@ class MessagesParser {
         if (message["recommendation"] != null &&
             message["recommendation"]["anime"] != null) {
           recommendation = Recommendation(
-            userId: message["recommendation"]["userId"],
-            recommendeeId: message["recommendation"]["recommendeeId"],
+            userId: message["recommendation"]["userId"].toString(),
+            recommendeeId:
+                message["recommendation"]["recommendeeId"].toString(),
             animeId: message["recommendation"]["anime"]["id"],
-            animeName: message["recommendation"]["anime"]["name"],
-            animeImageUrl: message["recommendation"]["anime"]["imageUrl"],
+            animeName: message["recommendation"]["anime"]["title"],
+            animeImageUrl: message["recommendation"]["anime"]["cover"],
           );
         }
 

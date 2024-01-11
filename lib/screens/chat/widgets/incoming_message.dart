@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:senpai/core/chat/blocs/update_message_bloc.dart';
+import 'package:senpai/core/widgets/anime/anime_tile.dart';
 import 'package:senpai/core/widgets/senpai_emoji.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/chat/bloc/message_reaction_bloc/message_reaction_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -94,6 +96,10 @@ class IncomingMessage extends StatelessWidget {
   }
 
   Widget _buildMessage(BuildContext context) {
+    if (message.recommendation != null) {
+      return _buildAnimeMessage(context);
+    }
+
     if (message.sticker != null) {
       return _buildStickerMessage(context);
     }
@@ -189,6 +195,36 @@ class IncomingMessage extends StatelessWidget {
       width: size,
       height: size,
       fit: BoxFit.contain,
+    );
+  }
+
+  Widget _buildAnimeMessage(BuildContext context) {
+    return _buildChatBubble(
+      context,
+      _buildAnimeWidget(context),
+    );
+  }
+
+  Widget _buildAnimeWidget(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: getSize(context).width * 0.8,
+          child: AnimeTile(
+            anime: AnimeModel(
+              id: message.recommendation!.animeId,
+              cover: message.recommendation!.animeImageUrl,
+              title: message.recommendation!.animeName,
+            ),
+            hasBackground: true,
+          ),
+        ),
+        SizedBox(
+          height: $constants.insets.xs,
+        ),
+        _buildTextWidget(context)
+      ],
     );
   }
 

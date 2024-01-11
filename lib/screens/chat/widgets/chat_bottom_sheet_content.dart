@@ -115,7 +115,6 @@ class ChatBottomSheetContent extends StatelessWidget {
   void _selectSticker(BuildContext context, Sticker sticker) {
     final BottomSheetBloc bottomSheetBloc =
         BlocProvider.of<BottomSheetBloc>(context);
-    bottomSheetBloc.hide();
     onMessageSent(ChatMessage(
       id: generateRandomId($constants.specials.pendingMessageIdLength),
       text: TextConstants.stickerMessageText,
@@ -124,12 +123,13 @@ class ChatBottomSheetContent extends StatelessWidget {
       timestamp: DateTime.now(),
       sticker: sticker,
     ));
+
+    bottomSheetBloc.hide();
   }
 
   void _sendAnime(BuildContext context, AnimeModel anime, String description) {
     final BottomSheetBloc bottomSheetBloc =
         BlocProvider.of<BottomSheetBloc>(context);
-    bottomSheetBloc.hide();
     onMessageSent(ChatMessage(
         id: generateRandomId($constants.specials.pendingMessageIdLength),
         text: description,
@@ -143,6 +143,8 @@ class ChatBottomSheetContent extends StatelessWidget {
           animeName: anime.title!,
           animeImageUrl: anime.cover!,
         )));
+
+    bottomSheetBloc.hide();
   }
 }
 

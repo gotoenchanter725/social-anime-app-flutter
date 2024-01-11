@@ -8,12 +8,14 @@ import 'package:senpai/utils/methods/utils.dart';
 class AnimeTile extends StatelessWidget {
   final AnimeModel anime;
   final bool isActive;
-  final void Function(AnimeModel anime) onTap;
+  final bool hasBackground;
+  final void Function(AnimeModel anime)? onTap;
   const AnimeTile(
       {super.key,
       required this.anime,
-      required this.onTap,
-      this.isActive = false});
+      this.onTap,
+      this.isActive = false,
+      this.hasBackground = false});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class AnimeTile extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular($constants.corners.md),
         shape: BoxShape.rectangle,
+        color: hasBackground ? $constants.palette.darkGrey : Colors.transparent,
         border: Border.all(
           color: isActive ? $constants.palette.pink : Colors.transparent,
           width: 1.0,
@@ -35,9 +38,11 @@ class AnimeTile extends StatelessWidget {
         contentPadding: EdgeInsets.symmetric(
           horizontal: $constants.insets.sm,
         ),
-        onTap: () {
-          onTap(anime);
-        },
+        onTap: onTap != null
+            ? () {
+                onTap!(anime);
+              }
+            : null,
         leading: Container(
           width: 56.0,
           height: 56.0,

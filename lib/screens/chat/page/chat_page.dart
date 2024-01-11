@@ -184,6 +184,7 @@ class ChatPage extends StatelessWidget {
         conversationId: roomArgs.roomId,
         senderId: roomArgs.currentUser.id,
         stickerId: earliestPendingMessage.sticker?.id,
+        recommendedAnimeId: earliestPendingMessage.recommendation?.animeId,
       );
     }
   }
