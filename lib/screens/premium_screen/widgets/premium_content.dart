@@ -68,7 +68,6 @@ class PremiumContent extends StatelessWidget {
         text: TextConstants.premiumUpgradeText,
         onPressed: () {
           print('Premium');
-          openPremiumPurchaseDialog(context);
         },
       ),
     );
