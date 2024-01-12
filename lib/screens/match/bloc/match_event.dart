@@ -16,11 +16,7 @@ class OnChangeViewUserEvent extends MatchEvent {
   OnChangeViewUserEvent({required this.index, required this.userProfileModel});
 }
 
-class OnCancelUserEvent extends MatchEvent {
-  final UserProfileModel user;
-
-  OnCancelUserEvent({required this.user});
-}
+class OnCancelUserEvent extends MatchEvent {}
 
 class OnLikeUserEvent extends MatchEvent {}
 

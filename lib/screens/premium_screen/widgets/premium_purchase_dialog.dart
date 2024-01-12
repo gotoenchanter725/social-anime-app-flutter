@@ -216,14 +216,16 @@ class _PurchaseDialogState extends State<PurchaseDialog> {
               horizontal: $constants.insets.sm,
             ),
             padding: EdgeInsets.symmetric(
+              vertical: $constants.insets.md,
               horizontal: $constants.insets.sm,
             ),
-            height: getSize(context).height * 0.56,
+            // height: getSize(context).height * 0.56,
             decoration: BoxDecoration(
               color: $constants.palette.appBackground,
               borderRadius: BorderRadius.circular($constants.insets.sm),
             ),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -259,17 +261,11 @@ class _PurchaseDialogState extends State<PurchaseDialog> {
                         bloc: bloc,
                       ),
 
-                    // _buttonContainer(context: context, onPressed: () {
-                    //   bloc.add(OnUpdatePlanEvent(planType: 30));
-                    // }, superLikeCount: 30, superLikePrice: 3.99, bloc: bloc),
-                    // _buttonContainer(context: context, onPressed: () {
-                    //   bloc.add(OnUpdatePlanEvent(planType: 50));
-                    // }, superLikeCount: 50, superLikePrice: 3.99, bloc: bloc),
                   ],
                 ),
                 SizedBox(height: $constants.insets.xl),
                 _buildBuyPremiumButton(context, () {
-                  _buy();
+                  // _buy();
                 }),
                 SizedBox(height: $constants.insets.xs),
                 _noThanksButton(context),
@@ -279,113 +275,6 @@ class _PurchaseDialogState extends State<PurchaseDialog> {
         }),
       ),
     );
-    // return BlocListener<PurchaseBloc, PurchaseState>(
-    //     listener: (context, state) {},
-    //   child: Container(
-    //     margin: EdgeInsets.symmetric(
-    //       vertical: $constants.corners.sm,
-    //       horizontal: $constants.insets.sm,
-    //     ),
-    //     padding: EdgeInsets.symmetric(
-    //       horizontal: $constants.insets.sm,
-    //     ),
-    //     height: getSize(context).height * 0.56,
-    //     decoration: BoxDecoration(
-    //       color: $constants.palette.appBackground,
-    //       borderRadius: BorderRadius.circular($constants.insets.sm),
-    //     ),
-    //     child: Column(
-    //       crossAxisAlignment: CrossAxisAlignment.center,
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       children: [
-    //         _buildCrownIcon(
-    //           width: $constants.insets.lg,
-    //           height: $constants.insets.lg,
-    //         ),
-    //         SizedBox(height: $constants.insets.xs),
-    //         Text(
-    //           TextConstants.outOfSuperLikes,
-    //           style: getTextTheme(context).headlineLarge?.copyWith(),
-    //         ),
-    //         SizedBox(height: $constants.insets.xs),
-    //         Text(
-    //           TextConstants.doNotLoseDiamonds,
-    //           style: getTextTheme(context).headlineSmall?.copyWith(
-    //             fontWeight: FontWeight.w500,
-    //           ),
-    //         ),
-    //         SizedBox(height: $constants.insets.md),
-    //         Row(
-    //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //           crossAxisAlignment: CrossAxisAlignment.center,
-    //           children: [
-    //             _buttonContainer(context: context, onPressed: () {}, superLikeCount: 15, superLikePrice: 3.99),
-    //             _buttonContainer(context: context, onPressed: () {}, superLikeCount: 30, superLikePrice: 3.99),
-    //             _buttonContainer(context: context, onPressed: () {}, superLikeCount: 50, superLikePrice: 3.99),
-    //           ],
-    //         ),
-    //         SizedBox(height: $constants.insets.xl),
-    //         _buildBuyPremiumButton(context, () {
-    //           _buy();
-    //         }),
-    //         SizedBox(height: $constants.insets.xs),
-    //         _noThanksButton(context),
-    //       ],
-    //     ),
-    //   ),
-    // );
-    // return Container(
-    //   margin: EdgeInsets.symmetric(
-    //     vertical: $constants.corners.sm,
-    //     horizontal: $constants.insets.sm,
-    //   ),
-    //   padding: EdgeInsets.symmetric(
-    //     horizontal: $constants.insets.sm,
-    //   ),
-    //   height: getSize(context).height * 0.56,
-    //   decoration: BoxDecoration(
-    //     color: $constants.palette.appBackground,
-    //     borderRadius: BorderRadius.circular($constants.insets.sm),
-    //   ),
-    //   child: Column(
-    //     crossAxisAlignment: CrossAxisAlignment.center,
-    //     mainAxisAlignment: MainAxisAlignment.center,
-    //     children: [
-    //       _buildCrownIcon(
-    //         width: $constants.insets.lg,
-    //         height: $constants.insets.lg,
-    //       ),
-    //       SizedBox(height: $constants.insets.xs),
-    //       Text(
-    //         TextConstants.outOfSuperLikes,
-    //         style: getTextTheme(context).headlineLarge?.copyWith(),
-    //       ),
-    //       SizedBox(height: $constants.insets.xs),
-    //       Text(
-    //         TextConstants.doNotLoseDiamonds,
-    //         style: getTextTheme(context).headlineSmall?.copyWith(
-    //           fontWeight: FontWeight.w500,
-    //         ),
-    //       ),
-    //       SizedBox(height: $constants.insets.md),
-    //       Row(
-    //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    //         crossAxisAlignment: CrossAxisAlignment.center,
-    //         children: [
-    //           _buttonContainer(context: context, onPressed: () {}, superLikeCount: 15, superLikePrice: 3.99),
-    //           _buttonContainer(context: context, onPressed: () {}, superLikeCount: 30, superLikePrice: 3.99),
-    //           _buttonContainer(context: context, onPressed: () {}, superLikeCount: 50, superLikePrice: 3.99),
-    //         ],
-    //       ),
-    //       SizedBox(height: $constants.insets.xl),
-    //       _buildBuyPremiumButton(context, () {
-    //        _buy();
-    //       }),
-    //       SizedBox(height: $constants.insets.xs),
-    //       _noThanksButton(context),
-    //     ],
-    //   ),
-    // );
   }
 }
 
@@ -422,7 +311,7 @@ Widget _buttonContainer({
         ),
         padding: const EdgeInsets.all(0)),
     child: Container(
-      // height: 56,
+      height: 130,
       width: getSize(context).width * 0.26,
       alignment: Alignment.center,
       decoration: BoxDecoration(
@@ -432,10 +321,14 @@ Widget _buttonContainer({
       ),
       padding: const EdgeInsets.all(6),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            '${subscriptionPlan.superLikeCount}',
-            style: getTextTheme(context).headlineMedium,
+          FittedBox(
+            child: Text(
+              '${subscriptionPlan.superLikeCount}',
+              style: getTextTheme(context).headlineMedium,
+            ),
           ),
           SizedBox(height: $constants.insets.xs),
           FittedBox(
@@ -443,14 +336,15 @@ Widget _buttonContainer({
               'Super Likes',
               style: getTextTheme(context).headlineSmall!.copyWith(
                 fontWeight: FontWeight.w500,
-                // fontSize: 14
               ),
             ),
           ),
           SizedBox(height: $constants.insets.xs),
-          Text(
-            subscriptionPlan.price,
-            style: getTextTheme(context).headlineMedium,
+          FittedBox(
+            child: Text(
+              subscriptionPlan.price,
+              style: getTextTheme(context).headlineMedium,
+            ),
           ),
         ],
       ),
