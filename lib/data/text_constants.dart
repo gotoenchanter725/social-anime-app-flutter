@@ -118,6 +118,9 @@ class TextConstants {
   static const String failedToUpdateMessageText =
       "Failed to add reaction to message";
   static const String animeDescriptionHint = "Add a description";
+  static const String emptyChatAnimationsSearchTitle = "Oops. No animes found";
+  static const String emptyChatAnimationsSearchText =
+      "Maybe there is a mistake in search?\n Please check and try again";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";

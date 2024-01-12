@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -9,6 +11,15 @@ part 'anime_selector_bloc.freezed.dart';
 
 class AnimeSelectorBloc extends Bloc<AnimeSelectorEvent, AnimeSelectorState> {
   final TextEditingController searchTextController = TextEditingController();
+  static const int delayForDebounce = 500;
+
+  FocusNode searchFocusNode = FocusNode();
+
+  Timer? _debounce;
+
+  void setupSearch() {
+    searchFocusNode.requestFocus();
+  }
 
   AnimeSelectorBloc() : super(AnimeSelectorState.initial()) {
     on<AnimeSelectorEvent>((event, emit) {
@@ -38,9 +49,25 @@ class AnimeSelectorBloc extends Bloc<AnimeSelectorEvent, AnimeSelectorState> {
     });
   }
 
+  performSideEffects(void Function(String) callback) {
+    if (_debounce?.isActive ?? false) {
+      _debounce!.cancel();
+    }
+
+    _debounce = Timer(
+        const Duration(
+          milliseconds: AnimeSelectorBloc.delayForDebounce,
+        ), () {
+      callback(searchTextController.text);
+    });
+  }
+
   @override
   Future<void> close() {
     searchTextController.dispose();
+    if (_debounce?.isActive ?? false) {
+      _debounce!.cancel();
+    }
     return super.close();
   }
 }

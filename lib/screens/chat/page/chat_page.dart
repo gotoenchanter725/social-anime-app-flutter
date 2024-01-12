@@ -9,10 +9,12 @@ import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
 import 'package:senpai/core/chat/blocs/update_message_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
+import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/routes/app_router.dart';
@@ -73,6 +75,7 @@ class ChatPage extends StatelessWidget {
         BlocProvider<FetchUserBloc>(
             create: (_) => FetchUserBloc()
               ..fetchUser(userId: int.parse(roomArgs.currentUser.id))),
+        BlocProvider<FetchAnimeBloc>(create: (_) => getIt<FetchAnimeBloc>()),
       ],
       child: BlocListener<UpdateMessageBloc, MutationState>(
         listener: (context, state) {

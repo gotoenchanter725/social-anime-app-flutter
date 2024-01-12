@@ -156,7 +156,7 @@ class AnimeSelector extends StatelessWidget {
       iconPath: PathConstants.searchIcon,
       hintText: TextConstants.searchText,
       onChange: (_) {},
-      onTapSuffix: () {
+      onTapInput: () {
         bloc.add(const AnimeSelectorEvent.toggleSearchMode());
       },
     );
