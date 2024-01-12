@@ -57,14 +57,14 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
       if (event.index != 0) {
         userNow = users[event.index - 1];
       }
-      users = users..removeAt(event.index);
+      users = users.removeAt(event.index);
       emit(ValidState());
     });
 
     on<OnCancelUserEvent>((event, emit) {
       emit(LoadingState());
       final selectedUserId = int.parse(userNow.id);
-      users = users..remove(userNow);
+      users = users.remove(userNow);
       if (users.isNotEmpty) {
         userNow = users.last;
       }
@@ -77,7 +77,7 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
     on<OnLikeUserEvent>((event, emit) {
       emit(LoadingState());
       final selectedUserId = int.parse(userNow.id);
-      users = users..remove(userNow);
+      users = users.remove(userNow);
       if (users.isNotEmpty) {
         userNow = users.last;
       }
@@ -90,7 +90,7 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
     on<OnSuperLikeUserEvent>((event, emit) {
       emit(LoadingState());
       final selectedUserId = int.parse(userNow.id);
-      users = users..remove(userNow);
+      users = users.remove(userNow);
       if (users.isNotEmpty) {
         userNow = users.last;
       }
