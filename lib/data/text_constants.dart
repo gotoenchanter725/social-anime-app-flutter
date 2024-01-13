@@ -91,6 +91,7 @@ class TextConstants {
   static const String emptyChatTitle = "You matched with";
   static const String emptyChatPromptText = "Don't wait too long, say hello :)";
   static const String stickerMessageText = "🌄 Sticker";
+  static const String animationRecomedationText = "🌄 Animation";
 
   // -> Search Chat List
   static const String cancelSearchText = "Cancel";
