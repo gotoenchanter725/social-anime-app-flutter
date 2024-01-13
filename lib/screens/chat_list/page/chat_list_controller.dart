@@ -38,7 +38,6 @@ class ChatListController extends StatelessWidget {
         builder: (context, state) {
           return state.maybeWhen(
             loading: (result) => const SenpaiLoading(),
-            error: (error, result) => const SizedBox.shrink(),
             orElse: () => _buildChatListContent(context),
           );
         },
