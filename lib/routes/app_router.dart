@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:senpai/models/chat/categorized_conversation.dart';
+import 'package:senpai/models/match/like_user_model/like_user_model.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/routes/guards/onboarding_guard.dart';
@@ -8,6 +9,7 @@ import 'package:senpai/screens/chat/page/chat_page.dart';
 import 'package:senpai/screens/chat_list/page/chat_list_page.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/edit_profile/edit_favorite_anime/page/edit_favorite_anime_page.dart';
+import 'package:senpai/screens/edit_profile/edit_location/page/edit_location_page.dart';
 import 'package:senpai/screens/edit_profile/edit_spotify/page/edit_spotify_music_page.dart';
 import 'package:senpai/screens/edit_profile/page/edit_profile_page.dart';
 import 'package:senpai/screens/edit_profile/work_education/page/work_education_page.dart';
@@ -15,10 +17,13 @@ import 'package:senpai/screens/entry/page/entry_page.dart';
 import 'package:senpai/screens/home/page/home_page.dart';
 import 'package:senpai/screens/license/page/license_page.dart';
 import 'package:senpai/screens/match/page/match_page.dart';
+import 'package:senpai/screens/match_users/page/match_users_page.dart';
 import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
 import 'package:senpai/screens/premium_screen/page/premium_page.dart';
 import 'package:senpai/screens/preview_profile/page/preview_profile_page.dart';
 import 'package:senpai/screens/profile/profile_filter/profile_filter_page/profile_filter_page.dart';
+import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
+import 'package:senpai/screens/profile/settings_profile/phone_number_content/settings_verify_phone/page/settings_verify_phone_page.dart';
 import 'package:senpai/screens/profile/settings_profile/settings_profile_page/settings_profile_page.dart';
 import 'package:senpai/screens/profile_fill/page/profile_fill.dart';
 import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
@@ -40,6 +45,7 @@ class AppRouter extends _$AppRouter {
         // add your routes here
         AutoRoute(
             page: OnboardingRoute.page,
+            // page: MatchRoute.page,
             initial: true,
             guards: [ExistingUserGuard()]),
         AutoRoute(page: EntryRoute.page, path: '/entry'),
@@ -75,5 +81,11 @@ class AppRouter extends _$AppRouter {
           page: EditSpotifyMusicRoute.page,
           path: '/edit_spotify_music',
         ),
+        AutoRoute(
+          page: SettingsVerifyPhoneRoute.page,
+          path: '/settings_verify_phone',
+        ),
+        AutoRoute(page: EditLocationRoute.page, path: '/edit_location'),
+        AutoRoute(page: MatchUsersRoute.page, path: '/match_users'),
       ];
 }

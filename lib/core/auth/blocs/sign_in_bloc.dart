@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
@@ -24,7 +26,7 @@ class SignInBloc extends MutationBloc<SignIn$Mutation> {
   signInExistingUser(String token) {
     final variables =
         SignInArguments(input: SignInInput(token: token)).toJson();
-
+    log('entry route variables: $variables');
     run(variables);
   }
 
@@ -39,6 +41,9 @@ class SignInBloc extends MutationBloc<SignIn$Mutation> {
     String phone = data["signIn"]["user"]["phone"];
     logIt.info("signed in user of id $id and phone $phone");
 
+    log('login data found: $id');
+    // change it if needed (and after change check entry page)
+    // router.pushNamed("/home");
     return true;
   }
 }

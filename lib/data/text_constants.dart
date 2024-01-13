@@ -392,4 +392,9 @@ class TextConstants {
       "Cannot establish a connection. Please check your internet connection";
   static const String actionCableAuthError =
       "User is not authorized. Please sign in again";
+
+  // -> Premium dialog
+  static const String outOfSuperLikes = "Out of Super Likes!";
+  static const String doNotLoseDiamonds = "Don't lose diamonds, Refill now!";
+  static const String noThanks = "No, Thanks";
 }

@@ -98,6 +98,10 @@ dependencies:
   flutter_map_dragmarker: ^6.0.0
   flutter_web_auth_2: ^3.0.4
 
+  swipable_stack: ^2.0.0
+  flip_card: ^0.7.0
+  in_app_purchase: ^3.1.11
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

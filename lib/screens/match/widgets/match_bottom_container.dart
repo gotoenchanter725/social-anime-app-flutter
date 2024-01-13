@@ -8,7 +8,11 @@ import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/enums/match_enums.dart';
 import 'package:senpai/screens/preview_profile/widgets/senpai_match_circle_button.dart';
+import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:swipable_stack/swipable_stack.dart';
+
+import '../../premium_screen/widgets/premium_purchase_dialog.dart';
 
 class MatchBottomContainer extends StatelessWidget {
   const MatchBottomContainer({super.key});
@@ -81,6 +85,7 @@ class MatchBottomContainer extends StatelessWidget {
 
   Widget _buildButtons(BuildContext context) {
     final bloc = BlocProvider.of<MatchBloc>(context);
+    // final userBloc = BlocProvider.of<ProfileBloc>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -97,10 +102,27 @@ class MatchBottomContainer extends StatelessWidget {
               BlendMode.srcIn,
             ),
           ),
+          isReverceColor: bloc.swipeUser == Swipe.up,
+          isSuperLike: bloc.swipeUser == Swipe.up,
           onTap: () async {
             // todo change it
-            // context.router
-            //     .push(MatchUsersRoute(likeUserModel: LikeUserModel.initial()));
+            final userBloc = BlocProvider.of<ProfileBloc>(context);
+            if (userBloc.user.superLikeCount != null &&
+                userBloc.user.superLikeCount! <= 0) {
+              return openPremiumPurchaseDialog(context);
+            }
+
+            bloc.swipeUser = Swipe.up;
+            bloc.flipCardController[bloc.currentProfileIndex]
+                .toggleCard()
+                .whenComplete(() {
+              Future.delayed(const Duration(milliseconds: 1000), () {
+                bloc.cardSwipeController[bloc.currentProfileIndex]
+                    .next(swipeDirection: SwipeDirection.up);
+              });
+            });
+
+            // bloc.add(OnSuperLikeUserEvent());
           },
         ),
         SizedBox(height: $constants.insets.md),
@@ -112,7 +134,7 @@ class MatchBottomContainer extends StatelessWidget {
               onTap: () => bloc.add(OnChangePageEvent(isRefresh: true)),
             ),
             SizedBox(width: $constants.insets.md),
-            _buildLogoBox(),
+            Flexible(child: _buildLogoBox()),
             SizedBox(width: $constants.insets.md),
             SenpaiMatchCircleButton(
               onTap: () async {
@@ -121,11 +143,15 @@ class MatchBottomContainer extends StatelessWidget {
                     userId: bloc.userID,
                     onTapLike: () async {
                       await context.router.pop();
-                      bloc.add(OnLikeUserEvent());
+                      bloc.cardSwipeController[bloc.currentProfileIndex]
+                          .next(swipeDirection: SwipeDirection.right);
+                      // bloc.add(OnLikeUserEvent());
                     },
                     onTapClose: () async {
                       await context.router.pop();
-                      bloc.add(OnCancelUserEvent());
+                      bloc.cardSwipeController[bloc.currentProfileIndex]
+                          .next(swipeDirection: SwipeDirection.left);
+                      // bloc.add(OnCancelUserEvent());
                     },
                     vieweeId: bloc.userNow.id,
                   ),
@@ -151,7 +177,10 @@ class MatchBottomContainer extends StatelessWidget {
         SenpaiMatchCircleButton(
           icon: PathConstants.closeIcon,
           onTap: () {
-            bloc.add(OnCancelUserEvent());
+            bloc.swipeUser = Swipe.left;
+            bloc.cardSwipeController[bloc.currentProfileIndex]
+                .next(swipeDirection: SwipeDirection.left);
+            // bloc.add(OnCancelUserEvent());
           },
           customPadding: $constants.insets.xs,
           isReverceColor: bloc.swipeUser == Swipe.left,
@@ -160,7 +189,10 @@ class MatchBottomContainer extends StatelessWidget {
         SenpaiMatchCircleButton(
           icon: PathConstants.matchIcon,
           onTap: () {
-            bloc.add(OnLikeUserEvent());
+            bloc.swipeUser = Swipe.right;
+            bloc.cardSwipeController[bloc.currentProfileIndex]
+                .next(swipeDirection: SwipeDirection.right);
+            // bloc.add(OnLikeUserEvent());
           },
           isReverceColor: bloc.swipeUser == Swipe.right,
         ),

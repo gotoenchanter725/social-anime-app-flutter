@@ -22,9 +22,12 @@ const double _heightPhoto = 144;
 
 class ListPhotosWidget extends StatelessWidget {
   final int userId;
+  final bool isEditProfile;
+
   const ListPhotosWidget({
     super.key,
     required this.userId,
+    this.isEditProfile = false,
   });
 
   void _onTapOpenGallery(BuildContext context) {
@@ -77,10 +80,14 @@ class ListPhotosWidget extends StatelessWidget {
   void _onPhotoDelete(BuildContext context, {required int index}) {
     final bloc = BlocProvider.of<PhotosBloc>(context);
     final deletePhotoBloc = BlocProvider.of<DeletePhotoBloc>(context);
-    deletePhotoBloc.deletePhoto(
-      userId: userId,
-      photoId: bloc.uploadedPhotos[index].id,
-    );
+    if (bloc.uploadedPhotos.length == 1 && isEditProfile) {
+      bloc.add(DeleteLastPhotoEvent());
+    } else {
+      deletePhotoBloc.deletePhoto(
+        userId: userId,
+        photoId: bloc.uploadedPhotos[index].id,
+      );
+    }
   }
 
   @override

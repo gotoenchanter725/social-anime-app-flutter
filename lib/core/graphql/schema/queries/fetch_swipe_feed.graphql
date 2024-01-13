@@ -34,5 +34,7 @@ query fetchFeed($params: FetchFeedInput!) {
       musicType
       spotifyId
     }
+    hasLocationHidden
+    superLikeCount
   }
 }

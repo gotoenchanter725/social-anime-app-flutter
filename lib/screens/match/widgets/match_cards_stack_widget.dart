@@ -1,10 +1,16 @@
+import 'package:flip_card/flip_card.dart';
+import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
+import 'package:senpai/screens/match/enums/match_enums.dart';
 import 'package:senpai/screens/match/widgets/empty_match_widget.dart';
-import 'package:senpai/screens/match/widgets/match_drag_widget.dart';
+import 'package:senpai/screens/match/widgets/profile_card_widget.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
+import 'package:swipable_stack/swipable_stack.dart';
+
+import '../../profile/bloc/profile_bloc.dart';
 
 class MatchCardsStackWidget extends StatelessWidget {
   const MatchCardsStackWidget({Key? key}) : super(key: key);
@@ -21,50 +27,103 @@ class MatchCardsStackWidget extends StatelessWidget {
           return const EmptyMatchWidget();
         }
 
-        final swipe = bloc.swipeUser;
+        final userBloc = BlocProvider.of<ProfileBloc>(context);
+
+        bloc.cardSwipeController = [];
+        bloc.flipCardController = [];
         return Stack(
           clipBehavior: Clip.none,
           children: [
             ...List.generate(
               bloc.users.length,
-              (index) {
-                return MatchDragWidget(
-                  user: bloc.users[index],
-                  index: index,
-                  swipe: swipe,
-                  bloc: bloc,
+              (profileIndex) {
+                bloc.cardSwipeController.add(SwipableStackController());
+                bloc.flipCardController.add(FlipCardController());
+                bloc.currentProfileIndex = profileIndex;
+
+                return Positioned.fill(
+                  child: SwipableStack(
+                    controller: bloc.cardSwipeController[profileIndex],
+                    detectableSwipeDirections:
+                        (userBloc.user.superLikeCount != null &&
+                                userBloc.user.superLikeCount! <= 0)
+                            ? const {
+                                SwipeDirection.right,
+                                SwipeDirection.left,
+                              }
+                            : const {
+                                SwipeDirection.right,
+                                SwipeDirection.left,
+                                SwipeDirection.up,
+                                // SwipeDirection.down,
+                              },
+                    itemCount: 1,
+                    stackClipBehaviour: Clip.none,
+                    onSwipeCompleted: (_, direction) {
+                      if (direction == SwipeDirection.left) {
+                        bloc.swipeUser = Swipe.left;
+                        bloc.add(OnCancelUserEvent());
+                      } else if (direction == SwipeDirection.right) {
+                        bloc.swipeUser = Swipe.right;
+                        bloc.add(OnLikeUserEvent());
+                      } else if (direction == SwipeDirection.up) {
+                        bloc.swipeUser = Swipe.up;
+                        bloc.add(OnSuperLikeUserEvent());
+                      }
+                    },
+                    horizontalSwipeThreshold: 0.8,
+                    verticalSwipeThreshold: 0.8,
+                    builder: (context, properties) {
+                      if (bloc.users[profileIndex] == bloc.userNow) {
+                        if (properties.direction == SwipeDirection.up &&
+                            properties.swipeProgress > 0.2) {
+                          if (bloc.flipCardController[profileIndex].state !=
+                              null) {
+                            if (!bloc.flipCardController[profileIndex].state!
+                                .isFront) {
+                              bloc.flipCardController[profileIndex]
+                                  .toggleCard();
+                            }
+                          }
+                        } else {
+                          if (bloc.flipCardController[profileIndex].state !=
+                              null) {
+                            if (bloc.flipCardController[profileIndex].state!
+                                .isFront) {
+                              bloc.flipCardController[profileIndex]
+                                  .toggleCard();
+                            }
+                          }
+                        }
+                      }
+
+                      return FlipCard(
+                        controller: bloc.flipCardController[profileIndex],
+                        side: CardSide.BACK,
+                        direction: FlipDirection.VERTICAL,
+                        flipOnTouch: false,
+                        speed: 500,
+                        front: Container(
+                          color: Colors.black,
+                          alignment: Alignment.center,
+                          child: Image.asset(
+                            'assets/images/match/super_like_bg.png',
+                            height: 190,
+                            width: 190,
+                            color: Colors.white,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                        back: Stack(
+                          children: [
+                            ProfileCard(user: bloc.users[profileIndex]),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
                 );
               },
-            ),
-            Positioned(
-              left: 0,
-              child: DragTarget<int>(
-                builder: (
-                  BuildContext context,
-                  List<dynamic> accepted,
-                  List<dynamic> rejected,
-                ) {
-                  return IgnorePointer(child: _buildIgnoreContainer(context));
-                },
-                onAccept: (int index) {
-                  bloc.add(OnCancelUserEvent());
-                },
-              ),
-            ),
-            Positioned(
-              right: 0,
-              child: DragTarget<int>(
-                builder: (
-                  BuildContext context,
-                  List<dynamic> accepted,
-                  List<dynamic> rejected,
-                ) {
-                  return IgnorePointer(child: _buildIgnoreContainer(context));
-                },
-                onAccept: (int index) {
-                  bloc.add(OnLikeUserEvent());
-                },
-              ),
             ),
           ],
         );

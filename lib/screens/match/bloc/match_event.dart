@@ -11,13 +11,16 @@ class OnMatchInitEvent extends MatchEvent {
 
 class OnChangeViewUserEvent extends MatchEvent {
   final int index;
+  final UserProfileModel userProfileModel;
 
-  OnChangeViewUserEvent({required this.index});
+  OnChangeViewUserEvent({required this.index, required this.userProfileModel});
 }
 
 class OnCancelUserEvent extends MatchEvent {}
 
 class OnLikeUserEvent extends MatchEvent {}
+
+class OnSuperLikeUserEvent extends MatchEvent {}
 
 class OnChangeSwipeUserEvent extends MatchEvent {
   final Swipe swipe;

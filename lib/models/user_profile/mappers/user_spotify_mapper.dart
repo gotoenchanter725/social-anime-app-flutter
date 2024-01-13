@@ -36,7 +36,7 @@ extension UserFavoriteTrackMapper on SpotifyTrackModel {
 extension UserModelMapper on UserFavoriteMusicModel {
   FavoriteMusicInput toUserFavoriteMusicInput(int userId) {
     return FavoriteMusicInput(
-      userId: userId,
+      userId: userId.toString(),
       artistName: artistName,
       trackName: trackName,
       coverUrl: coverUrl,

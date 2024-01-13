@@ -6,7 +6,6 @@ import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile/settings_profile/add_language_content/add_language_content.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
-import 'package:senpai/screens/profile/settings_profile/delete_account_content/delete_account_content.dart';
 import 'package:senpai/screens/profile/settings_profile/feedback_content/feedback_content.dart';
 import 'package:senpai/screens/profile/settings_profile/phone_number_content/phone_number_content.dart';
 import 'package:senpai/screens/profile/settings_profile/push_notifcations_content/push_notifcations_content.dart';
@@ -80,8 +79,6 @@ class SettingsProfileContent extends StatelessWidget {
 
     if (bloc.step == SettingsStep.settings) {
       return const SettingsContent();
-    } else if (bloc.step == SettingsStep.deleteAccount) {
-      return const DeleteAccountContent();
     } else if (bloc.step == SettingsStep.pushNotifications) {
       return const PushNotifcationsContent();
     } else if (bloc.step == SettingsStep.phoneNumber) {
@@ -95,4 +92,3 @@ class SettingsProfileContent extends StatelessWidget {
     }
   }
 }
-//

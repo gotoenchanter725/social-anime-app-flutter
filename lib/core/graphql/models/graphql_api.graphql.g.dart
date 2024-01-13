@@ -274,7 +274,8 @@ UpdateUser$Mutation$UpdateUser$User
           ..desiredGender = json['desiredGender'] as String?
           ..verified = json['verified'] as bool
           ..school = json['school'] as String?
-          ..occupation = json['occupation'] as String?;
+          ..occupation = json['occupation'] as String?
+          ..hasLocationHidden = json['hasLocationHidden'] as bool?;
 
 Map<String, dynamic> _$UpdateUser$Mutation$UpdateUser$UserToJson(
         UpdateUser$Mutation$UpdateUser$User instance) =>
@@ -290,6 +291,7 @@ Map<String, dynamic> _$UpdateUser$Mutation$UpdateUser$UserToJson(
       'verified': instance.verified,
       'school': instance.school,
       'occupation': instance.occupation,
+      'hasLocationHidden': instance.hasLocationHidden,
     };
 
 UpdateUser$Mutation$UpdateUser _$UpdateUser$Mutation$UpdateUserFromJson(
@@ -337,6 +339,7 @@ UserUpdateInput _$UserUpdateInputFromJson(Map<String, dynamic> json) =>
       desiredGender: json['desiredGender'] as int?,
       firstName: json['firstName'] as String?,
       gender: json['gender'] as int?,
+      hasLocationHidden: json['hasLocationHidden'] as bool?,
       occupation: json['occupation'] as String?,
       phone: json['phone'] as String?,
       school: json['school'] as String?,
@@ -352,6 +355,7 @@ Map<String, dynamic> _$UserUpdateInputToJson(UserUpdateInput instance) =>
       'desiredGender': instance.desiredGender,
       'firstName': instance.firstName,
       'gender': instance.gender,
+      'hasLocationHidden': instance.hasLocationHidden,
       'occupation': instance.occupation,
       'phone': instance.phone,
       'school': instance.school,
@@ -775,16 +779,18 @@ FavoriteMusicInput _$FavoriteMusicInputFromJson(Map<String, dynamic> json) =>
     FavoriteMusicInput(
       artistName: json['artistName'] as String?,
       coverUrl: json['coverUrl'] as String,
+      hidden: json['hidden'] as bool?,
       musicType: json['musicType'] as String,
       spotifyId: json['spotifyId'] as String,
       trackName: json['trackName'] as String?,
-      userId: json['userId'] as int,
+      userId: json['userId'] as String,
     );
 
 Map<String, dynamic> _$FavoriteMusicInputToJson(FavoriteMusicInput instance) =>
     <String, dynamic>{
       'artistName': instance.artistName,
       'coverUrl': instance.coverUrl,
+      'hidden': instance.hidden,
       'musicType': instance.musicType,
       'spotifyId': instance.spotifyId,
       'trackName': instance.trackName,
@@ -1671,7 +1677,9 @@ FetchFeed$Query$FetchFeed _$FetchFeed$Query$FetchFeedFromJson(
       ..favoriteMusic = (json['favoriteMusic'] as List<dynamic>?)
           ?.map((e) => FetchFeed$Query$FetchFeed$FavoriteMusic.fromJson(
               e as Map<String, dynamic>))
-          .toList();
+          .toList()
+      ..hasLocationHidden = json['hasLocationHidden'] as bool?
+      ..superLikeCount = json['superLikeCount'] as int?;
 
 Map<String, dynamic> _$FetchFeed$Query$FetchFeedToJson(
         FetchFeed$Query$FetchFeed instance) =>
@@ -1696,6 +1704,8 @@ Map<String, dynamic> _$FetchFeed$Query$FetchFeedToJson(
       'gallery': instance.gallery?.toJson(),
       'animes': instance.animes?.map((e) => e.toJson()).toList(),
       'favoriteMusic': instance.favoriteMusic?.map((e) => e.toJson()).toList(),
+      'hasLocationHidden': instance.hasLocationHidden,
+      'superLikeCount': instance.superLikeCount,
     };
 
 FetchFeed$Query _$FetchFeed$QueryFromJson(Map<String, dynamic> json) =>
@@ -1867,7 +1877,9 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
           ?.map((e) => FetchUser$Query$FetchUser$FavoriteMusic.fromJson(
               e as Map<String, dynamic>))
           .toList()
-      ..premium = json['premium'] as bool;
+      ..premium = json['premium'] as bool
+      ..superLikeCount = json['superLikeCount'] as int?
+      ..hasLocationHidden = json['hasLocationHidden'] as bool?;
 
 Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
         FetchUser$Query$FetchUser instance) =>
@@ -1894,6 +1906,8 @@ Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
       'animes': instance.animes?.map((e) => e.toJson()).toList(),
       'favoriteMusic': instance.favoriteMusic?.map((e) => e.toJson()).toList(),
       'premium': instance.premium,
+      'superLikeCount': instance.superLikeCount,
+      'hasLocationHidden': instance.hasLocationHidden,
     };
 
 FetchUser$Query _$FetchUser$QueryFromJson(Map<String, dynamic> json) =>
@@ -1958,7 +1972,7 @@ Map<String, dynamic> _$FetchAnime$QueryToJson(FetchAnime$Query instance) =>
 AnimeInput _$AnimeInputFromJson(Map<String, dynamic> json) => AnimeInput(
       genres:
           (json['genres'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      page: json['page'] as int,
+      page: json['page'] as int?,
       title: json['title'] as String?,
     );
 

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
@@ -19,11 +21,13 @@ class FetchUserBloc extends QueryBloc<FetchUser$Query> {
       userId: '$userId',
     ).toJson();
 
+    log("user fetch message: $variables");
     run(variables: variables);
   }
 
   @override
   FetchUser$Query parseData(Map<String, dynamic>? data) {
+    print('fetch user sata: $data');
     return FetchUser$Query.fromJson(data ?? <String, dynamic>{});
   }
 }

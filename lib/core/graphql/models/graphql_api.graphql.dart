@@ -387,6 +387,8 @@ class UpdateUser$Mutation$UpdateUser$User extends JsonSerializable
 
   String? occupation;
 
+  bool? hasLocationHidden;
+
   @override
   List<Object?> get props => [
         id,
@@ -398,7 +400,8 @@ class UpdateUser$Mutation$UpdateUser$User extends JsonSerializable
         desiredGender,
         verified,
         school,
-        occupation
+        occupation,
+        hasLocationHidden
       ];
   @override
   Map<String, dynamic> toJson() =>
@@ -464,6 +467,7 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
     this.desiredGender,
     this.firstName,
     this.gender,
+    this.hasLocationHidden,
     this.occupation,
     this.phone,
     this.school,
@@ -487,6 +491,8 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
 
   int? gender;
 
+  bool? hasLocationHidden;
+
   String? occupation;
 
   String? phone;
@@ -504,6 +510,7 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
         desiredGender,
         firstName,
         gender,
+        hasLocationHidden,
         occupation,
         phone,
         school,
@@ -1088,6 +1095,7 @@ class FavoriteMusicInput extends JsonSerializable with EquatableMixin {
   FavoriteMusicInput({
     this.artistName,
     required this.coverUrl,
+    this.hidden,
     required this.musicType,
     required this.spotifyId,
     this.trackName,
@@ -1101,17 +1109,19 @@ class FavoriteMusicInput extends JsonSerializable with EquatableMixin {
 
   late String coverUrl;
 
+  bool? hidden;
+
   late String musicType;
 
   late String spotifyId;
 
   String? trackName;
 
-  late int userId;
+  late String userId;
 
   @override
   List<Object?> get props =>
-      [artistName, coverUrl, musicType, spotifyId, trackName, userId];
+      [artistName, coverUrl, hidden, musicType, spotifyId, trackName, userId];
   @override
   Map<String, dynamic> toJson() => _$FavoriteMusicInputToJson(this);
 }
@@ -2282,6 +2292,10 @@ class FetchFeed$Query$FetchFeed extends JsonSerializable with EquatableMixin {
 
   List<FetchFeed$Query$FetchFeed$FavoriteMusic>? favoriteMusic;
 
+  bool? hasLocationHidden;
+
+  int? superLikeCount;
+
   @override
   List<Object?> get props => [
         id,
@@ -2300,7 +2314,9 @@ class FetchFeed$Query$FetchFeed extends JsonSerializable with EquatableMixin {
         onlineStatus,
         gallery,
         animes,
-        favoriteMusic
+        favoriteMusic,
+        hasLocationHidden,
+        superLikeCount
       ];
   @override
   Map<String, dynamic> toJson() => _$FetchFeed$Query$FetchFeedToJson(this);
@@ -2543,6 +2559,10 @@ class FetchUser$Query$FetchUser extends JsonSerializable with EquatableMixin {
 
   late bool premium;
 
+  int? superLikeCount;
+
+  bool? hasLocationHidden;
+
   @override
   List<Object?> get props => [
         id,
@@ -2565,7 +2585,9 @@ class FetchUser$Query$FetchUser extends JsonSerializable with EquatableMixin {
         gallery,
         animes,
         favoriteMusic,
-        premium
+        premium,
+        superLikeCount,
+        hasLocationHidden
       ];
   @override
   Map<String, dynamic> toJson() => _$FetchUser$Query$FetchUserToJson(this);
@@ -2661,7 +2683,7 @@ class FetchAnime$Query extends JsonSerializable with EquatableMixin {
 class AnimeInput extends JsonSerializable with EquatableMixin {
   AnimeInput({
     this.genres,
-    required this.page,
+    this.page,
     this.title,
   });
 
@@ -2670,7 +2692,7 @@ class AnimeInput extends JsonSerializable with EquatableMixin {
 
   List<String>? genres;
 
-  late int page;
+  int? page;
 
   String? title;
 
@@ -3576,6 +3598,13 @@ final UPDATE_USER_MUTATION_DOCUMENT = DocumentNode(definitions: [
               ),
               FieldNode(
                 name: NameNode(value: 'occupation'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'hasLocationHidden'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -5809,6 +5838,20 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
               ),
             ]),
           ),
+          FieldNode(
+            name: NameNode(value: 'hasLocationHidden'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'superLikeCount'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
         ]),
       )
     ]),
@@ -6146,6 +6189,20 @@ final FETCH_USER_QUERY_DOCUMENT = DocumentNode(definitions: [
           ),
           FieldNode(
             name: NameNode(value: 'premium'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'superLikeCount'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'hasLocationHidden'),
             alias: null,
             arguments: [],
             directives: [],

@@ -24,17 +24,22 @@ class SenpaiSwitchWithTitle extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
-          height: height ?? $constants.insets.xxl,
+          padding: EdgeInsets.symmetric(
+              horizontal: $constants.insets.sm,
+              vertical: $constants.insets.xs,
+          ),
+          // height: height ?? $constants.insets.xxl,
           decoration: profileBoxDecoration(),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                title,
-                style: getTextTheme(context)
-                    .bodyMedium
-                    ?.copyWith(color: $constants.palette.white),
+              Expanded(
+                child: Text(
+                  title,
+                  style: getTextTheme(context)
+                      .bodyMedium
+                      ?.copyWith(color: $constants.palette.white,),
+                ),
               ),
               CupertinoSwitch(
                 value: value,

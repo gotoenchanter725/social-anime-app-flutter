@@ -56,6 +56,7 @@ class ProfilePage extends StatelessWidget {
                 UserProfileModel user = UserProfileModel.fromJson(
                   result.data!["fetchUser"],
                 );
+                print("user profile data: $user");
                 bloc.add(OnFetchUser(user: user));
               }
               return const SizedBox.shrink();

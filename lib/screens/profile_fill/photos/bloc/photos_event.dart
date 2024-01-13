@@ -55,3 +55,5 @@ class OnRestartShowPhotosEvent extends PhotosEvent {
 }
 
 class NextTappedEvent extends PhotosEvent {}
+
+class DeleteLastPhotoEvent extends PhotosEvent {}
