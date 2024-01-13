@@ -94,8 +94,8 @@ class FilterAnimeSelector extends StatelessWidget {
     return BlocBuilder<FetchAnimeBloc, QueryState>(
       builder: (context, state) {
         return state.maybeWhen(
-          orElse: () => const SenpaiLoading(),
-          loading: (result) => const SenpaiLoading(),
+          orElse: () => const SizedBox.shrink(),
+          loading: (result) => const Expanded(child: SenpaiLoading()),
           loaded: (data, result) {
             if (result.data == null) {
               showSnackBarError(context, TextConstants.serverError);
@@ -115,15 +115,22 @@ class FilterAnimeSelector extends StatelessWidget {
                 avatorImagePath: PathConstants.emptyChatAnimeSearch,
                 title: TextConstants.emptyChatAnimationsSearchTitle,
                 subtitle: TextConstants.emptyChatAnimationsSearchText,
+                isLocalImage: true,
               );
             }
 
-            return AnimeList(
-              animeList: animeList,
-              onAnimeTap: (anime) {
-                bloc.add(AnimeSelectorEvent.selectAnime(anime));
+            return BlocBuilder<AnimeSelectorBloc, AnimeSelectorState>(
+              builder: (context, state) {
+                return Expanded(
+                  child: AnimeList(
+                    animeList: animeList,
+                    onAnimeTap: (anime) {
+                      bloc.add(AnimeSelectorEvent.selectAnime(anime));
+                    },
+                    selectedAnime: bloc.state.selectedAnime,
+                  ),
+                );
               },
-              selectedAnime: bloc.state.selectedAnime,
             );
           },
         );
