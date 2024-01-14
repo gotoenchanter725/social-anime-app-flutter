@@ -126,8 +126,12 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
 
   @override
   FetchMessages$Query parseData(Map<String, dynamic>? data) {
-    messages = _messagesParser.parseMessages(data!["fetchMessages"]);
+    try {
+      messages = _messagesParser.parseMessages(data!["fetchMessages"]);
+    } catch (e) {
+      logIt.error(e);
+    }
 
-    return FetchMessages$Query.fromJson(data);
+    return FetchMessages$Query.fromJson(data!);
   }
 }

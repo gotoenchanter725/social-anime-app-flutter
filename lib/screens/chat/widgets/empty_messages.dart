@@ -6,11 +6,13 @@ class EmptyMessages extends StatelessWidget {
   final String avatorImagePath;
   final String title;
   final String subtitle;
+  final bool isLocalImage;
   const EmptyMessages(
       {super.key,
       required this.avatorImagePath,
       required this.title,
-      required this.subtitle});
+      required this.subtitle,
+      this.isLocalImage = false});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,9 @@ class EmptyMessages extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CircleAvatar(
-              backgroundImage: NetworkImage(avatorImagePath),
+              backgroundImage: isLocalImage
+                  ? AssetImage(avatorImagePath) as ImageProvider
+                  : NetworkImage(avatorImagePath),
               radius: getSize(context).height * 0.229 * 0.5,
             ),
             SizedBox(
