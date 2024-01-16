@@ -28,8 +28,6 @@ class ChatListController extends StatelessWidget {
         listener: (context, state) {
           state.maybeWhen(
             error: (error, result) {
-              BlocProvider.of<FetchConversationsBloc>(context)
-                  .stopPeriodicFetch();
               showSnackBarError(context, TextConstants.serverError);
             },
             orElse: () {},
