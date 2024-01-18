@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:giphy_get/giphy_get.dart';
 import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_message.dart';
@@ -7,6 +8,7 @@ import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/chat/bloc/tab_bar_bloc/tab_bar_bloc.dart';
 import 'package:senpai/screens/chat/widgets/anime_selector.dart';
+import 'package:senpai/screens/chat/widgets/giphy_selector.dart';
 import 'package:senpai/screens/chat/widgets/stickers_selector.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -100,6 +102,15 @@ class ChatBottomSheetContent extends StatelessWidget {
       );
     }
 
+    if (item.id == "02") {
+      // Gifs
+      return GiphySelector(
+        onGifSelected: (gif) {
+          _selectGiphy(context, gif);
+        },
+      );
+    }
+
     if (item.id == "03") {
       // Animes
       return AnimeSelector(onAnimeRecommendationSent: (anime, description) {
@@ -122,6 +133,22 @@ class ChatBottomSheetContent extends StatelessWidget {
       senderId: currentUser.id,
       timestamp: DateTime.now(),
       sticker: sticker,
+    ));
+
+    bottomSheetBloc.hide();
+  }
+
+  void _selectGiphy(BuildContext context, GiphyGif gif) {
+    final BottomSheetBloc bottomSheetBloc =
+        BlocProvider.of<BottomSheetBloc>(context);
+    onMessageSent(ChatMessage(
+      id: generateRandomId($constants.specials.pendingMessageIdLength),
+      text: TextConstants.gifMessageText,
+      status: MessageStatus.pending,
+      senderId: currentUser.id,
+      timestamp: DateTime.now(),
+      attachment: gif.id,
+      attachmentType: AttachmentType.gif,
     ));
 
     bottomSheetBloc.hide();
