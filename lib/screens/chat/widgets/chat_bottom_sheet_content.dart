@@ -147,7 +147,7 @@ class ChatBottomSheetContent extends StatelessWidget {
       status: MessageStatus.pending,
       senderId: currentUser.id,
       timestamp: DateTime.now(),
-      attachment: gif.id,
+      attachment: gif.images!.original!.url,
       attachmentType: AttachmentType.photo,
     ));
 
