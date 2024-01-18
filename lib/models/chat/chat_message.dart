@@ -77,7 +77,6 @@ class Sticker {
 enum AttachmentType {
   photo,
   video,
-  gif,
 }
 
 enum ReactionType {

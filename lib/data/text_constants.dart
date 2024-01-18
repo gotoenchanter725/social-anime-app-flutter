@@ -123,6 +123,7 @@ class TextConstants {
   static const String emptyChatAnimationsSearchTitle = "Oops. No animes found";
   static const String emptyChatAnimationsSearchText =
       "Maybe there is a mistake in search?\n Please check and try again";
+  static const String searchGifPlaceHolderText = "Search in GIPHY";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";

@@ -148,7 +148,7 @@ class ChatBottomSheetContent extends StatelessWidget {
       senderId: currentUser.id,
       timestamp: DateTime.now(),
       attachment: gif.id,
-      attachmentType: AttachmentType.gif,
+      attachmentType: AttachmentType.photo,
     ));
 
     bottomSheetBloc.hide();

@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:giphy_get/giphy_get.dart';
@@ -26,6 +27,8 @@ class GiphyState with _$GiphyState {
 
 class GiphyBloc extends Bloc<GiphyEvent, GiphyState> {
   Timer? _debounce;
+
+  TextEditingController searchController = TextEditingController();
 
   GiphyBloc() : super(const Initial()) {
     on<FetchTrending>(_onFetchTrending);
@@ -55,16 +58,25 @@ class GiphyBloc extends Bloc<GiphyEvent, GiphyState> {
     }
   }
 
+  loadTrending() {
+    add(const FetchTrending());
+  }
+
   onSearchTextChanged(String query) {
     if (_debounce?.isActive ?? false) _debounce?.cancel();
     _debounce = Timer(const Duration(milliseconds: 500), () {
-      add(Search(query));
+      if (query.isNotEmpty) {
+        add(Search(query));
+      } else {
+        add(const FetchTrending());
+      }
     });
   }
 
   @override
   Future<void> close() {
     _debounce?.cancel();
+    searchController.dispose();
     return super.close();
   }
 }
