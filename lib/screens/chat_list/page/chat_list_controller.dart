@@ -27,10 +27,13 @@ class ChatListController extends StatelessWidget {
       BuildContext context, ActionCableState state) {
     final FetchConversationsBloc fetchConversationsBloc =
         BlocProvider.of<FetchConversationsBloc>(context);
+    final conversationSubscriptionBloc =
+        BlocProvider.of<ConversationSubscriptionsBloc>(context);
     state.maybeWhen(
       orElse: () {},
       connected: () {
         logIt.info("Conversation subscription connected");
+        conversationSubscriptionBloc.subscribe();
       },
       data: (data) {
         logIt.info("Conversation subscription data: $data");

@@ -68,11 +68,17 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/profile/spotify_bg.png)
   final spotify_bg = r'assets/images/profile/spotify_bg.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/match/super_like_bg.png)
+  final super_like_bg = r'assets/images/match/super_like_bg.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/match/match_successful.png)
   final match_successful = r'assets/images/match/match_successful.png';
 
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/empty_conversation_search.png)
   final empty_conversation_search = r'assets/images/chat/empty_conversation_search.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/empty_animations.png)
+  final empty_animations = r'assets/images/chat/empty_animations.png';
 
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/empty_conversations.png)
   final empty_conversations = r'assets/images/chat/empty_conversations.png';

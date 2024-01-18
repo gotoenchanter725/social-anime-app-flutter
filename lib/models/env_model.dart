@@ -26,6 +26,7 @@ class EnvModel with _$EnvModel {
     required String spotifyClientSecret,
     required String spotifyRedirectUri,
     required String spotifyCallbackUrlScheme,
+    required String giphyApiKey,
   }) = _EnvModel;
 
   EnvModel._();

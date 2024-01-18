@@ -101,6 +101,7 @@ dependencies:
   swipable_stack: ^2.0.0
   flip_card: ^0.7.0
   in_app_purchase: ^3.1.11
+  giphy_get: ^3.5.4
 
 dev_dependencies:
   flutter_test:
