@@ -27,7 +27,7 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
       user = event.user;
       userForPreview = event.user;
       updateUserModel = event.user.toUpdateModel();
-      //hideLocation = event.user.hasLocationHidden == true;
+      hideLocation = event.user.hasLocationHidden == true;
       firstNameController = TextEditingController(text: event.user.firstName);
       biographyController = TextEditingController(text: event.user.bio);
 
@@ -94,6 +94,9 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
     on<OnChangeHideLocationEvent>((event, emit) {
       emit(LoadingEditProfileState());
       hideLocation = event.isHideLocation;
+      updateUserModel = updateUserModel.copyWith(
+        hasLocationHidden: event.isHideLocation,
+      );
       emit(ValidState());
     });
 

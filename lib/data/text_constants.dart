@@ -91,6 +91,7 @@ class TextConstants {
   static const String emptyChatTitle = "You matched with";
   static const String emptyChatPromptText = "Don't wait too long, say hello :)";
   static const String stickerMessageText = "🌄 Sticker";
+  static const String animationRecomedationText = "🌄 Animation";
 
   // -> Search Chat List
   static const String cancelSearchText = "Cancel";
@@ -103,6 +104,7 @@ class TextConstants {
   static const String stickersTabText = "Stickers";
   static const String gifsTabText = "GIPHY";
   static const String animeTabText = "Anime";
+  static const String favouriteAnimeSelectionTitle = "My favorite animes";
 
   // Chat
   static const String searchHintText = "Search chat or match";
@@ -116,6 +118,10 @@ class TextConstants {
   static const String failedToSendMessageText = "Failed to send message";
   static const String failedToUpdateMessageText =
       "Failed to add reaction to message";
+  static const String animeDescriptionHint = "Add a description";
+  static const String emptyChatAnimationsSearchTitle = "Oops. No animes found";
+  static const String emptyChatAnimationsSearchText =
+      "Maybe there is a mistake in search?\n Please check and try again";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";

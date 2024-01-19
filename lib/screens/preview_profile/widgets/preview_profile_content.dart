@@ -117,7 +117,7 @@ class DesiredPreviewProfileContent extends StatelessWidget {
           verified: bloc.user.verified,
           isCenter: false,
         ),
-        if (isShowDistance) ...{
+        if (isShowDistance && bloc.user.hasLocationHidden != true) ...{
           SizedBox(height: $constants.insets.xs),
           PreviewTitleInfoWidget(
             title: '${bloc.distance.mi} ${TextConstants.milesAwayText}',

@@ -15,6 +15,7 @@ extension UserModelMapper on UserProfileModel {
       occupation: occupation,
       school: school,
       bio: bio,
+      hasLocationHidden: hasLocationHidden,
     );
   }
 }

@@ -4,7 +4,9 @@ import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/chat/bloc/tab_bar_bloc/tab_bar_bloc.dart';
+import 'package:senpai/screens/chat/widgets/anime_selector.dart';
 import 'package:senpai/screens/chat/widgets/stickers_selector.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -98,6 +100,13 @@ class ChatBottomSheetContent extends StatelessWidget {
       );
     }
 
+    if (item.id == "03") {
+      // Animes
+      return AnimeSelector(onAnimeRecommendationSent: (anime, description) {
+        _sendAnime(context, anime, description);
+      });
+    }
+
     logIt.debug("Tab bar item with id ${item.id} is not implemented yet!");
 
     return const Placeholder();
@@ -106,7 +115,6 @@ class ChatBottomSheetContent extends StatelessWidget {
   void _selectSticker(BuildContext context, Sticker sticker) {
     final BottomSheetBloc bottomSheetBloc =
         BlocProvider.of<BottomSheetBloc>(context);
-    bottomSheetBloc.hide();
     onMessageSent(ChatMessage(
       id: generateRandomId($constants.specials.pendingMessageIdLength),
       text: TextConstants.stickerMessageText,
@@ -115,6 +123,28 @@ class ChatBottomSheetContent extends StatelessWidget {
       timestamp: DateTime.now(),
       sticker: sticker,
     ));
+
+    bottomSheetBloc.hide();
+  }
+
+  void _sendAnime(BuildContext context, AnimeModel anime, String description) {
+    final BottomSheetBloc bottomSheetBloc =
+        BlocProvider.of<BottomSheetBloc>(context);
+    onMessageSent(ChatMessage(
+        id: generateRandomId($constants.specials.pendingMessageIdLength),
+        text: description,
+        status: MessageStatus.pending,
+        senderId: currentUser.id,
+        timestamp: DateTime.now(),
+        recommendation: Recommendation(
+          userId: currentUser.id,
+          recommendeeId: receipientUser.id,
+          animeId: anime.id,
+          animeName: anime.title!,
+          animeImageUrl: anime.cover!,
+        )));
+
+    bottomSheetBloc.hide();
   }
 }
 

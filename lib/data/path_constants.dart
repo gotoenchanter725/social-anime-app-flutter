@@ -48,6 +48,8 @@ class PathConstants {
   static const String verifyUserPhoto =
       'assets/images/profile/verify_user_photo.png';
   static const String startMatchBg = 'assets/images/profile/start_match_bg.png';
+  static const String emptyChatAnimeSearch =
+      'assets/images/chat/empty_animations.png';
 
   // Photos
   static const String addIcon = 'assets/icons/add.svg';

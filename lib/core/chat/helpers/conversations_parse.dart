@@ -53,6 +53,9 @@ class ConversationsParser {
       } else {
         dynamic lastMessage = conversation["lastMessage"];
         String lastMessageContent = lastMessage["content"];
+        if (lastMessage["recommendation"] != null) {
+          lastMessageContent = TextConstants.animationRecomedationText;
+        }
         if (lastMessage["sticker"] != null) {
           lastMessageContent = TextConstants.stickerMessageText;
         }

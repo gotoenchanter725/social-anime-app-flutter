@@ -12,6 +12,8 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 import 'package:swipable_stack/swipable_stack.dart';
 
+import '../../profile/bloc/profile_bloc.dart';
+
 class MatchCardsStackWidget extends StatelessWidget {
   const MatchCardsStackWidget({Key? key}) : super(key: key);
 

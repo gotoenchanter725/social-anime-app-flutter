@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:senpai/core/widgets/anime/anime_tile.dart';
 import 'package:senpai/models/chat/chat_message.dart';
+import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -40,6 +42,10 @@ class OutgoingMessage extends StatelessWidget {
   }
 
   Widget _buildMessageContent(BuildContext context) {
+    if (message.recommendation != null) {
+      return _buildAnimeMessage(context);
+    }
+
     if (message.sticker != null) {
       return _buildStickerMessage(context);
     }
@@ -50,6 +56,36 @@ class OutgoingMessage extends StatelessWidget {
     return _buildChatBubble(
       context,
       _buildTextWidget(context),
+    );
+  }
+
+  Widget _buildAnimeMessage(BuildContext context) {
+    return _buildChatBubble(
+      context,
+      _buildAnimeWidget(context),
+    );
+  }
+
+  Widget _buildAnimeWidget(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          width: getSize(context).width * 0.8,
+          child: AnimeTile(
+            anime: AnimeModel(
+              id: message.recommendation!.animeId,
+              cover: message.recommendation!.animeImageUrl,
+              title: message.recommendation!.animeName,
+            ),
+            hasBackground: true,
+          ),
+        ),
+        SizedBox(
+          height: $constants.insets.xs,
+        ),
+        _buildTextWidget(context)
+      ],
     );
   }
 
