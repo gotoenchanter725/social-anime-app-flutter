@@ -50,9 +50,9 @@ import 'package:senpai/core/profile_fill/favorite_music/delete_favorite_music_bl
     as _i8;
 import 'package:senpai/core/profile_fill/set_user_location/set_user_location_bloc.dart'
     as _i27;
-import 'package:senpai/core/secure_storage/secure_auth_storage.dart' as _i36;
+import 'package:senpai/core/secure_storage/secure_auth_storage.dart' as _i38;
 import 'package:senpai/core/secure_storage/secure_spotify_auth_storage.dart'
-    as _i38;
+    as _i36;
 import 'package:senpai/core/user/blocs/delete_user/delete_user_bloc.dart'
     as _i10;
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart' as _i14;
@@ -74,9 +74,9 @@ import 'package:senpai/domain/profile_fill/spotify/spotify_auth_usecase.dart'
 import 'package:senpai/domain/profile_fill/spotify/spotify_fetch_user_info_usecase.dart'
     as _i32;
 import 'package:senpai/domain/profile_fill/universities_usecase.dart' as _i18;
-import 'package:senpai/models/auth/auth_model.dart' as _i35;
+import 'package:senpai/models/auth/auth_model.dart' as _i37;
 import 'package:senpai/models/env_model.dart' as _i11;
-import 'package:senpai/models/spotify_auth/spotify_auth_model.dart' as _i37;
+import 'package:senpai/models/spotify_auth/spotify_auth_model.dart' as _i35;
 import 'package:senpai/models/theme_model.dart' as _i33;
 import 'package:senpai/routes/app_router.dart' as _i5;
 import 'package:senpai/screens/home/bloc/home_storage_bloc.dart' as _i20;
@@ -149,10 +149,10 @@ extension GetItInjectableX on _i1.GetIt {
       () => _i33.ThemeModel.create(),
       preResolve: true,
     );
-    gh.lazySingleton<_i34.TokenStorage<_i35.AuthModel>>(
-        () => _i36.SecureAuthStorage(gh<_i16.FlutterSecureStorage>()));
-    gh.lazySingleton<_i34.TokenStorage<_i37.SpotifyAuthModel>>(
-        () => _i38.SecureSpotifyAuthStorage(gh<_i16.FlutterSecureStorage>()));
+    gh.lazySingleton<_i34.TokenStorage<_i35.SpotifyAuthModel>>(
+        () => _i36.SecureSpotifyAuthStorage(gh<_i16.FlutterSecureStorage>()));
+    gh.lazySingleton<_i34.TokenStorage<_i37.AuthModel>>(
+        () => _i38.SecureAuthStorage(gh<_i16.FlutterSecureStorage>()));
     gh.factory<_i39.UniversitiesApi>(
         () => universityInjectionModule.universitiesApi(gh<_i11.EnvModel>()));
     gh.factory<_i40.UpdateUserBloc>(() => _i40.UpdateUserBloc());
