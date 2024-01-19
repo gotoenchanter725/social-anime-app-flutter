@@ -102,6 +102,9 @@ dependencies:
   flip_card: ^0.7.0
   in_app_purchase: ^3.1.11
   giphy_get: ^3.5.4
+  http_parser: ^4.0.2
+  mime: ^1.0.4
+  path: ^1.8.3
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,9 @@
 import 'dart:math';
+import 'dart:io';
+import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
+import 'package:mime/mime.dart';
+import 'package:path/path.dart' as path;
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -256,4 +261,39 @@ ReactionType stringToReactionType(String reactionString) {
 double matchRadius(int milesAway) {
   int meterToMiles = 1609;
   return milesAway * (meterToMiles / 2);
+}
+
+Future<http.MultipartFile> urlToFileMultipart(String url) async {
+  // Check if the URL is a local file
+  if (Uri.parse(url).isAbsolute && !url.startsWith('http')) {
+    // It's a local file
+    var file = File(url);
+    var mimeTypeData =
+        lookupMimeType(url, headerBytes: [0xFF, 0xD8])?.split('/');
+    return http.MultipartFile.fromBytes(
+      'file',
+      await file.readAsBytes(),
+      filename: path.basename(file.path),
+      contentType: mimeTypeData != null
+          ? MediaType(mimeTypeData[0], mimeTypeData[1])
+          : null,
+    );
+  } else {
+    // It's a remote file
+    var response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      var mimeTypeData =
+          lookupMimeType(url, headerBytes: [0xFF, 0xD8])?.split('/');
+      return http.MultipartFile.fromBytes(
+        'file',
+        response.bodyBytes,
+        filename: path.basename(url),
+        contentType: mimeTypeData != null
+            ? MediaType(mimeTypeData[0], mimeTypeData[1])
+            : null,
+      );
+    } else {
+      throw Exception('Failed to download file');
+    }
+  }
 }
