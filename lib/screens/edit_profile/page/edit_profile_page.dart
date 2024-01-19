@@ -192,6 +192,9 @@ class EditProfilePage extends StatelessWidget {
                   photos.map((e) => UploadPhotoModel.fromJson(e)).toList();
               bloc.add(OnChangeUploadedPhotosFromServerEvent(uploadPhotos));
 
+              final blocEdit = BlocProvider.of<EditProfileBloc>(context);
+              blocEdit.add(OnChangePhotosListEvent(photos: uploadPhotos));
+
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
@@ -227,6 +230,8 @@ class EditProfilePage extends StatelessWidget {
               final uploadPhotos =
                   photos.map((e) => UploadPhotoModel.fromJson(e)).toList();
               bloc.add(OnChangeUploadedPhotosFromServerEvent(uploadPhotos));
+              final blocEdit = BlocProvider.of<EditProfileBloc>(context);
+              blocEdit.add(OnChangePhotosListEvent(photos: uploadPhotos));
               return const SizedBox.shrink();
             } else {
               showSnackBarError(context, TextConstants.serverError);
@@ -266,6 +271,10 @@ class EditProfilePage extends StatelessWidget {
                 logIt.wtf("A successful empty response just got recorded");
                 return const SizedBox.shrink();
               }
+              final blocEdit = BlocProvider.of<EditProfileBloc>(context);
+              blocEdit.add(OnChangePhotosListEvent(
+                photos: bloc.uploadedPhotos,
+              ));
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
