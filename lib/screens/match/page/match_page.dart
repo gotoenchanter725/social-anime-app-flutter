@@ -16,7 +16,7 @@ import 'package:senpai/screens/home/bloc/home_storage_bloc.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/widgets/match_content.dart';
 import 'package:senpai/screens/match/widgets/match_message_info_widget.dart';
-import 'package:senpai/screens/profile/bloc/profile_bloc.dart' as user;
+import 'package:senpai/screens/profile/bloc/profile_bloc.dart' as userProfile;
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
