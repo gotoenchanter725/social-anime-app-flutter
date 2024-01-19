@@ -8,7 +8,6 @@ import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/enums/match_enums.dart';
 import 'package:senpai/screens/preview_profile/widgets/senpai_match_circle_button.dart';
-import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:swipable_stack/swipable_stack.dart';
 
@@ -85,7 +84,6 @@ class MatchBottomContainer extends StatelessWidget {
 
   Widget _buildButtons(BuildContext context) {
     final bloc = BlocProvider.of<MatchBloc>(context);
-    // final userBloc = BlocProvider.of<ProfileBloc>(context);
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -106,9 +104,7 @@ class MatchBottomContainer extends StatelessWidget {
           isSuperLike: bloc.swipeUser == Swipe.up,
           onTap: () async {
             // todo change it
-            final userBloc = BlocProvider.of<ProfileBloc>(context);
-            if (userBloc.user.superLikeCount != null &&
-                userBloc.user.superLikeCount! <= 0) {
+            if (bloc.superLikeCount <= 0) {
               return openPremiumPurchaseDialog(context);
             }
 

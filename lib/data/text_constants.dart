@@ -390,5 +390,7 @@ class TextConstants {
   // -> Premium dialog
   static const String outOfSuperLikes = "Out of Super Likes!";
   static const String doNotLoseDiamonds = "Don't lose diamonds, Refill now!";
+  static const String superLikes = "Super Likes";
+  static const String dialogBuyButton = "Buy Super Likes for \$7.99";
   static const String noThanks = "No, Thanks";
 }

@@ -110,6 +110,16 @@ class _Palette {
   final disabledTextButton = const Color(0xFF98A1BB);
 
   // gradients
+  final flipCardBgGradient = LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [
+        const Color(0xFFE39F04),
+        const Color(0xFFE39F04),
+        const Color(0xFF000000).withOpacity(0.5),
+      ]
+  );
+
   final mainGradient = const LinearGradient(
       colors: [Color(0xFFDE0BC9), Color(0xFF1286F0)],
       begin: Alignment.topCenter,

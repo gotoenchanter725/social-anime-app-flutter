@@ -5,6 +5,7 @@ import 'package:senpai/core/feed/blocs/fetch_feed_bloc.dart';
 import 'package:senpai/core/feed/blocs/like_user_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
+import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
@@ -12,10 +13,12 @@ import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/screens/home/bloc/home_storage_bloc.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/widgets/match_content.dart';
-import 'package:senpai/screens/profile/bloc/profile_bloc.dart' as user;
+import 'package:senpai/screens/profile/bloc/profile_bloc.dart' as userProfile;
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
+
+import '../../../core/user/blocs/verify_request_user/fetch_verify_requests.dart';
 
 @RoutePage()
 class MatchPage extends StatelessWidget {
@@ -28,9 +31,11 @@ class MatchPage extends StatelessWidget {
         BlocProvider.value(value: getIt<HomeStorageBloc>()),
         BlocProvider(create: (_) => MatchBloc()..add(OnInitUserID())),
         BlocProvider(
-            create: (_) => user.ProfileBloc()..add(user.OnInitUserID())),
+            create: (_) => userProfile.ProfileBloc()..add(userProfile.OnInitUserID())),
         BlocProvider(create: (_) => getIt<FetchFeedBloc>()),
         BlocProvider(create: (_) => getIt<LikeUserBloc>()),
+        BlocProvider(create: (_) => getIt<FetchUserBloc>()),
+        BlocProvider(create: (_) => getIt<FetchVerifyRequestsBloc>()),
       ],
       child: Scaffold(
         backgroundColor: $constants.palette.darkBlue,
@@ -47,15 +52,50 @@ class MatchPage extends StatelessWidget {
                     userId: bloc.userID,
                     profileFilter: storageBloc.filters,
                   );
+
+                  final fetchUserBloc = BlocProvider.of<FetchUserBloc>(context);
+                  fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
+
                 },
                 child: const MatchContent(),
               ),
               _buildFetchFeedListeners(),
               _buildLikeUserListeners(),
+              _buildFetchUserListeners(),
+
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildFetchUserListeners() {
+    return BlocBuilder<FetchUserBloc, QueryState>(
+      builder: (context, state) {
+        return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            loaded: (data, result) {
+              if (result.data == null) {
+                showSnackBarError(context, TextConstants.nullUser);
+                logIt.error("A successful empty response just got recorded");
+                return const SizedBox.shrink();
+              } else {
+                UserProfileModel user = UserProfileModel.fromJson(
+                  result.data!["fetchUser"],
+                );
+
+                final matchBloc = BlocProvider.of<MatchBloc>(context);
+                matchBloc.superLikeCount = user.superLikeCount ?? 0;
+              }
+              return const SizedBox.shrink();
+            },
+            error: (error, result) {
+              showSnackBarError(context, TextConstants.serverError);
+              return const SizedBox.shrink();
+            },
+            orElse: () => const SizedBox.shrink());
+      },
     );
   }
 

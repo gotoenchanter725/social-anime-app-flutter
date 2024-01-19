@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
-import 'package:senpai/screens/premium_screen/widgets/premium_purchase_dialog.dart';
 import 'package:senpai/screens/premium_screen/widgets/profile_premium_widget.dart';
 import 'package:senpai/screens/profile_fill/widgets/custom_close_button.dart';
 

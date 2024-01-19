@@ -15,7 +15,6 @@
 // }
 
 
-import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -54,7 +53,6 @@ class EntryPage extends StatelessWidget {
           },
           loading: () => const SenpaiLoading(),
           succeeded: (data, result) {
-            print("Successful state");
             final signInBloc = BlocProvider.of<SignInBloc>(context);
             final bool isSignedIn =
                 signInBloc.signInUser(context.router, result.data);
