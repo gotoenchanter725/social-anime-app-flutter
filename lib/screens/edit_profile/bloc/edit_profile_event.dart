@@ -79,3 +79,9 @@ class OnChangeShareTopArtistsEvent extends EditProfileEvent {
   final bool isShareTopArtists;
   OnChangeShareTopArtistsEvent({required this.isShareTopArtists});
 }
+
+class OnChangePhotosListEvent extends EditProfileEvent {
+  final List<UploadPhotoModel> photos;
+
+  OnChangePhotosListEvent({required this.photos});
+}
