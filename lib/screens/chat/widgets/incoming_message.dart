@@ -96,6 +96,10 @@ class IncomingMessage extends StatelessWidget {
   }
 
   Widget _buildMessage(BuildContext context) {
+    if (message.attachment != null) {
+      return _buildAttachmentMessage(context);
+    }
+
     if (message.recommendation != null) {
       return _buildAnimeMessage(context);
     }
@@ -178,6 +182,35 @@ class IncomingMessage extends StatelessWidget {
     return SenpaiEmoji(
       emojiName: emojiNameMapping[message.reaction]!,
       size: 20,
+    );
+  }
+
+  Widget _buildAttachmentMessage(BuildContext context) {
+    if (message.attachmentType == AttachmentType.photo) {
+      return _buildPhotoMessage(context);
+    }
+
+    return const SizedBox.shrink();
+  }
+
+  Widget _buildPhotoMessage(BuildContext context) {
+    return _buildChatBubble(
+      context,
+      _buildPhotoWidget(context),
+    );
+  }
+
+  Widget _buildPhotoWidget(BuildContext context) {
+    return Container(
+      width: getSize(context).width * 0.7,
+      height: getSize(context).width * 0.7,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular($constants.corners.lg),
+        image: DecorationImage(
+          image: NetworkImage(message.attachment!),
+          fit: BoxFit.cover,
+        ),
+      ),
     );
   }
 
