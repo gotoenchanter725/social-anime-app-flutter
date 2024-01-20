@@ -1,5 +1,6 @@
 part of 'upload_photos_bloc.dart';
 
+
 @immutable
 abstract class UploadPhotosEvent {}
 
