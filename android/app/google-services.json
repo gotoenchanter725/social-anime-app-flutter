@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "598331345581",
+    "project_id": "senpai-536b6",
+    "storage_bucket": "senpai-536b6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598331345581:android:be6d39ab4f1fc894dc9424",
+        "android_client_info": {
+          "package_name": "makeshift.software.inc.senpai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh9ne0PjH2P7fiM5C9sia0qt56Vt6NmpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

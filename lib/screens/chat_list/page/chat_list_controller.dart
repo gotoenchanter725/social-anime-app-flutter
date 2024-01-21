@@ -8,7 +8,6 @@ import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/screens/chat_list/widgets/chat_list_content.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
-import 'package:senpai/utils/methods/aliases.dart';
 
 class ChatListController extends StatelessWidget {
   const ChatListController({super.key});
@@ -32,11 +31,9 @@ class ChatListController extends StatelessWidget {
     state.maybeWhen(
       orElse: () {},
       connected: () {
-        logIt.info("Conversation subscription connected");
         conversationSubscriptionBloc.subscribe();
       },
       data: (data) {
-        logIt.info("Conversation subscription data: $data");
         fetchConversationsBloc.refetch();
       },
       error: (message) {
