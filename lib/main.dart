@@ -11,8 +11,13 @@ import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/i18n/strings.g.dart';
 import 'package:senpai/screens/match/page/match_page.dart';
 import 'package:senpai/theme/app_theme.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:universal_platform/universal_platform.dart';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 Future<void> main() async {
   await runZonedGuarded<Future<void>>(() async {
@@ -22,6 +27,34 @@ Future<void> main() async {
 
     // Inits sentry for error tracking.
     await initializeSentry();
+
+    // Inits firebase for push notifications.
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+
+    final messaging = FirebaseMessaging.instance;
+
+    final settings = await messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
+
+    if (env.debug) {
+      logIt.debug('User granted permission: ${settings.authorizationStatus}');
+    }
+
+    String? token = await messaging.getToken();
+    if (env.debug) {
+      logIt.debug('Token: $token');
+    }
+    // TODO: Set up foreground message handler
+    // TODO: Set up background message handler
 
     // Set bloc observer and hydrated bloc storage.
     // Bloc.observer = Observer();
