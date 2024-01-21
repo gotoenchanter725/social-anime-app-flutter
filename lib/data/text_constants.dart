@@ -93,6 +93,7 @@ class TextConstants {
   static const String stickerMessageText = "🌄 Sticker";
   static const String animationRecomedationText = "🌄 Animation";
   static const String gifMessageText = "🌄 Gif";
+  static const String attachmentMessageText = "🌄 Attachment";
 
   // -> Search Chat List
   static const String cancelSearchText = "Cancel";
