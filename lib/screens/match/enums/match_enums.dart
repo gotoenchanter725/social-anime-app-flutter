@@ -5,6 +5,7 @@
 
 const _standardLike = 'standard';
 const _superlike = 'super';
+const _rejection = 'rejection';
 
 enum LikeType {
   standard,
@@ -21,6 +22,16 @@ enum LikeType {
       return LikeType.rejection;
     }
   }
+}
+
+extension LikeTypeX on LikeType {
+  String get likeTypeString =>
+      const {
+        LikeType.standard: _standardLike,
+        LikeType.superLike: _superlike,
+        LikeType.rejection: _rejection,
+      }[this] ??
+      '';
 }
 
 enum Swipe { none, right, left, up }

@@ -34,12 +34,21 @@ class MatchContent extends StatelessWidget {
 
         if (state is NextUserState) {
           final serverBloc = BlocProvider.of<LikeUserBloc>(context);
+          String likeType = '';
+          if (state.swipe == Swipe.right) {
+            likeType = LikeType.standard.likeTypeString;
+          }
+          if (state.swipe == Swipe.up) {
+            likeType = LikeType.superLike.likeTypeString;
+          }
+          if (state.swipe == Swipe.left) {
+            likeType = LikeType.rejection.likeTypeString;
+          }
+
           serverBloc.likeUser(
             userId: int.parse(bloc.userID),
             likeeId: state.selectedUserId,
-            likeType: state.swipe == Swipe.right
-                ? LikeType.standard.name
-                : LikeType.rejection.name,
+            likeType: likeType,
           );
         }
       },
