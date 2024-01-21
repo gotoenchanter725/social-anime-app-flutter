@@ -9,7 +9,8 @@ class MessagesParser {
     if (messages.isNotEmpty) {
       for (var message in messages) {
         AttachmentType attachmentType;
-        if (message["attachmentType"] == "photo") {
+        if (message["attachmentType"] != null &&
+            message["attachmentType"].contains("image/")) {
           attachmentType = AttachmentType.photo;
         } else {
           attachmentType = AttachmentType.video;
