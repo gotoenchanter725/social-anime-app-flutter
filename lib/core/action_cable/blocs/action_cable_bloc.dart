@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:action_cable/action_cable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:fresh_dio/fresh_dio.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/auth/auth_model.dart';
@@ -18,9 +21,14 @@ abstract class ActionCableBloc<T>
 
   final Map<String, dynamic> _params;
 
+  StreamSubscription? _internetConnectionSubscription;
+
+  bool _isConnected = false; // Connection status flag
+
   ActionCableBloc(this._channelName, this._params)
       : super(const ActionCableState.initial()) {
     on<ActionCableEvent<T>>(_onEvent);
+    _initializeNetworkListener();
   }
 
   void _onEvent(
@@ -52,6 +60,24 @@ abstract class ActionCableBloc<T>
     );
   }
 
+  void _initializeNetworkListener() {
+    _internetConnectionSubscription =
+        InternetConnection().onStatusChange.listen(
+      (status) {
+        if (status == InternetStatus.connected) {
+          _reconnectIfNeeded();
+        }
+      },
+    );
+  }
+
+  Future<void> _reconnectIfNeeded() async {
+    if (!_isConnected) {
+      logIt.info("Attempting to reconnect subscription");
+      connect();
+    }
+  }
+
   void connect() async {
     final storage = getIt<TokenStorage<AuthModel>>();
     AuthModel? authModel = await storage.read();
@@ -62,8 +88,10 @@ abstract class ActionCableBloc<T>
     }
     String url = "${env.webSocketUrl}?token=${authModel.token}";
     _actionCable = ActionCable.Connect(url, onConnected: () {
+      _isConnected = true;
       add(const ActionCableEvent.connect());
     }, onConnectionLost: () {
+      _isConnected = false;
       add(const ActionCableEvent.error(
           message: TextConstants.actionCableConnectionError));
     }, onCannotConnect: () {
@@ -75,6 +103,7 @@ abstract class ActionCableBloc<T>
   void disconnect() {
     logIt.error("ActionCable disconnecting");
     _actionCable.disconnect();
+    _isConnected = false;
     add(const ActionCableEvent.disconnect());
   }
 
@@ -108,6 +137,7 @@ abstract class ActionCableBloc<T>
   }
 
   void dispose() {
+    _internetConnectionSubscription?.cancel();
     _actionCable.disconnect();
   }
 
