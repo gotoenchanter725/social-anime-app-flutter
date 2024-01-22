@@ -1,4 +1,3 @@
-
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +22,8 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
   List<FlipCardController> flipCardController = [];
 
   int currentProfileIndex = 0;
+
+  int superLikeCount = 0;
 
   int page = 1;
 
@@ -90,6 +91,9 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
     on<OnSuperLikeUserEvent>((event, emit) {
       emit(LoadingState());
       final selectedUserId = int.parse(userNow.id);
+      if (superLikeCount > 0) {
+        superLikeCount--;
+      }
       users = users..remove(userNow);
       if (users.isNotEmpty) {
         userNow = users.last;

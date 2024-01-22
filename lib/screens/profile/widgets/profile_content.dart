@@ -41,6 +41,8 @@ class ProfileContent extends StatelessWidget {
         final bloc = BlocProvider.of<ProfileBloc>(context);
         final isUserHasPhotos =
             bloc.user.gallery != null && bloc.user.gallery!.photos.isNotEmpty;
+        print('profile super like: ${bloc.user.superLikeCount}');
+
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
           child: Column(

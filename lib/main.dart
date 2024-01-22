@@ -9,7 +9,6 @@ import 'package:senpai/core/app/app.dart';
 import 'package:senpai/core/sentry/sentry_module.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/i18n/strings.g.dart';
-import 'package:senpai/screens/match/page/match_page.dart';
 import 'package:senpai/theme/app_theme.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
