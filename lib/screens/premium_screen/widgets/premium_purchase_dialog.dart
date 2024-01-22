@@ -1,7 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:senpai/models/subscription_plan_model.dart';
+import 'package:senpai/screens/premium_screen/widgets/premium_item_button.dart';
 
 import '../../../core/widgets/primary_button.dart';
 import '../../../data/path_constants.dart';
@@ -72,9 +73,10 @@ class _PurchaseDialogState extends State<PurchaseDialog> {
                   height: $constants.insets.lg,
                 ),
                 SizedBox(height: $constants.insets.xs),
-                Text(
+                AutoSizeText(
                   TextConstants.outOfSuperLikes,
                   style: getTextTheme(context).headlineLarge?.copyWith(),
+                  maxLines: 1,
                 ),
                 SizedBox(height: $constants.insets.xs),
                 Text(
@@ -89,15 +91,14 @@ class _PurchaseDialogState extends State<PurchaseDialog> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     for (var i = 0; i < bloc.subscriptionPlanList.length; i++)
-                      _buttonContainer(
-                        context: context,
+                      PremiumItemButton(
                         onPressed: () {
                           bloc.add(OnUpdatePlanEvent(
                             subscriptionPlan: bloc.subscriptionPlanList[i],
                           ));
                         },
                         subscriptionPlan: bloc.subscriptionPlanList[i],
-                        bloc: bloc,
+                        selectedSubscription: bloc.selectedSubscription,
                       ),
                   ],
                 ),
@@ -128,62 +129,6 @@ Widget _buildCrownIcon({required double width, required double height}) {
   );
 }
 
-Widget _buttonContainer({
-  required BuildContext context,
-  required Function()? onPressed,
-  required SubscriptionPlan subscriptionPlan,
-  required PurchaseBloc bloc,
-}) {
-  bool isSelectedPlan = bloc.selectedSubscription == subscriptionPlan;
-  return ElevatedButton(
-    onPressed: onPressed,
-    style: ElevatedButton.styleFrom(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular($constants.corners.md),
-        ),
-        padding: const EdgeInsets.all(0)),
-    child: Container(
-      height: 130,
-      width: getSize(context).width * 0.26,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular($constants.corners.md),
-        gradient: isSelectedPlan ? $constants.palette.buttonGradient : null,
-        color: $constants.palette.buttonBorder,
-      ),
-      padding: const EdgeInsets.all(4),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          FittedBox(
-            child: Text(
-              '${subscriptionPlan.superLikeCount}',
-              style: getTextTheme(context).bodyMedium,
-            ),
-          ),
-          SizedBox(height: $constants.insets.xs),
-          FittedBox(
-            child: Text(
-              TextConstants.superLikes,
-              style: getTextTheme(context).bodySmall,
-            ),
-          ),
-          SizedBox(height: $constants.insets.xs),
-          FittedBox(
-            child: Text(
-              subscriptionPlan.price,
-              style: getTextTheme(context).bodyMedium,
-            ),
-          ),
-        ],
-      ),
-    ),
-  );
-}
-
 Widget _buildBuyPremiumButton(
     BuildContext context, Function() onPressed, String price) {
   return Padding(
@@ -194,6 +139,7 @@ Widget _buildBuyPremiumButton(
     child: PrimaryButton(
       text: '${TextConstants.dialogBuyButton} $price',
       onPressed: onPressed,
+      backgroundColor: $constants.palette.gold,
     ),
   );
 }
