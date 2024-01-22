@@ -66,6 +66,9 @@ class MatchPage extends StatelessWidget {
                         userId: bloc.userID,
                         profileFilter: storageBloc.filters,
                       );
+                      final fetchUserBloc =
+                          BlocProvider.of<FetchUserBloc>(context);
+                      fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
                     },
                   ),
                 ],
