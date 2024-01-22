@@ -12,6 +12,10 @@ class OnApplyProfileFilters extends HomeStorageEvent {
   OnApplyProfileFilters({required this.filters});
 }
 
+class OnOpenMatchScreen extends HomeStorageEvent {
+  OnOpenMatchScreen();
+}
+
 class OnSaveFirstOpenMatch extends HomeStorageEvent {
   OnSaveFirstOpenMatch();
 }

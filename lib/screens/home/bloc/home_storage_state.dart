@@ -10,6 +10,8 @@ class ErrorHomeStorageState extends HomeStorageState {
   ErrorHomeStorageState({required this.message});
 }
 
+class OpenMatchWithNewFiltersState extends HomeStorageState {}
+
 class FetchFiltersSucssesfulState extends HomeStorageState {}
 
 class ValidSaveProfileFiltersState extends HomeStorageState {}
