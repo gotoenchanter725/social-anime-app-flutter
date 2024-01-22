@@ -27,7 +27,7 @@ class FetchUserBloc extends QueryBloc<FetchUser$Query> {
 
   @override
   FetchUser$Query parseData(Map<String, dynamic>? data) {
-    print('fetch user sata: $data');
+    log('fetch user sata: $data');
     return FetchUser$Query.fromJson(data ?? <String, dynamic>{});
   }
 }

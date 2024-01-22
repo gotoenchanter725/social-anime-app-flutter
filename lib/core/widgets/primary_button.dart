@@ -5,7 +5,14 @@ import 'package:senpai/utils/methods/utils.dart';
 class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
-  const PrimaryButton({super.key, required this.text, required this.onPressed});
+  final Color? backgroundColor;
+
+  const PrimaryButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.backgroundColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +29,12 @@ class PrimaryButton extends StatelessWidget {
         height: 56,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular($constants.corners.md),
-            gradient: $constants.palette.buttonGradient),
+          borderRadius: BorderRadius.circular($constants.corners.md),
+          gradient: backgroundColor == null
+              ? $constants.palette.buttonGradient
+              : null,
+          color: backgroundColor,
+        ),
         child: Text(
           text,
           style: getTextTheme(context).headlineSmall,

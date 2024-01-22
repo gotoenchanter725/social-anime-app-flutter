@@ -88,4 +88,5 @@ class PathConstants {
   static const String refreshIcon = 'assets/icons/refresh.svg';
   static const String premiumImage = 'assets/images/profile/premium_image.png';
   static const String matchHeartBgIcon = 'assets/icons/match_heart.svg';
+  static const String matchCardBg = 'assets/images/match/super_like_bg.png';
 }
