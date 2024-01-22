@@ -21,7 +21,6 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
-
 @RoutePage()
 class MatchPage extends StatelessWidget {
   const MatchPage({super.key});
@@ -33,7 +32,8 @@ class MatchPage extends StatelessWidget {
         BlocProvider.value(value: getIt<HomeStorageBloc>()),
         BlocProvider(create: (_) => MatchBloc()..add(OnInitUserID())),
         BlocProvider(
-            create: (_) => userProfile.ProfileBloc()..add(userProfile.OnInitUserID())),
+            create: (_) =>
+                userProfile.ProfileBloc()..add(userProfile.OnInitUserID())),
         BlocProvider(create: (_) => getIt<FetchFeedBloc>()),
         BlocProvider(create: (_) => getIt<LikeUserBloc>()),
         BlocProvider(create: (_) => getIt<FetchUserBloc>()),
@@ -43,27 +43,37 @@ class MatchPage extends StatelessWidget {
         body: SafeArea(
           child: Stack(
             children: [
-              BlocListener<MatchBloc, MatchState>(
-                listenWhen: (_, currState) => currState is ValidUserIdState,
-                listener: (context, state) {
-                  final bloc = BlocProvider.of<MatchBloc>(context);
-                  final storageBloc = BlocProvider.of<HomeStorageBloc>(context);
-                  final serverBloc = BlocProvider.of<FetchFeedBloc>(context);
-                  serverBloc.fetchFeed(
-                    userId: bloc.userID,
-                    profileFilter: storageBloc.filters,
-                  );
-
-                  final fetchUserBloc = BlocProvider.of<FetchUserBloc>(context);
-                  fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
-
-                },
+              MultiBlocListener(
+                listeners: [
+                  BlocListener<HomeStorageBloc, HomeStorageState>(
+                    listenWhen: (_, currState) =>
+                        currState is OpenMatchWithNewFiltersState,
+                    bloc: BlocProvider.of<HomeStorageBloc>(context),
+                    listener: (context, state) {
+                      final bloc = BlocProvider.of<MatchBloc>(context);
+                      bloc.add(OnChangePageEvent(isRefresh: true));
+                    },
+                  ),
+                  BlocListener<MatchBloc, MatchState>(
+                    listenWhen: (_, currState) => currState is ValidUserIdState,
+                    listener: (context, state) {
+                      final bloc = BlocProvider.of<MatchBloc>(context);
+                      final storageBloc =
+                          BlocProvider.of<HomeStorageBloc>(context);
+                      final serverBloc =
+                          BlocProvider.of<FetchFeedBloc>(context);
+                      serverBloc.fetchFeed(
+                        userId: bloc.userID,
+                        profileFilter: storageBloc.filters,
+                      );
+                    },
+                  ),
+                ],
                 child: const MatchContent(),
               ),
               _buildFetchFeedListeners(),
               _buildLikeUserListeners(),
               _buildFetchUserListeners(),
-
             ],
           ),
         ),
