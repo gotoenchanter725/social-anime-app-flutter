@@ -98,9 +98,15 @@ class ChatListContent extends StatelessWidget {
         height: $constants.insets.lg,
       ),
       _buildTitle(context, TextConstants.messagesTitle),
-      Padding(
-        padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-        child: ConversationList(chatList: conversation.activeConversations),
+      Expanded(
+        child: Padding(
+          padding: EdgeInsets.only(
+            left: $constants.insets.lg,
+            right: $constants.insets.lg,
+            top: $constants.insets.sm,
+          ),
+          child: ConversationList(chatList: conversation.activeConversations),
+        ),
       )
     ];
   }
