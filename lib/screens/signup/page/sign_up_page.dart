@@ -53,8 +53,15 @@ class SignUpPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              _showSnackBarError(context, TextConstants.serverError);
-
+              if (error.graphqlErrors.isNotEmpty) {
+                _showSnackBarError(
+                  context,
+                  TextConstants.alreadyHasAccount,
+                  isWarning: true,
+                );
+              } else {
+                _showSnackBarError(context, TextConstants.serverError);
+              }
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -114,7 +121,11 @@ class SignUpPage extends StatelessWidget {
     );
   }
 
-  _showSnackBarError(BuildContext context, String message) {
+  _showSnackBarError(
+    BuildContext context,
+    String message, {
+    bool isWarning = false,
+  }) {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
         ScaffoldMessenger.of(context)
@@ -130,7 +141,8 @@ class SignUpPage extends StatelessWidget {
                 message: message,
 
                 /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
-                contentType: ContentType.failure,
+                contentType:
+                    isWarning ? ContentType.warning : ContentType.failure,
               ),
             ),
           );
