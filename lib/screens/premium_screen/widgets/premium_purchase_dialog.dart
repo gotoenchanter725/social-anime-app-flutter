@@ -37,6 +37,7 @@ class _PurchaseDialogState extends State<PurchaseDialog> {
     return BlocProvider(
       create: (_) => PurchaseBloc(),
       child: BlocListener<PurchaseBloc, PurchaseState>(
+        listenWhen: (_, currState) => currState is UpdatePlanState,
         listener: (context, state) {},
         child:
             BlocBuilder<PurchaseBloc, PurchaseState>(builder: (context, state) {
@@ -45,6 +46,7 @@ class _PurchaseDialogState extends State<PurchaseDialog> {
           if (bloc.selectedSubscription == null) {
             bloc.add(OnUpdatePlanEvent(
                 subscriptionPlan: bloc.subscriptionPlanList[0]));
+            return const SizedBox.shrink();
           }
 
           return Container(
@@ -100,7 +102,8 @@ class _PurchaseDialogState extends State<PurchaseDialog> {
                   ],
                 ),
                 SizedBox(height: $constants.insets.xl),
-                _buildBuyPremiumButton(context, () {}),
+                _buildBuyPremiumButton(
+                    context, () {}, bloc.selectedSubscription!.price),
                 SizedBox(height: $constants.insets.xs),
                 _noThanksButton(context),
               ],
@@ -181,14 +184,15 @@ Widget _buttonContainer({
   );
 }
 
-Widget _buildBuyPremiumButton(BuildContext context, Function() onPressed) {
+Widget _buildBuyPremiumButton(
+    BuildContext context, Function() onPressed, String price) {
   return Padding(
     padding: EdgeInsets.symmetric(
       horizontal: $constants.insets.md,
       vertical: $constants.insets.sm,
     ),
     child: PrimaryButton(
-      text: TextConstants.dialogBuyButton,
+      text: '${TextConstants.dialogBuyButton} $price',
       onPressed: onPressed,
     ),
   );

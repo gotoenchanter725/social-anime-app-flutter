@@ -21,7 +21,6 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
-import '../../../core/user/blocs/verify_request_user/fetch_verify_requests.dart';
 
 @RoutePage()
 class MatchPage extends StatelessWidget {
@@ -38,7 +37,6 @@ class MatchPage extends StatelessWidget {
         BlocProvider(create: (_) => getIt<FetchFeedBloc>()),
         BlocProvider(create: (_) => getIt<LikeUserBloc>()),
         BlocProvider(create: (_) => getIt<FetchUserBloc>()),
-        BlocProvider(create: (_) => getIt<FetchVerifyRequestsBloc>()),
       ],
       child: Scaffold(
         backgroundColor: $constants.palette.darkBlue,

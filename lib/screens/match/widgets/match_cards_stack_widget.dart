@@ -12,8 +12,6 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 import 'package:swipable_stack/swipable_stack.dart';
 
-import '../../profile/bloc/profile_bloc.dart';
-
 class MatchCardsStackWidget extends StatelessWidget {
   const MatchCardsStackWidget({Key? key}) : super(key: key);
 
@@ -31,7 +29,7 @@ class MatchCardsStackWidget extends StatelessWidget {
 
         bloc.cardSwipeController = [];
         bloc.flipCardController = [];
-        print('super like count @@: ${bloc.superLikeCount}');
+
         return Stack(
           clipBehavior: Clip.none,
           children: [
@@ -45,17 +43,16 @@ class MatchCardsStackWidget extends StatelessWidget {
                 return Positioned.fill(
                   child: SwipableStack(
                     controller: bloc.cardSwipeController[profileIndex],
-                    detectableSwipeDirections:
-                        (bloc.superLikeCount <= 0)
-                            ? const {
-                                SwipeDirection.right,
-                                SwipeDirection.left,
-                              }
-                            : const {
-                                SwipeDirection.right,
-                                SwipeDirection.left,
-                                SwipeDirection.up,
-                              },
+                    detectableSwipeDirections: (bloc.superLikeCount <= 0)
+                        ? const {
+                            SwipeDirection.right,
+                            SwipeDirection.left,
+                          }
+                        : const {
+                            SwipeDirection.right,
+                            SwipeDirection.left,
+                            SwipeDirection.up,
+                          },
                     itemCount: 1,
                     stackClipBehaviour: Clip.none,
                     onSwipeCompleted: (_, direction) {
@@ -104,10 +101,10 @@ class MatchCardsStackWidget extends StatelessWidget {
                         speed: 500,
                         front: Container(
                           decoration: BoxDecoration(
-                            color: $constants.palette.gold,
-                            borderRadius: BorderRadius.circular($constants.corners.md),
-                            gradient: $constants.palette.flipCardBgGradient
-                          ),
+                              color: $constants.palette.gold,
+                              borderRadius:
+                                  BorderRadius.circular($constants.corners.md),
+                              gradient: $constants.palette.flipCardBgGradient),
                           margin: EdgeInsetsDirectional.symmetric(
                             horizontal: $constants.insets.sm,
                           ),
