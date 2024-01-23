@@ -9,7 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:dio/dio.dart' as _i44;
+import 'package:dio/dio.dart' as _i45;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i16;
 import 'package:fresh_dio/fresh_dio.dart' as _i34;
 import 'package:get_it/get_it.dart' as _i1;
@@ -21,23 +21,24 @@ import 'package:senpai/core/auth/blocs/create_user_bloc.dart' as _i6;
 import 'package:senpai/core/auth/blocs/resend_verification_code_bloc.dart'
     as _i25;
 import 'package:senpai/core/auth/blocs/sign_in_bloc.dart' as _i28;
-import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart' as _i42;
+import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart' as _i43;
 import 'package:senpai/core/chat/blocs/send_message_bloc.dart' as _i26;
 import 'package:senpai/core/feed/blocs/fetch_feed_bloc.dart' as _i13;
 import 'package:senpai/core/feed/blocs/get_distance_between_users_bloc.dart'
     as _i17;
 import 'package:senpai/core/feed/blocs/like_user_bloc.dart' as _i22;
+import 'package:senpai/core/feed/blocs/undo_like_user_bloc.dart' as _i39;
 import 'package:senpai/core/profile_fill/api/spotify/sporify_auth_api.dart'
     as _i29;
 import 'package:senpai/core/profile_fill/api/spotify/spotify_profile_info_api.dart'
     as _i31;
-import 'package:senpai/core/profile_fill/api/universities_api.dart' as _i39;
+import 'package:senpai/core/profile_fill/api/universities_api.dart' as _i40;
 import 'package:senpai/core/profile_fill/blocs/delete_photo/delete_photo_bloc.dart'
     as _i9;
 import 'package:senpai/core/profile_fill/blocs/reorder_photos/reorder_photos_bloc.dart'
     as _i24;
 import 'package:senpai/core/profile_fill/blocs/upload_photo/upload_photo_bloc.dart'
-    as _i41;
+    as _i42;
 import 'package:senpai/core/profile_fill/favorite_anime/add_favorite_anime_bloc.dart'
     as _i3;
 import 'package:senpai/core/profile_fill/favorite_anime/delete_favorite_anime_bloc.dart'
@@ -57,18 +58,18 @@ import 'package:senpai/core/user/blocs/delete_user/delete_user_bloc.dart'
     as _i10;
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart' as _i14;
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart'
-    as _i40;
+    as _i41;
 import 'package:senpai/core/user/blocs/verify_photo_user/verify_photo_user_bloc.dart'
-    as _i43;
+    as _i44;
 import 'package:senpai/core/user/blocs/verify_request_user/fetch_verify_requests.dart'
     as _i15;
-import 'package:senpai/dependency_injection/dio_client_di.dart' as _i51;
-import 'package:senpai/dependency_injection/graphql_client_di.dart' as _i48;
-import 'package:senpai/dependency_injection/network_info_di.dart' as _i49;
-import 'package:senpai/dependency_injection/router_di.dart' as _i45;
-import 'package:senpai/dependency_injection/secure_storage_di.dart' as _i46;
-import 'package:senpai/dependency_injection/spotify_module_di.dart' as _i50;
-import 'package:senpai/dependency_injection/university_module_di.dart' as _i47;
+import 'package:senpai/dependency_injection/dio_client_di.dart' as _i52;
+import 'package:senpai/dependency_injection/graphql_client_di.dart' as _i49;
+import 'package:senpai/dependency_injection/network_info_di.dart' as _i50;
+import 'package:senpai/dependency_injection/router_di.dart' as _i46;
+import 'package:senpai/dependency_injection/secure_storage_di.dart' as _i47;
+import 'package:senpai/dependency_injection/spotify_module_di.dart' as _i51;
+import 'package:senpai/dependency_injection/university_module_di.dart' as _i48;
 import 'package:senpai/domain/profile_fill/spotify/spotify_auth_usecase.dart'
     as _i30;
 import 'package:senpai/domain/profile_fill/spotify/spotify_fetch_user_info_usecase.dart'
@@ -153,27 +154,28 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i36.SecureAuthStorage(gh<_i16.FlutterSecureStorage>()));
     gh.lazySingleton<_i34.TokenStorage<_i37.SpotifyAuthModel>>(
         () => _i38.SecureSpotifyAuthStorage(gh<_i16.FlutterSecureStorage>()));
-    gh.factory<_i39.UniversitiesApi>(
+    gh.factory<_i39.UndoLikeUserBloc>(() => _i39.UndoLikeUserBloc());
+    gh.factory<_i40.UniversitiesApi>(
         () => universityInjectionModule.universitiesApi(gh<_i11.EnvModel>()));
-    gh.factory<_i40.UpdateUserBloc>(() => _i40.UpdateUserBloc());
-    gh.factory<_i41.UploadPhotoBloc>(() => _i41.UploadPhotoBloc());
-    gh.factory<_i42.ValidatePhoneBloc>(() => _i42.ValidatePhoneBloc());
-    gh.factory<_i43.VerifyPhotoUserBloc>(() => _i43.VerifyPhotoUserBloc());
-    gh.factory<_i44.Dio>(() => dioInjection.dio(gh<_i11.EnvModel>()));
+    gh.factory<_i41.UpdateUserBloc>(() => _i41.UpdateUserBloc());
+    gh.factory<_i42.UploadPhotoBloc>(() => _i42.UploadPhotoBloc());
+    gh.factory<_i43.ValidatePhoneBloc>(() => _i43.ValidatePhoneBloc());
+    gh.factory<_i44.VerifyPhotoUserBloc>(() => _i44.VerifyPhotoUserBloc());
+    gh.factory<_i45.Dio>(() => dioInjection.dio(gh<_i11.EnvModel>()));
     return this;
   }
 }
 
-class _$RouterInjection extends _i45.RouterInjection {}
+class _$RouterInjection extends _i46.RouterInjection {}
 
-class _$SecureStorageInjection extends _i46.SecureStorageInjection {}
+class _$SecureStorageInjection extends _i47.SecureStorageInjection {}
 
-class _$UniversityInjectionModule extends _i47.UniversityInjectionModule {}
+class _$UniversityInjectionModule extends _i48.UniversityInjectionModule {}
 
-class _$GraphQLInjection extends _i48.GraphQLInjection {}
+class _$GraphQLInjection extends _i49.GraphQLInjection {}
 
-class _$NetworkInfoInjection extends _i49.NetworkInfoInjection {}
+class _$NetworkInfoInjection extends _i50.NetworkInfoInjection {}
 
-class _$SpotifyInjectionModule extends _i50.SpotifyInjectionModule {}
+class _$SpotifyInjectionModule extends _i51.SpotifyInjectionModule {}
 
-class _$DioInjection extends _i51.DioInjection {}
+class _$DioInjection extends _i52.DioInjection {}
