@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/widgets/loading.dart';
+import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/screens/preview_profile/bloc/carousel_photo_bloc/carousel_photo_bloc.dart';
 import 'package:senpai/screens/preview_profile/widgets/active_status_widget.dart';
 import 'package:senpai/screens/profile/widgets/profile_name_header.dart';
@@ -14,6 +17,7 @@ class CarouselPhoto extends StatelessWidget {
   final DateTime? birthday;
   final bool isVerified;
   final String? onlineStatus;
+  final int? milesAway;
 
   const CarouselPhoto({
     super.key,
@@ -23,6 +27,7 @@ class CarouselPhoto extends StatelessWidget {
     this.isVerified = false,
     this.birthday,
     this.onlineStatus,
+    this.milesAway,
   });
 
   @override
@@ -55,7 +60,7 @@ class CarouselPhoto extends StatelessWidget {
                     return Stack(
                       children: [
                         _buildImageItem(listImages[index], context),
-                        if (isShowProfileInfo) _buildUserInfo(),
+                        if (isShowProfileInfo) _buildUserInfo(context),
                       ],
                     );
                   },
@@ -150,7 +155,7 @@ class CarouselPhoto extends StatelessWidget {
     );
   }
 
-  Widget _buildUserInfo() {
+  Widget _buildUserInfo(BuildContext context) {
     return Container(
       margin: EdgeInsetsDirectional.only(
         top: $constants.carousel.topMargin,
@@ -179,7 +184,29 @@ class CarouselPhoto extends StatelessWidget {
             ),
             hasBackground: true,
           ),
-          ActiveStatusWidget(activeStatus: onlineStatus),
+          if (milesAway != null)
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SvgPicture.asset(
+                  PathConstants.distanceIcon,
+                  width: $constants.corners.md,
+                  height: $constants.corners.md,
+                  color: $constants.palette.disabledTextButton,
+                ),
+                SizedBox(width: $constants.insets.xxs),
+                Text(
+                  '$milesAway ${TextConstants.milesAwayText}',
+                  style: getTextTheme(context).labelMedium?.copyWith(
+                        color: $constants.palette.disabledTextButton,
+                      ),
+                ),
+              ],
+            ),
+          Padding(
+            padding: const EdgeInsets.only(left: 2.0),
+            child: ActiveStatusWidget(activeStatus: onlineStatus),
+          ),
         ],
       ),
     );
