@@ -16,16 +16,15 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
 
   List<UserProfileModel> users = [];
   UserProfileModel userNow = UserProfileModel.initial();
+  UserProfileModel previewUser = UserProfileModel.initial();
   Swipe swipeUser = Swipe.none;
 
-  List<SwipableStackController> cardSwipeController = [];
   List<FlipCardController> flipCardController = [];
+  SwipableStackController cardsSwipeController = SwipableStackController();
 
   int currentProfileIndex = 0;
 
   int superLikeCount = 0;
-
-  int page = 1;
 
   MatchBloc() : super(MatchInitial()) {
     on<OnInitUserID>((event, emit) async {
@@ -42,57 +41,66 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
 
     on<OnMatchInitEvent>((event, emit) {
       emit(LoadingState());
-      if (page == 1) {
-        users = event.users;
-      } else {
-        users.addAll(event.users);
-      }
+      users = event.users;
       if (event.users.isNotEmpty) {
-        userNow = event.users.last;
+        userNow = event.users.first;
       }
+      flipCardController = [];
+      swipeUser = Swipe.none;
+      cardsSwipeController = SwipableStackController();
+      users.forEach((element) {
+        flipCardController = flipCardController..add(FlipCardController());
+      });
+
       emit(ValidState());
     });
 
     on<OnCancelUserEvent>((event, emit) {
       emit(LoadingState());
+      currentProfileIndex = cardsSwipeController.currentIndex;
       final selectedUserId = int.parse(userNow.id);
-      users = users..remove(userNow);
-      if (users.isNotEmpty) {
-        userNow = users.last;
-      }
-      if (users.length == 2) {
-        page += 1;
+
+      if (users.isNotEmpty && currentProfileIndex != users.length) {
+        previewUser = userNow;
+
+        userNow = users[currentProfileIndex];
       }
       emit(NextUserState(swipe: Swipe.left, selectedUserId: selectedUserId));
     });
 
     on<OnLikeUserEvent>((event, emit) {
       emit(LoadingState());
+      currentProfileIndex = cardsSwipeController.currentIndex;
+
       final selectedUserId = int.parse(userNow.id);
-      users = users..remove(userNow);
-      if (users.isNotEmpty) {
-        userNow = users.last;
-      }
-      if (users.length == 2) {
-        page += 1;
+      if (users.isNotEmpty && currentProfileIndex != users.length) {
+        previewUser = userNow;
+        userNow = users[currentProfileIndex];
       }
       emit(NextUserState(swipe: Swipe.right, selectedUserId: selectedUserId));
     });
 
     on<OnSuperLikeUserEvent>((event, emit) {
       emit(LoadingState());
+      currentProfileIndex = cardsSwipeController.currentIndex;
       final selectedUserId = int.parse(userNow.id);
       if (superLikeCount > 0) {
         superLikeCount--;
       }
-      users = users..remove(userNow);
-      if (users.isNotEmpty) {
-        userNow = users.last;
-      }
-      if (users.length == 2) {
-        page += 1;
+      if (users.isNotEmpty && currentProfileIndex != users.length) {
+        previewUser = userNow;
+        userNow = users[currentProfileIndex];
       }
       emit(NextUserState(swipe: Swipe.up, selectedUserId: selectedUserId));
+    });
+
+    on<OnUndoLikeEvent>((event, emit) {
+      cardsSwipeController.rewind();
+      currentProfileIndex = cardsSwipeController.currentIndex;
+      final selectedUserId = int.parse(previewUser.id);
+      userNow = previewUser;
+      swipeUser = Swipe.rewind;
+      emit(ValidUndoLikeState(selectedUserId: selectedUserId));
     });
 
     on<OnChangeSwipeUserEvent>((event, emit) {
@@ -102,12 +110,7 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
 
     on<OnChangePageEvent>((event, emit) {
       emit(LoadingState());
-      if (event.isRefresh) {
-        page = 1;
-      } else {
-        page += 1;
-      }
-      emit(ValidChangePageState());
+      emit(ValidChangePageState(isRefresh: event.isRefresh));
     });
   }
 }

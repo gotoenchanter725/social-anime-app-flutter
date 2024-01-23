@@ -113,12 +113,10 @@ class MatchBottomContainer extends StatelessWidget {
                 .toggleCard()
                 .whenComplete(() {
               Future.delayed(const Duration(milliseconds: 1000), () {
-                bloc.cardSwipeController[bloc.currentProfileIndex]
+                bloc.cardsSwipeController
                     .next(swipeDirection: SwipeDirection.up);
               });
             });
-
-            // bloc.add(OnSuperLikeUserEvent());
           },
         ),
         SizedBox(height: $constants.insets.md),
@@ -127,7 +125,10 @@ class MatchBottomContainer extends StatelessWidget {
           children: [
             SenpaiMatchCircleButton(
               icon: PathConstants.refreshIcon,
-              onTap: () => bloc.add(OnChangePageEvent(isRefresh: true)),
+              onTap:
+                  bloc.swipeUser == Swipe.rewind || bloc.swipeUser == Swipe.none
+                      ? null
+                      : () => bloc.add(OnUndoLikeEvent()),
             ),
             SizedBox(width: $constants.insets.md),
             Flexible(child: _buildLogoBox()),
@@ -139,15 +140,13 @@ class MatchBottomContainer extends StatelessWidget {
                     userId: bloc.userID,
                     onTapLike: () async {
                       await context.router.pop();
-                      bloc.cardSwipeController[bloc.currentProfileIndex]
+                      bloc.cardsSwipeController
                           .next(swipeDirection: SwipeDirection.right);
-                      // bloc.add(OnLikeUserEvent());
                     },
                     onTapClose: () async {
                       await context.router.pop();
-                      bloc.cardSwipeController[bloc.currentProfileIndex]
+                      bloc.cardsSwipeController
                           .next(swipeDirection: SwipeDirection.left);
-                      // bloc.add(OnCancelUserEvent());
                     },
                     vieweeId: bloc.userNow.id,
                   ),
@@ -174,9 +173,7 @@ class MatchBottomContainer extends StatelessWidget {
           icon: PathConstants.closeIcon,
           onTap: () {
             bloc.swipeUser = Swipe.left;
-            bloc.cardSwipeController[bloc.currentProfileIndex]
-                .next(swipeDirection: SwipeDirection.left);
-            // bloc.add(OnCancelUserEvent());
+            bloc.cardsSwipeController.next(swipeDirection: SwipeDirection.left);
           },
           customPadding: $constants.insets.xs,
           isReverceColor: bloc.swipeUser == Swipe.left,
@@ -186,9 +183,8 @@ class MatchBottomContainer extends StatelessWidget {
           icon: PathConstants.matchIcon,
           onTap: () {
             bloc.swipeUser = Swipe.right;
-            bloc.cardSwipeController[bloc.currentProfileIndex]
+            bloc.cardsSwipeController
                 .next(swipeDirection: SwipeDirection.right);
-            // bloc.add(OnLikeUserEvent());
           },
           isReverceColor: bloc.swipeUser == Swipe.right,
         ),
