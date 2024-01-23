@@ -192,13 +192,17 @@ class CarouselPhoto extends StatelessWidget {
                   PathConstants.distanceIcon,
                   width: $constants.corners.md,
                   height: $constants.corners.md,
-                  color: $constants.palette.disabledTextButton,
+                  colorFilter: ColorFilter.mode(
+                    $constants.palette.disabledTextButton,
+                    BlendMode.srcIn,
+                  ),
                 ),
                 SizedBox(width: $constants.insets.xxs),
                 Text(
                   '$milesAway ${TextConstants.milesAwayText}',
                   style: getTextTheme(context).labelMedium?.copyWith(
                         color: $constants.palette.disabledTextButton,
+                        letterSpacing: 0,
                       ),
                 ),
               ],
