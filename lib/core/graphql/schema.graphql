@@ -70,6 +70,7 @@ type AddSuperLikesPayload {
 
 type Anime {
   averageScore: Int
+  characters: Character
   cover: String
   createdAt: ISO8601DateTime!
   endDate: ISO8601DateTime
@@ -104,6 +105,18 @@ type Block {
 input BlockUserInput {
   blockedUserId: ID!
   userId: ID!
+}
+
+type Character {
+  animeId: Int!
+  createdAt: ISO8601DateTime!
+  favorites: Int
+  firstName: String
+  id: ID!
+  imageUrl: String!
+  lastName: String
+  role: String
+  updatedAt: ISO8601DateTime!
 }
 
 type Conversation {
@@ -268,6 +281,12 @@ input FavoriteMusicUpdate {
   userId: ID!
 }
 
+input FetchCharactersInput {
+  characterName: String!
+  genre: String!
+  page: Int
+}
+
 input FetchFeedInput {
   animeIds: [ID!]
   hasBio: Boolean
@@ -275,6 +294,7 @@ input FetchFeedInput {
   milesAway: Int!
   minAge: Int!
   page: Int
+  refresh: Boolean
   userId: ID!
   verified: Boolean
 }
@@ -403,7 +423,8 @@ type Message {
 
 input MessageInput {
   attachment: Upload
-  content: String!
+  attachmentType: String
+  content: String
   conversationId: String!
   recommendedAnimeId: ID
   senderId: Int!
@@ -586,6 +607,7 @@ type Photo {
 
 type Query {
   fetchAnime(params: AnimeInput!): [Anime!]!
+  fetchCharacters(params: FetchCharactersInput!): [Character!]!
   fetchConversations(page: Int, search: String, userId: ID!): [Conversation!]!
   fetchFeed(params: FetchFeedInput!): [User!]!
   fetchMessages(conversationId: ID!, page: Int): [Message!]!
@@ -983,6 +1005,7 @@ type User {
   lastSignInIp: String
   lonlat: String
   matches: [Match!]
+  milesAway(otherUserId: ID!): Int
   occupation: String
   onlineStatus: String
   phone: String!

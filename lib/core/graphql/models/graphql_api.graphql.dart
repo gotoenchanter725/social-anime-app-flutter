@@ -602,7 +602,8 @@ class SendMessageInput extends JsonSerializable with EquatableMixin {
 class MessageInput extends JsonSerializable with EquatableMixin {
   MessageInput({
     this.attachment,
-    required this.content,
+    this.attachmentType,
+    this.content,
     required this.conversationId,
     this.recommendedAnimeId,
     required this.senderId,
@@ -617,7 +618,9 @@ class MessageInput extends JsonSerializable with EquatableMixin {
       toJson: fromDartMultipartFileNullableToGraphQLUploadNullable)
   MultipartFile? attachment;
 
-  late String content;
+  String? attachmentType;
+
+  String? content;
 
   late String conversationId;
 
@@ -630,6 +633,7 @@ class MessageInput extends JsonSerializable with EquatableMixin {
   @override
   List<Object?> get props => [
         attachment,
+        attachmentType,
         content,
         conversationId,
         recommendedAnimeId,
@@ -2296,6 +2300,8 @@ class FetchFeed$Query$FetchFeed extends JsonSerializable with EquatableMixin {
 
   int? superLikeCount;
 
+  int? milesAway;
+
   @override
   List<Object?> get props => [
         id,
@@ -2316,7 +2322,8 @@ class FetchFeed$Query$FetchFeed extends JsonSerializable with EquatableMixin {
         animes,
         favoriteMusic,
         hasLocationHidden,
-        superLikeCount
+        superLikeCount,
+        milesAway
       ];
   @override
   Map<String, dynamic> toJson() => _$FetchFeed$Query$FetchFeedToJson(this);
@@ -2346,6 +2353,7 @@ class FetchFeedInput extends JsonSerializable with EquatableMixin {
     required this.milesAway,
     required this.minAge,
     this.page,
+    this.refresh,
     required this.userId,
     this.verified,
   });
@@ -2365,13 +2373,24 @@ class FetchFeedInput extends JsonSerializable with EquatableMixin {
 
   int? page;
 
+  bool? refresh;
+
   late String userId;
 
   bool? verified;
 
   @override
-  List<Object?> get props =>
-      [animeIds, hasBio, maxAge, milesAway, minAge, page, userId, verified];
+  List<Object?> get props => [
+        animeIds,
+        hasBio,
+        maxAge,
+        milesAway,
+        minAge,
+        page,
+        refresh,
+        userId,
+        verified
+      ];
   @override
   Map<String, dynamic> toJson() => _$FetchFeedInputToJson(this);
 }
@@ -5581,7 +5600,10 @@ class FetchMessagesQuery
 
 @JsonSerializable(explicitToJson: true)
 class FetchFeedArguments extends JsonSerializable with EquatableMixin {
-  FetchFeedArguments({required this.params});
+  FetchFeedArguments({
+    required this.params,
+    required this.otherUserId,
+  });
 
   @override
   factory FetchFeedArguments.fromJson(Map<String, dynamic> json) =>
@@ -5589,8 +5611,10 @@ class FetchFeedArguments extends JsonSerializable with EquatableMixin {
 
   late FetchFeedInput params;
 
+  late String otherUserId;
+
   @override
-  List<Object?> get props => [params];
+  List<Object?> get props => [params, otherUserId];
   @override
   Map<String, dynamic> toJson() => _$FetchFeedArgumentsToJson(this);
 }
@@ -5609,7 +5633,16 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'otherUserId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ID'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -5849,6 +5882,18 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
             name: NameNode(value: 'superLikeCount'),
             alias: null,
             arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'milesAway'),
+            alias: null,
+            arguments: [
+              ArgumentNode(
+                name: NameNode(value: 'otherUserId'),
+                value: VariableNode(name: NameNode(value: 'otherUserId')),
+              )
+            ],
             directives: [],
             selectionSet: null,
           ),

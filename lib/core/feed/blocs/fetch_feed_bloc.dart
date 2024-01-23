@@ -31,6 +31,7 @@ class FetchFeedBloc extends QueryBloc<FetchFeed$Query> {
         hasBio: profileFilter.hasBio,
         animeIds: profileFilter.animeIds,
       ),
+      otherUserId: userId,
     ).toJson();
 
     run(variables: variables);

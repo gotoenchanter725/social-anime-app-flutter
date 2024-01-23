@@ -422,7 +422,8 @@ Map<String, dynamic> _$SendMessageInputToJson(SendMessageInput instance) =>
 MessageInput _$MessageInputFromJson(Map<String, dynamic> json) => MessageInput(
       attachment: fromGraphQLUploadNullableToDartMultipartFileNullable(
           json['attachment'] as MultipartFile?),
-      content: json['content'] as String,
+      attachmentType: json['attachmentType'] as String?,
+      content: json['content'] as String?,
       conversationId: json['conversationId'] as String,
       recommendedAnimeId: json['recommendedAnimeId'] as String?,
       senderId: json['senderId'] as int,
@@ -433,6 +434,7 @@ Map<String, dynamic> _$MessageInputToJson(MessageInput instance) =>
     <String, dynamic>{
       'attachment': fromDartMultipartFileNullableToGraphQLUploadNullable(
           instance.attachment),
+      'attachmentType': instance.attachmentType,
       'content': instance.content,
       'conversationId': instance.conversationId,
       'recommendedAnimeId': instance.recommendedAnimeId,
@@ -1679,7 +1681,8 @@ FetchFeed$Query$FetchFeed _$FetchFeed$Query$FetchFeedFromJson(
               e as Map<String, dynamic>))
           .toList()
       ..hasLocationHidden = json['hasLocationHidden'] as bool?
-      ..superLikeCount = json['superLikeCount'] as int?;
+      ..superLikeCount = json['superLikeCount'] as int?
+      ..milesAway = json['milesAway'] as int?;
 
 Map<String, dynamic> _$FetchFeed$Query$FetchFeedToJson(
         FetchFeed$Query$FetchFeed instance) =>
@@ -1706,6 +1709,7 @@ Map<String, dynamic> _$FetchFeed$Query$FetchFeedToJson(
       'favoriteMusic': instance.favoriteMusic?.map((e) => e.toJson()).toList(),
       'hasLocationHidden': instance.hasLocationHidden,
       'superLikeCount': instance.superLikeCount,
+      'milesAway': instance.milesAway,
     };
 
 FetchFeed$Query _$FetchFeed$QueryFromJson(Map<String, dynamic> json) =>
@@ -1730,6 +1734,7 @@ FetchFeedInput _$FetchFeedInputFromJson(Map<String, dynamic> json) =>
       milesAway: json['milesAway'] as int,
       minAge: json['minAge'] as int,
       page: json['page'] as int?,
+      refresh: json['refresh'] as bool?,
       userId: json['userId'] as String,
       verified: json['verified'] as bool?,
     );
@@ -1742,6 +1747,7 @@ Map<String, dynamic> _$FetchFeedInputToJson(FetchFeedInput instance) =>
       'milesAway': instance.milesAway,
       'minAge': instance.minAge,
       'page': instance.page,
+      'refresh': instance.refresh,
       'userId': instance.userId,
       'verified': instance.verified,
     };
@@ -2557,11 +2563,13 @@ Map<String, dynamic> _$FetchMessagesArgumentsToJson(
 FetchFeedArguments _$FetchFeedArgumentsFromJson(Map<String, dynamic> json) =>
     FetchFeedArguments(
       params: FetchFeedInput.fromJson(json['params'] as Map<String, dynamic>),
+      otherUserId: json['otherUserId'] as String,
     );
 
 Map<String, dynamic> _$FetchFeedArgumentsToJson(FetchFeedArguments instance) =>
     <String, dynamic>{
       'params': instance.params.toJson(),
+      'otherUserId': instance.otherUserId,
     };
 
 FetchUserArguments _$FetchUserArgumentsFromJson(Map<String, dynamic> json) =>
