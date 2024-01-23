@@ -39,6 +39,7 @@ _$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) =>
               (e) => UserFavoriteMusicModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       hasLocationHidden: json['hasLocationHidden'] as bool?,
+      milesAway: json['milesAway'] as int?,
     );
 
 Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
@@ -65,4 +66,5 @@ Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
       'superLikeCount': instance.superLikeCount,
       'favoriteMusic': instance.favoriteMusic,
       'hasLocationHidden': instance.hasLocationHidden,
+      'milesAway': instance.milesAway,
     };
