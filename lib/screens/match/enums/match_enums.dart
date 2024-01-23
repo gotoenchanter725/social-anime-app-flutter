@@ -34,4 +34,4 @@ extension LikeTypeX on LikeType {
       '';
 }
 
-enum Swipe { none, right, left, up }
+enum Swipe { none, right, left, up, rewind }
