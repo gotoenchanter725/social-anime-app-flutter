@@ -205,24 +205,25 @@ class DesiredPreviewProfileContent extends StatelessWidget {
     final displayState = bloc.user.displayState ?? '';
     return [
       SizedBox(height: $constants.insets.xs),
-      RichText(
-        textAlign: TextAlign.left,
-        text: TextSpan(
-          style: getTextTheme(context)
-              .bodyMedium
-              ?.copyWith(color: $constants.palette.white),
-          children: [
-            TextSpan(
-              text: displayCity,
-            ),
-            if (displayCity.isNotEmpty && displayState.isNotEmpty)
-              const TextSpan(text: ', '),
-            TextSpan(
-              text: displayState,
-            ),
-          ],
+      if (displayCity.isNotEmpty || displayState.isNotEmpty)
+        RichText(
+          textAlign: TextAlign.left,
+          text: TextSpan(
+            style: getTextTheme(context)
+                .bodyMedium
+                ?.copyWith(color: $constants.palette.white),
+            children: [
+              TextSpan(
+                text: displayCity,
+              ),
+              if (displayCity.isNotEmpty && displayState.isNotEmpty)
+                const TextSpan(text: ', '),
+              TextSpan(
+                text: displayState,
+              ),
+            ],
+          ),
         ),
-      ),
       SizedBox(height: $constants.insets.xs),
       PreviewTitleInfoWidget(
         title: '${bloc.distance.mi} ${TextConstants.milesAwayText}',
