@@ -180,16 +180,27 @@ class ChatPage extends StatelessWidget {
     final pendingMessagesBloc = BlocProvider.of<PendingMessagesBloc>(context);
     final earliestPendingMessage =
         pendingMessagesBloc.state.getEarliestPendingMessage(roomArgs.roomId);
-    if (earliestPendingMessage != null) {
-      final sendMessageBloc = BlocProvider.of<SendMessageBloc>(context);
-      sendMessageBloc.sendMessage(
-        message: earliestPendingMessage.text,
+    if (earliestPendingMessage == null) {
+      return;
+    }
+    final sendMessageBloc = BlocProvider.of<SendMessageBloc>(context);
+
+    if (earliestPendingMessage.attachment != null) {
+      sendMessageBloc.sendAttachment(
         conversationId: roomArgs.roomId,
         senderId: roomArgs.currentUser.id,
-        stickerId: earliestPendingMessage.sticker?.id,
-        recommendedAnimeId: earliestPendingMessage.recommendation?.animeId,
+        attachmentUrl: earliestPendingMessage.attachment!,
       );
+      return;
     }
+
+    sendMessageBloc.sendMessage(
+      message: earliestPendingMessage.text,
+      conversationId: roomArgs.roomId,
+      senderId: roomArgs.currentUser.id,
+      stickerId: earliestPendingMessage.sticker?.id,
+      recommendedAnimeId: earliestPendingMessage.recommendation?.animeId,
+    );
   }
 
   void _handleRoomSubscriptions(BuildContext context, ActionCableState state) {

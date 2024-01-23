@@ -59,6 +59,13 @@ class ConversationsParser {
         if (lastMessage["sticker"] != null) {
           lastMessageContent = TextConstants.stickerMessageText;
         }
+        if (lastMessage["attachment"] != null) {
+          if (lastMessage["attachmentType"] == _gifAttachmentType) {
+            lastMessageContent = TextConstants.gifMessageText;
+          } else {
+            lastMessageContent = TextConstants.attachmentMessageText;
+          }
+        }
         activeConversations.add(ChatConversation(
           id: conversation["id"],
           profileUrl: reciever["gallery"]["photos"][0]["url"],
@@ -95,3 +102,5 @@ class ConversationsParser {
     );
   }
 }
+
+const String _gifAttachmentType = "image/gif";

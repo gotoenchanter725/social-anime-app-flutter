@@ -88,7 +88,8 @@ dependencies:
   timer_count_down: ^2.2.2
   flutter_markdown: ^0.6.17+1
   reorderable_grid_view: ^2.2.7
-  photo_manager: ^2.7.1
+  photo_manager: ^3.0.0-dev.2
+  photo_manager_image_provider: ^2.0.1
   geolocator: ^10.0.1
   camera: ^0.10.5+5
   action_cable: ^1.2.0
@@ -101,6 +102,12 @@ dependencies:
   swipable_stack: ^2.0.0
   flip_card: ^0.7.0
   in_app_purchase: ^3.1.11
+  giphy_get: ^3.5.4
+  http_parser: ^4.0.2
+  mime: ^1.0.4
+  path: ^1.8.3
+  firebase_core: ^2.24.2
+  firebase_messaging: ^14.7.10
 
 dev_dependencies:
   flutter_test:

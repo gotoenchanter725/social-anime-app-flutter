@@ -35,6 +35,7 @@ mixin _$EnvModel {
   String get spotifyClientSecret => throw _privateConstructorUsedError;
   String get spotifyRedirectUri => throw _privateConstructorUsedError;
   String get spotifyCallbackUrlScheme => throw _privateConstructorUsedError;
+  String get giphyApiKey => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,7 +63,8 @@ abstract class $EnvModelCopyWith<$Res> {
       String spotifyClientId,
       String spotifyClientSecret,
       String spotifyRedirectUri,
-      String spotifyCallbackUrlScheme});
+      String spotifyCallbackUrlScheme,
+      String giphyApiKey});
 }
 
 /// @nodoc
@@ -93,6 +95,7 @@ class _$EnvModelCopyWithImpl<$Res, $Val extends EnvModel>
     Object? spotifyClientSecret = null,
     Object? spotifyRedirectUri = null,
     Object? spotifyCallbackUrlScheme = null,
+    Object? giphyApiKey = null,
   }) {
     return _then(_value.copyWith(
       env: null == env
@@ -155,6 +158,10 @@ class _$EnvModelCopyWithImpl<$Res, $Val extends EnvModel>
           ? _value.spotifyCallbackUrlScheme
           : spotifyCallbackUrlScheme // ignore: cast_nullable_to_non_nullable
               as String,
+      giphyApiKey: null == giphyApiKey
+          ? _value.giphyApiKey
+          : giphyApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -181,7 +188,8 @@ abstract class _$$_EnvModelCopyWith<$Res> implements $EnvModelCopyWith<$Res> {
       String spotifyClientId,
       String spotifyClientSecret,
       String spotifyRedirectUri,
-      String spotifyCallbackUrlScheme});
+      String spotifyCallbackUrlScheme,
+      String giphyApiKey});
 }
 
 /// @nodoc
@@ -210,6 +218,7 @@ class __$$_EnvModelCopyWithImpl<$Res>
     Object? spotifyClientSecret = null,
     Object? spotifyRedirectUri = null,
     Object? spotifyCallbackUrlScheme = null,
+    Object? giphyApiKey = null,
   }) {
     return _then(_$_EnvModel(
       env: null == env
@@ -272,6 +281,10 @@ class __$$_EnvModelCopyWithImpl<$Res>
           ? _value.spotifyCallbackUrlScheme
           : spotifyCallbackUrlScheme // ignore: cast_nullable_to_non_nullable
               as String,
+      giphyApiKey: null == giphyApiKey
+          ? _value.giphyApiKey
+          : giphyApiKey // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -294,7 +307,8 @@ class _$_EnvModel extends _EnvModel {
       required this.spotifyClientId,
       required this.spotifyClientSecret,
       required this.spotifyRedirectUri,
-      required this.spotifyCallbackUrlScheme})
+      required this.spotifyCallbackUrlScheme,
+      required this.giphyApiKey})
       : super._();
 
   factory _$_EnvModel.fromJson(Map<String, dynamic> json) =>
@@ -330,10 +344,12 @@ class _$_EnvModel extends _EnvModel {
   final String spotifyRedirectUri;
   @override
   final String spotifyCallbackUrlScheme;
+  @override
+  final String giphyApiKey;
 
   @override
   String toString() {
-    return 'EnvModel(env: $env, debug: $debug, debugShowCheckedModeBanner: $debugShowCheckedModeBanner, debugShowMaterialGrid: $debugShowMaterialGrid, debugApiClient: $debugApiClient, graphApiUrl: $graphApiUrl, httpApiUrl: $httpApiUrl, httpApiUrlUniversities: $httpApiUrlUniversities, webSocketUrl: $webSocketUrl, httpApiAccountsSpotify: $httpApiAccountsSpotify, httpApiSpotify: $httpApiSpotify, spotifyClientId: $spotifyClientId, spotifyClientSecret: $spotifyClientSecret, spotifyRedirectUri: $spotifyRedirectUri, spotifyCallbackUrlScheme: $spotifyCallbackUrlScheme)';
+    return 'EnvModel(env: $env, debug: $debug, debugShowCheckedModeBanner: $debugShowCheckedModeBanner, debugShowMaterialGrid: $debugShowMaterialGrid, debugApiClient: $debugApiClient, graphApiUrl: $graphApiUrl, httpApiUrl: $httpApiUrl, httpApiUrlUniversities: $httpApiUrlUniversities, webSocketUrl: $webSocketUrl, httpApiAccountsSpotify: $httpApiAccountsSpotify, httpApiSpotify: $httpApiSpotify, spotifyClientId: $spotifyClientId, spotifyClientSecret: $spotifyClientSecret, spotifyRedirectUri: $spotifyRedirectUri, spotifyCallbackUrlScheme: $spotifyCallbackUrlScheme, giphyApiKey: $giphyApiKey)';
   }
 
   @override
@@ -371,7 +387,9 @@ class _$_EnvModel extends _EnvModel {
                 other.spotifyRedirectUri == spotifyRedirectUri) &&
             (identical(
                     other.spotifyCallbackUrlScheme, spotifyCallbackUrlScheme) ||
-                other.spotifyCallbackUrlScheme == spotifyCallbackUrlScheme));
+                other.spotifyCallbackUrlScheme == spotifyCallbackUrlScheme) &&
+            (identical(other.giphyApiKey, giphyApiKey) ||
+                other.giphyApiKey == giphyApiKey));
   }
 
   @JsonKey(ignore: true)
@@ -392,7 +410,8 @@ class _$_EnvModel extends _EnvModel {
       spotifyClientId,
       spotifyClientSecret,
       spotifyRedirectUri,
-      spotifyCallbackUrlScheme);
+      spotifyCallbackUrlScheme,
+      giphyApiKey);
 
   @JsonKey(ignore: true)
   @override
@@ -424,7 +443,8 @@ abstract class _EnvModel extends EnvModel {
       required final String spotifyClientId,
       required final String spotifyClientSecret,
       required final String spotifyRedirectUri,
-      required final String spotifyCallbackUrlScheme}) = _$_EnvModel;
+      required final String spotifyCallbackUrlScheme,
+      required final String giphyApiKey}) = _$_EnvModel;
   _EnvModel._() : super._();
 
   factory _EnvModel.fromJson(Map<String, dynamic> json) = _$_EnvModel.fromJson;
@@ -459,6 +479,8 @@ abstract class _EnvModel extends EnvModel {
   String get spotifyRedirectUri;
   @override
   String get spotifyCallbackUrlScheme;
+  @override
+  String get giphyApiKey;
   @override
   @JsonKey(ignore: true)
   _$$_EnvModelCopyWith<_$_EnvModel> get copyWith =>

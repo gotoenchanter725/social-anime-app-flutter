@@ -22,6 +22,7 @@ _$_EnvModel _$$_EnvModelFromJson(Map<String, dynamic> json) => _$_EnvModel(
       spotifyClientSecret: json['spotifyClientSecret'] as String,
       spotifyRedirectUri: json['spotifyRedirectUri'] as String,
       spotifyCallbackUrlScheme: json['spotifyCallbackUrlScheme'] as String,
+      giphyApiKey: json['giphyApiKey'] as String,
     );
 
 Map<String, dynamic> _$$_EnvModelToJson(_$_EnvModel instance) =>
@@ -41,4 +42,5 @@ Map<String, dynamic> _$$_EnvModelToJson(_$_EnvModel instance) =>
       'spotifyClientSecret': instance.spotifyClientSecret,
       'spotifyRedirectUri': instance.spotifyRedirectUri,
       'spotifyCallbackUrlScheme': instance.spotifyCallbackUrlScheme,
+      'giphyApiKey': instance.giphyApiKey,
     };

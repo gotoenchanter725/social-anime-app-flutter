@@ -35,7 +35,6 @@ class FetchConversationsBloc extends QueryBloc<FetchConversations$Query> {
 
   void _initialize() {
     _fetchAuthModel();
-    startPeriodicFetch();
   }
 
   Future<void> _fetchAuthModel() async {
@@ -54,24 +53,6 @@ class FetchConversationsBloc extends QueryBloc<FetchConversations$Query> {
     matches: [],
     activeConversations: [],
   );
-  Timer? _refetchTimer;
-
-  void startPeriodicFetch() {
-    _refetchTimer?.cancel(); // Cancel any existing timer
-    _refetchTimer = Timer.periodic(refetchInterval, (_) {
-      refetch();
-    });
-  }
-
-  void stopPeriodicFetch() {
-    _refetchTimer?.cancel();
-  }
-
-  @override
-  void dispose() {
-    _refetchTimer?.cancel();
-    super.dispose();
-  }
 
   Future<void> fetchConversation() async {
     final storage = getIt<TokenStorage<AuthModel>>();
