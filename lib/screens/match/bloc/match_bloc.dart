@@ -53,15 +53,6 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
       emit(ValidState());
     });
 
-    on<OnChangeViewUserEvent>((event, emit) {
-      emit(LoadingState());
-      if (event.index != 0) {
-        userNow = users[event.index - 1];
-      }
-      users = users..removeAt(event.index);
-      emit(ValidState());
-    });
-
     on<OnCancelUserEvent>((event, emit) {
       emit(LoadingState());
       final selectedUserId = int.parse(userNow.id);
