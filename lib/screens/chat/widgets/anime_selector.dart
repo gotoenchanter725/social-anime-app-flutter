@@ -80,7 +80,7 @@ class AnimeSelector extends StatelessWidget {
                   fillColor: $constants.palette.lightBlue,
                   contentPadding: EdgeInsets.symmetric(
                     horizontal: $constants.insets.sm,
-                    vertical: $constants.insets.xxs,
+                    vertical: 0,
                   ),
                   hintText: TextConstants.animeDescriptionHint,
                   hintStyle: getTextTheme(context).bodySmall?.copyWith(
