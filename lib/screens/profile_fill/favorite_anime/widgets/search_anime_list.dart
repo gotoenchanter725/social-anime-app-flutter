@@ -48,7 +48,7 @@ class SearchAnimeList extends StatelessWidget {
             _buildTitle(
               context,
               title: animeModel.title ?? '',
-              description: animeModel.id,
+              description: animeModel.genres ?? '',
             ),
             SizedBox(width: $constants.insets.xs),
             _buildIcon(isSelectedAnime),
@@ -74,7 +74,7 @@ class SearchAnimeList extends StatelessWidget {
   Widget _buildTitle(
     BuildContext context, {
     required String title,
-    String? description,
+    required String description,
   }) {
     return Expanded(
       child: Column(
@@ -89,9 +89,9 @@ class SearchAnimeList extends StatelessWidget {
                 ),
           ),
           Text(
-            description ?? '',
+            extractGenres(description),
             overflow: TextOverflow.ellipsis,
-            style: getTextTheme(context).bodyMedium?.copyWith(
+            style: getTextTheme(context).labelMedium?.copyWith(
                   color: $constants.palette.white,
                   fontWeight: FontWeight.w600,
                 ),
