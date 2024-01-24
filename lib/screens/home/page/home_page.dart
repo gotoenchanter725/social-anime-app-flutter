@@ -69,7 +69,13 @@ class HomePage extends StatelessWidget {
           label: TextConstants.profileTabText,
         ),
       ],
-      onTap: router.setActiveIndex,
+      onTap: (index) {
+        router.setActiveIndex(index);
+        if (index == 0) {
+          final storageBloc = BlocProvider.of<HomeStorageBloc>(context);
+          storageBloc.add(OnOpenMatchScreen());
+        }
+      },
     );
   }
 }

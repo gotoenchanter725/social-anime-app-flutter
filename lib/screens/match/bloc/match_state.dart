@@ -28,4 +28,12 @@ class NextUserState extends MatchState {
 
 class ValidSwipeState extends MatchState {}
 
-class ValidChangePageState extends MatchState {}
+class ValidChangePageState extends MatchState {
+  final bool? isRefresh;
+  ValidChangePageState({this.isRefresh});
+}
+
+class ValidUndoLikeState extends MatchState {
+  final int selectedUserId;
+  ValidUndoLikeState({required this.selectedUserId});
+}

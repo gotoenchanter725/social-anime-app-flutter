@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
 
 import 'package:senpai/data/text_constants.dart';
-import 'package:senpai/screens/profile/settings_profile/widgets/delete_account_widget.dart';
 import 'package:senpai/screens/profile/widgets/profile_item_header.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
@@ -152,9 +151,10 @@ class SettingsContent extends StatelessWidget {
               hasBackgroundColor: true,
             ),
             SizedBox(height: $constants.insets.xs),
-            const Center(
-              child: DeleteAccountWidget(),
-            ),
+            // 22.01 Herbert Joseph: Let's remove/hide delete account for now.
+            // const Center(
+            //   child: DeleteAccountWidget(),
+            // ),
           ],
         );
       },

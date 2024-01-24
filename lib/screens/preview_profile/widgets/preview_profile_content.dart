@@ -117,13 +117,8 @@ class DesiredPreviewProfileContent extends StatelessWidget {
           verified: bloc.user.verified,
           isCenter: false,
         ),
-        if (isShowDistance && bloc.user.hasLocationHidden != true) ...{
-          SizedBox(height: $constants.insets.xs),
-          PreviewTitleInfoWidget(
-            title: '${bloc.distance.mi} ${TextConstants.milesAwayText}',
-            icon: PathConstants.locationMarkerIcon,
-          ),
-        },
+        if (isShowDistance && bloc.user.hasLocationHidden != true)
+          ..._buildLocation(context),
         if (bio.isNotEmpty || school.isNotEmpty || occupation.isNotEmpty)
           Divider(
             color: $constants.palette.buttonBorder,
@@ -202,5 +197,38 @@ class DesiredPreviewProfileContent extends StatelessWidget {
             fontSize: 18,
           ),
     );
+  }
+
+  List<Widget> _buildLocation(BuildContext context) {
+    final bloc = BlocProvider.of<PreviewProfileBloc>(context);
+    final displayCity = bloc.user.displayCity ?? '';
+    final displayState = bloc.user.displayState ?? '';
+    return [
+      SizedBox(height: $constants.insets.xs),
+      if (displayCity.isNotEmpty || displayState.isNotEmpty)
+        RichText(
+          textAlign: TextAlign.left,
+          text: TextSpan(
+            style: getTextTheme(context)
+                .bodyMedium
+                ?.copyWith(color: $constants.palette.white),
+            children: [
+              TextSpan(
+                text: displayCity,
+              ),
+              if (displayCity.isNotEmpty && displayState.isNotEmpty)
+                const TextSpan(text: ', '),
+              TextSpan(
+                text: displayState,
+              ),
+            ],
+          ),
+        ),
+      SizedBox(height: $constants.insets.xs),
+      PreviewTitleInfoWidget(
+        title: '${bloc.distance.mi} ${TextConstants.milesAwayText}',
+        icon: PathConstants.locationMarkerIcon,
+      ),
+    ];
   }
 }

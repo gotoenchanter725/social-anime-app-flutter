@@ -43,6 +43,7 @@ mixin _$UserProfileModel {
   List<UserFavoriteMusicModel>? get favoriteMusic =>
       throw _privateConstructorUsedError;
   bool? get hasLocationHidden => throw _privateConstructorUsedError;
+  int? get milesAway => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -78,7 +79,8 @@ abstract class $UserProfileModelCopyWith<$Res> {
       bool? premium,
       int? superLikeCount,
       List<UserFavoriteMusicModel>? favoriteMusic,
-      bool? hasLocationHidden});
+      bool? hasLocationHidden,
+      int? milesAway});
 
   $GalleryUserModelCopyWith<$Res>? get gallery;
 }
@@ -118,6 +120,7 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
     Object? superLikeCount = freezed,
     Object? favoriteMusic = freezed,
     Object? hasLocationHidden = freezed,
+    Object? milesAway = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -208,6 +211,10 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
           ? _value.hasLocationHidden
           : hasLocationHidden // ignore: cast_nullable_to_non_nullable
               as bool?,
+      milesAway: freezed == milesAway
+          ? _value.milesAway
+          : milesAway // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 
@@ -254,7 +261,8 @@ abstract class _$$_UserProfileModelCopyWith<$Res>
       bool? premium,
       int? superLikeCount,
       List<UserFavoriteMusicModel>? favoriteMusic,
-      bool? hasLocationHidden});
+      bool? hasLocationHidden,
+      int? milesAway});
 
   @override
   $GalleryUserModelCopyWith<$Res>? get gallery;
@@ -293,6 +301,7 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
     Object? superLikeCount = freezed,
     Object? favoriteMusic = freezed,
     Object? hasLocationHidden = freezed,
+    Object? milesAway = freezed,
   }) {
     return _then(_$_UserProfileModel(
       id: null == id
@@ -383,6 +392,10 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
           ? _value.hasLocationHidden
           : hasLocationHidden // ignore: cast_nullable_to_non_nullable
               as bool?,
+      milesAway: freezed == milesAway
+          ? _value.milesAway
+          : milesAway // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -412,7 +425,8 @@ class _$_UserProfileModel implements _UserProfileModel {
       this.premium,
       this.superLikeCount,
       final List<UserFavoriteMusicModel>? favoriteMusic,
-      this.hasLocationHidden})
+      this.hasLocationHidden,
+      this.milesAway})
       : _animes = animes,
         _favoriteMusic = favoriteMusic;
 
@@ -479,10 +493,12 @@ class _$_UserProfileModel implements _UserProfileModel {
 
   @override
   final bool? hasLocationHidden;
+  @override
+  final int? milesAway;
 
   @override
   String toString() {
-    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium, superLikeCount: $superLikeCount, favoriteMusic: $favoriteMusic, hasLocationHidden: $hasLocationHidden)';
+    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium, superLikeCount: $superLikeCount, favoriteMusic: $favoriteMusic, hasLocationHidden: $hasLocationHidden, milesAway: $milesAway)';
   }
 
   @override
@@ -523,7 +539,9 @@ class _$_UserProfileModel implements _UserProfileModel {
             const DeepCollectionEquality()
                 .equals(other._favoriteMusic, _favoriteMusic) &&
             (identical(other.hasLocationHidden, hasLocationHidden) ||
-                other.hasLocationHidden == hasLocationHidden));
+                other.hasLocationHidden == hasLocationHidden) &&
+            (identical(other.milesAway, milesAway) ||
+                other.milesAway == milesAway));
   }
 
   @JsonKey(ignore: true)
@@ -551,7 +569,8 @@ class _$_UserProfileModel implements _UserProfileModel {
         premium,
         superLikeCount,
         const DeepCollectionEquality().hash(_favoriteMusic),
-        hasLocationHidden
+        hasLocationHidden,
+        milesAway
       ]);
 
   @JsonKey(ignore: true)
@@ -591,7 +610,8 @@ abstract class _UserProfileModel implements UserProfileModel {
       final bool? premium,
       final int? superLikeCount,
       final List<UserFavoriteMusicModel>? favoriteMusic,
-      final bool? hasLocationHidden}) = _$_UserProfileModel;
+      final bool? hasLocationHidden,
+      final int? milesAway}) = _$_UserProfileModel;
 
   factory _UserProfileModel.fromJson(Map<String, dynamic> json) =
       _$_UserProfileModel.fromJson;
@@ -640,6 +660,8 @@ abstract class _UserProfileModel implements UserProfileModel {
   List<UserFavoriteMusicModel>? get favoriteMusic;
   @override
   bool? get hasLocationHidden;
+  @override
+  int? get milesAway;
   @override
   @JsonKey(ignore: true)
   _$$_UserProfileModelCopyWith<_$_UserProfileModel> get copyWith =>

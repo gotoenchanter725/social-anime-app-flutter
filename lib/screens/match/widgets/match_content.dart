@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/feed/blocs/fetch_feed_bloc.dart';
 import 'package:senpai/core/feed/blocs/like_user_bloc.dart';
+import 'package:senpai/core/feed/blocs/undo_like_user_bloc.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/screens/home/bloc/home_storage_bloc.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
@@ -19,16 +20,18 @@ class MatchContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<MatchBloc, MatchState>(
       listenWhen: (_, currState) =>
-          currState is ValidChangePageState || currState is NextUserState,
+          currState is ValidChangePageState ||
+          currState is NextUserState ||
+          currState is ValidUndoLikeState,
       listener: (context, state) {
         final bloc = BlocProvider.of<MatchBloc>(context);
         final storageBloc = getIt<HomeStorageBloc>();
-        if (state is ValidChangePageState || bloc.users.length == 2) {
+        if (state is ValidChangePageState) {
           final serverBloc = BlocProvider.of<FetchFeedBloc>(context);
           serverBloc.fetchFeed(
             userId: bloc.userID,
             profileFilter: storageBloc.filters,
-            page: bloc.page,
+            refresh: state.isRefresh,
           );
         }
 
@@ -49,6 +52,12 @@ class MatchContent extends StatelessWidget {
             userId: int.parse(bloc.userID),
             likeeId: state.selectedUserId,
             likeType: likeType,
+          );
+        }
+        if (state is ValidUndoLikeState) {
+          final serverBloc = BlocProvider.of<UndoLikeUserBloc>(context);
+          serverBloc.undoLikeUser(
+            userId: bloc.userID,
           );
         }
       },
