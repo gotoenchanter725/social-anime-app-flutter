@@ -126,6 +126,9 @@ class TextConstants {
   static const String emptyChatAnimationsSearchText =
       "Maybe there is a mistake in search?\n Please check and try again";
   static const String searchGifPlaceHolderText = "Search in GIPHY";
+  static const String viewProfileText = "View Profile";
+  static const String unmatchText = "Unmatch";
+  static const String reportText = "Report";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";
