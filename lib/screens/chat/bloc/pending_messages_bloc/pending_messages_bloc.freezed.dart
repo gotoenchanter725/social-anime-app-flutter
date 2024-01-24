@@ -38,20 +38,20 @@ mixin _$PendingMessagesEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AddMessage value) addMessage,
-    required TResult Function(_RemoveMessage value) removeMessage,
+    required TResult Function(AddMessage value) addMessage,
+    required TResult Function(RemoveMessage value) removeMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AddMessage value)? addMessage,
-    TResult? Function(_RemoveMessage value)? removeMessage,
+    TResult? Function(AddMessage value)? addMessage,
+    TResult? Function(RemoveMessage value)? removeMessage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AddMessage value)? addMessage,
-    TResult Function(_RemoveMessage value)? removeMessage,
+    TResult Function(AddMessage value)? addMessage,
+    TResult Function(RemoveMessage value)? removeMessage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -96,22 +96,22 @@ class _$PendingMessagesEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_AddMessageCopyWith<$Res>
+abstract class _$$AddMessageCopyWith<$Res>
     implements $PendingMessagesEventCopyWith<$Res> {
-  factory _$$_AddMessageCopyWith(
-          _$_AddMessage value, $Res Function(_$_AddMessage) then) =
-      __$$_AddMessageCopyWithImpl<$Res>;
+  factory _$$AddMessageCopyWith(
+          _$AddMessage value, $Res Function(_$AddMessage) then) =
+      __$$AddMessageCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String channelId, ChatMessage message});
 }
 
 /// @nodoc
-class __$$_AddMessageCopyWithImpl<$Res>
-    extends _$PendingMessagesEventCopyWithImpl<$Res, _$_AddMessage>
-    implements _$$_AddMessageCopyWith<$Res> {
-  __$$_AddMessageCopyWithImpl(
-      _$_AddMessage _value, $Res Function(_$_AddMessage) _then)
+class __$$AddMessageCopyWithImpl<$Res>
+    extends _$PendingMessagesEventCopyWithImpl<$Res, _$AddMessage>
+    implements _$$AddMessageCopyWith<$Res> {
+  __$$AddMessageCopyWithImpl(
+      _$AddMessage _value, $Res Function(_$AddMessage) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +120,7 @@ class __$$_AddMessageCopyWithImpl<$Res>
     Object? channelId = null,
     Object? message = null,
   }) {
-    return _then(_$_AddMessage(
+    return _then(_$AddMessage(
       channelId: null == channelId
           ? _value.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
@@ -135,8 +135,8 @@ class __$$_AddMessageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddMessage implements _AddMessage {
-  const _$_AddMessage({required this.channelId, required this.message});
+class _$AddMessage implements AddMessage {
+  const _$AddMessage({required this.channelId, required this.message});
 
   @override
   final String channelId;
@@ -152,7 +152,7 @@ class _$_AddMessage implements _AddMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AddMessage &&
+            other is _$AddMessage &&
             (identical(other.channelId, channelId) ||
                 other.channelId == channelId) &&
             (identical(other.message, message) || other.message == message));
@@ -164,8 +164,8 @@ class _$_AddMessage implements _AddMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AddMessageCopyWith<_$_AddMessage> get copyWith =>
-      __$$_AddMessageCopyWithImpl<_$_AddMessage>(this, _$identity);
+  _$$AddMessageCopyWith<_$AddMessage> get copyWith =>
+      __$$AddMessageCopyWithImpl<_$AddMessage>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -201,8 +201,8 @@ class _$_AddMessage implements _AddMessage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AddMessage value) addMessage,
-    required TResult Function(_RemoveMessage value) removeMessage,
+    required TResult Function(AddMessage value) addMessage,
+    required TResult Function(RemoveMessage value) removeMessage,
   }) {
     return addMessage(this);
   }
@@ -210,8 +210,8 @@ class _$_AddMessage implements _AddMessage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AddMessage value)? addMessage,
-    TResult? Function(_RemoveMessage value)? removeMessage,
+    TResult? Function(AddMessage value)? addMessage,
+    TResult? Function(RemoveMessage value)? removeMessage,
   }) {
     return addMessage?.call(this);
   }
@@ -219,8 +219,8 @@ class _$_AddMessage implements _AddMessage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AddMessage value)? addMessage,
-    TResult Function(_RemoveMessage value)? removeMessage,
+    TResult Function(AddMessage value)? addMessage,
+    TResult Function(RemoveMessage value)? removeMessage,
     required TResult orElse(),
   }) {
     if (addMessage != null) {
@@ -230,37 +230,37 @@ class _$_AddMessage implements _AddMessage {
   }
 }
 
-abstract class _AddMessage implements PendingMessagesEvent {
-  const factory _AddMessage(
+abstract class AddMessage implements PendingMessagesEvent {
+  const factory AddMessage(
       {required final String channelId,
-      required final ChatMessage message}) = _$_AddMessage;
+      required final ChatMessage message}) = _$AddMessage;
 
   @override
   String get channelId;
   ChatMessage get message;
   @override
   @JsonKey(ignore: true)
-  _$$_AddMessageCopyWith<_$_AddMessage> get copyWith =>
+  _$$AddMessageCopyWith<_$AddMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_RemoveMessageCopyWith<$Res>
+abstract class _$$RemoveMessageCopyWith<$Res>
     implements $PendingMessagesEventCopyWith<$Res> {
-  factory _$$_RemoveMessageCopyWith(
-          _$_RemoveMessage value, $Res Function(_$_RemoveMessage) then) =
-      __$$_RemoveMessageCopyWithImpl<$Res>;
+  factory _$$RemoveMessageCopyWith(
+          _$RemoveMessage value, $Res Function(_$RemoveMessage) then) =
+      __$$RemoveMessageCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String channelId, String messageId});
 }
 
 /// @nodoc
-class __$$_RemoveMessageCopyWithImpl<$Res>
-    extends _$PendingMessagesEventCopyWithImpl<$Res, _$_RemoveMessage>
-    implements _$$_RemoveMessageCopyWith<$Res> {
-  __$$_RemoveMessageCopyWithImpl(
-      _$_RemoveMessage _value, $Res Function(_$_RemoveMessage) _then)
+class __$$RemoveMessageCopyWithImpl<$Res>
+    extends _$PendingMessagesEventCopyWithImpl<$Res, _$RemoveMessage>
+    implements _$$RemoveMessageCopyWith<$Res> {
+  __$$RemoveMessageCopyWithImpl(
+      _$RemoveMessage _value, $Res Function(_$RemoveMessage) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -269,7 +269,7 @@ class __$$_RemoveMessageCopyWithImpl<$Res>
     Object? channelId = null,
     Object? messageId = null,
   }) {
-    return _then(_$_RemoveMessage(
+    return _then(_$RemoveMessage(
       channelId: null == channelId
           ? _value.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
@@ -284,8 +284,8 @@ class __$$_RemoveMessageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RemoveMessage implements _RemoveMessage {
-  const _$_RemoveMessage({required this.channelId, required this.messageId});
+class _$RemoveMessage implements RemoveMessage {
+  const _$RemoveMessage({required this.channelId, required this.messageId});
 
   @override
   final String channelId;
@@ -301,7 +301,7 @@ class _$_RemoveMessage implements _RemoveMessage {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RemoveMessage &&
+            other is _$RemoveMessage &&
             (identical(other.channelId, channelId) ||
                 other.channelId == channelId) &&
             (identical(other.messageId, messageId) ||
@@ -314,8 +314,8 @@ class _$_RemoveMessage implements _RemoveMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RemoveMessageCopyWith<_$_RemoveMessage> get copyWith =>
-      __$$_RemoveMessageCopyWithImpl<_$_RemoveMessage>(this, _$identity);
+  _$$RemoveMessageCopyWith<_$RemoveMessage> get copyWith =>
+      __$$RemoveMessageCopyWithImpl<_$RemoveMessage>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -351,8 +351,8 @@ class _$_RemoveMessage implements _RemoveMessage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_AddMessage value) addMessage,
-    required TResult Function(_RemoveMessage value) removeMessage,
+    required TResult Function(AddMessage value) addMessage,
+    required TResult Function(RemoveMessage value) removeMessage,
   }) {
     return removeMessage(this);
   }
@@ -360,8 +360,8 @@ class _$_RemoveMessage implements _RemoveMessage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_AddMessage value)? addMessage,
-    TResult? Function(_RemoveMessage value)? removeMessage,
+    TResult? Function(AddMessage value)? addMessage,
+    TResult? Function(RemoveMessage value)? removeMessage,
   }) {
     return removeMessage?.call(this);
   }
@@ -369,8 +369,8 @@ class _$_RemoveMessage implements _RemoveMessage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AddMessage value)? addMessage,
-    TResult Function(_RemoveMessage value)? removeMessage,
+    TResult Function(AddMessage value)? addMessage,
+    TResult Function(RemoveMessage value)? removeMessage,
     required TResult orElse(),
   }) {
     if (removeMessage != null) {
@@ -380,23 +380,23 @@ class _$_RemoveMessage implements _RemoveMessage {
   }
 }
 
-abstract class _RemoveMessage implements PendingMessagesEvent {
-  const factory _RemoveMessage(
+abstract class RemoveMessage implements PendingMessagesEvent {
+  const factory RemoveMessage(
       {required final String channelId,
-      required final String messageId}) = _$_RemoveMessage;
+      required final String messageId}) = _$RemoveMessage;
 
   @override
   String get channelId;
   String get messageId;
   @override
   @JsonKey(ignore: true)
-  _$$_RemoveMessageCopyWith<_$_RemoveMessage> get copyWith =>
+  _$$RemoveMessageCopyWith<_$RemoveMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$PendingMessagesState {
-  Map<String, List<ChatMessage>> get pendingMessages =>
+  Map<String, Queue<ChatMessage>> get messagesQueue =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -410,7 +410,7 @@ abstract class $PendingMessagesStateCopyWith<$Res> {
           $Res Function(PendingMessagesState) then) =
       _$PendingMessagesStateCopyWithImpl<$Res, PendingMessagesState>;
   @useResult
-  $Res call({Map<String, List<ChatMessage>> pendingMessages});
+  $Res call({Map<String, Queue<ChatMessage>> messagesQueue});
 }
 
 /// @nodoc
@@ -427,13 +427,13 @@ class _$PendingMessagesStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pendingMessages = null,
+    Object? messagesQueue = null,
   }) {
     return _then(_value.copyWith(
-      pendingMessages: null == pendingMessages
-          ? _value.pendingMessages
-          : pendingMessages // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<ChatMessage>>,
+      messagesQueue: null == messagesQueue
+          ? _value.messagesQueue
+          : messagesQueue // ignore: cast_nullable_to_non_nullable
+              as Map<String, Queue<ChatMessage>>,
     ) as $Val);
   }
 }
@@ -446,7 +446,7 @@ abstract class _$$_PendingMessagesStateCopyWith<$Res>
       __$$_PendingMessagesStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, List<ChatMessage>> pendingMessages});
+  $Res call({Map<String, Queue<ChatMessage>> messagesQueue});
 }
 
 /// @nodoc
@@ -460,13 +460,13 @@ class __$$_PendingMessagesStateCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? pendingMessages = null,
+    Object? messagesQueue = null,
   }) {
     return _then(_$_PendingMessagesState(
-      pendingMessages: null == pendingMessages
-          ? _value._pendingMessages
-          : pendingMessages // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<ChatMessage>>,
+      messagesQueue: null == messagesQueue
+          ? _value._messagesQueue
+          : messagesQueue // ignore: cast_nullable_to_non_nullable
+              as Map<String, Queue<ChatMessage>>,
     ));
   }
 }
@@ -475,21 +475,21 @@ class __$$_PendingMessagesStateCopyWithImpl<$Res>
 
 class _$_PendingMessagesState implements _PendingMessagesState {
   const _$_PendingMessagesState(
-      {final Map<String, List<ChatMessage>> pendingMessages = const {}})
-      : _pendingMessages = pendingMessages;
+      {final Map<String, Queue<ChatMessage>> messagesQueue = const {}})
+      : _messagesQueue = messagesQueue;
 
-  final Map<String, List<ChatMessage>> _pendingMessages;
+  final Map<String, Queue<ChatMessage>> _messagesQueue;
   @override
   @JsonKey()
-  Map<String, List<ChatMessage>> get pendingMessages {
-    if (_pendingMessages is EqualUnmodifiableMapView) return _pendingMessages;
+  Map<String, Queue<ChatMessage>> get messagesQueue {
+    if (_messagesQueue is EqualUnmodifiableMapView) return _messagesQueue;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_pendingMessages);
+    return EqualUnmodifiableMapView(_messagesQueue);
   }
 
   @override
   String toString() {
-    return 'PendingMessagesState(pendingMessages: $pendingMessages)';
+    return 'PendingMessagesState(messagesQueue: $messagesQueue)';
   }
 
   @override
@@ -498,12 +498,12 @@ class _$_PendingMessagesState implements _PendingMessagesState {
         (other.runtimeType == runtimeType &&
             other is _$_PendingMessagesState &&
             const DeepCollectionEquality()
-                .equals(other._pendingMessages, _pendingMessages));
+                .equals(other._messagesQueue, _messagesQueue));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_pendingMessages));
+      runtimeType, const DeepCollectionEquality().hash(_messagesQueue));
 
   @JsonKey(ignore: true)
   @override
@@ -515,11 +515,11 @@ class _$_PendingMessagesState implements _PendingMessagesState {
 
 abstract class _PendingMessagesState implements PendingMessagesState {
   const factory _PendingMessagesState(
-          {final Map<String, List<ChatMessage>> pendingMessages}) =
+          {final Map<String, Queue<ChatMessage>> messagesQueue}) =
       _$_PendingMessagesState;
 
   @override
-  Map<String, List<ChatMessage>> get pendingMessages;
+  Map<String, Queue<ChatMessage>> get messagesQueue;
   @override
   @JsonKey(ignore: true)
   _$$_PendingMessagesStateCopyWith<_$_PendingMessagesState> get copyWith =>

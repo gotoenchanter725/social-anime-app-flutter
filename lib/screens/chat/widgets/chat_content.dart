@@ -103,13 +103,12 @@ class ChatContent extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen<Widget>(
           orElse: () {
-            logIt.info("has loaded the messages");
             PendingMessagesBloc pendingMessagesBloc =
                 BlocProvider.of<PendingMessagesBloc>(context);
 
             List<ChatMessage> allMessages = [
               ...bloc.messages,
-              ...pendingMessagesBloc.state.pendingMessages[roomId] ?? []
+              ...pendingMessagesBloc.state.messagesQueue[roomId] ?? []
             ];
 
             if (allMessages.isEmpty) {
