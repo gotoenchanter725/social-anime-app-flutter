@@ -108,8 +108,11 @@ class ChatContent extends StatelessWidget {
 
             List<ChatMessage> allMessages = [
               ...bloc.messages,
-              ...pendingMessagesBloc.state.messagesQueue[roomId] ?? []
+              ...pendingMessagesBloc.messageQueueMap[roomId] ?? []
             ];
+
+            logIt.info(
+                "Pending messages are now: ${pendingMessagesBloc.messageQueueMap[roomId]}");
 
             if (allMessages.isEmpty) {
               return EmptyMessages(

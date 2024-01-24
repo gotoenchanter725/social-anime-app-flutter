@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:collection';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -6,6 +7,7 @@ import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 
 part 'pending_messages_event.dart';
 part 'pending_messages_state.dart';
@@ -13,87 +15,120 @@ part 'pending_messages_bloc.freezed.dart';
 
 class PendingMessagesBloc
     extends HydratedBloc<PendingMessagesEvent, PendingMessagesState> {
-  final _messageQueue = <String, Queue<ChatMessage>>{};
+  final messageQueueMap = <String, Queue<ChatMessage>>{};
   bool _isProcessingMessage = false;
   String? _currentProcessingMessageId;
 
   final SendMessageBloc sendMessageBloc;
   final ChatRoomParams roomArgs;
 
+  Timer? _processingTimer;
+
   PendingMessagesBloc({required this.sendMessageBloc, required this.roomArgs})
       : super(const PendingMessagesState()) {
     on<AddMessage>(_onAddMessage);
     on<RemoveMessage>(_onRemoveMessage);
     sendMessageBloc.stream.listen(_onSendMessageBlocStateChanged);
+    _startProcessingTimer();
+  }
+
+  void _startProcessingTimer() {
+    _processingTimer?.cancel();
+    _processingTimer = Timer.periodic(const Duration(seconds: 2), (timer) {
+      if (!_isProcessingMessage &&
+          messageQueueMap[roomArgs.roomId]!.isNotEmpty) {
+        processNextMessage(roomArgs.roomId);
+      }
+    });
+  }
+
+  @override
+  Future<void> close() {
+    _processingTimer?.cancel(); // Stop the timer when bloc is closed
+    return super.close();
   }
 
   Future<void> _onAddMessage(
       AddMessage event, Emitter<PendingMessagesState> emit) async {
     _addToQueue(event.channelId, event.message);
-    emit(state.copyWith(messagesQueue: Map.from(_messageQueue)));
-    if (!_isProcessingMessage) {
-      processNextMessage(event.channelId);
-    }
+    emit(state.copyWith(messagesQueue: Map.from(messageQueueMap)));
   }
 
   Future<void> _onRemoveMessage(
       RemoveMessage event, Emitter<PendingMessagesState> emit) async {
     _removeFromQueue(event.channelId, event.messageId);
-    emit(state.copyWith(messagesQueue: Map.from(_messageQueue)));
+    emit(state.copyWith(messagesQueue: Map.from(messageQueueMap)));
     _isProcessingMessage = false;
-    processNextMessage(event.channelId);
   }
 
   void _addToQueue(String channelId, ChatMessage message) {
     final queue =
-        _messageQueue.putIfAbsent(channelId, () => Queue<ChatMessage>());
-    queue.add(message);
+        messageQueueMap.putIfAbsent(channelId, () => Queue<ChatMessage>());
+    Queue<ChatMessage> newQueue = Queue<ChatMessage>.from(queue);
+    newQueue.add(message);
+    messageQueueMap[channelId] = newQueue;
+    logIt.info('Added message to queue with id: ${message.id}');
   }
 
   void _removeFromQueue(String channelId, String messageId) {
-    final queue = _messageQueue[channelId];
+    final queue = messageQueueMap[channelId];
     if (queue != null) {
+      logIt.info('Removing message from queue with id: $messageId');
       queue.removeWhere((message) => message.id == messageId);
+      Queue<ChatMessage> newQueue = Queue<ChatMessage>.from(queue);
+      messageQueueMap[channelId] = newQueue;
     }
   }
 
   void _onSendMessageBlocStateChanged(MutationState state) {
     state.maybeWhen(
       orElse: () {},
-      succeeded: (data, result) {
-        if (_currentProcessingMessageId != null) {
-          add(RemoveMessage(
-            channelId: roomArgs
-                .roomId, // Assuming 'channelId' is part of the data returned upon success
-            messageId: _currentProcessingMessageId!,
-          ));
-          _currentProcessingMessageId = null;
-        }
-      },
-      failed: (error, result) {
-        if (_currentProcessingMessageId != null) {
-          add(RemoveMessage(
-            channelId: roomArgs
-                .roomId, // Similarly, assuming 'channelId' is part of the error data
-            messageId: _currentProcessingMessageId!,
-          ));
-          _currentProcessingMessageId = null;
-        }
-      },
+      succeeded: (data, result) => _handleMessageSentSuccess(),
+      failed: (error, result) => _handleMessageSendFailure(),
     );
+  }
+
+  void _handleMessageSentSuccess() {
+    if (_currentProcessingMessageId != null) {
+      logIt.info(
+          'Message sent successfully, removing from queue with id: $_currentProcessingMessageId');
+      add(RemoveMessage(
+        channelId: roomArgs.roomId,
+        messageId: _currentProcessingMessageId!,
+      ));
+      _currentProcessingMessageId = null;
+    }
+    _isProcessingMessage = false;
+  }
+
+  void _handleMessageSendFailure() {
+    if (_currentProcessingMessageId != null) {
+      logIt.info(
+          'Message failed to send, removing from queue with id: $_currentProcessingMessageId');
+      add(RemoveMessage(
+        channelId: roomArgs.roomId,
+        messageId: _currentProcessingMessageId!,
+      ));
+      _currentProcessingMessageId = null;
+    }
+    _isProcessingMessage = false;
   }
 
   Future<void> processNextMessage(String channelId) async {
     if (_isProcessingMessage) {
+      logIt.info('Already processing a message, skipping...');
       return;
     }
-    final queue = _messageQueue[channelId];
+    final queue = messageQueueMap[channelId];
     if (queue == null || queue.isEmpty) {
+      logIt.info('Queue is empty, skipping...');
       return;
     }
 
-    _isProcessingMessage = true;
     final message = queue.first;
+    _isProcessingMessage = true;
+    _currentProcessingMessageId = message.id;
+    logIt.info('Processing message with id: ${message.id}');
     // Send message logic (call SendMessageBloc with message details)
     // This can be adapted based on how SendMessageBloc is implemented
     if (message.attachment != null) {
@@ -107,6 +142,8 @@ class PendingMessagesBloc
         message: message.text,
         conversationId: roomArgs.roomId,
         senderId: roomArgs.currentUser.id,
+        recommendedAnimeId: message.recommendation?.animeId,
+        stickerId: message.sticker?.id,
       );
     }
   }
