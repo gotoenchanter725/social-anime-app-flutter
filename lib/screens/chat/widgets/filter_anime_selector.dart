@@ -47,8 +47,7 @@ class FilterAnimeSelector extends StatelessWidget {
 
     return Row(
       children: [
-        SizedBox(
-          width: getSize(context).width * 0.637,
+        Expanded(
           child: SenpaiIconInput(
             hintText: TextConstants.searchAnimesHintText,
             controller: bloc.searchTextController,
@@ -66,9 +65,7 @@ class FilterAnimeSelector extends StatelessWidget {
             },
           ),
         ),
-        SizedBox(
-          width: $constants.insets.sm,
-        ),
+        SizedBox(width: $constants.insets.sm),
         _buildCancelButton(context),
       ],
     );
