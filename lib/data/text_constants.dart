@@ -129,6 +129,12 @@ class TextConstants {
   static const String viewProfileText = "View Profile";
   static const String unmatchText = "Unmatch";
   static const String reportText = "Report";
+  static const String inappropriateBehaviorText = "Inappropriate Behavior";
+  static const String spamText = "Spam";
+  static const String sexualAbuseText = "Sexual Abuse";
+  static const String doxxingText = "Sexual Abuse";
+  static const String areYouSureYouWantToUnmatchUser =
+      "Are you sure you want to unmatch this user?";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";
