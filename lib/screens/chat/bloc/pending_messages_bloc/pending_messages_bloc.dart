@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:collection';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
 import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/models/chat/chat_message.dart';
@@ -14,17 +15,21 @@ part 'pending_messages_state.dart';
 part 'pending_messages_bloc.freezed.dart';
 
 class PendingMessagesBloc
-    extends HydratedBloc<PendingMessagesEvent, PendingMessagesState> {
+    extends Bloc<PendingMessagesEvent, PendingMessagesState> {
   final messageQueueMap = <String, Queue<ChatMessage>>{};
   bool _isProcessingMessage = false;
   String? _currentProcessingMessageId;
 
   final SendMessageBloc sendMessageBloc;
+  final FetchMessagesBloc fetchMessagesBloc;
   final ChatRoomParams roomArgs;
 
   Timer? _processingTimer;
 
-  PendingMessagesBloc({required this.sendMessageBloc, required this.roomArgs})
+  PendingMessagesBloc(
+      {required this.sendMessageBloc,
+      required this.roomArgs,
+      required this.fetchMessagesBloc})
       : super(const PendingMessagesState()) {
     on<AddMessage>(_onAddMessage);
     on<RemoveMessage>(_onRemoveMessage);
@@ -74,8 +79,8 @@ class PendingMessagesBloc
     final queue = messageQueueMap[channelId];
     if (queue != null) {
       logIt.info('Removing message from queue with id: $messageId');
-      queue.removeWhere((message) => message.id == messageId);
       Queue<ChatMessage> newQueue = Queue<ChatMessage>.from(queue);
+      newQueue.removeWhere((message) => message.id == messageId);
       messageQueueMap[channelId] = newQueue;
     }
   }
@@ -92,6 +97,12 @@ class PendingMessagesBloc
     if (_currentProcessingMessageId != null) {
       logIt.info(
           'Message sent successfully, removing from queue with id: $_currentProcessingMessageId');
+      ChatMessage message = messageQueueMap[roomArgs.roomId]!
+          .firstWhere((message) => message.id == _currentProcessingMessageId);
+      // this adds the message to the sent list without causing a re-render
+      fetchMessagesBloc.addMessage(message);
+
+      // this event removes the message from the queue and causes a re-render
       add(RemoveMessage(
         channelId: roomArgs.roomId,
         messageId: _currentProcessingMessageId!,
@@ -103,7 +114,7 @@ class PendingMessagesBloc
 
   void _handleMessageSendFailure() {
     if (_currentProcessingMessageId != null) {
-      logIt.info(
+      logIt.error(
           'Message failed to send, removing from queue with id: $_currentProcessingMessageId');
       add(RemoveMessage(
         channelId: roomArgs.roomId,
@@ -145,24 +156,6 @@ class PendingMessagesBloc
         recommendedAnimeId: message.recommendation?.animeId,
         stickerId: message.sticker?.id,
       );
-    }
-  }
-
-  @override
-  PendingMessagesState? fromJson(Map<String, dynamic> json) {
-    try {
-      return PendingMessagesStateX.fromMap(json);
-    } catch (_) {
-      return null; // Return null to indicate failure to convert.
-    }
-  }
-
-  @override
-  Map<String, dynamic>? toJson(PendingMessagesState state) {
-    try {
-      return state.toMap();
-    } catch (_) {
-      return null; // Return null to indicate failure to convert.
     }
   }
 }

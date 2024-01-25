@@ -15,7 +15,6 @@ import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
-import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/chat/bloc/message_reaction_bloc/message_reaction_bloc.dart';
@@ -33,17 +32,20 @@ class ChatController extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final SendMessageBloc sendMessageBloc = SendMessageBloc();
+    final FetchMessagesBloc fetchMessagesBloc =
+        FetchMessagesBloc(roomArgs.roomId);
     return MultiBlocProvider(
       providers: [
         BlocProvider<FetchMessagesBloc>(
-          create: (_) => FetchMessagesBloc(roomArgs.roomId)
-            ..fetchMessages(roomArgs.roomId),
+          create: (_) => fetchMessagesBloc,
         ),
         BlocProvider<SendMessageBloc>(create: (_) => sendMessageBloc),
         BlocProvider<TextEditingBloc>(create: (_) => TextEditingBloc()),
         BlocProvider<PendingMessagesBloc>(
             create: (_) => PendingMessagesBloc(
-                sendMessageBloc: sendMessageBloc, roomArgs: roomArgs)),
+                sendMessageBloc: sendMessageBloc,
+                roomArgs: roomArgs,
+                fetchMessagesBloc: fetchMessagesBloc)),
         BlocProvider<MessageReactionBloc>(create: (_) => MessageReactionBloc()),
         BlocProvider<BottomSheetBloc>(create: (_) => BottomSheetBloc()),
         BlocProvider<RoomSubscriptionsBloc>(
@@ -90,7 +92,6 @@ class ChatController extends StatelessWidget {
   void _buildFetchMessagesListeners(BuildContext context, QueryState state) {
     final RoomSubscriptionsBloc roomSubscriptionsBloc =
         BlocProvider.of<RoomSubscriptionsBloc>(context);
-    final pendingMessagesBloc = context.read<PendingMessagesBloc>();
     state.maybeWhen(
       loading: (result) => const SenpaiLoading(),
       loaded: (data, result) {
@@ -98,7 +99,6 @@ class ChatController extends StatelessWidget {
           showSnackBarError(context, TextConstants.serverError);
           logIt.error("A successful empty response just got recorded");
         }
-        pendingMessagesBloc.processNextMessage(roomArgs.roomId);
       },
       error: (error, result) {
         showSnackBarError(context, TextConstants.serverError);
@@ -141,6 +141,19 @@ class ChatController extends StatelessWidget {
         roomSubscriptionsBloc.subscribeToRoom();
       },
       data: (data) {
+        try {
+          logIt.info("Received data from action cable ${data["sender"]["id"]}");
+          if (data["sender"] != null &&
+              data["sender"]["id"] == int.parse(roomArgs.currentUser.id)) {
+            logIt.info("This should ideally add the message to the sent list");
+            return;
+          }
+          logIt.info(
+              "Sender is not the current user ${data["sender"]["id"]} !== ${roomArgs.currentUser.id}");
+        } catch (e) {
+          logIt.error(e);
+        }
+
         fetchMessagesBloc.refetch();
       },
       error: (message) {

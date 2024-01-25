@@ -17,7 +17,9 @@ class FetchMessagesBloc extends QueryBloc<FetchMessages$Query> {
   int _lastPageNumberChecked = 0;
 
   FetchMessagesBloc(this.conversationId)
-      : super(options: _fetchMessagesQueryOptions(conversationId));
+      : super(options: _fetchMessagesQueryOptions(conversationId)) {
+    fetchMessages(conversationId);
+  }
 
   static WatchQueryOptions<Object?> _fetchMessagesQueryOptions(
       String conversationId) {
