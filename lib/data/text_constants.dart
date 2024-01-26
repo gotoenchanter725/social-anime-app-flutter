@@ -273,7 +273,7 @@ class TextConstants {
   static const String premiumSuperLikesText = "30 Super Likes";
   static const String premiumAbilityAnimesText =
       "Ability to add up to 15 animes";
-  static const String premiumUpgradeText = "Upgrade for \$9.99";
+  static const String premiumUpgradeText = "Upgrade for \$14.99";
 
   static const String editProfileButton = "Edit profile";
   static const String profileFindsButton = "Finds";
