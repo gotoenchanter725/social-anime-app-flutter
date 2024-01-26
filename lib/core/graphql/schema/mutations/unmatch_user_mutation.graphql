@@ -1,0 +1,7 @@
+mutation unmatchUser($input: UnmatchUserInput!) {
+  unmatchUser(input: $input) {
+    user {
+      id
+    }
+  }
+}

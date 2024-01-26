@@ -22,6 +22,10 @@ class HomeStorageBloc extends HydratedBloc<HomeStorageEvent, HomeStorageState> {
       emit(ValidSaveProfileFiltersState());
     });
 
+    on<OnOpenMatchScreen>((event, emit) {
+      emit(OpenMatchWithNewFiltersState());
+    });
+
     on<OnSaveFirstOpenMatch>((event, emit) {
       isFirstOpenMatch = false;
       emit(ValidSaveIsFirstOpenMatchState());

@@ -27,6 +27,7 @@ class ProfileCard extends StatelessWidget {
           isVerified: user.verified,
           birthday: user.birthday,
           onlineStatus: user.onlineStatus,
+          milesAway: user.hasLocationHidden == true ? null : user.milesAway,
         ),
       ),
     );

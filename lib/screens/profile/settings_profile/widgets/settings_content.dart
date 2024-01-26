@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
 
 import 'package:senpai/data/text_constants.dart';
-import 'package:senpai/screens/profile/settings_profile/widgets/delete_account_widget.dart';
 import 'package:senpai/screens/profile/widgets/profile_item_header.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
@@ -67,24 +66,26 @@ class SettingsContent extends StatelessWidget {
             ),
             SizedBox(height: $constants.insets.sm),
             _buildPhoneNumberWidget(context),
+
             SizedBox(height: $constants.insets.sm),
-            _buildLanguageWidget(context),
-            SizedBox(height: $constants.insets.xs),
-            Container(
-              padding: EdgeInsets.all($constants.insets.sm),
-              decoration: profileBoxDecoration(),
-              child: ProfileItemHeader(
-                title: TextConstants.addLanguageTitle,
-                onTap: () {
-                  bloc.add(
-                    OnChangeSettingsStepEvent(
-                      step: SettingsStep.language,
-                    ),
-                  );
-                },
-              ),
-            ),
-            SizedBox(height: $constants.insets.md),
+            // 24.01 Herbert Joseph: Let's remove/hide for now.
+            // _buildLanguageWidget(context),
+            // SizedBox(height: $constants.insets.xs),
+            // Container(
+            //   padding: EdgeInsets.all($constants.insets.sm),
+            //   decoration: profileBoxDecoration(),
+            //   child: ProfileItemHeader(
+            //     title: TextConstants.addLanguageTitle,
+            //     onTap: () {
+            //       bloc.add(
+            //         OnChangeSettingsStepEvent(
+            //           step: SettingsStep.language,
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
+            // SizedBox(height: $constants.insets.md),
             Container(
               padding: EdgeInsets.all($constants.insets.sm),
               decoration: profileBoxDecoration(),
@@ -123,26 +124,28 @@ class SettingsContent extends StatelessWidget {
               description: TextConstants.showRecentlyActivetatusDescription,
             ),
             SizedBox(height: $constants.insets.md),
-            Container(
-              padding: EdgeInsets.all($constants.insets.sm),
-              decoration: profileBoxDecoration(),
-              child: ProfileItemHeader(
-                title: TextConstants.feedbackOnSenpaiTitle,
-                onTap: () {
-                  bloc.add(
-                    OnChangeSettingsStepEvent(
-                      step: SettingsStep.feedback,
-                    ),
-                  );
-                },
-              ),
-            ),
-            SizedBox(height: $constants.insets.xxl),
-            SecondaryButton(
-              text: TextConstants.restorePurchasesButton,
-              onPressed: () {},
-              hasBackgroundColor: true,
-            ),
+            // 24.01 Herbert Joseph: Let's remove/hide for now.
+            // Container(
+            //   padding: EdgeInsets.all($constants.insets.sm),
+            //   decoration: profileBoxDecoration(),
+            //   child: ProfileItemHeader(
+            //     title: TextConstants.feedbackOnSenpaiTitle,
+            //     onTap: () {
+            //       bloc.add(
+            //         OnChangeSettingsStepEvent(
+            //           step: SettingsStep.feedback,
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
+            // 24.01 Herbert Joseph: Let's remove/hide for now.
+            // SizedBox(height: $constants.insets.xxl),
+            // SecondaryButton(
+            //   text: TextConstants.restorePurchasesButton,
+            //   onPressed: () {},
+            //   hasBackgroundColor: true,
+            // ),
             SizedBox(height: $constants.insets.sm),
             SecondaryButton(
               text: TextConstants.logoutTitle,
@@ -152,9 +155,10 @@ class SettingsContent extends StatelessWidget {
               hasBackgroundColor: true,
             ),
             SizedBox(height: $constants.insets.xs),
-            const Center(
-              child: DeleteAccountWidget(),
-            ),
+            // 22.01 Herbert Joseph: Let's remove/hide delete account for now.
+            // const Center(
+            //   child: DeleteAccountWidget(),
+            // ),
           ],
         );
       },

@@ -1,0 +1,20 @@
+mutation reportUser($input: ReportUserInput!) {
+  reportUser(input: $input) {
+    blocked
+    report {
+      conversationId
+      createdAt
+      id
+      offender {
+        id
+      }
+      offenseId
+      reason
+      reporter {
+        id
+      }
+      updatedAt
+      userId
+    }
+  }
+}

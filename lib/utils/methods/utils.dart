@@ -297,3 +297,12 @@ Future<http.MultipartFile> urlToFileMultipart(String url) async {
     }
   }
 }
+
+String extractGenres(String input) {
+  // Remove the square brackets at the start and end
+  String noBrackets = input.substring(1, input.length - 1);
+
+  // Replace double quotes and extra spaces, if any
+  String formatted = noBrackets.replaceAll('\"', '');
+  return formatted;
+}

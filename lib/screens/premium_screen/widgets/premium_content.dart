@@ -46,7 +46,6 @@ class PremiumContent extends StatelessWidget {
                     isCenterContent: true,
                   ),
                   _buildPremiumButton(context),
-                  _buildRestorePurchasesButton(context),
                   SizedBox(height: $constants.insets.lg),
                 ],
               ),
@@ -72,15 +71,16 @@ class PremiumContent extends StatelessWidget {
     );
   }
 
-  Widget _buildRestorePurchasesButton(BuildContext context) {
-    return TextButton(
-      onPressed: () {
-        print('Restore purchases');
-      },
-      child: Text(
-        TextConstants.restorePurchasesButton,
-        style: getTextTheme(context).titleSmall?.copyWith(),
-      ),
-    );
-  }
+  //24.01 Herbert Joseph: Let's remove/hide Restore Purchases.
+  // Widget _buildRestorePurchasesButton(BuildContext context) {
+  //   return TextButton(
+  //     onPressed: () {
+  //       print('Restore purchases');
+  //     },
+  //     child: Text(
+  //       TextConstants.restorePurchasesButton,
+  //       style: getTextTheme(context).titleSmall?.copyWith(),
+  //     ),
+  //   );
+  // }
 }

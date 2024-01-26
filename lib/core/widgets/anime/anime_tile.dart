@@ -21,7 +21,7 @@ class AnimeTile extends StatelessWidget {
   Widget build(BuildContext context) {
     String subtitleText = '';
     if (anime.genres != null) {
-      subtitleText = _extractGenres(anime.genres!);
+      subtitleText = extractGenres(anime.genres!);
     }
     return Container(
       height: $constants.sizes.animeTileHeight,
@@ -71,14 +71,4 @@ class AnimeTile extends StatelessWidget {
       ),
     );
   }
-}
-
-String _extractGenres(String input) {
-  // Remove the square brackets at the start and end
-  String noBrackets = input.substring(1, input.length - 1);
-
-  // Replace double quotes and extra spaces, if any
-  String formatted = noBrackets.replaceAll('\"', '').replaceAll(' ', '');
-
-  return formatted;
 }

@@ -8,7 +8,6 @@ import 'package:senpai/core/widgets/bottom_sheet/animated_bottom_sheet.dart';
 import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_message.dart';
@@ -18,6 +17,7 @@ import 'package:senpai/screens/chat/bloc/text_editing_bloc/text_editing_bloc.dar
 import 'package:senpai/screens/chat/widgets/chat_bottom_sheet_content.dart';
 import 'package:senpai/screens/chat/widgets/empty_messages.dart';
 import 'package:senpai/screens/chat/widgets/messages_list.dart';
+import 'package:senpai/screens/chat/widgets/pop_up_menu_widget.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -174,10 +174,11 @@ class ChatContent extends StatelessWidget {
                 ),
               ],
             ),
-            UserAvatar(
-              imageUrl: receipientUser.profileUrl,
-              size: 40.0,
-            )
+            PopUpMenuWidget(
+              currentUserId: currentUser.id,
+              receipientUser: receipientUser,
+              roomId: roomId,
+            ),
           ],
         ),
       ),

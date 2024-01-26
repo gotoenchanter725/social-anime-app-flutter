@@ -37,6 +37,7 @@ class TextConstants {
   static const String serverError = "Something went wrong, please try again";
   static const String nullUser =
       "There's no existing account associated with this phone number";
+  static const String alreadyHasAccount = "This user already has an account";
   static const String termsAndConditions =
       "I agree to receive SMS texts from Senpai at the phone number provided. Reply STOP to opt-out.";
 
@@ -125,6 +126,15 @@ class TextConstants {
   static const String emptyChatAnimationsSearchText =
       "Maybe there is a mistake in search?\n Please check and try again";
   static const String searchGifPlaceHolderText = "Search in GIPHY";
+  static const String viewProfileText = "View Profile";
+  static const String unmatchText = "Unmatch";
+  static const String reportText = "Report";
+  static const String inappropriateBehaviorText = "Inappropriate Behavior";
+  static const String spamText = "Spam";
+  static const String sexualAbuseText = "Sexual Abuse";
+  static const String doxxingText = "Sexual Abuse";
+  static const String areYouSureYouWantToUnmatchUser =
+      "Are you sure you want to unmatch this user?";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";
@@ -263,7 +273,7 @@ class TextConstants {
   static const String premiumSuperLikesText = "30 Super Likes";
   static const String premiumAbilityAnimesText =
       "Ability to add up to 15 animes";
-  static const String premiumUpgradeText = "Upgrade for \$9.99";
+  static const String premiumUpgradeText = "Upgrade for \$14.99";
 
   static const String editProfileButton = "Edit profile";
   static const String profileFindsButton = "Finds";

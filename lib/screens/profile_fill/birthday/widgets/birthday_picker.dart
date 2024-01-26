@@ -59,7 +59,7 @@ class BirthdayPicker extends StatelessWidget {
   Container _buildSeparator(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      margin: const EdgeInsets.symmetric(horizontal: 5.0),
+      margin: EdgeInsets.symmetric(horizontal: $constants.insets.xxs),
       child: Text(
         '/',
         style: getTextTheme(context)
@@ -73,10 +73,12 @@ class BirthdayPicker extends StatelessWidget {
     final textColor = bloc.birthdayDate != null
         ? $constants.palette.white
         : $constants.palette.buttonBorder;
-
+    final offset = $constants.insets.offset + $constants.insets.offset;
+    //need for small screen
+    final width = (getSize(context).width - offset) / 8;
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 4.0),
-      width: 30.0,
+      margin: EdgeInsets.symmetric(horizontal: $constants.insets.xxs),
+      width: width < $constants.corners.xl ? width : $constants.corners.xl,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         border: Border(

@@ -19,6 +19,7 @@ class FetchFeedBloc extends QueryBloc<FetchFeed$Query> {
     required String userId,
     required ProfileFilterModel profileFilter,
     int? page,
+    bool? refresh,
   }) {
     final variables = FetchFeedArguments(
       params: FetchFeedInput(
@@ -30,7 +31,9 @@ class FetchFeedBloc extends QueryBloc<FetchFeed$Query> {
         verified: profileFilter.verified,
         hasBio: profileFilter.hasBio,
         animeIds: profileFilter.animeIds,
+        refresh: refresh,
       ),
+      otherUserId: userId,
     ).toJson();
 
     run(variables: variables);

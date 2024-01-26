@@ -31,6 +31,7 @@ class UserProfileModel with _$UserProfileModel {
     int? superLikeCount,
     List<UserFavoriteMusicModel>? favoriteMusic,
     bool? hasLocationHidden,
+    int? milesAway,
   }) = _UserProfileModel;
 
   factory UserProfileModel.initial() => const UserProfileModel(
@@ -56,6 +57,7 @@ class UserProfileModel with _$UserProfileModel {
         superLikeCount: 0,
         favoriteMusic: [],
         hasLocationHidden: false,
+        milesAway: null,
       );
 
   factory UserProfileModel.fromJson(Map<String, dynamic> json) =>

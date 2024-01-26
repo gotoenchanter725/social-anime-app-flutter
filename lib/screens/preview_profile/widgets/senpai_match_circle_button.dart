@@ -5,7 +5,7 @@ import 'package:senpai/utils/constants.dart';
 
 class SenpaiMatchCircleButton extends StatelessWidget {
   final String? icon;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final Widget? customIcon;
   final double? customPadding;
   final bool isReverceColor;
@@ -32,7 +32,6 @@ class SenpaiMatchCircleButton extends StatelessWidget {
                 ? $constants.palette.gold
                 : $constants.palette.white
             : $constants.palette.lightBlue,
-        // backgroundColor: Colors.red,
         padding: const EdgeInsets.all(0),
       ),
       child: Container(

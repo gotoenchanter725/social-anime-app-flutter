@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
+import 'package:senpai/models/profile_fill/photos/upload_photo_model.dart';
 import 'package:senpai/models/profile_fill/update_user_model.dart';
 import 'package:senpai/models/user_profile/mappers/user_profile_mapper.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
@@ -126,6 +127,15 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
     on<OnChangeShareTopArtistsEvent>((event, emit) {
       emit(LoadingEditProfileState());
       shareTopArtists = event.isShareTopArtists;
+      emit(ValidState());
+    });
+    on<OnChangePhotosListEvent>((event, emit) {
+      emit(LoadingEditProfileState());
+      userForPreview = userForPreview.copyWith(
+        gallery: userForPreview.gallery?.copyWith(
+          photos: event.photos,
+        ),
+      );
       emit(ValidState());
     });
   }

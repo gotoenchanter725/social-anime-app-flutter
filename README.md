@@ -2,6 +2,16 @@
 
 A new Flutter project.
 
+## Running the app (on Mac)
+
+Setup flutter sdk: https://docs.flutter.dev/get-started/install
+
+1. `flutter pub get`
+2.  cd ios
+3.  `pod install`
+4.  Open iOS Simulator or Android Studio simulator
+5.  `flutter run`
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

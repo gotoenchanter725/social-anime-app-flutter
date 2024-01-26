@@ -422,7 +422,8 @@ Map<String, dynamic> _$SendMessageInputToJson(SendMessageInput instance) =>
 MessageInput _$MessageInputFromJson(Map<String, dynamic> json) => MessageInput(
       attachment: fromGraphQLUploadNullableToDartMultipartFileNullable(
           json['attachment'] as MultipartFile?),
-      content: json['content'] as String,
+      attachmentType: json['attachmentType'] as String?,
+      content: json['content'] as String?,
       conversationId: json['conversationId'] as String,
       recommendedAnimeId: json['recommendedAnimeId'] as String?,
       senderId: json['senderId'] as int,
@@ -433,6 +434,7 @@ Map<String, dynamic> _$MessageInputToJson(MessageInput instance) =>
     <String, dynamic>{
       'attachment': fromDartMultipartFileNullableToGraphQLUploadNullable(
           instance.attachment),
+      'attachmentType': instance.attachmentType,
       'content': instance.content,
       'conversationId': instance.conversationId,
       'recommendedAnimeId': instance.recommendedAnimeId,
@@ -1679,7 +1681,8 @@ FetchFeed$Query$FetchFeed _$FetchFeed$Query$FetchFeedFromJson(
               e as Map<String, dynamic>))
           .toList()
       ..hasLocationHidden = json['hasLocationHidden'] as bool?
-      ..superLikeCount = json['superLikeCount'] as int?;
+      ..superLikeCount = json['superLikeCount'] as int?
+      ..milesAway = json['milesAway'] as int?;
 
 Map<String, dynamic> _$FetchFeed$Query$FetchFeedToJson(
         FetchFeed$Query$FetchFeed instance) =>
@@ -1706,6 +1709,7 @@ Map<String, dynamic> _$FetchFeed$Query$FetchFeedToJson(
       'favoriteMusic': instance.favoriteMusic?.map((e) => e.toJson()).toList(),
       'hasLocationHidden': instance.hasLocationHidden,
       'superLikeCount': instance.superLikeCount,
+      'milesAway': instance.milesAway,
     };
 
 FetchFeed$Query _$FetchFeed$QueryFromJson(Map<String, dynamic> json) =>
@@ -1730,6 +1734,7 @@ FetchFeedInput _$FetchFeedInputFromJson(Map<String, dynamic> json) =>
       milesAway: json['milesAway'] as int,
       minAge: json['minAge'] as int,
       page: json['page'] as int?,
+      refresh: json['refresh'] as bool?,
       userId: json['userId'] as String,
       verified: json['verified'] as bool?,
     );
@@ -1742,6 +1747,7 @@ Map<String, dynamic> _$FetchFeedInputToJson(FetchFeedInput instance) =>
       'milesAway': instance.milesAway,
       'minAge': instance.minAge,
       'page': instance.page,
+      'refresh': instance.refresh,
       'userId': instance.userId,
       'verified': instance.verified,
     };
@@ -2301,6 +2307,177 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
+ReportUser$Mutation$ReportUser$Report$Offender
+    _$ReportUser$Mutation$ReportUser$Report$OffenderFromJson(
+            Map<String, dynamic> json) =>
+        ReportUser$Mutation$ReportUser$Report$Offender()
+          ..id = json['id'] as String;
+
+Map<String, dynamic> _$ReportUser$Mutation$ReportUser$Report$OffenderToJson(
+        ReportUser$Mutation$ReportUser$Report$Offender instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+ReportUser$Mutation$ReportUser$Report$Reporter
+    _$ReportUser$Mutation$ReportUser$Report$ReporterFromJson(
+            Map<String, dynamic> json) =>
+        ReportUser$Mutation$ReportUser$Report$Reporter()
+          ..id = json['id'] as String;
+
+Map<String, dynamic> _$ReportUser$Mutation$ReportUser$Report$ReporterToJson(
+        ReportUser$Mutation$ReportUser$Report$Reporter instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+ReportUser$Mutation$ReportUser$Report
+    _$ReportUser$Mutation$ReportUser$ReportFromJson(
+            Map<String, dynamic> json) =>
+        ReportUser$Mutation$ReportUser$Report()
+          ..conversationId = json['conversationId'] as String
+          ..createdAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['createdAt'] as String)
+          ..id = json['id'] as String
+          ..offender = ReportUser$Mutation$ReportUser$Report$Offender.fromJson(
+              json['offender'] as Map<String, dynamic>)
+          ..offenseId = json['offenseId'] as String?
+          ..reason = json['reason'] as String?
+          ..reporter = ReportUser$Mutation$ReportUser$Report$Reporter.fromJson(
+              json['reporter'] as Map<String, dynamic>)
+          ..updatedAt = fromGraphQLISO8601DateTimeToDartDateTime(
+              json['updatedAt'] as String)
+          ..userId = json['userId'] as String;
+
+Map<String, dynamic> _$ReportUser$Mutation$ReportUser$ReportToJson(
+        ReportUser$Mutation$ReportUser$Report instance) =>
+    <String, dynamic>{
+      'conversationId': instance.conversationId,
+      'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
+      'id': instance.id,
+      'offender': instance.offender.toJson(),
+      'offenseId': instance.offenseId,
+      'reason': instance.reason,
+      'reporter': instance.reporter.toJson(),
+      'updatedAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.updatedAt),
+      'userId': instance.userId,
+    };
+
+ReportUser$Mutation$ReportUser _$ReportUser$Mutation$ReportUserFromJson(
+        Map<String, dynamic> json) =>
+    ReportUser$Mutation$ReportUser()
+      ..blocked = json['blocked'] as bool
+      ..report = ReportUser$Mutation$ReportUser$Report.fromJson(
+          json['report'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$ReportUser$Mutation$ReportUserToJson(
+        ReportUser$Mutation$ReportUser instance) =>
+    <String, dynamic>{
+      'blocked': instance.blocked,
+      'report': instance.report.toJson(),
+    };
+
+ReportUser$Mutation _$ReportUser$MutationFromJson(Map<String, dynamic> json) =>
+    ReportUser$Mutation()
+      ..reportUser = json['reportUser'] == null
+          ? null
+          : ReportUser$Mutation$ReportUser.fromJson(
+              json['reportUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$ReportUser$MutationToJson(
+        ReportUser$Mutation instance) =>
+    <String, dynamic>{
+      'reportUser': instance.reportUser?.toJson(),
+    };
+
+ReportUserInput _$ReportUserInputFromJson(Map<String, dynamic> json) =>
+    ReportUserInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      params: ReportInput.fromJson(json['params'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$ReportUserInputToJson(ReportUserInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'params': instance.params.toJson(),
+    };
+
+ReportInput _$ReportInputFromJson(Map<String, dynamic> json) => ReportInput(
+      conversationId: json['conversationId'] as String,
+      offenseId: json['offenseId'] as String,
+      reason: json['reason'] as String,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$ReportInputToJson(ReportInput instance) =>
+    <String, dynamic>{
+      'conversationId': instance.conversationId,
+      'offenseId': instance.offenseId,
+      'reason': instance.reason,
+      'userId': instance.userId,
+    };
+
+UnmatchUser$Mutation$UnmatchUser$User
+    _$UnmatchUser$Mutation$UnmatchUser$UserFromJson(
+            Map<String, dynamic> json) =>
+        UnmatchUser$Mutation$UnmatchUser$User()..id = json['id'] as String;
+
+Map<String, dynamic> _$UnmatchUser$Mutation$UnmatchUser$UserToJson(
+        UnmatchUser$Mutation$UnmatchUser$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+UnmatchUser$Mutation$UnmatchUser _$UnmatchUser$Mutation$UnmatchUserFromJson(
+        Map<String, dynamic> json) =>
+    UnmatchUser$Mutation$UnmatchUser()
+      ..user = UnmatchUser$Mutation$UnmatchUser$User.fromJson(
+          json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UnmatchUser$Mutation$UnmatchUserToJson(
+        UnmatchUser$Mutation$UnmatchUser instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+UnmatchUser$Mutation _$UnmatchUser$MutationFromJson(
+        Map<String, dynamic> json) =>
+    UnmatchUser$Mutation()
+      ..unmatchUser = json['unmatchUser'] == null
+          ? null
+          : UnmatchUser$Mutation$UnmatchUser.fromJson(
+              json['unmatchUser'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$UnmatchUser$MutationToJson(
+        UnmatchUser$Mutation instance) =>
+    <String, dynamic>{
+      'unmatchUser': instance.unmatchUser?.toJson(),
+    };
+
+UnmatchUserInput _$UnmatchUserInputFromJson(Map<String, dynamic> json) =>
+    UnmatchUserInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      params: BlockUserInput.fromJson(json['params'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$UnmatchUserInputToJson(UnmatchUserInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'params': instance.params.toJson(),
+    };
+
+BlockUserInput _$BlockUserInputFromJson(Map<String, dynamic> json) =>
+    BlockUserInput(
+      blockedUserId: json['blockedUserId'] as String,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$BlockUserInputToJson(BlockUserInput instance) =>
+    <String, dynamic>{
+      'blockedUserId': instance.blockedUserId,
+      'userId': instance.userId,
+    };
+
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -2557,11 +2734,13 @@ Map<String, dynamic> _$FetchMessagesArgumentsToJson(
 FetchFeedArguments _$FetchFeedArgumentsFromJson(Map<String, dynamic> json) =>
     FetchFeedArguments(
       params: FetchFeedInput.fromJson(json['params'] as Map<String, dynamic>),
+      otherUserId: json['otherUserId'] as String,
     );
 
 Map<String, dynamic> _$FetchFeedArgumentsToJson(FetchFeedArguments instance) =>
     <String, dynamic>{
       'params': instance.params.toJson(),
+      'otherUserId': instance.otherUserId,
     };
 
 FetchUserArguments _$FetchUserArgumentsFromJson(Map<String, dynamic> json) =>
@@ -2619,4 +2798,27 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
+    };
+
+ReportUserArguments _$ReportUserArgumentsFromJson(Map<String, dynamic> json) =>
+    ReportUserArguments(
+      input: ReportUserInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$ReportUserArgumentsToJson(
+        ReportUserArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+UnmatchUserArguments _$UnmatchUserArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    UnmatchUserArguments(
+      input: UnmatchUserInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$UnmatchUserArgumentsToJson(
+        UnmatchUserArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
     };

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/feed/blocs/fetch_feed_bloc.dart';
 import 'package:senpai/core/feed/blocs/like_user_bloc.dart';
+import 'package:senpai/core/feed/blocs/undo_like_user_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
@@ -21,7 +22,6 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
-
 @RoutePage()
 class MatchPage extends StatelessWidget {
   const MatchPage({super.key});
@@ -33,37 +33,53 @@ class MatchPage extends StatelessWidget {
         BlocProvider.value(value: getIt<HomeStorageBloc>()),
         BlocProvider(create: (_) => MatchBloc()..add(OnInitUserID())),
         BlocProvider(
-            create: (_) => userProfile.ProfileBloc()..add(userProfile.OnInitUserID())),
+            create: (_) =>
+                userProfile.ProfileBloc()..add(userProfile.OnInitUserID())),
         BlocProvider(create: (_) => getIt<FetchFeedBloc>()),
         BlocProvider(create: (_) => getIt<LikeUserBloc>()),
         BlocProvider(create: (_) => getIt<FetchUserBloc>()),
+        BlocProvider(create: (_) => getIt<UndoLikeUserBloc>()),
       ],
       child: Scaffold(
         backgroundColor: $constants.palette.darkBlue,
         body: SafeArea(
           child: Stack(
             children: [
-              BlocListener<MatchBloc, MatchState>(
-                listenWhen: (_, currState) => currState is ValidUserIdState,
-                listener: (context, state) {
-                  final bloc = BlocProvider.of<MatchBloc>(context);
-                  final storageBloc = BlocProvider.of<HomeStorageBloc>(context);
-                  final serverBloc = BlocProvider.of<FetchFeedBloc>(context);
-                  serverBloc.fetchFeed(
-                    userId: bloc.userID,
-                    profileFilter: storageBloc.filters,
-                  );
-
-                  final fetchUserBloc = BlocProvider.of<FetchUserBloc>(context);
-                  fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
-
-                },
+              MultiBlocListener(
+                listeners: [
+                  BlocListener<HomeStorageBloc, HomeStorageState>(
+                    listenWhen: (_, currState) =>
+                        currState is OpenMatchWithNewFiltersState,
+                    bloc: BlocProvider.of<HomeStorageBloc>(context),
+                    listener: (context, state) {
+                      final bloc = BlocProvider.of<MatchBloc>(context);
+                      bloc.add(OnChangePageEvent(isRefresh: false));
+                    },
+                  ),
+                  BlocListener<MatchBloc, MatchState>(
+                    listenWhen: (_, currState) => currState is ValidUserIdState,
+                    listener: (context, state) {
+                      final bloc = BlocProvider.of<MatchBloc>(context);
+                      final storageBloc =
+                          BlocProvider.of<HomeStorageBloc>(context);
+                      final serverBloc =
+                          BlocProvider.of<FetchFeedBloc>(context);
+                      serverBloc.fetchFeed(
+                        userId: bloc.userID,
+                        profileFilter: storageBloc.filters,
+                      );
+                      final fetchUserBloc =
+                          BlocProvider.of<FetchUserBloc>(context);
+                      fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
+                    },
+                  ),
+                ],
                 child: const MatchContent(),
               ),
               _buildFetchFeedListeners(),
               _buildLikeUserListeners(),
               _buildFetchUserListeners(),
-
+              _buildUndoLikeUserListeners(),
             ],
           ),
         ),
@@ -154,6 +170,9 @@ class MatchPage extends StatelessWidget {
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }
+              final bloc = BlocProvider.of<MatchBloc>(context);
+              final serverBloc = BlocProvider.of<FetchFeedBloc>(context);
+              final storageBloc = BlocProvider.of<HomeStorageBloc>(context);
 
               LikeUserModel likeUserModel = LikeUserModel.fromJson(model);
               if (likeUserModel.match != null) {
@@ -164,15 +183,49 @@ class MatchPage extends StatelessWidget {
                   if (user != null) {
                     _sendMessageInfoDialog(context, value!);
                   }
-                  final bloc = BlocProvider.of<MatchBloc>(context);
-                  final storageBloc = BlocProvider.of<HomeStorageBloc>(context);
-                  final serverBloc = BlocProvider.of<FetchFeedBloc>(context);
                   serverBloc.fetchFeed(
                     userId: bloc.userID,
                     profileFilter: storageBloc.filters,
                   );
                 });
               }
+
+              if (bloc.cardsSwipeController.currentIndex == bloc.users.length) {
+                bloc.add(OnChangePageEvent(isRefresh: true));
+              }
+
+              return const SizedBox.shrink();
+            },
+            orElse: () => const SizedBox.shrink());
+      },
+    );
+  }
+
+  Widget _buildUndoLikeUserListeners() {
+    return BlocBuilder<UndoLikeUserBloc, MutationState>(
+      builder: (context, state) {
+        return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            failed: (error, result) {
+              showSnackBarError(context, TextConstants.serverError);
+              return const SizedBox.shrink();
+            },
+            succeeded: (data, result) {
+              final response = result.data;
+
+              if (response == null) {
+                // handle this fatal error
+                logIt.wtf("A successful empty response just got set user");
+                return const SizedBox.shrink();
+              }
+              final model = response["undoLike"]["undidUser"];
+
+              if (model == null) {
+                showSnackBarError(context, TextConstants.serverError);
+                logIt.error("A user with error");
+                return const SizedBox.shrink();
+              }
+
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
