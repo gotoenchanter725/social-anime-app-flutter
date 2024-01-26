@@ -152,6 +152,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfilePage(),
       );
     },
+    ReportUserRoute.name: (routeData) {
+      final args = routeData.argsAs<ReportUserRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ReportUserPage(
+          key: args.key,
+          reportArgs: args.reportArgs,
+        ),
+      );
+    },
     SearchChatListRoute.name: (routeData) {
       final args = routeData.argsAs<SearchChatListRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -721,6 +731,44 @@ class ProfileRoute extends PageRouteInfo<void> {
   static const String name = 'ProfileRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ReportUserPage]
+class ReportUserRoute extends PageRouteInfo<ReportUserRouteArgs> {
+  ReportUserRoute({
+    Key? key,
+    required ReportUserParams reportArgs,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ReportUserRoute.name,
+          args: ReportUserRouteArgs(
+            key: key,
+            reportArgs: reportArgs,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ReportUserRoute';
+
+  static const PageInfo<ReportUserRouteArgs> page =
+      PageInfo<ReportUserRouteArgs>(name);
+}
+
+class ReportUserRouteArgs {
+  const ReportUserRouteArgs({
+    this.key,
+    required this.reportArgs,
+  });
+
+  final Key? key;
+
+  final ReportUserParams reportArgs;
+
+  @override
+  String toString() {
+    return 'ReportUserRouteArgs{key: $key, reportArgs: $reportArgs}';
+  }
 }
 
 /// generated route for
