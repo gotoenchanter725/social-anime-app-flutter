@@ -78,6 +78,11 @@ abstract class ActionCableBloc<T>
     }
   }
 
+  void reconnect() {
+    // do nothing
+    _reconnectIfNeeded();
+  }
+
   void connect() async {
     final storage = getIt<TokenStorage<AuthModel>>();
     AuthModel? authModel = await storage.read();
