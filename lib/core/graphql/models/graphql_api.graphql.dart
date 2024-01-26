@@ -929,6 +929,171 @@ class ValidatePhoneInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class ReportUser$Mutation$ReportUser$Report$Offender extends JsonSerializable
+    with EquatableMixin {
+  ReportUser$Mutation$ReportUser$Report$Offender();
+
+  factory ReportUser$Mutation$ReportUser$Report$Offender.fromJson(
+          Map<String, dynamic> json) =>
+      _$ReportUser$Mutation$ReportUser$Report$OffenderFromJson(json);
+
+  late String id;
+
+  @override
+  List<Object?> get props => [id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$ReportUser$Mutation$ReportUser$Report$OffenderToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ReportUser$Mutation$ReportUser$Report$Reporter extends JsonSerializable
+    with EquatableMixin {
+  ReportUser$Mutation$ReportUser$Report$Reporter();
+
+  factory ReportUser$Mutation$ReportUser$Report$Reporter.fromJson(
+          Map<String, dynamic> json) =>
+      _$ReportUser$Mutation$ReportUser$Report$ReporterFromJson(json);
+
+  late String id;
+
+  @override
+  List<Object?> get props => [id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$ReportUser$Mutation$ReportUser$Report$ReporterToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ReportUser$Mutation$ReportUser$Report extends JsonSerializable
+    with EquatableMixin {
+  ReportUser$Mutation$ReportUser$Report();
+
+  factory ReportUser$Mutation$ReportUser$Report.fromJson(
+          Map<String, dynamic> json) =>
+      _$ReportUser$Mutation$ReportUser$ReportFromJson(json);
+
+  late String conversationId;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
+      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
+  late DateTime createdAt;
+
+  late String id;
+
+  late ReportUser$Mutation$ReportUser$Report$Offender offender;
+
+  String? offenseId;
+
+  String? reason;
+
+  late ReportUser$Mutation$ReportUser$Report$Reporter reporter;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
+      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
+  late DateTime updatedAt;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [
+        conversationId,
+        createdAt,
+        id,
+        offender,
+        offenseId,
+        reason,
+        reporter,
+        updatedAt,
+        userId
+      ];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$ReportUser$Mutation$ReportUser$ReportToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ReportUser$Mutation$ReportUser extends JsonSerializable
+    with EquatableMixin {
+  ReportUser$Mutation$ReportUser();
+
+  factory ReportUser$Mutation$ReportUser.fromJson(Map<String, dynamic> json) =>
+      _$ReportUser$Mutation$ReportUserFromJson(json);
+
+  late bool blocked;
+
+  late ReportUser$Mutation$ReportUser$Report report;
+
+  @override
+  List<Object?> get props => [blocked, report];
+  @override
+  Map<String, dynamic> toJson() => _$ReportUser$Mutation$ReportUserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ReportUser$Mutation extends JsonSerializable with EquatableMixin {
+  ReportUser$Mutation();
+
+  factory ReportUser$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$ReportUser$MutationFromJson(json);
+
+  ReportUser$Mutation$ReportUser? reportUser;
+
+  @override
+  List<Object?> get props => [reportUser];
+  @override
+  Map<String, dynamic> toJson() => _$ReportUser$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ReportUserInput extends JsonSerializable with EquatableMixin {
+  ReportUserInput({
+    this.clientMutationId,
+    required this.params,
+  });
+
+  factory ReportUserInput.fromJson(Map<String, dynamic> json) =>
+      _$ReportUserInputFromJson(json);
+
+  String? clientMutationId;
+
+  late ReportInput params;
+
+  @override
+  List<Object?> get props => [clientMutationId, params];
+  @override
+  Map<String, dynamic> toJson() => _$ReportUserInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class ReportInput extends JsonSerializable with EquatableMixin {
+  ReportInput({
+    required this.conversationId,
+    required this.offenseId,
+    required this.reason,
+    required this.userId,
+  });
+
+  factory ReportInput.fromJson(Map<String, dynamic> json) =>
+      _$ReportInputFromJson(json);
+
+  late String conversationId;
+
+  late String offenseId;
+
+  late String reason;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [conversationId, offenseId, reason, userId];
+  @override
+  Map<String, dynamic> toJson() => _$ReportInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers
     extends JsonSerializable with EquatableMixin {
   GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers();
@@ -1469,6 +1634,97 @@ class LikeInput extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [likeType, likeeId, userId];
   @override
   Map<String, dynamic> toJson() => _$LikeInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UnmatchUser$Mutation$UnmatchUser$User extends JsonSerializable
+    with EquatableMixin {
+  UnmatchUser$Mutation$UnmatchUser$User();
+
+  factory UnmatchUser$Mutation$UnmatchUser$User.fromJson(
+          Map<String, dynamic> json) =>
+      _$UnmatchUser$Mutation$UnmatchUser$UserFromJson(json);
+
+  late String id;
+
+  @override
+  List<Object?> get props => [id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$UnmatchUser$Mutation$UnmatchUser$UserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UnmatchUser$Mutation$UnmatchUser extends JsonSerializable
+    with EquatableMixin {
+  UnmatchUser$Mutation$UnmatchUser();
+
+  factory UnmatchUser$Mutation$UnmatchUser.fromJson(
+          Map<String, dynamic> json) =>
+      _$UnmatchUser$Mutation$UnmatchUserFromJson(json);
+
+  late UnmatchUser$Mutation$UnmatchUser$User user;
+
+  @override
+  List<Object?> get props => [user];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$UnmatchUser$Mutation$UnmatchUserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UnmatchUser$Mutation extends JsonSerializable with EquatableMixin {
+  UnmatchUser$Mutation();
+
+  factory UnmatchUser$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$UnmatchUser$MutationFromJson(json);
+
+  UnmatchUser$Mutation$UnmatchUser? unmatchUser;
+
+  @override
+  List<Object?> get props => [unmatchUser];
+  @override
+  Map<String, dynamic> toJson() => _$UnmatchUser$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UnmatchUserInput extends JsonSerializable with EquatableMixin {
+  UnmatchUserInput({
+    this.clientMutationId,
+    required this.params,
+  });
+
+  factory UnmatchUserInput.fromJson(Map<String, dynamic> json) =>
+      _$UnmatchUserInputFromJson(json);
+
+  String? clientMutationId;
+
+  late BlockUserInput params;
+
+  @override
+  List<Object?> get props => [clientMutationId, params];
+  @override
+  Map<String, dynamic> toJson() => _$UnmatchUserInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class BlockUserInput extends JsonSerializable with EquatableMixin {
+  BlockUserInput({
+    required this.blockedUserId,
+    required this.userId,
+  });
+
+  factory BlockUserInput.fromJson(Map<String, dynamic> json) =>
+      _$BlockUserInputFromJson(json);
+
+  late String blockedUserId;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [blockedUserId, userId];
+  @override
+  Map<String, dynamic> toJson() => _$BlockUserInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -3109,262 +3365,6 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class ReportUser$Mutation$ReportUser$Report$Offender extends JsonSerializable
-    with EquatableMixin {
-  ReportUser$Mutation$ReportUser$Report$Offender();
-
-  factory ReportUser$Mutation$ReportUser$Report$Offender.fromJson(
-          Map<String, dynamic> json) =>
-      _$ReportUser$Mutation$ReportUser$Report$OffenderFromJson(json);
-
-  late String id;
-
-  @override
-  List<Object?> get props => [id];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$ReportUser$Mutation$ReportUser$Report$OffenderToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class ReportUser$Mutation$ReportUser$Report$Reporter extends JsonSerializable
-    with EquatableMixin {
-  ReportUser$Mutation$ReportUser$Report$Reporter();
-
-  factory ReportUser$Mutation$ReportUser$Report$Reporter.fromJson(
-          Map<String, dynamic> json) =>
-      _$ReportUser$Mutation$ReportUser$Report$ReporterFromJson(json);
-
-  late String id;
-
-  @override
-  List<Object?> get props => [id];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$ReportUser$Mutation$ReportUser$Report$ReporterToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class ReportUser$Mutation$ReportUser$Report extends JsonSerializable
-    with EquatableMixin {
-  ReportUser$Mutation$ReportUser$Report();
-
-  factory ReportUser$Mutation$ReportUser$Report.fromJson(
-          Map<String, dynamic> json) =>
-      _$ReportUser$Mutation$ReportUser$ReportFromJson(json);
-
-  late String conversationId;
-
-  @JsonKey(
-      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
-      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
-  late DateTime createdAt;
-
-  late String id;
-
-  late ReportUser$Mutation$ReportUser$Report$Offender offender;
-
-  String? offenseId;
-
-  String? reason;
-
-  late ReportUser$Mutation$ReportUser$Report$Reporter reporter;
-
-  @JsonKey(
-      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
-      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
-  late DateTime updatedAt;
-
-  late String userId;
-
-  @override
-  List<Object?> get props => [
-        conversationId,
-        createdAt,
-        id,
-        offender,
-        offenseId,
-        reason,
-        reporter,
-        updatedAt,
-        userId
-      ];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$ReportUser$Mutation$ReportUser$ReportToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class ReportUser$Mutation$ReportUser extends JsonSerializable
-    with EquatableMixin {
-  ReportUser$Mutation$ReportUser();
-
-  factory ReportUser$Mutation$ReportUser.fromJson(Map<String, dynamic> json) =>
-      _$ReportUser$Mutation$ReportUserFromJson(json);
-
-  late bool blocked;
-
-  late ReportUser$Mutation$ReportUser$Report report;
-
-  @override
-  List<Object?> get props => [blocked, report];
-  @override
-  Map<String, dynamic> toJson() => _$ReportUser$Mutation$ReportUserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class ReportUser$Mutation extends JsonSerializable with EquatableMixin {
-  ReportUser$Mutation();
-
-  factory ReportUser$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$ReportUser$MutationFromJson(json);
-
-  ReportUser$Mutation$ReportUser? reportUser;
-
-  @override
-  List<Object?> get props => [reportUser];
-  @override
-  Map<String, dynamic> toJson() => _$ReportUser$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class ReportUserInput extends JsonSerializable with EquatableMixin {
-  ReportUserInput({
-    this.clientMutationId,
-    required this.params,
-  });
-
-  factory ReportUserInput.fromJson(Map<String, dynamic> json) =>
-      _$ReportUserInputFromJson(json);
-
-  String? clientMutationId;
-
-  late ReportInput params;
-
-  @override
-  List<Object?> get props => [clientMutationId, params];
-  @override
-  Map<String, dynamic> toJson() => _$ReportUserInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class ReportInput extends JsonSerializable with EquatableMixin {
-  ReportInput({
-    required this.conversationId,
-    required this.offenseId,
-    required this.reason,
-    required this.userId,
-  });
-
-  factory ReportInput.fromJson(Map<String, dynamic> json) =>
-      _$ReportInputFromJson(json);
-
-  late String conversationId;
-
-  late String offenseId;
-
-  late String reason;
-
-  late String userId;
-
-  @override
-  List<Object?> get props => [conversationId, offenseId, reason, userId];
-  @override
-  Map<String, dynamic> toJson() => _$ReportInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UnmatchUser$Mutation$UnmatchUser$User extends JsonSerializable
-    with EquatableMixin {
-  UnmatchUser$Mutation$UnmatchUser$User();
-
-  factory UnmatchUser$Mutation$UnmatchUser$User.fromJson(
-          Map<String, dynamic> json) =>
-      _$UnmatchUser$Mutation$UnmatchUser$UserFromJson(json);
-
-  late String id;
-
-  @override
-  List<Object?> get props => [id];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$UnmatchUser$Mutation$UnmatchUser$UserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UnmatchUser$Mutation$UnmatchUser extends JsonSerializable
-    with EquatableMixin {
-  UnmatchUser$Mutation$UnmatchUser();
-
-  factory UnmatchUser$Mutation$UnmatchUser.fromJson(
-          Map<String, dynamic> json) =>
-      _$UnmatchUser$Mutation$UnmatchUserFromJson(json);
-
-  late UnmatchUser$Mutation$UnmatchUser$User user;
-
-  @override
-  List<Object?> get props => [user];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$UnmatchUser$Mutation$UnmatchUserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UnmatchUser$Mutation extends JsonSerializable with EquatableMixin {
-  UnmatchUser$Mutation();
-
-  factory UnmatchUser$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$UnmatchUser$MutationFromJson(json);
-
-  UnmatchUser$Mutation$UnmatchUser? unmatchUser;
-
-  @override
-  List<Object?> get props => [unmatchUser];
-  @override
-  Map<String, dynamic> toJson() => _$UnmatchUser$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UnmatchUserInput extends JsonSerializable with EquatableMixin {
-  UnmatchUserInput({
-    this.clientMutationId,
-    required this.params,
-  });
-
-  factory UnmatchUserInput.fromJson(Map<String, dynamic> json) =>
-      _$UnmatchUserInputFromJson(json);
-
-  String? clientMutationId;
-
-  late BlockUserInput params;
-
-  @override
-  List<Object?> get props => [clientMutationId, params];
-  @override
-  Map<String, dynamic> toJson() => _$UnmatchUserInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class BlockUserInput extends JsonSerializable with EquatableMixin {
-  BlockUserInput({
-    required this.blockedUserId,
-    required this.userId,
-  });
-
-  factory BlockUserInput.fromJson(Map<String, dynamic> json) =>
-      _$BlockUserInputFromJson(json);
-
-  late String blockedUserId;
-
-  late String userId;
-
-  @override
-  List<Object?> get props => [blockedUserId, userId];
-  @override
-  Map<String, dynamic> toJson() => _$BlockUserInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
 class DeleteFavoriteAnimeArguments extends JsonSerializable
     with EquatableMixin {
   DeleteFavoriteAnimeArguments({required this.input});
@@ -4350,6 +4350,171 @@ class ValidatePhoneMutation
 }
 
 @JsonSerializable(explicitToJson: true)
+class ReportUserArguments extends JsonSerializable with EquatableMixin {
+  ReportUserArguments({required this.input});
+
+  @override
+  factory ReportUserArguments.fromJson(Map<String, dynamic> json) =>
+      _$ReportUserArgumentsFromJson(json);
+
+  late ReportUserInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$ReportUserArgumentsToJson(this);
+}
+
+final REPORT_USER_MUTATION_DOCUMENT_OPERATION_NAME = 'reportUser';
+final REPORT_USER_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'reportUser'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ReportUserInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'reportUser'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'blocked'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'report'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'conversationId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'createdAt'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'offender'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  )
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'offenseId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'reason'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'reporter'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  )
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'updatedAt'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'userId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class ReportUserMutation
+    extends GraphQLQuery<ReportUser$Mutation, ReportUserArguments> {
+  ReportUserMutation({required this.variables});
+
+  @override
+  final DocumentNode document = REPORT_USER_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = REPORT_USER_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final ReportUserArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  ReportUser$Mutation parse(Map<String, dynamic> json) =>
+      ReportUser$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
 class GetDistanceBetweenUsersArguments extends JsonSerializable
     with EquatableMixin {
   GetDistanceBetweenUsersArguments({required this.input});
@@ -4930,6 +5095,92 @@ class LikeUserMutation
   @override
   LikeUser$Mutation parse(Map<String, dynamic> json) =>
       LikeUser$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class UnmatchUserArguments extends JsonSerializable with EquatableMixin {
+  UnmatchUserArguments({required this.input});
+
+  @override
+  factory UnmatchUserArguments.fromJson(Map<String, dynamic> json) =>
+      _$UnmatchUserArgumentsFromJson(json);
+
+  late UnmatchUserInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$UnmatchUserArgumentsToJson(this);
+}
+
+final UNMATCH_USER_MUTATION_DOCUMENT_OPERATION_NAME = 'unmatchUser';
+final UNMATCH_USER_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'unmatchUser'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'UnmatchUserInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'unmatchUser'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              )
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class UnmatchUserMutation
+    extends GraphQLQuery<UnmatchUser$Mutation, UnmatchUserArguments> {
+  UnmatchUserMutation({required this.variables});
+
+  @override
+  final DocumentNode document = UNMATCH_USER_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = UNMATCH_USER_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final UnmatchUserArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  UnmatchUser$Mutation parse(Map<String, dynamic> json) =>
+      UnmatchUser$Mutation.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -7214,255 +7465,4 @@ class FetchStickersQuery
   @override
   FetchStickers$Query parse(Map<String, dynamic> json) =>
       FetchStickers$Query.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class ReportUserArguments extends JsonSerializable with EquatableMixin {
-  ReportUserArguments({required this.input});
-
-  @override
-  factory ReportUserArguments.fromJson(Map<String, dynamic> json) =>
-      _$ReportUserArgumentsFromJson(json);
-
-  late ReportUserInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$ReportUserArgumentsToJson(this);
-}
-
-final REPORT_USER_MUTATION_DOCUMENT_OPERATION_NAME = 'reportUser';
-final REPORT_USER_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'reportUser'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ReportUserInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'reportUser'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'blocked'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'report'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'conversationId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'createdAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'offender'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  )
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'offenseId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'reason'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'reporter'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  )
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'updatedAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'userId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-        ]),
-      )
-    ]),
-  )
-]);
-
-class ReportUserMutation
-    extends GraphQLQuery<ReportUser$Mutation, ReportUserArguments> {
-  ReportUserMutation({required this.variables});
-
-  @override
-  final DocumentNode document = REPORT_USER_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName = REPORT_USER_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final ReportUserArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  ReportUser$Mutation parse(Map<String, dynamic> json) =>
-      ReportUser$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class UnmatchUserArguments extends JsonSerializable with EquatableMixin {
-  UnmatchUserArguments({required this.input});
-
-  @override
-  factory UnmatchUserArguments.fromJson(Map<String, dynamic> json) =>
-      _$UnmatchUserArgumentsFromJson(json);
-
-  late UnmatchUserInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$UnmatchUserArgumentsToJson(this);
-}
-
-final UNMATCH_USER_MUTATION_DOCUMENT_OPERATION_NAME = 'unmatchUser';
-final UNMATCH_USER_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'unmatchUser'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'UnmatchUserInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'unmatchUser'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'user'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              )
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class UnmatchUserMutation
-    extends GraphQLQuery<UnmatchUser$Mutation, UnmatchUserArguments> {
-  UnmatchUserMutation({required this.variables});
-
-  @override
-  final DocumentNode document = UNMATCH_USER_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName = UNMATCH_USER_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final UnmatchUserArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  UnmatchUser$Mutation parse(Map<String, dynamic> json) =>
-      UnmatchUser$Mutation.fromJson(json);
 }
