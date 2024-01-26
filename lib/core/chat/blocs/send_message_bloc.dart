@@ -24,6 +24,8 @@ class SendMessageBloc extends MutationBloc<SendMessage$Mutation> {
     String? recommendedAnimeId,
     String? stickerId,
   }) {
+    logIt.debug(
+        "sent message: $message to conversation: $conversationId with senderId: $senderId and recommendedAnimeId: $recommendedAnimeId and stickerId: $stickerId");
     final variables = SendMessageArguments(
       input: SendMessageInput(
         params: MessageInput(
@@ -32,6 +34,7 @@ class SendMessageBloc extends MutationBloc<SendMessage$Mutation> {
           senderId: int.parse(senderId),
           recommendedAnimeId: recommendedAnimeId,
           stickerId: stickerId,
+          attachment: null,
         ),
       ),
     ).toJson();
@@ -51,6 +54,7 @@ class SendMessageBloc extends MutationBloc<SendMessage$Mutation> {
       logIt.error(e);
       return;
     }
+    logIt.debug("sent attachment with url: $attachmentUrl");
     final variables = SendMessageArguments(
       input: SendMessageInput(
         params: MessageInput(

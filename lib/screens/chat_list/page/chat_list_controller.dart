@@ -8,9 +8,42 @@ import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/screens/chat_list/widgets/chat_list_content.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 
-class ChatListController extends StatelessWidget {
+class ChatListController extends StatefulWidget {
   const ChatListController({super.key});
+  @override
+  State<ChatListController> createState() => _ChatListControllerState();
+}
+
+class _ChatListControllerState extends State<ChatListController>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state == AppLifecycleState.resumed) {
+      logIt.debug("Chat List page resumed");
+      final fetchConversationsBloc =
+          BlocProvider.of<FetchConversationsBloc>(context, listen: false);
+      fetchConversationsBloc.refetch();
+      final conversationSubscriptionBloc =
+          BlocProvider.of<ConversationSubscriptionsBloc>(context,
+              listen: false);
+      conversationSubscriptionBloc.reconnect();
+    }
+  }
 
   Widget _buildChatListContent(BuildContext context) {
     final conversationsBloc = BlocProvider.of<FetchConversationsBloc>(context);
@@ -44,35 +77,25 @@ class ChatListController extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider<ConversationSubscriptionsBloc>(
-          create: ((context) => ConversationSubscriptionsBloc()),
-        ),
-        BlocProvider<FetchConversationsBloc>(
-          create: (context) => FetchConversationsBloc(),
-        ),
-      ],
-      child: BlocListener<ConversationSubscriptionsBloc, ActionCableState>(
+    return BlocListener<ConversationSubscriptionsBloc, ActionCableState>(
+      listener: (context, state) {
+        _handleConversationsSubscriptions(context, state);
+      },
+      child: BlocConsumer<FetchConversationsBloc, QueryState>(
         listener: (context, state) {
-          _handleConversationsSubscriptions(context, state);
+          state.maybeWhen(
+            error: (error, result) {
+              showSnackBarError(context, TextConstants.serverError);
+            },
+            orElse: () {},
+          );
         },
-        child: BlocConsumer<FetchConversationsBloc, QueryState>(
-          listener: (context, state) {
-            state.maybeWhen(
-              error: (error, result) {
-                showSnackBarError(context, TextConstants.serverError);
-              },
-              orElse: () {},
-            );
-          },
-          builder: (context, state) {
-            return state.maybeWhen(
-              loading: (result) => const SenpaiLoading(),
-              orElse: () => _buildChatListContent(context),
-            );
-          },
-        ),
+        builder: (context, state) {
+          return state.maybeWhen(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => _buildChatListContent(context),
+          );
+        },
       ),
     );
   }

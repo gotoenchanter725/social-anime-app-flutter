@@ -5,10 +5,10 @@ class PendingMessagesEvent with _$PendingMessagesEvent {
   const factory PendingMessagesEvent.addMessage({
     required String channelId,
     required ChatMessage message,
-  }) = _AddMessage;
+  }) = AddMessage;
 
   const factory PendingMessagesEvent.removeMessage({
     required String channelId,
     required String messageId,
-  }) = _RemoveMessage;
+  }) = RemoveMessage;
 }
