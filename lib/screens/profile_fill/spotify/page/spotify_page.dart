@@ -144,11 +144,11 @@ class SpotifyPage extends StatelessWidget {
                 logIt.error("A successful empty response just got users");
                 return const SizedBox.shrink();
               } else {
-                List<dynamic> favoriteMusic =
+                List<dynamic>? favoriteMusic =
                     result.data!["fetchUser"]["favoriteMusic"];
                 // It's necessary to handle the state when the user starts
                 // filling out the profile form and doesn't finish it the first time
-                if (favoriteMusic.isNotEmpty) {
+                if (favoriteMusic != null && favoriteMusic.isNotEmpty) {
                   final blocProfileFill =
                       BlocProvider.of<ProfileFillBloc>(context);
                   final serviceBloc =

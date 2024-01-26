@@ -70,7 +70,7 @@ type AddSuperLikesPayload {
 
 type Anime {
   averageScore: Int
-  characters: Character
+  characters: [Character!]
   cover: String
   createdAt: ISO8601DateTime!
   endDate: ISO8601DateTime
@@ -679,22 +679,22 @@ type ReorderPhotosPayload {
 
 type Report {
   conversation: Conversation!
-  conversationId: ID!
+  conversationId: String!
   createdAt: ISO8601DateTime!
   id: ID!
   offender: User!
-  offenseId: Int
+  offenseId: ID
   reason: String
   reporter: User!
   updatedAt: ISO8601DateTime!
-  userId: Int!
+  userId: ID!
 }
 
 input ReportInput {
   conversationId: String!
-  offenseId: Int!
-  reason: Int!
-  userId: Int!
+  offenseId: ID!
+  reason: String!
+  userId: ID!
 }
 
 """

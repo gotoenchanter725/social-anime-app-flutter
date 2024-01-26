@@ -66,24 +66,26 @@ class SettingsContent extends StatelessWidget {
             ),
             SizedBox(height: $constants.insets.sm),
             _buildPhoneNumberWidget(context),
+
             SizedBox(height: $constants.insets.sm),
-            _buildLanguageWidget(context),
-            SizedBox(height: $constants.insets.xs),
-            Container(
-              padding: EdgeInsets.all($constants.insets.sm),
-              decoration: profileBoxDecoration(),
-              child: ProfileItemHeader(
-                title: TextConstants.addLanguageTitle,
-                onTap: () {
-                  bloc.add(
-                    OnChangeSettingsStepEvent(
-                      step: SettingsStep.language,
-                    ),
-                  );
-                },
-              ),
-            ),
-            SizedBox(height: $constants.insets.md),
+            // 24.01 Herbert Joseph: Let's remove/hide for now.
+            // _buildLanguageWidget(context),
+            // SizedBox(height: $constants.insets.xs),
+            // Container(
+            //   padding: EdgeInsets.all($constants.insets.sm),
+            //   decoration: profileBoxDecoration(),
+            //   child: ProfileItemHeader(
+            //     title: TextConstants.addLanguageTitle,
+            //     onTap: () {
+            //       bloc.add(
+            //         OnChangeSettingsStepEvent(
+            //           step: SettingsStep.language,
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
+            // SizedBox(height: $constants.insets.md),
             Container(
               padding: EdgeInsets.all($constants.insets.sm),
               decoration: profileBoxDecoration(),
@@ -122,26 +124,28 @@ class SettingsContent extends StatelessWidget {
               description: TextConstants.showRecentlyActivetatusDescription,
             ),
             SizedBox(height: $constants.insets.md),
-            Container(
-              padding: EdgeInsets.all($constants.insets.sm),
-              decoration: profileBoxDecoration(),
-              child: ProfileItemHeader(
-                title: TextConstants.feedbackOnSenpaiTitle,
-                onTap: () {
-                  bloc.add(
-                    OnChangeSettingsStepEvent(
-                      step: SettingsStep.feedback,
-                    ),
-                  );
-                },
-              ),
-            ),
-            SizedBox(height: $constants.insets.xxl),
-            SecondaryButton(
-              text: TextConstants.restorePurchasesButton,
-              onPressed: () {},
-              hasBackgroundColor: true,
-            ),
+            // 24.01 Herbert Joseph: Let's remove/hide for now.
+            // Container(
+            //   padding: EdgeInsets.all($constants.insets.sm),
+            //   decoration: profileBoxDecoration(),
+            //   child: ProfileItemHeader(
+            //     title: TextConstants.feedbackOnSenpaiTitle,
+            //     onTap: () {
+            //       bloc.add(
+            //         OnChangeSettingsStepEvent(
+            //           step: SettingsStep.feedback,
+            //         ),
+            //       );
+            //     },
+            //   ),
+            // ),
+            // 24.01 Herbert Joseph: Let's remove/hide for now.
+            // SizedBox(height: $constants.insets.xxl),
+            // SecondaryButton(
+            //   text: TextConstants.restorePurchasesButton,
+            //   onPressed: () {},
+            //   hasBackgroundColor: true,
+            // ),
             SizedBox(height: $constants.insets.sm),
             SecondaryButton(
               text: TextConstants.logoutTitle,
