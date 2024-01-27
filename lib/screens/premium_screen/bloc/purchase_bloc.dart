@@ -24,16 +24,29 @@ part 'purchase_event.dart';
 // To try without auto-consume on another platform, change `true` to `false` here.
 final bool kAutoConsume = Platform.isIOS || true;
 
-const String _kSuperLike15 = '15SUPERLIKES';
-const String _kSuperLike30 = '0984772';
-const String _kSuperLike50 = '09845723';
+const String _kSuperLike15IOS = '15SUPERLIKES';
+const String _kSuperLike30IOS = '0984772';
+const String _kSuperLike50IOS = '09845723';
 
-const String _kPremiumSubscriptionId = '19960713';
-const List<String> _kProductIds = <String>[
-  _kSuperLike15,
-  _kSuperLike30,
-  _kSuperLike50,
-  _kPremiumSubscriptionId,
+const String _kPremiumSubscriptionIdIOS = '19960713';
+const List<String> _kProductIdsIOS = <String>[
+  _kSuperLike15IOS,
+  _kSuperLike30IOS,
+  _kSuperLike50IOS,
+  _kPremiumSubscriptionIdIOS,
+];
+
+const String _kSuperLike15Android = '15superlikes'; 
+const String _kSuperLike30Android = '30superlikes';
+const String _kSuperLike50Android = '50superlikes';
+
+const String _kPremiumSubscriptionIdAndroid = 'senpaipremium'; 
+
+const List<String> _kProductIdsAndroid = <String>[
+  _kSuperLike15Android,
+  _kSuperLike30Android,
+  _kSuperLike50Android,
+  _kPremiumSubscriptionIdAndroid,
 ];
 
 class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
@@ -41,17 +54,20 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     SubscriptionPlan(
       superLikeCount: 15,
       price: "\$3.99",
-      productId: _kSuperLike15,
+      productIdIOS: _kSuperLike15IOS,
+      productIdAndroid: _kSuperLike15Android,
     ),
     SubscriptionPlan(
       superLikeCount: 30,
       price: "\$7.99",
-      productId: _kSuperLike30,
+      productIdIOS: _kSuperLike30IOS,
+      productIdAndroid: _kSuperLike30Android,
     ),
     SubscriptionPlan(
       superLikeCount: 50,
       price: "\$12.99",
-      productId: _kSuperLike50,
+      productIdIOS: _kSuperLike50IOS,
+      productIdAndroid: _kSuperLike50Android,
     ),
   ];
 
@@ -106,9 +122,17 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
 
     on<OnUpdatePlanEvent>((event, emit) {
       selectedSubscription = event.subscriptionPlan;
-      selectedProductDetails = products.firstWhere(
-        (product) => product.id == selectedSubscription!.productId,
-      );
+
+      if (Platform.isIOS) {
+        selectedProductDetails = products.firstWhere(
+          (product) => product.id == selectedSubscription!.productIdIOS,
+        );
+      } else {
+        selectedProductDetails = products.firstWhere(
+          (product) => product.id == selectedSubscription!.productIdAndroid,
+        );
+      }
+
       if (selectedProductDetails != null) {
         emit(UpdatePlanState());
       } else {
@@ -141,11 +165,18 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     });
 
     on<OnTapBuyNonConsumableEvent>((event, emit) {
-      ProductDetails? productDetails = products.firstWhere(
-        (product) => product.id == _kPremiumSubscriptionId,
-      );
-
+      ProductDetails? productDetails;
       late PurchaseParam purchaseParam;
+
+      if (Platform.isIOS) {
+        productDetails = products.firstWhere(
+          (product) => product.id == _kPremiumSubscriptionIdIOS,
+        );
+      } else {
+        productDetails = products.firstWhere(
+          (product) => product.id == _kPremiumSubscriptionIdAndroid,
+        );
+      }
       if (Platform.isAndroid) {
         // NOTE: verify the latest status of you your subscription by using server side receipt validation
         final GooglePlayPurchaseDetails? oldSubscription = _getOldSubscription(
@@ -185,7 +216,9 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     }
 
     final ProductDetailsResponse productDetailResponse =
-        await inAppPurchase.queryProductDetails(_kProductIds.toSet());
+        await inAppPurchase.queryProductDetails(
+      Platform.isIOS ? _kProductIdsIOS.toSet() : _kProductIdsAndroid.toSet(),
+    );
 
     if (productDetailResponse.error != null) {
       _purchaseErrorText = productDetailResponse.error!.message;
@@ -232,7 +265,10 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
         }
       }
       if (Platform.isAndroid) {
-        if (!kAutoConsume && purchaseDetails.productID == _kSuperLike15) {
+        if (!kAutoConsume &&
+            (purchaseDetails.productID == _kSuperLike15Android ||
+                purchaseDetails.productID == _kSuperLike30Android ||
+                purchaseDetails.productID == _kSuperLike50Android)) {
           final InAppPurchaseAndroidPlatformAddition androidAddition =
               inAppPurchase
                   .getPlatformAddition<InAppPurchaseAndroidPlatformAddition>();
@@ -253,7 +289,8 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
 
   Future<void> deliverProduct(PurchaseDetails purchaseDetails) async {
     // IMPORTANT!! Always verify purchase details before delivering the product.
-    if (purchaseDetails.productID == _kPremiumSubscriptionId) {
+    if (purchaseDetails.productID == _kPremiumSubscriptionIdAndroid ||
+        purchaseDetails.productID == _kPremiumSubscriptionIdIOS) {
       purchases.add(purchaseDetails);
     } else {
       await ConsumableStore.save(purchaseDetails.purchaseID!);
@@ -266,10 +303,10 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     Map<String, PurchaseDetails> purchases,
   ) {
     GooglePlayPurchaseDetails? oldSubscription;
-    if (productDetails.id == _kPremiumSubscriptionId &&
-        purchases[_kPremiumSubscriptionId] != null) {
-      oldSubscription =
-          purchases[_kPremiumSubscriptionId]! as GooglePlayPurchaseDetails;
+    if (productDetails.id == _kPremiumSubscriptionIdAndroid &&
+        purchases[_kPremiumSubscriptionIdAndroid] != null) {
+      oldSubscription = purchases[_kPremiumSubscriptionIdAndroid]!
+          as GooglePlayPurchaseDetails;
     }
     return oldSubscription;
   }

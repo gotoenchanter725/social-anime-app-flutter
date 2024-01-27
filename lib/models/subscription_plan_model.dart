@@ -1,11 +1,13 @@
 class SubscriptionPlan {
   int superLikeCount;
   String price;
-  String productId;
+  String productIdIOS;
+  String productIdAndroid;
 
   SubscriptionPlan({
     required this.superLikeCount,
     required this.price,
-    required this.productId,
+    required this.productIdIOS,
+    required this.productIdAndroid,
   });
 }
