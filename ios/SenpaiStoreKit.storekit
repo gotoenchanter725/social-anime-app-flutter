@@ -1,0 +1,98 @@
+{
+  "identifier" : "E63A9C27",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "3.99",
+      "familyShareable" : false,
+      "internalID" : "6464066784",
+      "localizations" : [
+        {
+          "description" : "Receive 15 super likes",
+          "displayName" : "15 Super Likes",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "15SUPERLIKES",
+      "referenceName" : "15SUPERLIKES",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "7.99",
+      "familyShareable" : false,
+      "internalID" : "6472971245",
+      "localizations" : [
+        {
+          "description" : "Receive 30 Super likes",
+          "displayName" : "30 Super Likes",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "0984772",
+      "referenceName" : "30SUPERLIKES",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "12.99",
+      "familyShareable" : false,
+      "internalID" : "6472971727",
+      "localizations" : [
+        {
+          "description" : "Receive 50 Super Likes",
+          "displayName" : "50 Super Likes",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "09845723",
+      "referenceName" : "50SUPERLIKES",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6464066826",
+    "_developerTeamID" : "JTMJYZSCG6",
+    "_lastSynchronizedDate" : 728064078.65290701
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21415661",
+      "localizations" : [
+
+      ],
+      "name" : "Senpai Premium",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "19.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "6472954882",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "English version",
+              "displayName" : "Senpai Premium",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "19960713",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Senpai Premium",
+          "subscriptionGroupID" : "21415661",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 2,
+    "minor" : 0
+  }
+}
