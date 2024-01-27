@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/screens/premium_screen/widgets/profile_premium_widget.dart';
 import 'package:senpai/screens/profile_fill/widgets/custom_close_button.dart';
 
@@ -40,33 +38,12 @@ class PremiumContent extends StatelessWidget {
             child: Container(
               width: getSize(context).width,
               alignment: Alignment.bottomCenter,
-              child: Column(
-                children: [
-                  const ProfilePremiumWidget(
-                    isCenterContent: true,
-                  ),
-                  _buildPremiumButton(context),
-                  SizedBox(height: $constants.insets.lg),
-                ],
+              child: const ProfilePremiumWidget(
+                isCenterContent: true,
               ),
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildPremiumButton(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: $constants.insets.md,
-        vertical: $constants.insets.sm,
-      ),
-      child: PrimaryButton(
-        text: TextConstants.premiumUpgradeText,
-        onPressed: () {
-          print('Premium');
-        },
       ),
     );
   }
