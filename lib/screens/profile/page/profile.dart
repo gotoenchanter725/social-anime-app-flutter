@@ -9,6 +9,7 @@ import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/models/user_profile/user_verify/user_verify_model.dart';
+import 'package:senpai/screens/premium_screen/bloc/purchase_bloc.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/screens/profile/enums/profile_enums.dart';
 import 'package:senpai/screens/profile/widgets/profile_content.dart';
@@ -26,6 +27,7 @@ class ProfilePage extends StatelessWidget {
         BlocProvider(create: (_) => ProfileBloc()..add(OnInitUserID())),
         BlocProvider(create: (_) => getIt<FetchUserBloc>()),
         BlocProvider(create: (_) => getIt<FetchVerifyRequestsBloc>()),
+        BlocProvider(create: (_) => PurchaseBloc()..add(OnPlanInitEvent()))
       ],
       child: Scaffold(
         body: SafeArea(
