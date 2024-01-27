@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/models/report_user/report_user_params.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -67,7 +68,17 @@ class PopUpMenuWidget extends StatelessWidget {
         ),
         _buildMenuItemButton(
           context,
-          onPressed: () {},
+          onPressed: () async {
+            await context.router.push(
+              ReportUserRoute(
+                reportArgs: ReportUserParams(
+                  roomId: roomId,
+                  currentUserId: currentUserId,
+                  reciepientId: receipientUser.id,
+                ),
+              ),
+            );
+          },
           title: TextConstants.reportText,
         ),
       ],
