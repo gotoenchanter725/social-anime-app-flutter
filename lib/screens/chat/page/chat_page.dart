@@ -8,6 +8,7 @@ import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
 import 'package:senpai/core/chat/blocs/update_message_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
+import 'package:senpai/core/user/blocs/unmatch_user/unmatch_bloc.dart';
 import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
@@ -48,6 +49,7 @@ class ChatPage extends StatelessWidget {
             create: (_) => FetchUserBloc()
               ..fetchUser(userId: int.parse(roomArgs.currentUser.id))),
         BlocProvider<FetchAnimeBloc>(create: (_) => getIt<FetchAnimeBloc>()),
+        BlocProvider(create: (_) => getIt<UnmatchUserBloc>()),
       ],
       child: ChatController(roomArgs: roomArgs),
     );
