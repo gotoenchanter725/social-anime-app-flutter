@@ -412,4 +412,7 @@ class TextConstants {
   static const String superLikes = "Super Likes";
   static const String dialogBuyButton = "Buy Super Likes for";
   static const String noThanks = "No, Thanks";
+  static const String unableConnectPaymentsProcessor =
+      "Unable to connect to the payments processor";
+  static const String invalidPurchase = "Invalid Purchase";
 }
