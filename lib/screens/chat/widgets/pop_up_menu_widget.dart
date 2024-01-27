@@ -1,5 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/user/blocs/unmatch_user/unmatch_bloc.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
@@ -19,6 +22,39 @@ class PopUpMenuWidget extends StatelessWidget {
   final User receipientUser;
   final String currentUserId;
   final String roomId;
+
+  void _deleteUserDialog(BuildContext context) {
+    showCupertinoModalPopup<String>(
+      context: context,
+      builder: (_) => CupertinoAlertDialog(
+        title: Text(
+          TextConstants.unmatchText,
+          style: getTextTheme(context).headlineSmall,
+        ),
+        content: Text(
+          TextConstants.areYouSureYouWantToUnmatchUser,
+          style: getTextTheme(context).titleSmall,
+        ),
+        actions: [
+          CupertinoDialogAction(
+            onPressed: Navigator.of(context).pop,
+            child: const Text(TextConstants.noButton),
+          ),
+          CupertinoDialogAction(
+            onPressed: () {
+              Navigator.pop(context);
+              final serverBloc = BlocProvider.of<UnmatchUserBloc>(context);
+              serverBloc.unmatchUser(
+                userId: currentUserId,
+                blockedUserId: receipientUser.id,
+              );
+            },
+            child: const Text(TextConstants.yesButton),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +95,9 @@ class PopUpMenuWidget extends StatelessWidget {
         ),
         _buildMenuItemButton(
           context,
-          onPressed: () {},
+          onPressed: () {
+            _deleteUserDialog(context);
+          },
           title: TextConstants.unmatchText,
         ),
         Divider(
