@@ -110,7 +110,12 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
           _subscription.cancel();
         },
         onError: (Object error) {
-          add(OnErrorEvent(TextConstants.serverError));
+          logIt.debug(
+            "-- PurchaseDetails onError $error",
+          );
+          //TODO: return after test
+          add(OnErrorEvent("PurchaseDetails onError --  $error" ??
+              TextConstants.serverError));
         },
       );
 
