@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
@@ -205,12 +206,14 @@ class AnimeSelector extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                     SizedBox(height: $constants.insets.sm),
-                    AnimeList(
-                      animeList: animeList,
-                      onAnimeTap: (anime) {
-                        bloc.add(AnimeSelectorEvent.selectAnime(anime));
-                      },
-                      selectedAnime: bloc.state.selectedAnime,
+                    Expanded(
+                      child: AnimeList(
+                        animeList: animeList,
+                        onAnimeTap: (anime) {
+                          bloc.add(AnimeSelectorEvent.selectAnime(anime));
+                        },
+                        selectedAnime: bloc.state.selectedAnime,
+                      ),
                     ),
                   ],
                 ),
