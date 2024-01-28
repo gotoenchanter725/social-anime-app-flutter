@@ -74,7 +74,7 @@ class TextConstants {
   static const String welcomeSenpaiTitle = "Welcome to Senpai!";
   static const String welcomeSenpaiDescription =
       "Fill your profile and start matching";
-  static const String fillProfileText = "  Fill the profile";
+  static const String fillProfileText = "Fill the profile";
 
   //  -> Create First Name
   static const String yourFirstName = "Your first name";
@@ -202,16 +202,16 @@ class TextConstants {
   //  -> Add Favorite Anime
   static const String saveText = "Save";
   static const String searchText = "Search";
-  static const String choosenText = "Choosen";
+  static const String choosenText = "Chosen";
   static const String almostDoneText = "Almost done!";
   static const String nowChooseYourFavoriteAnimesText =
       "Now choose your favorite animes \nand start matching";
-  static const String noAnimesFoundTitle = "Oops. No animes found";
+  static const String noAnimesFoundTitle = "Oops. No anime found.";
   static const String noAnimesFoundText =
       "Maybe there is a mistake in search? \nPlease check and try again";
   static const String selectedAnimeError =
       "Sorry, you have already selected 10 anime.";
-  static const String searchAnimesHintText = "Search animes";
+  static const String searchAnimesHintText = "Search anime";
   static const String myAnimesText = "My animes";
   static const String chooseTitle = "Choose";
   static const String animeError = "Add at least 1 anime to continue";
@@ -273,7 +273,7 @@ class TextConstants {
   static const String premiumSuperLikesText = "30 Super Likes";
   static const String premiumAbilityAnimesText =
       "Ability to add up to 15 animes";
-  static const String premiumUpgradeText = "Upgrade for \$14.99";
+  static const String premiumUpgradeText = "Upgrade for \$19.99";
 
   static const String editProfileButton = "Edit profile";
   static const String profileFindsButton = "Finds";
@@ -304,7 +304,7 @@ class TextConstants {
   static const String lookingForTitle = "Looking for";
   static const String workAndEducationTitle = "Work and education";
   static const String locationTitle = "Location";
-  static const String favoriteAnimesTitle = "Favorite animes";
+  static const String favoriteAnimesTitle = "Favorite anime";
   static const String studiedAtTitle = "Studied at ";
   static const String editTitle = "Edit";
   static const String previewTitle = "Preview";
@@ -333,15 +333,15 @@ class TextConstants {
   static const String phoneNumberTitle = "Phone number";
   static const String languageTitle = "Language";
   static const String addLanguageTitle = "Add language";
-  static const String pushNotificationsTitle = "Push-notifications";
+  static const String pushNotificationsTitle = "Push notifications";
   static const String activityStatusTitle = "Activity status";
   static const String showActiveStatusTitle = "Show “Active” status";
   static const String showActiveStatusDescription =
-      "The  “Activity” status is displayed in the profile if the Senpai  app has been used by you in the last 2 hours.";
+      "The “Activity” status is displayed in the profile if the Senpai app has been used by you in the last 2 hours.";
   static const String showRecentlyActivetatusTitle =
       "Show “Recently active” status";
   static const String showRecentlyActivetatusDescription =
-      "The “Recently activity” status is displayed in the profile if the Senpai  app has been used by you in the last 24 hours.";
+      "The “Recently activity” status is displayed in the profile if the Senpai app has been used by you in the last 24 hours.";
   static const String deleteAccountTitle = "Delete account";
   static const String logoutTitle = "Logout";
   static const String chooseLanguageTitle = "Choose language";
@@ -370,7 +370,7 @@ class TextConstants {
   // -> Push-notifications Profile
   static const String newMatchesTitle = "New matches";
   static const String newMessagesTitle = "New messages";
-  static const String superlikesTitle = "Superlikes";
+  static const String superlikesTitle = "Super likes";
   static const String appSoundsTitle = "App sounds";
 
   // -> Phone number Profile
@@ -400,9 +400,9 @@ class TextConstants {
 
   // -> ActionCable Error Messages
   static const String actionCableConnectionError =
-      "Connection is lost. Please check your internet connection";
+      "Connection is lost. Please check your internet connection.";
   static const String actionCableCannotConnectError =
-      "Cannot establish a connection. Please check your internet connection";
+      "Cannot establish a connection. Please check your internet connection.";
   static const String actionCableAuthError =
       "User is not authorized. Please sign in again";
 
