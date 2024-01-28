@@ -36,11 +36,11 @@ const List<String> _kProductIdsIOS = <String>[
   _kPremiumSubscriptionIdIOS,
 ];
 
-const String _kSuperLike15Android = '15superlikes'; 
+const String _kSuperLike15Android = '15superlikes';
 const String _kSuperLike30Android = '30superlikes';
 const String _kSuperLike50Android = '50superlikes';
 
-const String _kPremiumSubscriptionIdAndroid = 'senpaipremium'; 
+const String _kPremiumSubscriptionIdAndroid = 'senpaipremium';
 
 const List<String> _kProductIdsAndroid = <String>[
   _kSuperLike15Android,
@@ -95,7 +95,10 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
           _listenToPurchaseUpdated(purchaseDetailsList).then(
             (_) {
               if (_purchaseErrorText != null) {
-                add(OnErrorEvent(TextConstants.serverError));
+                //TODO: return after test
+                // add(OnErrorEvent(TextConstants.serverError));
+                add(OnErrorEvent(
+                    _purchaseErrorText ?? '---- listen _purchaseErrorText'));
               }
               if (isPurchased == true) {
                 add(OnNavigateEvent());
@@ -113,7 +116,10 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
 
       await _initStoreInfo().then((_) {
         if (_purchaseErrorText != null) {
-          add(OnErrorEvent(_purchaseErrorText ?? ''));
+          //TODO: return after test
+          // add(OnErrorEvent(_purchaseErrorText ?? TextConstants.serverError));
+          add(OnErrorEvent(
+              _purchaseErrorText ?? '---- init  _purchaseErrorText'));
         } else {
           emit(UpdatePlanState());
         }
@@ -229,7 +235,9 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     }
 
     if (productDetailResponse.productDetails.isEmpty) {
-      _purchaseErrorText = TextConstants.serverError;
+      //TODO: return after test
+      _purchaseErrorText =
+          'productDetailResponse.productDetails.isEmpty'; // TextConstants.serverError;
       isAvailablePurchase = isAvailable;
       products = productDetailResponse.productDetails;
       purchases = <PurchaseDetails>[];
@@ -253,7 +261,9 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     _purchaseErrorText = null;
     for (final PurchaseDetails purchaseDetails in purchaseDetailsList) {
       if (purchaseDetails.status == PurchaseStatus.error) {
-        _purchaseErrorText = TextConstants.invalidPurchase;
+        //TODO: return after test
+        _purchaseErrorText =
+            'PurchaseStatus.error'; //TextConstants.invalidPurchase;
       } else if (purchaseDetails.status == PurchaseStatus.purchased ||
           purchaseDetails.status == PurchaseStatus.restored) {
         final bool valid = await _verifyPurchase(purchaseDetails);
