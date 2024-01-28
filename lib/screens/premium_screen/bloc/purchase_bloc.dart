@@ -114,8 +114,8 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
             "-- PurchaseDetails onError $error",
           );
           //TODO: return after test
-          add(OnErrorEvent("PurchaseDetails onError --  $error" ??
-              TextConstants.serverError));
+          add(OnErrorEvent("PurchaseDetails onError --  $error"));
+          //     TextConstants.serverError));
         },
       );
 
@@ -266,9 +266,10 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     _purchaseErrorText = null;
     for (final PurchaseDetails purchaseDetails in purchaseDetailsList) {
       if (purchaseDetails.status == PurchaseStatus.error) {
+        logIt.debug("--- purchaseDetails ${purchaseDetails.error}");
         //TODO: return after test
         _purchaseErrorText =
-            'PurchaseStatus.error'; //TextConstants.invalidPurchase;
+            purchaseDetails.error?.message ?? TextConstants.invalidPurchase;
       } else if (purchaseDetails.status == PurchaseStatus.purchased ||
           purchaseDetails.status == PurchaseStatus.restored) {
         final bool valid = await _verifyPurchase(purchaseDetails);
