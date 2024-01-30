@@ -417,4 +417,5 @@ class TextConstants {
   static const String invalidPurchase = "Invalid Purchase";
   static const String senpaiPremiumActivated = "Senpai Premium is activated!";
   static const String nextPaymentText = "Next payment:";
+  static const String whatYouGetText = "What you get:";
 }
