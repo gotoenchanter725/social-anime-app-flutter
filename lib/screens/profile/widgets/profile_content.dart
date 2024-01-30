@@ -9,6 +9,7 @@ import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
+import 'package:senpai/screens/profile/widgets/profile_active_premium_widget.dart';
 import 'package:senpai/screens/profile/widgets/profile_header.dart';
 import 'package:senpai/screens/premium_screen/widgets/profile_premium_widget.dart';
 import 'package:senpai/screens/profile/widgets/profile_photo_verify_widget.dart';
@@ -63,6 +64,7 @@ class ProfileContent extends StatelessWidget {
                 name: bloc.user.firstName ?? '',
                 birthday: bloc.user.birthday,
                 verified: bloc.user.verified,
+                // premium: bloc.user.premium == true,
               ),
               SizedBox(height: $constants.insets.xs),
               Expanded(
@@ -96,11 +98,11 @@ class ProfileContent extends StatelessWidget {
                           );
                         },
                       ),
-                      // if (bloc.user.premium == false && bloc.userID.isNotEmpty)
-                      //   ProfilePremiumWidget(userId: int.parse(bloc.userID)),
-                      // ProfileActivePremiumWidget(
-                      //   nextDate: DateTime.now(),
-                      // ),
+                      if (bloc.user.premium == false && bloc.userID.isNotEmpty)
+                        ProfilePremiumWidget(userId: int.parse(bloc.userID)),
+                      ProfileActivePremiumWidget(
+                        nextDate: DateTime.now(),
+                      ),
                     ],
                   ),
                 ),
