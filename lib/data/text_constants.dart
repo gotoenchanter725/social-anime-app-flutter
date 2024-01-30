@@ -415,4 +415,6 @@ class TextConstants {
   static const String unableConnectPaymentsProcessor =
       "Unable to connect to the payments processor";
   static const String invalidPurchase = "Invalid Purchase";
+  static const String senpaiPremiumActivated = "Senpai Premium is activated!";
+  static const String nextPaymentText = "Next payment:";
 }
