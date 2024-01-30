@@ -37,6 +37,7 @@ class EditFavoriteAnimePage extends StatelessWidget {
             ..add(
               OnFavoriteAnimeInitEvent(
                 selectedAnimeList: editBloc.user.animes ?? [],
+                premium: editBloc.user.premium,
               ),
             ),
         ),
