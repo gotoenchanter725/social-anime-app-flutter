@@ -100,9 +100,10 @@ class ProfileContent extends StatelessWidget {
                       ),
                       if (bloc.user.premium == false && bloc.userID.isNotEmpty)
                         ProfilePremiumWidget(userId: int.parse(bloc.userID)),
-                      ProfileActivePremiumWidget(
-                        nextDate: DateTime.now(),
-                      ),
+                      if (bloc.user.premium == true && bloc.userID.isNotEmpty)
+                        ProfileActivePremiumWidget(
+                          nextDate: DateTime.now(),
+                        ),
                     ],
                   ),
                 ),
