@@ -107,9 +107,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     PremiumRoute.name: (routeData) {
+      final args = routeData.argsAs<PremiumRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const PremiumPage(),
+        child: PremiumPage(
+          key: args.key,
+          userId: args.userId,
+        ),
       );
     },
     PreviewProfileRoute.name: (routeData) {
@@ -573,16 +577,40 @@ class OnboardingRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PremiumPage]
-class PremiumRoute extends PageRouteInfo<void> {
-  const PremiumRoute({List<PageRouteInfo>? children})
-      : super(
+class PremiumRoute extends PageRouteInfo<PremiumRouteArgs> {
+  PremiumRoute({
+    Key? key,
+    required int userId,
+    List<PageRouteInfo>? children,
+  }) : super(
           PremiumRoute.name,
+          args: PremiumRouteArgs(
+            key: key,
+            userId: userId,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'PremiumRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<PremiumRouteArgs> page =
+      PageInfo<PremiumRouteArgs>(name);
+}
+
+class PremiumRouteArgs {
+  const PremiumRouteArgs({
+    this.key,
+    required this.userId,
+  });
+
+  final Key? key;
+
+  final int userId;
+
+  @override
+  String toString() {
+    return 'PremiumRouteArgs{key: $key, userId: $userId}';
+  }
 }
 
 /// generated route for
