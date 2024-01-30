@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:senpai/core/user/blocs/add_super_likes/add_super_likes.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
@@ -13,8 +14,11 @@ import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
-void openPremiumPurchaseDialog(BuildContext context) {
-  showDialog<String>(
+void openPremiumPurchaseDialog(
+  BuildContext context,
+  String userId,
+) {
+  showDialog<int>(
     context: context,
     builder: (_) {
       return Dialog(
@@ -27,7 +31,15 @@ void openPremiumPurchaseDialog(BuildContext context) {
         ),
       );
     },
-  );
+  ).then((value) {
+    if (value != null) {
+      final serverBloc = BlocProvider.of<AddSuperLikesBloc>(context);
+      serverBloc.addSuperLikesInfo(
+        userId: userId,
+        superLikeCount: value,
+      );
+    }
+  });
 }
 
 class PurchaseDialog extends StatelessWidget {
@@ -62,7 +74,7 @@ class PurchaseDialog extends StatelessWidget {
         final bloc = BlocProvider.of<PurchaseBloc>(context);
 
         if (bloc.isPurchased == true) {
-          Navigator.pop(context);
+          Navigator.pop(context, bloc.selectedSubscription?.superLikeCount);
         }
       },
       builder: (context, state) {
