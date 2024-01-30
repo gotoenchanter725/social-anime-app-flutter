@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:senpai/core/user/blocs/grant_user_premium/grant_user_premium_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/data/text_constants.dart';
@@ -12,10 +13,12 @@ import 'package:senpai/utils/methods/utils.dart';
 
 class ProfilePremiumWidget extends StatelessWidget {
   final bool isCenterContent;
+  final int userId;
 
   const ProfilePremiumWidget({
     super.key,
     this.isCenterContent = false,
+    required this.userId,
   });
 
   void _onTapBuy(BuildContext context) {
@@ -51,6 +54,13 @@ class ProfilePremiumWidget extends StatelessWidget {
           showSnackBarError(
             context,
             TextConstants.unableConnectPaymentsProcessor,
+          );
+        }
+
+        if (bloc.isPurchased == true) {
+          final serverBloc = BlocProvider.of<GrantUserPremiumBloc>(context);
+          serverBloc.grantUserPremium(
+            userId: userId,
           );
         }
       },

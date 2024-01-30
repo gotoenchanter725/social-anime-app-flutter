@@ -33,8 +33,7 @@ class PremiumPage extends StatelessWidget {
         backgroundColor: $constants.palette.darkBlue,
         body: Stack(
           children: [
-            const PremiumContent(),
-            // PremiumContent(userId: userId),
+            PremiumContent(userId: userId),
             _buildGrantUserPremiumBlocListeners(),
           ],
         ),

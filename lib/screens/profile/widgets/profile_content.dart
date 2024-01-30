@@ -96,8 +96,11 @@ class ProfileContent extends StatelessWidget {
                           );
                         },
                       ),
-                      if (bloc.user.premium == false)
-                        const ProfilePremiumWidget(),
+                      // if (bloc.user.premium == false && bloc.userID.isNotEmpty)
+                      //   ProfilePremiumWidget(userId: int.parse(bloc.userID)),
+                      // ProfileActivePremiumWidget(
+                      //   nextDate: DateTime.now(),
+                      // ),
                     ],
                   ),
                 ),

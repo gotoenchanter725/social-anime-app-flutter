@@ -8,7 +8,9 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class PremiumContent extends StatelessWidget {
-  const PremiumContent({super.key});
+  final int userId;
+
+  const PremiumContent({super.key, required this.userId});
 
   @override
   Widget build(BuildContext context) {
@@ -38,8 +40,9 @@ class PremiumContent extends StatelessWidget {
             child: Container(
               width: getSize(context).width,
               alignment: Alignment.bottomCenter,
-              child: const ProfilePremiumWidget(
+              child: ProfilePremiumWidget(
                 isCenterContent: true,
+                userId: userId,
               ),
             ),
           ),
