@@ -283,7 +283,7 @@ input FavoriteMusicUpdate {
 
 input FetchCharactersInput {
   characterName: String!
-  genre: String!
+  genre: String
   page: Int
 }
 
@@ -1033,6 +1033,7 @@ input UserUpdateInput {
   occupation: String
   phone: String
   school: String
+  superLikeCount: Int
   userId: ID!
   verified: Boolean
 }
