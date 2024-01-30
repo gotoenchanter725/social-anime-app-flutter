@@ -117,8 +117,7 @@ class _Palette {
         const Color(0xFFE39F04),
         const Color(0xFFE39F04),
         const Color(0xFF000000).withOpacity(0.5),
-      ]
-  );
+      ]);
 
   final mainGradient = const LinearGradient(
       colors: [Color(0xFFDE0BC9), Color(0xFF1286F0)],
@@ -257,4 +256,6 @@ class _Sizes {
   late final double animeTileHeight = 72;
   late final double smallButtonWidth = 100;
   late final double smallButtonHeight = 32;
+  late final double attachmentsIconSize = 36;
+  late final double attachmentsBottomSheetSize = 100;
 }

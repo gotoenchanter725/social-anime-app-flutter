@@ -14,6 +14,7 @@ import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/screens/chat/bloc/pending_messages_bloc/pending_messages_bloc.dart';
 import 'package:senpai/screens/chat/bloc/text_editing_bloc/text_editing_bloc.dart';
+import 'package:senpai/screens/chat/widgets/attachments_bottom_sheet.dart';
 import 'package:senpai/screens/chat/widgets/chat_bottom_sheet_content.dart';
 import 'package:senpai/screens/chat/widgets/empty_messages.dart';
 import 'package:senpai/screens/chat/widgets/messages_list.dart';
@@ -237,6 +238,27 @@ class ChatContent extends StatelessWidget {
                         onTap: () {
                           // Hide the keyboard before showing the bottom sheet
                           FocusScope.of(context).unfocus();
+                          // show bottom sheet with attachments
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return const AttachmentsBottomSheet();
+                            },
+                          );
+                        },
+                        child: Icon(
+                          Icons.attachment_outlined,
+                          size: 24.0,
+                          color: $constants.palette.white,
+                        ),
+                      ),
+                      SizedBox(
+                        width: $constants.insets.xs,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          // Hide the keyboard before showing the bottom sheet
+                          FocusScope.of(context).unfocus();
                           final BottomSheetBloc bottomSheetBloc =
                               BlocProvider.of<BottomSheetBloc>(context);
                           bottomSheetBloc.show();
@@ -246,7 +268,7 @@ class ChatContent extends StatelessWidget {
                           width: 24.0,
                           height: 24.0,
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
