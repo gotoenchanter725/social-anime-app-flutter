@@ -8,6 +8,7 @@ class ProfileHeader extends StatelessWidget {
   final String name;
   final DateTime? birthday;
   final bool verified;
+  final bool isAdmin;
 
   const ProfileHeader({
     super.key,
@@ -15,6 +16,7 @@ class ProfileHeader extends StatelessWidget {
     required this.name,
     this.birthday,
     required this.verified,
+    required this.isAdmin,
   });
 
   @override
@@ -59,6 +61,7 @@ class ProfileHeader extends StatelessWidget {
         name: name,
         birthday: birthday,
         verified: verified,
+        isAdmin: isAdmin,
       ),
     );
   }

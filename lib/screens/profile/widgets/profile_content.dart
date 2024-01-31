@@ -64,7 +64,7 @@ class ProfileContent extends StatelessWidget {
                 name: bloc.user.firstName ?? '',
                 birthday: bloc.user.birthday,
                 verified: bloc.user.verified,
-                // premium: bloc.user.premium == true,
+                isAdmin: bloc.user.role == 'admin',
               ),
               SizedBox(height: $constants.insets.xs),
               Expanded(

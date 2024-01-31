@@ -11,6 +11,7 @@ class ProfileNameHeader extends StatelessWidget {
   final bool isCenter;
   final Color? birthdayColor;
   final bool hasBackground;
+  final bool isAdmin;
 
   const ProfileNameHeader({
     super.key,
@@ -20,6 +21,7 @@ class ProfileNameHeader extends StatelessWidget {
     this.isCenter = true,
     this.birthdayColor,
     this.hasBackground = false,
+    required this.isAdmin,
   });
 
   String _ageUser() {
@@ -57,11 +59,13 @@ class ProfileNameHeader extends StatelessWidget {
                   fontSize: hasBackground ? 26 : 32,
                 ),
           ),
-        if (verified)
+        if (verified || isAdmin)
           Padding(
             padding: EdgeInsets.only(left: 4, bottom: hasBackground ? 0 : 4),
             child: SvgPicture.asset(
-              PathConstants.verifyUserIcon,
+              isAdmin
+                  ? PathConstants.premiumIcon
+                  : PathConstants.verifyUserIcon,
               width: $constants.insets.lg,
               height: $constants.insets.lg,
               fit: BoxFit.contain,
