@@ -32,6 +32,8 @@
 	<string>Senpai needs access to location when app in the background.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Senpai needs access to location when app open for locating matches.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Senpai needs access to location when app open for locating matches.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Senpai needs access to your microphone when app open for voice messaging.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
