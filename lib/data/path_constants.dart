@@ -27,6 +27,7 @@ class PathConstants {
   static const String photoNotVerifiedImage =
       'assets/images/profile/photo_not_verified.png';
   static const String alarmIcon = 'assets/icons/alarm_icon.svg';
+  static const String premiumIcon = 'assets/icons/premium_icon.svg';
 
   // navigation
   static const String matchIcon = 'assets/icons/heart.svg';
