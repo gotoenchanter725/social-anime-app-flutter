@@ -63,12 +63,16 @@ class ProfileNameHeader extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(left: 4, bottom: hasBackground ? 0 : 4),
             child: SvgPicture.asset(
-              isAdmin
-                  ? PathConstants.premiumIcon
-                  : PathConstants.verifyUserIcon,
+              isAdmin ? PathConstants.crownIcon : PathConstants.verifyUserIcon,
               width: $constants.insets.lg,
               height: $constants.insets.lg,
               fit: BoxFit.contain,
+              colorFilter: isAdmin
+                  ? ColorFilter.mode(
+                      $constants.palette.yellow,
+                      BlendMode.srcIn,
+                    )
+                  : null,
             ),
           ),
       ],
