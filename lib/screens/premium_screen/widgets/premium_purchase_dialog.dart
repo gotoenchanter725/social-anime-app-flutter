@@ -25,6 +25,8 @@ void openPremiumPurchaseDialog(
         backgroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
         insetPadding: EdgeInsets.zero,
+        shadowColor: Colors.transparent,
+        elevation: 0,
         child: BlocProvider(
           create: (_) => PurchaseBloc()..add(OnPlanInitEvent()),
           child: const PurchaseDialog(),
