@@ -99,7 +99,9 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
           isEnabled: false,
         ));
         if (event.isSelectedAnime) {
-          selectedAnimeList.remove(event.favoriteAnime);
+          selectedAnimeList.removeWhere(
+            (anime) => anime.id == event.favoriteAnime.id,
+          );
         }
       } else {
         event.isSelectedAnime

@@ -147,6 +147,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: ProfileFilterPage(
           key: args.key,
           animes: args.animes,
+          premium: args.premium,
         ),
       );
     },
@@ -715,12 +716,14 @@ class ProfileFilterRoute extends PageRouteInfo<ProfileFilterRouteArgs> {
   ProfileFilterRoute({
     Key? key,
     required List<AnimeModel>? animes,
+    required bool premium,
     List<PageRouteInfo>? children,
   }) : super(
           ProfileFilterRoute.name,
           args: ProfileFilterRouteArgs(
             key: key,
             animes: animes,
+            premium: premium,
           ),
           initialChildren: children,
         );
@@ -735,15 +738,18 @@ class ProfileFilterRouteArgs {
   const ProfileFilterRouteArgs({
     this.key,
     required this.animes,
+    required this.premium,
   });
 
   final Key? key;
 
   final List<AnimeModel>? animes;
 
+  final bool premium;
+
   @override
   String toString() {
-    return 'ProfileFilterRouteArgs{key: $key, animes: $animes}';
+    return 'ProfileFilterRouteArgs{key: $key, animes: $animes, premium: $premium}';
   }
 }
 

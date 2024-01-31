@@ -94,7 +94,10 @@ class ProfileContent extends StatelessWidget {
                         title: TextConstants.profileFindsButton,
                         onTap: () async {
                           await context.router.push(
-                            ProfileFilterRoute(animes: bloc.user.animes),
+                            ProfileFilterRoute(
+                              animes: bloc.user.animes,
+                              premium: bloc.user.premium ?? false,
+                            ),
                           );
                         },
                       ),
