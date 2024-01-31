@@ -52,14 +52,14 @@
   ],
   "settings" : {
     "_applicationInternalID" : "6464066826",
-    "_askToBuyEnabled" : true,
-    "_billingGracePeriodEnabled" : true,
-    "_billingIssuesEnabled" : true,
+    "_askToBuyEnabled" : false,
+    "_billingGracePeriodEnabled" : false,
+    "_billingIssuesEnabled" : false,
     "_developerTeamID" : "JTMJYZSCG6",
     "_failTransactionsEnabled" : false,
     "_lastSynchronizedDate" : 728064078.65290701,
     "_locale" : "en_US",
-    "_renewalBillingIssuesEnabled" : true,
+    "_renewalBillingIssuesEnabled" : false,
     "_storefront" : "USA",
     "_storeKitErrors" : [
       {
