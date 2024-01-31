@@ -89,7 +89,15 @@ class SignUpPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              _showSnackBarError(context, TextConstants.serverError);
+              if (error.graphqlErrors.isNotEmpty) {
+                _showSnackBarError(
+                  context,
+                  TextConstants.noAccountWithThisNumber,
+                  isWarning: true,
+                );
+              } else {
+                _showSnackBarError(context, TextConstants.serverError);
+              }
 
               return const SizedBox.shrink();
             },

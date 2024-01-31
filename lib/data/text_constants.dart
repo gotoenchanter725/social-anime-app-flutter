@@ -25,6 +25,8 @@ class TextConstants {
   static const String signUp = "Create account";
   static const String signIn = "Sign in";
   static const String signOut = "Sign Out";
+  static const String noAccountWithThisNumber =
+      "There is no account with this number";
 
   //  -> Create Account
   static const String hello = "Hello!";
