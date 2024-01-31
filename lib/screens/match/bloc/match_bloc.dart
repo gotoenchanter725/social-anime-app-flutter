@@ -44,6 +44,7 @@ class MatchBloc extends Bloc<MatchEvent, MatchState> {
       users = event.users;
       if (event.users.isNotEmpty) {
         userNow = event.users.first;
+        currentProfileIndex = 0;
       }
       flipCardController = [];
       swipeUser = Swipe.none;
