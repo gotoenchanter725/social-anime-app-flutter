@@ -135,6 +135,10 @@ class TextConstants {
   static const String doxxingText = "Sexual Abuse";
   static const String areYouSureYouWantToUnmatchUser =
       "Are you sure you want to unmatch this user?";
+  static const String openGalleryButtonText = "'Gallery";
+  static const String openCameraButtonText = "Camera";
+  static const String maximumAttachmentSizeExceededError =
+      "Media size exceeds the maximum size";
 
   //  -> Add Bithday Gender
   static const String yourBirthdayText = "Your birthday";

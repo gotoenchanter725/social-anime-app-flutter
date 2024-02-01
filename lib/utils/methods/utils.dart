@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mime/mime.dart';
 import 'package:path/path.dart' as path;
 
@@ -305,4 +306,12 @@ String extractGenres(String input) {
   // Replace double quotes and extra spaces, if any
   String formatted = noBrackets.replaceAll('\"', '');
   return formatted;
+}
+
+bool isVideo(XFile file) {
+  // Determine the mime type
+  String? mimeType = lookupMimeType(file.path);
+
+  // Check if the mime type starts with 'video/'
+  return mimeType != null && mimeType.startsWith('video/');
 }

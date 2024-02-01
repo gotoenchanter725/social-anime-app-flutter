@@ -248,6 +248,7 @@ class _SpotifyConstants {
 class _API {
   final maxMessagesToBeFetchedAtOneTime = 50;
   final maxStickersToBeFetchedAtOneTime = 30;
+  final maxSizeForAttachmentsInMB = 40;
 }
 
 @immutable

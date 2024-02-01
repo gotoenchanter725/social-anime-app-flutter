@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/widgets/bottom_sheet/animated_bottom_sheet.dart';
@@ -20,6 +21,7 @@ import 'package:senpai/screens/chat/widgets/empty_messages.dart';
 import 'package:senpai/screens/chat/widgets/messages_list.dart';
 import 'package:senpai/screens/chat/widgets/pop_up_menu_widget.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -242,7 +244,11 @@ class ChatContent extends StatelessWidget {
                           showModalBottomSheet(
                             context: context,
                             builder: (BuildContext context) {
-                              return const AttachmentsBottomSheet();
+                              return AttachmentsBottomSheet(
+                                onMediaSelected: (media) {
+                                  _sendAttachment(context, media);
+                                },
+                              );
                             },
                           );
                         },
@@ -313,5 +319,33 @@ class ChatContent extends StatelessWidget {
         );
       },
     );
+  }
+
+  void _sendAttachment(BuildContext context, XFile media) async {
+    // check that media doesn't exceed the maximum size
+    final int mediaSize = await media.length();
+    const int bytesInMB = 1048576;
+    final int mediaSizeInMB = mediaSize ~/ bytesInMB;
+    if (mediaSizeInMB > $constants.api.maxSizeForAttachmentsInMB) {
+      showSnackBarError(
+          context, TextConstants.maximumAttachmentSizeExceededError);
+      logIt.error("Media size exceeds the maximum size :: $mediaSize Bytes");
+      return;
+    }
+    AttachmentType attachmentType = AttachmentType.photo;
+    if (isVideo(media)) {
+      attachmentType = AttachmentType.video;
+    }
+    _addPendingMessage(
+        context,
+        ChatMessage(
+          id: generateRandomId($constants.specials.pendingMessageIdLength),
+          text: TextConstants.gifMessageText,
+          status: MessageStatus.pending,
+          senderId: currentUser.id,
+          timestamp: DateTime.now(),
+          attachment: media.path,
+          attachmentType: attachmentType,
+        ));
   }
 }
