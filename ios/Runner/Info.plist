@@ -38,6 +38,8 @@
 	<string>Senpai needs access to your microphone when app open for voice messaging.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Senpai needs access to your photos so you can include them in your profile.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>We need permission to access your phone number, name, location, and demographic information</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
