@@ -38,6 +38,9 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
       if (event.myAnimeList != null) {
         myAnimeList = event.myAnimeList!;
       }
+      if (event.premium == true) {
+        maxAnimeCount = 15;
+      }
 
       animeListController.addListener(_pagination);
       emit(ValidState());
@@ -90,13 +93,15 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
 
     on<OnFavoriteAnimeSelectEvent>((event, emit) {
       emit(LoadingState());
-      if (selectedAnimeList.length >= 10) {
+      if (selectedAnimeList.length >= maxAnimeCount) {
         emit(ErrorState(
           message: TextConstants.selectedAnimeError,
           isEnabled: false,
         ));
         if (event.isSelectedAnime) {
-          selectedAnimeList.remove(event.favoriteAnime);
+          selectedAnimeList.removeWhere(
+            (anime) => anime.id == event.favoriteAnime.id,
+          );
         }
       } else {
         event.isSelectedAnime

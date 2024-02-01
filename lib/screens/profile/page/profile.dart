@@ -1,14 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
+import 'package:senpai/core/user/blocs/grant_user_premium/grant_user_premium_bloc.dart';
 import 'package:senpai/core/user/blocs/verify_request_user/fetch_verify_requests.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/models/user_profile/user_verify/user_verify_model.dart';
+import 'package:senpai/screens/premium_screen/bloc/purchase_bloc.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/screens/profile/enums/profile_enums.dart';
 import 'package:senpai/screens/profile/widgets/profile_content.dart';
@@ -26,6 +29,8 @@ class ProfilePage extends StatelessWidget {
         BlocProvider(create: (_) => ProfileBloc()..add(OnInitUserID())),
         BlocProvider(create: (_) => getIt<FetchUserBloc>()),
         BlocProvider(create: (_) => getIt<FetchVerifyRequestsBloc>()),
+        BlocProvider(create: (_) => PurchaseBloc()..add(OnPlanInitEvent())),
+        BlocProvider(create: (_) => getIt<GrantUserPremiumBloc>()),
       ],
       child: Scaffold(
         body: SafeArea(
@@ -34,6 +39,7 @@ class ProfilePage extends StatelessWidget {
               const ProfileContent(),
               _buildFetchUserListeners(),
               _buildFetchVerifyRequestsListeners(),
+              _buildGrantUserPremiumBlocListeners(),
             ],
           ),
         ),
@@ -104,6 +110,38 @@ class ProfilePage extends StatelessWidget {
             },
             error: (error, result) {
               showSnackBarError(context, TextConstants.serverError);
+              return const SizedBox.shrink();
+            },
+            orElse: () => const SizedBox.shrink());
+      },
+    );
+  }
+
+  Widget _buildGrantUserPremiumBlocListeners() {
+    return BlocBuilder<GrantUserPremiumBloc, MutationState>(
+      builder: (context, state) {
+        return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            failed: (error, result) {
+              showSnackBarError(context, TextConstants.serverError);
+              return const SizedBox.shrink();
+            },
+            succeeded: (data, result) {
+              final response = result.data;
+              if (response == null) {
+                logIt.wtf("A successful empty response just got set user");
+                return const SizedBox.shrink();
+              }
+              final user = response["grantUserPremium"]["user"];
+              if (user == null) {
+                showSnackBarError(context, TextConstants.nullUser);
+                logIt.error("A user with error");
+                return const SizedBox.shrink();
+              }
+              final bloc = BlocProvider.of<ProfileBloc>(context);
+              final fetchUserBloc = BlocProvider.of<FetchUserBloc>(context);
+              fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
+
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());

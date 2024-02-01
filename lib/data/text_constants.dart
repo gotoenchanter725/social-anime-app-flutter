@@ -25,6 +25,8 @@ class TextConstants {
   static const String signUp = "Create account";
   static const String signIn = "Sign in";
   static const String signOut = "Sign Out";
+  static const String noAccountWithThisNumber =
+      "There is no account with this number";
 
   //  -> Create Account
   static const String hello = "Hello!";
@@ -412,4 +414,10 @@ class TextConstants {
   static const String superLikes = "Super Likes";
   static const String dialogBuyButton = "Buy Super Likes for";
   static const String noThanks = "No, Thanks";
+  static const String unableConnectPaymentsProcessor =
+      "Unable to connect to the payments processor";
+  static const String invalidPurchase = "Invalid Purchase";
+  static const String senpaiPremiumActivated = "Senpai Premium is activated!";
+  static const String nextPaymentText = "Next payment:";
+  static const String whatYouGetText = "What you get:";
 }

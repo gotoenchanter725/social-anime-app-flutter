@@ -44,6 +44,7 @@ class DesiredPreviewProfileContent extends StatelessWidget {
             CarouselPhoto(
               listImages: listImages,
               isShowProfileInfo: false,
+              isAdmin: bloc.user.role == 'admin',
             ),
             SizedBox.expand(
               child: DraggableScrollableSheet(
@@ -116,6 +117,7 @@ class DesiredPreviewProfileContent extends StatelessWidget {
           birthday: bloc.user.birthday,
           verified: bloc.user.verified,
           isCenter: false,
+          isAdmin: bloc.user.role == 'admin',
         ),
         if (isShowDistance && bloc.user.hasLocationHidden != true)
           ..._buildLocation(context),

@@ -12,6 +12,7 @@ class UserProfileModel with _$UserProfileModel {
     required String id,
     required String phone,
     String? firstName,
+    String? country,
     String? role,
     DateTime? birthday,
     String? gender,
@@ -32,6 +33,7 @@ class UserProfileModel with _$UserProfileModel {
     List<UserFavoriteMusicModel>? favoriteMusic,
     bool? hasLocationHidden,
     int? milesAway,
+    DateTime? nextPaymentDate,
   }) = _UserProfileModel;
 
   factory UserProfileModel.initial() => const UserProfileModel(
@@ -39,6 +41,7 @@ class UserProfileModel with _$UserProfileModel {
         phone: '',
         firstName: '',
         role: '',
+        country: '',
         birthday: null,
         gender: '',
         desiredGender: '',
@@ -58,6 +61,7 @@ class UserProfileModel with _$UserProfileModel {
         favoriteMusic: [],
         hasLocationHidden: false,
         milesAway: null,
+        nextPaymentDate: null,
       );
 
   factory UserProfileModel.fromJson(Map<String, dynamic> json) =>

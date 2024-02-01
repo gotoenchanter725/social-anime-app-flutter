@@ -18,6 +18,7 @@ class CarouselPhoto extends StatelessWidget {
   final bool isVerified;
   final String? onlineStatus;
   final int? milesAway;
+  final bool isAdmin;
 
   const CarouselPhoto({
     super.key,
@@ -28,6 +29,7 @@ class CarouselPhoto extends StatelessWidget {
     this.birthday,
     this.onlineStatus,
     this.milesAway,
+    required this.isAdmin,
   });
 
   @override
@@ -183,6 +185,7 @@ class CarouselPhoto extends StatelessWidget {
               0.7,
             ),
             hasBackground: true,
+            isAdmin: isAdmin,
           ),
           if (milesAway != null)
             Row(
