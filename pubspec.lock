@@ -598,14 +598,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.2"
-  flutter_localization:
-    dependency: "direct main"
-    description:
-      name: flutter_localization
-      sha256: b2b0fe87f4608f5a3e78ed570d5f85ba9f55c746a6aca4981c0ea4bb894d5d00
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.13"
   flutter_localizations:
     dependency: transitive
     description: flutter
