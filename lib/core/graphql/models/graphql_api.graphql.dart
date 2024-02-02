@@ -2186,86 +2186,6 @@ class UndoLikeInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddSuperLikes$Mutation$AddSuperLikes$User extends JsonSerializable
-    with EquatableMixin {
-  AddSuperLikes$Mutation$AddSuperLikes$User();
-
-  factory AddSuperLikes$Mutation$AddSuperLikes$User.fromJson(
-          Map<String, dynamic> json) =>
-      _$AddSuperLikes$Mutation$AddSuperLikes$UserFromJson(json);
-
-  late String id;
-
-  late String phone;
-
-  late bool verified;
-
-  int? superLikeCount;
-
-  @override
-  List<Object?> get props => [id, phone, verified, superLikeCount];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$AddSuperLikes$Mutation$AddSuperLikes$UserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AddSuperLikes$Mutation$AddSuperLikes extends JsonSerializable
-    with EquatableMixin {
-  AddSuperLikes$Mutation$AddSuperLikes();
-
-  factory AddSuperLikes$Mutation$AddSuperLikes.fromJson(
-          Map<String, dynamic> json) =>
-      _$AddSuperLikes$Mutation$AddSuperLikesFromJson(json);
-
-  late AddSuperLikes$Mutation$AddSuperLikes$User user;
-
-  @override
-  List<Object?> get props => [user];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$AddSuperLikes$Mutation$AddSuperLikesToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AddSuperLikes$Mutation extends JsonSerializable with EquatableMixin {
-  AddSuperLikes$Mutation();
-
-  factory AddSuperLikes$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$AddSuperLikes$MutationFromJson(json);
-
-  AddSuperLikes$Mutation$AddSuperLikes? addSuperLikes;
-
-  @override
-  List<Object?> get props => [addSuperLikes];
-  @override
-  Map<String, dynamic> toJson() => _$AddSuperLikes$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AddSuperLikesInput extends JsonSerializable with EquatableMixin {
-  AddSuperLikesInput({
-    required this.amount,
-    this.clientMutationId,
-    required this.userId,
-  });
-
-  factory AddSuperLikesInput.fromJson(Map<String, dynamic> json) =>
-      _$AddSuperLikesInputFromJson(json);
-
-  late int amount;
-
-  String? clientMutationId;
-
-  late String userId;
-
-  @override
-  List<Object?> get props => [amount, clientMutationId, userId];
-  @override
-  Map<String, dynamic> toJson() => _$AddSuperLikesInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
 class UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos
     extends JsonSerializable with EquatableMixin {
   UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos();
@@ -2998,9 +2918,9 @@ class FetchUser$Query$FetchUser extends JsonSerializable with EquatableMixin {
   bool? hasLocationHidden;
 
   @JsonKey(
-      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
-      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
-  late DateTime nextPaymentDate;
+      fromJson: fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable,
+      toJson: fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable)
+  DateTime? nextPaymentDate;
 
   @override
   List<Object?> get props => [
@@ -3528,6 +3448,86 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [fetchStickers];
   @override
   Map<String, dynamic> toJson() => _$FetchStickers$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddSuperLikes$Mutation$AddSuperLikes$User extends JsonSerializable
+    with EquatableMixin {
+  AddSuperLikes$Mutation$AddSuperLikes$User();
+
+  factory AddSuperLikes$Mutation$AddSuperLikes$User.fromJson(
+          Map<String, dynamic> json) =>
+      _$AddSuperLikes$Mutation$AddSuperLikes$UserFromJson(json);
+
+  late String id;
+
+  late String phone;
+
+  late bool verified;
+
+  int? superLikeCount;
+
+  @override
+  List<Object?> get props => [id, phone, verified, superLikeCount];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$AddSuperLikes$Mutation$AddSuperLikes$UserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddSuperLikes$Mutation$AddSuperLikes extends JsonSerializable
+    with EquatableMixin {
+  AddSuperLikes$Mutation$AddSuperLikes();
+
+  factory AddSuperLikes$Mutation$AddSuperLikes.fromJson(
+          Map<String, dynamic> json) =>
+      _$AddSuperLikes$Mutation$AddSuperLikesFromJson(json);
+
+  late AddSuperLikes$Mutation$AddSuperLikes$User user;
+
+  @override
+  List<Object?> get props => [user];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$AddSuperLikes$Mutation$AddSuperLikesToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddSuperLikes$Mutation extends JsonSerializable with EquatableMixin {
+  AddSuperLikes$Mutation();
+
+  factory AddSuperLikes$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$AddSuperLikes$MutationFromJson(json);
+
+  AddSuperLikes$Mutation$AddSuperLikes? addSuperLikes;
+
+  @override
+  List<Object?> get props => [addSuperLikes];
+  @override
+  Map<String, dynamic> toJson() => _$AddSuperLikes$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddSuperLikesInput extends JsonSerializable with EquatableMixin {
+  AddSuperLikesInput({
+    required this.amount,
+    this.clientMutationId,
+    required this.userId,
+  });
+
+  factory AddSuperLikesInput.fromJson(Map<String, dynamic> json) =>
+      _$AddSuperLikesInputFromJson(json);
+
+  late int amount;
+
+  String? clientMutationId;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [amount, clientMutationId, userId];
+  @override
+  Map<String, dynamic> toJson() => _$AddSuperLikesInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -5951,113 +5951,6 @@ class UndoLikeMutation
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddSuperLikesArguments extends JsonSerializable with EquatableMixin {
-  AddSuperLikesArguments({required this.input});
-
-  @override
-  factory AddSuperLikesArguments.fromJson(Map<String, dynamic> json) =>
-      _$AddSuperLikesArgumentsFromJson(json);
-
-  late AddSuperLikesInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$AddSuperLikesArgumentsToJson(this);
-}
-
-final ADD_SUPER_LIKES_MUTATION_DOCUMENT_OPERATION_NAME = 'addSuperLikes';
-final ADD_SUPER_LIKES_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'addSuperLikes'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'AddSuperLikesInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'addSuperLikes'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'user'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'phone'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'verified'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'superLikeCount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class AddSuperLikesMutation
-    extends GraphQLQuery<AddSuperLikes$Mutation, AddSuperLikesArguments> {
-  AddSuperLikesMutation({required this.variables});
-
-  @override
-  final DocumentNode document = ADD_SUPER_LIKES_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName = ADD_SUPER_LIKES_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final AddSuperLikesArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  AddSuperLikes$Mutation parse(Map<String, dynamic> json) =>
-      AddSuperLikes$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
 class UploadPhotoArguments extends JsonSerializable with EquatableMixin {
   UploadPhotoArguments({required this.input});
 
@@ -7846,4 +7739,111 @@ class FetchStickersQuery
   @override
   FetchStickers$Query parse(Map<String, dynamic> json) =>
       FetchStickers$Query.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddSuperLikesArguments extends JsonSerializable with EquatableMixin {
+  AddSuperLikesArguments({required this.input});
+
+  @override
+  factory AddSuperLikesArguments.fromJson(Map<String, dynamic> json) =>
+      _$AddSuperLikesArgumentsFromJson(json);
+
+  late AddSuperLikesInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$AddSuperLikesArgumentsToJson(this);
+}
+
+final ADD_SUPER_LIKES_MUTATION_DOCUMENT_OPERATION_NAME = 'addSuperLikes';
+final ADD_SUPER_LIKES_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'addSuperLikes'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'AddSuperLikesInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'addSuperLikes'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'phone'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'verified'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'superLikeCount'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class AddSuperLikesMutation
+    extends GraphQLQuery<AddSuperLikes$Mutation, AddSuperLikesArguments> {
+  AddSuperLikesMutation({required this.variables});
+
+  @override
+  final DocumentNode document = ADD_SUPER_LIKES_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = ADD_SUPER_LIKES_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final AddSuperLikesArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  AddSuperLikes$Mutation parse(Map<String, dynamic> json) =>
+      AddSuperLikes$Mutation.fromJson(json);
 }

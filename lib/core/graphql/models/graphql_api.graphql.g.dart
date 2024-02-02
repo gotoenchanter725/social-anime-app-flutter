@@ -1575,64 +1575,6 @@ Map<String, dynamic> _$UndoLikeInputToJson(UndoLikeInput instance) =>
       'userId': instance.userId,
     };
 
-AddSuperLikes$Mutation$AddSuperLikes$User
-    _$AddSuperLikes$Mutation$AddSuperLikes$UserFromJson(
-            Map<String, dynamic> json) =>
-        AddSuperLikes$Mutation$AddSuperLikes$User()
-          ..id = json['id'] as String
-          ..phone = json['phone'] as String
-          ..verified = json['verified'] as bool
-          ..superLikeCount = json['superLikeCount'] as int?;
-
-Map<String, dynamic> _$AddSuperLikes$Mutation$AddSuperLikes$UserToJson(
-        AddSuperLikes$Mutation$AddSuperLikes$User instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'phone': instance.phone,
-      'verified': instance.verified,
-      'superLikeCount': instance.superLikeCount,
-    };
-
-AddSuperLikes$Mutation$AddSuperLikes
-    _$AddSuperLikes$Mutation$AddSuperLikesFromJson(Map<String, dynamic> json) =>
-        AddSuperLikes$Mutation$AddSuperLikes()
-          ..user = AddSuperLikes$Mutation$AddSuperLikes$User.fromJson(
-              json['user'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$AddSuperLikes$Mutation$AddSuperLikesToJson(
-        AddSuperLikes$Mutation$AddSuperLikes instance) =>
-    <String, dynamic>{
-      'user': instance.user.toJson(),
-    };
-
-AddSuperLikes$Mutation _$AddSuperLikes$MutationFromJson(
-        Map<String, dynamic> json) =>
-    AddSuperLikes$Mutation()
-      ..addSuperLikes = json['addSuperLikes'] == null
-          ? null
-          : AddSuperLikes$Mutation$AddSuperLikes.fromJson(
-              json['addSuperLikes'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$AddSuperLikes$MutationToJson(
-        AddSuperLikes$Mutation instance) =>
-    <String, dynamic>{
-      'addSuperLikes': instance.addSuperLikes?.toJson(),
-    };
-
-AddSuperLikesInput _$AddSuperLikesInputFromJson(Map<String, dynamic> json) =>
-    AddSuperLikesInput(
-      amount: json['amount'] as int,
-      clientMutationId: json['clientMutationId'] as String?,
-      userId: json['userId'] as String,
-    );
-
-Map<String, dynamic> _$AddSuperLikesInputToJson(AddSuperLikesInput instance) =>
-    <String, dynamic>{
-      'amount': instance.amount,
-      'clientMutationId': instance.clientMutationId,
-      'userId': instance.userId,
-    };
-
 UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos
     _$UploadPhoto$Mutation$UploadPhoto$User$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
@@ -2173,8 +2115,9 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
       ..premium = json['premium'] as bool
       ..superLikeCount = json['superLikeCount'] as int?
       ..hasLocationHidden = json['hasLocationHidden'] as bool?
-      ..nextPaymentDate = fromGraphQLISO8601DateTimeToDartDateTime(
-          json['nextPaymentDate'] as String);
+      ..nextPaymentDate =
+          fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
+              json['nextPaymentDate'] as String?);
 
 Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
         FetchUser$Query$FetchUser instance) =>
@@ -2205,7 +2148,8 @@ Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
       'superLikeCount': instance.superLikeCount,
       'hasLocationHidden': instance.hasLocationHidden,
       'nextPaymentDate':
-          fromDartDateTimeToGraphQLISO8601DateTime(instance.nextPaymentDate),
+          fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable(
+              instance.nextPaymentDate),
     };
 
 FetchUser$Query _$FetchUser$QueryFromJson(Map<String, dynamic> json) =>
@@ -2599,6 +2543,64 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
+AddSuperLikes$Mutation$AddSuperLikes$User
+    _$AddSuperLikes$Mutation$AddSuperLikes$UserFromJson(
+            Map<String, dynamic> json) =>
+        AddSuperLikes$Mutation$AddSuperLikes$User()
+          ..id = json['id'] as String
+          ..phone = json['phone'] as String
+          ..verified = json['verified'] as bool
+          ..superLikeCount = json['superLikeCount'] as int?;
+
+Map<String, dynamic> _$AddSuperLikes$Mutation$AddSuperLikes$UserToJson(
+        AddSuperLikes$Mutation$AddSuperLikes$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'phone': instance.phone,
+      'verified': instance.verified,
+      'superLikeCount': instance.superLikeCount,
+    };
+
+AddSuperLikes$Mutation$AddSuperLikes
+    _$AddSuperLikes$Mutation$AddSuperLikesFromJson(Map<String, dynamic> json) =>
+        AddSuperLikes$Mutation$AddSuperLikes()
+          ..user = AddSuperLikes$Mutation$AddSuperLikes$User.fromJson(
+              json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AddSuperLikes$Mutation$AddSuperLikesToJson(
+        AddSuperLikes$Mutation$AddSuperLikes instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+AddSuperLikes$Mutation _$AddSuperLikes$MutationFromJson(
+        Map<String, dynamic> json) =>
+    AddSuperLikes$Mutation()
+      ..addSuperLikes = json['addSuperLikes'] == null
+          ? null
+          : AddSuperLikes$Mutation$AddSuperLikes.fromJson(
+              json['addSuperLikes'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AddSuperLikes$MutationToJson(
+        AddSuperLikes$Mutation instance) =>
+    <String, dynamic>{
+      'addSuperLikes': instance.addSuperLikes?.toJson(),
+    };
+
+AddSuperLikesInput _$AddSuperLikesInputFromJson(Map<String, dynamic> json) =>
+    AddSuperLikesInput(
+      amount: json['amount'] as int,
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$AddSuperLikesInputToJson(AddSuperLikesInput instance) =>
+    <String, dynamic>{
+      'amount': instance.amount,
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -2849,18 +2851,6 @@ Map<String, dynamic> _$UndoLikeArgumentsToJson(UndoLikeArguments instance) =>
       'input': instance.input.toJson(),
     };
 
-AddSuperLikesArguments _$AddSuperLikesArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    AddSuperLikesArguments(
-      input: AddSuperLikesInput.fromJson(json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$AddSuperLikesArgumentsToJson(
-        AddSuperLikesArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
-    };
-
 UploadPhotoArguments _$UploadPhotoArgumentsFromJson(
         Map<String, dynamic> json) =>
     UploadPhotoArguments(
@@ -2967,4 +2957,16 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
+    };
+
+AddSuperLikesArguments _$AddSuperLikesArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    AddSuperLikesArguments(
+      input: AddSuperLikesInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$AddSuperLikesArgumentsToJson(
+        AddSuperLikesArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
     };
