@@ -13,4 +13,8 @@ class PageChangedState extends OnboardingState {
   });
 }
 
+class CheckAppTrackingTransparencyState extends OnboardingState {}
+
 class NextScreenState extends OnboardingState {}
+
+class ShowDialogState extends OnboardingState {}

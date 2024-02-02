@@ -7,6 +7,9 @@ class TextConstants {
   static const String onboarding2SubTitle = "lovers unite";
   static const String onboarding3SubTitle = "matching";
   static const String onboardingButtonText = "Skip";
+  static const String dearUserText = "Dear User";
+  static const String dearUserDescription =
+      "We care about your privacy and data security. Your information will not ever be sold to third parties, but used internally to make the app better.";
 
   // Auth
 

@@ -1004,12 +1004,13 @@ type User {
   gender: String
   hasLocationHidden: Boolean
   id: ID!
+  isFakeProfile: Boolean!
   lastSignInAt: ISO8601DateTime
   lastSignInIp: String
   lonlat: String
   matches: [Match!]
   milesAway(otherUserId: ID!): Int
-  nextPaymentDate: ISO8601DateTime!
+  nextPaymentDate: ISO8601DateTime
   occupation: String
   onlineStatus: String
   phone: String!

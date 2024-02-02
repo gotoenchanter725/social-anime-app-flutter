@@ -10,3 +10,9 @@ class PageSwipedEvent extends OnboardingEvent {
 
   PageSwipedEvent({required this.index});
 }
+
+class OnChangeStatusAppTrackingEvent extends OnboardingEvent {
+  final TrackingStatus status;
+
+  OnChangeStatusAppTrackingEvent({required this.status});
+}
