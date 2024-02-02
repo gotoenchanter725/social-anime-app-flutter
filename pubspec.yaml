@@ -89,7 +89,7 @@ dependencies:
   flutter_markdown: ^0.6.17+1
   reorderable_grid_view: ^2.2.7
   photo_manager: ^3.0.0-dev.2
-  photo_manager_image_provider: ^1.1.0
+  photo_manager_image_provider: ^2.1.0
   geolocator: ^10.0.1
   camera: ^0.10.5+5
   action_cable: ^1.2.0
@@ -106,8 +106,8 @@ dependencies:
   http_parser: ^4.0.2
   mime: ^1.0.4
   path: ^1.8.3
-  firebase_core: ^2.24.2
-  firebase_messaging: ^14.7.10
+  firebase_core: ^2.25.2
+  firebase_messaging: ^14.7.13
 
 dev_dependencies:
   flutter_test:

@@ -80,6 +80,9 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/empty_animations.png)
   final empty_animations = r'assets/images/chat/empty_animations.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/giphy_attribution.png)
+  final giphy_attribution = r'assets/images/chat/giphy_attribution.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/empty_conversations.png)
   final empty_conversations = r'assets/images/chat/empty_conversations.png';
 }
