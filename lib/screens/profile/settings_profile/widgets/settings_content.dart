@@ -68,24 +68,23 @@ class SettingsContent extends StatelessWidget {
             _buildPhoneNumberWidget(context),
 
             SizedBox(height: $constants.insets.sm),
-            // 24.01 Herbert Joseph: Let's remove/hide for now.
-            // _buildLanguageWidget(context),
-            // SizedBox(height: $constants.insets.xs),
-            // Container(
-            //   padding: EdgeInsets.all($constants.insets.sm),
-            //   decoration: profileBoxDecoration(),
-            //   child: ProfileItemHeader(
-            //     title: TextConstants.addLanguageTitle,
-            //     onTap: () {
-            //       bloc.add(
-            //         OnChangeSettingsStepEvent(
-            //           step: SettingsStep.language,
-            //         ),
-            //       );
-            //     },
-            //   ),
-            // ),
-            // SizedBox(height: $constants.insets.md),
+            _buildLanguageWidget(context),
+            SizedBox(height: $constants.insets.xs),
+            Container(
+              padding: EdgeInsets.all($constants.insets.sm),
+              decoration: profileBoxDecoration(),
+              child: ProfileItemHeader(
+                title: TextConstants.addLanguageTitle,
+                onTap: () {
+                  bloc.add(
+                    OnChangeSettingsStepEvent(
+                      step: SettingsStep.language,
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(height: $constants.insets.md),
             Container(
               padding: EdgeInsets.all($constants.insets.sm),
               decoration: profileBoxDecoration(),
