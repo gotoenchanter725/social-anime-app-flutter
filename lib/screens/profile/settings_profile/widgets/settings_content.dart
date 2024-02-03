@@ -14,6 +14,8 @@ import 'package:senpai/screens/profile/widgets/profile_app_bar.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
+import '../../../../l10n/resources.dart';
+
 class SettingsContent extends StatelessWidget {
   const SettingsContent({
     super.key,
@@ -202,7 +204,7 @@ class SettingsContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            TextConstants.languageTitle,
+            R.stringsOf(context).language,
             style: getTextTheme(context)
                 .bodyMedium
                 ?.copyWith(color: $constants.palette.white),

@@ -108,9 +108,13 @@ dependencies:
   firebase_core: ^2.24.2
   firebase_messaging: ^14.7.10
 
+  flutter_localizations:
+    sdk: flutter
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_loco_translations: 1.0.0+2
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -170,6 +174,7 @@ flutter:
     - assets/icons/
     - assets/licenses/
     - assets/images/chat/
+    - assets/translations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

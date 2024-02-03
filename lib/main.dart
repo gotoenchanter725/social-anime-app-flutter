@@ -67,10 +67,7 @@ Future<void> main() async {
     runApp(
       DefaultAssetBundle(
         bundle: SentryAssetBundle(),
-        child: TranslationProvider(
-          child: MyApp(theme: theme),
-          // child: MatchPage(),
-        ),
+        child: MyApp(theme: theme),
       ),
     );
   }, (error, stack) async {

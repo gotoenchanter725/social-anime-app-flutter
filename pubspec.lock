@@ -599,10 +599,18 @@ packages:
     source: hosted
     version: "2.0.2"
   flutter_localizations:
-    dependency: transitive
+    dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_loco_translations:
+    dependency: "direct dev"
+    description:
+      name: flutter_loco_translations
+      sha256: "4174da0b71a74135824639109fa5b1d255befc5296cf9c193b3cdfc6d16a0627"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0+2"
   flutter_map:
     dependency: "direct main"
     description:

@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:senpai/i18n/strings.g.dart';
+import 'package:senpai/l10n/generated/app_localizations.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
@@ -25,13 +25,9 @@ class MyApp extends StatelessWidget {
       routerConfig: _appRouter.config(),
 
       /// EasyLocalization configuration.
-      // locale: TranslationProvider.of(context).flutterLocale,
-      // supportedLocales: AppLocaleUtils.supportedLocales,
-      // localizationsDelegates: const [
-      //   GlobalMaterialLocalizations.delegate,
-      //   GlobalWidgetsLocalizations.delegate,
-      //   GlobalCupertinoLocalizations.delegate,
-      // ],
+      // locale: const Locale('en'),
+      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
     );
   }
 }
