@@ -2,9 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
 
 import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/local_key.dart';
 import 'package:senpai/screens/profile/widgets/profile_item_header.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
@@ -187,9 +189,7 @@ class SettingsContent extends StatelessWidget {
           ),
           Text(
             bloc.user.phone,
-            style: getTextTheme(context)
-                .labelMedium
-                ?.copyWith(color: $constants.palette.grey),
+            style: getTextTheme(context).labelMedium?.copyWith(color: $constants.palette.grey),
           ),
         ],
       ),
@@ -204,19 +204,20 @@ class SettingsContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            R.stringsOf(context).language,
-            style: getTextTheme(context)
-                .bodyMedium
-                ?.copyWith(color: $constants.palette.white),
+            R.strings.language,
+            style: getTextTheme(context).bodyMedium?.copyWith(color: $constants.palette.white),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                'English',
-                style: getTextTheme(context)
-                    .labelMedium
-                    ?.copyWith(color: $constants.palette.grey),
+              BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
+                builder: (context, state) {
+                  return Text(
+                    LocaleKeyExtension.parse(state.locale!.languageCode).name,
+                    style:
+                        getTextTheme(context).labelMedium?.copyWith(color: $constants.palette.grey),
+                  );
+                },
               ),
               Icon(
                 Icons.done,
