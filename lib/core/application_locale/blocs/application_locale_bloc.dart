@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -16,6 +17,16 @@ part 'application_locale_state.dart';
 @injectable
 class ApplicationLocaleBloc extends Bloc<ApplicationLocaleEvent, ApplicationLocaleState> with HydratedMixin {
   ApplicationLocaleBloc() : super(const ApplicationLocaleState(null)) {
+    on<InitApplicationLocaleEvent>((event, emit) {
+      if (state.locale == null) {
+        final parts = Platform.localeName.split('_');
+        final locale = Locale(parts.first);
+        R.switchLocale(locale);
+        emit(ApplicationLocaleState(locale));
+      } else {
+        R.switchLocale(state.locale!);
+      }
+    });
     on<SwitchApplicationLocaleEvent>((event, emit) {
       final locale = event.newLocale;
       emit(state.copyWith(locale: locale));
@@ -25,7 +36,14 @@ class ApplicationLocaleBloc extends Bloc<ApplicationLocaleEvent, ApplicationLoca
 
   @override
   ApplicationLocaleState? fromJson(Map<String, dynamic> json) {
-    return ApplicationLocaleState(LocaleKeyExtension.parse(json['localeKey']).toLocale);
+    if (json['localeKey'] == null || json['localeKey'] == '') {
+      final parts = Platform.localeName.split('_');
+      final locale = Locale(parts.first);
+      return ApplicationLocaleState(locale);
+    }
+
+    Locale locale = LocaleKeyExtension.parse(json['localeKey']).toLocale;
+    return ApplicationLocaleState(locale);
   }
 
   @override

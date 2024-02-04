@@ -25,7 +25,9 @@ class MyApp extends StatelessWidget {
     ]);
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (_) => getIt<ApplicationLocaleBloc>()),
+        BlocProvider(
+          create: (_) => getIt<ApplicationLocaleBloc>()..add(InitApplicationLocaleEvent()),
+        ),
       ],
       child: BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
         builder: (BuildContext context, ApplicationLocaleState state) {

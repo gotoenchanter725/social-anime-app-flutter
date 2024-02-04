@@ -8,3 +8,5 @@ class SwitchApplicationLocaleEvent extends ApplicationLocaleEvent {
 
   SwitchApplicationLocaleEvent({required this.newLocale});
 }
+
+class InitApplicationLocaleEvent extends ApplicationLocaleEvent {}
