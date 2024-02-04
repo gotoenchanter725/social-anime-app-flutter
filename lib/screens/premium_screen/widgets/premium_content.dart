@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/premium_screen/widgets/profile_premium_widget.dart';
 import 'package:senpai/screens/profile_fill/widgets/custom_close_button.dart';
 
@@ -63,7 +63,7 @@ class PremiumContent extends StatelessWidget {
         vertical: $constants.insets.sm,
       ),
       child: PrimaryButton(
-        text: TextConstants.premiumUpgradeText,
+        text: R.strings.premiumUpgradeText,
         onPressed: () {
           print('Premium');
         },
@@ -78,7 +78,7 @@ class PremiumContent extends StatelessWidget {
   //       print('Restore purchases');
   //     },
   //     child: Text(
-  //       TextConstants.restorePurchasesButton,
+  //       R.strings.restorePurchasesButton,
   //       style: getTextTheme(context).titleSmall?.copyWith(),
   //     ),
   //   );

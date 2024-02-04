@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/edit_profile/edit_spotify/bloc/edit_spotify_bloc.dart';
 
 import 'package:senpai/utils/methods/utils.dart';
@@ -28,7 +28,7 @@ class DisconnectSpotifyWidget extends StatelessWidget {
               bloc.add(OnSpotifyDisconnectEvent());
             },
             child: Text(
-              TextConstants.disconnectSpotifyText,
+              R.strings.disconnectSpotifyText,
               style: getTextTheme(context).titleSmall,
             ),
           );

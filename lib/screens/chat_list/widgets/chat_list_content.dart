@@ -5,7 +5,7 @@ import 'package:senpai/core/widgets/icon_input.dart';
 // import 'package:senpai/data/mock_conversation_list_data.dart';
 // import 'package:senpai/data/mock_match_data.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/chat/categorized_conversation.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/chat_list/widgets/conversation_list.dart';
@@ -47,7 +47,7 @@ class ChatListContent extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
       child: SenpaiIconInput(
         iconPath: PathConstants.searchIcon,
-        hintText: TextConstants.searchHintText,
+        hintText: R.strings.searchHintText,
         onChange: (text) {
           print(text);
         },
@@ -78,7 +78,7 @@ class ChatListContent extends StatelessWidget {
       return [];
     }
     return [
-      _buildTitle(context, TextConstants.matchesTitle),
+      _buildTitle(context, R.strings.matchesTitle),
       SizedBox(
         height: $constants.insets.sm,
       ),
@@ -97,7 +97,7 @@ class ChatListContent extends StatelessWidget {
       SizedBox(
         height: $constants.insets.lg,
       ),
-      _buildTitle(context, TextConstants.messagesTitle),
+      _buildTitle(context, R.strings.messagesTitle),
       Expanded(
         child: Padding(
           padding: EdgeInsets.only(
@@ -124,10 +124,10 @@ class ChatListContent extends StatelessWidget {
 
   List<Widget> _buildEmptyConversationContent(BuildContext context) {
     return [
-      const EmptyConversations(
+      EmptyConversations(
         avatorImagePath: PathConstants.emptyConversationsImage,
-        title: TextConstants.emptyConversationsPromptText,
-        subtitle: TextConstants.emptyConversationsText,
+        title: R.strings.emptyConversationsPromptText,
+        subtitle: R.strings.emptyConversationsText,
       )
     ];
   }

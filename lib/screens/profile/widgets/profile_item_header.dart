@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -36,7 +36,7 @@ class ProfileItemHeader extends StatelessWidget {
             children: [
               if (isEmptyContent)
                 Text(
-                  titleButton ?? TextConstants.addTitle,
+                  titleButton ?? R.strings.addTitle,
                   style: getTextTheme(context)
                       .bodySmall
                       ?.copyWith(letterSpacing: 0),

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/user/blocs/unmatch_user/unmatch_bloc.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/models/report_user/report_user_params.dart';
 import 'package:senpai/routes/app_router.dart';
@@ -28,17 +28,17 @@ class PopUpMenuWidget extends StatelessWidget {
       context: context,
       builder: (_) => CupertinoAlertDialog(
         title: Text(
-          TextConstants.unmatchText,
+          R.strings.unmatchText,
           style: getTextTheme(context).headlineSmall,
         ),
         content: Text(
-          TextConstants.areYouSureYouWantToUnmatchUser,
+          R.strings.areYouSureYouWantToUnmatchUser,
           style: getTextTheme(context).titleSmall,
         ),
         actions: [
           CupertinoDialogAction(
             onPressed: Navigator.of(context).pop,
-            child: const Text(TextConstants.noButton),
+            child: Text(R.strings.noButton),
           ),
           CupertinoDialogAction(
             onPressed: () {
@@ -49,7 +49,7 @@ class PopUpMenuWidget extends StatelessWidget {
                 blockedUserId: receipientUser.id,
               );
             },
-            child: const Text(TextConstants.yesButton),
+            child: Text(R.strings.yesButton),
           ),
         ],
       ),
@@ -87,7 +87,7 @@ class PopUpMenuWidget extends StatelessWidget {
               ),
             );
           },
-          title: TextConstants.viewProfileText,
+          title: R.strings.viewProfileText,
         ),
         Divider(
           height: 0,
@@ -98,7 +98,7 @@ class PopUpMenuWidget extends StatelessWidget {
           onPressed: () {
             _deleteUserDialog(context);
           },
-          title: TextConstants.unmatchText,
+          title: R.strings.unmatchText,
         ),
         Divider(
           height: 0,
@@ -117,7 +117,7 @@ class PopUpMenuWidget extends StatelessWidget {
               ),
             );
           },
-          title: TextConstants.reportText,
+          title: R.strings.reportText,
         ),
       ],
     );

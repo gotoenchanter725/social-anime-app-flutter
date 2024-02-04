@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/senpai_input.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/biography/bloc/biography_bloc.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/widgets/header_simple_field.dart';
@@ -49,8 +49,8 @@ class BiographyContent extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
     return HeaderSimpleField(
-      title: TextConstants.yourStoryText,
-      description: TextConstants.yourStoryDescription,
+      title: R.strings.yourStoryText,
+      description: R.strings.yourStoryDescription,
       onTapBackButton: () {
         bloc.add(
           OnChangeStepEvent(
@@ -73,13 +73,13 @@ class BiographyContent extends StatelessWidget {
     return BlocBuilder<BiographyBloc, BiographyState>(
       builder: (context, state) {
         return SenpaiInput(
-          placeholder: TextConstants.yourStoryDescription,
+          placeholder: R.strings.yourStoryDescription,
           maxLines: 4,
           controller: bloc.biographyController,
           onTextChanged: (String biography) {
             bloc.add(OnBiographyChangedEvent(biography: biography));
           },
-          errorText: TextConstants.serverError,
+          errorText: R.strings.serverError,
           isError: state is ErrorState ? state.isEnabled : false,
           isValid: state is ValidState
               ? true
@@ -101,7 +101,7 @@ class BiographyContent extends StatelessWidget {
         );
       },
       child: PrimaryButton(
-        text: TextConstants.nextText,
+        text: R.strings.nextText,
         onPressed: () async {
           bloc.add(NextTappedEvent());
         },

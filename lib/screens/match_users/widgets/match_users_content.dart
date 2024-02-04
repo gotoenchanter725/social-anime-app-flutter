@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/match_users/bloc/match_users_bloc.dart';
 import 'package:senpai/screens/match_users/widgets/match_send_message_content.dart';
 import 'package:senpai/screens/match_users/widgets/match_users_emoji_widget.dart';
@@ -71,7 +71,7 @@ class MatchUsersContent extends StatelessWidget {
       ),
       SizedBox(height: $constants.insets.xs),
       Text(
-        TextConstants.itsTitle.toUpperCase(),
+        R.strings.itsTitle.toUpperCase(),
         textAlign: TextAlign.center,
         style: getTextTheme(context).headlineLarge!.copyWith(
               color: $constants.palette.white,
@@ -81,7 +81,7 @@ class MatchUsersContent extends StatelessWidget {
             ),
       ),
       Text(
-        '${TextConstants.matchTabText}!'.toUpperCase(),
+        '${R.strings.matchTabText}!'.toUpperCase(),
         textAlign: TextAlign.center,
         style: getTextTheme(context).displayLarge!.copyWith(
               color: $constants.palette.white,
@@ -92,7 +92,7 @@ class MatchUsersContent extends StatelessWidget {
       ),
       SizedBox(height: $constants.insets.xs),
       Text(
-        '${TextConstants.youAndText} $name ${TextConstants.haveLikedEachOtherText} ',
+        '${R.strings.youAndText} $name ${R.strings.haveLikedEachOtherText} ',
         textAlign: TextAlign.center,
         style: getTextTheme(context).bodySmall!.copyWith(
               color: $constants.palette.white,

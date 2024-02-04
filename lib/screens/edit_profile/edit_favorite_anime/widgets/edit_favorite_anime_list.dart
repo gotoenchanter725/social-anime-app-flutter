@@ -8,7 +8,7 @@ import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/path_constants.dart';
 
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart'
     as edit;
@@ -39,7 +39,7 @@ class EditFavoriteAnimeList extends StatelessWidget {
                 SizedBox(height: $constants.insets.md),
                 _buildTextInput(context),
                 SizedBox(height: $constants.insets.md),
-                const ChossenTextWidget(),
+                const ChosenTextWidget(),
                 SizedBox(height: $constants.insets.sm),
                 Expanded(child: _buildListAnime(context)),
               ],
@@ -59,7 +59,7 @@ class EditFavoriteAnimeList extends StatelessWidget {
         bloc.add(OnChangeAnimeStepEvent(step: FavoriteAnimeStep.searchContent));
         blocFetchAnime.fetchAnime(page: bloc.page);
       },
-      hintText: TextConstants.searchText,
+      hintText: R.strings.searchText,
       controller: bloc.searchController,
       onChange: (String search) {},
       iconPath: PathConstants.searchIcon,
@@ -80,7 +80,7 @@ class EditFavoriteAnimeList extends StatelessWidget {
         await context.router.pop();
       },
       child: ProfileAppBar(
-        title: TextConstants.favoriteAnimesTitle,
+        title: R.strings.favoriteAnimesTitle,
         hasLeading: true,
         onDoneTap: () {
           int userId = int.parse(editBloc.user.id);

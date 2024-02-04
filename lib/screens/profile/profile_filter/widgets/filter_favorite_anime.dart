@@ -7,7 +7,7 @@ import 'package:senpai/core/widgets/senpai_filter_chip.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/path_constants.dart';
 
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/profile/profile_filter/profile_filter_bloc/profile_filter_bloc.dart';
 import 'package:senpai/screens/profile/widgets/profile_app_bar.dart';
@@ -43,7 +43,7 @@ class FilterFavoriteAnime extends StatelessWidget {
                     _buildFilters(context),
                     SizedBox(height: $constants.insets.md),
                     Text(
-                      '${TextConstants.choosenText} '
+                      '${R.strings.chosenText} '
                       '(${bloc.selectedAnimeList.length}/${bloc.maxAnimeCount})',
                       style: getTextTheme(context).headlineSmall?.copyWith(),
                       textAlign: TextAlign.left,
@@ -64,7 +64,7 @@ class FilterFavoriteAnime extends StatelessWidget {
     final bloc = BlocProvider.of<ProfileFilterBloc>(context);
     final favoriteAnimeBloc = BlocProvider.of<FavoriteAnimeBloc>(context);
     return ProfileAppBar(
-      title: TextConstants.favoriteAnimesTitle,
+      title: R.strings.favoriteAnimesTitle,
       hasLeading: true,
       onTapLeading: () {
         bloc.add(OnChangeFilterStepEvent(step: ProfileFilterStep.filters));
@@ -85,7 +85,7 @@ class FilterFavoriteAnime extends StatelessWidget {
     return BlocBuilder<FavoriteAnimeBloc, FavoriteAnimeState>(
       builder: (context, state) {
         return SenpaiIconInput(
-          hintText: TextConstants.searchAnimesHintText,
+          hintText: R.strings.searchAnimesHintText,
           controller: bloc.searchController,
           onChange: (String search) {
             bloc.add(OnSearchAnimesEvent(searchText: search));
@@ -111,7 +111,7 @@ class FilterFavoriteAnime extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: $constants.insets.xs),
             child: SenpaiFilterChip(
-              title: TextConstants.myAnimesText,
+              title: R.strings.myAnimesText,
               isSelected: bloc.showMyAnimeList,
               onTapSelect: (bool selected) {
                 bloc.add(

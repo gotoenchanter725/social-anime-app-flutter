@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 
 import 'package:senpai/core/widgets/senpai_input.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 
 import 'package:senpai/screens/profile/widgets/profile_app_bar.dart';
@@ -18,7 +18,7 @@ class FeedbackContent extends StatelessWidget {
     return Column(
       children: [
         ProfileAppBar(
-          title: TextConstants.feedbackTitle,
+          title: R.strings.feedbackTitle,
           hasLeading: true,
           onTapLeading: () {
             final bloc = BlocProvider.of<SettingsProfileBloc>(context);
@@ -37,13 +37,13 @@ class FeedbackContent extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  TextConstants.feedbackTitle,
+                  R.strings.feedbackTitle,
                   style: getTextTheme(context).headlineSmall,
                 ),
                 _buildTextInput(context),
                 SizedBox(height: $constants.insets.md),
                 Text(
-                  TextConstants.rateSenpaiTitle,
+                  R.strings.rateSenpaiTitle,
                   style: getTextTheme(context).headlineSmall,
                 ),
                 SizedBox(height: $constants.insets.sm),
@@ -100,13 +100,13 @@ class FeedbackContent extends StatelessWidget {
     final bloc = BlocProvider.of<SettingsProfileBloc>(context);
 
     return SenpaiInput(
-      placeholder: TextConstants.feedbackOnSenpaiHintText,
+      placeholder: R.strings.feedbackOnSenpaiHintText,
       maxLines: 4,
       controller: bloc.feedbackController,
       onTextChanged: (String feedback) {
         bloc.add(OnChangeFeedbackTextEvent(feedback: feedback));
       },
-      errorText: TextConstants.serverError,
+      errorText: R.strings.serverError,
       isError: false,
       isValid: false,
     );
@@ -116,7 +116,7 @@ class FeedbackContent extends StatelessWidget {
     final bloc = BlocProvider.of<SettingsProfileBloc>(context);
 
     return PrimaryButton(
-      text: TextConstants.sendButton,
+      text: R.strings.sendButton,
       onPressed: () {
         print(bloc.feedbackText);
         print(bloc.feedbackStarsCount);

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_music/add_favorite_music_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_music/delete_favorite_music_bloc.dart';
 
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 import 'package:senpai/screens/edit_profile/edit_spotify/edit_spotify_artists/bloc/edit_spotify_artists_bloc.dart';
 import 'package:senpai/screens/edit_profile/edit_spotify/edit_spotify_artists/widgets/artist_item_widget.dart';
@@ -77,7 +77,7 @@ class EditSpotifyArtistsContent extends StatelessWidget {
         }
       },
       child: ProfileAppBar(
-        title: TextConstants.topArtistsText,
+        title: R.strings.topArtistsText,
         hasLeading: true,
         onDoneTap: () {
           if (bloc.artistsList.isNotEmpty) {
@@ -102,7 +102,7 @@ class EditSpotifyArtistsContent extends StatelessWidget {
   Widget _buildChoosenText(BuildContext context) {
     final bloc = BlocProvider.of<EditSpotifyArtistsBloc>(context);
     return Text(
-      '${TextConstants.choosenText} '
+      '${R.strings.chosenText} '
       '(${bloc.selectedArtistsList.length}/${bloc.maxAnimeCount})',
       style: getTextTheme(context).headlineSmall?.copyWith(),
       textAlign: TextAlign.left,
@@ -121,7 +121,7 @@ class EditSpotifyArtistsContent extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(vertical: $constants.insets.sm),
           child: Text(
-            TextConstants.selectedArtistsText,
+            R.strings.selectedArtistsText,
             style: getTextTheme(context).headlineSmall,
           ),
         ),
@@ -146,7 +146,7 @@ class EditSpotifyArtistsContent extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(vertical: $constants.insets.sm),
           child: Text(
-            TextConstants.topArtistsText,
+            R.strings.topArtistsText,
             style: getTextTheme(context).headlineSmall,
           ),
         ),

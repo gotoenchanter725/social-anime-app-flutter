@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/home/bloc/home_storage_bloc.dart';
 import 'package:senpai/screens/profile/profile_filter/profile_filter_bloc/profile_filter_bloc.dart';
@@ -26,7 +26,7 @@ class ProfileFilterContent extends StatelessWidget {
         return Column(
           children: [
             ProfileAppBar(
-              title: TextConstants.findsFiltersTitle,
+              title: R.strings.findsFiltersTitle,
               hasLeading: true,
               actionsList: [_buildAppBarAction(context)],
             ),
@@ -72,7 +72,7 @@ class ProfileFilterContent extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.only(right: $constants.insets.sm),
           child: Text(
-            TextConstants.clearAllTitle,
+            R.strings.clearAllTitle,
             style: getTextTheme(context).bodySmall!.copyWith(letterSpacing: 0),
           ),
         ),
@@ -85,7 +85,7 @@ class ProfileFilterContent extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
       child: SenpaiCheckBox(
-        title: TextConstants.photoVerifiedTitle,
+        title: R.strings.photoVerifiedTitle,
         value: bloc.changedFilters.verified,
         onChanged: (bool? value) {
           bloc.add(OnChangePhotoVerifiedStatus(isVerified: value ?? false));
@@ -99,7 +99,7 @@ class ProfileFilterContent extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
       child: SenpaiCheckBox(
-        title: TextConstants.hasBioTitle,
+        title: R.strings.hasBioTitle,
         value: bloc.changedFilters.hasBio,
         onChanged: (bool? value) {
           bloc.add(OnChangeUserHasBio(hasBio: value ?? false));
@@ -118,8 +118,8 @@ class ProfileFilterContent extends StatelessWidget {
       },
       child: PrimaryButton(
         text: bloc.counterChangesList.isEmpty
-            ? TextConstants.applyTitle
-            : '${TextConstants.applyChangesTitle} (${bloc.counterChangesList.length})',
+            ? R.strings.applyTitle
+            : '${R.strings.applyChangesTitle} (${bloc.counterChangesList.length})',
         onPressed: () {
           storageBloc.add(OnApplyProfileFilters(filters: bloc.changedFilters));
         },
@@ -148,13 +148,13 @@ class ProfileFilterContent extends StatelessWidget {
         height: $constants.insets.xxl,
         decoration: profileBoxDecoration(),
         child: ProfileItemHeader(
-          title: '${TextConstants.favoriteAnimesTitle} '
+          title: '${R.strings.favoriteAnimesTitle} '
               '($selectedAnimeLenght/${blocFavoriteAnime.maxAnimeCount})',
           onTap: () {
             bloc.add(OnChangeFilterStepEvent(step: ProfileFilterStep.animes));
           },
           isEmptyContent: true,
-          titleButton: TextConstants.chooseTitle,
+          titleButton: R.strings.chooseTitle,
         ),
       ),
     );

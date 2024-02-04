@@ -8,7 +8,7 @@ import 'package:senpai/core/user/blocs/delete_user/delete_user_bloc.dart';
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 
 import 'package:senpai/models/user_profile/user_profile_model.dart';
@@ -68,7 +68,7 @@ class SettingsProfilePage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -82,7 +82,7 @@ class SettingsProfilePage extends StatelessWidget {
 
               final user = response["updateUser"]["user"];
               if (user == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }
@@ -106,7 +106,7 @@ class SettingsProfilePage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -120,7 +120,7 @@ class SettingsProfilePage extends StatelessWidget {
 
               final user = response["deleteUser"]["softDeletedUser"];
               if (user == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:photo_manager_image_provider/photo_manager_image_provider.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/photos/upload_photo_model.dart';
 
 part 'photos_event.dart';
@@ -26,7 +26,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     });
 
     on<OnRestartShowPhotosEvent>((event, emit) async {
-      emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+      emit(ErrorState(message: R.strings.serverError, isEnabled: false));
       emit(ValidState());
     });
 
@@ -36,13 +36,13 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     });
 
     on<OnChangeUploadedPhotosCountEvent>((event, emit) {
-      emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+      emit(ErrorState(message: R.strings.serverError, isEnabled: false));
       uploadedPhotosCount += 1;
       emit(ValidState());
     });
 
     on<OnChangedPhotoByCameraEvent>((event, emit) {
-      emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+      emit(ErrorState(message: R.strings.serverError, isEnabled: false));
       emit(ValidState());
       newPhotos = [];
       uploadedPhotosCount = 0;
@@ -51,7 +51,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     });
 
     on<OnUploadPhotosEvent>((event, emit) async {
-      emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+      emit(ErrorState(message: R.strings.serverError, isEnabled: false));
       emit(ValidState());
       selectedAssetsList = event.photos;
       newPhotos = [];
@@ -64,7 +64,7 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     });
 
     on<OnPhotoDeleteEvent>((event, emit) {
-      emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+      emit(ErrorState(message: R.strings.serverError, isEnabled: false));
       emit(ValidState());
       uploadedPhotos.removeAt(event.index);
     });
@@ -72,13 +72,13 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
     on<OnPhotoChangeIndexEvent>((event, emit) {
       final element = uploadedPhotos.removeAt(event.oldIndex);
       uploadedPhotos.insert(event.newIndex, element);
-      emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+      emit(ErrorState(message: R.strings.serverError, isEnabled: false));
       emit(ValidState());
       emit(PhotosReorderReadyToSendState());
     });
 
     on<OnChangeUploadedPhotosFromServerEvent>((event, emit) {
-      emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+      emit(ErrorState(message: R.strings.serverError, isEnabled: false));
       uploadedPhotos = [];
       uploadedPhotos.addAll(event.uploadedPhotos);
       uploadedPhotos.sort((a, b) => a.order!.compareTo(b.order!));
@@ -87,13 +87,13 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
 
     on<NextTappedEvent>((event, emit) async {
       if (uploadedPhotos.length >= 2) {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+        emit(ErrorState(message: R.strings.serverError, isEnabled: false));
         emit(ValidState());
         emit(LoadingState());
         emit(PhotosSucssesfulState());
       } else {
         emit(ErrorState(
-          message: TextConstants.uploadPhotosDescription,
+          message: R.strings.uploadPhotosDescription,
           isEnabled: true,
         ));
       }
@@ -101,11 +101,11 @@ class PhotosBloc extends Bloc<PhotosEvent, PhotosState> {
 
     on<DeleteLastPhotoEvent>((event, emit) async {
       if (uploadedPhotos.length > 1) {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+        emit(ErrorState(message: R.strings.serverError, isEnabled: false));
         emit(ValidState());
       } else {
         emit(ErrorState(
-          message: TextConstants.uploadPhotoError,
+          message: R.strings.uploadPhotoError,
           isEnabled: true,
         ));
       }

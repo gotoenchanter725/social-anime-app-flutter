@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:fresh_dio/fresh_dio.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/auth/auth_model.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
@@ -87,8 +87,8 @@ abstract class ActionCableBloc<T>
     final storage = getIt<TokenStorage<AuthModel>>();
     AuthModel? authModel = await storage.read();
     if (authModel == null) {
-      add(const ActionCableEvent.error(
-          message: TextConstants.actionCableAuthError));
+      add(ActionCableEvent.error(
+          message: R.strings.actionCableAuthError));
       return;
     }
     String url = "${env.webSocketUrl}?token=${authModel.token}";
@@ -97,11 +97,11 @@ abstract class ActionCableBloc<T>
       add(const ActionCableEvent.connect());
     }, onConnectionLost: () {
       _isConnected = false;
-      add(const ActionCableEvent.error(
-          message: TextConstants.actionCableConnectionError));
+      add(ActionCableEvent.error(
+          message: R.strings.actionCableConnectionError));
     }, onCannotConnect: () {
-      add(const ActionCableEvent.error(
-          message: TextConstants.actionCableCannotConnectError));
+      add(ActionCableEvent.error(
+          message: R.strings.actionCableCannotConnectError));
     });
   }
 

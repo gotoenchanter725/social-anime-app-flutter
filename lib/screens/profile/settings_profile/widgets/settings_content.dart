@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
 
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/l10n/local_key.dart';
 import 'package:senpai/screens/profile/widgets/profile_item_header.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
@@ -38,7 +38,7 @@ class SettingsContent extends StatelessWidget {
     return Column(
       children: [
         ProfileAppBar(
-          title: TextConstants.settingsTitle,
+          title: R.strings.settingsTitle,
           onDoneTap: () => context.router.pop(),
         ),
         const SettingsPremiumWidget(),
@@ -65,7 +65,7 @@ class SettingsContent extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             Text(
-              TextConstants.accountSettingsTitle,
+              R.strings.accountSettingsTitle,
               style: getTextTheme(context).headlineSmall,
             ),
             SizedBox(height: $constants.insets.sm),
@@ -78,7 +78,7 @@ class SettingsContent extends StatelessWidget {
               padding: EdgeInsets.all($constants.insets.sm),
               decoration: profileBoxDecoration(),
               child: ProfileItemHeader(
-                title: TextConstants.addLanguageTitle,
+                title: R.strings.addLanguageTitle,
                 onTap: () {
                   bloc.add(
                     OnChangeSettingsStepEvent(
@@ -93,7 +93,7 @@ class SettingsContent extends StatelessWidget {
               padding: EdgeInsets.all($constants.insets.sm),
               decoration: profileBoxDecoration(),
               child: ProfileItemHeader(
-                title: TextConstants.pushNotificationsTitle,
+                title: R.strings.pushNotificationsTitle,
                 onTap: () {
                   bloc.add(
                     OnChangeSettingsStepEvent(
@@ -105,26 +105,26 @@ class SettingsContent extends StatelessWidget {
             ),
             SizedBox(height: $constants.insets.md),
             Text(
-              TextConstants.activityStatusTitle,
+              R.strings.activityStatusTitle,
               style: getTextTheme(context).headlineSmall,
             ),
             SizedBox(height: $constants.insets.sm),
             SenpaiSwitchWithTitle(
               value: bloc.isShowActiveStatus,
-              title: TextConstants.showActiveStatusTitle,
+              title: R.strings.showActiveStatusTitle,
               onChanged: (isOn) {
                 bloc.add(OnChangeActiveStatusEvent(isStatusOn: isOn));
               },
-              description: TextConstants.showActiveStatusDescription,
+              description: R.strings.showActiveStatusDescription,
             ),
             SizedBox(height: $constants.insets.sm),
             SenpaiSwitchWithTitle(
               value: bloc.isRecentlyActiveStatus,
-              title: TextConstants.showRecentlyActivetatusTitle,
+              title: R.strings.showRecentlyActivetatusTitle,
               onChanged: (isOn) {
                 bloc.add(OnChangeRecentlyActiveStatusEvent(isStatusOn: isOn));
               },
-              description: TextConstants.showRecentlyActivetatusDescription,
+              description: R.strings.showRecentlyActivetatusDescription,
             ),
             SizedBox(height: $constants.insets.md),
             // 24.01 Herbert Joseph: Let's remove/hide for now.
@@ -132,7 +132,7 @@ class SettingsContent extends StatelessWidget {
             //   padding: EdgeInsets.all($constants.insets.sm),
             //   decoration: profileBoxDecoration(),
             //   child: ProfileItemHeader(
-            //     title: TextConstants.feedbackOnSenpaiTitle,
+            //     title: R.strings.feedbackOnSenpaiTitle,
             //     onTap: () {
             //       bloc.add(
             //         OnChangeSettingsStepEvent(
@@ -145,13 +145,13 @@ class SettingsContent extends StatelessWidget {
             // 24.01 Herbert Joseph: Let's remove/hide for now.
             // SizedBox(height: $constants.insets.xxl),
             // SecondaryButton(
-            //   text: TextConstants.restorePurchasesButton,
+            //   text: R.strings.restorePurchasesButton,
             //   onPressed: () {},
             //   hasBackgroundColor: true,
             // ),
             SizedBox(height: $constants.insets.sm),
             SecondaryButton(
-              text: TextConstants.logoutTitle,
+              text: R.strings.logoutTitle,
               onPressed: () {
                 _showActionSheet(context);
               },
@@ -178,7 +178,7 @@ class SettingsContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ProfileItemHeader(
-            title: TextConstants.phoneNumberTitle,
+            title: R.strings.phoneNumberTitle,
             onTap: () {
               bloc.add(
                 OnChangeSettingsStepEvent(
@@ -204,7 +204,7 @@ class SettingsContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            R.strings.language,
+            R.strings.languageTitle,
             style: getTextTheme(context).bodyMedium?.copyWith(color: $constants.palette.white),
           ),
           Row(

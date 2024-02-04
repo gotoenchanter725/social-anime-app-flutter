@@ -2,11 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/premium_screen/widgets/premium_item_button.dart';
 
 import '../../../core/widgets/primary_button.dart';
 import '../../../data/path_constants.dart';
-import '../../../data/text_constants.dart';
 import '../../../utils/constants.dart';
 import '../../../utils/methods/utils.dart';
 import '../bloc/purchase_bloc.dart';
@@ -74,13 +74,13 @@ class _PurchaseDialogState extends State<PurchaseDialog> {
                 ),
                 SizedBox(height: $constants.insets.xs),
                 AutoSizeText(
-                  TextConstants.outOfSuperLikes,
+                  R.strings.outOfSuperLikes,
                   style: getTextTheme(context).headlineLarge?.copyWith(),
                   maxLines: 1,
                 ),
                 SizedBox(height: $constants.insets.xs),
                 Text(
-                  TextConstants.doNotLoseDiamonds,
+                  R.strings.doNotLoseDiamonds,
                   style: getTextTheme(context).headlineSmall?.copyWith(
                         fontWeight: FontWeight.w500,
                       ),
@@ -137,7 +137,7 @@ Widget _buildBuyPremiumButton(
       vertical: $constants.insets.sm,
     ),
     child: PrimaryButton(
-      text: '${TextConstants.dialogBuyButton} $price',
+      text: '${R.strings.dialogBuyButton} $price',
       onPressed: onPressed,
       backgroundColor: $constants.palette.gold,
     ),
@@ -150,7 +150,7 @@ Widget _noThanksButton(BuildContext context) {
       Navigator.pop(context);
     },
     child: Text(
-      TextConstants.noThanks.toUpperCase(),
+      R.strings.noThanks.toUpperCase(),
       style: getTextTheme(context).bodySmall,
     ),
   );

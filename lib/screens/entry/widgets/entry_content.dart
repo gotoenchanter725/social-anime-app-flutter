@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -38,7 +38,7 @@ class EntryContent extends StatelessWidget {
                   height: $constants.insets.lg,
                 ),
                 PrimaryButton(
-                    text: TextConstants.signUp,
+                    text: R.strings.signUp,
                     onPressed: () {
                       context.router.push(SignUpRoute(isExistingUser: false));
                     }),
@@ -46,7 +46,7 @@ class EntryContent extends StatelessWidget {
                   height: $constants.insets.lg,
                 ),
                 SecondaryButton(
-                    text: TextConstants.signIn,
+                    text: R.strings.signIn,
                     onPressed: () {
                       context.router.push(SignUpRoute(isExistingUser: true));
                     }),
@@ -67,9 +67,9 @@ class EntryContent extends StatelessWidget {
               color: $constants.palette.white,
             ),
         children: [
-          const TextSpan(text: TextConstants.entrySpanText1),
+          TextSpan(text: R.strings.entrySpanText1),
           TextSpan(
-            text: TextConstants.entryActionText1,
+            text: R.strings.entryActionText1,
             style: getTextTheme(context).labelMedium!.copyWith(
                   decoration: TextDecoration.underline,
                   color: $constants.palette.white,
@@ -79,9 +79,9 @@ class EntryContent extends StatelessWidget {
                 context.router.push(SenpaiLicenseRoute(mdFileName: "tos.md"));
               },
           ),
-          const TextSpan(text: TextConstants.entrySpanText2),
+          TextSpan(text: R.strings.entrySpanText2),
           TextSpan(
-            text: TextConstants.entryActionText2,
+            text: R.strings.entryActionText2,
             style: getTextTheme(context).labelMedium!.copyWith(
                   decoration: TextDecoration.underline,
                   color: $constants.palette.white,
@@ -92,9 +92,9 @@ class EntryContent extends StatelessWidget {
                     .push(SenpaiLicenseRoute(mdFileName: "privacy_policy.md"));
               },
           ),
-          const TextSpan(text: TextConstants.entrySpanText3),
+          TextSpan(text: R.strings.entrySpanText3),
           TextSpan(
-            text: TextConstants.entryActionText3,
+            text: R.strings.entryActionText3,
             style: getTextTheme(context).labelMedium!.copyWith(
                   decoration: TextDecoration.underline,
                   color: $constants.palette.white,

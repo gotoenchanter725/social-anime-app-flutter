@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/senpai_input.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/occupation/bloc/occupation_bloc.dart';
 import 'package:senpai/screens/profile_fill/occupation/bloc/universities_bloc/universities_bloc.dart';
@@ -66,7 +66,7 @@ class OccupationContent extends StatelessWidget {
                     height: $constants.insets.sm,
                   ),
                   Text(
-                    TextConstants.jobTitleNameHelper,
+                    R.strings.jobTitleNameHelper,
                     style: getTextTheme(context)
                         .labelMedium
                         ?.copyWith(color: $constants.palette.grey),
@@ -93,8 +93,8 @@ class OccupationContent extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
     return HeaderSimpleField(
-      title: TextConstants.yourOccupationText,
-      description: TextConstants.yourOccupationDescription,
+      title: R.strings.yourOccupationText,
+      description: R.strings.yourOccupationText,
       onTapBackButton: () {
         bloc.add(OnChangeStepEvent(step: ProfileFillStep.desiredGender));
       },
@@ -109,13 +109,13 @@ class OccupationContent extends StatelessWidget {
     return BlocBuilder<OccupationBloc, OccupationState>(
       builder: (context, state) {
         return SenpaiInput(
-          placeholder: TextConstants.universityName,
+          placeholder: R.strings.universityName,
           controller: bloc.universityController,
           onTap: () => _openDialog(context),
           onTextChanged: (String university) {
             bloc.add(OnUniversityChangedEvent(university: university));
           },
-          errorText: TextConstants.invalidUniversityNameError,
+          errorText: R.strings.invalidUniversityNameError,
           isError: state is ErrorUniversityState ? state.isEnabled : false,
           isValid: state is ValidUniversityState
               ? true
@@ -130,12 +130,12 @@ class OccupationContent extends StatelessWidget {
     return BlocBuilder<OccupationBloc, OccupationState>(
       builder: (context, state) {
         return SenpaiInput(
-          placeholder: TextConstants.jobTitleName,
+          placeholder: R.strings.jobTitleName,
           controller: bloc.jobController,
           onTextChanged: (String jobTitle) {
             bloc.add(OnJobTitleChangedEvent(jobTitle: jobTitle));
           },
-          errorText: TextConstants.serverError,
+          errorText: R.strings.serverError,
           isError: false,
           isValid: state is ValidJobState
               ? true
@@ -160,7 +160,7 @@ class OccupationContent extends StatelessWidget {
         );
       },
       child: PrimaryButton(
-        text: TextConstants.nextText,
+        text: R.strings.nextText,
         onPressed: () {
           bloc.add(NextTappedEvent());
         },

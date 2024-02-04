@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/birthday/bloc/birthday_bloc.dart';
 import 'package:senpai/theme/app_theme.dart';
 import 'package:senpai/utils/constants.dart';
@@ -18,9 +18,9 @@ class BirthdayPicker extends StatelessWidget {
     await _createTheme().then((theme) async {
       DateTime? pickedDate = await showDatePicker(
         context: context,
-        cancelText: TextConstants.cancelText,
-        confirmText: TextConstants.okText,
-        helpText: TextConstants.pleaseSelectDateText,
+        cancelText: R.strings.cancelText,
+        confirmText: R.strings.okText,
+        helpText: R.strings.pleaseSelectDateText,
         initialEntryMode: DatePickerEntryMode.calendarOnly,
         initialDate: bloc.birthdayDate ?? bloc.lastDate,
         firstDate: bloc.firstDate,

@@ -8,7 +8,7 @@ import 'package:senpai/core/auth/blocs/sign_in_bloc.dart';
 import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/auth/auth_model.dart';
 import 'package:senpai/models/auth/user_model.dart';
@@ -82,7 +82,7 @@ class VerifyPhonePage extends StatelessWidget {
                                 backgroundColor: Colors.transparent,
                                 content: AwesomeSnackbarContent(
                                   title: 'On Snap!',
-                                  message: TextConstants.serverError,
+                                  message: R.strings.serverError,
 
                                   /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
                                   contentType: ContentType.failure,
@@ -141,7 +141,7 @@ class VerifyPhonePage extends StatelessWidget {
                                 backgroundColor: Colors.transparent,
                                 content: AwesomeSnackbarContent(
                                   title: 'On Snap!',
-                                  message: TextConstants.serverError,
+                                  message: R.strings.serverError,
 
                                   /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
                                   contentType: ContentType.failure,
@@ -175,7 +175,7 @@ class VerifyPhonePage extends StatelessWidget {
                                 backgroundColor: Colors.transparent,
                                 content: AwesomeSnackbarContent(
                                   title: 'On Snap!',
-                                  message: TextConstants.serverError,
+                                  message: R.strings.serverError,
 
                                   /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
                                   contentType: ContentType.failure,

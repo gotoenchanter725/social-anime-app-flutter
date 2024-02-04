@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/gallery/bloc/upload_photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/gallery/widgets/gallery_photos_content.dart';
@@ -19,10 +19,10 @@ class GalleryPhotosPage extends StatelessWidget {
     final bloc = BlocProvider.of<UploadPhotosBloc>(context);
 
     if (bloc.selectedAssetsList.isNotEmpty) {
-      return '${TextConstants.selectedText} ${bloc.selectedAssetsList.length} '
-          '${TextConstants.ofText} ${bloc.maxCount}';
+      return '${R.strings.selectedText} ${bloc.selectedAssetsList.length} '
+          '${R.strings.ofText} ${bloc.maxCount}';
     } else {
-      return TextConstants.recentsText;
+      return R.strings.recentsText;
     }
   }
 
@@ -69,7 +69,7 @@ class GalleryPhotosPage extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.only(right: $constants.insets.sm),
           child: Text(
-            TextConstants.doneText,
+            R.strings.doneText,
             style: getTextTheme(context).titleSmall,
           ),
         ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/edit_profile/widgets/edit_profile_content/edit_profile_content.dart';
@@ -28,7 +28,7 @@ class EditProfileTabs extends StatelessWidget {
                 backgroundColor: $constants.palette.darkBlue,
                 automaticallyImplyLeading: false,
                 centerTitle: true,
-                title: const Text(TextConstants.editProfileButton),
+                title: Text(R.strings.editProfileButton),
                 titleTextStyle: getTextTheme(context).titleMedium!.copyWith(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
@@ -55,9 +55,9 @@ class EditProfileTabs extends StatelessWidget {
                       previewProfileBloc.add(OnInitPaginationEvent());
                     }
                   },
-                  tabs: const <Widget>[
-                    Tab(text: TextConstants.editTitle),
-                    Tab(text: TextConstants.previewTitle),
+                  tabs: <Widget>[
+                    Tab(text: R.strings.editTitle),
+                    Tab(text: R.strings.previewTitle),
                   ],
                 ),
               ),
@@ -88,7 +88,7 @@ class EditProfileTabs extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(right: $constants.insets.sm),
         child: Text(
-          TextConstants.doneText,
+          R.strings.doneText,
           style: getTextTheme(context).bodySmall!.copyWith(letterSpacing: 0),
         ),
       ),

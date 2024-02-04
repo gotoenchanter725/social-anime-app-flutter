@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:photo_manager_image_provider/photo_manager_image_provider.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/services/gallery_services/gallery_services.dart';
 
 part 'upload_photos_event.dart';
@@ -41,7 +41,7 @@ class UploadPhotosBloc extends Bloc<UploadPhotosEvent, UploadPhotosState> {
         );
         emit(ValidState());
       } catch (e) {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: true));
+        emit(ErrorState(message: R.strings.serverError, isEnabled: true));
       }
     });
 
@@ -54,7 +54,7 @@ class UploadPhotosBloc extends Bloc<UploadPhotosEvent, UploadPhotosState> {
         });
         emit(ValidState());
       } catch (e) {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: true));
+        emit(ErrorState(message: R.strings.serverError, isEnabled: true));
       }
     });
 
@@ -71,7 +71,7 @@ class UploadPhotosBloc extends Bloc<UploadPhotosEvent, UploadPhotosState> {
         selectedFile = filePath;
         selectedAssetsList.add(event.selectedPhoto);
       }
-      emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+      emit(ErrorState(message: R.strings.serverError, isEnabled: false));
       emit(ValidState());
     });
 

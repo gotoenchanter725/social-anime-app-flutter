@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -31,7 +31,7 @@ class PhotosAppBarLeading extends StatelessWidget {
               alignment: Alignment.centerLeft,
             ),
             Text(
-              TextConstants.backText,
+              R.strings.backText,
               style: getTextTheme(context).titleSmall,
             ),
           ],

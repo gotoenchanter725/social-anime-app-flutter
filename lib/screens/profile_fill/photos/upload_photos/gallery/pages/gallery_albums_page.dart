@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/gallery/bloc/upload_photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/gallery/widgets/gallery_albums_content.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/widgets/photos_app_bar_leading.dart';
@@ -24,7 +24,7 @@ class GalleryAlbumsPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: $constants.palette.darkBlue,
       appBar: SenpaiAppBar(
-        title: TextConstants.galleryText,
+        title: R.strings.galleryText,
         leading: PhotosAppBarLeading(
           onTapBack: () => _onTapBack(context),
         ),

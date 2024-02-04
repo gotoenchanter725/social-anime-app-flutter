@@ -1,4 +1,4 @@
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 //TODO: gender fron BE
 //desires_men
@@ -25,11 +25,11 @@ enum DesiredGender {
 
 String genderToString(DesiredGender desiredGender) {
   if (desiredGender == DesiredGender.male) {
-    return TextConstants.male;
+    return R.strings.male;
   } else if (desiredGender == DesiredGender.female) {
-    return TextConstants.female;
+    return R.strings.female;
   } else {
-    return TextConstants.both;
+    return R.strings.both;
   }
 }
 

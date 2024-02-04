@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/desired_gender/enums/desired_gender_enum.dart';
 
 part 'desired_gender_event.dart';
@@ -25,12 +25,12 @@ class DesiredGenderBloc extends Bloc<DesiredGenderEvent, DesiredGenderState> {
 
     on<NextTappedEvent>((event, emit) {
       if (desiredGender != null) {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: false));
+        emit(ErrorState(message: R.strings.serverError, isEnabled: false));
         emit(ValidState());
         emit(LoadingState());
         emit(DesiredGenderSucssesfulState());
       } else {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: true));
+        emit(ErrorState(message: R.strings.serverError, isEnabled: true));
       }
     });
   }

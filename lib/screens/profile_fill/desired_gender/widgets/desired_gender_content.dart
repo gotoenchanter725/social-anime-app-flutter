@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/senpai_radio_button.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/desired_gender/bloc/desired_gender_bloc.dart';
 import 'package:senpai/screens/profile_fill/desired_gender/enums/desired_gender_enum.dart';
@@ -40,8 +40,8 @@ class DesiredGenderContent extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
     return HeaderSimpleField(
-      title: TextConstants.youLookingForText,
-      description: TextConstants.youLookingDescription,
+      title: R.strings.youLookingForText,
+      description: R.strings.youLookingDescription,
       onTapBackButton: () {
         bloc.add(
           OnChangeStepEvent(
@@ -90,7 +90,7 @@ class DesiredGenderContent extends StatelessWidget {
         );
       },
       child: PrimaryButton(
-        text: TextConstants.nextText,
+        text: R.strings.nextText,
         onPressed: () async {
           bloc.add(NextTappedEvent());
         },

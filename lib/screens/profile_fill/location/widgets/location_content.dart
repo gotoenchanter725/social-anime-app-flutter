@@ -4,7 +4,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:senpai/core/profile_fill/set_user_location/set_user_location_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/location/bloc/location_bloc.dart';
 import 'package:senpai/screens/profile_fill/widgets/header_simple_field.dart';
@@ -29,12 +29,12 @@ class LocationContent extends StatelessWidget {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
         openAppSettings();
-        return Future.error(TextConstants.locationPermissionsDenied);
+        return Future.error(R.strings.locationPermissionsDenied);
       }
     }
     if (permission == LocationPermission.deniedForever) {
       openAppSettings();
-      return Future.error(TextConstants.locationPermissionsPermanentlyDenied);
+      return Future.error(R.strings.locationPermissionsPermanentlyDenied);
     }
     return await Geolocator.getCurrentPosition();
   }
@@ -74,8 +74,8 @@ class LocationContent extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
     return HeaderSimpleField(
-      title: TextConstants.enableLocationText,
-      description: TextConstants.enableLocationDescription,
+      title: R.strings.enableLocationText,
+      description: R.strings.enableLocationDescription,
       isCenterTitle: true,
       onTapBackButton: () {
         bloc.add(
@@ -107,7 +107,7 @@ class LocationContent extends StatelessWidget {
         }
       },
       child: PrimaryButton(
-        text: TextConstants.allowLocationText,
+        text: R.strings.allowLocationText,
         onPressed: () async {
           _getCurrentLocation(context);
         },

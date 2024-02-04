@@ -9,7 +9,7 @@ import 'package:senpai/core/profile_fill/favorite_anime/add_favorite_anime_bloc.
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 import 'package:senpai/core/user/blocs/verify_photo_user/verify_photo_user_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
@@ -62,7 +62,7 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              _showSnackBarError(context, TextConstants.serverError);
+              _showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -76,7 +76,7 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
               }
               final user = response["submitVerifyRequest"]["user"];
               if (user == null) {
-                _showSnackBarError(context, TextConstants.nullUser);
+                _showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }
@@ -100,7 +100,7 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              _showSnackBarError(context, TextConstants.serverError);
+              _showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -114,7 +114,7 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
 
               final user = response["updateUser"]["user"];
               if (user == null) {
-                _showSnackBarError(context, TextConstants.nullUser);
+                _showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }
@@ -145,7 +145,7 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
                 response["addFavoriteAnime"]["user"]["animes"];
 
             if (listAnime.isEmpty) {
-              _showSnackBarError(context, TextConstants.nullUser);
+              _showSnackBarError(context, R.strings.nullUser);
               logIt.error("A user without an animes tried to again");
               return const SizedBox.shrink();
             }
@@ -155,7 +155,7 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
             return const SizedBox.shrink();
           },
           failed: (error, result) {
-            _showSnackBarError(context, TextConstants.serverError);
+            _showSnackBarError(context, R.strings.serverError);
             return const SizedBox.shrink();
           },
           orElse: () => const SizedBox.shrink(),

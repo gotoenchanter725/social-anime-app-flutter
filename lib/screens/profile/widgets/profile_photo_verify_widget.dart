@@ -5,7 +5,7 @@ import 'package:senpai/core/user/blocs/verify_request_user/fetch_verify_requests
 import 'package:senpai/core/widgets/secondary_button.dart';
 
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/screens/profile_fill/widgets/custom_close_button.dart';
@@ -57,15 +57,15 @@ class ProfilePhotoVerifyWidget extends StatelessWidget {
           return const SizedBox();
         }
         if (bloc.user.verified != true && bloc.isPendingUserStatus) {
-          return const ProfileListTileButton(
+          return ProfileListTileButton(
             icon: PathConstants.alarmIcon,
-            title: TextConstants.waitingForPhotoVerificationTitle,
+            title: R.strings.waitingForPhotoVerificationTitle,
             hasBorder: false,
           );
         } else {
           return ProfileListTileButton(
             icon: PathConstants.verifyFaceIcon,
-            title: TextConstants.verifyYourPhotosButton,
+            title: R.strings.verifyYourPhotosButton,
             onTap: () {
               _openPhotoVerify(context);
             },
@@ -109,25 +109,25 @@ class ProfilePhotoVerifyWidget extends StatelessWidget {
               _buildTitle(
                 context,
                 isVerified
-                    ? TextConstants.yourPhotosHaveBeenVerifiedTitle
-                    : TextConstants.yourPhotosHaveNotBeenVerifiedTitle,
+                    ? R.strings.yourPhotosHaveBeenVerifiedTitle
+                    : R.strings.yourPhotosHaveNotBeenVerifiedTitle,
               ),
               _buildDescription(
                 context,
                 isVerified
-                    ? TextConstants.nowEveryoneWillKnowThatYouText
-                    : TextConstants.thereSeemsToBeSomethingWrongYourPhotoText,
+                    ? R.strings.nowEveryoneWillKnowThatYouText
+                    : R.strings.thereSeemsToBeSomethingWrongYourPhotoText,
               ),
               SizedBox(height: $constants.insets.md),
               isVerified
                   ? SecondaryButton(
-                      text: TextConstants.closeButton,
+                      text: R.strings.closeButton,
                       onPressed: () {
                         context.router.pop();
                       },
                     )
                   : SecondaryButton(
-                      text: TextConstants.tryAgainButton,
+                      text: R.strings.tryAgainButton,
                       onPressed: () {
                         context.router.pop();
                         _openPhotoVerify(context);

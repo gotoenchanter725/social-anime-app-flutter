@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:photo_manager/photo_manager.dart';
 import 'package:photo_manager_image_provider/photo_manager_image_provider.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 import 'package:senpai/screens/profile_fill/photos/upload_photos/gallery/bloc/upload_photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/gallery/widgets/custom_asset_image.dart';
@@ -27,7 +27,7 @@ class GalleryPhotosContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: bloc.assetsList.isEmpty
-          ? const Center(child: Text(TextConstants.noPhotoFoundText))
+          ? Center(child: Text(R.strings.noPhotoFoundText))
           : Column(
               children: [
                 PreviewPhotoWidget(selectedFile: bloc.selectedFile),

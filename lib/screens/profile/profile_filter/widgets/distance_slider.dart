@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile/profile_filter/profile_filter_bloc/profile_filter_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 
@@ -21,11 +21,11 @@ class DistanceSlider extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(TextConstants.distanceTitle),
+                  Text(R.strings.distanceTitle),
                   Text(
                     bloc.changedFilters.milesAway == bloc.maxDistance
-                        ? TextConstants.wholeCountryTitle
-                        : '${bloc.changedFilters.milesAway} ${TextConstants.kmTitle}',
+                        ? R.strings.wholeCountryTitle
+                        : '${bloc.changedFilters.milesAway} ${R.strings.miTitle}',
                   ),
                 ],
               ),

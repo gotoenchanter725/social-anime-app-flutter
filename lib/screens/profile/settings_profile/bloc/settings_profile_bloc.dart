@@ -3,7 +3,7 @@ import 'package:fresh_graphql/fresh_graphql.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:senpai/data/storage_keys_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/auth/auth_model.dart';
 import 'package:senpai/models/spotify_auth/spotify_auth_model.dart';
@@ -109,7 +109,7 @@ class SettingsProfileBloc
         emit(ValidState());
       } else {
         emit(ErrorState(
-          message: TextConstants.invalidPhoneError,
+          message: R.strings.invalidPhoneError,
           isEnabled: true,
         ));
       }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile/profile_filter/profile_filter_bloc/profile_filter_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 
@@ -23,7 +23,7 @@ class AgeRangeSlider extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(TextConstants.ageRangeTitle),
+                  Text(R.strings.ageRangeTitle),
                   Text('$minAge-$maxAge'),
                 ],
               ),

@@ -5,7 +5,7 @@ import 'package:senpai/core/profile_fill/set_user_location/set_user_location_blo
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
 import 'package:senpai/data/path_constants.dart';
 
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/edit_profile/edit_location/bloc/edit_location_bloc.dart';
@@ -43,7 +43,7 @@ class EditLocationContent extends StatelessWidget {
     final blocEditProfile = BlocProvider.of<EditProfileBloc>(context);
 
     return ProfileAppBar(
-      title: TextConstants.locationTitle,
+      title: R.strings.locationTitle,
       hasLeading: true,
       onTapLeading: () {
         if (locationBloc.step == EditLocationStep.map) {
@@ -75,7 +75,7 @@ class EditLocationContent extends StatelessWidget {
         children: [
           ProfileListTileButton(
             icon: PathConstants.locationIcon,
-            title: TextConstants.findCityNearbyTitle,
+            title: R.strings.findCityNearbyTitle,
             onTap: () {
               bloc.add(OnChangeLocationStepEvent(step: EditLocationStep.map));
             },
@@ -95,7 +95,7 @@ class EditLocationContent extends StatelessWidget {
       final bloc = BlocProvider.of<EditProfileBloc>(context);
       return SenpaiSwitchWithTitle(
         value: bloc.hideLocation,
-        title: TextConstants.hideLocationTitle,
+        title: R.strings.hideLocationTitle,
         onChanged: (isHideLocation) {
           bloc.add(OnChangeHideLocationEvent(
             isHideLocation: isHideLocation,

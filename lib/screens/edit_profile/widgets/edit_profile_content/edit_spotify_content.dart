@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/profile_fill/spotify/enums/spotify_enums.dart';
@@ -52,7 +52,7 @@ class EditSpotifyContent extends StatelessWidget {
           SizedBox(height: $constants.insets.sm),
           SenpaiSwitchWithTitle(
             value: bloc.shareTopArtists,
-            title: TextConstants.shareInFeedText,
+            title: R.strings.shareInFeedText,
             height: $constants.insets.xl,
             onChanged: (isShareTopArtists) {
               bloc.add(OnChangeShareTopArtistsEvent(
@@ -65,7 +65,7 @@ class EditSpotifyContent extends StatelessWidget {
           SizedBox(height: $constants.insets.xs),
           SenpaiSwitchWithTitle(
             value: bloc.shareTopSongs,
-            title: TextConstants.shareInFeedText,
+            title: R.strings.shareInFeedText,
             height: $constants.insets.xl,
             onChanged: (isShareTopSongs) {
               bloc.add(OnChangeShareTopSongsEvent(
@@ -88,7 +88,7 @@ class EditSpotifyContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ProfileItemHeader(
-            title: TextConstants.topSpotifyArtistsText,
+            title: R.strings.topSpotifyArtistsText,
             onTap: () async {
               await context.router
                   .push(EditSpotifyMusicRoute(editBloc: editBloc))
@@ -141,7 +141,7 @@ class EditSpotifyContent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ProfileItemHeader(
-            title: TextConstants.topSpotifyListeningSongsText,
+            title: R.strings.topSpotifyListeningSongsText,
             onTap: () async {
               await context.router
                   .push(EditSpotifyMusicRoute(

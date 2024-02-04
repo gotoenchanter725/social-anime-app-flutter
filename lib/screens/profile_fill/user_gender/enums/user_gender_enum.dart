@@ -1,4 +1,4 @@
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 //TODO: gender fron BE
 //male
@@ -14,7 +14,7 @@ enum UserGender {
 }
 
 String genderToString(UserGender userGender) =>
-    userGender == UserGender.male ? TextConstants.male : TextConstants.female;
+    userGender == UserGender.male ? R.strings.male : R.strings.female;
 
 int genderToServer(UserGender userGender) =>
     userGender == UserGender.male ? 0 : 1;

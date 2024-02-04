@@ -105,89 +105,89 @@ abstract class AppLocalizations {
   /// **'English'**
   String get english;
 
-  /// No description provided for @yourWaifu.
+  /// No description provided for @onboarding1SubTitle.
   ///
   /// In en, this message translates to:
   /// **'your waifu'**
-  String get yourWaifu;
+  String get onboarding1SubTitle;
 
-  /// No description provided for @anime.
+  /// No description provided for @onboarding2Title.
   ///
   /// In en, this message translates to:
   /// **'Anime'**
-  String get anime;
+  String get onboarding2Title;
 
-  /// No description provided for @loversUnite.
+  /// No description provided for @onboarding2SubTitle.
   ///
   /// In en, this message translates to:
   /// **'lovers unite'**
-  String get loversUnite;
+  String get onboarding2SubTitle;
 
-  /// No description provided for @start.
+  /// No description provided for @onboarding3Title.
   ///
   /// In en, this message translates to:
   /// **'Start'**
-  String get start;
+  String get onboarding3Title;
 
-  /// No description provided for @matching.
+  /// No description provided for @onboarding3SubTitle.
   ///
   /// In en, this message translates to:
   /// **'matching'**
-  String get matching;
+  String get onboarding3SubTitle;
 
-  /// No description provided for @skip.
+  /// No description provided for @onboardingButtonText.
   ///
   /// In en, this message translates to:
   /// **'Skip'**
-  String get skip;
+  String get onboardingButtonText;
 
-  /// No description provided for @byTappingCreateAccountOrSignInYouAgreeTo.
+  /// No description provided for @entryText.
   ///
   /// In en, this message translates to:
   /// **'By tapping \"Create account\" or \"Sign in\", you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookies Policy.'**
-  String get byTappingCreateAccountOrSignInYouAgreeTo;
+  String get entryText;
 
-  /// No description provided for @byTappingCreateAccountOrSignInYouAgreeTo2.
+  /// No description provided for @entrySpanText1.
   ///
   /// In en, this message translates to:
   /// **'By tapping \"Create account\" or \"Sign in\", you agree to our'**
-  String get byTappingCreateAccountOrSignInYouAgreeTo2;
+  String get entrySpanText1;
 
-  /// No description provided for @terms.
+  /// No description provided for @entryActionText1.
   ///
   /// In en, this message translates to:
   /// **'Terms'**
-  String get terms;
+  String get entryActionText1;
 
-  /// No description provided for @learnHowWeProcessYourDataInOur.
+  /// No description provided for @entrySpanText2.
   ///
   /// In en, this message translates to:
   /// **' Learn how we process your data in our'**
-  String get learnHowWeProcessYourDataInOur;
+  String get entrySpanText2;
 
-  /// No description provided for @privacyPolicy.
+  /// No description provided for @entryActionText2.
   ///
   /// In en, this message translates to:
   /// **'Privacy Policy'**
-  String get privacyPolicy;
+  String get entryActionText2;
 
-  /// No description provided for @and.
+  /// No description provided for @entrySpanText3.
   ///
   /// In en, this message translates to:
-  /// **'and'**
-  String get and;
+  /// **' and '**
+  String get entrySpanText3;
 
-  /// No description provided for @cookiesPolicy.
+  /// No description provided for @entryActionText3.
   ///
   /// In en, this message translates to:
   /// **'Cookies Policy'**
-  String get cookiesPolicy;
+  String get entryActionText3;
 
-  /// No description provided for @createAccount.
+  /// No description provided for @signUp.
   ///
   /// In en, this message translates to:
   /// **'Create account'**
-  String get createAccount;
+  String get signUp;
 
   /// No description provided for @signIn.
   ///
@@ -207,179 +207,179 @@ abstract class AppLocalizations {
   /// **'Hello!'**
   String get hello;
 
-  /// No description provided for @enterYourPhone.
+  /// No description provided for @createUserPrompt.
   ///
   /// In en, this message translates to:
   /// **'Enter your phone'**
-  String get enterYourPhone;
+  String get createUserPrompt;
 
-  /// No description provided for @labelContinue.
+  /// No description provided for @continueText.
   ///
   /// In en, this message translates to:
   /// **'Continue'**
-  String get labelContinue;
+  String get continueText;
 
-  /// No description provided for @invalidPhoneNumberPleaseTryAgain.
+  /// No description provided for @invalidPhoneError.
   ///
   /// In en, this message translates to:
   /// **'Invalid phone number. Please try again'**
-  String get invalidPhoneNumberPleaseTryAgain;
+  String get invalidPhoneError;
 
-  /// No description provided for @weWillSendATextWithAVerificationCode.
+  /// No description provided for @createUserInstructions.
   ///
   /// In en, this message translates to:
   /// **'We will send a text with a verification code.'**
-  String get weWillSendATextWithAVerificationCode;
+  String get createUserInstructions;
 
-  /// No description provided for @somethingWentWrongPleaseTryAgain.
+  /// No description provided for @serverError.
   ///
   /// In en, this message translates to:
   /// **'Something went wrong, please try again'**
-  String get somethingWentWrongPleaseTryAgain;
+  String get serverError;
 
-  /// No description provided for @theresNoExistingAccountAssociatedWithThisPh.
+  /// No description provided for @nullUser.
   ///
   /// In en, this message translates to:
   /// **'There\'s no existing account associated with this phone number'**
-  String get theresNoExistingAccountAssociatedWithThisPh;
+  String get nullUser;
 
-  /// No description provided for @thisUserAlreadyHasAnAccount.
+  /// No description provided for @alreadyHasAccount.
   ///
   /// In en, this message translates to:
   /// **'This user already has an account'**
-  String get thisUserAlreadyHasAnAccount;
+  String get alreadyHasAccount;
 
-  /// No description provided for @iAgreeToReceiveSMSTextsFromSenpaiAtThePh.
+  /// No description provided for @termsAndConditions.
   ///
   /// In en, this message translates to:
   /// **'I agree to receive SMS texts from Senpai at the phone number provided. Reply STOP to opt-out.'**
-  String get iAgreeToReceiveSMSTextsFromSenpaiAtThePh;
+  String get termsAndConditions;
 
-  /// No description provided for @yourCodeIs.
+  /// No description provided for @verifyPhoneHeading.
   ///
   /// In en, this message translates to:
   /// **'Your code is'**
-  String get yourCodeIs;
+  String get verifyPhoneHeading;
 
-  /// No description provided for @weSentTheVerificationCodeOn.
+  /// No description provided for @verifyPhoneInstruction.
   ///
   /// In en, this message translates to:
   /// **'We sent the verification code on'**
-  String get weSentTheVerificationCodeOn;
+  String get verifyPhoneInstruction;
 
-  /// No description provided for @invalidCodePleaseTryAgain.
+  /// No description provided for @invalidCodeError.
   ///
   /// In en, this message translates to:
   /// **'Invalid code. Please try again'**
-  String get invalidCodePleaseTryAgain;
+  String get invalidCodeError;
 
-  /// No description provided for @codeNotReceivedResend.
+  /// No description provided for @verifyCodeAction.
   ///
   /// In en, this message translates to:
   /// **'Code not received? Resend'**
-  String get codeNotReceivedResend;
+  String get verifyCodeAction;
 
-  /// No description provided for @skipThisStep.
+  /// No description provided for @skipStep.
   ///
   /// In en, this message translates to:
   /// **'Skip this step'**
-  String get skipThisStep;
+  String get skipStep;
 
-  /// No description provided for @photoVerify.
+  /// No description provided for @verifyPhotoHeading.
   ///
   /// In en, this message translates to:
   /// **'Photo verify'**
-  String get photoVerify;
+  String get verifyPhotoHeading;
 
-  /// No description provided for @photoVerifyToLetEveryoneKnowYourPhotosAre.
+  /// No description provided for @verifyPhotoDescription.
   ///
   /// In en, this message translates to:
-  /// **'Photo verify to let everyone know your photos are really you'**
-  String get photoVerifyToLetEveryoneKnowYourPhotosAre;
+  /// **'Photo verify to let everyone know \\nyour photos are really you'**
+  String get verifyPhotoDescription;
 
-  /// No description provided for @verifyByPhoto.
+  /// No description provided for @verifyPhotoButtonText.
   ///
   /// In en, this message translates to:
   /// **'Verify by photo'**
-  String get verifyByPhoto;
+  String get verifyPhotoButtonText;
 
-  /// No description provided for @match.
+  /// No description provided for @matchTabText.
   ///
   /// In en, this message translates to:
   /// **'Match'**
-  String get match;
+  String get matchTabText;
 
-  /// No description provided for @chat.
+  /// No description provided for @chatTabText.
   ///
   /// In en, this message translates to:
   /// **'Chat'**
-  String get chat;
+  String get chatTabText;
 
-  /// No description provided for @profile.
+  /// No description provided for @profileTabText.
   ///
   /// In en, this message translates to:
   /// **'Profile'**
-  String get profile;
+  String get profileTabText;
 
-  /// No description provided for @happyWithYourPhoto.
+  /// No description provided for @happyWithPhotoText.
   ///
   /// In en, this message translates to:
-  /// **'Happy with your photo?'**
-  String get happyWithYourPhoto;
+  /// **'Happy with \\nyour photo?'**
+  String get happyWithPhotoText;
 
-  /// No description provided for @weWillScanYourPhotoToVerifyYourIdentity.
+  /// No description provided for @weWillScanYourPhotoText.
   ///
   /// In en, this message translates to:
   /// **'We will scan your photo to verify your identity'**
-  String get weWillScanYourPhotoToVerifyYourIdentity;
+  String get weWillScanYourPhotoText;
 
-  /// No description provided for @retake.
+  /// No description provided for @retakeButton.
   ///
   /// In en, this message translates to:
   /// **'Retake'**
-  String get retake;
+  String get retakeButton;
 
-  /// No description provided for @agreeAndSubmit.
+  /// No description provided for @agreeAndSubmitButton.
   ///
   /// In en, this message translates to:
   /// **'Agree and submit'**
-  String get agreeAndSubmit;
+  String get agreeAndSubmitButton;
 
-  /// No description provided for @thanksALot.
+  /// No description provided for @thanksLotText.
   ///
   /// In en, this message translates to:
   /// **'Thanks a lot!'**
-  String get thanksALot;
+  String get thanksLotText;
 
-  /// No description provided for @weHaveReceivedYourPhotoAndWillAnswerWithin.
+  /// No description provided for @weReceivedYourPhotoText.
   ///
   /// In en, this message translates to:
   /// **'We have received your photo and will answer within 1-2 business days'**
-  String get weHaveReceivedYourPhotoAndWillAnswerWithin;
+  String get weReceivedYourPhotoText;
 
-  /// No description provided for @startMatching.
+  /// No description provided for @startMatchingButton.
   ///
   /// In en, this message translates to:
   /// **'Start matching!'**
-  String get startMatching;
+  String get startMatchingButton;
 
-  /// No description provided for @welcomeToSenpai.
+  /// No description provided for @welcomeSenpaiTitle.
   ///
   /// In en, this message translates to:
   /// **'Welcome to Senpai!'**
-  String get welcomeToSenpai;
+  String get welcomeSenpaiTitle;
 
-  /// No description provided for @fillYourProfileAndStartMatching.
+  /// No description provided for @welcomeSenpaiDescription.
   ///
   /// In en, this message translates to:
   /// **'Fill your profile and start matching'**
-  String get fillYourProfileAndStartMatching;
+  String get welcomeSenpaiDescription;
 
-  /// No description provided for @fillTheProfile.
+  /// No description provided for @fillProfileText.
   ///
   /// In en, this message translates to:
   /// **'Fill the profile'**
-  String get fillTheProfile;
+  String get fillProfileText;
 
   /// No description provided for @yourFirstName.
   ///
@@ -387,239 +387,239 @@ abstract class AppLocalizations {
   /// **'Your first name'**
   String get yourFirstName;
 
-  /// No description provided for @thisIsHowItWillAppearInSenpai.
+  /// No description provided for @yourFirstNameDescription.
   ///
   /// In en, this message translates to:
   /// **'This is how it will appear in Senpai'**
-  String get thisIsHowItWillAppearInSenpai;
+  String get yourFirstNameDescription;
 
-  /// No description provided for @firstName.
+  /// No description provided for @firstNameText.
   ///
   /// In en, this message translates to:
   /// **'First Name'**
-  String get firstName;
+  String get firstNameText;
 
-  /// No description provided for @next.
+  /// No description provided for @nextText.
   ///
   /// In en, this message translates to:
   /// **'Next'**
-  String get next;
+  String get nextText;
 
-  /// No description provided for @failedToGetConversationsFromTheServer.
+  /// No description provided for @conversationsDataErrorText.
   ///
   /// In en, this message translates to:
   /// **'Failed to get conversations from the server'**
-  String get failedToGetConversationsFromTheServer;
+  String get conversationsDataErrorText;
 
-  /// No description provided for @startLiking.
+  /// No description provided for @emptyConversationsPromptText.
   ///
   /// In en, this message translates to:
   /// **'Start liking'**
-  String get startLiking;
+  String get emptyConversationsPromptText;
 
-  /// No description provided for @whenYouMatchWithOtherUsersTheyWillAppearH.
+  /// No description provided for @emptyConversationsText.
   ///
   /// In en, this message translates to:
   /// **'When you match with other users they will appear here'**
-  String get whenYouMatchWithOtherUsersTheyWillAppearH;
+  String get emptyConversationsText;
 
-  /// No description provided for @youMatchedWith.
+  /// No description provided for @emptyChatTitle.
   ///
   /// In en, this message translates to:
   /// **'You matched with'**
-  String get youMatchedWith;
+  String get emptyChatTitle;
 
-  /// No description provided for @dontWaitTooLongSayHello.
+  /// No description provided for @emptyChatPromptText.
   ///
   /// In en, this message translates to:
   /// **'Don\'t wait too long, say hello :)'**
-  String get dontWaitTooLongSayHello;
+  String get emptyChatPromptText;
 
-  /// No description provided for @sticker.
+  /// No description provided for @stickerMessageText.
   ///
   /// In en, this message translates to:
   /// **'🌄 Sticker'**
-  String get sticker;
+  String get stickerMessageText;
 
-  /// No description provided for @animation.
+  /// No description provided for @animationRecomedationText.
   ///
   /// In en, this message translates to:
   /// **'🌄 Animation'**
-  String get animation;
+  String get animationRecomedationText;
 
-  /// No description provided for @gif.
+  /// No description provided for @gifMessageText.
   ///
   /// In en, this message translates to:
   /// **'🌄 Gif'**
-  String get gif;
+  String get gifMessageText;
 
-  /// No description provided for @attachment.
+  /// No description provided for @attachmentMessageText.
   ///
   /// In en, this message translates to:
   /// **'🌄 Attachment'**
-  String get attachment;
+  String get attachmentMessageText;
 
-  /// No description provided for @cancel.
+  /// No description provided for @cancelText.
   ///
   /// In en, this message translates to:
   /// **'Cancel'**
-  String get cancel;
+  String get cancelText;
 
-  /// No description provided for @tryToSearchYourMatchesOrChats.
+  /// No description provided for @emptySearchConversationsHintText.
   ///
   /// In en, this message translates to:
   /// **'Try to search your matches or chats'**
-  String get tryToSearchYourMatchesOrChats;
+  String get emptySearchConversationsHintText;
 
-  /// No description provided for @oopsNoMatchesFound.
+  /// No description provided for @emptyConversationSearchPromptText.
   ///
   /// In en, this message translates to:
   /// **'Oops. No matches found'**
-  String get oopsNoMatchesFound;
+  String get emptyConversationSearchPromptText;
 
-  /// No description provided for @maybeThereIsAMistakeInSearchPleaseCheckAn.
+  /// No description provided for @emptyConversationSearchText.
   ///
   /// In en, this message translates to:
   /// **'Maybe there is a mistake in search? Please check and try again'**
-  String get maybeThereIsAMistakeInSearchPleaseCheckAn;
+  String get emptyConversationSearchText;
 
-  /// No description provided for @stickers.
+  /// No description provided for @stickersTabText.
   ///
   /// In en, this message translates to:
   /// **'Stickers'**
-  String get stickers;
+  String get stickersTabText;
 
-  /// No description provided for @gIPHYCompanyNameDoNotTranslate.
+  /// No description provided for @gifsTabText.
   ///
   /// In en, this message translates to:
   /// **'GIPHY (company name, do not translate)'**
-  String get gIPHYCompanyNameDoNotTranslate;
+  String get gifsTabText;
 
-  /// No description provided for @anime2.
+  /// No description provided for @animeTabText.
   ///
   /// In en, this message translates to:
   /// **'Anime'**
-  String get anime2;
+  String get animeTabText;
 
-  /// No description provided for @myFavoriteAnimes.
+  /// No description provided for @favouriteAnimeSelectionTitle.
   ///
   /// In en, this message translates to:
   /// **'My favorite animes'**
-  String get myFavoriteAnimes;
+  String get favouriteAnimeSelectionTitle;
 
-  /// No description provided for @searchChatOrMatch.
+  /// No description provided for @searchHintText.
   ///
   /// In en, this message translates to:
   /// **'Search chat or match'**
-  String get searchChatOrMatch;
+  String get searchHintText;
 
-  /// No description provided for @matches.
+  /// No description provided for @matchesTitle.
   ///
   /// In en, this message translates to:
   /// **'Matches'**
-  String get matches;
+  String get matchesTitle;
 
-  /// No description provided for @messages.
+  /// No description provided for @messagesTitle.
   ///
   /// In en, this message translates to:
   /// **'Messages'**
-  String get messages;
+  String get messagesTitle;
 
-  /// No description provided for @sendMessage.
+  /// No description provided for @chatInputHint.
   ///
   /// In en, this message translates to:
   /// **'Send message...'**
-  String get sendMessage;
+  String get chatInputHint;
 
-  /// No description provided for @invalidFirstNamePleaseTryAgain.
+  /// No description provided for @invalidFirstNameError.
   ///
   /// In en, this message translates to:
   /// **'Invalid first name. Please try again'**
-  String get invalidFirstNamePleaseTryAgain;
+  String get invalidFirstNameError;
 
-  /// No description provided for @activeNow.
+  /// No description provided for @userOnlineText.
   ///
   /// In en, this message translates to:
   /// **'Active now'**
-  String get activeNow;
+  String get userOnlineText;
 
-  /// No description provided for @activeRecently.
+  /// No description provided for @userOfflineText.
   ///
   /// In en, this message translates to:
   /// **'Active recently'**
-  String get activeRecently;
+  String get userOfflineText;
 
-  /// No description provided for @failedToSendMessage.
+  /// No description provided for @failedToSendMessageText.
   ///
   /// In en, this message translates to:
   /// **'Failed to send message'**
-  String get failedToSendMessage;
+  String get failedToSendMessageText;
 
-  /// No description provided for @failedToAddReactionToMessage.
+  /// No description provided for @failedToUpdateMessageText.
   ///
   /// In en, this message translates to:
   /// **'Failed to add reaction to message'**
-  String get failedToAddReactionToMessage;
+  String get failedToUpdateMessageText;
 
-  /// No description provided for @addADescription.
+  /// No description provided for @animeDescriptionHint.
   ///
   /// In en, this message translates to:
   /// **'Add a description'**
-  String get addADescription;
+  String get animeDescriptionHint;
 
-  /// No description provided for @oopsNoAnimesFound.
+  /// No description provided for @emptyChatAnimationsSearchTitle.
   ///
   /// In en, this message translates to:
   /// **'Oops. No animes found'**
-  String get oopsNoAnimesFound;
+  String get emptyChatAnimationsSearchTitle;
 
-  /// No description provided for @maybeThereIsAMistakeInSearchPleaseCheckAn2.
+  /// No description provided for @emptyChatAnimationsSearchText.
   ///
   /// In en, this message translates to:
   /// **'Maybe there is a mistake in search? Please check and try again'**
-  String get maybeThereIsAMistakeInSearchPleaseCheckAn2;
+  String get emptyChatAnimationsSearchText;
 
-  /// No description provided for @searchInGIPHY.
+  /// No description provided for @searchGifPlaceHolderText.
   ///
   /// In en, this message translates to:
   /// **'Search in GIPHY'**
-  String get searchInGIPHY;
+  String get searchGifPlaceHolderText;
 
-  /// No description provided for @viewProfile.
+  /// No description provided for @viewProfileText.
   ///
   /// In en, this message translates to:
   /// **'View Profile'**
-  String get viewProfile;
+  String get viewProfileText;
 
-  /// No description provided for @unmatch.
+  /// No description provided for @unmatchText.
   ///
   /// In en, this message translates to:
   /// **'Unmatch'**
-  String get unmatch;
+  String get unmatchText;
 
-  /// No description provided for @report.
+  /// No description provided for @reportText.
   ///
   /// In en, this message translates to:
   /// **'Report'**
-  String get report;
+  String get reportText;
 
-  /// No description provided for @inappropriateBehavior.
+  /// No description provided for @inappropriateBehaviorText.
   ///
   /// In en, this message translates to:
   /// **'Inappropriate Behavior'**
-  String get inappropriateBehavior;
+  String get inappropriateBehaviorText;
 
-  /// No description provided for @spam.
+  /// No description provided for @spamText.
   ///
   /// In en, this message translates to:
   /// **'Spam'**
-  String get spam;
+  String get spamText;
 
-  /// No description provided for @sexualAbuse.
+  /// No description provided for @sexualAbuseText.
   ///
   /// In en, this message translates to:
   /// **'Sexual Abuse'**
-  String get sexualAbuse;
+  String get sexualAbuseText;
 
   /// No description provided for @doxxingIdentityThreat.
   ///
@@ -627,53 +627,47 @@ abstract class AppLocalizations {
   /// **'Doxxing / Identity threat'**
   String get doxxingIdentityThreat;
 
-  /// No description provided for @areYouSureYouWantToUnmatchThisUser.
+  /// No description provided for @areYouSureYouWantToUnmatchUser.
   ///
   /// In en, this message translates to:
   /// **'Are you sure you want to unmatch this user?'**
-  String get areYouSureYouWantToUnmatchThisUser;
+  String get areYouSureYouWantToUnmatchUser;
 
-  /// No description provided for @yourBirthday.
+  /// No description provided for @yourBirthdayText.
   ///
   /// In en, this message translates to:
   /// **'Your birthday'**
-  String get yourBirthday;
+  String get yourBirthdayText;
 
-  /// No description provided for @yourAgeWillBePublic.
+  /// No description provided for @yourBirthdayDescription.
   ///
   /// In en, this message translates to:
   /// **'Your age will be public'**
-  String get yourAgeWillBePublic;
+  String get yourBirthdayDescription;
 
-  /// No description provided for @cancel2.
-  ///
-  /// In en, this message translates to:
-  /// **'Cancel'**
-  String get cancel2;
-
-  /// No description provided for @ok.
+  /// No description provided for @okText.
   ///
   /// In en, this message translates to:
   /// **'Ok'**
-  String get ok;
+  String get okText;
 
-  /// No description provided for @pleaseSelectADate.
+  /// No description provided for @pleaseSelectDateText.
   ///
   /// In en, this message translates to:
   /// **'Please select a date'**
-  String get pleaseSelectADate;
+  String get pleaseSelectDateText;
 
-  /// No description provided for @youAre.
+  /// No description provided for @youAreText.
   ///
   /// In en, this message translates to:
   /// **'You are'**
-  String get youAre;
+  String get youAreText;
 
-  /// No description provided for @howDoYouIdentify.
+  /// No description provided for @youAreDescription.
   ///
   /// In en, this message translates to:
   /// **'How do you identify?'**
-  String get howDoYouIdentify;
+  String get youAreDescription;
 
   /// No description provided for @male.
   ///
@@ -687,17 +681,17 @@ abstract class AppLocalizations {
   /// **'Female'**
   String get female;
 
-  /// No description provided for @youLookingFor.
+  /// No description provided for @youLookingForText.
   ///
   /// In en, this message translates to:
   /// **'You looking for'**
-  String get youLookingFor;
+  String get youLookingForText;
 
-  /// No description provided for @whoShouldWeShowForYou.
+  /// No description provided for @youLookingDescription.
   ///
   /// In en, this message translates to:
   /// **'Who should we show for you'**
-  String get whoShouldWeShowForYou;
+  String get youLookingDescription;
 
   /// No description provided for @both.
   ///
@@ -705,17 +699,11 @@ abstract class AppLocalizations {
   /// **'Both'**
   String get both;
 
-  /// No description provided for @yourOccupation.
+  /// No description provided for @yourOccupationText.
   ///
   /// In en, this message translates to:
   /// **'Your occupation'**
-  String get yourOccupation;
-
-  /// No description provided for @thisIsHowItWillAppearInSenpai2.
-  ///
-  /// In en, this message translates to:
-  /// **'This is how it will appear in Senpai'**
-  String get thisIsHowItWillAppearInSenpai2;
+  String get yourOccupationText;
 
   /// No description provided for @universityName.
   ///
@@ -723,41 +711,41 @@ abstract class AppLocalizations {
   /// **'University name'**
   String get universityName;
 
-  /// No description provided for @jobTitle.
+  /// No description provided for @jobTitleName.
   ///
   /// In en, this message translates to:
   /// **'Job title'**
-  String get jobTitle;
+  String get jobTitleName;
 
-  /// No description provided for @ifYouDontHaveAJobOrDontWantToFillInThi.
+  /// No description provided for @jobTitleNameHelper.
   ///
   /// In en, this message translates to:
   /// **'If you don’t have a job or don’t want to fill in this field, just skip it.'**
-  String get ifYouDontHaveAJobOrDontWantToFillInThi;
+  String get jobTitleNameHelper;
 
-  /// No description provided for @invalidUniversityNamePleaseTryAgain.
+  /// No description provided for @invalidUniversityNameError.
   ///
   /// In en, this message translates to:
   /// **'Invalid university name. Please try again'**
-  String get invalidUniversityNamePleaseTryAgain;
+  String get invalidUniversityNameError;
 
-  /// No description provided for @noUniversityWithSuchANameWasFound.
+  /// No description provided for @noUniversityFound.
   ///
   /// In en, this message translates to:
   /// **'No university with such a name was found.'**
-  String get noUniversityWithSuchANameWasFound;
+  String get noUniversityFound;
 
-  /// No description provided for @yourStory.
+  /// No description provided for @yourStoryText.
   ///
   /// In en, this message translates to:
   /// **'Your story'**
-  String get yourStory;
+  String get yourStoryText;
 
-  /// No description provided for @tellUsALittleBitAboutYourself.
+  /// No description provided for @yourStoryDescription.
   ///
   /// In en, this message translates to:
   /// **'Tell us a little bit about yourself'**
-  String get tellUsALittleBitAboutYourself;
+  String get yourStoryDescription;
 
   /// No description provided for @shortInfoAboutYou.
   ///
@@ -765,35 +753,35 @@ abstract class AppLocalizations {
   /// **'Short info about you'**
   String get shortInfoAboutYou;
 
-  /// No description provided for @uploadPhotos.
+  /// No description provided for @uploadPhotosText.
   ///
   /// In en, this message translates to:
   /// **'Upload photos'**
-  String get uploadPhotos;
+  String get uploadPhotosText;
 
-  /// No description provided for @addAtLeast2PhotosToContinue.
+  /// No description provided for @uploadPhotosDescription.
   ///
   /// In en, this message translates to:
   /// **'Add at least 2 photos to continue'**
-  String get addAtLeast2PhotosToContinue;
+  String get uploadPhotosDescription;
 
-  /// No description provided for @addAtLeast1PhotoToContinue.
+  /// No description provided for @uploadPhotoError.
   ///
   /// In en, this message translates to:
   /// **'Add at least 1 photo to continue'**
-  String get addAtLeast1PhotoToContinue;
+  String get uploadPhotoError;
 
-  /// No description provided for @youCanChangeTheOrderOfThePhotos.
+  /// No description provided for @youCanChangeOrder.
   ///
   /// In en, this message translates to:
   /// **'You can change the order of the photos.'**
-  String get youCanChangeTheOrderOfThePhotos;
+  String get youCanChangeOrder;
 
-  /// No description provided for @justDragThePhotoToANewPlace.
+  /// No description provided for @justDragPhoto.
   ///
   /// In en, this message translates to:
   /// **'Just drag the photo to a new place.'**
-  String get justDragThePhotoToANewPlace;
+  String get justDragPhoto;
 
   /// No description provided for @yourPhotoSuccessfullyAdded.
   ///
@@ -807,119 +795,119 @@ abstract class AppLocalizations {
   /// **'Uploading photo'**
   String get uploadingPhoto;
 
-  /// No description provided for @back.
+  /// No description provided for @backText.
   ///
   /// In en, this message translates to:
   /// **'Back'**
-  String get back;
+  String get backText;
 
-  /// No description provided for @choosePhotosFrom.
+  /// No description provided for @choosePhotosText.
   ///
   /// In en, this message translates to:
   /// **'Choose photos from'**
-  String get choosePhotosFrom;
+  String get choosePhotosText;
 
-  /// No description provided for @upload.
+  /// No description provided for @uploadText.
   ///
   /// In en, this message translates to:
   /// **'Upload'**
-  String get upload;
+  String get uploadText;
 
-  /// No description provided for @yourPhotos.
+  /// No description provided for @yourPhotosText.
   ///
   /// In en, this message translates to:
   /// **'Your photos'**
-  String get yourPhotos;
+  String get yourPhotosText;
 
-  /// No description provided for @open.
+  /// No description provided for @openText.
   ///
   /// In en, this message translates to:
   /// **'Open'**
-  String get open;
+  String get openText;
 
-  /// No description provided for @camera.
+  /// No description provided for @cameraText.
   ///
   /// In en, this message translates to:
   /// **'Camera'**
-  String get camera;
+  String get cameraText;
 
-  /// No description provided for @gallery.
+  /// No description provided for @galleryText.
   ///
   /// In en, this message translates to:
   /// **'Gallery'**
-  String get gallery;
+  String get galleryText;
 
-  /// No description provided for @done.
+  /// No description provided for @doneText.
   ///
   /// In en, this message translates to:
   /// **'Done'**
-  String get done;
+  String get doneText;
 
-  /// No description provided for @recents.
+  /// No description provided for @recentsText.
   ///
   /// In en, this message translates to:
   /// **'Recents'**
-  String get recents;
+  String get recentsText;
 
-  /// No description provided for @selected.
+  /// No description provided for @selectedText.
   ///
   /// In en, this message translates to:
   /// **'Selected'**
-  String get selected;
+  String get selectedText;
 
-  /// No description provided for @labelOf.
+  /// No description provided for @ofText.
   ///
   /// In en, this message translates to:
   /// **'of'**
-  String get labelOf;
+  String get ofText;
 
-  /// No description provided for @sorryNoPhotoFound.
+  /// No description provided for @noPhotoFoundText.
   ///
   /// In en, this message translates to:
   /// **'Sorry, no photo found'**
-  String get sorryNoPhotoFound;
+  String get noPhotoFoundText;
 
-  /// No description provided for @somethingWentWrongWithYourCamera.
+  /// No description provided for @cameraError.
   ///
   /// In en, this message translates to:
   /// **'Something went wrong with your camera'**
-  String get somethingWentWrongWithYourCamera;
+  String get cameraError;
 
-  /// No description provided for @copyThePoseInThePhotoAbove.
+  /// No description provided for @copyPosePhotoText.
   ///
   /// In en, this message translates to:
   /// **'Copy the pose in the photo above'**
-  String get copyThePoseInThePhotoAbove;
+  String get copyPosePhotoText;
 
-  /// No description provided for @save.
+  /// No description provided for @saveText.
   ///
   /// In en, this message translates to:
   /// **'Save'**
-  String get save;
+  String get saveText;
 
-  /// No description provided for @search.
+  /// No description provided for @searchText.
   ///
   /// In en, this message translates to:
   /// **'Search'**
-  String get search;
+  String get searchText;
 
-  /// No description provided for @chosen.
+  /// No description provided for @chosenText.
   ///
   /// In en, this message translates to:
   /// **'Chosen'**
-  String get chosen;
+  String get chosenText;
 
-  /// No description provided for @almostDone.
+  /// No description provided for @almostDoneText.
   ///
   /// In en, this message translates to:
   /// **'Almost done!'**
-  String get almostDone;
+  String get almostDoneText;
 
-  /// No description provided for @nowChooseYourFavoriteAnimesAndStartMatching.
+  /// No description provided for @nowChooseYourFavoriteAnimesText.
   ///
   /// In en, this message translates to:
-  /// **'Now choose your favorite animes and start matching'**
-  String get nowChooseYourFavoriteAnimesAndStartMatching;
+  /// **'Now choose your favorite animes \\nand start matching'**
+  String get nowChooseYourFavoriteAnimesText;
 
   /// No description provided for @oopsNoAnimeFound.
   ///
@@ -927,431 +915,431 @@ abstract class AppLocalizations {
   /// **'Oops. No anime found.'**
   String get oopsNoAnimeFound;
 
-  /// No description provided for @maybeThereIsAMistakeInSearchPleaseCheckAn3.
+  /// No description provided for @noAnimesFoundText.
   ///
   /// In en, this message translates to:
   /// **'Maybe there is a mistake in search? Please check and try again.'**
-  String get maybeThereIsAMistakeInSearchPleaseCheckAn3;
+  String get noAnimesFoundText;
 
-  /// No description provided for @sorryYouHaveAlreadySelected10Anime.
+  /// No description provided for @selectedAnimeError.
   ///
   /// In en, this message translates to:
   /// **'Sorry, you have already selected 10 anime.'**
-  String get sorryYouHaveAlreadySelected10Anime;
+  String get selectedAnimeError;
 
-  /// No description provided for @searchAnime.
+  /// No description provided for @searchAnimesHintText.
   ///
   /// In en, this message translates to:
   /// **'Search anime'**
-  String get searchAnime;
+  String get searchAnimesHintText;
 
-  /// No description provided for @myAnimes.
+  /// No description provided for @myAnimesText.
   ///
   /// In en, this message translates to:
   /// **'My animes'**
-  String get myAnimes;
+  String get myAnimesText;
 
-  /// No description provided for @choose.
+  /// No description provided for @chooseTitle.
   ///
   /// In en, this message translates to:
   /// **'Choose'**
-  String get choose;
+  String get chooseTitle;
 
-  /// No description provided for @addAtLeast1AnimeToContinue.
+  /// No description provided for @animeError.
   ///
   /// In en, this message translates to:
   /// **'Add at least 1 anime to continue'**
-  String get addAtLeast1AnimeToContinue;
+  String get animeError;
 
-  /// No description provided for @action.
+  /// No description provided for @actionGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Action'**
-  String get action;
+  String get actionGenresTitle;
 
-  /// No description provided for @adventure.
+  /// No description provided for @adventureGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Adventure'**
-  String get adventure;
+  String get adventureGenresTitle;
 
-  /// No description provided for @drama.
+  /// No description provided for @dramaGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Drama'**
-  String get drama;
+  String get dramaGenresTitle;
 
-  /// No description provided for @ecchi.
+  /// No description provided for @ecchiGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Ecchi'**
-  String get ecchi;
+  String get ecchiGenresTitle;
 
-  /// No description provided for @music.
+  /// No description provided for @musicGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Music'**
-  String get music;
+  String get musicGenresTitle;
 
-  /// No description provided for @mecha.
+  /// No description provided for @mechaGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Mecha'**
-  String get mecha;
+  String get mechaGenresTitle;
 
-  /// No description provided for @horror.
+  /// No description provided for @horrorGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Horror'**
-  String get horror;
+  String get horrorGenresTitle;
 
-  /// No description provided for @fantasy.
+  /// No description provided for @fantasyGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Fantasy'**
-  String get fantasy;
+  String get fantasyGenresTitle;
 
-  /// No description provided for @mahouShoujo.
+  /// No description provided for @mahouShoujoGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Mahou Shoujo'**
-  String get mahouShoujo;
+  String get mahouShoujoGenresTitle;
 
-  /// No description provided for @psychological.
+  /// No description provided for @psychologicalGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Psychological'**
-  String get psychological;
+  String get psychologicalGenresTitle;
 
-  /// No description provided for @romance.
+  /// No description provided for @romanceGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Romance'**
-  String get romance;
+  String get romanceGenresTitle;
 
-  /// No description provided for @sciFi.
+  /// No description provided for @sciFiGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Sci-Fi'**
-  String get sciFi;
+  String get sciFiGenresTitle;
 
-  /// No description provided for @sports.
+  /// No description provided for @sportsGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Sports'**
-  String get sports;
+  String get sportsGenresTitle;
 
-  /// No description provided for @comedy.
+  /// No description provided for @comedyGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Comedy'**
-  String get comedy;
+  String get comedyGenresTitle;
 
-  /// No description provided for @mystery.
+  /// No description provided for @mysteryGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Mystery'**
-  String get mystery;
+  String get mysteryGenresTitle;
 
-  /// No description provided for @supernatural.
+  /// No description provided for @supernaturalGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Supernatural'**
-  String get supernatural;
+  String get supernaturalGenresTitle;
 
-  /// No description provided for @thriller.
+  /// No description provided for @thrillerGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Thriller'**
-  String get thriller;
+  String get thrillerGenresTitle;
 
-  /// No description provided for @sliceOfLife.
+  /// No description provided for @sliceOfLifeGenresTitle.
   ///
   /// In en, this message translates to:
   /// **'Slice Of Life'**
-  String get sliceOfLife;
+  String get sliceOfLifeGenresTitle;
 
-  /// No description provided for @enableLocation.
+  /// No description provided for @enableLocationText.
   ///
   /// In en, this message translates to:
   /// **'Enable location'**
-  String get enableLocation;
+  String get enableLocationText;
 
-  /// No description provided for @yourLocationWillBeUsedToShowPotentialMatch.
+  /// No description provided for @enableLocationDescription.
   ///
   /// In en, this message translates to:
-  /// **'Your location will be used to show potential matches near you'**
-  String get yourLocationWillBeUsedToShowPotentialMatch;
+  /// **'Your location will be used to show \\n potential matches near you'**
+  String get enableLocationDescription;
 
-  /// No description provided for @allowLocation.
+  /// No description provided for @allowLocationText.
   ///
   /// In en, this message translates to:
   /// **'Allow location'**
-  String get allowLocation;
+  String get allowLocationText;
 
-  /// No description provided for @locationPermissionsAreDenied.
+  /// No description provided for @locationPermissionsDenied.
   ///
   /// In en, this message translates to:
   /// **'Location permissions are denied'**
-  String get locationPermissionsAreDenied;
+  String get locationPermissionsDenied;
 
-  /// No description provided for @locationPermissionsArePermanentlyDeniedWeCan.
+  /// No description provided for @locationPermissionsPermanentlyDenied.
   ///
   /// In en, this message translates to:
   /// **'Location permissions are permanently denied, we cannot request permissions.'**
-  String get locationPermissionsArePermanentlyDeniedWeCan;
+  String get locationPermissionsPermanentlyDenied;
 
-  /// No description provided for @connectYourSpotify.
+  /// No description provided for @connectYourSpotifyText.
   ///
   /// In en, this message translates to:
   /// **'Connect your Spotify'**
-  String get connectYourSpotify;
+  String get connectYourSpotifyText;
 
-  /// No description provided for @showPotentialMatchesYourFavoriteArtists.
+  /// No description provided for @connectYourSpotifyDescription.
   ///
   /// In en, this message translates to:
   /// **'Show potential matches your favorite artists'**
-  String get showPotentialMatchesYourFavoriteArtists;
+  String get connectYourSpotifyDescription;
 
-  /// No description provided for @connectSpotify.
+  /// No description provided for @connectSpotifyText.
   ///
   /// In en, this message translates to:
   /// **'Connect Spotify'**
-  String get connectSpotify;
+  String get connectSpotifyText;
 
-  /// No description provided for @top5SpotifyArtists.
+  /// No description provided for @topSpotifyArtistsText.
   ///
   /// In en, this message translates to:
   /// **'Top 5 Spotify Artists'**
-  String get top5SpotifyArtists;
+  String get topSpotifyArtistsText;
 
-  /// No description provided for @top5SpotifyListeningSongs.
+  /// No description provided for @topSpotifyListeningSongsText.
   ///
   /// In en, this message translates to:
   /// **'Top 5 Spotify Listening Songs'**
-  String get top5SpotifyListeningSongs;
+  String get topSpotifyListeningSongsText;
 
-  /// No description provided for @connect.
+  /// No description provided for @connectText.
   ///
   /// In en, this message translates to:
   /// **'Connect'**
-  String get connect;
+  String get connectText;
 
-  /// No description provided for @topListeningSong.
+  /// No description provided for @topListeningSongText.
   ///
   /// In en, this message translates to:
   /// **'Top Listening Song'**
-  String get topListeningSong;
+  String get topListeningSongText;
 
-  /// No description provided for @topArtists.
+  /// No description provided for @topArtistsText.
   ///
   /// In en, this message translates to:
   /// **'Top Artists'**
-  String get topArtists;
+  String get topArtistsText;
 
-  /// No description provided for @shareInFeed.
+  /// No description provided for @shareInFeedText.
   ///
   /// In en, this message translates to:
   /// **'Share in feed'**
-  String get shareInFeed;
+  String get shareInFeedText;
 
-  /// No description provided for @disconnectSpotify.
+  /// No description provided for @disconnectSpotifyText.
   ///
   /// In en, this message translates to:
   /// **'Disconnect Spotify'**
-  String get disconnectSpotify;
+  String get disconnectSpotifyText;
 
-  /// No description provided for @myTop5SpotifyListeningSongs.
+  /// No description provided for @myTopSpotifyListeningSongsText.
   ///
   /// In en, this message translates to:
   /// **'My top 5 Spotify listening songs'**
-  String get myTop5SpotifyListeningSongs;
+  String get myTopSpotifyListeningSongsText;
 
-  /// No description provided for @myTop5SpotifyArtists.
+  /// No description provided for @myTopSpotifyArtistsText.
   ///
   /// In en, this message translates to:
   /// **'My top 5 Spotify artists'**
-  String get myTop5SpotifyArtists;
+  String get myTopSpotifyArtistsText;
 
-  /// No description provided for @selectedArtists.
+  /// No description provided for @selectedArtistsText.
   ///
   /// In en, this message translates to:
   /// **'Selected Artists'**
-  String get selectedArtists;
+  String get selectedArtistsText;
 
-  /// No description provided for @selectedTracks.
+  /// No description provided for @selectedTracksText.
   ///
   /// In en, this message translates to:
   /// **'Selected Tracks'**
-  String get selectedTracks;
+  String get selectedTracksText;
 
-  /// No description provided for @somethingWentWrongPleaseDisconnectSpotifyAnd.
+  /// No description provided for @spotifyServerError.
   ///
   /// In en, this message translates to:
   /// **'Something went wrong, please disconnect spotify and try again'**
-  String get somethingWentWrongPleaseDisconnectSpotifyAnd;
+  String get spotifyServerError;
 
-  /// No description provided for @senpaiPremium.
+  /// No description provided for @senpaiPremiumTitle.
   ///
   /// In en, this message translates to:
   /// **'Senpai Premium'**
-  String get senpaiPremium;
+  String get senpaiPremiumTitle;
 
-  /// No description provided for @higherVisibilityRates.
+  /// No description provided for @premiumHigherText.
   ///
   /// In en, this message translates to:
   /// **'Higher visibility rates'**
-  String get higherVisibilityRates;
+  String get premiumHigherText;
 
-  /// No description provided for @superLikes30.
+  /// No description provided for @premiumSuperLikesText.
   ///
   /// In en, this message translates to:
   /// **'30 Super Likes'**
-  String get superLikes30;
+  String get premiumSuperLikesText;
 
-  /// No description provided for @abilityToAddUpTo15Animes.
+  /// No description provided for @premiumAbilityAnimesText.
   ///
   /// In en, this message translates to:
   /// **'Ability to add up to 15 animes'**
-  String get abilityToAddUpTo15Animes;
+  String get premiumAbilityAnimesText;
 
-  /// No description provided for @upgradeFor$1999.
+  /// No description provided for @premiumUpgradeText.
   ///
   /// In en, this message translates to:
   /// **'Upgrade for \$19.99'**
-  String get upgradeFor$1999;
+  String get premiumUpgradeText;
 
-  /// No description provided for @editProfile.
+  /// No description provided for @editProfileButton.
   ///
   /// In en, this message translates to:
   /// **'Edit profile'**
-  String get editProfile;
+  String get editProfileButton;
 
-  /// No description provided for @finds.
+  /// No description provided for @profileFindsButton.
   ///
   /// In en, this message translates to:
   /// **'Finds'**
-  String get finds;
+  String get profileFindsButton;
 
-  /// No description provided for @verifyYourPhotos.
+  /// No description provided for @verifyYourPhotosButton.
   ///
   /// In en, this message translates to:
   /// **'Verify your photos'**
-  String get verifyYourPhotos;
+  String get verifyYourPhotosButton;
 
-  /// No description provided for @restorePurchases.
+  /// No description provided for @restorePurchasesButton.
   ///
   /// In en, this message translates to:
   /// **'Restore purchases'**
-  String get restorePurchases;
+  String get restorePurchasesButton;
 
-  /// No description provided for @activeNow2.
+  /// No description provided for @activeNowTitle.
   ///
   /// In en, this message translates to:
   /// **'Active now'**
-  String get activeNow2;
+  String get activeNowTitle;
 
-  /// No description provided for @currentlyNotActive.
+  /// No description provided for @currentlyNotActiveTitle.
   ///
   /// In en, this message translates to:
   /// **'Currently not active'**
-  String get currentlyNotActive;
+  String get currentlyNotActiveTitle;
 
-  /// No description provided for @waitingForPhotoVerification.
+  /// No description provided for @waitingForPhotoVerificationTitle.
   ///
   /// In en, this message translates to:
   /// **'Waiting for photo verification'**
-  String get waitingForPhotoVerification;
+  String get waitingForPhotoVerificationTitle;
 
-  /// No description provided for @milesAway.
+  /// No description provided for @milesAwayText.
   ///
   /// In en, this message translates to:
   /// **'miles away'**
-  String get milesAway;
+  String get milesAwayText;
 
-  /// No description provided for @findACityNearby.
+  /// No description provided for @findCityNearbyTitle.
   ///
   /// In en, this message translates to:
   /// **'Find a city nearby'**
-  String get findACityNearby;
+  String get findCityNearbyTitle;
 
-  /// No description provided for @yourPhotosHaveBeenVerified.
+  /// No description provided for @yourPhotosHaveBeenVerifiedTitle.
   ///
   /// In en, this message translates to:
   /// **'Your photos have been verified!'**
-  String get yourPhotosHaveBeenVerified;
+  String get yourPhotosHaveBeenVerifiedTitle;
 
-  /// No description provided for @yourPhotosHaveNotBeenVerified.
+  /// No description provided for @yourPhotosHaveNotBeenVerifiedTitle.
   ///
   /// In en, this message translates to:
   /// **'Your photos have not been verified :('**
-  String get yourPhotosHaveNotBeenVerified;
+  String get yourPhotosHaveNotBeenVerifiedTitle;
 
-  /// No description provided for @nowEveryoneWillKnowThatYoureNotPretendingT.
+  /// No description provided for @nowEveryoneWillKnowThatYouText.
   ///
   /// In en, this message translates to:
   /// **'Now everyone will know that you\'re not pretending to be someone else'**
-  String get nowEveryoneWillKnowThatYoureNotPretendingT;
+  String get nowEveryoneWillKnowThatYouText;
 
-  /// No description provided for @thereSeemsToBeSomethingWrongWithYourPhoto.
+  /// No description provided for @thereSeemsToBeSomethingWrongYourPhotoText.
   ///
   /// In en, this message translates to:
   /// **'There seems to be something wrong with your photo. Please try to pass the verification again'**
-  String get thereSeemsToBeSomethingWrongWithYourPhoto;
+  String get thereSeemsToBeSomethingWrongYourPhotoText;
 
-  /// No description provided for @close.
+  /// No description provided for @closeButton.
   ///
   /// In en, this message translates to:
   /// **'Close'**
-  String get close;
+  String get closeButton;
 
-  /// No description provided for @tryAgain.
+  /// No description provided for @tryAgainButton.
   ///
   /// In en, this message translates to:
   /// **'Try again'**
-  String get tryAgain;
+  String get tryAgainButton;
 
-  /// No description provided for @name.
+  /// No description provided for @nameTitle.
   ///
   /// In en, this message translates to:
   /// **'Name'**
-  String get name;
+  String get nameTitle;
 
-  /// No description provided for @biography.
+  /// No description provided for @bioTitle.
   ///
   /// In en, this message translates to:
   /// **'Biography'**
-  String get biography;
+  String get bioTitle;
 
-  /// No description provided for @birthday.
+  /// No description provided for @birthdayTitle.
   ///
   /// In en, this message translates to:
   /// **'Birthday'**
-  String get birthday;
+  String get birthdayTitle;
 
-  /// No description provided for @gender.
+  /// No description provided for @genderTitle.
   ///
   /// In en, this message translates to:
   /// **'Gender'**
-  String get gender;
+  String get genderTitle;
 
-  /// No description provided for @lookingFor.
+  /// No description provided for @lookingForTitle.
   ///
   /// In en, this message translates to:
   /// **'Looking for'**
-  String get lookingFor;
+  String get lookingForTitle;
 
-  /// No description provided for @workAndEducation.
+  /// No description provided for @workAndEducationTitle.
   ///
   /// In en, this message translates to:
   /// **'Work and education'**
-  String get workAndEducation;
+  String get workAndEducationTitle;
 
-  /// No description provided for @location.
+  /// No description provided for @locationTitle.
   ///
   /// In en, this message translates to:
   /// **'Location'**
-  String get location;
+  String get locationTitle;
 
   /// No description provided for @favoriteAnime.
   ///
@@ -1359,425 +1347,425 @@ abstract class AppLocalizations {
   /// **'Favorite anime'**
   String get favoriteAnime;
 
-  /// No description provided for @studiedAt.
+  /// No description provided for @studiedAtTitle.
   ///
   /// In en, this message translates to:
   /// **'Studied at '**
-  String get studiedAt;
+  String get studiedAtTitle;
 
-  /// No description provided for @edit.
+  /// No description provided for @editTitle.
   ///
   /// In en, this message translates to:
   /// **'Edit'**
-  String get edit;
+  String get editTitle;
 
-  /// No description provided for @preview.
+  /// No description provided for @previewTitle.
   ///
   /// In en, this message translates to:
   /// **'Preview'**
-  String get preview;
+  String get previewTitle;
 
-  /// No description provided for @hideMyLocation.
+  /// No description provided for @hideLocationTitle.
   ///
   /// In en, this message translates to:
   /// **'Hide my location'**
-  String get hideMyLocation;
+  String get hideLocationTitle;
 
-  /// No description provided for @add.
+  /// No description provided for @addTitle.
   ///
   /// In en, this message translates to:
   /// **'Add'**
-  String get add;
+  String get addTitle;
 
-  /// No description provided for @aboutMe.
+  /// No description provided for @aboutMeTitle.
   ///
   /// In en, this message translates to:
   /// **'About me'**
-  String get aboutMe;
+  String get aboutMeTitle;
 
-  /// No description provided for @workingAs.
+  /// No description provided for @workingAsTitle.
   ///
   /// In en, this message translates to:
   /// **'Working as '**
-  String get workingAs;
+  String get workingAsTitle;
 
-  /// No description provided for @findsFilters.
+  /// No description provided for @findsFiltersTitle.
   ///
   /// In en, this message translates to:
   /// **'Finds filters'**
-  String get findsFilters;
+  String get findsFiltersTitle;
 
-  /// No description provided for @clearAll.
+  /// No description provided for @clearAllTitle.
   ///
   /// In en, this message translates to:
   /// **'Clear all'**
-  String get clearAll;
+  String get clearAllTitle;
 
-  /// No description provided for @ageRange.
+  /// No description provided for @ageRangeTitle.
   ///
   /// In en, this message translates to:
   /// **'Age range'**
-  String get ageRange;
+  String get ageRangeTitle;
 
-  /// No description provided for @distanceMi.
+  /// No description provided for @distanceTitle.
   ///
   /// In en, this message translates to:
   /// **'Distance (mi)'**
-  String get distanceMi;
+  String get distanceTitle;
 
-  /// No description provided for @apply.
+  /// No description provided for @applyTitle.
   ///
   /// In en, this message translates to:
   /// **'Apply'**
-  String get apply;
+  String get applyTitle;
 
-  /// No description provided for @wholeCountry.
+  /// No description provided for @wholeCountryTitle.
   ///
   /// In en, this message translates to:
   /// **'Whole country'**
-  String get wholeCountry;
+  String get wholeCountryTitle;
 
-  /// No description provided for @photoVerified.
+  /// No description provided for @photoVerifiedTitle.
   ///
   /// In en, this message translates to:
   /// **'Photo verified'**
-  String get photoVerified;
+  String get photoVerifiedTitle;
 
-  /// No description provided for @hasABio.
+  /// No description provided for @hasBioTitle.
   ///
   /// In en, this message translates to:
   /// **'Has a bio'**
-  String get hasABio;
+  String get hasBioTitle;
 
-  /// No description provided for @applyChanges.
+  /// No description provided for @applyChangesTitle.
   ///
   /// In en, this message translates to:
   /// **'Apply changes'**
-  String get applyChanges;
+  String get applyChangesTitle;
 
-  /// No description provided for @settings.
+  /// No description provided for @settingsTitle.
   ///
   /// In en, this message translates to:
   /// **'Settings'**
-  String get settings;
+  String get settingsTitle;
 
-  /// No description provided for @higherVisibilityRates30SuperLikesAndMuchMo.
+  /// No description provided for @senpaiPremiumDescription.
   ///
   /// In en, this message translates to:
-  /// **'Higher visibility rates, 30 Super Likes and much more!'**
-  String get higherVisibilityRates30SuperLikesAndMuchMo;
+  /// **'Higher visibility rates, 30 Super Likes \\nand much more!'**
+  String get senpaiPremiumDescription;
 
-  /// No description provided for @accountSettings.
+  /// No description provided for @accountSettingsTitle.
   ///
   /// In en, this message translates to:
   /// **'Account settings'**
-  String get accountSettings;
+  String get accountSettingsTitle;
 
-  /// No description provided for @phoneNumber.
+  /// No description provided for @phoneNumberTitle.
   ///
   /// In en, this message translates to:
   /// **'Phone number'**
-  String get phoneNumber;
+  String get phoneNumberTitle;
 
-  /// No description provided for @language.
+  /// No description provided for @languageTitle.
   ///
   /// In en, this message translates to:
   /// **'Language'**
-  String get language;
+  String get languageTitle;
 
-  /// No description provided for @addLanguage.
+  /// No description provided for @addLanguageTitle.
   ///
   /// In en, this message translates to:
   /// **'Add language'**
-  String get addLanguage;
+  String get addLanguageTitle;
 
-  /// No description provided for @pushNotifications.
+  /// No description provided for @pushNotificationsTitle.
   ///
   /// In en, this message translates to:
   /// **'Push notifications'**
-  String get pushNotifications;
+  String get pushNotificationsTitle;
 
-  /// No description provided for @activityStatus.
+  /// No description provided for @activityStatusTitle.
   ///
   /// In en, this message translates to:
   /// **'Activity status'**
-  String get activityStatus;
+  String get activityStatusTitle;
 
-  /// No description provided for @showActiveStatus.
+  /// No description provided for @showActiveStatusTitle.
   ///
   /// In en, this message translates to:
   /// **'Show “Active” status'**
-  String get showActiveStatus;
+  String get showActiveStatusTitle;
 
-  /// No description provided for @theActivityStatusIsDisplayedInTheProfileIf.
+  /// No description provided for @showActiveStatusDescription.
   ///
   /// In en, this message translates to:
   /// **'The “Activity” status is displayed in the profile if the Senpai app has been used by you in the last 2 hours.'**
-  String get theActivityStatusIsDisplayedInTheProfileIf;
+  String get showActiveStatusDescription;
 
-  /// No description provided for @showRecentlyActiveStatus.
+  /// No description provided for @showRecentlyActivetatusTitle.
   ///
   /// In en, this message translates to:
   /// **'Show “Recently active” status'**
-  String get showRecentlyActiveStatus;
+  String get showRecentlyActivetatusTitle;
 
-  /// No description provided for @theRecentlyActivityStatusIsDisplayedInTheP.
+  /// No description provided for @showRecentlyActivetatusDescription.
   ///
   /// In en, this message translates to:
   /// **'The “Recently activity” status is displayed in the profile if the Senpai app has been used by you in the last 24 hours.'**
-  String get theRecentlyActivityStatusIsDisplayedInTheP;
+  String get showRecentlyActivetatusDescription;
 
-  /// No description provided for @deleteAccount.
+  /// No description provided for @deleteAccountTitle.
   ///
   /// In en, this message translates to:
   /// **'Delete account'**
-  String get deleteAccount;
+  String get deleteAccountTitle;
 
-  /// No description provided for @logout.
+  /// No description provided for @logoutTitle.
   ///
   /// In en, this message translates to:
   /// **'Logout'**
-  String get logout;
+  String get logoutTitle;
 
-  /// No description provided for @chooseLanguage.
+  /// No description provided for @chooseLanguageTitle.
   ///
   /// In en, this message translates to:
   /// **'Choose language'**
-  String get chooseLanguage;
+  String get chooseLanguageTitle;
 
-  /// No description provided for @feedback.
+  /// No description provided for @feedbackTitle.
   ///
   /// In en, this message translates to:
   /// **'Feedback'**
-  String get feedback;
+  String get feedbackTitle;
 
-  /// No description provided for @feedbackOnSenpai.
+  /// No description provided for @feedbackOnSenpaiTitle.
   ///
   /// In en, this message translates to:
   /// **'Feedback on Senpai'**
-  String get feedbackOnSenpai;
+  String get feedbackOnSenpaiTitle;
 
-  /// No description provided for @writeYourFeedbackOnSenpai.
+  /// No description provided for @feedbackOnSenpaiHintText.
   ///
   /// In en, this message translates to:
   /// **'Write your feedback on Senpai'**
-  String get writeYourFeedbackOnSenpai;
+  String get feedbackOnSenpaiHintText;
 
-  /// No description provided for @send.
+  /// No description provided for @sendButton.
   ///
   /// In en, this message translates to:
   /// **'Send'**
-  String get send;
+  String get sendButton;
 
-  /// No description provided for @rateSenpai.
+  /// No description provided for @rateSenpaiTitle.
   ///
   /// In en, this message translates to:
   /// **'Rate Senpai'**
-  String get rateSenpai;
+  String get rateSenpaiTitle;
 
-  /// No description provided for @areYouSureYouWantToDeleteYourAccountWell.
+  /// No description provided for @deleteAccountDescriprion.
   ///
   /// In en, this message translates to:
   /// **'Are you sure you want to delete your account? We\'ll keep it for 30 days, if you change your mind.'**
-  String get areYouSureYouWantToDeleteYourAccountWell;
+  String get deleteAccountDescriprion;
 
-  /// No description provided for @no.
+  /// No description provided for @noButton.
   ///
   /// In en, this message translates to:
   /// **'No'**
-  String get no;
+  String get noButton;
 
-  /// No description provided for @yes.
+  /// No description provided for @yesButton.
   ///
   /// In en, this message translates to:
   /// **'Yes'**
-  String get yes;
+  String get yesButton;
 
-  /// No description provided for @loggingOut.
+  /// No description provided for @loggingOutTitle.
   ///
   /// In en, this message translates to:
   /// **'Logging out...'**
-  String get loggingOut;
+  String get loggingOutTitle;
 
-  /// No description provided for @pleaseWait.
+  /// No description provided for @pleaseWaitText.
   ///
   /// In en, this message translates to:
   /// **'Please wait...'**
-  String get pleaseWait;
+  String get pleaseWaitText;
 
-  /// No description provided for @areYouSureYouWantToDeleteYourAccountIfYo.
+  /// No description provided for @areSureDeleteAccountTitle.
   ///
   /// In en, this message translates to:
   /// **'Are you sure you want to delete your account? If you’d just like to hide for a while or start over, you can:'**
-  String get areYouSureYouWantToDeleteYourAccountIfYo;
+  String get areSureDeleteAccountTitle;
 
-  /// No description provided for @hideYourAccountLikeYouDeleteItButYouCanC.
+  /// No description provided for @hideYourAccountTitle.
   ///
   /// In en, this message translates to:
   /// **'Hide your account, like you delete it, but you can come back when you like'**
-  String get hideYourAccountLikeYouDeleteItButYouCanC;
+  String get hideYourAccountTitle;
 
-  /// No description provided for @switchNotificationsOff.
+  /// No description provided for @switchNotificationsOffTitle.
   ///
   /// In en, this message translates to:
   /// **'Switch notifications off'**
-  String get switchNotificationsOff;
+  String get switchNotificationsOffTitle;
 
-  /// No description provided for @justLogoutInstead.
+  /// No description provided for @justLogoutInsteadTitle.
   ///
   /// In en, this message translates to:
   /// **'Just logout instead'**
-  String get justLogoutInstead;
+  String get justLogoutInsteadTitle;
 
-  /// No description provided for @deleteYourAccount.
+  /// No description provided for @deleteYourAccountTitle.
   ///
   /// In en, this message translates to:
   /// **'Delete your account'**
-  String get deleteYourAccount;
+  String get deleteYourAccountTitle;
 
-  /// No description provided for @newMatches.
+  /// No description provided for @newMatchesTitle.
   ///
   /// In en, this message translates to:
   /// **'New matches'**
-  String get newMatches;
+  String get newMatchesTitle;
 
-  /// No description provided for @newMessages.
+  /// No description provided for @newMessagesTitle.
   ///
   /// In en, this message translates to:
   /// **'New messages'**
-  String get newMessages;
+  String get newMessagesTitle;
 
-  /// No description provided for @superLikes.
+  /// No description provided for @superlikesTitle.
   ///
   /// In en, this message translates to:
-  /// **'Super Likes'**
-  String get superLikes;
+  /// **'Super likes'**
+  String get superlikesTitle;
 
-  /// No description provided for @appSounds.
+  /// No description provided for @appSoundsTitle.
   ///
   /// In en, this message translates to:
   /// **'App sounds'**
-  String get appSounds;
+  String get appSoundsTitle;
 
-  /// No description provided for @confirmedPhoneNumber.
+  /// No description provided for @confirmedPhoneDescription.
   ///
   /// In en, this message translates to:
   /// **'Confirmed phone number'**
-  String get confirmedPhoneNumber;
+  String get confirmedPhoneDescription;
 
-  /// No description provided for @updateMyPhoneNumber.
+  /// No description provided for @updateMyPhoneButton.
   ///
   /// In en, this message translates to:
   /// **'Update my phone number'**
-  String get updateMyPhoneNumber;
+  String get updateMyPhoneButton;
 
-  /// No description provided for @areYouSureYouWantToLogOut.
+  /// No description provided for @areYouSureLogoutTitle.
   ///
   /// In en, this message translates to:
   /// **'Are you sure you want to log out?'**
-  String get areYouSureYouWantToLogOut;
+  String get areYouSureLogoutTitle;
 
-  /// No description provided for @ifYouAskSenpaiToRememberYouYouWillBeAble.
+  /// No description provided for @areYouSureLogoutDescription.
   ///
   /// In en, this message translates to:
   /// **'If you ask Senpai to remember you, you will be able to log in again on this device with single tap.'**
-  String get ifYouAskSenpaiToRememberYouYouWillBeAble;
+  String get areYouSureLogoutDescription;
 
-  /// No description provided for @forgetMeOnThisDevice.
+  /// No description provided for @forgetMeTitle.
   ///
   /// In en, this message translates to:
   /// **'Forget me on this device'**
-  String get forgetMeOnThisDevice;
+  String get forgetMeTitle;
 
-  /// No description provided for @rememberMeOnThisDevice.
+  /// No description provided for @rememberMeTitle.
   ///
   /// In en, this message translates to:
   /// **'Remember me on this device'**
-  String get rememberMeOnThisDevice;
+  String get rememberMeTitle;
 
-  /// No description provided for @itsA.
+  /// No description provided for @itsTitle.
   ///
   /// In en, this message translates to:
   /// **'It’s a'**
-  String get itsA;
+  String get itsTitle;
 
-  /// No description provided for @likeWhatYouSee.
+  /// No description provided for @likeWhatYouSeeTitle.
   ///
   /// In en, this message translates to:
   /// **'Like what you see?'**
-  String get likeWhatYouSee;
+  String get likeWhatYouSeeTitle;
 
-  /// No description provided for @notForYou.
+  /// No description provided for @notForYouTitle.
   ///
   /// In en, this message translates to:
   /// **'Not for you?'**
-  String get notForYou;
+  String get notForYouTitle;
 
-  /// No description provided for @swipeRightIfYouLikeIt.
+  /// No description provided for @swipeRightDescription.
   ///
   /// In en, this message translates to:
   /// **'Swipe right if you like it'**
-  String get swipeRightIfYouLikeIt;
+  String get swipeRightDescription;
 
-  /// No description provided for @swipeLeftIfNot.
+  /// No description provided for @swipeLeftDescription.
   ///
   /// In en, this message translates to:
   /// **'Swipe left if not'**
-  String get swipeLeftIfNot;
+  String get swipeLeftDescription;
 
-  /// No description provided for @youAnd.
+  /// No description provided for @youAndText.
   ///
   /// In en, this message translates to:
   /// **'You and'**
-  String get youAnd;
+  String get youAndText;
 
-  /// No description provided for @haveLikedEachOther.
+  /// No description provided for @haveLikedEachOtherText.
   ///
   /// In en, this message translates to:
   /// **'have liked each other'**
-  String get haveLikedEachOther;
+  String get haveLikedEachOtherText;
 
-  /// No description provided for @saySomethingNice.
+  /// No description provided for @saySomethingNiceText.
   ///
   /// In en, this message translates to:
   /// **'Say something nice'**
-  String get saySomethingNice;
+  String get saySomethingNiceText;
 
-  /// No description provided for @success.
+  /// No description provided for @successText.
   ///
   /// In en, this message translates to:
   /// **'Success!'**
-  String get success;
+  String get successText;
 
-  /// No description provided for @messageTo.
+  /// No description provided for @messageToText.
   ///
   /// In en, this message translates to:
   /// **'Message to '**
-  String get messageTo;
+  String get messageToText;
 
-  /// No description provided for @sent.
+  /// No description provided for @sentText.
   ///
   /// In en, this message translates to:
   /// **'sent'**
-  String get sent;
+  String get sentText;
 
-  /// No description provided for @connectionIsLostPleaseCheckYourInternetConn.
+  /// No description provided for @actionCableConnectionError.
   ///
   /// In en, this message translates to:
   /// **'Connection is lost. Please check your internet connection.'**
-  String get connectionIsLostPleaseCheckYourInternetConn;
+  String get actionCableConnectionError;
 
-  /// No description provided for @cannotEstablishAConnectionPleaseCheckYourIn.
+  /// No description provided for @actionCableCannotConnectError.
   ///
   /// In en, this message translates to:
   /// **'Cannot establish a connection. Please check your internet connection.'**
-  String get cannotEstablishAConnectionPleaseCheckYourIn;
+  String get actionCableCannotConnectError;
 
-  /// No description provided for @userIsNotAuthorizedPleaseSignInAgain.
+  /// No description provided for @actionCableAuthError.
   ///
   /// In en, this message translates to:
   /// **'User is not authorized. Please sign in again'**
-  String get userIsNotAuthorizedPleaseSignInAgain;
+  String get actionCableAuthError;
 
   /// No description provided for @outOfSuperLikes.
   ///
@@ -1785,17 +1773,23 @@ abstract class AppLocalizations {
   /// **'Out of Super Likes!'**
   String get outOfSuperLikes;
 
-  /// No description provided for @dontLoseDiamondsRefillNow.
+  /// No description provided for @doNotLoseDiamonds.
   ///
   /// In en, this message translates to:
   /// **'Don\'t lose diamonds, Refill now!'**
-  String get dontLoseDiamondsRefillNow;
+  String get doNotLoseDiamonds;
 
-  /// No description provided for @buySuperLikesFor.
+  /// No description provided for @superLikes.
+  ///
+  /// In en, this message translates to:
+  /// **'Super Likes'**
+  String get superLikes;
+
+  /// No description provided for @dialogBuyButton.
   ///
   /// In en, this message translates to:
   /// **'Buy Super Likes for'**
-  String get buySuperLikesFor;
+  String get dialogBuyButton;
 
   /// No description provided for @noThanks.
   ///
@@ -1856,6 +1850,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Japanese'**
   String get japanese;
+
+  /// No description provided for @onboarding1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Find'**
+  String get onboarding1Title;
+
+  /// No description provided for @favoriteAnimesTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite animes'**
+  String get favoriteAnimesTitle;
+
+  /// No description provided for @miTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'mi'**
+  String get miTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -48,14 +48,14 @@ class MatchMessageInfoWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          TextConstants.successText,
+          R.strings.successText,
           style: getTextTheme(context).bodySmall?.copyWith(
                 letterSpacing: 0,
                 fontWeight: FontWeight.w600,
               ),
         ),
         Text(
-          "${TextConstants.messageToText} ${user.firstName} ${TextConstants.sentText}",
+          "${R.strings.messageToText} ${user.firstName} ${R.strings.sentText}",
           style: getTextTheme(context).bodySmall?.copyWith(letterSpacing: 0),
           overflow: TextOverflow.ellipsis,
         ),

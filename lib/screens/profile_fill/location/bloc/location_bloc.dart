@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/location/location_user_model.dart';
 
 part 'location_event.dart';
@@ -22,7 +22,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     on<OnLocationChangedEvent>((event, emit) {
       if (event.position != null) {
         emit(ErrorState(
-          message: TextConstants.serverError,
+          message: R.strings.serverError,
           isEnabled: false,
         ));
         emit(ValidState());
@@ -30,7 +30,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         emit(LocationSucssesfulState());
         position = event.position;
       } else {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: true));
+        emit(ErrorState(message: R.strings.serverError, isEnabled: true));
       }
     });
   }
