@@ -7,6 +7,7 @@ import 'package:senpai/screens/match_users/bloc/match_users_bloc.dart';
 import 'package:senpai/screens/match_users/widgets/match_send_message_content.dart';
 import 'package:senpai/screens/match_users/widgets/match_users_emoji_widget.dart';
 import 'package:senpai/screens/match_users/widgets/match_users_images_layer.dart';
+import 'package:senpai/screens/match_users/widgets/newton_animation_widget.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -46,6 +47,8 @@ class MatchUsersContent extends StatelessWidget {
                 ),
               ),
               const MatchSendMessageContent(),
+              if (state is StartAnimationFireworkState)
+                const NewtonAnimationWidget(),
             ],
           ),
         );

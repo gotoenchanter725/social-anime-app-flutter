@@ -108,6 +108,8 @@ dependencies:
   firebase_core: ^2.24.2
   firebase_messaging: ^14.7.10
   app_tracking_transparency: ^2.0.4
+  newton_particles: ^0.1.7
+
 
   flutter_localizations:
     sdk: flutter
