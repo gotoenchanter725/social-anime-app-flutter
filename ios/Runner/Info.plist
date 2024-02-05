@@ -39,7 +39,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Senpai needs access to your photos so you can include them in your profile.</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>We need permission to access your phone number, name, location, and demographic information</string>
+	<string>We need permission to access your phone number, name, location, and demographic information. We use this information for basic app functionality, like using your location to show nearby profiles. We may use this information to provide ads you will be interested in.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
