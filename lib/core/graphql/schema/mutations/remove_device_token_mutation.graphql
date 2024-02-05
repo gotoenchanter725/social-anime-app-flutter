@@ -1,0 +1,7 @@
+mutation removeDeviceToken($input: RemoveDeviceTokenInput!) {
+  removeDeviceToken(input: $input) {
+    user {
+      id
+    }
+  }
+}
