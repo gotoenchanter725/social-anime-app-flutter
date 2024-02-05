@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:fresh_dio/fresh_dio.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
@@ -10,6 +11,7 @@ import 'package:senpai/core/notification/notification_manager.dart';
 import 'package:senpai/core/sentry/sentry_module.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/i18n/strings.g.dart';
+import 'package:senpai/models/auth/device_token_model.dart';
 import 'package:senpai/theme/app_theme.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -48,6 +50,12 @@ Future<void> main() async {
     String? token = await messaging.getToken();
     if (env.debug) {
       logIt.debug('Token: $token');
+    }
+    DeviceTokenModel? savedToken =
+        await getIt<TokenStorage<DeviceTokenModel>>().read();
+    if (savedToken == null || savedToken.token != token) {
+      await getIt<TokenStorage<DeviceTokenModel>>()
+          .write(DeviceTokenModel(token: token ?? ''));
     }
 
     // Listen to notifications.
