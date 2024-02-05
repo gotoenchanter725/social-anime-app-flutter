@@ -2236,7 +2236,8 @@ FetchAnime$Query$FetchAnime _$FetchAnime$Query$FetchAnimeFromJson(
           json['endDate'] as String?)
       ..studios = json['studios'] as String?
       ..year = json['year'] as int?
-      ..status = json['status'] as String?;
+      ..status = json['status'] as String?
+      ..japaneseTitle = json['japaneseTitle'] as String?;
 
 Map<String, dynamic> _$FetchAnime$Query$FetchAnimeToJson(
         FetchAnime$Query$FetchAnime instance) =>
@@ -2255,6 +2256,7 @@ Map<String, dynamic> _$FetchAnime$Query$FetchAnimeToJson(
       'studios': instance.studios,
       'year': instance.year,
       'status': instance.status,
+      'japaneseTitle': instance.japaneseTitle,
     };
 
 FetchAnime$Query _$FetchAnime$QueryFromJson(Map<String, dynamic> json) =>

@@ -3086,6 +3086,8 @@ class FetchAnime$Query$FetchAnime extends JsonSerializable with EquatableMixin {
 
   String? status;
 
+  String? japaneseTitle;
+
   @override
   List<Object?> get props => [
         id,
@@ -3099,7 +3101,8 @@ class FetchAnime$Query$FetchAnime extends JsonSerializable with EquatableMixin {
         endDate,
         studios,
         year,
-        status
+        status,
+        japaneseTitle
       ];
   @override
   Map<String, dynamic> toJson() => _$FetchAnime$Query$FetchAnimeToJson(this);
@@ -7290,6 +7293,13 @@ final FETCH_ANIME_QUERY_DOCUMENT = DocumentNode(definitions: [
           ),
           FieldNode(
             name: NameNode(value: 'status'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'japaneseTitle'),
             alias: null,
             arguments: [],
             directives: [],
