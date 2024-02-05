@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/chat/blocs/send_message_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/match_users/bloc/match_users_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -78,7 +78,7 @@ class MatchSendMessageContent extends StatelessWidget {
               },
               decoration: InputDecoration(
                 border: InputBorder.none,
-                hintText: TextConstants.saySomethingNiceText,
+                hintText: R.strings.saySomethingNiceText,
                 hintStyle: getTextTheme(context).bodySmall!.copyWith(
                       color: $constants.palette.darkGrey,
                       letterSpacing: 0.25,
@@ -100,7 +100,7 @@ class MatchSendMessageContent extends StatelessWidget {
               );
             },
             child: Text(
-              TextConstants.sendButton,
+              R.strings.sendButton,
               style: getTextTheme(context).bodySmall?.copyWith(
                     letterSpacing: 0,
                   ),

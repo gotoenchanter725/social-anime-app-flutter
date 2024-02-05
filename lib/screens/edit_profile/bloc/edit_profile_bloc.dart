@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/profile_fill/photos/upload_photo_model.dart';
 import 'package:senpai/models/profile_fill/update_user_model.dart';
@@ -44,7 +44,7 @@ class EditProfileBloc extends Bloc<EditProfileEvent, EditProfileState> {
       } else {
         emit(
           ErrorEditProfileNameState(
-            message: TextConstants.invalidFirstNameError,
+            message: R.strings.invalidFirstNameError,
           ),
         );
       }

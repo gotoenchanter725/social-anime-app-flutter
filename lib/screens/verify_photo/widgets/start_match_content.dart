@@ -4,7 +4,7 @@ import 'package:senpai/core/profile_fill/favorite_anime/add_favorite_anime_bloc.
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
 import 'package:senpai/utils/constants.dart';
@@ -56,14 +56,14 @@ class StartMatchContent extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          TextConstants.thanksLotText,
+          R.strings.thanksLotText,
           style: getTextTheme(context)
               .headlineLarge
               ?.copyWith(color: $constants.palette.white),
         ),
         if (bloc.photo != null)
           Text(
-            TextConstants.weReceivedYourPhotoText,
+            R.strings.weReceivedYourPhotoText,
             style: getTextTheme(context).bodySmall?.copyWith(
                   color: $constants.palette.grey,
                   letterSpacing: 0,
@@ -93,7 +93,7 @@ class StartMatchContent extends StatelessWidget {
         }
       },
       child: PrimaryButton(
-        text: TextConstants.startMatchingButton,
+        text: R.strings.startMatchingButton,
         onPressed: () async {
           bloc.add(OnStartMatchingEvent());
         },

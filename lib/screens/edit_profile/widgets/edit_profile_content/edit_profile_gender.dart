@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/senpai_radio_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/edit_profile/widgets/edit_profile_content/edit_profile_list_tile_button.dart';
 import 'package:senpai/screens/preview_profile/widgets/cupertino_modal_element.dart';
@@ -47,7 +47,7 @@ class EditProfileGender extends StatelessWidget {
     return Column(
       children: [
         EditProfileListTileButton(
-          title: TextConstants.genderTitle,
+          title: R.strings.genderTitle,
           text: gender != null ? _gender(gender!) : '',
           onTap: () => _showGenderDialog(
             context,
@@ -56,7 +56,7 @@ class EditProfileGender extends StatelessWidget {
         ),
         SizedBox(height: $constants.insets.sm),
         EditProfileListTileButton(
-          title: TextConstants.lookingForTitle,
+          title: R.strings.lookingForTitle,
           text: desiredGender != null ? _gender(desiredGender!) : '',
           onTap: () => _showGenderDialog(
             context,
@@ -105,14 +105,14 @@ class EditProfileGender extends StatelessWidget {
 
   Widget _buildHeader(BuildContext context, bool isGender) {
     if (isGender) {
-      return const HeaderSimpleField(
-        title: TextConstants.youAreText,
-        description: TextConstants.youAreDescription,
+      return HeaderSimpleField(
+        title: R.strings.youAreText,
+        description: R.strings.youAreDescription,
       );
     } else {
-      return const HeaderSimpleField(
-        title: TextConstants.youLookingForText,
-        description: TextConstants.youLookingDescription,
+      return HeaderSimpleField(
+        title: R.strings.youLookingForText,
+        description: R.strings.youLookingDescription,
       );
     }
   }

@@ -5,7 +5,7 @@ import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/anime/anime_list.dart';
 import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/chat/bloc/anime_selector_bloc/anime_selector_bloc.dart';
 import 'package:senpai/screens/chat/widgets/filter_anime_selector.dart';
@@ -82,7 +82,7 @@ class AnimeSelector extends StatelessWidget {
                     horizontal: $constants.insets.sm,
                     vertical: 0,
                   ),
-                  hintText: TextConstants.animeDescriptionHint,
+                  hintText: R.strings.animeDescriptionHint,
                   hintStyle: getTextTheme(context).bodySmall?.copyWith(
                         color: $constants.palette.darkGrey,
                       ),
@@ -126,7 +126,7 @@ class AnimeSelector extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    TextConstants.sendButton,
+                    R.strings.sendButton,
                     style: getTextTheme(context).bodySmall?.copyWith(
                           color: $constants.palette.white,
                           fontWeight: FontWeight.w600,
@@ -154,7 +154,7 @@ class AnimeSelector extends StatelessWidget {
     AnimeSelectorBloc bloc = BlocProvider.of<AnimeSelectorBloc>(context);
     return SenpaiIconInput(
       iconPath: PathConstants.searchIcon,
-      hintText: TextConstants.searchText,
+      hintText: R.strings.searchText,
       onChange: (_) {},
       onTapInput: () {
         bloc.add(const AnimeSelectorEvent.toggleSearchMode());
@@ -173,14 +173,14 @@ class AnimeSelector extends StatelessWidget {
           loaded: (data, result) {
             if (result.data == null) {
               logIt.error("Data is null for the fetch user query");
-              showSnackBarError(context, TextConstants.nullUser);
+              showSnackBarError(context, R.strings.nullUser);
               return const SizedBox.shrink();
             }
 
             Map<String, dynamic>? activeUser = result.data!["fetchUser"];
             if (activeUser == null) {
               logIt.error("Active user is null for the fetch user query");
-              showSnackBarError(context, TextConstants.nullUser);
+              showSnackBarError(context, R.strings.nullUser);
               return const SizedBox.shrink();
             }
 
@@ -198,7 +198,7 @@ class AnimeSelector extends StatelessWidget {
                     _buildSearchInput(context),
                     SizedBox(height: $constants.insets.sm),
                     Text(
-                      TextConstants.favouriteAnimeSelectionTitle,
+                      R.strings.favouriteAnimeSelectionTitle,
                       style: getTextTheme(context).bodyMedium?.copyWith(
                             color: $constants.palette.white,
                           ),

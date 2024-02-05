@@ -2,13 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:senpai/i18n/strings.g.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
+import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/l10n/generated/app_localizations.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
 class MyApp extends StatelessWidget {
   final ThemeData theme;
+
   MyApp({super.key, required this.theme});
 
   final _appRouter = appRouter;
@@ -20,19 +23,24 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return MaterialApp.router(
-      title: $constants.appTitle,
-      theme: theme,
-      routerConfig: _appRouter.config(),
-
-      /// EasyLocalization configuration.
-      locale: TranslationProvider.of(context).flutterLocale,
-      supportedLocales: AppLocaleUtils.supportedLocales,
-      localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => getIt<ApplicationLocaleBloc>()..add(InitApplicationLocaleEvent()),
+        ),
       ],
+      child: BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
+        builder: (BuildContext context, ApplicationLocaleState state) {
+          return MaterialApp.router(
+            title: $constants.appTitle,
+            theme: theme,
+            routerConfig: _appRouter.config(),
+            locale: state.locale,
+            supportedLocales: AppLocalizations.supportedLocales,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+          );
+        },
+      ),
     );
   }
 }

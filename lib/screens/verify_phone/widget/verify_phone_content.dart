@@ -7,7 +7,7 @@ import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/text_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/verify_phone/blocs/otp_form_bloc/otp_form_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -46,14 +46,14 @@ class VerifyPhoneContent extends StatelessWidget {
                 height: $constants.insets.lg,
               ),
               Text(
-                TextConstants.verifyPhoneHeading,
+                R.strings.verifyPhoneHeading,
                 style: getTextTheme(context)
                     .headlineLarge
                     ?.copyWith(color: $constants.palette.white),
                 textAlign: TextAlign.left,
               ),
               Text(
-                "${TextConstants.verifyPhoneInstruction} $phone",
+                "${R.strings.verifyPhoneInstruction} $phone",
                 style: getTextTheme(context).labelMedium?.copyWith(
                       color: $constants.palette.grey2,
                     ),
@@ -143,7 +143,7 @@ class VerifyPhoneContent extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(bottom: 2),
       child: Text(
-        isError ? TextConstants.invalidCodeError : '',
+        isError ? R.strings.invalidCodeError : '',
         style: getTextTheme(context)
             .labelMedium
             ?.copyWith(color: $constants.palette.red),
@@ -185,7 +185,7 @@ class VerifyPhoneContent extends StatelessWidget {
                 },
               ),
             SenpaiTextButton(
-              text: TextConstants.verifyCodeAction,
+              text: R.strings.verifyCodeAction,
               onPressed: () {
                 bloc.add(const OtpFormEvent.resend());
                 serviceBloc.resendCodeToPhoneNumber(phone);
@@ -201,7 +201,7 @@ class VerifyPhoneContent extends StatelessWidget {
   Widget _buildSubmitButton(BuildContext context) {
     final bloc = BlocProvider.of<OTPFormBloc>(context);
     return PrimaryButton(
-        text: TextConstants.continueText,
+        text: R.strings.continueText,
         onPressed: () {
           bloc.add(const OtpFormEvent.submit());
         });

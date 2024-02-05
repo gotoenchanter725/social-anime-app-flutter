@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/user/blocs/report_user/report_user_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/senpai_radio_button.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 import 'package:senpai/screens/profile/widgets/profile_app_bar.dart';
 import 'package:senpai/screens/report_user/bloc/report_bloc.dart';
@@ -28,8 +28,8 @@ class ReportUserContent extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
-            const ProfileAppBar(
-              title: TextConstants.reportText,
+            ProfileAppBar(
+              title: R.strings.reportText,
               hasLeading: true,
             ),
             SizedBox(
@@ -72,7 +72,7 @@ class ReportUserContent extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.all($constants.insets.sm),
       child: PrimaryButton(
-        text: TextConstants.reportText,
+        text: R.strings.reportText,
         onPressed: () {
           final serverBloc = BlocProvider.of<ReportUserBloc>(context);
           serverBloc.reportUser(

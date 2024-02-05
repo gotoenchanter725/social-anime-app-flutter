@@ -5,7 +5,7 @@ import 'package:senpai/core/widgets/icon_input.dart';
 
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/bloc/favorite_anime_bloc.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/enums/anime_enums.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/widgets/choosen_text_widget.dart';
@@ -29,7 +29,7 @@ class SearchFavoriteAnimeContent extends StatelessWidget {
           SizedBox(height: $constants.insets.md),
           const FiltersAnimeList(),
           SizedBox(height: $constants.insets.md),
-          const ChossenTextWidget(),
+          const ChosenTextWidget(),
           SizedBox(height: $constants.insets.sm),
           _buildAnimeList(context),
           SizedBox(height: $constants.insets.sm),
@@ -49,7 +49,7 @@ class SearchFavoriteAnimeContent extends StatelessWidget {
     return BlocBuilder<FavoriteAnimeBloc, FavoriteAnimeState>(
       builder: (context, state) {
         return SenpaiIconInput(
-          hintText: TextConstants.searchText,
+          hintText: R.strings.searchText,
           controller: bloc.searchController,
           onChange: (String search) {
             bloc.add(OnSearchAnimesEvent(searchText: search));
@@ -68,7 +68,7 @@ class SearchFavoriteAnimeContent extends StatelessWidget {
   Widget _buildSubmitButton(BuildContext context) {
     final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
     return PrimaryButton(
-      text: TextConstants.saveText,
+      text: R.strings.saveText,
       onPressed: () {
         bloc.add(OnChangeAnimeStepEvent(step: FavoriteAnimeStep.animeContent));
       },

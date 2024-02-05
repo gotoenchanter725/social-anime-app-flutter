@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/widgets/header_simple_field.dart';
 
@@ -57,14 +57,14 @@ class AnimeStepHeaderWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          TextConstants.almostDoneText,
+          R.strings.almostDoneText,
           style: getTextTheme(context)
               .headlineLarge
               ?.copyWith(color: $constants.palette.white),
           textAlign: TextAlign.left,
         ),
         Text(
-          TextConstants.nowChooseYourFavoriteAnimesText,
+          R.strings.nowChooseYourFavoriteAnimesText,
           style: getTextTheme(context).bodySmall?.copyWith(
                 color: $constants.palette.grey,
                 letterSpacing: 0,

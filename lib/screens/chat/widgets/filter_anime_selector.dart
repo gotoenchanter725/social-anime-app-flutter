@@ -8,7 +8,7 @@ import 'package:senpai/core/widgets/anime/anime_list.dart';
 import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/chat/bloc/anime_selector_bloc/anime_selector_bloc.dart';
 import 'package:senpai/screens/chat/widgets/empty_messages.dart';
@@ -49,7 +49,7 @@ class FilterAnimeSelector extends StatelessWidget {
       children: [
         Expanded(
           child: SenpaiIconInput(
-            hintText: TextConstants.searchAnimesHintText,
+            hintText: R.strings.searchAnimesHintText,
             controller: bloc.searchTextController,
             onChange: (_) {
               bloc.performSideEffects((query) {
@@ -78,7 +78,7 @@ class FilterAnimeSelector extends StatelessWidget {
         bloc.add(const AnimeSelectorEvent.toggleSearchMode());
       },
       child: Text(
-        TextConstants.cancelSearchText,
+        R.strings.cancelText,
         style: getTextTheme(context)
             .labelMedium!
             .copyWith(color: $constants.palette.white, fontSize: 14),
@@ -95,12 +95,12 @@ class FilterAnimeSelector extends StatelessWidget {
           loading: (result) => const Expanded(child: SenpaiLoading()),
           loaded: (data, result) {
             if (result.data == null) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               logIt.error("A successful empty response just got recorded");
-              return const EmptyMessages(
+              return EmptyMessages(
                 avatorImagePath: PathConstants.emptyChatAnimeSearch,
-                title: TextConstants.emptyChatAnimationsSearchTitle,
-                subtitle: TextConstants.emptyChatAnimationsSearchText,
+                title: R.strings.emptyChatAnimationsSearchTitle,
+                subtitle: R.strings.emptyChatAnimationsSearchText,
               );
             }
 
@@ -108,10 +108,10 @@ class FilterAnimeSelector extends StatelessWidget {
             final animeList =
                 animes!.map((e) => AnimeModel.fromJson(e)).toList();
             if (animeList.isEmpty) {
-              return const EmptyMessages(
+              return EmptyMessages(
                 avatorImagePath: PathConstants.emptyChatAnimeSearch,
-                title: TextConstants.emptyChatAnimationsSearchTitle,
-                subtitle: TextConstants.emptyChatAnimationsSearchText,
+                title: R.strings.emptyChatAnimationsSearchTitle,
+                subtitle: R.strings.emptyChatAnimationsSearchText,
                 isLocalImage: true,
               );
             }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:senpai/core/widgets/senpai_input.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/profile/widgets/profile_app_bar.dart';
 import 'package:senpai/screens/profile_fill/occupation/bloc/occupation_bloc.dart';
@@ -69,7 +69,7 @@ class WorkEducationContent extends StatelessWidget {
                     height: $constants.insets.sm,
                   ),
                   Text(
-                    TextConstants.jobTitleNameHelper,
+                    R.strings.jobTitleNameHelper,
                     style: getTextTheme(context)
                         .labelMedium
                         ?.copyWith(color: $constants.palette.grey),
@@ -92,7 +92,7 @@ class WorkEducationContent extends StatelessWidget {
         await context.router.pop();
       },
       child: ProfileAppBar(
-        title: TextConstants.workAndEducationTitle,
+        title: R.strings.workAndEducationTitle,
         hasLeading: true,
         onDoneTap: () {
           editBloc.add(
@@ -111,13 +111,13 @@ class WorkEducationContent extends StatelessWidget {
     return BlocBuilder<OccupationBloc, OccupationState>(
       builder: (context, state) {
         return SenpaiInput(
-          placeholder: TextConstants.universityName,
+          placeholder: R.strings.universityName,
           controller: bloc.universityController,
           onTap: () => _openDialog(context),
           onTextChanged: (String university) {
             bloc.add(OnUniversityChangedEvent(university: university));
           },
-          errorText: TextConstants.invalidUniversityNameError,
+          errorText: R.strings.invalidUniversityNameError,
           isError: state is ErrorUniversityState ? state.isEnabled : false,
           isValid: state is ValidUniversityState
               ? true
@@ -132,12 +132,12 @@ class WorkEducationContent extends StatelessWidget {
     return BlocBuilder<OccupationBloc, OccupationState>(
       builder: (context, state) {
         return SenpaiInput(
-          placeholder: TextConstants.jobTitleName,
+          placeholder: R.strings.jobTitleName,
           controller: bloc.jobController,
           onTextChanged: (String jobTitle) {
             bloc.add(OnJobTitleChangedEvent(jobTitle: jobTitle));
           },
-          errorText: TextConstants.serverError,
+          errorText: R.strings.serverError,
           isError: false,
           isValid: state is ValidJobState
               ? true

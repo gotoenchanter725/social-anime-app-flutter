@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -35,16 +35,16 @@ class ProfileActivePremiumWidget extends StatelessWidget {
           Divider(color: $constants.palette.grey),
           SizedBox(height: $constants.insets.sm),
           AutoSizeText(
-            TextConstants.whatYouGetText,
+            R.strings.whatYouGetText,
             style: getTextTheme(context).headlineSmall,
             maxLines: 1,
           ),
           SizedBox(height: $constants.insets.sm),
-          _buildPremiumText(context, TextConstants.premiumHigherText),
+          _buildPremiumText(context, R.strings.premiumHigherText),
           SizedBox(height: $constants.insets.sm),
-          _buildPremiumText(context, TextConstants.premiumSuperLikesText),
+          _buildPremiumText(context, R.strings.premiumSuperLikesText),
           SizedBox(height: $constants.insets.sm),
-          _buildPremiumText(context, TextConstants.premiumAbilityAnimesText),
+          _buildPremiumText(context, R.strings.premiumAbilityAnimesText),
           SizedBox(height: $constants.insets.md),
         ],
       ),
@@ -56,7 +56,7 @@ class ProfileActivePremiumWidget extends StatelessWidget {
       children: [
         Flexible(
           child: AutoSizeText(
-            TextConstants.senpaiPremiumActivated,
+            R.strings.senpaiPremiumIsActivated,
             style: getTextTheme(context).headlineMedium?.copyWith(
                   color: $constants.palette.white,
                   fontWeight: FontWeight.w600,
@@ -77,7 +77,7 @@ class ProfileActivePremiumWidget extends StatelessWidget {
   Widget _buildPremiumDescription(BuildContext context) {
     final dateText = DateFormat.yMMMMd().format(nextDate);
     return AutoSizeText(
-      "${TextConstants.nextPaymentText} $dateText",
+      "${R.strings.nextPaymentText} $dateText",
       style: getTextTheme(context).labelMedium?.copyWith(
             color: $constants.palette.white.withOpacity(0.6),
           ),

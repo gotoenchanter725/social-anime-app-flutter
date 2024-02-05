@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/preview_profile/enums/online_status_enums.dart';
 
 import 'package:senpai/utils/constants.dart';
@@ -32,8 +32,8 @@ class ActiveStatusWidget extends StatelessWidget {
         SizedBox(width: $constants.insets.xs),
         Text(
           status == OnlineStatus.online
-              ? TextConstants.activeNowTitle
-              : TextConstants.currentlyNotActiveTitle,
+              ? R.strings.activeNowTitle
+              : R.strings.currentlyNotActiveTitle,
           style: getTextTheme(context).labelMedium!.copyWith(
                 letterSpacing: 0,
                 color: status == OnlineStatus.online

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/user_profile/user_favorite_music/user_favorite_music_model.dart';
 import 'package:senpai/screens/profile_fill/spotify/enums/spotify_enums.dart';
 
@@ -38,7 +38,7 @@ class EditSpotifyTracksBloc
       emit(LoadingState());
       if (selectedTracksList.length >= maxAnimeCount) {
         emit(ErrorState(
-          message: TextConstants.selectedAnimeError,
+          message: R.strings.selectedAnimeError,
           isEnabled: false,
         ));
         if (event.isSelectedTrack) {

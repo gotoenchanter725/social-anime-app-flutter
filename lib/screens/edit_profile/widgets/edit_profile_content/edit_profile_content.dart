@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
 
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/edit_profile/widgets/edit_profile_content/edit_profile_birthday.dart';
 import 'package:senpai/screens/edit_profile/widgets/edit_profile_content/edit_profile_gender.dart';
@@ -76,7 +76,7 @@ class EditProfileContent extends StatelessWidget {
                       SizedBox(height: $constants.insets.xs),
                       SenpaiSwitchWithTitle(
                         value: bloc.hideLocation,
-                        title: TextConstants.hideLocationTitle,
+                        title: R.strings.hideLocationTitle,
                         height: $constants.insets.xl,
                         onChanged: (isHideLocation) {
                           bloc.add(OnChangeHideLocationEvent(
@@ -123,12 +123,12 @@ class EditProfileContent extends StatelessWidget {
   Widget _buildNameWidget(BuildContext context, EditProfileState state) {
     final bloc = BlocProvider.of<EditProfileBloc>(context);
     return EditProfileInputWidget(
-      placeholder: TextConstants.nameTitle,
+      placeholder: R.strings.nameTitle,
       controller: bloc.firstNameController,
       onTextChanged: (String firstName) {
         bloc.add(OnFirstNameSaveEvent(firstName: firstName));
       },
-      errorText: TextConstants.invalidFirstNameError,
+      errorText: R.strings.invalidFirstNameError,
       isError: state is ErrorEditProfileNameState,
     );
   }
@@ -136,13 +136,13 @@ class EditProfileContent extends StatelessWidget {
   Widget _buildBioWidget(BuildContext context) {
     final bloc = BlocProvider.of<EditProfileBloc>(context);
     return EditProfileInputWidget(
-      placeholder: TextConstants.bioTitle,
+      placeholder: R.strings.bioTitle,
       controller: bloc.biographyController,
       onTextChanged: (String biography) {
         bloc.add(OnBiographySaveEvent(biography: biography));
       },
       maxLines: 4,
-      errorText: TextConstants.serverError,
+      errorText: R.strings.serverError,
       isError: false,
     );
   }

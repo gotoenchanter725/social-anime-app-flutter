@@ -16,12 +16,12 @@ import 'package:senpai/utils/methods/utils.dart';
 class IncomingMessage extends StatelessWidget {
   final ChatMessage message;
   final User user;
+
   const IncomingMessage({super.key, required this.message, required this.user});
 
   @override
   Widget build(BuildContext context) {
-    MessageReactionBloc messageReactionBloc =
-        BlocProvider.of<MessageReactionBloc>(context);
+    MessageReactionBloc messageReactionBloc = BlocProvider.of<MessageReactionBloc>(context);
     return Padding(
       padding: EdgeInsets.only(top: $constants.insets.md),
       child: BlocBuilder<MessageReactionBloc, MessageReactionState>(
@@ -71,8 +71,7 @@ class IncomingMessage extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             ConstrainedBox(
-              constraints: BoxConstraints(
-                  maxWidth: MediaQuery.of(context).size.width * 0.7),
+              constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.7),
               child: _buildMessage(context),
             ),
             Positioned(
@@ -87,9 +86,7 @@ class IncomingMessage extends StatelessWidget {
         ),
         Text(
           DateFormat('hh:mm').format(message.timestamp),
-          style: getTextTheme(context)
-              .labelMedium!
-              .copyWith(color: $constants.palette.grey),
+          style: getTextTheme(context).labelMedium!.copyWith(color: $constants.palette.grey),
         )
       ],
     );
@@ -111,10 +108,8 @@ class IncomingMessage extends StatelessWidget {
   }
 
   Widget _buildEmojiReactionsSelector(BuildContext context) {
-    final MessageReactionBloc messageReactionBloc =
-        BlocProvider.of<MessageReactionBloc>(context);
-    final UpdateMessageBloc updateMessageBloc =
-        BlocProvider.of<UpdateMessageBloc>(context);
+    final MessageReactionBloc messageReactionBloc = BlocProvider.of<MessageReactionBloc>(context);
+    final UpdateMessageBloc updateMessageBloc = BlocProvider.of<UpdateMessageBloc>(context);
     bool showReactions = messageReactionBloc.state.showReactions &&
         messageReactionBloc.state.activeMessageId == message.id;
     double containerWidth = 0;
@@ -251,6 +246,7 @@ class IncomingMessage extends StatelessWidget {
               title: message.recommendation!.animeName,
             ),
             hasBackground: true,
+            locale: null,
           ),
         ),
         SizedBox(
@@ -284,8 +280,8 @@ class IncomingMessage extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: $constants.insets.sm, vertical: $constants.insets.xs),
+        padding:
+            EdgeInsets.symmetric(horizontal: $constants.insets.sm, vertical: $constants.insets.xs),
         child: child,
       ),
     );
@@ -295,20 +291,15 @@ class IncomingMessage extends StatelessWidget {
 class _EmojiItem {
   final String emojiName;
   final ReactionType reactionType;
+
   _EmojiItem({required this.emojiName, required this.reactionType});
 }
 
 final List<_EmojiItem> _emojis = [
-  _EmojiItem(
-      emojiName: $constants.emojis.happy, reactionType: ReactionType.laughing),
-  _EmojiItem(
-      emojiName: $constants.emojis.like, reactionType: ReactionType.thumbsUp),
-  _EmojiItem(
-      emojiName: $constants.emojis.heart, reactionType: ReactionType.heart),
-  _EmojiItem(
-      emojiName: $constants.emojis.vomit, reactionType: ReactionType.puke),
-  _EmojiItem(
-      emojiName: $constants.emojis.anger, reactionType: ReactionType.anger),
-  _EmojiItem(
-      emojiName: $constants.emojis.demon, reactionType: ReactionType.demon),
+  _EmojiItem(emojiName: $constants.emojis.happy, reactionType: ReactionType.laughing),
+  _EmojiItem(emojiName: $constants.emojis.like, reactionType: ReactionType.thumbsUp),
+  _EmojiItem(emojiName: $constants.emojis.heart, reactionType: ReactionType.heart),
+  _EmojiItem(emojiName: $constants.emojis.vomit, reactionType: ReactionType.puke),
+  _EmojiItem(emojiName: $constants.emojis.anger, reactionType: ReactionType.anger),
+  _EmojiItem(emojiName: $constants.emojis.demon, reactionType: ReactionType.demon),
 ];

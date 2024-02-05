@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -11,8 +11,8 @@ class CupertinoLogoutWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoActionSheet(
-      title: _buildTitle(context, TextConstants.areYouSureLogoutTitle),
-      message: _buildTitle(context, TextConstants.areYouSureLogoutDescription),
+      title: _buildTitle(context, R.strings.areYouSureLogoutTitle),
+      message: _buildTitle(context, R.strings.areYouSureLogoutDescription),
       actions: <CupertinoActionSheetAction>[
         CupertinoActionSheetAction(
           onPressed: () {
@@ -21,7 +21,7 @@ class CupertinoLogoutWidget extends StatelessWidget {
             bloc.add(OnLogoutUserEvent(isDeleteStorage: true));
           },
           child: Text(
-            TextConstants.forgetMeTitle,
+            R.strings.forgetMeTitle,
             style: getTextTheme(context).headlineMedium!.copyWith(
                   color: $constants.palette.white.withOpacity(0.5),
                   fontSize: 20,
@@ -36,7 +36,7 @@ class CupertinoLogoutWidget extends StatelessWidget {
             bloc.add(OnLogoutUserEvent(isDeleteStorage: false));
           },
           child: Text(
-            TextConstants.rememberMeTitle,
+            R.strings.rememberMeTitle,
             style: getTextTheme(context).headlineMedium!.copyWith(
                   color: $constants.palette.blue,
                   fontSize: 20,
@@ -47,7 +47,7 @@ class CupertinoLogoutWidget extends StatelessWidget {
       cancelButton: CupertinoActionSheetAction(
         onPressed: () => Navigator.pop(context),
         child: Text(
-          TextConstants.cancelText,
+          R.strings.cancelText,
           style: getTextTheme(context).headlineMedium!.copyWith(
                 fontSize: 20,
                 fontWeight: FontWeight.w600,

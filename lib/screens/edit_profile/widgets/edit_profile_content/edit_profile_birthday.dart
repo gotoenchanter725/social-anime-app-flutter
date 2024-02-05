@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/edit_profile/widgets/edit_profile_content/edit_profile_list_tile_button.dart';
 import 'package:senpai/theme/app_theme.dart';
@@ -24,9 +24,9 @@ class EditProfileBirthday extends StatelessWidget {
     await _createTheme().then((theme) async {
       DateTime? pickedDate = await showDatePicker(
         context: context,
-        cancelText: TextConstants.cancelText,
-        confirmText: TextConstants.okText,
-        helpText: TextConstants.pleaseSelectDateText,
+        cancelText: R.strings.cancelText,
+        confirmText: R.strings.okText,
+        helpText: R.strings.pleaseSelectDateText,
         initialEntryMode: DatePickerEntryMode.calendarOnly,
         initialDate: birthday!,
         firstDate: DateTime(1900),
@@ -50,7 +50,7 @@ class EditProfileBirthday extends StatelessWidget {
   Widget build(BuildContext context) {
     if (birthday != null) {
       return EditProfileListTileButton(
-        title: TextConstants.birthdayTitle,
+        title: R.strings.birthdayTitle,
         text: formatDateTime(birthday!),
         onTap: () => _showDialog(context),
       );

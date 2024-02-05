@@ -1,13 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/user/blocs/delete_user/delete_user_bloc.dart';
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 
 import 'package:senpai/models/user_profile/user_profile_model.dart';
@@ -32,8 +33,7 @@ class SettingsProfilePage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => SettingsProfileBloc()
-            ..add((OnSettingsProfileInitEvent(user: user))),
+          create: (_) => SettingsProfileBloc()..add((OnSettingsProfileInitEvent(user: user))),
         ),
         BlocProvider(create: (_) => getIt<UpdateUserBloc>()),
         BlocProvider(create: (_) => getIt<DeleteUserBloc>()),
@@ -57,9 +57,7 @@ class SettingsProfilePage extends StatelessWidget {
   Widget _buildSettingsLoadingListeners() {
     return BlocBuilder<SettingsProfileBloc, SettingsProfileState>(
       builder: (context, state) {
-        return state is LoadingState
-            ? const SenpaiLoading()
-            : const SizedBox.shrink();
+        return state is LoadingState ? const SenpaiLoading() : const SizedBox.shrink();
       },
     );
   }
@@ -70,7 +68,7 @@ class SettingsProfilePage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -84,14 +82,12 @@ class SettingsProfilePage extends StatelessWidget {
 
               final user = response["updateUser"]["user"];
               if (user == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }
               final bloc = BlocProvider.of<SettingsProfileBloc>(context);
-              context.router
-                  .push(SettingsVerifyPhoneRoute(settingsBloc: bloc))
-                  .then(
+              context.router.push(SettingsVerifyPhoneRoute(settingsBloc: bloc)).then(
                     (_) => bloc.add(OnChangeSettingsStepEvent(
                       step: SettingsStep.settings,
                     )),
@@ -110,7 +106,7 @@ class SettingsProfilePage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -124,7 +120,7 @@ class SettingsProfilePage extends StatelessWidget {
 
               final user = response["deleteUser"]["softDeletedUser"];
               if (user == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }

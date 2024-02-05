@@ -22,6 +22,7 @@ AnimeModel _$AnimeModelFromJson(Map<String, dynamic> json) {
 mixin _$AnimeModel {
   String get id => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
+  String? get japaneseTitle => throw _privateConstructorUsedError;
   String? get genres => throw _privateConstructorUsedError;
   String? get cover => throw _privateConstructorUsedError;
   int? get episodes => throw _privateConstructorUsedError;
@@ -48,6 +49,7 @@ abstract class $AnimeModelCopyWith<$Res> {
   $Res call(
       {String id,
       String? title,
+      String? japaneseTitle,
       String? genres,
       String? cover,
       int? episodes,
@@ -75,6 +77,7 @@ class _$AnimeModelCopyWithImpl<$Res, $Val extends AnimeModel>
   $Res call({
     Object? id = null,
     Object? title = freezed,
+    Object? japaneseTitle = freezed,
     Object? genres = freezed,
     Object? cover = freezed,
     Object? episodes = freezed,
@@ -94,6 +97,10 @@ class _$AnimeModelCopyWithImpl<$Res, $Val extends AnimeModel>
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      japaneseTitle: freezed == japaneseTitle
+          ? _value.japaneseTitle
+          : japaneseTitle // ignore: cast_nullable_to_non_nullable
               as String?,
       genres: freezed == genres
           ? _value.genres
@@ -150,6 +157,7 @@ abstract class _$$_AnimeModelCopyWith<$Res>
   $Res call(
       {String id,
       String? title,
+      String? japaneseTitle,
       String? genres,
       String? cover,
       int? episodes,
@@ -175,6 +183,7 @@ class __$$_AnimeModelCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = freezed,
+    Object? japaneseTitle = freezed,
     Object? genres = freezed,
     Object? cover = freezed,
     Object? episodes = freezed,
@@ -194,6 +203,10 @@ class __$$_AnimeModelCopyWithImpl<$Res>
       title: freezed == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      japaneseTitle: freezed == japaneseTitle
+          ? _value.japaneseTitle
+          : japaneseTitle // ignore: cast_nullable_to_non_nullable
               as String?,
       genres: freezed == genres
           ? _value.genres
@@ -245,6 +258,7 @@ class _$_AnimeModel implements _AnimeModel {
   const _$_AnimeModel(
       {required this.id,
       this.title,
+      this.japaneseTitle,
       this.genres,
       this.cover,
       this.episodes,
@@ -263,6 +277,8 @@ class _$_AnimeModel implements _AnimeModel {
   final String id;
   @override
   final String? title;
+  @override
+  final String? japaneseTitle;
   @override
   final String? genres;
   @override
@@ -286,7 +302,7 @@ class _$_AnimeModel implements _AnimeModel {
 
   @override
   String toString() {
-    return 'AnimeModel(id: $id, title: $title, genres: $genres, cover: $cover, episodes: $episodes, popularity: $popularity, averageScore: $averageScore, startDate: $startDate, endDate: $endDate, studios: $studios, year: $year, status: $status)';
+    return 'AnimeModel(id: $id, title: $title, japaneseTitle: $japaneseTitle, genres: $genres, cover: $cover, episodes: $episodes, popularity: $popularity, averageScore: $averageScore, startDate: $startDate, endDate: $endDate, studios: $studios, year: $year, status: $status)';
   }
 
   @override
@@ -296,6 +312,8 @@ class _$_AnimeModel implements _AnimeModel {
             other is _$_AnimeModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.japaneseTitle, japaneseTitle) ||
+                other.japaneseTitle == japaneseTitle) &&
             (identical(other.genres, genres) || other.genres == genres) &&
             (identical(other.cover, cover) || other.cover == cover) &&
             (identical(other.episodes, episodes) ||
@@ -318,6 +336,7 @@ class _$_AnimeModel implements _AnimeModel {
       runtimeType,
       id,
       title,
+      japaneseTitle,
       genres,
       cover,
       episodes,
@@ -347,6 +366,7 @@ abstract class _AnimeModel implements AnimeModel {
   const factory _AnimeModel(
       {required final String id,
       final String? title,
+      final String? japaneseTitle,
       final String? genres,
       final String? cover,
       final int? episodes,
@@ -365,6 +385,8 @@ abstract class _AnimeModel implements AnimeModel {
   String get id;
   @override
   String? get title;
+  @override
+  String? get japaneseTitle;
   @override
   String? get genres;
   @override

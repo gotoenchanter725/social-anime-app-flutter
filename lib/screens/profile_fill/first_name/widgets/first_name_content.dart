@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/senpai_input.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/first_name/bloc/first_name_bloc.dart';
 import 'package:senpai/screens/profile_fill/widgets/header_simple_field.dart';
@@ -50,8 +50,8 @@ class FirstNameContent extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
     return HeaderSimpleField(
-      title: TextConstants.yourFirstName,
-      description: TextConstants.yourFirstNameDescription,
+      title: R.strings.yourFirstName,
+      description: R.strings.yourFirstNameDescription,
       iconPath: PathConstants.closeIcon,
       onTapBackButton: () {
         bloc.add(
@@ -68,12 +68,12 @@ class FirstNameContent extends StatelessWidget {
     return BlocBuilder<FirstNameBloc, FirstNameState>(
       builder: (context, state) {
         return SenpaiInput(
-          placeholder: TextConstants.firstNameText,
+          placeholder: R.strings.firstNameText,
           controller: bloc.firstNameController,
           onTextChanged: (String firstName) {
             bloc.add(OnFirstNameChangedEvent(firstName: firstName));
           },
-          errorText: TextConstants.serverError,
+          errorText: R.strings.serverError,
           isError: state is ErrorState ? state.isEnabled : false,
           isValid: state is ValidState
               ? true
@@ -93,7 +93,7 @@ class FirstNameContent extends StatelessWidget {
         blocProfileFill.add(OnFirstNameSaveEvent(firstName: bloc.firstName));
       },
       child: PrimaryButton(
-        text: TextConstants.nextText,
+        text: R.strings.nextText,
         onPressed: () async {
           bloc.add(NextTappedEvent());
         },

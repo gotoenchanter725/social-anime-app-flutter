@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/subscription_plan_model.dart';
 import 'package:senpai/services/in_app_purchase_service/consumable_store.dart';
 // ignore: depend_on_referenced_packages
@@ -96,7 +96,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
             (_) {
               if (_purchaseErrorText != null) {
                 //TODO: return after test
-                // add(OnErrorEvent(TextConstants.serverError));
+                // add(OnErrorEvent(R.string.serverError));
                 add(OnErrorEvent(
                     _purchaseErrorText ?? '---- listen _purchaseErrorText'));
               }
@@ -115,14 +115,14 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
           );
           //TODO: return after test
           add(OnErrorEvent("PurchaseDetails onError --  $error"));
-          //     TextConstants.serverError));
+          //     R.string.serverError));
         },
       );
 
       await _initStoreInfo().then((_) {
         if (_purchaseErrorText != null) {
           //TODO: return after test
-          // add(OnErrorEvent(_purchaseErrorText ?? TextConstants.serverError));
+          // add(OnErrorEvent(_purchaseErrorText ?? R.string.serverError));
           add(OnErrorEvent(
               _purchaseErrorText ?? '---- init  _purchaseErrorText'));
         } else {
@@ -147,7 +147,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
       if (selectedProductDetails != null) {
         emit(UpdatePlanState());
       } else {
-        emit(PurchaseErrorState(message: TextConstants.serverError));
+        emit(PurchaseErrorState(message: R.strings.serverError));
       }
     });
 
@@ -242,7 +242,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     if (productDetailResponse.productDetails.isEmpty) {
       //TODO: return after test
       _purchaseErrorText =
-          'productDetailResponse.productDetails.isEmpty'; // TextConstants.serverError;
+          'productDetailResponse.productDetails.isEmpty'; // R.string.serverError;
       isAvailablePurchase = isAvailable;
       products = productDetailResponse.productDetails;
       purchases = <PurchaseDetails>[];
@@ -269,14 +269,14 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
         logIt.debug("--- purchaseDetails ${purchaseDetails.error}");
         //TODO: return after test
         _purchaseErrorText =
-            purchaseDetails.error?.message ?? TextConstants.invalidPurchase;
+            purchaseDetails.error?.message ?? R.strings.invalidPurchase;
       } else if (purchaseDetails.status == PurchaseStatus.purchased ||
           purchaseDetails.status == PurchaseStatus.restored) {
         final bool valid = await _verifyPurchase(purchaseDetails);
         if (valid) {
           await deliverProduct(purchaseDetails).then((_) => isPurchased = true);
         } else {
-          _purchaseErrorText = TextConstants.invalidPurchase;
+          _purchaseErrorText = R.strings.invalidPurchase;
           return;
         }
       }

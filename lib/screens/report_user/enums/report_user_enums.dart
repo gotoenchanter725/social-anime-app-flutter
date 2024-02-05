@@ -1,4 +1,4 @@
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 // ReportUserReason  BE
 // [:inappropriate_behavior, :spam, :sexual_abuse, :doxxing]
 
@@ -11,12 +11,12 @@ enum ReportUserReason {
 
 extension ReportUserReasonX on ReportUserReason {
   String get reasonString =>
-      const {
+      {
         ReportUserReason.inappropriateBehavior:
-            TextConstants.inappropriateBehaviorText,
-        ReportUserReason.spam: TextConstants.spamText,
-        ReportUserReason.sexualAbuse: TextConstants.sexualAbuseText,
-        ReportUserReason.doxxing: TextConstants.doxxingText,
+            R.strings.inappropriateBehaviorText,
+        ReportUserReason.spam: R.strings.spamText,
+        ReportUserReason.sexualAbuse: R.strings.sexualAbuseText,
+        ReportUserReason.doxxing: R.strings.sexualAbuseText,
       }[this] ??
       '';
 }

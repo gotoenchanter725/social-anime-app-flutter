@@ -8,7 +8,7 @@ import 'package:senpai/core/profile_fill/favorite_anime/delete_favorite_anime_bl
 import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart';
 
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
@@ -82,7 +82,7 @@ class EditFavoriteAnimePage extends StatelessWidget {
             loading: (result) => const SenpaiLoading(),
             loaded: (data, result) {
               if (result.data == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A successful empty response just got recorded");
                 return const SizedBox.shrink();
               } else {
@@ -95,7 +95,7 @@ class EditFavoriteAnimePage extends StatelessWidget {
               return const SizedBox.shrink();
             },
             error: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
@@ -135,12 +135,12 @@ class EditFavoriteAnimePage extends StatelessWidget {
               }
               return const SizedBox.shrink();
             } else {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
             }
             return const SizedBox.shrink();
           },
           failed: (error, result) {
-            showSnackBarError(context, TextConstants.serverError);
+            showSnackBarError(context, R.strings.serverError);
             return const SizedBox.shrink();
           },
           orElse: () => const SizedBox.shrink(),
@@ -166,7 +166,7 @@ class EditFavoriteAnimePage extends StatelessWidget {
                 response["addFavoriteAnime"]["user"]["animes"];
 
             if (animes.isEmpty) {
-              showSnackBarError(context, TextConstants.nullUser);
+              showSnackBarError(context, R.strings.nullUser);
               logIt.error("A user without an animes tried to again");
               return const SizedBox.shrink();
             }
@@ -176,7 +176,7 @@ class EditFavoriteAnimePage extends StatelessWidget {
             return const SizedBox.shrink();
           },
           failed: (error, result) {
-            showSnackBarError(context, TextConstants.serverError);
+            showSnackBarError(context, R.strings.serverError);
             return const SizedBox.shrink();
           },
           orElse: () => const SizedBox.shrink(),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/widgets/header_simple_field.dart';
@@ -59,8 +59,8 @@ class VerifyByPhotoContent extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: $constants.insets.lg),
       child: HeaderSimpleField(
-        title: TextConstants.verifyPhotoHeading,
-        description: TextConstants.verifyPhotoDescription,
+        title: R.strings.verifyPhotoHeading,
+        description: R.strings.verifyPhotoDescription,
         isCenterTitle: true,
         onTapBackButton: () async {
           await context.router.pop();
@@ -73,8 +73,8 @@ class VerifyByPhotoContent extends StatelessWidget {
     final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
     final bloc = BlocProvider.of<VerifyPhotoBloc>(context);
     return HeaderSimpleField(
-      title: TextConstants.verifyPhotoHeading,
-      description: TextConstants.verifyPhotoDescription,
+      title: R.strings.verifyPhotoHeading,
+      description: R.strings.verifyPhotoDescription,
       isCenterTitle: true,
       onTapBackButton: () {
         blocProfileFill.add(
@@ -91,7 +91,7 @@ class VerifyByPhotoContent extends StatelessWidget {
 
   Widget _buildVerifyByPhotoButton(BuildContext context) {
     return PrimaryButton(
-      text: TextConstants.verifyPhotoButtonText,
+      text: R.strings.verifyPhotoButtonText,
       onPressed: () async {
         context.router.push(
           VerifyCameraRoute(

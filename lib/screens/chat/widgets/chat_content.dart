@@ -9,7 +9,7 @@ import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/screens/chat/bloc/pending_messages_bloc/pending_messages_bloc.dart';
@@ -117,9 +117,9 @@ class ChatContent extends StatelessWidget {
             if (allMessages.isEmpty) {
               return EmptyMessages(
                 avatorImagePath: receipientUser.profileUrl,
-                title: "${TextConstants.emptyChatTitle} ${receipientUser.name}",
+                title: "${R.strings.emptyChatTitle} ${receipientUser.name}",
                 subtitle:
-                    "${timeAgo(roomCreationDate)}. \n${TextConstants.emptyChatPromptText}",
+                    "${timeAgo(roomCreationDate)}. \n${R.strings.emptyChatPromptText}",
               );
             }
 
@@ -166,8 +166,8 @@ class ChatContent extends StatelessWidget {
                 ),
                 Text(
                   receipientUser.isOnline
-                      ? TextConstants.userOnlineText
-                      : TextConstants.userOfflineText,
+                      ? R.strings.userOnlineText
+                      : R.strings.userOfflineText,
                   style: getTextTheme(context).labelMedium!.copyWith(
                         color: $constants.palette.grey,
                       ),
@@ -220,7 +220,7 @@ class ChatContent extends StatelessWidget {
                               .add(MessageChanged(message: text)),
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            hintText: TextConstants.chatInputHint,
+                            hintText: R.strings.chatInputHint,
                             hintStyle:
                                 getTextTheme(context).bodySmall!.copyWith(
                                       color: $constants.palette.darkGrey,

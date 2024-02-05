@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_music/add_favorite_music_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_music/delete_favorite_music_bloc.dart';
 
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/edit_profile/edit_spotify/edit_spotify_tracks/bloc/edit_spotify_tracks_bloc.dart';
 import 'package:senpai/screens/edit_profile/edit_spotify/edit_spotify_tracks/widgets/track_item_widget.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart'
@@ -77,7 +77,7 @@ class EditSpotifyTracksContent extends StatelessWidget {
         }
       },
       child: ProfileAppBar(
-        title: TextConstants.topListeningSongText,
+        title: R.strings.topListeningSongText,
         hasLeading: true,
         onDoneTap: () {
           if (bloc.tracksList.isNotEmpty) {
@@ -102,7 +102,7 @@ class EditSpotifyTracksContent extends StatelessWidget {
   Widget _buildChoosenText(BuildContext context) {
     final bloc = BlocProvider.of<EditSpotifyTracksBloc>(context);
     return Text(
-      '${TextConstants.choosenText} '
+      '${R.strings.chosenText} '
       '(${bloc.selectedTracksList.length}/${bloc.maxAnimeCount})',
       style: getTextTheme(context).headlineSmall?.copyWith(),
       textAlign: TextAlign.left,
@@ -121,7 +121,7 @@ class EditSpotifyTracksContent extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(vertical: $constants.insets.sm),
           child: Text(
-            TextConstants.selectedTracksText,
+            R.strings.selectedTracksText,
             style: getTextTheme(context).headlineSmall,
           ),
         ),
@@ -146,7 +146,7 @@ class EditSpotifyTracksContent extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(vertical: $constants.insets.sm),
           child: Text(
-            TextConstants.topListeningSongText,
+            R.strings.topListeningSongText,
             style: getTextTheme(context).headlineSmall,
           ),
         ),

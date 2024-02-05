@@ -5,7 +5,7 @@ import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:senpai/core/user/blocs/grant_user_premium/grant_user_premium_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/premium_screen/bloc/purchase_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
@@ -53,7 +53,7 @@ class ProfilePremiumWidget extends StatelessWidget {
         } else if (bloc.isAvailablePurchase == false) {
           showSnackBarError(
             context,
-            TextConstants.unableConnectPaymentsProcessor,
+            R.strings.unableToConnectToThePaymentsProcessor,
           );
         }
 
@@ -80,15 +80,15 @@ class ProfilePremiumWidget extends StatelessWidget {
             children: [
               _buildPremiumTitle(context),
               SizedBox(height: $constants.insets.sm),
-              _buildPremiumText(context, TextConstants.premiumHigherText),
+              _buildPremiumText(context, R.strings.premiumHigherText),
               SizedBox(height: $constants.insets.sm),
-              _buildPremiumText(context, TextConstants.premiumSuperLikesText),
+              _buildPremiumText(context, R.strings.premiumSuperLikesText),
               SizedBox(height: $constants.insets.sm),
               _buildPremiumText(
-                  context, TextConstants.premiumAbilityAnimesText),
+                  context, R.strings.premiumAbilityAnimesText),
               SizedBox(height: $constants.insets.md),
               PrimaryButton(
-                text: TextConstants.premiumUpgradeText,
+                text: R.strings.premiumUpgradeText,
                 onPressed: () async {
                   _onTapBuy(context);
                 },
@@ -111,7 +111,7 @@ class ProfilePremiumWidget extends StatelessWidget {
           ),
           SizedBox(height: $constants.insets.xs),
           Text(
-            TextConstants.senpaiPremiumTitle,
+            R.strings.senpaiPremiumTitle,
             style: getTextTheme(context).headlineLarge?.copyWith(),
           ),
           SizedBox(height: $constants.insets.xs),
@@ -121,7 +121,7 @@ class ProfilePremiumWidget extends StatelessWidget {
     return Row(
       children: [
         Text(
-          TextConstants.senpaiPremiumTitle,
+          R.strings.senpaiPremiumTitle,
           style: getTextTheme(context).headlineMedium?.copyWith(
                 color: $constants.palette.white,
                 fontWeight: FontWeight.w500,

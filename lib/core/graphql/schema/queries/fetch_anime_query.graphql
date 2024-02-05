@@ -12,5 +12,6 @@ query fetchAnime($params: AnimeInput!) {
     studios
     year
     status
+    japaneseTitle
   }
 }

@@ -58,7 +58,7 @@ class PremiumContent extends StatelessWidget {
   //       print('Restore purchases');
   //     },
   //     child: Text(
-  //       TextConstants.restorePurchasesButton,
+  //       R.strings.restorePurchasesButton,
   //       style: getTextTheme(context).titleSmall?.copyWith(),
   //     ),
   //   );

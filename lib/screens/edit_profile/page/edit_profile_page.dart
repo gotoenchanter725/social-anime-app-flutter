@@ -9,7 +9,7 @@ import 'package:senpai/core/profile_fill/blocs/upload_photo/upload_photo_bloc.da
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/profile_fill/photos/upload_photo_model.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
@@ -89,7 +89,7 @@ class EditProfilePage extends StatelessWidget {
             loading: (result) => const SenpaiLoading(),
             loaded: (data, result) {
               if (result.data == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A successful empty response just got recorded");
                 return const SizedBox.shrink();
               } else {
@@ -108,7 +108,7 @@ class EditProfilePage extends StatelessWidget {
               return const SizedBox.shrink();
             },
             error: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
@@ -122,7 +122,7 @@ class EditProfilePage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -136,7 +136,7 @@ class EditProfilePage extends StatelessWidget {
 
               final user = response["updateUser"]["user"];
               if (user == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }
@@ -167,7 +167,7 @@ class EditProfilePage extends StatelessWidget {
                 context.router.pop();
               }
               bloc.add(OnRestartShowPhotosEvent());
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -184,7 +184,7 @@ class EditProfilePage extends StatelessWidget {
               List<dynamic>? photos =
                   response["uploadPhoto"]["user"]["gallery"]["photos"];
               if (photos == null) {
-                showSnackBarError(context, TextConstants.noPhotoFoundText);
+                showSnackBarError(context, R.strings.noPhotoFoundText);
                 logIt.error("A user without photos");
                 return const SizedBox.shrink();
               }
@@ -223,7 +223,7 @@ class EditProfilePage extends StatelessWidget {
               List<dynamic>? photos =
                   response["deletePhoto"]["gallery"]["photos"];
               if (photos == null) {
-                showSnackBarError(context, TextConstants.noPhotoFoundText);
+                showSnackBarError(context, R.strings.noPhotoFoundText);
                 logIt.error("A user without photos");
                 return const SizedBox.shrink();
               }
@@ -234,12 +234,12 @@ class EditProfilePage extends StatelessWidget {
               blocEdit.add(OnChangePhotosListEvent(photos: uploadPhotos));
               return const SizedBox.shrink();
             } else {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
             }
             return const SizedBox.shrink();
           },
           failed: (error, result) {
-            showSnackBarError(context, TextConstants.serverError);
+            showSnackBarError(context, R.strings.serverError);
             return const SizedBox.shrink();
           },
           orElse: () => const SizedBox.shrink(),
@@ -258,7 +258,7 @@ class EditProfilePage extends StatelessWidget {
               if (bloc.isShowProgressDialog) {
                 context.router.pop();
               }
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {

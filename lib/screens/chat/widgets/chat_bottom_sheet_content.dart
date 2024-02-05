@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:giphy_get/giphy_get.dart';
 import 'package:senpai/core/widgets/bottom_sheet/bottom_sheet_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
@@ -128,7 +128,7 @@ class ChatBottomSheetContent extends StatelessWidget {
         BlocProvider.of<BottomSheetBloc>(context);
     onMessageSent(ChatMessage(
       id: generateRandomId($constants.specials.pendingMessageIdLength),
-      text: TextConstants.stickerMessageText,
+      text: R.strings.stickerMessageText,
       status: MessageStatus.pending,
       senderId: currentUser.id,
       timestamp: DateTime.now(),
@@ -143,7 +143,7 @@ class ChatBottomSheetContent extends StatelessWidget {
         BlocProvider.of<BottomSheetBloc>(context);
     onMessageSent(ChatMessage(
       id: generateRandomId($constants.specials.pendingMessageIdLength),
-      text: TextConstants.gifMessageText,
+      text: R.strings.gifMessageText,
       status: MessageStatus.pending,
       senderId: currentUser.id,
       timestamp: DateTime.now(),
@@ -185,8 +185,8 @@ class _TabItem {
   });
 }
 
-const List<_TabItem> _tabItemSelections = [
-  _TabItem(id: '01', title: TextConstants.stickersTabText),
-  _TabItem(id: '02', title: TextConstants.gifsTabText),
-  _TabItem(id: '03', title: TextConstants.animeTabText),
+List<_TabItem> _tabItemSelections = [
+  _TabItem(id: '01', title: R.strings.stickersTabText),
+  _TabItem(id: '02', title: R.strings.gifsTabText),
+  _TabItem(id: '03', title: R.strings.animeTabText),
 ];

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/preview_profile/bloc/carousel_photo_bloc/carousel_photo_bloc.dart';
 import 'package:senpai/screens/preview_profile/widgets/active_status_widget.dart';
 import 'package:senpai/screens/profile/widgets/profile_name_header.dart';
@@ -202,7 +202,7 @@ class CarouselPhoto extends StatelessWidget {
                 ),
                 SizedBox(width: $constants.insets.xxs),
                 Text(
-                  '$milesAway ${TextConstants.milesAwayText}',
+                  '$milesAway ${R.strings.milesAwayText}',
                   style: getTextTheme(context).labelMedium?.copyWith(
                         color: $constants.palette.disabledTextButton,
                         letterSpacing: 0,

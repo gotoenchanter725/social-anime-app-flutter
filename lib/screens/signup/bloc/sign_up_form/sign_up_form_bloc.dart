@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 part 'sign_up_form_event.dart';
@@ -21,7 +21,7 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
         emit(ValidState());
       } else {
         emit(ErrorState(
-            message: TextConstants.invalidPhoneError, isEnabled: true));
+            message: R.strings.invalidPhoneError, isEnabled: true));
       }
       phoneNumber = event.phoneNumber;
     });
@@ -34,7 +34,7 @@ class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
         emit(SignUpState());
       } else {
         emit(ErrorState(
-            message: TextConstants.invalidPhoneError, isEnabled: true));
+            message: R.strings.invalidPhoneError, isEnabled: true));
       }
     });
 

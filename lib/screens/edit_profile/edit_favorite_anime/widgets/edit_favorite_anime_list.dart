@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_anime/add_favorite_anime_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_anime/delete_favorite_anime_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart';
@@ -8,7 +9,7 @@ import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/path_constants.dart';
 
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart'
     as edit;
@@ -39,7 +40,7 @@ class EditFavoriteAnimeList extends StatelessWidget {
                 SizedBox(height: $constants.insets.md),
                 _buildTextInput(context),
                 SizedBox(height: $constants.insets.md),
-                const ChossenTextWidget(),
+                const ChosenTextWidget(),
                 SizedBox(height: $constants.insets.sm),
                 Expanded(child: _buildListAnime(context)),
               ],
@@ -59,7 +60,7 @@ class EditFavoriteAnimeList extends StatelessWidget {
         bloc.add(OnChangeAnimeStepEvent(step: FavoriteAnimeStep.searchContent));
         blocFetchAnime.fetchAnime(page: bloc.page);
       },
-      hintText: TextConstants.searchText,
+      hintText: R.strings.searchText,
       controller: bloc.searchController,
       onChange: (String search) {},
       iconPath: PathConstants.searchIcon,
@@ -80,7 +81,7 @@ class EditFavoriteAnimeList extends StatelessWidget {
         await context.router.pop();
       },
       child: ProfileAppBar(
-        title: TextConstants.favoriteAnimesTitle,
+        title: R.strings.favoriteAnimesTitle,
         hasLeading: true,
         onDoneTap: () {
           int userId = int.parse(editBloc.user.id);
@@ -109,25 +110,29 @@ class EditFavoriteAnimeList extends StatelessWidget {
   }
 
   Widget _buildListAnime(BuildContext context) {
-    return BlocBuilder<FavoriteAnimeBloc, FavoriteAnimeState>(
-      builder: (context, state) {
-        final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
-        return ListView.separated(
-          physics: const BouncingScrollPhysics(),
-          itemCount: bloc.selectedAnimeList.length,
-          itemBuilder: (context, index) {
-            final anime = bloc.selectedAnimeList[index];
-            return _buildAnimeItem(context, anime);
-          },
-          separatorBuilder: (context, index) {
-            return SizedBox(height: $constants.insets.xs);
+    return BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
+      builder: (BuildContext context, ApplicationLocaleState applicationLocaleState) {
+        return BlocBuilder<FavoriteAnimeBloc, FavoriteAnimeState>(
+          builder: (context, state) {
+            final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
+            return ListView.separated(
+              physics: const BouncingScrollPhysics(),
+              itemCount: bloc.selectedAnimeList.length,
+              itemBuilder: (context, index) {
+                final anime = bloc.selectedAnimeList[index];
+                return _buildAnimeItem(context, anime, applicationLocaleState.locale);
+              },
+              separatorBuilder: (context, index) {
+                return SizedBox(height: $constants.insets.xs);
+              },
+            );
           },
         );
       },
     );
   }
 
-  Widget _buildAnimeItem(BuildContext context, AnimeModel anime) {
+  Widget _buildAnimeItem(BuildContext context, AnimeModel anime, Locale? locale) {
     final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
 
     return Container(
@@ -148,7 +153,7 @@ class EditFavoriteAnimeList extends StatelessWidget {
           size: 40,
         ),
         title: Text(
-          anime.title ?? '',
+          anime.getLocalizedTitle(locale),
           style: getTextTheme(context).bodyMedium!,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,

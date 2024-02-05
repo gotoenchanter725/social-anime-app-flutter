@@ -4,7 +4,7 @@ import 'package:senpai/core/profile_fill/favorite_music/add_favorite_music_bloc.
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/spotify/bloc/spotify_bloc.dart';
 import 'package:senpai/screens/profile_fill/widgets/header_simple_field.dart';
@@ -49,8 +49,8 @@ class SpotifyContent extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
     return HeaderSimpleField(
-      title: TextConstants.connectYourSpotifyText,
-      description: TextConstants.connectYourSpotifyDescription,
+      title: R.strings.connectYourSpotifyText,
+      description: R.strings.connectYourSpotifyDescription,
       isCenterTitle: true,
       onTapSkipkButton: () {
         bloc.add(
@@ -84,7 +84,7 @@ class SpotifyContent extends StatelessWidget {
         }
       },
       child: PrimaryButton(
-        text: TextConstants.connectSpotifyText,
+        text: R.strings.connectSpotifyText,
         onPressed: () async {
           if (bloc.selectedFavoriteMusicList.isNotEmpty) {
             blocProfileFill.add(

@@ -6,7 +6,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/edit_profile/edit_location/bloc/edit_location_bloc.dart';
 import 'package:senpai/screens/home/bloc/home_storage_bloc.dart';
 import 'package:senpai/utils/constants.dart';
@@ -22,12 +22,12 @@ class FlutterMapContent extends StatelessWidget {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
         openAppSettings();
-        return Future.error(TextConstants.locationPermissionsDenied);
+        return Future.error(R.strings.locationPermissionsDenied);
       }
     }
     if (permission == LocationPermission.deniedForever) {
       openAppSettings();
-      return Future.error(TextConstants.locationPermissionsPermanentlyDenied);
+      return Future.error(R.strings.locationPermissionsPermanentlyDenied);
     }
     return await Geolocator.getCurrentPosition();
   }

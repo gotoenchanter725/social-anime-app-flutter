@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -79,7 +79,7 @@ class HeaderSimpleField extends StatelessWidget {
     return TextButton(
       onPressed: onTapSkipkButton,
       child: Text(
-        TextConstants.skipStep,
+        R.strings.skipStep,
         style: getTextTheme(context)
             .labelMedium!
             .copyWith(color: $constants.palette.white, fontSize: 14),

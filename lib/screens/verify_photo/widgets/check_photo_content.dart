@@ -6,7 +6,7 @@ import 'package:senpai/core/user/blocs/verify_photo_user/verify_photo_user_bloc.
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
@@ -61,14 +61,14 @@ class CheckPhotoContent extends StatelessWidget {
   List<Widget> _buildTitle(BuildContext context) {
     return [
       Text(
-        TextConstants.happyWithPhotoText,
+        R.strings.happyWithPhotoText,
         style: getTextTheme(context)
             .headlineLarge
             ?.copyWith(color: $constants.palette.white),
         textAlign: TextAlign.center,
       ),
       Text(
-        TextConstants.weWillScanYourPhotoText,
+        R.strings.weWillScanYourPhotoText,
         style: getTextTheme(context).bodySmall?.copyWith(
               color: $constants.palette.grey,
               letterSpacing: 0,
@@ -157,7 +157,7 @@ class CheckPhotoContent extends StatelessWidget {
   Widget _buildRetakeButton(BuildContext context) {
     return TextButton(
       child: Text(
-        TextConstants.retakeButton,
+        R.strings.retakeButton,
         style: getTextTheme(context).bodyMedium,
       ),
       onPressed: () {
@@ -175,7 +175,7 @@ class CheckPhotoContent extends StatelessWidget {
     final bloc = BlocProvider.of<VerifyPhotoBloc>(context);
 
     return PrimaryButton(
-      text: TextConstants.agreeAndSubmitButton,
+      text: R.strings.agreeAndSubmitButton,
       onPressed: () async {
         await MultipartFile.fromPath('image', bloc.photo!.path).then((value) {
           serviceBloc.submitVerifyRequest(userId: bloc.userId, image: value);

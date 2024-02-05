@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
@@ -37,7 +37,7 @@ class SettingsPremiumWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  TextConstants.senpaiPremiumTitle,
+                  R.strings.senpaiPremiumTitle,
                   style: getTextTheme(context)
                       .headlineMedium
                       ?.copyWith(fontWeight: FontWeight.w500),
@@ -53,7 +53,7 @@ class SettingsPremiumWidget extends StatelessWidget {
             ),
             SizedBox(height: $constants.insets.xxs),
             Text(
-              TextConstants.senpaiPremiumDescription,
+              R.strings.senpaiPremiumDescription,
               textAlign: TextAlign.center,
               style: getTextTheme(context).bodySmall?.copyWith(
                     letterSpacing: 0,

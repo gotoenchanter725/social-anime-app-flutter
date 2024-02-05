@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 part 'biography_event.dart';
 part 'biography_state.dart';
@@ -22,7 +22,7 @@ class BiographyBloc extends Bloc<BiographyEvent, BiographyState> {
 
     on<OnBiographyChangedEvent>((event, emit) {
       emit(ErrorState(
-        message: TextConstants.serverError,
+        message: R.strings.serverError,
         isEnabled: false,
       ));
       biographyText = event.biography;
@@ -31,14 +31,14 @@ class BiographyBloc extends Bloc<BiographyEvent, BiographyState> {
     on<NextTappedEvent>((event, emit) {
       if (biographyText.isNotEmpty) {
         emit(ErrorState(
-          message: TextConstants.serverError,
+          message: R.strings.serverError,
           isEnabled: false,
         ));
         emit(ValidState());
         emit(LoadingState());
         emit(BiographySucssesfulState());
       } else {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: true));
+        emit(ErrorState(message: R.strings.serverError, isEnabled: true));
       }
     });
   }

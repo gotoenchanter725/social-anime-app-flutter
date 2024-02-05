@@ -6,7 +6,7 @@ import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/user/blocs/verify_request_user/fetch_verify_requests.dart';
 
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/screens/profile/widgets/profile_active_premium_widget.dart';
@@ -76,7 +76,7 @@ class ProfileContent extends StatelessWidget {
                       SizedBox(height: $constants.insets.xs),
                       ProfileListTileButton(
                         icon: PathConstants.pencilIcon,
-                        title: TextConstants.editProfileButton,
+                        title: R.strings.editProfileButton,
                         onTap: () async {
                           await context.router
                               .push(EditProfileRoute(userID: bloc.userID))
@@ -91,7 +91,7 @@ class ProfileContent extends StatelessWidget {
                       SizedBox(height: $constants.insets.xs),
                       ProfileListTileButton(
                         icon: PathConstants.filterIcon,
-                        title: TextConstants.profileFindsButton,
+                        title: R.strings.profileFindsButton,
                         onTap: () async {
                           await context.router.push(
                             ProfileFilterRoute(

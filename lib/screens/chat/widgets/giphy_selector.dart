@@ -5,7 +5,7 @@ import 'package:senpai/core/chat/blocs/giphy_bloc/giphy_bloc.dart';
 import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -29,7 +29,7 @@ class GiphySelector extends StatelessWidget {
     GiphyBloc bloc = BlocProvider.of<GiphyBloc>(context);
     return SenpaiIconInput(
       iconPath: PathConstants.searchIcon,
-      hintText: TextConstants.searchGifPlaceHolderText,
+      hintText: R.strings.searchGifPlaceHolderText,
       onChange: (text) {
         bloc.onSearchTextChanged(text);
       },

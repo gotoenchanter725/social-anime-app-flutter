@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 import 'package:senpai/screens/profile/settings_profile/enums/settings_profile_enums.dart';
@@ -18,7 +18,7 @@ class PushNotifcationsContent extends StatelessWidget {
     return Column(
       children: [
         ProfileAppBar(
-          title: TextConstants.pushNotificationsTitle,
+          title: R.strings.pushNotificationsTitle,
           hasLeading: true,
           onDoneTap: () {
             final bloc = BlocProvider.of<SettingsProfileBloc>(context);

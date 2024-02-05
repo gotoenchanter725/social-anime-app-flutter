@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/user/blocs/grant_user_premium/grant_user_premium_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/premium_screen/bloc/purchase_bloc.dart';
 import 'package:senpai/screens/premium_screen/widgets/premium_content.dart';
 
@@ -45,9 +45,9 @@ class PremiumPage extends StatelessWidget {
     return BlocBuilder<GrantUserPremiumBloc, MutationState>(
       builder: (context, state) {
         return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
+            loading: () => SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -58,7 +58,7 @@ class PremiumPage extends StatelessWidget {
               }
               final user = response["grantUserPremium"]["user"];
               if (user == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }

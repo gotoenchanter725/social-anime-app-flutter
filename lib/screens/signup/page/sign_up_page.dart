@@ -5,8 +5,8 @@ import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:senpai/core/auth/blocs/resend_verification_code_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/core/auth/blocs/create_user_bloc.dart';
 import 'package:senpai/screens/signup/bloc/sign_up_form/sign_up_form_bloc.dart';
@@ -56,11 +56,11 @@ class SignUpPage extends StatelessWidget {
               if (error.graphqlErrors.isNotEmpty) {
                 _showSnackBarError(
                   context,
-                  TextConstants.alreadyHasAccount,
+                  R.strings.alreadyHasAccount,
                   isWarning: true,
                 );
               } else {
-                _showSnackBarError(context, TextConstants.serverError);
+                _showSnackBarError(context, R.strings.serverError);
               }
               return const SizedBox.shrink();
             },
@@ -92,11 +92,11 @@ class SignUpPage extends StatelessWidget {
               if (error.graphqlErrors.isNotEmpty) {
                 _showSnackBarError(
                   context,
-                  TextConstants.noAccountWithThisNumber,
+                  R.strings.noAccountWithThisNumber,
                   isWarning: true,
                 );
               } else {
-                _showSnackBarError(context, TextConstants.serverError);
+                _showSnackBarError(context, R.strings.serverError);
               }
 
               return const SizedBox.shrink();
@@ -113,7 +113,7 @@ class SignUpPage extends StatelessWidget {
               Map<String, dynamic>? user = response["resendVerifyText"]["user"];
 
               if (user == null) {
-                _showSnackBarError(context, TextConstants.nullUser);
+                _showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user without an account just tried to sign in");
                 return const SizedBox.shrink();
               }

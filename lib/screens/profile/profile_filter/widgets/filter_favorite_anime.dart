@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart';
 import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/core/widgets/senpai_checkbox.dart';
@@ -7,7 +8,7 @@ import 'package:senpai/core/widgets/senpai_filter_chip.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/data/path_constants.dart';
 
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/profile/profile_filter/profile_filter_bloc/profile_filter_bloc.dart';
 import 'package:senpai/screens/profile/widgets/profile_app_bar.dart';
@@ -43,7 +44,7 @@ class FilterFavoriteAnime extends StatelessWidget {
                     _buildFilters(context),
                     SizedBox(height: $constants.insets.md),
                     Text(
-                      '${TextConstants.choosenText} '
+                      '${R.strings.chosenText} '
                       '(${bloc.selectedAnimeList.length}/${bloc.maxAnimeCount})',
                       style: getTextTheme(context).headlineSmall?.copyWith(),
                       textAlign: TextAlign.left,
@@ -64,7 +65,7 @@ class FilterFavoriteAnime extends StatelessWidget {
     final bloc = BlocProvider.of<ProfileFilterBloc>(context);
     final favoriteAnimeBloc = BlocProvider.of<FavoriteAnimeBloc>(context);
     return ProfileAppBar(
-      title: TextConstants.favoriteAnimesTitle,
+      title: R.strings.favoriteAnimesTitle,
       hasLeading: true,
       onTapLeading: () {
         bloc.add(OnChangeFilterStepEvent(step: ProfileFilterStep.filters));
@@ -85,7 +86,7 @@ class FilterFavoriteAnime extends StatelessWidget {
     return BlocBuilder<FavoriteAnimeBloc, FavoriteAnimeState>(
       builder: (context, state) {
         return SenpaiIconInput(
-          hintText: TextConstants.searchAnimesHintText,
+          hintText: R.strings.searchAnimesHintText,
           controller: bloc.searchController,
           onChange: (String search) {
             bloc.add(OnSearchAnimesEvent(searchText: search));
@@ -111,7 +112,7 @@ class FilterFavoriteAnime extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(right: $constants.insets.xs),
             child: SenpaiFilterChip(
-              title: TextConstants.myAnimesText,
+              title: R.strings.myAnimesText,
               isSelected: bloc.showMyAnimeList,
               onTapSelect: (bool selected) {
                 bloc.add(
@@ -148,58 +149,62 @@ class FilterFavoriteAnime extends StatelessWidget {
 
   Widget _buildListAnime(BuildContext context) {
     final blocFetchAnime = BlocProvider.of<FetchAnimeBloc>(context);
-    return BlocConsumer<FavoriteAnimeBloc, FavoriteAnimeState>(
-      listenWhen: (_, currState) => currState is FavoriteAnimeFetchState,
-      listener: (context, state) {
-        final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
-        blocFetchAnime.add(blocFetchAnime.fetchAnime(
-          genres: bloc.genresList.map((genre) => genre.genresString).toList(),
-          page: bloc.page,
-          title: bloc.searchText,
-        ));
-      },
-      builder: (context, state) {
-        final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
-        if (bloc.animeList.isEmpty && !bloc.showMyAnimeList) {
-          return const EmptySearchAnimeWidget();
-        }
-        if (bloc.showMyAnimeList) {
-          return ListView.separated(
-            physics: const BouncingScrollPhysics(),
-            itemCount: bloc.myAnimeList.length,
-            itemBuilder: (context, index) {
-              final anime = bloc.myAnimeList[index];
-              return _buildAnimeItem(context, anime);
-            },
-            separatorBuilder: (context, index) {
-              return const SizedBox(height: 8);
-            },
-          );
-        }
-        return ListView.separated(
-          physics: const BouncingScrollPhysics(),
-          controller: bloc.animeListController,
-          itemCount: bloc.animeList.length,
-          itemBuilder: (context, index) {
-            final anime = bloc.animeList[index];
-            return _buildAnimeItem(context, anime);
+    return BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
+      builder: (BuildContext context, ApplicationLocaleState applicationLocaleState) {
+        return BlocConsumer<FavoriteAnimeBloc, FavoriteAnimeState>(
+          listenWhen: (_, currState) => currState is FavoriteAnimeFetchState,
+          listener: (context, state) {
+            final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
+            blocFetchAnime.add(blocFetchAnime.fetchAnime(
+              genres: bloc.genresList.map((genre) => genre.genresString).toList(),
+              page: bloc.page,
+              title: bloc.searchText,
+            ));
           },
-          separatorBuilder: (context, index) {
-            return const SizedBox(height: 8);
+          builder: (context, state) {
+            final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
+            if (bloc.animeList.isEmpty && !bloc.showMyAnimeList) {
+              return const EmptySearchAnimeWidget();
+            }
+            if (bloc.showMyAnimeList) {
+              return ListView.separated(
+                physics: const BouncingScrollPhysics(),
+                itemCount: bloc.myAnimeList.length,
+                itemBuilder: (context, index) {
+                  final anime = bloc.myAnimeList[index];
+                  return _buildAnimeItem(context, anime, applicationLocaleState.locale);
+                },
+                separatorBuilder: (context, index) {
+                  return const SizedBox(height: 8);
+                },
+              );
+            }
+            return ListView.separated(
+              physics: const BouncingScrollPhysics(),
+              controller: bloc.animeListController,
+              itemCount: bloc.animeList.length,
+              itemBuilder: (context, index) {
+                final anime = bloc.animeList[index];
+                return _buildAnimeItem(context, anime, applicationLocaleState.locale);
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(height: 8);
+              },
+            );
           },
         );
       },
     );
   }
 
-  Widget _buildAnimeItem(BuildContext context, AnimeModel anime) {
+  Widget _buildAnimeItem(BuildContext context, AnimeModel anime, Locale? locale) {
     final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
     final animeIds = bloc.selectedAnimeList.map((anime) => anime.id).toList();
 
     bool isSelectedAnime = animeIds.contains(anime.id);
 
     return SenpaiCheckBox(
-      title: anime.title ?? '',
+      title: anime.getLocalizedTitle(locale),
       value: isSelectedAnime,
       onChanged: (_) {
         bloc.add(OnFavoriteAnimeSelectEvent(
