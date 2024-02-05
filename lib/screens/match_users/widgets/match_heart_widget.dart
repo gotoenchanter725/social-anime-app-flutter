@@ -19,7 +19,8 @@ class MatchHeartWidget extends StatelessWidget {
       height:
           chageSize ? getSize(context).height / 2 : $constants.insets.offset,
       width: chageSize ? getSize(context).width / 2 : $constants.insets.offset,
-      duration: $constants.times.slow,
+      duration: const Duration(milliseconds: 900),
+      //TODO: change after test $constants.times.slow,
       curve: Curves.easeIn,
       onEnd: () {
         final bloc = BlocProvider.of<MatchUsersBloc>(context);
