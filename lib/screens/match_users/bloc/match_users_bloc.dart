@@ -12,12 +12,16 @@ class MatchUsersBloc extends Bloc<MatchUsersEvent, MatchUsersState> {
 
   TextEditingController messageController = TextEditingController();
   String message = '';
+  Duration animationFireworkTime = const Duration(seconds: 5);
 
   MatchUsersBloc() : super(MatchUsersInitial()) {
-    on<OnMatchUsersInitEvent>((event, emit) {
+    on<OnMatchUsersInitEvent>((event, emit) async {
       emit(LoadingState());
       likeUserModel = event.likeUserModel;
-      emit(ValidState());
+      emit(StartAnimationFireworkState());
+      await Future.delayed(animationFireworkTime, () {
+        emit(FinishAnimationFireworkState());
+      });
     });
 
     on<OnChangeFocusEvent>((event, emit) {
@@ -35,6 +39,9 @@ class MatchUsersBloc extends Bloc<MatchUsersEvent, MatchUsersState> {
       }
 
       message = event.message;
+    });
+    on<OnFinishTimerEvent>((event, emit) {
+      emit(ValidState());
     });
   }
 }
