@@ -40,12 +40,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
 
     on<OnChangeStatusAppTrackingEvent>((event, emit) {
       emit(OnboardingInitial());
-      if (event.status == TrackingStatus.notSupported ||
-          event.status == TrackingStatus.authorized) {
-        emit(NextScreenState());
-      } else {
-        emit(ShowDialogState());
-      }
+      emit(NextScreenState());
     });
   }
 }

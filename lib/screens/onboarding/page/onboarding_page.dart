@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:senpai/l10n/resources.dart';
+
 import 'package:senpai/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:senpai/screens/onboarding/widgets/onboarding_content.dart';
 
@@ -19,27 +20,6 @@ class OnboardingPage extends StatelessWidget {
     bloc.add(OnChangeStatusAppTrackingEvent(status: status));
   }
 
-  Future<void> showCustomTrackingDialog(BuildContext context) async =>
-      await showDialog<void>(
-        context: context,
-        builder: (_) => BlocProvider.value(
-          value: BlocProvider.of<OnboardingBloc>(context),
-          child: AlertDialog(
-            title: Text(R.strings.dearUserText),
-            content: Text(R.strings.dearUserDescription),
-            actions: [
-              TextButton(
-                onPressed: () async {
-                  Navigator.pop(context);
-                  openAppSettings();
-                },
-                child:  Text(R.strings.continueText),
-              ),
-            ],
-          ),
-        ),
-      );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,8 +33,7 @@ class OnboardingPage extends StatelessWidget {
       child: BlocConsumer<OnboardingBloc, OnboardingState>(
         listenWhen: (_, currState) =>
             currState is NextScreenState ||
-            currState is CheckAppTrackingTransparencyState ||
-            currState is ShowDialogState,
+            currState is CheckAppTrackingTransparencyState,
         listener: (context, state) {
           if (state is CheckAppTrackingTransparencyState) {
             initAppTracking(context);
@@ -62,10 +41,6 @@ class OnboardingPage extends StatelessWidget {
 
           if (state is NextScreenState) {
             context.router.pushNamed('/entry');
-          }
-
-          if (state is ShowDialogState) {
-            showCustomTrackingDialog(context);
           }
         },
         buildWhen: (_, currState) => currState is OnboardingInitial,
