@@ -113,6 +113,60 @@ Map<String, dynamic> _$UserInputToJson(UserInput instance) => <String, dynamic>{
       'phone': instance.phone,
     };
 
+AddDeviceToken$Mutation$AddDeviceToken$User
+    _$AddDeviceToken$Mutation$AddDeviceToken$UserFromJson(
+            Map<String, dynamic> json) =>
+        AddDeviceToken$Mutation$AddDeviceToken$User()
+          ..id = json['id'] as String;
+
+Map<String, dynamic> _$AddDeviceToken$Mutation$AddDeviceToken$UserToJson(
+        AddDeviceToken$Mutation$AddDeviceToken$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+AddDeviceToken$Mutation$AddDeviceToken
+    _$AddDeviceToken$Mutation$AddDeviceTokenFromJson(
+            Map<String, dynamic> json) =>
+        AddDeviceToken$Mutation$AddDeviceToken()
+          ..user = AddDeviceToken$Mutation$AddDeviceToken$User.fromJson(
+              json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AddDeviceToken$Mutation$AddDeviceTokenToJson(
+        AddDeviceToken$Mutation$AddDeviceToken instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+AddDeviceToken$Mutation _$AddDeviceToken$MutationFromJson(
+        Map<String, dynamic> json) =>
+    AddDeviceToken$Mutation()
+      ..addDeviceToken = json['addDeviceToken'] == null
+          ? null
+          : AddDeviceToken$Mutation$AddDeviceToken.fromJson(
+              json['addDeviceToken'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AddDeviceToken$MutationToJson(
+        AddDeviceToken$Mutation instance) =>
+    <String, dynamic>{
+      'addDeviceToken': instance.addDeviceToken?.toJson(),
+    };
+
+AddDeviceTokenInput _$AddDeviceTokenInputFromJson(Map<String, dynamic> json) =>
+    AddDeviceTokenInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      deviceToken: json['deviceToken'] as String,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$AddDeviceTokenInputToJson(
+        AddDeviceTokenInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'deviceToken': instance.deviceToken,
+      'userId': instance.userId,
+    };
+
 SubmitVerifyRequest$Mutation$SubmitVerifyRequest$User
     _$SubmitVerifyRequest$Mutation$SubmitVerifyRequest$UserFromJson(
             Map<String, dynamic> json) =>
@@ -340,9 +394,12 @@ UserUpdateInput _$UserUpdateInputFromJson(Map<String, dynamic> json) =>
       firstName: json['firstName'] as String?,
       gender: json['gender'] as int?,
       hasLocationHidden: json['hasLocationHidden'] as bool?,
+      isDisplayingActive: json['isDisplayingActive'] as bool?,
+      isDisplayingRecentlyActive: json['isDisplayingRecentlyActive'] as bool?,
       occupation: json['occupation'] as String?,
       phone: json['phone'] as String?,
       school: json['school'] as String?,
+      superLikeCount: json['superLikeCount'] as int?,
       userId: json['userId'] as String,
       verified: json['verified'] as bool?,
     );
@@ -356,9 +413,12 @@ Map<String, dynamic> _$UserUpdateInputToJson(UserUpdateInput instance) =>
       'firstName': instance.firstName,
       'gender': instance.gender,
       'hasLocationHidden': instance.hasLocationHidden,
+      'isDisplayingActive': instance.isDisplayingActive,
+      'isDisplayingRecentlyActive': instance.isDisplayingRecentlyActive,
       'occupation': instance.occupation,
       'phone': instance.phone,
       'school': instance.school,
+      'superLikeCount': instance.superLikeCount,
       'userId': instance.userId,
       'verified': instance.verified,
     };
@@ -2498,6 +2558,19 @@ CreateUserArguments _$CreateUserArgumentsFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$CreateUserArgumentsToJson(
         CreateUserArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+AddDeviceTokenArguments _$AddDeviceTokenArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    AddDeviceTokenArguments(
+      input:
+          AddDeviceTokenInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$AddDeviceTokenArgumentsToJson(
+        AddDeviceTokenArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };

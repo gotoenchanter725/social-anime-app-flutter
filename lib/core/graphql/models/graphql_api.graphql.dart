@@ -163,6 +163,80 @@ class UserInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class AddDeviceToken$Mutation$AddDeviceToken$User extends JsonSerializable
+    with EquatableMixin {
+  AddDeviceToken$Mutation$AddDeviceToken$User();
+
+  factory AddDeviceToken$Mutation$AddDeviceToken$User.fromJson(
+          Map<String, dynamic> json) =>
+      _$AddDeviceToken$Mutation$AddDeviceToken$UserFromJson(json);
+
+  late String id;
+
+  @override
+  List<Object?> get props => [id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$AddDeviceToken$Mutation$AddDeviceToken$UserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddDeviceToken$Mutation$AddDeviceToken extends JsonSerializable
+    with EquatableMixin {
+  AddDeviceToken$Mutation$AddDeviceToken();
+
+  factory AddDeviceToken$Mutation$AddDeviceToken.fromJson(
+          Map<String, dynamic> json) =>
+      _$AddDeviceToken$Mutation$AddDeviceTokenFromJson(json);
+
+  late AddDeviceToken$Mutation$AddDeviceToken$User user;
+
+  @override
+  List<Object?> get props => [user];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$AddDeviceToken$Mutation$AddDeviceTokenToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddDeviceToken$Mutation extends JsonSerializable with EquatableMixin {
+  AddDeviceToken$Mutation();
+
+  factory AddDeviceToken$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$AddDeviceToken$MutationFromJson(json);
+
+  AddDeviceToken$Mutation$AddDeviceToken? addDeviceToken;
+
+  @override
+  List<Object?> get props => [addDeviceToken];
+  @override
+  Map<String, dynamic> toJson() => _$AddDeviceToken$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddDeviceTokenInput extends JsonSerializable with EquatableMixin {
+  AddDeviceTokenInput({
+    this.clientMutationId,
+    required this.deviceToken,
+    required this.userId,
+  });
+
+  factory AddDeviceTokenInput.fromJson(Map<String, dynamic> json) =>
+      _$AddDeviceTokenInputFromJson(json);
+
+  String? clientMutationId;
+
+  late String deviceToken;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [clientMutationId, deviceToken, userId];
+  @override
+  Map<String, dynamic> toJson() => _$AddDeviceTokenInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class SubmitVerifyRequest$Mutation$SubmitVerifyRequest$User
     extends JsonSerializable with EquatableMixin {
   SubmitVerifyRequest$Mutation$SubmitVerifyRequest$User();
@@ -468,9 +542,12 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
     this.firstName,
     this.gender,
     this.hasLocationHidden,
+    this.isDisplayingActive,
+    this.isDisplayingRecentlyActive,
     this.occupation,
     this.phone,
     this.school,
+    this.superLikeCount,
     required this.userId,
     this.verified,
   });
@@ -493,11 +570,17 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
 
   bool? hasLocationHidden;
 
+  bool? isDisplayingActive;
+
+  bool? isDisplayingRecentlyActive;
+
   String? occupation;
 
   String? phone;
 
   String? school;
+
+  int? superLikeCount;
 
   late String userId;
 
@@ -511,9 +594,12 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
         firstName,
         gender,
         hasLocationHidden,
+        isDisplayingActive,
+        isDisplayingRecentlyActive,
         occupation,
         phone,
         school,
+        superLikeCount,
         userId,
         verified
       ];
@@ -3550,6 +3636,93 @@ class CreateUserMutation
   @override
   CreateUser$Mutation parse(Map<String, dynamic> json) =>
       CreateUser$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AddDeviceTokenArguments extends JsonSerializable with EquatableMixin {
+  AddDeviceTokenArguments({required this.input});
+
+  @override
+  factory AddDeviceTokenArguments.fromJson(Map<String, dynamic> json) =>
+      _$AddDeviceTokenArgumentsFromJson(json);
+
+  late AddDeviceTokenInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$AddDeviceTokenArgumentsToJson(this);
+}
+
+final ADD_DEVICE_TOKEN_MUTATION_DOCUMENT_OPERATION_NAME = 'addDeviceToken';
+final ADD_DEVICE_TOKEN_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'addDeviceToken'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'AddDeviceTokenInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'addDeviceToken'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              )
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class AddDeviceTokenMutation
+    extends GraphQLQuery<AddDeviceToken$Mutation, AddDeviceTokenArguments> {
+  AddDeviceTokenMutation({required this.variables});
+
+  @override
+  final DocumentNode document = ADD_DEVICE_TOKEN_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      ADD_DEVICE_TOKEN_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final AddDeviceTokenArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  AddDeviceToken$Mutation parse(Map<String, dynamic> json) =>
+      AddDeviceToken$Mutation.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
