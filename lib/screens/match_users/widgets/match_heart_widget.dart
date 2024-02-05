@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/screens/match_users/bloc/match_users_bloc.dart';
 import 'package:senpai/utils/constants.dart';
-import 'package:senpai/utils/methods/utils.dart';
 
 class MatchHeartWidget extends StatelessWidget {
   final bool chageSize;
@@ -17,11 +16,11 @@ class MatchHeartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedContainer(
       height:
-          chageSize ? getSize(context).height / 2 : $constants.insets.offset,
-      width: chageSize ? getSize(context).width / 2 : $constants.insets.offset,
-      duration: const Duration(milliseconds: 900),
-      //TODO: change after test $constants.times.slow,
-      curve: Curves.easeIn,
+          chageSize ? $constants.insets.offset * 1.5 : $constants.insets.offset,
+      width:
+          chageSize ? $constants.insets.offset * 1.5 : $constants.insets.offset,
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.linear,
       onEnd: () {
         final bloc = BlocProvider.of<MatchUsersBloc>(context);
         bloc.add(OnFinishTimerEvent());
