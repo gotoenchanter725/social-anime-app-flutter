@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 
 import 'package:senpai/screens/profile_fill/favorite_anime/bloc/favorite_anime_bloc.dart';
@@ -11,20 +12,24 @@ class SelectedAnimeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavoriteAnimeBloc, FavoriteAnimeState>(
-      builder: (context, state) {
-        final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: bloc.selectedAnimeList
-              .map((anime) => _buildAnimeItem(context, anime))
-              .toList(),
+    return BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
+      builder: (BuildContext context, ApplicationLocaleState applicationLocaleState) {
+        return BlocBuilder<FavoriteAnimeBloc, FavoriteAnimeState>(
+          builder: (context, state) {
+            final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: bloc.selectedAnimeList
+                  .map((anime) => _buildAnimeItem(context, anime, applicationLocaleState.locale))
+                  .toList(),
+            );
+          },
         );
       },
     );
   }
 
-  Widget _buildAnimeItem(BuildContext context, AnimeModel animeModel) {
+  Widget _buildAnimeItem(BuildContext context, AnimeModel animeModel, Locale? locale) {
     final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
     return GestureDetector(
       onTap: () {
@@ -46,7 +51,7 @@ class SelectedAnimeList extends StatelessWidget {
           children: [
             if (animeModel.cover != null) _buildAnimeImage(animeModel.cover!),
             SizedBox(width: $constants.insets.xs),
-            _buildAnimeTitle(context, animeModel.title ?? ''),
+            _buildAnimeTitle(context, animeModel.getLocalizedTitle(locale)),
             SizedBox(width: $constants.insets.xs),
             _buildIconClose(),
             SizedBox(width: $constants.insets.xxs),

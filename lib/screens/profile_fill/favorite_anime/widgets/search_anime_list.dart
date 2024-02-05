@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 
 import 'package:senpai/screens/profile_fill/favorite_anime/bloc/favorite_anime_bloc.dart';
@@ -11,19 +12,23 @@ class SearchAnimeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavoriteAnimeBloc, FavoriteAnimeState>(
-      builder: (context, state) {
-        final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
-        return Column(
-          children: bloc.animeList
-              .map((anime) => _buildAnimeItem(context, anime))
-              .toList(),
+    return BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
+      builder: (BuildContext context, ApplicationLocaleState applicationLocaleState) {
+        return BlocBuilder<FavoriteAnimeBloc, FavoriteAnimeState>(
+          builder: (context, state) {
+            final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
+            return Column(
+              children: bloc.animeList
+                  .map((anime) => _buildAnimeItem(context, anime, applicationLocaleState.locale))
+                  .toList(),
+            );
+          },
         );
       },
     );
   }
 
-  Widget _buildAnimeItem(BuildContext context, AnimeModel animeModel) {
+  Widget _buildAnimeItem(BuildContext context, AnimeModel animeModel, Locale? locale) {
     final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
 
     final animeIds = bloc.selectedAnimeList.map((anime) => anime.id).toList();
@@ -47,7 +52,7 @@ class SearchAnimeList extends StatelessWidget {
             SizedBox(width: $constants.insets.sm),
             _buildTitle(
               context,
-              title: animeModel.title ?? '',
+              title: animeModel.getLocalizedTitle(locale),
               description: animeModel.genres ?? '',
             ),
             SizedBox(width: $constants.insets.xs),

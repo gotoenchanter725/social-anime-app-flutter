@@ -10,12 +10,16 @@ class AnimeTile extends StatelessWidget {
   final bool isActive;
   final bool hasBackground;
   final void Function(AnimeModel anime)? onTap;
-  const AnimeTile(
-      {super.key,
-      required this.anime,
-      this.onTap,
-      this.isActive = false,
-      this.hasBackground = false});
+  final Locale? locale;
+
+  const AnimeTile({
+    super.key,
+    required this.anime,
+    this.onTap,
+    this.isActive = false,
+    this.hasBackground = false,
+    required this.locale,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +59,7 @@ class AnimeTile extends StatelessWidget {
           ),
         ),
         title: Text(
-          anime.title ?? '',
+          anime.getLocalizedTitle(locale),
           style: getTextTheme(context).bodyMedium!,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,

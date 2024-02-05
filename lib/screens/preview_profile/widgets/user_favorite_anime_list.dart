@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -16,20 +18,25 @@ class UserFavoriteAnimeList extends StatelessWidget {
     if (animes.isEmpty) {
       return const SizedBox();
     }
-    return Wrap(
-      spacing: $constants.insets.xs,
-      runSpacing: $constants.insets.xs,
-      children: List.generate(
-        animes.length,
-        (i) => _buildItemAnime(
-          context,
-          animes[i],
-        ),
-      ),
+    return BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
+      builder: (BuildContext context, ApplicationLocaleState state) {
+        return Wrap(
+          spacing: $constants.insets.xs,
+          runSpacing: $constants.insets.xs,
+          children: List.generate(
+            animes.length,
+            (i) => _buildItemAnime(
+              context,
+              animes[i],
+              state.locale,
+            ),
+          ),
+        );
+      },
     );
   }
 
-  Widget _buildItemAnime(BuildContext context, AnimeModel animeModel) {
+  Widget _buildItemAnime(BuildContext context, AnimeModel animeModel, Locale? locale) {
     return Container(
       padding: EdgeInsets.all($constants.insets.xs),
       decoration: BoxDecoration(
@@ -42,7 +49,7 @@ class UserFavoriteAnimeList extends StatelessWidget {
         children: [
           if (animeModel.cover != null) _buildAnimeImage(animeModel.cover!),
           SizedBox(width: $constants.insets.xs),
-          _buildAnimeTitle(context, animeModel.title ?? ''),
+          _buildAnimeTitle(context, animeModel.getLocalizedTitle(locale)),
           SizedBox(width: $constants.insets.xs),
         ],
       ),

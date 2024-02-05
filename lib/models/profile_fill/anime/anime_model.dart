@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'anime_model.freezed.dart';
@@ -8,6 +10,7 @@ class AnimeModel with _$AnimeModel {
   const factory AnimeModel({
     required String id,
     String? title,
+    String? japaneseTitle,
     String? genres,
     String? cover,
     int? episodes,
@@ -23,6 +26,7 @@ class AnimeModel with _$AnimeModel {
   factory AnimeModel.initial() => const AnimeModel(
         id: '',
         title: '',
+        japaneseTitle: '',
         genres: '',
         cover: '',
         episodes: 0,
@@ -37,4 +41,15 @@ class AnimeModel with _$AnimeModel {
 
   factory AnimeModel.fromJson(Map<String, dynamic> json) =>
       _$AnimeModelFromJson(json);
+}
+
+extension LocalizedTitle on AnimeModel {
+  String getLocalizedTitle(Locale? locale) {
+    const Locale japaneseLocale = Locale('ja');
+    if (locale != null && locale == japaneseLocale) {
+      return japaneseTitle ?? title ?? '';
+    }
+
+    return title ?? '';
+  }
 }

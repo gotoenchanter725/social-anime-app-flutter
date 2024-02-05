@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_anime/add_favorite_anime_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_anime/delete_favorite_anime_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_anime/fetch_anime_bloc.dart';
@@ -109,25 +110,29 @@ class EditFavoriteAnimeList extends StatelessWidget {
   }
 
   Widget _buildListAnime(BuildContext context) {
-    return BlocBuilder<FavoriteAnimeBloc, FavoriteAnimeState>(
-      builder: (context, state) {
-        final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
-        return ListView.separated(
-          physics: const BouncingScrollPhysics(),
-          itemCount: bloc.selectedAnimeList.length,
-          itemBuilder: (context, index) {
-            final anime = bloc.selectedAnimeList[index];
-            return _buildAnimeItem(context, anime);
-          },
-          separatorBuilder: (context, index) {
-            return SizedBox(height: $constants.insets.xs);
+    return BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
+      builder: (BuildContext context, ApplicationLocaleState applicationLocaleState) {
+        return BlocBuilder<FavoriteAnimeBloc, FavoriteAnimeState>(
+          builder: (context, state) {
+            final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
+            return ListView.separated(
+              physics: const BouncingScrollPhysics(),
+              itemCount: bloc.selectedAnimeList.length,
+              itemBuilder: (context, index) {
+                final anime = bloc.selectedAnimeList[index];
+                return _buildAnimeItem(context, anime, applicationLocaleState.locale);
+              },
+              separatorBuilder: (context, index) {
+                return SizedBox(height: $constants.insets.xs);
+              },
+            );
           },
         );
       },
     );
   }
 
-  Widget _buildAnimeItem(BuildContext context, AnimeModel anime) {
+  Widget _buildAnimeItem(BuildContext context, AnimeModel anime, Locale? locale) {
     final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
 
     return Container(
@@ -148,7 +153,7 @@ class EditFavoriteAnimeList extends StatelessWidget {
           size: 40,
         ),
         title: Text(
-          anime.title ?? '',
+          anime.getLocalizedTitle(locale),
           style: getTextTheme(context).bodyMedium!,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,

@@ -8,6 +8,7 @@ import 'package:senpai/utils/methods/utils.dart';
 
 class OutgoingMessage extends StatelessWidget {
   final ChatMessage message;
+
   const OutgoingMessage({super.key, required this.message});
 
   @override
@@ -21,8 +22,7 @@ class OutgoingMessage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ConstrainedBox(
-                constraints: BoxConstraints(
-                    maxWidth: MediaQuery.of(context).size.width * 0.8),
+                constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.8),
                 child: _buildMessageContent(context),
               ),
               const SizedBox(
@@ -30,9 +30,7 @@ class OutgoingMessage extends StatelessWidget {
               ),
               Text(
                 DateFormat('hh:mm').format(message.timestamp),
-                style: getTextTheme(context)
-                    .labelMedium!
-                    .copyWith(color: $constants.palette.grey),
+                style: getTextTheme(context).labelMedium!.copyWith(color: $constants.palette.grey),
               )
             ],
           ),
@@ -112,6 +110,7 @@ class OutgoingMessage extends StatelessWidget {
               title: message.recommendation!.animeName,
             ),
             hasBackground: true,
+            locale: null,
           ),
         ),
         SizedBox(
