@@ -1,13 +1,105 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/models/recieved_notification.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
+
+final StreamController<ReceivedNotification> didReceiveLocalNotificationStream =
+    StreamController<ReceivedNotification>.broadcast();
+
+final StreamController<String?> selectNotificationStream =
+    StreamController<String?>.broadcast();
+
+const MethodChannel platform =
+    MethodChannel('makeshift.inc.senpai/notification');
+
+const String portName = 'notification_send_port';
+
+/// A notification action which triggers a url launch event
+const String urlLaunchActionId = 'notification_url_launch_action';
+
+/// A notification action which triggers a App navigation event
+const String navigationActionId = 'notification_navigation_action';
+
+/// Defines a iOS/MacOS notification category for text input actions.
+const String darwinNotificationCategoryText = 'navigation_text_input_action';
+
+/// Defines a iOS/MacOS notification category for plain actions.
+const String darwinNotificationCategoryPlain = 'navigation_plain_action';
+
+void notificationTapBackground(NotificationResponse notificationResponse) {
+  // ignore: avoid_print
+  logIt.info('notification(${notificationResponse.id}) action tapped: '
+      '${notificationResponse.actionId} with'
+      ' payload: ${notificationResponse.payload}');
+  if (notificationResponse.input?.isNotEmpty ?? false) {
+    // ignore: avoid_print
+    logIt.info(
+        'notification action tapped with input: ${notificationResponse.input}');
+  }
+}
+
 class NotificationManager {
+  String? selectedNotificationPayload;
+
   void listenToNotifications() {
     _listenToForegroundNotifications();
     _listenToBackgroundNotifications();
+  }
+
+  Future<void> checkAndRouteIfNotificationLaunchedApp() async {
+    final NotificationAppLaunchDetails? notificationAppLaunchDetails =
+        Platform.isLinux
+            ? null
+            : await flutterLocalNotificationsPlugin
+                .getNotificationAppLaunchDetails();
+    if (notificationAppLaunchDetails?.didNotificationLaunchApp ?? false) {
+      selectedNotificationPayload =
+          notificationAppLaunchDetails!.notificationResponse?.payload;
+      // TODO: route to the selected page as per the payload
+      logIt.info('notification payload: $selectedNotificationPayload');
+    }
+  }
+
+  Future<void> initialiseNotificationSettings() async {
+    try {
+      var initializationSettingsAndroid =
+          const AndroidInitializationSettings('@mipmap/ic_launcher');
+      var initializationSettingsDarwin = const DarwinInitializationSettings();
+      final InitializationSettings initializationSettings =
+          InitializationSettings(
+        android: initializationSettingsAndroid,
+        iOS: initializationSettingsDarwin,
+      );
+      await flutterLocalNotificationsPlugin.initialize(
+        initializationSettings,
+        onDidReceiveNotificationResponse:
+            (NotificationResponse notificationResponse) {
+          switch (notificationResponse.notificationResponseType) {
+            case NotificationResponseType.selectedNotification:
+              selectNotificationStream.add(notificationResponse.payload);
+              break;
+            case NotificationResponseType.selectedNotificationAction:
+              if (notificationResponse.actionId == navigationActionId) {
+                selectNotificationStream.add(notificationResponse.payload);
+              }
+              break;
+          }
+        },
+        onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
+      );
+    } catch (e) {
+      logIt.error('Error initializing notification settings: $e');
+    }
   }
 
   void _listenToForegroundNotifications() {
@@ -16,7 +108,33 @@ class NotificationManager {
     });
   }
 
+  void _showLocalNotification(RemoteMessage message) {
+    final notification = message.notification;
+    const androidPlatformChannelSpecifics = AndroidNotificationDetails(
+      'makeshift.inc.senpai/notification',
+      'Senpai Notifications',
+      channelDescription:
+          'This channel is used for all application notifications',
+      importance: Importance.high,
+      priority: Priority.high,
+      ticker: 'ticker',
+    );
+    const iOSPlatformChannelSpecifics = DarwinNotificationDetails();
+    const platformChannelSpecifics = NotificationDetails(
+        android: androidPlatformChannelSpecifics,
+        iOS: iOSPlatformChannelSpecifics);
+    flutterLocalNotificationsPlugin.show(
+      0,
+      notification!.title,
+      notification.body,
+      platformChannelSpecifics,
+      payload: message.data['type'],
+    );
+  }
+
   void handleNotification(RemoteMessage message) {
+    // Show a local notification
+    _showLocalNotification(message);
     // Execute the corresponding handler based on the notification type
     final String type = message.data['type'];
     final Function? handler = _notificationHandlers[type];

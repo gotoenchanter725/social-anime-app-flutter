@@ -54,6 +54,8 @@ Future<void> main() async {
     final notificationManager = NotificationManager();
     notificationManager.listenToNotifications();
 
+    await notificationManager.initialiseNotificationSettings();
+
     // Set bloc observer and hydrated bloc storage.
     // Bloc.observer = Observer();
     HydratedBloc.storage = await HydratedStorage.build(

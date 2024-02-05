@@ -108,6 +108,7 @@ dependencies:
   path: ^1.8.3
   firebase_core: ^2.25.2
   firebase_messaging: ^14.7.13
+  flutter_local_notifications: ^16.3.2
 
 dev_dependencies:
   flutter_test:
