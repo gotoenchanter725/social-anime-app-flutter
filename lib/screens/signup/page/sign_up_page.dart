@@ -5,8 +5,8 @@ import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:senpai/core/auth/blocs/resend_verification_code_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/core/auth/blocs/create_user_bloc.dart';
 import 'package:senpai/screens/signup/bloc/sign_up_form/sign_up_form_bloc.dart';
@@ -89,7 +89,15 @@ class SignUpPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              _showSnackBarError(context, R.strings.serverError);
+              if (error.graphqlErrors.isNotEmpty) {
+                _showSnackBarError(
+                  context,
+                  R.strings.noAccountWithThisNumber,
+                  isWarning: true,
+                );
+              } else {
+                _showSnackBarError(context, R.strings.serverError);
+              }
 
               return const SizedBox.shrink();
             },

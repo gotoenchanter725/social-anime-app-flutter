@@ -105,7 +105,7 @@ class MatchBottomContainer extends StatelessWidget {
           onTap: () async {
             // todo change it
             if (bloc.superLikeCount <= 0) {
-              return openPremiumPurchaseDialog(context);
+              return openPremiumPurchaseDialog(context, bloc.userID);
             }
 
             bloc.swipeUser = Swipe.up;

@@ -107,9 +107,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     PremiumRoute.name: (routeData) {
+      final args = routeData.argsAs<PremiumRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const PremiumPage(),
+        child: PremiumPage(
+          key: args.key,
+          userId: args.userId,
+        ),
       );
     },
     PreviewProfileRoute.name: (routeData) {
@@ -143,6 +147,7 @@ abstract class _$AppRouter extends RootStackRouter {
         child: ProfileFilterPage(
           key: args.key,
           animes: args.animes,
+          premium: args.premium,
         ),
       );
     },
@@ -573,16 +578,40 @@ class OnboardingRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PremiumPage]
-class PremiumRoute extends PageRouteInfo<void> {
-  const PremiumRoute({List<PageRouteInfo>? children})
-      : super(
+class PremiumRoute extends PageRouteInfo<PremiumRouteArgs> {
+  PremiumRoute({
+    Key? key,
+    required int userId,
+    List<PageRouteInfo>? children,
+  }) : super(
           PremiumRoute.name,
+          args: PremiumRouteArgs(
+            key: key,
+            userId: userId,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'PremiumRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<PremiumRouteArgs> page =
+      PageInfo<PremiumRouteArgs>(name);
+}
+
+class PremiumRouteArgs {
+  const PremiumRouteArgs({
+    this.key,
+    required this.userId,
+  });
+
+  final Key? key;
+
+  final int userId;
+
+  @override
+  String toString() {
+    return 'PremiumRouteArgs{key: $key, userId: $userId}';
+  }
 }
 
 /// generated route for
@@ -687,12 +716,14 @@ class ProfileFilterRoute extends PageRouteInfo<ProfileFilterRouteArgs> {
   ProfileFilterRoute({
     Key? key,
     required List<AnimeModel>? animes,
+    required bool premium,
     List<PageRouteInfo>? children,
   }) : super(
           ProfileFilterRoute.name,
           args: ProfileFilterRouteArgs(
             key: key,
             animes: animes,
+            premium: premium,
           ),
           initialChildren: children,
         );
@@ -707,15 +738,18 @@ class ProfileFilterRouteArgs {
   const ProfileFilterRouteArgs({
     this.key,
     required this.animes,
+    required this.premium,
   });
 
   final Key? key;
 
   final List<AnimeModel>? animes;
 
+  final bool premium;
+
   @override
   String toString() {
-    return 'ProfileFilterRouteArgs{key: $key, animes: $animes}';
+    return 'ProfileFilterRouteArgs{key: $key, animes: $animes, premium: $premium}';
   }
 }
 

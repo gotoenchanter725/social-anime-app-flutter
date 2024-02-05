@@ -891,4 +891,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get miTitle => '私';
+
+  @override
+  String get noAccountWithThisNumber => '';
+
+  @override
+  String get dearUserText => '';
+
+  @override
+  String get dearUserDescription => '';
+
+  @override
+  String get whatYouGetText => '';
+
+  @override
+  String get nextPaymentText => '';
 }

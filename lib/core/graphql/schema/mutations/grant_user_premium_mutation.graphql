@@ -1,0 +1,8 @@
+mutation grantUserPremium($input: GrantUserPremiumInput!) {
+  grantUserPremium(input: $input) {
+    user {
+      id
+      premium
+    }
+  }
+}

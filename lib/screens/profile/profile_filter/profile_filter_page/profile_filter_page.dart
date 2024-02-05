@@ -20,10 +20,12 @@ import 'package:senpai/utils/methods/aliases.dart';
 @RoutePage()
 class ProfileFilterPage extends StatelessWidget {
   final List<AnimeModel>? animes;
+  final bool premium;
 
   const ProfileFilterPage({
     super.key,
     required this.animes,
+    required this.premium,
   });
 
   @override
@@ -42,6 +44,7 @@ class ProfileFilterPage extends StatelessWidget {
               OnFavoriteAnimeInitEvent(
                 myAnimeList: animes ?? [],
                 selectedAnimeList: const [],
+                premium: premium,
               ),
             ),
         ),

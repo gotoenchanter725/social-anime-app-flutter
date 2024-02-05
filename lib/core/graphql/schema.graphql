@@ -78,6 +78,7 @@ type Anime {
   genres: String
   id: ID!
   isAdult: Boolean
+  japaneseTitle: String
   popularity: Int
   startDate: ISO8601DateTime
   status: String
@@ -114,6 +115,7 @@ type Character {
   firstName: String
   id: ID!
   imageUrl: String!
+  japaneseFullName: String
   lastName: String
   role: String
   updatedAt: ISO8601DateTime!
@@ -283,7 +285,7 @@ input FavoriteMusicUpdate {
 
 input FetchCharactersInput {
   characterName: String!
-  genre: String!
+  genre: String
   page: Int
 }
 
@@ -988,6 +990,7 @@ type User {
   bio: String
   birthday: ISO8601DateTime
   blocks: [Block!]
+  country: String
   createdAt: ISO8601DateTime!
   currentSignInAt: ISO8601DateTime
   currentSignInIp: String
@@ -1001,11 +1004,13 @@ type User {
   gender: String
   hasLocationHidden: Boolean
   id: ID!
+  isFakeProfile: Boolean!
   lastSignInAt: ISO8601DateTime
   lastSignInIp: String
   lonlat: String
   matches: [Match!]
   milesAway(otherUserId: ID!): Int
+  nextPaymentDate: ISO8601DateTime
   occupation: String
   onlineStatus: String
   phone: String!
@@ -1033,6 +1038,7 @@ input UserUpdateInput {
   occupation: String
   phone: String
   school: String
+  superLikeCount: Int
   userId: ID!
   verified: Boolean
 }

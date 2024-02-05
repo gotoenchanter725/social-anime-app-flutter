@@ -1,0 +1,10 @@
+mutation addSuperLikes($input: AddSuperLikesInput!) {
+  addSuperLikes(input: $input) {
+    user {
+      id
+      phone
+      verified
+      superLikeCount
+    }
+  }
+}

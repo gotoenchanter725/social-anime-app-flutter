@@ -891,4 +891,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get miTitle => 'mi';
+
+  @override
+  String get noAccountWithThisNumber => 'There is no account with this number';
+
+  @override
+  String get dearUserText => 'Dear User';
+
+  @override
+  String get dearUserDescription => 'We care about your privacy and data security. Your information will not ever be sold to third parties, but used internally to make the app better.';
+
+  @override
+  String get whatYouGetText => 'What you get:';
+
+  @override
+  String get nextPaymentText => 'Next payment:';
 }

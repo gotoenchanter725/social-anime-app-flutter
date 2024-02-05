@@ -1868,6 +1868,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'mi'**
   String get miTitle;
+
+  /// No description provided for @noAccountWithThisNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'There is no account with this number'**
+  String get noAccountWithThisNumber;
+
+  /// No description provided for @dearUserText.
+  ///
+  /// In en, this message translates to:
+  /// **'Dear User'**
+  String get dearUserText;
+
+  /// No description provided for @dearUserDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'We care about your privacy and data security. Your information will not ever be sold to third parties, but used internally to make the app better.'**
+  String get dearUserDescription;
+
+  /// No description provided for @whatYouGetText.
+  ///
+  /// In en, this message translates to:
+  /// **'What you get:'**
+  String get whatYouGetText;
+
+  /// No description provided for @nextPaymentText.
+  ///
+  /// In en, this message translates to:
+  /// **'Next payment:'**
+  String get nextPaymentText;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -4,19 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
-
-import 'package:senpai/l10n/resources.dart';
-import 'package:senpai/l10n/local_key.dart';
-import 'package:senpai/screens/profile/widgets/profile_item_header.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
+import 'package:senpai/l10n/local_key.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 import 'package:senpai/screens/profile/settings_profile/widgets/cupertino_logout_widget.dart';
+import 'package:senpai/screens/profile/settings_profile/widgets/delete_account_widget.dart';
 import 'package:senpai/screens/profile/settings_profile/widgets/setting_premium_widget.dart';
 import 'package:senpai/screens/profile/widgets/profile_app_bar.dart';
+import 'package:senpai/screens/profile/widgets/profile_item_header.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
-
-import '../../../../l10n/resources.dart';
 
 class SettingsContent extends StatelessWidget {
   const SettingsContent({
@@ -158,10 +156,10 @@ class SettingsContent extends StatelessWidget {
               hasBackgroundColor: true,
             ),
             SizedBox(height: $constants.insets.xs),
-            // 22.01 Herbert Joseph: Let's remove/hide delete account for now.
-            // const Center(
-            //   child: DeleteAccountWidget(),
-            // ),
+            const Center(
+              child: DeleteAccountWidget(),
+            ),
+            SizedBox(height: MediaQuery.of(context).padding.bottom),
           ],
         );
       },
@@ -189,7 +187,9 @@ class SettingsContent extends StatelessWidget {
           ),
           Text(
             bloc.user.phone,
-            style: getTextTheme(context).labelMedium?.copyWith(color: $constants.palette.grey),
+            style: getTextTheme(context)
+                .labelMedium
+                ?.copyWith(color: $constants.palette.grey),
           ),
         ],
       ),
@@ -205,7 +205,9 @@ class SettingsContent extends StatelessWidget {
         children: [
           Text(
             R.strings.languageTitle,
-            style: getTextTheme(context).bodyMedium?.copyWith(color: $constants.palette.white),
+            style: getTextTheme(context)
+                .bodyMedium
+                ?.copyWith(color: $constants.palette.white),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

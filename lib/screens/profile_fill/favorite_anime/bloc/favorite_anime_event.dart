@@ -6,8 +6,13 @@ abstract class FavoriteAnimeEvent {}
 class OnFavoriteAnimeInitEvent extends FavoriteAnimeEvent {
   final List<AnimeModel> selectedAnimeList;
   final List<AnimeModel>? myAnimeList;
+  final bool? premium;
 
-  OnFavoriteAnimeInitEvent({required this.selectedAnimeList, this.myAnimeList});
+  OnFavoriteAnimeInitEvent({
+    required this.selectedAnimeList,
+    this.myAnimeList,
+    this.premium = false,
+  });
 }
 
 class OnFetchFavoriteAnimeListEvent extends FavoriteAnimeEvent {
