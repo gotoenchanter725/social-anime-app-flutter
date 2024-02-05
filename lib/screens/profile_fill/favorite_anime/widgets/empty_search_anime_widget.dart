@@ -28,7 +28,7 @@ class EmptySearchAnimeWidget extends StatelessWidget {
 
   Widget _buildTitleWidget(BuildContext context) {
     return Text(
-      R.strings.noAnimesFoundText,
+      R.strings.oopsNoAnimeFound,
       style: getTextTheme(context).headlineSmall,
     );
   }
