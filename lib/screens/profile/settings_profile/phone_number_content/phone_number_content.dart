@@ -110,7 +110,10 @@ class PhoneNumberContent extends StatelessWidget {
     return BlocListener<SettingsProfileBloc, SettingsProfileState>(
       listenWhen: (_, currState) => currState is ChangePhoneNumberState,
       listener: (context, state) {
-        serverBloc.updateUserInfo(user: bloc.user.toUpdateModel());
+        serverBloc.updateUserInfo(
+          user: bloc.user.toUpdateModel(),
+          verified: bloc.user.verified,
+        );
       },
       child: SecondaryButton(
         text: R.strings.updateMyPhoneButton,
