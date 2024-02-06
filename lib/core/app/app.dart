@@ -7,10 +7,15 @@ import 'package:senpai/i18n/strings.g.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   final ThemeData theme;
   MyApp({super.key, required this.theme});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   final _appRouter = appRouter;
 
   // This widget is the root of your application.
@@ -22,7 +27,7 @@ class MyApp extends StatelessWidget {
     ]);
     return MaterialApp.router(
       title: $constants.appTitle,
-      theme: theme,
+      theme: widget.theme,
       routerConfig: _appRouter.config(),
 
       /// EasyLocalization configuration.
