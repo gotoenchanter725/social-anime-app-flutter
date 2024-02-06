@@ -16,6 +16,8 @@ extension UserModelMapper on UserProfileModel {
       school: school,
       bio: bio,
       hasLocationHidden: hasLocationHidden,
+      isDisplayingActive: isDisplayingActive,
+      isDisplayingRecentlyActive: isDisplayingRecentlyActive,
     );
   }
 }
