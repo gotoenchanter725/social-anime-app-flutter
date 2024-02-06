@@ -70,7 +70,7 @@ class ReportUserPage extends StatelessWidget {
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               } else {
-                context.router.replaceAll([const HomeRoute()]);
+                context.router.replaceAll([HomeRoute()]);
               }
               return const SizedBox.shrink();
             },

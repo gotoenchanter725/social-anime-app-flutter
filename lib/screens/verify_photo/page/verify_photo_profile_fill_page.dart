@@ -119,7 +119,7 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
                 return const SizedBox.shrink();
               }
               WidgetsBinding.instance.addPostFrameCallback((_) {
-                context.router.replaceAll([const HomeRoute()]);
+                context.router.replaceAll([HomeRoute()]);
               });
               return const SizedBox.shrink();
             },

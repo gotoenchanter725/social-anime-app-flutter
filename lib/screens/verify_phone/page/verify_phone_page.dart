@@ -213,7 +213,7 @@ class VerifyPhonePage extends StatelessWidget {
 
                       if (hasFilledProfile) {
                         WidgetsBinding.instance.addPostFrameCallback((_) {
-                          context.router.replaceAll([const HomeRoute()]);
+                          context.router.replaceAll([HomeRoute()]);
                         });
                       } else {
                         context.router.push(ProfileFillRoute(

@@ -14,8 +14,6 @@
 //   }
 // }
 
-
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,7 +56,7 @@ class EntryPage extends StatelessWidget {
                 signInBloc.signInUser(context.router, result.data);
             if (isSignedIn) {
               WidgetsBinding.instance.addPostFrameCallback((_) {
-                context.router.replaceAll([const HomeRoute()]);
+                context.router.replaceAll([HomeRoute()]);
               });
             }
             return const SizedBox.shrink();

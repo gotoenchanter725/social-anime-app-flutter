@@ -164,11 +164,11 @@ class NotificationManager {
       };
 
   void _handleNewMatch(RemoteMessage message) {
-    appRouter.push(const HomeRoute());
+    appRouter.push(HomeRoute());
   }
 
   void _handleVerifyProfile(RemoteMessage message) {
-    appRouter.push(const HomeRoute());
+    appRouter.push(HomeRoute());
   }
 
   void _handleNewMessage(RemoteMessage message) {

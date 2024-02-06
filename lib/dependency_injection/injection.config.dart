@@ -51,10 +51,10 @@ import 'package:senpai/core/profile_fill/favorite_music/delete_favorite_music_bl
     as _i9;
 import 'package:senpai/core/profile_fill/set_user_location/set_user_location_bloc.dart'
     as _i30;
-import 'package:senpai/core/secure_storage/device_token_storage.dart' as _i43;
-import 'package:senpai/core/secure_storage/secure_auth_storage.dart' as _i39;
+import 'package:senpai/core/secure_storage/device_token_storage.dart' as _i39;
+import 'package:senpai/core/secure_storage/secure_auth_storage.dart' as _i41;
 import 'package:senpai/core/secure_storage/secure_spotify_auth_storage.dart'
-    as _i41;
+    as _i43;
 import 'package:senpai/core/user/blocs/add_device_token/add_device_token_bloc.dart'
     as _i3;
 import 'package:senpai/core/user/blocs/delete_user/delete_user_bloc.dart'
@@ -83,10 +83,10 @@ import 'package:senpai/domain/profile_fill/spotify/spotify_auth_usecase.dart'
 import 'package:senpai/domain/profile_fill/spotify/spotify_fetch_user_info_usecase.dart'
     as _i35;
 import 'package:senpai/domain/profile_fill/universities_usecase.dart' as _i19;
-import 'package:senpai/models/auth/auth_model.dart' as _i38;
-import 'package:senpai/models/auth/device_token_model.dart' as _i42;
+import 'package:senpai/models/auth/auth_model.dart' as _i40;
+import 'package:senpai/models/auth/device_token_model.dart' as _i38;
 import 'package:senpai/models/env_model.dart' as _i12;
-import 'package:senpai/models/spotify_auth/spotify_auth_model.dart' as _i40;
+import 'package:senpai/models/spotify_auth/spotify_auth_model.dart' as _i42;
 import 'package:senpai/models/theme_model.dart' as _i36;
 import 'package:senpai/routes/app_router.dart' as _i6;
 import 'package:senpai/screens/home/bloc/home_storage_bloc.dart' as _i21;
@@ -162,12 +162,12 @@ extension GetItInjectableX on _i1.GetIt {
       () => _i36.ThemeModel.create(),
       preResolve: true,
     );
-    gh.lazySingleton<_i37.TokenStorage<_i38.AuthModel>>(
-        () => _i39.SecureAuthStorage(gh<_i17.FlutterSecureStorage>()));
-    gh.lazySingleton<_i37.TokenStorage<_i40.SpotifyAuthModel>>(
-        () => _i41.SecureSpotifyAuthStorage(gh<_i17.FlutterSecureStorage>()));
-    gh.lazySingleton<_i37.TokenStorage<_i42.DeviceTokenModel>>(
-        () => _i43.SecureDeviceTokenStorage(gh<_i17.FlutterSecureStorage>()));
+    gh.lazySingleton<_i37.TokenStorage<_i38.DeviceTokenModel>>(
+        () => _i39.SecureDeviceTokenStorage(gh<_i17.FlutterSecureStorage>()));
+    gh.lazySingleton<_i37.TokenStorage<_i40.AuthModel>>(
+        () => _i41.SecureAuthStorage(gh<_i17.FlutterSecureStorage>()));
+    gh.lazySingleton<_i37.TokenStorage<_i42.SpotifyAuthModel>>(
+        () => _i43.SecureSpotifyAuthStorage(gh<_i17.FlutterSecureStorage>()));
     gh.factory<_i44.UndoLikeUserBloc>(() => _i44.UndoLikeUserBloc());
     gh.factory<_i45.UniversitiesApi>(
         () => universityInjectionModule.universitiesApi(gh<_i12.EnvModel>()));
