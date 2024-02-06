@@ -104,7 +104,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get verifyPhotoHeading => 'Photo verify';
 
   @override
-  String get verifyPhotoDescription => 'Photo verify to let everyone know \\nyour photos are really you';
+  String get verifyPhotoDescription => 'Photo verify to let everyone know\nyour photos are really you';
 
   @override
   String get verifyPhotoButtonText => 'Verify by photo';
@@ -119,7 +119,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get profileTabText => 'Profile';
 
   @override
-  String get happyWithPhotoText => 'Happy with \\nyour photo?';
+  String get happyWithPhotoText => 'Happy with\nyour photo?';
 
   @override
   String get weWillScanYourPhotoText => 'We will scan your photo to verify your identity';
@@ -410,7 +410,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get almostDoneText => 'Almost done!';
 
   @override
-  String get nowChooseYourFavoriteAnimesText => 'Now choose your favorite animes \\nand start matching';
+  String get nowChooseYourFavoriteAnimesText => 'Now choose your favorite animes\nand start matching';
 
   @override
   String get oopsNoAnimeFound => 'Oops. No anime found.';
@@ -491,7 +491,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enableLocationText => 'Enable location';
 
   @override
-  String get enableLocationDescription => 'Your location will be used to show \\n potential matches near you';
+  String get enableLocationDescription => 'Your location will be used to show \npotential matches near you';
 
   @override
   String get allowLocationText => 'Allow location';
@@ -683,7 +683,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsTitle => 'Settings';
 
   @override
-  String get senpaiPremiumDescription => 'Higher visibility rates, 30 Super Likes \\nand much more!';
+  String get senpaiPremiumDescription => 'Higher visibility rates, 30 Super Likes \nand much more!';
 
   @override
   String get accountSettingsTitle => 'Account settings';
