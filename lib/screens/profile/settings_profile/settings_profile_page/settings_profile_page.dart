@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/user/blocs/delete_user/delete_user_bloc.dart';
@@ -33,7 +32,8 @@ class SettingsProfilePage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => SettingsProfileBloc()..add((OnSettingsProfileInitEvent(user: user))),
+          create: (_) => SettingsProfileBloc()
+            ..add((OnSettingsProfileInitEvent(user: user))),
         ),
         BlocProvider(create: (_) => getIt<UpdateUserBloc>()),
         BlocProvider(create: (_) => getIt<DeleteUserBloc>()),
@@ -57,7 +57,9 @@ class SettingsProfilePage extends StatelessWidget {
   Widget _buildSettingsLoadingListeners() {
     return BlocBuilder<SettingsProfileBloc, SettingsProfileState>(
       builder: (context, state) {
-        return state is LoadingState ? const SenpaiLoading() : const SizedBox.shrink();
+        return state is LoadingState
+            ? const SenpaiLoading()
+            : const SizedBox.shrink();
       },
     );
   }
@@ -87,11 +89,19 @@ class SettingsProfilePage extends StatelessWidget {
                 return const SizedBox.shrink();
               }
               final bloc = BlocProvider.of<SettingsProfileBloc>(context);
-              context.router.push(SettingsVerifyPhoneRoute(settingsBloc: bloc)).then(
-                    (_) => bloc.add(OnChangeSettingsStepEvent(
-                      step: SettingsStep.settings,
-                    )),
-                  );
+              if (bloc.state is ChangePhoneNumberState) {
+                context.router
+                    .push(SettingsVerifyPhoneRoute(settingsBloc: bloc))
+                    .then(
+                      (_) => bloc.add(
+                        OnChangeSettingsStepEvent(
+                          step: SettingsStep.settings,
+                        ),
+                      ),
+                    );
+              } else {
+                context.router.pop();
+              }
 
               return const SizedBox.shrink();
             },

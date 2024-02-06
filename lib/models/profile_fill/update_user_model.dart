@@ -16,6 +16,8 @@ class UpdateUserModel with _$UpdateUserModel {
     String? school,
     String? bio,
     bool? hasLocationHidden,
+    bool? isDisplayingRecentlyActive,
+    bool? isDisplayingActive,
   }) = _UpdateUserModel;
 
   factory UpdateUserModel.initial() => const UpdateUserModel(
@@ -29,6 +31,8 @@ class UpdateUserModel with _$UpdateUserModel {
         school: '',
         bio: '',
         hasLocationHidden: false,
+        isDisplayingRecentlyActive: false,
+        isDisplayingActive: false,
       );
 
   factory UpdateUserModel.fromJson(Map<String, dynamic> json) =>
