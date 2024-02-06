@@ -11,8 +11,8 @@ import 'package:senpai/utils/constants.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
-  int defaultIndex = 0;
-  HomePage({super.key, this.defaultIndex = 0});
+  final int defaultIndex;
+  const HomePage({super.key, this.defaultIndex = 0});
 
   @override
   Widget build(BuildContext context) {
