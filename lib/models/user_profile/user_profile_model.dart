@@ -34,6 +34,8 @@ class UserProfileModel with _$UserProfileModel {
     bool? hasLocationHidden,
     int? milesAway,
     DateTime? nextPaymentDate,
+    bool? isDisplayingRecentlyActive,
+    bool? isDisplayingActive,
   }) = _UserProfileModel;
 
   factory UserProfileModel.initial() => const UserProfileModel(
@@ -62,6 +64,8 @@ class UserProfileModel with _$UserProfileModel {
         hasLocationHidden: false,
         milesAway: null,
         nextPaymentDate: null,
+        isDisplayingRecentlyActive: false,
+        isDisplayingActive: false,
       );
 
   factory UserProfileModel.fromJson(Map<String, dynamic> json) =>
