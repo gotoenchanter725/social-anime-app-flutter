@@ -48,6 +48,12 @@ void notificationTapBackground(NotificationResponse notificationResponse) {
   }
 }
 
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+
+  logIt.info('Handling a background message: ${message.messageId}');
+}
+
 class NotificationManager {
   String? selectedNotificationPayload;
 
@@ -104,6 +110,7 @@ class NotificationManager {
 
   void _listenToForegroundNotifications() {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      logIt.info('Got a message whilst in the foreground!');
       handleNotification(message);
     });
   }
@@ -147,13 +154,6 @@ class NotificationManager {
 
   void _listenToBackgroundNotifications() {
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
-  }
-
-  Future<void> _firebaseMessagingBackgroundHandler(
-      RemoteMessage message) async {
-    await Firebase.initializeApp();
-
-    handleNotification(message);
   }
 
   // Define a map of handlers for each notification type
