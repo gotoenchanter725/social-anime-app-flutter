@@ -389,6 +389,10 @@ class UpdateUser$Mutation$UpdateUser$User extends JsonSerializable
 
   bool? hasLocationHidden;
 
+  late bool isDisplayingRecentlyActive;
+
+  late bool isDisplayingActive;
+
   @override
   List<Object?> get props => [
         id,
@@ -401,7 +405,9 @@ class UpdateUser$Mutation$UpdateUser$User extends JsonSerializable
         verified,
         school,
         occupation,
-        hasLocationHidden
+        hasLocationHidden,
+        isDisplayingRecentlyActive,
+        isDisplayingActive
       ];
   @override
   Map<String, dynamic> toJson() =>
@@ -468,6 +474,8 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
     this.firstName,
     this.gender,
     this.hasLocationHidden,
+    this.isDisplayingActive,
+    this.isDisplayingRecentlyActive,
     this.occupation,
     this.phone,
     this.school,
@@ -494,6 +502,10 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
 
   bool? hasLocationHidden;
 
+  bool? isDisplayingActive;
+
+  bool? isDisplayingRecentlyActive;
+
   String? occupation;
 
   String? phone;
@@ -514,6 +526,8 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
         firstName,
         gender,
         hasLocationHidden,
+        isDisplayingActive,
+        isDisplayingRecentlyActive,
         occupation,
         phone,
         school,
@@ -3002,6 +3016,10 @@ class FetchUser$Query$FetchUser extends JsonSerializable with EquatableMixin {
       toJson: fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable)
   DateTime? nextPaymentDate;
 
+  late bool isDisplayingRecentlyActive;
+
+  late bool isDisplayingActive;
+
   @override
   List<Object?> get props => [
         id,
@@ -3028,7 +3046,9 @@ class FetchUser$Query$FetchUser extends JsonSerializable with EquatableMixin {
         premium,
         superLikeCount,
         hasLocationHidden,
-        nextPaymentDate
+        nextPaymentDate,
+        isDisplayingRecentlyActive,
+        isDisplayingActive
       ];
   @override
   Map<String, dynamic> toJson() => _$FetchUser$Query$FetchUserToJson(this);
@@ -4049,6 +4069,20 @@ final UPDATE_USER_MUTATION_DOCUMENT = DocumentNode(definitions: [
               ),
               FieldNode(
                 name: NameNode(value: 'hasLocationHidden'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isDisplayingRecentlyActive'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isDisplayingActive'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -7139,6 +7173,20 @@ final FETCH_USER_QUERY_DOCUMENT = DocumentNode(definitions: [
           ),
           FieldNode(
             name: NameNode(value: 'nextPaymentDate'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'isDisplayingRecentlyActive'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'isDisplayingActive'),
             alias: null,
             arguments: [],
             directives: [],

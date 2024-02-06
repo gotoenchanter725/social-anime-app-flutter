@@ -275,7 +275,10 @@ UpdateUser$Mutation$UpdateUser$User
           ..verified = json['verified'] as bool
           ..school = json['school'] as String?
           ..occupation = json['occupation'] as String?
-          ..hasLocationHidden = json['hasLocationHidden'] as bool?;
+          ..hasLocationHidden = json['hasLocationHidden'] as bool?
+          ..isDisplayingRecentlyActive =
+              json['isDisplayingRecentlyActive'] as bool
+          ..isDisplayingActive = json['isDisplayingActive'] as bool;
 
 Map<String, dynamic> _$UpdateUser$Mutation$UpdateUser$UserToJson(
         UpdateUser$Mutation$UpdateUser$User instance) =>
@@ -292,6 +295,8 @@ Map<String, dynamic> _$UpdateUser$Mutation$UpdateUser$UserToJson(
       'school': instance.school,
       'occupation': instance.occupation,
       'hasLocationHidden': instance.hasLocationHidden,
+      'isDisplayingRecentlyActive': instance.isDisplayingRecentlyActive,
+      'isDisplayingActive': instance.isDisplayingActive,
     };
 
 UpdateUser$Mutation$UpdateUser _$UpdateUser$Mutation$UpdateUserFromJson(
@@ -340,6 +345,8 @@ UserUpdateInput _$UserUpdateInputFromJson(Map<String, dynamic> json) =>
       firstName: json['firstName'] as String?,
       gender: json['gender'] as int?,
       hasLocationHidden: json['hasLocationHidden'] as bool?,
+      isDisplayingActive: json['isDisplayingActive'] as bool?,
+      isDisplayingRecentlyActive: json['isDisplayingRecentlyActive'] as bool?,
       occupation: json['occupation'] as String?,
       phone: json['phone'] as String?,
       school: json['school'] as String?,
@@ -357,6 +364,8 @@ Map<String, dynamic> _$UserUpdateInputToJson(UserUpdateInput instance) =>
       'firstName': instance.firstName,
       'gender': instance.gender,
       'hasLocationHidden': instance.hasLocationHidden,
+      'isDisplayingActive': instance.isDisplayingActive,
+      'isDisplayingRecentlyActive': instance.isDisplayingRecentlyActive,
       'occupation': instance.occupation,
       'phone': instance.phone,
       'school': instance.school,
@@ -2175,7 +2184,9 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
       ..hasLocationHidden = json['hasLocationHidden'] as bool?
       ..nextPaymentDate =
           fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
-              json['nextPaymentDate'] as String?);
+              json['nextPaymentDate'] as String?)
+      ..isDisplayingRecentlyActive = json['isDisplayingRecentlyActive'] as bool
+      ..isDisplayingActive = json['isDisplayingActive'] as bool;
 
 Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
         FetchUser$Query$FetchUser instance) =>
@@ -2208,6 +2219,8 @@ Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
       'nextPaymentDate':
           fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable(
               instance.nextPaymentDate),
+      'isDisplayingRecentlyActive': instance.isDisplayingRecentlyActive,
+      'isDisplayingActive': instance.isDisplayingActive,
     };
 
 FetchUser$Query _$FetchUser$QueryFromJson(Map<String, dynamic> json) =>

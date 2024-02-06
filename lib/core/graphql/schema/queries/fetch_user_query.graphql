@@ -48,5 +48,7 @@ query fetchUser($userId: ID!) {
     superLikeCount
     hasLocationHidden
     nextPaymentDate
+    isDisplayingRecentlyActive
+    isDisplayingActive
   }
 }
