@@ -156,7 +156,7 @@ class FilterFavoriteAnime extends StatelessWidget {
           listener: (context, state) {
             final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
             blocFetchAnime.add(blocFetchAnime.fetchAnime(
-              genres: bloc.genresList.map((genre) => genre.genresString).toList(),
+              genres: bloc.genresList.map((genre) => genre.englishGenresString).toList(),
               page: bloc.page,
               title: bloc.searchText,
             ));
