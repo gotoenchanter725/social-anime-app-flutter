@@ -8,9 +8,12 @@ part 'message_reaction_bloc.freezed.dart';
 class MessageReactionBloc
     extends Bloc<MessageReactionEvent, MessageReactionState> {
   MessageReactionBloc() : super(const MessageReactionState()) {
-    on<_ShowReactions>((event, emit) {
+    on<_ShowReactions>((event, emit) async {
       emit(MessageReactionState(
           showReactions: true, activeMessageId: event.messageId));
+      await Future.delayed(const Duration(milliseconds: 300));
+      emit(MessageReactionState(
+          showEmojiReactions: true, showReactions: true, activeMessageId: event.messageId));
     });
 
     on<_HideReactions>((event, emit) {

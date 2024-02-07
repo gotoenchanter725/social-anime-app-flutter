@@ -8,9 +8,9 @@ import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
+import 'package:senpai/screens/chat/animation/fade_and_translate.dart';
 import 'package:senpai/screens/chat/bloc/message_reaction_bloc/message_reaction_bloc.dart';
 import 'package:senpai/utils/constants.dart';
-import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class IncomingMessage extends StatelessWidget {
@@ -112,51 +112,82 @@ class IncomingMessage extends StatelessWidget {
     final UpdateMessageBloc updateMessageBloc = BlocProvider.of<UpdateMessageBloc>(context);
     bool showReactions = messageReactionBloc.state.showReactions &&
         messageReactionBloc.state.activeMessageId == message.id;
-    double containerWidth = 0;
-    if (showReactions) {
-      containerWidth = getSize(context).width * 0.6;
-    }
+    bool showEmojiReactions = messageReactionBloc.state.showEmojiReactions &&
+        messageReactionBloc.state.activeMessageId == message.id;
+
     final double emojiSize = getSize(context).width * 0.06;
     return BlocBuilder<MessageReactionBloc, MessageReactionState>(
       builder: (context, state) {
-        return AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeOut,
-          height: 40,
-          width: containerWidth,
-          decoration: BoxDecoration(
-            color: $constants.palette.lightBlue,
-            borderRadius: BorderRadius.circular($constants.corners.lg),
-          ),
-          child: ClipRect(
-            child: OverflowBox(
-              minWidth: 0,
-              maxWidth: getSize(context).width * 0.6,
-              alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: _emojis.map((item) {
-                  return GestureDetector(
-                    onTap: () {
-                      logIt.info("Emoji tapped");
-                      updateMessageBloc.updateMessage(
-                        messageId: message.id,
-                        reactionType: item.reactionType,
-                        content: message.text,
-                      );
-                      messageReactionBloc.hideReactions();
-                    },
-                    child: SenpaiEmoji(
-                      emojiName: item.emojiName,
-                      size: emojiSize,
-                    ),
+        return FadeAndTranslate(
+          visible: showReactions,
+          translate: const Offset(0.0, 20.0),
+          duration: const Duration(milliseconds: 200),
+          child: Container(
+            height: 40,
+            width: getSize(context).width * 0.6,
+            decoration: BoxDecoration(
+              color: $constants.palette.lightBlue,
+              borderRadius: BorderRadius.circular($constants.corners.lg),
+            ),
+            child: ClipRect(
+              child: OverflowBox(
+                minWidth: 0,
+                alignment: Alignment.center,
+                child: Builder(builder: (context) {
+                  List<Widget> emojis = [];
+                  for (final (index, item) in _emojis.indexed) {
+                    emojis.add(
+                      buildEmojiWithDelayedAnimation(
+                        showEmojiReactions,
+                        index,
+                        updateMessageBloc,
+                        item,
+                        messageReactionBloc,
+                        emojiSize,
+                      ),
+                    );
+                  }
+                  return Row(
+                    children: emojis,
                   );
-                }).toList(),
+                }),
               ),
             ),
           ),
         );
       },
+    );
+  }
+
+  Padding buildEmojiWithDelayedAnimation(
+      bool showEmojiReactions,
+      int index,
+      UpdateMessageBloc updateMessageBloc,
+      _EmojiItem item,
+      MessageReactionBloc messageReactionBloc,
+      double emojiSize) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: FadeAndTranslate(
+        translate: const Offset(0.0, 20.0),
+        visible: showEmojiReactions,
+        duration: const Duration(milliseconds: 100),
+        delay: Duration(milliseconds: 80 * index),
+        child: GestureDetector(
+          onTap: () {
+            updateMessageBloc.updateMessage(
+              messageId: message.id,
+              reactionType: item.reactionType,
+              content: message.text,
+            );
+            messageReactionBloc.hideReactions();
+          },
+          child: SenpaiEmoji(
+            emojiName: item.emojiName,
+            size: emojiSize,
+          ),
+        ),
+      ),
     );
   }
 
