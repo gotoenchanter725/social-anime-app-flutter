@@ -30,6 +30,8 @@ mixin _$UpdateUserModel {
   String? get school => throw _privateConstructorUsedError;
   String? get bio => throw _privateConstructorUsedError;
   bool? get hasLocationHidden => throw _privateConstructorUsedError;
+  bool? get isDisplayingRecentlyActive => throw _privateConstructorUsedError;
+  bool? get isDisplayingActive => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +55,9 @@ abstract class $UpdateUserModelCopyWith<$Res> {
       String? occupation,
       String? school,
       String? bio,
-      bool? hasLocationHidden});
+      bool? hasLocationHidden,
+      bool? isDisplayingRecentlyActive,
+      bool? isDisplayingActive});
 }
 
 /// @nodoc
@@ -79,6 +83,8 @@ class _$UpdateUserModelCopyWithImpl<$Res, $Val extends UpdateUserModel>
     Object? school = freezed,
     Object? bio = freezed,
     Object? hasLocationHidden = freezed,
+    Object? isDisplayingRecentlyActive = freezed,
+    Object? isDisplayingActive = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -121,6 +127,14 @@ class _$UpdateUserModelCopyWithImpl<$Res, $Val extends UpdateUserModel>
           ? _value.hasLocationHidden
           : hasLocationHidden // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isDisplayingRecentlyActive: freezed == isDisplayingRecentlyActive
+          ? _value.isDisplayingRecentlyActive
+          : isDisplayingRecentlyActive // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDisplayingActive: freezed == isDisplayingActive
+          ? _value.isDisplayingActive
+          : isDisplayingActive // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -143,7 +157,9 @@ abstract class _$$_UpdateUserModelCopyWith<$Res>
       String? occupation,
       String? school,
       String? bio,
-      bool? hasLocationHidden});
+      bool? hasLocationHidden,
+      bool? isDisplayingRecentlyActive,
+      bool? isDisplayingActive});
 }
 
 /// @nodoc
@@ -167,6 +183,8 @@ class __$$_UpdateUserModelCopyWithImpl<$Res>
     Object? school = freezed,
     Object? bio = freezed,
     Object? hasLocationHidden = freezed,
+    Object? isDisplayingRecentlyActive = freezed,
+    Object? isDisplayingActive = freezed,
   }) {
     return _then(_$_UpdateUserModel(
       id: null == id
@@ -209,6 +227,14 @@ class __$$_UpdateUserModelCopyWithImpl<$Res>
           ? _value.hasLocationHidden
           : hasLocationHidden // ignore: cast_nullable_to_non_nullable
               as bool?,
+      isDisplayingRecentlyActive: freezed == isDisplayingRecentlyActive
+          ? _value.isDisplayingRecentlyActive
+          : isDisplayingRecentlyActive // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDisplayingActive: freezed == isDisplayingActive
+          ? _value.isDisplayingActive
+          : isDisplayingActive // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -226,7 +252,9 @@ class _$_UpdateUserModel implements _UpdateUserModel {
       this.occupation,
       this.school,
       this.bio,
-      this.hasLocationHidden});
+      this.hasLocationHidden,
+      this.isDisplayingRecentlyActive,
+      this.isDisplayingActive});
 
   factory _$_UpdateUserModel.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateUserModelFromJson(json);
@@ -251,10 +279,14 @@ class _$_UpdateUserModel implements _UpdateUserModel {
   final String? bio;
   @override
   final bool? hasLocationHidden;
+  @override
+  final bool? isDisplayingRecentlyActive;
+  @override
+  final bool? isDisplayingActive;
 
   @override
   String toString() {
-    return 'UpdateUserModel(id: $id, phone: $phone, firstName: $firstName, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, occupation: $occupation, school: $school, bio: $bio, hasLocationHidden: $hasLocationHidden)';
+    return 'UpdateUserModel(id: $id, phone: $phone, firstName: $firstName, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, occupation: $occupation, school: $school, bio: $bio, hasLocationHidden: $hasLocationHidden, isDisplayingRecentlyActive: $isDisplayingRecentlyActive, isDisplayingActive: $isDisplayingActive)';
   }
 
   @override
@@ -276,13 +308,31 @@ class _$_UpdateUserModel implements _UpdateUserModel {
             (identical(other.school, school) || other.school == school) &&
             (identical(other.bio, bio) || other.bio == bio) &&
             (identical(other.hasLocationHidden, hasLocationHidden) ||
-                other.hasLocationHidden == hasLocationHidden));
+                other.hasLocationHidden == hasLocationHidden) &&
+            (identical(other.isDisplayingRecentlyActive,
+                    isDisplayingRecentlyActive) ||
+                other.isDisplayingRecentlyActive ==
+                    isDisplayingRecentlyActive) &&
+            (identical(other.isDisplayingActive, isDisplayingActive) ||
+                other.isDisplayingActive == isDisplayingActive));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, phone, firstName, birthday,
-      gender, desiredGender, occupation, school, bio, hasLocationHidden);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      phone,
+      firstName,
+      birthday,
+      gender,
+      desiredGender,
+      occupation,
+      school,
+      bio,
+      hasLocationHidden,
+      isDisplayingRecentlyActive,
+      isDisplayingActive);
 
   @JsonKey(ignore: true)
   @override
@@ -309,7 +359,9 @@ abstract class _UpdateUserModel implements UpdateUserModel {
       final String? occupation,
       final String? school,
       final String? bio,
-      final bool? hasLocationHidden}) = _$_UpdateUserModel;
+      final bool? hasLocationHidden,
+      final bool? isDisplayingRecentlyActive,
+      final bool? isDisplayingActive}) = _$_UpdateUserModel;
 
   factory _UpdateUserModel.fromJson(Map<String, dynamic> json) =
       _$_UpdateUserModel.fromJson;
@@ -334,6 +386,10 @@ abstract class _UpdateUserModel implements UpdateUserModel {
   String? get bio;
   @override
   bool? get hasLocationHidden;
+  @override
+  bool? get isDisplayingRecentlyActive;
+  @override
+  bool? get isDisplayingActive;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateUserModelCopyWith<_$_UpdateUserModel> get copyWith =>

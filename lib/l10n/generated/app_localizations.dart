@@ -492,7 +492,7 @@ abstract class AppLocalizations {
   /// No description provided for @gifsTabText.
   ///
   /// In en, this message translates to:
-  /// **'GIPHY (company name, do not translate)'**
+  /// **'GIPHY'**
   String get gifsTabText;
 
   /// No description provided for @animeTabText.

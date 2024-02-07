@@ -44,6 +44,8 @@ _$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) =>
       nextPaymentDate: json['nextPaymentDate'] == null
           ? null
           : DateTime.parse(json['nextPaymentDate'] as String),
+      isDisplayingRecentlyActive: json['isDisplayingRecentlyActive'] as bool?,
+      isDisplayingActive: json['isDisplayingActive'] as bool?,
     );
 
 Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
@@ -73,4 +75,6 @@ Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
       'hasLocationHidden': instance.hasLocationHidden,
       'milesAway': instance.milesAway,
       'nextPaymentDate': instance.nextPaymentDate?.toIso8601String(),
+      'isDisplayingRecentlyActive': instance.isDisplayingRecentlyActive,
+      'isDisplayingActive': instance.isDisplayingActive,
     };

@@ -33,6 +33,8 @@ class UpdateUserBloc extends MutationBloc<UpdateUser$Mutation> {
           school: user.school ?? '',
           hasLocationHidden: user.hasLocationHidden,
           verified: verified ?? false,
+          isDisplayingRecentlyActive: user.isDisplayingRecentlyActive ?? true,
+          isDisplayingActive: user.isDisplayingActive ?? true,
         ),
       ),
     ).toJson();

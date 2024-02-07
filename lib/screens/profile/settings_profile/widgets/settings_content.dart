@@ -1,12 +1,13 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
+import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
 import 'package:senpai/l10n/local_key.dart';
 import 'package:senpai/l10n/resources.dart';
+import 'package:senpai/models/user_profile/mappers/user_profile_mapper.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 import 'package:senpai/screens/profile/settings_profile/widgets/cupertino_logout_widget.dart';
 import 'package:senpai/screens/profile/settings_profile/widgets/delete_account_widget.dart';
@@ -31,13 +32,22 @@ class SettingsContent extends StatelessWidget {
     );
   }
 
+  void _onDoneTap(BuildContext context) {
+    final bloc = BlocProvider.of<SettingsProfileBloc>(context);
+    final serverBloc = BlocProvider.of<UpdateUserBloc>(context);
+    serverBloc.updateUserInfo(
+      user: bloc.user.toUpdateModel(),
+      verified: bloc.user.verified,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         ProfileAppBar(
           title: R.strings.settingsTitle,
-          onDoneTap: () => context.router.pop(),
+          onDoneTap: () => _onDoneTap(context),
         ),
         const SettingsPremiumWidget(),
         Expanded(
@@ -216,8 +226,9 @@ class SettingsContent extends StatelessWidget {
                 builder: (context, state) {
                   return Text(
                     LocaleKeyExtension.parse(state.locale!.languageCode).name,
-                    style:
-                        getTextTheme(context).labelMedium?.copyWith(color: $constants.palette.grey),
+                    style: getTextTheme(context)
+                        .labelMedium
+                        ?.copyWith(color: $constants.palette.grey),
                   );
                 },
               ),

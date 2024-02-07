@@ -20,6 +20,8 @@ _$_UpdateUserModel _$$_UpdateUserModelFromJson(Map<String, dynamic> json) =>
       school: json['school'] as String?,
       bio: json['bio'] as String?,
       hasLocationHidden: json['hasLocationHidden'] as bool?,
+      isDisplayingRecentlyActive: json['isDisplayingRecentlyActive'] as bool?,
+      isDisplayingActive: json['isDisplayingActive'] as bool?,
     );
 
 Map<String, dynamic> _$$_UpdateUserModelToJson(_$_UpdateUserModel instance) =>
@@ -34,4 +36,6 @@ Map<String, dynamic> _$$_UpdateUserModelToJson(_$_UpdateUserModel instance) =>
       'school': instance.school,
       'bio': instance.bio,
       'hasLocationHidden': instance.hasLocationHidden,
+      'isDisplayingRecentlyActive': instance.isDisplayingRecentlyActive,
+      'isDisplayingActive': instance.isDisplayingActive,
     };

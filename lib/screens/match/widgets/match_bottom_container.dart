@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/enums/match_enums.dart';
@@ -29,7 +30,7 @@ class MatchBottomContainer extends StatelessWidget {
             padding: EdgeInsets.all($constants.insets.sm),
             alignment: Alignment.bottomCenter,
             child: PrimaryButton(
-              text: 'Try again',
+              text: R.strings.tryAgainButton,
               onPressed: () => bloc.add(OnChangePageEvent(isRefresh: true)),
             ),
           );

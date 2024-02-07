@@ -50,6 +50,8 @@ class SettingsProfileBloc
     on<OnSettingsProfileInitEvent>((event, emit) {
       emit(LoadingState());
       user = event.user;
+      isRecentlyActiveStatus = event.user.isDisplayingRecentlyActive ?? true;
+      isShowActiveStatus = event.user.isDisplayingActive ?? true;
       emit(ValidState());
     });
 
@@ -67,12 +69,14 @@ class SettingsProfileBloc
     on<OnChangeActiveStatusEvent>((event, emit) {
       emit(LoadingState());
       isShowActiveStatus = event.isStatusOn;
+      user = user.copyWith(isDisplayingActive: isShowActiveStatus);
       emit(ValidState());
     });
 
     on<OnChangeRecentlyActiveStatusEvent>((event, emit) {
       emit(LoadingState());
       isRecentlyActiveStatus = event.isStatusOn;
+      user = user.copyWith(isDisplayingRecentlyActive: isRecentlyActiveStatus);
       emit(ValidState());
     });
 
