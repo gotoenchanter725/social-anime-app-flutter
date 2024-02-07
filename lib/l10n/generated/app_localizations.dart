@@ -294,7 +294,7 @@ abstract class AppLocalizations {
   /// No description provided for @verifyPhotoDescription.
   ///
   /// In en, this message translates to:
-  /// **'Photo verify to let everyone know \\nyour photos are really you'**
+  /// **'Photo verify to let everyone know\nyour photos are really you'**
   String get verifyPhotoDescription;
 
   /// No description provided for @verifyPhotoButtonText.
@@ -324,7 +324,7 @@ abstract class AppLocalizations {
   /// No description provided for @happyWithPhotoText.
   ///
   /// In en, this message translates to:
-  /// **'Happy with \\nyour photo?'**
+  /// **'Happy with\nyour photo?'**
   String get happyWithPhotoText;
 
   /// No description provided for @weWillScanYourPhotoText.
@@ -492,7 +492,7 @@ abstract class AppLocalizations {
   /// No description provided for @gifsTabText.
   ///
   /// In en, this message translates to:
-  /// **'GIPHY (company name, do not translate)'**
+  /// **'GIPHY'**
   String get gifsTabText;
 
   /// No description provided for @animeTabText.
@@ -906,7 +906,7 @@ abstract class AppLocalizations {
   /// No description provided for @nowChooseYourFavoriteAnimesText.
   ///
   /// In en, this message translates to:
-  /// **'Now choose your favorite animes \\nand start matching'**
+  /// **'Now choose your favorite animes\nand start matching'**
   String get nowChooseYourFavoriteAnimesText;
 
   /// No description provided for @oopsNoAnimeFound.
@@ -1068,7 +1068,7 @@ abstract class AppLocalizations {
   /// No description provided for @enableLocationDescription.
   ///
   /// In en, this message translates to:
-  /// **'Your location will be used to show \\n potential matches near you'**
+  /// **'Your location will be used to show \npotential matches near you'**
   String get enableLocationDescription;
 
   /// No description provided for @allowLocationText.
@@ -1452,7 +1452,7 @@ abstract class AppLocalizations {
   /// No description provided for @senpaiPremiumDescription.
   ///
   /// In en, this message translates to:
-  /// **'Higher visibility rates, 30 Super Likes \\nand much more!'**
+  /// **'Higher visibility rates, 30 Super Likes \nand much more!'**
   String get senpaiPremiumDescription;
 
   /// No description provided for @accountSettingsTitle.
