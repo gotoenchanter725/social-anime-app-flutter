@@ -9,16 +9,23 @@ class AnimeList extends StatelessWidget {
   final List<AnimeModel> animeList;
   final void Function(AnimeModel anime) onAnimeTap;
   final AnimeModel? selectedAnime;
+  final ScrollController? scrollController;
 
-  const AnimeList(
-      {super.key, required this.animeList, required this.onAnimeTap, this.selectedAnime});
+  const AnimeList({
+    super.key,
+    required this.animeList,
+    required this.onAnimeTap,
+    this.selectedAnime,
+    this.scrollController,
+  });
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
       builder: (BuildContext context, ApplicationLocaleState state) {
         return ListView.separated(
-          physics: const BouncingScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
+          controller: scrollController,
           itemCount: animeList.length,
           shrinkWrap: true,
           itemBuilder: (context, index) {
