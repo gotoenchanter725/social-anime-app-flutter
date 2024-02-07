@@ -31,7 +31,7 @@ FlutterLocalNotificationsPlugin? flutterLocalNotificationsPlugin;
 late FirebaseMessaging messaging;
 
 void notificationTapBackground(NotificationResponse notificationResponse) {
-  print('notification(${notificationResponse.id}) action tapped: '
+  logIt.info('notification(${notificationResponse.id}) action tapped: '
       '${notificationResponse.actionId} with'
       ' payload: ${notificationResponse.payload}');
   if (notificationResponse.input?.isNotEmpty ?? false) {

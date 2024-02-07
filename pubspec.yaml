@@ -106,8 +106,9 @@ dependencies:
   http_parser: ^4.0.2
   mime: ^1.0.4
   path: ^1.8.3
-  firebase_core: ^2.25.2
-  firebase_messaging: ^14.7.13
+  firebase_core: ^2.25.4
+  firebase_messaging: ^14.7.15
+  firebase_analytics: ^10.8.5
   flutter_local_notifications: ^16.3.2
 
 dev_dependencies:

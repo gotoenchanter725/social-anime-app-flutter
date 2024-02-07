@@ -1,17 +1,22 @@
 // Main page widget resides here
 
+import 'dart:convert';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:senpai/i18n/strings.g.dart';
+import 'package:senpai/main.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
 class MyApp extends StatefulWidget {
   final ThemeData theme;
-  MyApp({super.key, required this.theme});
+  const MyApp({super.key, required this.theme});
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -19,6 +24,45 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _appRouter = appRouter;
+
+  @override
+  void initState() {
+    super.initState();
+
+    setupInteractedMessage();
+
+    FirebaseMessaging.instance
+        .getInitialMessage()
+        .then((RemoteMessage? message) async {
+      RemoteNotification? notification = message?.notification!;
+
+      logIt.debug(notification != null ? notification.title : notification);
+    });
+
+    FirebaseMessaging.onMessage.listen((message) async {
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = message.notification?.android;
+
+      if (notification != null && android != null && !kIsWeb) {
+        String action = jsonEncode(message.data);
+        logIt.debug(message.toMap());
+
+        flutterLocalNotificationsPlugin!.show(
+            notification.hashCode,
+            notification.title,
+            notification.body,
+            NotificationDetails(
+              android: AndroidNotificationDetails(
+                channel!.id,
+                channel!.name,
+                priority: Priority.high,
+                importance: Importance.max,
+              ),
+            ),
+            payload: action);
+      }
+    });
+  }
 
   // This widget is the root of your application.
   @override
@@ -41,6 +85,11 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
     );
+  }
+
+  Future<dynamic> onSelectNotification(payload) async {
+    Map<String, dynamic> action = jsonDecode(payload);
+    _handleMessage(action);
   }
 
   Future<void> setupInteractedMessage() async {
