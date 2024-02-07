@@ -6,13 +6,18 @@ import 'package:senpai/l10n/generated/app_localizations.dart';
 
 class R {
   static AppLocalizations get strings => _currentStrings!;
+  static AppLocalizations get englishStrings => _englishCurrentStrings!;
+
   static AppLocalizations? _currentStrings;
+  static AppLocalizations? _englishCurrentStrings;
 
   static AppLocalizations stringsOf(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
   }
 
   static Future<void> ensureInitialized() async {
+    _englishCurrentStrings ??= await AppLocalizations.delegate.load(const Locale('en'));
+
     if (_currentStrings == null && Intl.defaultLocale != _currentLocale.languageCode) {
       final isSupportedLocale = AppLocalizations.delegate.isSupported(_currentLocale);
       _currentStrings = await AppLocalizations.delegate.load(switch (isSupportedLocale) {
@@ -25,6 +30,7 @@ class R {
 
   void invalidate() {
     _currentStrings = null;
+    _englishCurrentStrings = null;
   }
 
   static Locale get _currentLocale {
