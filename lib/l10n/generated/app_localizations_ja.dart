@@ -203,7 +203,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get stickersTabText => 'ステッカー';
 
   @override
-  String get gifsTabText => 'GIPHY（会社名、翻訳しないでください）';
+  String get gifsTabText => 'GIPHY';
 
   @override
   String get animeTabText => 'アニメ';
