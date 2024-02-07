@@ -17,7 +17,10 @@ import 'package:senpai/utils/methods/utils.dart';
 class AnimeSelector extends StatelessWidget {
   final void Function(AnimeModel, String) onAnimeRecommendationSent;
 
-  const AnimeSelector({super.key, required this.onAnimeRecommendationSent});
+  const AnimeSelector({
+    super.key,
+    required this.onAnimeRecommendationSent,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -185,33 +188,31 @@ class AnimeSelector extends StatelessWidget {
                 .map((anime) => AnimeModel.fromJson(anime))
                 .toList();
 
-            return Expanded(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildSearchInput(context),
-                    SizedBox(height: $constants.insets.sm),
-                    Text(
-                      R.strings.favouriteAnimeSelectionTitle,
-                      style: getTextTheme(context).bodyMedium?.copyWith(
-                            color: $constants.palette.white,
-                          ),
-                      textAlign: TextAlign.left,
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildSearchInput(context),
+                  SizedBox(height: $constants.insets.sm),
+                  Text(
+                    R.strings.favouriteAnimeSelectionTitle,
+                    style: getTextTheme(context).bodyMedium?.copyWith(
+                          color: $constants.palette.white,
+                        ),
+                    textAlign: TextAlign.left,
+                  ),
+                  SizedBox(height: $constants.insets.sm),
+                  Expanded(
+                    child: AnimeList(
+                      animeList: animeList,
+                      onAnimeTap: (anime) {
+                        bloc.add(AnimeSelectorEvent.selectAnime(anime));
+                      },
+                      selectedAnime: bloc.state.selectedAnime,
                     ),
-                    SizedBox(height: $constants.insets.sm),
-                    Expanded(
-                      child: AnimeList(
-                        animeList: animeList,
-                        onAnimeTap: (anime) {
-                          bloc.add(AnimeSelectorEvent.selectAnime(anime));
-                        },
-                        selectedAnime: bloc.state.selectedAnime,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             );
           },
