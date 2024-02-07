@@ -8,4 +8,9 @@ class AnimeSelectorEvent with _$AnimeSelectorEvent {
   const factory AnimeSelectorEvent.updateDescription(String description) =
       _UpdateDescription;
   const factory AnimeSelectorEvent.performSearch(String query) = _PerformSearch;
+
+  const factory AnimeSelectorEvent.updatePagination({
+    required bool needUpdatePagination,
+    required int page,
+  }) = _UpdatePagination;
 }
