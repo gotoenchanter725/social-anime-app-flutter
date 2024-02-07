@@ -1911,6 +1911,7 @@ FetchFeed$Query$FetchFeed$Animes _$FetchFeed$Query$FetchFeed$AnimesFromJson(
     FetchFeed$Query$FetchFeed$Animes()
       ..id = json['id'] as String
       ..title = json['title'] as String?
+      ..japaneseTitle = json['japaneseTitle'] as String?
       ..cover = json['cover'] as String?;
 
 Map<String, dynamic> _$FetchFeed$Query$FetchFeed$AnimesToJson(
@@ -1918,6 +1919,7 @@ Map<String, dynamic> _$FetchFeed$Query$FetchFeed$AnimesToJson(
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
+      'japaneseTitle': instance.japaneseTitle,
       'cover': instance.cover,
     };
 
@@ -2110,6 +2112,7 @@ FetchUser$Query$FetchUser$Animes _$FetchUser$Query$FetchUser$AnimesFromJson(
     FetchUser$Query$FetchUser$Animes()
       ..id = json['id'] as String
       ..title = json['title'] as String?
+      ..japaneseTitle = json['japaneseTitle'] as String?
       ..cover = json['cover'] as String?;
 
 Map<String, dynamic> _$FetchUser$Query$FetchUser$AnimesToJson(
@@ -2117,6 +2120,7 @@ Map<String, dynamic> _$FetchUser$Query$FetchUser$AnimesToJson(
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
+      'japaneseTitle': instance.japaneseTitle,
       'cover': instance.cover,
     };
 

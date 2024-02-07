@@ -34,6 +34,7 @@ query fetchUser($userId: ID!) {
     animes {
       id
       title
+      japaneseTitle
       cover
     }
     favoriteMusic {

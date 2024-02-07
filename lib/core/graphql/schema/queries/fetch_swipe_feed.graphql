@@ -24,6 +24,7 @@ query fetchFeed($params: FetchFeedInput!, $otherUserId: ID!) {
     animes {
       id
       title
+      japaneseTitle
       cover
     }
     favoriteMusic {

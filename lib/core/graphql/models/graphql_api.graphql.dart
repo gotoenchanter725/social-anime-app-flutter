@@ -2638,10 +2638,12 @@ class FetchFeed$Query$FetchFeed$Animes extends JsonSerializable
 
   String? title;
 
+  String? japaneseTitle;
+
   String? cover;
 
   @override
-  List<Object?> get props => [id, title, cover];
+  List<Object?> get props => [id, title, japaneseTitle, cover];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchFeed$Query$FetchFeed$AnimesToJson(this);
@@ -2915,10 +2917,12 @@ class FetchUser$Query$FetchUser$Animes extends JsonSerializable
 
   String? title;
 
+  String? japaneseTitle;
+
   String? cover;
 
   @override
-  List<Object?> get props => [id, title, cover];
+  List<Object?> get props => [id, title, japaneseTitle, cover];
   @override
   Map<String, dynamic> toJson() =>
       _$FetchUser$Query$FetchUser$AnimesToJson(this);
@@ -6724,6 +6728,13 @@ final FETCH_FEED_QUERY_DOCUMENT = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
+                name: NameNode(value: 'japaneseTitle'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
                 name: NameNode(value: 'cover'),
                 alias: null,
                 arguments: [],
@@ -7086,6 +7097,13 @@ final FETCH_USER_QUERY_DOCUMENT = DocumentNode(definitions: [
               ),
               FieldNode(
                 name: NameNode(value: 'title'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'japaneseTitle'),
                 alias: null,
                 arguments: [],
                 directives: [],
