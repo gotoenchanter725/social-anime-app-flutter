@@ -34,11 +34,7 @@ class AnimeSelector extends StatelessWidget {
       builder: (context, state) {
         return Stack(
           children: [
-            Column(
-              children: [
-                _buildAnimeSelectorMainContent(context, state),
-              ],
-            ),
+            _buildAnimeSelectorMainContent(context, state),
             _buildDescriptionInput(context, state),
           ],
         );
@@ -205,12 +201,14 @@ class AnimeSelector extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                     SizedBox(height: $constants.insets.sm),
-                    AnimeList(
-                      animeList: animeList,
-                      onAnimeTap: (anime) {
-                        bloc.add(AnimeSelectorEvent.selectAnime(anime));
-                      },
-                      selectedAnime: bloc.state.selectedAnime,
+                    Expanded(
+                      child: AnimeList(
+                        animeList: animeList,
+                        onAnimeTap: (anime) {
+                          bloc.add(AnimeSelectorEvent.selectAnime(anime));
+                        },
+                        selectedAnime: bloc.state.selectedAnime,
+                      ),
                     ),
                   ],
                 ),
