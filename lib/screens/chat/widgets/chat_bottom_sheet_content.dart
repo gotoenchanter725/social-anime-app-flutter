@@ -63,7 +63,6 @@ class ChatBottomSheetContent extends StatelessWidget {
 
   Widget _buildTabBarItem(BuildContext context, int index) {
     final bloc = BlocProvider.of<TabBarBloc>(context);
-    final item = _tabItemSelections[index];
     final isSelected = bloc.currentIndex == index;
 
     return GestureDetector(
@@ -79,7 +78,7 @@ class ChatBottomSheetContent extends StatelessWidget {
         ),
         alignment: Alignment.center,
         child: Text(
-          item.title,
+          getTitleNameByIndex(index, context),
           style: Theme.of(context).textTheme.labelMedium?.copyWith(
                 color: $constants.palette.white,
               ),
@@ -128,7 +127,7 @@ class ChatBottomSheetContent extends StatelessWidget {
         BlocProvider.of<BottomSheetBloc>(context);
     onMessageSent(ChatMessage(
       id: generateRandomId($constants.specials.pendingMessageIdLength),
-      text: R.strings.stickerMessageText,
+      text: R.stringsOf(context).stickerMessageText,
       status: MessageStatus.pending,
       senderId: currentUser.id,
       timestamp: DateTime.now(),
@@ -143,7 +142,7 @@ class ChatBottomSheetContent extends StatelessWidget {
         BlocProvider.of<BottomSheetBloc>(context);
     onMessageSent(ChatMessage(
       id: generateRandomId($constants.specials.pendingMessageIdLength),
-      text: R.strings.gifMessageText,
+      text: R.stringsOf(context).gifMessageText,
       status: MessageStatus.pending,
       senderId: currentUser.id,
       timestamp: DateTime.now(),
@@ -172,6 +171,19 @@ class ChatBottomSheetContent extends StatelessWidget {
         )));
 
     bottomSheetBloc.hide();
+  }
+
+  String getTitleNameByIndex(int index, BuildContext context) {
+    switch (index) {
+      case 0:
+        return R.stringsOf(context).stickersTabText;
+      case 1:
+        return R.stringsOf(context).gifsTabText;
+      case 2:
+        return R.stringsOf(context).animeTabText;
+    }
+
+    return '';
   }
 }
 
