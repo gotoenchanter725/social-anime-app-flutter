@@ -237,6 +237,80 @@ class AddDeviceTokenInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class RemoveDeviceToken$Mutation$RemoveDeviceToken$User extends JsonSerializable
+    with EquatableMixin {
+  RemoveDeviceToken$Mutation$RemoveDeviceToken$User();
+
+  factory RemoveDeviceToken$Mutation$RemoveDeviceToken$User.fromJson(
+          Map<String, dynamic> json) =>
+      _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserFromJson(json);
+
+  late String id;
+
+  @override
+  List<Object?> get props => [id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class RemoveDeviceToken$Mutation$RemoveDeviceToken extends JsonSerializable
+    with EquatableMixin {
+  RemoveDeviceToken$Mutation$RemoveDeviceToken();
+
+  factory RemoveDeviceToken$Mutation$RemoveDeviceToken.fromJson(
+          Map<String, dynamic> json) =>
+      _$RemoveDeviceToken$Mutation$RemoveDeviceTokenFromJson(json);
+
+  late RemoveDeviceToken$Mutation$RemoveDeviceToken$User user;
+
+  @override
+  List<Object?> get props => [user];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$RemoveDeviceToken$Mutation$RemoveDeviceTokenToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class RemoveDeviceToken$Mutation extends JsonSerializable with EquatableMixin {
+  RemoveDeviceToken$Mutation();
+
+  factory RemoveDeviceToken$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$RemoveDeviceToken$MutationFromJson(json);
+
+  RemoveDeviceToken$Mutation$RemoveDeviceToken? removeDeviceToken;
+
+  @override
+  List<Object?> get props => [removeDeviceToken];
+  @override
+  Map<String, dynamic> toJson() => _$RemoveDeviceToken$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class RemoveDeviceTokenInput extends JsonSerializable with EquatableMixin {
+  RemoveDeviceTokenInput({
+    this.clientMutationId,
+    required this.deviceToken,
+    required this.userId,
+  });
+
+  factory RemoveDeviceTokenInput.fromJson(Map<String, dynamic> json) =>
+      _$RemoveDeviceTokenInputFromJson(json);
+
+  String? clientMutationId;
+
+  late String deviceToken;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [clientMutationId, deviceToken, userId];
+  @override
+  Map<String, dynamic> toJson() => _$RemoveDeviceTokenInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class SubmitVerifyRequest$Mutation$SubmitVerifyRequest$User
     extends JsonSerializable with EquatableMixin {
   SubmitVerifyRequest$Mutation$SubmitVerifyRequest$User();
@@ -3632,80 +3706,6 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class RemoveDeviceToken$Mutation$RemoveDeviceToken$User extends JsonSerializable
-    with EquatableMixin {
-  RemoveDeviceToken$Mutation$RemoveDeviceToken$User();
-
-  factory RemoveDeviceToken$Mutation$RemoveDeviceToken$User.fromJson(
-          Map<String, dynamic> json) =>
-      _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserFromJson(json);
-
-  late String id;
-
-  @override
-  List<Object?> get props => [id];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class RemoveDeviceToken$Mutation$RemoveDeviceToken extends JsonSerializable
-    with EquatableMixin {
-  RemoveDeviceToken$Mutation$RemoveDeviceToken();
-
-  factory RemoveDeviceToken$Mutation$RemoveDeviceToken.fromJson(
-          Map<String, dynamic> json) =>
-      _$RemoveDeviceToken$Mutation$RemoveDeviceTokenFromJson(json);
-
-  late RemoveDeviceToken$Mutation$RemoveDeviceToken$User user;
-
-  @override
-  List<Object?> get props => [user];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$RemoveDeviceToken$Mutation$RemoveDeviceTokenToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class RemoveDeviceToken$Mutation extends JsonSerializable with EquatableMixin {
-  RemoveDeviceToken$Mutation();
-
-  factory RemoveDeviceToken$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$RemoveDeviceToken$MutationFromJson(json);
-
-  RemoveDeviceToken$Mutation$RemoveDeviceToken? removeDeviceToken;
-
-  @override
-  List<Object?> get props => [removeDeviceToken];
-  @override
-  Map<String, dynamic> toJson() => _$RemoveDeviceToken$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class RemoveDeviceTokenInput extends JsonSerializable with EquatableMixin {
-  RemoveDeviceTokenInput({
-    this.clientMutationId,
-    required this.deviceToken,
-    required this.userId,
-  });
-
-  factory RemoveDeviceTokenInput.fromJson(Map<String, dynamic> json) =>
-      _$RemoveDeviceTokenInputFromJson(json);
-
-  String? clientMutationId;
-
-  late String deviceToken;
-
-  late String userId;
-
-  @override
-  List<Object?> get props => [clientMutationId, deviceToken, userId];
-  @override
-  Map<String, dynamic> toJson() => _$RemoveDeviceTokenInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
 class DeleteFavoriteAnimeArguments extends JsonSerializable
     with EquatableMixin {
   DeleteFavoriteAnimeArguments({required this.input});
@@ -3978,6 +3978,94 @@ class AddDeviceTokenMutation
   @override
   AddDeviceToken$Mutation parse(Map<String, dynamic> json) =>
       AddDeviceToken$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class RemoveDeviceTokenArguments extends JsonSerializable with EquatableMixin {
+  RemoveDeviceTokenArguments({required this.input});
+
+  @override
+  factory RemoveDeviceTokenArguments.fromJson(Map<String, dynamic> json) =>
+      _$RemoveDeviceTokenArgumentsFromJson(json);
+
+  late RemoveDeviceTokenInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$RemoveDeviceTokenArgumentsToJson(this);
+}
+
+final REMOVE_DEVICE_TOKEN_MUTATION_DOCUMENT_OPERATION_NAME =
+    'removeDeviceToken';
+final REMOVE_DEVICE_TOKEN_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'removeDeviceToken'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'RemoveDeviceTokenInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'removeDeviceToken'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              )
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class RemoveDeviceTokenMutation extends GraphQLQuery<RemoveDeviceToken$Mutation,
+    RemoveDeviceTokenArguments> {
+  RemoveDeviceTokenMutation({required this.variables});
+
+  @override
+  final DocumentNode document = REMOVE_DEVICE_TOKEN_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      REMOVE_DEVICE_TOKEN_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final RemoveDeviceTokenArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  RemoveDeviceToken$Mutation parse(Map<String, dynamic> json) =>
+      RemoveDeviceToken$Mutation.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -8157,92 +8245,4 @@ class FetchStickersQuery
   @override
   FetchStickers$Query parse(Map<String, dynamic> json) =>
       FetchStickers$Query.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class RemoveDeviceTokenArguments extends JsonSerializable with EquatableMixin {
-  RemoveDeviceTokenArguments({required this.input});
-
-  @override
-  factory RemoveDeviceTokenArguments.fromJson(Map<String, dynamic> json) =>
-      _$RemoveDeviceTokenArgumentsFromJson(json);
-
-  late RemoveDeviceTokenInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$RemoveDeviceTokenArgumentsToJson(this);
-}
-
-final REMOVE_DEVICE_TOKEN_MUTATION_DOCUMENT_OPERATION_NAME =
-    'removeDeviceToken';
-final REMOVE_DEVICE_TOKEN_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'removeDeviceToken'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'RemoveDeviceTokenInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'removeDeviceToken'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'user'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              )
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class RemoveDeviceTokenMutation extends GraphQLQuery<RemoveDeviceToken$Mutation,
-    RemoveDeviceTokenArguments> {
-  RemoveDeviceTokenMutation({required this.variables});
-
-  @override
-  final DocumentNode document = REMOVE_DEVICE_TOKEN_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName =
-      REMOVE_DEVICE_TOKEN_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final RemoveDeviceTokenArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  RemoveDeviceToken$Mutation parse(Map<String, dynamic> json) =>
-      RemoveDeviceToken$Mutation.fromJson(json);
 }

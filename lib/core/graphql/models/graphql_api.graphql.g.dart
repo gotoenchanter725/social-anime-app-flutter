@@ -167,6 +167,61 @@ Map<String, dynamic> _$AddDeviceTokenInputToJson(
       'userId': instance.userId,
     };
 
+RemoveDeviceToken$Mutation$RemoveDeviceToken$User
+    _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserFromJson(
+            Map<String, dynamic> json) =>
+        RemoveDeviceToken$Mutation$RemoveDeviceToken$User()
+          ..id = json['id'] as String;
+
+Map<String, dynamic> _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserToJson(
+        RemoveDeviceToken$Mutation$RemoveDeviceToken$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+RemoveDeviceToken$Mutation$RemoveDeviceToken
+    _$RemoveDeviceToken$Mutation$RemoveDeviceTokenFromJson(
+            Map<String, dynamic> json) =>
+        RemoveDeviceToken$Mutation$RemoveDeviceToken()
+          ..user = RemoveDeviceToken$Mutation$RemoveDeviceToken$User.fromJson(
+              json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$RemoveDeviceToken$Mutation$RemoveDeviceTokenToJson(
+        RemoveDeviceToken$Mutation$RemoveDeviceToken instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+RemoveDeviceToken$Mutation _$RemoveDeviceToken$MutationFromJson(
+        Map<String, dynamic> json) =>
+    RemoveDeviceToken$Mutation()
+      ..removeDeviceToken = json['removeDeviceToken'] == null
+          ? null
+          : RemoveDeviceToken$Mutation$RemoveDeviceToken.fromJson(
+              json['removeDeviceToken'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$RemoveDeviceToken$MutationToJson(
+        RemoveDeviceToken$Mutation instance) =>
+    <String, dynamic>{
+      'removeDeviceToken': instance.removeDeviceToken?.toJson(),
+    };
+
+RemoveDeviceTokenInput _$RemoveDeviceTokenInputFromJson(
+        Map<String, dynamic> json) =>
+    RemoveDeviceTokenInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      deviceToken: json['deviceToken'] as String,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$RemoveDeviceTokenInputToJson(
+        RemoveDeviceTokenInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'deviceToken': instance.deviceToken,
+      'userId': instance.userId,
+    };
+
 SubmitVerifyRequest$Mutation$SubmitVerifyRequest$User
     _$SubmitVerifyRequest$Mutation$SubmitVerifyRequest$UserFromJson(
             Map<String, dynamic> json) =>
@@ -2674,61 +2729,6 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
-RemoveDeviceToken$Mutation$RemoveDeviceToken$User
-    _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserFromJson(
-            Map<String, dynamic> json) =>
-        RemoveDeviceToken$Mutation$RemoveDeviceToken$User()
-          ..id = json['id'] as String;
-
-Map<String, dynamic> _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserToJson(
-        RemoveDeviceToken$Mutation$RemoveDeviceToken$User instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-    };
-
-RemoveDeviceToken$Mutation$RemoveDeviceToken
-    _$RemoveDeviceToken$Mutation$RemoveDeviceTokenFromJson(
-            Map<String, dynamic> json) =>
-        RemoveDeviceToken$Mutation$RemoveDeviceToken()
-          ..user = RemoveDeviceToken$Mutation$RemoveDeviceToken$User.fromJson(
-              json['user'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$RemoveDeviceToken$Mutation$RemoveDeviceTokenToJson(
-        RemoveDeviceToken$Mutation$RemoveDeviceToken instance) =>
-    <String, dynamic>{
-      'user': instance.user.toJson(),
-    };
-
-RemoveDeviceToken$Mutation _$RemoveDeviceToken$MutationFromJson(
-        Map<String, dynamic> json) =>
-    RemoveDeviceToken$Mutation()
-      ..removeDeviceToken = json['removeDeviceToken'] == null
-          ? null
-          : RemoveDeviceToken$Mutation$RemoveDeviceToken.fromJson(
-              json['removeDeviceToken'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$RemoveDeviceToken$MutationToJson(
-        RemoveDeviceToken$Mutation instance) =>
-    <String, dynamic>{
-      'removeDeviceToken': instance.removeDeviceToken?.toJson(),
-    };
-
-RemoveDeviceTokenInput _$RemoveDeviceTokenInputFromJson(
-        Map<String, dynamic> json) =>
-    RemoveDeviceTokenInput(
-      clientMutationId: json['clientMutationId'] as String?,
-      deviceToken: json['deviceToken'] as String,
-      userId: json['userId'] as String,
-    );
-
-Map<String, dynamic> _$RemoveDeviceTokenInputToJson(
-        RemoveDeviceTokenInput instance) =>
-    <String, dynamic>{
-      'clientMutationId': instance.clientMutationId,
-      'deviceToken': instance.deviceToken,
-      'userId': instance.userId,
-    };
-
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -2762,6 +2762,19 @@ AddDeviceTokenArguments _$AddDeviceTokenArgumentsFromJson(
 
 Map<String, dynamic> _$AddDeviceTokenArgumentsToJson(
         AddDeviceTokenArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+RemoveDeviceTokenArguments _$RemoveDeviceTokenArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    RemoveDeviceTokenArguments(
+      input: RemoveDeviceTokenInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$RemoveDeviceTokenArgumentsToJson(
+        RemoveDeviceTokenArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };
@@ -3110,17 +3123,4 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
-    };
-
-RemoveDeviceTokenArguments _$RemoveDeviceTokenArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    RemoveDeviceTokenArguments(
-      input: RemoveDeviceTokenInput.fromJson(
-          json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$RemoveDeviceTokenArgumentsToJson(
-        RemoveDeviceTokenArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
     };
