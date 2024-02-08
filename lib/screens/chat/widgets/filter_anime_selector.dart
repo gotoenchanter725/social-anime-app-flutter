@@ -22,18 +22,16 @@ class FilterAnimeSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: $constants.insets.lg,
-        ),
-        child: Column(
-          children: [
-            _buildSearchInput(context),
-            SizedBox(height: $constants.insets.sm),
-            _buildFilterdAnimeContent(context),
-          ],
-        ),
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: $constants.insets.lg,
+      ),
+      child: Column(
+        children: [
+          _buildSearchInput(context),
+          SizedBox(height: $constants.insets.sm),
+          _buildFilterdAnimeContent(context),
+        ],
       ),
     );
   }
@@ -62,6 +60,12 @@ class FilterAnimeSelector extends StatelessWidget {
             iconPath: PathConstants.searchIcon,
             onTapSuffix: () {
               bloc.searchTextController.clear();
+              bloc.performSideEffects((query) {
+                fetchAnimeBloc.fetchAnime(
+                  page: 1,
+                  title: '',
+                );
+              });
             },
           ),
         ),
@@ -116,10 +120,21 @@ class FilterAnimeSelector extends StatelessWidget {
               );
             }
 
-            return BlocBuilder<AnimeSelectorBloc, AnimeSelectorState>(
+            return BlocConsumer<AnimeSelectorBloc, AnimeSelectorState>(
+              listener: (context, state) {
+                if (state.needUpdatePagination) {
+                  final fetchAnimeBloc =
+                      BlocProvider.of<FetchAnimeBloc>(context);
+                  fetchAnimeBloc.fetchAnime(
+                    page: state.page,
+                    title: state.searchText,
+                  );
+                }
+              },
               builder: (context, state) {
                 return Expanded(
                   child: AnimeList(
+                    scrollController: bloc.animeListController,
                     animeList: animeList,
                     onAnimeTap: (anime) {
                       bloc.add(AnimeSelectorEvent.selectAnime(anime));
