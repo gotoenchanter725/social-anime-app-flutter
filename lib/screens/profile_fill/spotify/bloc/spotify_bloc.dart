@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fresh_graphql/fresh_graphql.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/domain/profile_fill/spotify/spotify_auth_usecase.dart';
 import 'package:senpai/domain/profile_fill/spotify/spotify_fetch_user_info_usecase.dart';
@@ -46,7 +46,7 @@ class SpotifyBloc extends Bloc<SpotifyEvent, SpotifyState> {
           result.fold(
             (failure) {
               emit(ErrorSpotifyState(
-                message: TextConstants.serverError,
+                message: R.strings.serverError,
               ));
             },
             (data) {
@@ -60,12 +60,12 @@ class SpotifyBloc extends Bloc<SpotifyEvent, SpotifyState> {
           );
         } catch (_) {
           emit(ErrorSpotifyState(
-            message: TextConstants.serverError,
+            message: R.strings.serverError,
           ));
         }
       } else {
         emit(ErrorSpotifyState(
-          message: TextConstants.serverError,
+          message: R.strings.serverError,
         ));
       }
     });
@@ -82,7 +82,7 @@ class SpotifyBloc extends Bloc<SpotifyEvent, SpotifyState> {
           result.fold(
             (failure) {
               emit(ErrorSpotifyState(
-                message: TextConstants.serverError,
+                message: R.strings.serverError,
               ));
             },
             (data) {
@@ -96,12 +96,12 @@ class SpotifyBloc extends Bloc<SpotifyEvent, SpotifyState> {
           );
         } catch (_) {
           emit(ErrorSpotifyState(
-            message: TextConstants.serverError,
+            message: R.strings.serverError,
           ));
         }
       } else {
         emit(ErrorSpotifyState(
-          message: TextConstants.serverError,
+          message: R.strings.serverError,
         ));
       }
     });

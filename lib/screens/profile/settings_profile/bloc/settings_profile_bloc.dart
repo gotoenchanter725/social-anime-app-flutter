@@ -4,7 +4,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:senpai/core/user/blocs/remove_device_token/remove_device_token.dart';
 import 'package:senpai/data/storage_keys_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/auth/auth_model.dart';
 import 'package:senpai/models/spotify_auth/spotify_auth_model.dart';
@@ -51,6 +51,8 @@ class SettingsProfileBloc
     on<OnSettingsProfileInitEvent>((event, emit) {
       emit(LoadingState());
       user = event.user;
+      isRecentlyActiveStatus = event.user.isDisplayingRecentlyActive ?? true;
+      isShowActiveStatus = event.user.isDisplayingActive ?? true;
       emit(ValidState());
     });
 
@@ -68,12 +70,14 @@ class SettingsProfileBloc
     on<OnChangeActiveStatusEvent>((event, emit) {
       emit(LoadingState());
       isShowActiveStatus = event.isStatusOn;
+      user = user.copyWith(isDisplayingActive: isShowActiveStatus);
       emit(ValidState());
     });
 
     on<OnChangeRecentlyActiveStatusEvent>((event, emit) {
       emit(LoadingState());
       isRecentlyActiveStatus = event.isStatusOn;
+      user = user.copyWith(isDisplayingRecentlyActive: isRecentlyActiveStatus);
       emit(ValidState());
     });
 
@@ -110,7 +114,7 @@ class SettingsProfileBloc
         emit(ValidState());
       } else {
         emit(ErrorState(
-          message: TextConstants.invalidPhoneError,
+          message: R.strings.invalidPhoneError,
           isEnabled: true,
         ));
       }

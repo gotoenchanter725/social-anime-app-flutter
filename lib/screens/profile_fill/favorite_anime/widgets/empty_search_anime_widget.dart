@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/utils/constants.dart';
 
 import 'package:senpai/utils/methods/utils.dart';
@@ -28,14 +28,14 @@ class EmptySearchAnimeWidget extends StatelessWidget {
 
   Widget _buildTitleWidget(BuildContext context) {
     return Text(
-      TextConstants.noAnimesFoundTitle,
+      R.strings.oopsNoAnimeFound,
       style: getTextTheme(context).headlineSmall,
     );
   }
 
   Widget _buildDescriptionWidget(BuildContext context) {
     return Text(
-      TextConstants.noAnimesFoundText,
+      R.strings.noAnimesFoundText,
       textAlign: TextAlign.center,
       style: getTextTheme(context).titleSmall,
     );

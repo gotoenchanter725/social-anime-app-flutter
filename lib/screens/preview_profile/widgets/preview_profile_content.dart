@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/preview_profile/widgets/active_status_widget.dart';
 import 'package:senpai/screens/preview_profile/bloc/preview_profile_bloc.dart';
 import 'package:senpai/screens/preview_profile/widgets/cupertino_modal_element.dart';
@@ -44,6 +44,7 @@ class DesiredPreviewProfileContent extends StatelessWidget {
             CarouselPhoto(
               listImages: listImages,
               isShowProfileInfo: false,
+              isAdmin: bloc.user.role == 'admin',
             ),
             SizedBox.expand(
               child: DraggableScrollableSheet(
@@ -116,6 +117,7 @@ class DesiredPreviewProfileContent extends StatelessWidget {
           birthday: bloc.user.birthday,
           verified: bloc.user.verified,
           isCenter: false,
+          isAdmin: bloc.user.role == 'admin',
         ),
         if (isShowDistance && bloc.user.hasLocationHidden != true)
           ..._buildLocation(context),
@@ -132,7 +134,7 @@ class DesiredPreviewProfileContent extends StatelessWidget {
             color: $constants.palette.buttonBorder,
             height: $constants.insets.xl,
           ),
-          _buildTitle(context, TextConstants.favoriteAnimesTitle),
+          _buildTitle(context, R.strings.favoriteAnimesTitle),
           SizedBox(height: $constants.insets.sm),
           UserFavoriteAnimeList(animes: bloc.user.animes ?? []),
         },
@@ -150,7 +152,7 @@ class DesiredPreviewProfileContent extends StatelessWidget {
   List<Widget> _buildBio(BuildContext context, String bio) {
     if (bio.isNotEmpty) {
       return [
-        _buildTitle(context, TextConstants.aboutMeTitle),
+        _buildTitle(context, R.strings.aboutMeTitle),
         Text(
           bio,
           style: getTextTheme(context)
@@ -167,7 +169,7 @@ class DesiredPreviewProfileContent extends StatelessWidget {
     if (school.isNotEmpty) {
       return [
         PreviewTitleInfoWidget(
-          title: TextConstants.studiedAtTitle,
+          title: R.strings.studiedAtTitle,
           icon: PathConstants.universityIcon,
           text: school,
         ),
@@ -180,7 +182,7 @@ class DesiredPreviewProfileContent extends StatelessWidget {
   Widget _buildOccupation(String occupation) {
     if (occupation.isNotEmpty) {
       return PreviewTitleInfoWidget(
-        title: TextConstants.workingAsTitle,
+        title: R.strings.workingAsTitle,
         icon: PathConstants.jobIcon,
         text: occupation,
       );
@@ -226,7 +228,7 @@ class DesiredPreviewProfileContent extends StatelessWidget {
         ),
       SizedBox(height: $constants.insets.xs),
       PreviewTitleInfoWidget(
-        title: '${bloc.distance.mi} ${TextConstants.milesAwayText}',
+        title: '${bloc.distance.mi} ${R.strings.milesAwayText}',
         icon: PathConstants.locationMarkerIcon,
       ),
     ];

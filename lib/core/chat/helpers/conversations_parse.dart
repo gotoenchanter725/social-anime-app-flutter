@@ -1,5 +1,5 @@
 // import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/chat/categorized_conversation.dart';
 import 'package:senpai/models/chat/chat_conversation.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
@@ -54,16 +54,16 @@ class ConversationsParser {
         dynamic lastMessage = conversation["lastMessage"];
         String lastMessageContent = lastMessage["content"];
         if (lastMessage["recommendation"] != null) {
-          lastMessageContent = TextConstants.animationRecomedationText;
+          lastMessageContent = R.strings.animationRecomedationText;
         }
         if (lastMessage["sticker"] != null) {
-          lastMessageContent = TextConstants.stickerMessageText;
+          lastMessageContent = R.strings.stickerMessageText;
         }
         if (lastMessage["attachment"] != null) {
           if (lastMessage["attachmentType"] == _gifAttachmentType) {
-            lastMessageContent = TextConstants.gifMessageText;
+            lastMessageContent = R.strings.gifMessageText;
           } else {
-            lastMessageContent = TextConstants.attachmentMessageText;
+            lastMessageContent = R.strings.attachmentMessageText;
           }
         }
         activeConversations.add(ChatConversation(

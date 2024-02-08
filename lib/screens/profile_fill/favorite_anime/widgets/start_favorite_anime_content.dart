@@ -5,7 +5,7 @@ import 'package:senpai/core/widgets/icon_input.dart';
 
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/bloc/favorite_anime_bloc.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/widgets/anime_step_header_widget.dart';
@@ -54,7 +54,7 @@ class StartFavoriteAnimeContent extends StatelessWidget {
         bloc.add(OnChangeAnimeStepEvent(step: FavoriteAnimeStep.searchContent));
         blocFetchAnime.fetchAnime(page: bloc.page);
       },
-      hintText: TextConstants.searchText,
+      hintText: R.strings.searchText,
       controller: bloc.searchController,
       onChange: (String search) {},
       iconPath: PathConstants.searchIcon,
@@ -74,7 +74,7 @@ class StartFavoriteAnimeContent extends StatelessWidget {
       },
       builder: (context, state) {
         return PrimaryButton(
-          text: '${TextConstants.doneText} '
+          text: '${R.strings.doneText} '
               '(${bloc.selectedAnimeList.length}/${bloc.maxAnimeCount})',
           onPressed: () {
             bloc.add(NextTappedEvent());

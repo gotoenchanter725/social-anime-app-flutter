@@ -22,6 +22,8 @@ mixin _$AnimeSelectorEvent {
     required TResult Function(AnimeModel selectedAnime) selectAnime,
     required TResult Function(String description) updateDescription,
     required TResult Function(String query) performSearch,
+    required TResult Function(bool needUpdatePagination, int page)
+        updatePagination,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +32,7 @@ mixin _$AnimeSelectorEvent {
     TResult? Function(AnimeModel selectedAnime)? selectAnime,
     TResult? Function(String description)? updateDescription,
     TResult? Function(String query)? performSearch,
+    TResult? Function(bool needUpdatePagination, int page)? updatePagination,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +41,7 @@ mixin _$AnimeSelectorEvent {
     TResult Function(AnimeModel selectedAnime)? selectAnime,
     TResult Function(String description)? updateDescription,
     TResult Function(String query)? performSearch,
+    TResult Function(bool needUpdatePagination, int page)? updatePagination,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,6 +51,7 @@ mixin _$AnimeSelectorEvent {
     required TResult Function(_SelectAnime value) selectAnime,
     required TResult Function(_UpdateDescription value) updateDescription,
     required TResult Function(_PerformSearch value) performSearch,
+    required TResult Function(_UpdatePagination value) updatePagination,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +60,7 @@ mixin _$AnimeSelectorEvent {
     TResult? Function(_SelectAnime value)? selectAnime,
     TResult? Function(_UpdateDescription value)? updateDescription,
     TResult? Function(_PerformSearch value)? performSearch,
+    TResult? Function(_UpdatePagination value)? updatePagination,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,6 +69,7 @@ mixin _$AnimeSelectorEvent {
     TResult Function(_SelectAnime value)? selectAnime,
     TResult Function(_UpdateDescription value)? updateDescription,
     TResult Function(_PerformSearch value)? performSearch,
+    TResult Function(_UpdatePagination value)? updatePagination,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -128,6 +135,8 @@ class _$_ToggleSearchMode implements _ToggleSearchMode {
     required TResult Function(AnimeModel selectedAnime) selectAnime,
     required TResult Function(String description) updateDescription,
     required TResult Function(String query) performSearch,
+    required TResult Function(bool needUpdatePagination, int page)
+        updatePagination,
   }) {
     return toggleSearchMode();
   }
@@ -139,6 +148,7 @@ class _$_ToggleSearchMode implements _ToggleSearchMode {
     TResult? Function(AnimeModel selectedAnime)? selectAnime,
     TResult? Function(String description)? updateDescription,
     TResult? Function(String query)? performSearch,
+    TResult? Function(bool needUpdatePagination, int page)? updatePagination,
   }) {
     return toggleSearchMode?.call();
   }
@@ -150,6 +160,7 @@ class _$_ToggleSearchMode implements _ToggleSearchMode {
     TResult Function(AnimeModel selectedAnime)? selectAnime,
     TResult Function(String description)? updateDescription,
     TResult Function(String query)? performSearch,
+    TResult Function(bool needUpdatePagination, int page)? updatePagination,
     required TResult orElse(),
   }) {
     if (toggleSearchMode != null) {
@@ -165,6 +176,7 @@ class _$_ToggleSearchMode implements _ToggleSearchMode {
     required TResult Function(_SelectAnime value) selectAnime,
     required TResult Function(_UpdateDescription value) updateDescription,
     required TResult Function(_PerformSearch value) performSearch,
+    required TResult Function(_UpdatePagination value) updatePagination,
   }) {
     return toggleSearchMode(this);
   }
@@ -176,6 +188,7 @@ class _$_ToggleSearchMode implements _ToggleSearchMode {
     TResult? Function(_SelectAnime value)? selectAnime,
     TResult? Function(_UpdateDescription value)? updateDescription,
     TResult? Function(_PerformSearch value)? performSearch,
+    TResult? Function(_UpdatePagination value)? updatePagination,
   }) {
     return toggleSearchMode?.call(this);
   }
@@ -187,6 +200,7 @@ class _$_ToggleSearchMode implements _ToggleSearchMode {
     TResult Function(_SelectAnime value)? selectAnime,
     TResult Function(_UpdateDescription value)? updateDescription,
     TResult Function(_PerformSearch value)? performSearch,
+    TResult Function(_UpdatePagination value)? updatePagination,
     required TResult orElse(),
   }) {
     if (toggleSearchMode != null) {
@@ -279,6 +293,8 @@ class _$_SelectAnime implements _SelectAnime {
     required TResult Function(AnimeModel selectedAnime) selectAnime,
     required TResult Function(String description) updateDescription,
     required TResult Function(String query) performSearch,
+    required TResult Function(bool needUpdatePagination, int page)
+        updatePagination,
   }) {
     return selectAnime(selectedAnime);
   }
@@ -290,6 +306,7 @@ class _$_SelectAnime implements _SelectAnime {
     TResult? Function(AnimeModel selectedAnime)? selectAnime,
     TResult? Function(String description)? updateDescription,
     TResult? Function(String query)? performSearch,
+    TResult? Function(bool needUpdatePagination, int page)? updatePagination,
   }) {
     return selectAnime?.call(selectedAnime);
   }
@@ -301,6 +318,7 @@ class _$_SelectAnime implements _SelectAnime {
     TResult Function(AnimeModel selectedAnime)? selectAnime,
     TResult Function(String description)? updateDescription,
     TResult Function(String query)? performSearch,
+    TResult Function(bool needUpdatePagination, int page)? updatePagination,
     required TResult orElse(),
   }) {
     if (selectAnime != null) {
@@ -316,6 +334,7 @@ class _$_SelectAnime implements _SelectAnime {
     required TResult Function(_SelectAnime value) selectAnime,
     required TResult Function(_UpdateDescription value) updateDescription,
     required TResult Function(_PerformSearch value) performSearch,
+    required TResult Function(_UpdatePagination value) updatePagination,
   }) {
     return selectAnime(this);
   }
@@ -327,6 +346,7 @@ class _$_SelectAnime implements _SelectAnime {
     TResult? Function(_SelectAnime value)? selectAnime,
     TResult? Function(_UpdateDescription value)? updateDescription,
     TResult? Function(_PerformSearch value)? performSearch,
+    TResult? Function(_UpdatePagination value)? updatePagination,
   }) {
     return selectAnime?.call(this);
   }
@@ -338,6 +358,7 @@ class _$_SelectAnime implements _SelectAnime {
     TResult Function(_SelectAnime value)? selectAnime,
     TResult Function(_UpdateDescription value)? updateDescription,
     TResult Function(_PerformSearch value)? performSearch,
+    TResult Function(_UpdatePagination value)? updatePagination,
     required TResult orElse(),
   }) {
     if (selectAnime != null) {
@@ -426,6 +447,8 @@ class _$_UpdateDescription implements _UpdateDescription {
     required TResult Function(AnimeModel selectedAnime) selectAnime,
     required TResult Function(String description) updateDescription,
     required TResult Function(String query) performSearch,
+    required TResult Function(bool needUpdatePagination, int page)
+        updatePagination,
   }) {
     return updateDescription(description);
   }
@@ -437,6 +460,7 @@ class _$_UpdateDescription implements _UpdateDescription {
     TResult? Function(AnimeModel selectedAnime)? selectAnime,
     TResult? Function(String description)? updateDescription,
     TResult? Function(String query)? performSearch,
+    TResult? Function(bool needUpdatePagination, int page)? updatePagination,
   }) {
     return updateDescription?.call(description);
   }
@@ -448,6 +472,7 @@ class _$_UpdateDescription implements _UpdateDescription {
     TResult Function(AnimeModel selectedAnime)? selectAnime,
     TResult Function(String description)? updateDescription,
     TResult Function(String query)? performSearch,
+    TResult Function(bool needUpdatePagination, int page)? updatePagination,
     required TResult orElse(),
   }) {
     if (updateDescription != null) {
@@ -463,6 +488,7 @@ class _$_UpdateDescription implements _UpdateDescription {
     required TResult Function(_SelectAnime value) selectAnime,
     required TResult Function(_UpdateDescription value) updateDescription,
     required TResult Function(_PerformSearch value) performSearch,
+    required TResult Function(_UpdatePagination value) updatePagination,
   }) {
     return updateDescription(this);
   }
@@ -474,6 +500,7 @@ class _$_UpdateDescription implements _UpdateDescription {
     TResult? Function(_SelectAnime value)? selectAnime,
     TResult? Function(_UpdateDescription value)? updateDescription,
     TResult? Function(_PerformSearch value)? performSearch,
+    TResult? Function(_UpdatePagination value)? updatePagination,
   }) {
     return updateDescription?.call(this);
   }
@@ -485,6 +512,7 @@ class _$_UpdateDescription implements _UpdateDescription {
     TResult Function(_SelectAnime value)? selectAnime,
     TResult Function(_UpdateDescription value)? updateDescription,
     TResult Function(_PerformSearch value)? performSearch,
+    TResult Function(_UpdatePagination value)? updatePagination,
     required TResult orElse(),
   }) {
     if (updateDescription != null) {
@@ -572,6 +600,8 @@ class _$_PerformSearch implements _PerformSearch {
     required TResult Function(AnimeModel selectedAnime) selectAnime,
     required TResult Function(String description) updateDescription,
     required TResult Function(String query) performSearch,
+    required TResult Function(bool needUpdatePagination, int page)
+        updatePagination,
   }) {
     return performSearch(query);
   }
@@ -583,6 +613,7 @@ class _$_PerformSearch implements _PerformSearch {
     TResult? Function(AnimeModel selectedAnime)? selectAnime,
     TResult? Function(String description)? updateDescription,
     TResult? Function(String query)? performSearch,
+    TResult? Function(bool needUpdatePagination, int page)? updatePagination,
   }) {
     return performSearch?.call(query);
   }
@@ -594,6 +625,7 @@ class _$_PerformSearch implements _PerformSearch {
     TResult Function(AnimeModel selectedAnime)? selectAnime,
     TResult Function(String description)? updateDescription,
     TResult Function(String query)? performSearch,
+    TResult Function(bool needUpdatePagination, int page)? updatePagination,
     required TResult orElse(),
   }) {
     if (performSearch != null) {
@@ -609,6 +641,7 @@ class _$_PerformSearch implements _PerformSearch {
     required TResult Function(_SelectAnime value) selectAnime,
     required TResult Function(_UpdateDescription value) updateDescription,
     required TResult Function(_PerformSearch value) performSearch,
+    required TResult Function(_UpdatePagination value) updatePagination,
   }) {
     return performSearch(this);
   }
@@ -620,6 +653,7 @@ class _$_PerformSearch implements _PerformSearch {
     TResult? Function(_SelectAnime value)? selectAnime,
     TResult? Function(_UpdateDescription value)? updateDescription,
     TResult? Function(_PerformSearch value)? performSearch,
+    TResult? Function(_UpdatePagination value)? updatePagination,
   }) {
     return performSearch?.call(this);
   }
@@ -631,6 +665,7 @@ class _$_PerformSearch implements _PerformSearch {
     TResult Function(_SelectAnime value)? selectAnime,
     TResult Function(_UpdateDescription value)? updateDescription,
     TResult Function(_PerformSearch value)? performSearch,
+    TResult Function(_UpdatePagination value)? updatePagination,
     required TResult orElse(),
   }) {
     if (performSearch != null) {
@@ -650,10 +685,178 @@ abstract class _PerformSearch implements AnimeSelectorEvent {
 }
 
 /// @nodoc
+abstract class _$$_UpdatePaginationCopyWith<$Res> {
+  factory _$$_UpdatePaginationCopyWith(
+          _$_UpdatePagination value, $Res Function(_$_UpdatePagination) then) =
+      __$$_UpdatePaginationCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool needUpdatePagination, int page});
+}
+
+/// @nodoc
+class __$$_UpdatePaginationCopyWithImpl<$Res>
+    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_UpdatePagination>
+    implements _$$_UpdatePaginationCopyWith<$Res> {
+  __$$_UpdatePaginationCopyWithImpl(
+      _$_UpdatePagination _value, $Res Function(_$_UpdatePagination) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? needUpdatePagination = null,
+    Object? page = null,
+  }) {
+    return _then(_$_UpdatePagination(
+      needUpdatePagination: null == needUpdatePagination
+          ? _value.needUpdatePagination
+          : needUpdatePagination // ignore: cast_nullable_to_non_nullable
+              as bool,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdatePagination implements _UpdatePagination {
+  const _$_UpdatePagination(
+      {required this.needUpdatePagination, required this.page});
+
+  @override
+  final bool needUpdatePagination;
+  @override
+  final int page;
+
+  @override
+  String toString() {
+    return 'AnimeSelectorEvent.updatePagination(needUpdatePagination: $needUpdatePagination, page: $page)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdatePagination &&
+            (identical(other.needUpdatePagination, needUpdatePagination) ||
+                other.needUpdatePagination == needUpdatePagination) &&
+            (identical(other.page, page) || other.page == page));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, needUpdatePagination, page);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UpdatePaginationCopyWith<_$_UpdatePagination> get copyWith =>
+      __$$_UpdatePaginationCopyWithImpl<_$_UpdatePagination>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() toggleSearchMode,
+    required TResult Function(AnimeModel selectedAnime) selectAnime,
+    required TResult Function(String description) updateDescription,
+    required TResult Function(String query) performSearch,
+    required TResult Function(bool needUpdatePagination, int page)
+        updatePagination,
+  }) {
+    return updatePagination(needUpdatePagination, page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? toggleSearchMode,
+    TResult? Function(AnimeModel selectedAnime)? selectAnime,
+    TResult? Function(String description)? updateDescription,
+    TResult? Function(String query)? performSearch,
+    TResult? Function(bool needUpdatePagination, int page)? updatePagination,
+  }) {
+    return updatePagination?.call(needUpdatePagination, page);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? toggleSearchMode,
+    TResult Function(AnimeModel selectedAnime)? selectAnime,
+    TResult Function(String description)? updateDescription,
+    TResult Function(String query)? performSearch,
+    TResult Function(bool needUpdatePagination, int page)? updatePagination,
+    required TResult orElse(),
+  }) {
+    if (updatePagination != null) {
+      return updatePagination(needUpdatePagination, page);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ToggleSearchMode value) toggleSearchMode,
+    required TResult Function(_SelectAnime value) selectAnime,
+    required TResult Function(_UpdateDescription value) updateDescription,
+    required TResult Function(_PerformSearch value) performSearch,
+    required TResult Function(_UpdatePagination value) updatePagination,
+  }) {
+    return updatePagination(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_ToggleSearchMode value)? toggleSearchMode,
+    TResult? Function(_SelectAnime value)? selectAnime,
+    TResult? Function(_UpdateDescription value)? updateDescription,
+    TResult? Function(_PerformSearch value)? performSearch,
+    TResult? Function(_UpdatePagination value)? updatePagination,
+  }) {
+    return updatePagination?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ToggleSearchMode value)? toggleSearchMode,
+    TResult Function(_SelectAnime value)? selectAnime,
+    TResult Function(_UpdateDescription value)? updateDescription,
+    TResult Function(_PerformSearch value)? performSearch,
+    TResult Function(_UpdatePagination value)? updatePagination,
+    required TResult orElse(),
+  }) {
+    if (updatePagination != null) {
+      return updatePagination(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatePagination implements AnimeSelectorEvent {
+  const factory _UpdatePagination(
+      {required final bool needUpdatePagination,
+      required final int page}) = _$_UpdatePagination;
+
+  bool get needUpdatePagination;
+  int get page;
+  @JsonKey(ignore: true)
+  _$$_UpdatePaginationCopyWith<_$_UpdatePagination> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AnimeSelectorState {
   bool get isSearchMode => throw _privateConstructorUsedError;
   AnimeModel? get selectedAnime => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  bool get needUpdatePagination => throw _privateConstructorUsedError;
+  String get searchText => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AnimeSelectorStateCopyWith<AnimeSelectorState> get copyWith =>
@@ -667,7 +870,12 @@ abstract class $AnimeSelectorStateCopyWith<$Res> {
       _$AnimeSelectorStateCopyWithImpl<$Res, AnimeSelectorState>;
   @useResult
   $Res call(
-      {bool isSearchMode, AnimeModel? selectedAnime, String? description});
+      {bool isSearchMode,
+      AnimeModel? selectedAnime,
+      String? description,
+      int page,
+      bool needUpdatePagination,
+      String searchText});
 
   $AnimeModelCopyWith<$Res>? get selectedAnime;
 }
@@ -688,6 +896,9 @@ class _$AnimeSelectorStateCopyWithImpl<$Res, $Val extends AnimeSelectorState>
     Object? isSearchMode = null,
     Object? selectedAnime = freezed,
     Object? description = freezed,
+    Object? page = null,
+    Object? needUpdatePagination = null,
+    Object? searchText = null,
   }) {
     return _then(_value.copyWith(
       isSearchMode: null == isSearchMode
@@ -702,6 +913,18 @@ class _$AnimeSelectorStateCopyWithImpl<$Res, $Val extends AnimeSelectorState>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      needUpdatePagination: null == needUpdatePagination
+          ? _value.needUpdatePagination
+          : needUpdatePagination // ignore: cast_nullable_to_non_nullable
+              as bool,
+      searchText: null == searchText
+          ? _value.searchText
+          : searchText // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 
@@ -727,7 +950,12 @@ abstract class _$$_AnimeSelectorStateCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool isSearchMode, AnimeModel? selectedAnime, String? description});
+      {bool isSearchMode,
+      AnimeModel? selectedAnime,
+      String? description,
+      int page,
+      bool needUpdatePagination,
+      String searchText});
 
   @override
   $AnimeModelCopyWith<$Res>? get selectedAnime;
@@ -747,6 +975,9 @@ class __$$_AnimeSelectorStateCopyWithImpl<$Res>
     Object? isSearchMode = null,
     Object? selectedAnime = freezed,
     Object? description = freezed,
+    Object? page = null,
+    Object? needUpdatePagination = null,
+    Object? searchText = null,
   }) {
     return _then(_$_AnimeSelectorState(
       isSearchMode: null == isSearchMode
@@ -761,6 +992,18 @@ class __$$_AnimeSelectorStateCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
+      page: null == page
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      needUpdatePagination: null == needUpdatePagination
+          ? _value.needUpdatePagination
+          : needUpdatePagination // ignore: cast_nullable_to_non_nullable
+              as bool,
+      searchText: null == searchText
+          ? _value.searchText
+          : searchText // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -769,7 +1012,12 @@ class __$$_AnimeSelectorStateCopyWithImpl<$Res>
 
 class _$_AnimeSelectorState implements _AnimeSelectorState {
   const _$_AnimeSelectorState(
-      {this.isSearchMode = false, this.selectedAnime, this.description});
+      {this.isSearchMode = false,
+      this.selectedAnime,
+      this.description,
+      this.page = 1,
+      this.needUpdatePagination = false,
+      this.searchText = ''});
 
   @override
   @JsonKey()
@@ -778,10 +1026,19 @@ class _$_AnimeSelectorState implements _AnimeSelectorState {
   final AnimeModel? selectedAnime;
   @override
   final String? description;
+  @override
+  @JsonKey()
+  final int page;
+  @override
+  @JsonKey()
+  final bool needUpdatePagination;
+  @override
+  @JsonKey()
+  final String searchText;
 
   @override
   String toString() {
-    return 'AnimeSelectorState(isSearchMode: $isSearchMode, selectedAnime: $selectedAnime, description: $description)';
+    return 'AnimeSelectorState(isSearchMode: $isSearchMode, selectedAnime: $selectedAnime, description: $description, page: $page, needUpdatePagination: $needUpdatePagination, searchText: $searchText)';
   }
 
   @override
@@ -794,12 +1051,17 @@ class _$_AnimeSelectorState implements _AnimeSelectorState {
             (identical(other.selectedAnime, selectedAnime) ||
                 other.selectedAnime == selectedAnime) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.needUpdatePagination, needUpdatePagination) ||
+                other.needUpdatePagination == needUpdatePagination) &&
+            (identical(other.searchText, searchText) ||
+                other.searchText == searchText));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, isSearchMode, selectedAnime, description);
+  int get hashCode => Object.hash(runtimeType, isSearchMode, selectedAnime,
+      description, page, needUpdatePagination, searchText);
 
   @JsonKey(ignore: true)
   @override
@@ -813,7 +1075,10 @@ abstract class _AnimeSelectorState implements AnimeSelectorState {
   const factory _AnimeSelectorState(
       {final bool isSearchMode,
       final AnimeModel? selectedAnime,
-      final String? description}) = _$_AnimeSelectorState;
+      final String? description,
+      final int page,
+      final bool needUpdatePagination,
+      final String searchText}) = _$_AnimeSelectorState;
 
   @override
   bool get isSearchMode;
@@ -821,6 +1086,12 @@ abstract class _AnimeSelectorState implements AnimeSelectorState {
   AnimeModel? get selectedAnime;
   @override
   String? get description;
+  @override
+  int get page;
+  @override
+  bool get needUpdatePagination;
+  @override
+  String get searchText;
   @override
   @JsonKey(ignore: true)
   _$$_AnimeSelectorStateCopyWith<_$_AnimeSelectorState> get copyWith =>

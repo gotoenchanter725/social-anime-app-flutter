@@ -5,7 +5,7 @@ import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 import 'package:senpai/core/widgets/phone_input.dart';
 
 import 'package:senpai/core/widgets/secondary_button.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/user_profile/mappers/user_profile_mapper.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 
@@ -21,7 +21,7 @@ class PhoneNumberContent extends StatelessWidget {
     return Column(
       children: [
         ProfileAppBar(
-          title: TextConstants.phoneNumberTitle,
+          title: R.strings.phoneNumberTitle,
           hasLeading: true,
           onDoneTap: () {
             final bloc = BlocProvider.of<SettingsProfileBloc>(context);
@@ -50,7 +50,7 @@ class PhoneNumberContent extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    TextConstants.phoneNumberTitle,
+                    R.strings.phoneNumberTitle,
                     style: getTextTheme(context).headlineSmall,
                   ),
                   _buildTextInput(context),
@@ -60,7 +60,7 @@ class PhoneNumberContent extends StatelessWidget {
                       top: $constants.insets.xs,
                     ),
                     child: Text(
-                      TextConstants.confirmedPhoneDescription,
+                      R.strings.confirmedPhoneDescription,
                       style: getTextTheme(context)
                           .labelMedium
                           ?.copyWith(color: $constants.palette.grey),
@@ -110,10 +110,13 @@ class PhoneNumberContent extends StatelessWidget {
     return BlocListener<SettingsProfileBloc, SettingsProfileState>(
       listenWhen: (_, currState) => currState is ChangePhoneNumberState,
       listener: (context, state) {
-        serverBloc.updateUserInfo(user: bloc.user.toUpdateModel());
+        serverBloc.updateUserInfo(
+          user: bloc.user.toUpdateModel(),
+          verified: bloc.user.verified,
+        );
       },
       child: SecondaryButton(
-        text: TextConstants.updateMyPhoneButton,
+        text: R.strings.updateMyPhoneButton,
         onPressed: () {
           bloc.add(OnTapUpdatePhoneEvent());
         },
@@ -135,7 +138,7 @@ class PhoneNumberContent extends StatelessWidget {
               onTextChanged: (PhoneNumber phoneNumber) {
                 bloc.add(OnChangePhoneNumberEvent(phoneNumber: phoneNumber));
               },
-              errorText: TextConstants.invalidPhoneError,
+              errorText: R.strings.invalidPhoneError,
               isError: state is ErrorState ? state.isEnabled : false,
               isValid: bloc.state is ValidState
                   ? true

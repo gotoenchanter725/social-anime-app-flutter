@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/home/bloc/home_storage_bloc.dart';
 
 import 'package:senpai/utils/constants.dart';
@@ -81,8 +81,8 @@ class MatchHelperWidget extends StatelessWidget {
           ),
           Text(
             isLike
-                ? TextConstants.likeWhatYouSeeTitle
-                : TextConstants.notForYouTitle,
+                ? R.strings.likeWhatYouSeeTitle
+                : R.strings.notForYouTitle,
             textAlign: TextAlign.center,
             style: getTextTheme(context)
                 .headlineSmall
@@ -90,8 +90,8 @@ class MatchHelperWidget extends StatelessWidget {
           ),
           Text(
             isLike
-                ? TextConstants.swipeRightDescription
-                : TextConstants.swipeLeftDescription,
+                ? R.strings.swipeRightDescription
+                : R.strings.swipeLeftDescription,
             textAlign: TextAlign.center,
             style: getTextTheme(context)
                 .labelMedium

@@ -6,9 +6,10 @@ import 'package:senpai/core/feed/blocs/like_user_bloc.dart';
 import 'package:senpai/core/feed/blocs/undo_like_user_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
+import 'package:senpai/core/user/blocs/add_super_likes/add_super_likes.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/match/like_user_model/like_user_model.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
@@ -39,6 +40,7 @@ class MatchPage extends StatelessWidget {
         BlocProvider(create: (_) => getIt<LikeUserBloc>()),
         BlocProvider(create: (_) => getIt<FetchUserBloc>()),
         BlocProvider(create: (_) => getIt<UndoLikeUserBloc>()),
+        BlocProvider(create: (_) => getIt<AddSuperLikesBloc>()),
       ],
       child: Scaffold(
         backgroundColor: $constants.palette.darkBlue,
@@ -54,6 +56,9 @@ class MatchPage extends StatelessWidget {
                     listener: (context, state) {
                       final bloc = BlocProvider.of<MatchBloc>(context);
                       bloc.add(OnChangePageEvent(isRefresh: false));
+                      final fetchUserBloc =
+                          BlocProvider.of<FetchUserBloc>(context);
+                      fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
                     },
                   ),
                   BlocListener<MatchBloc, MatchState>(
@@ -80,6 +85,7 @@ class MatchPage extends StatelessWidget {
               _buildLikeUserListeners(),
               _buildFetchUserListeners(),
               _buildUndoLikeUserListeners(),
+              _buildAddSuperLikesBlocListeners(),
             ],
           ),
         ),
@@ -94,7 +100,7 @@ class MatchPage extends StatelessWidget {
             loading: (result) => const SenpaiLoading(),
             loaded: (data, result) {
               if (result.data == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A successful empty response just got recorded");
                 return const SizedBox.shrink();
               } else {
@@ -108,7 +114,7 @@ class MatchPage extends StatelessWidget {
               return const SizedBox.shrink();
             },
             error: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
@@ -125,7 +131,7 @@ class MatchPage extends StatelessWidget {
             },
             loaded: (data, result) {
               if (result.data == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A successful empty response just got recorded");
                 return const SizedBox.shrink();
               } else {
@@ -139,7 +145,7 @@ class MatchPage extends StatelessWidget {
               }
             },
             error: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());
@@ -153,7 +159,7 @@ class MatchPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -166,7 +172,7 @@ class MatchPage extends StatelessWidget {
               }
               final model = response["likeUser"];
               if (model == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }
@@ -207,7 +213,7 @@ class MatchPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -221,7 +227,7 @@ class MatchPage extends StatelessWidget {
               final model = response["undoLike"]["undidUser"];
 
               if (model == null) {
-                showSnackBarError(context, TextConstants.serverError);
+                showSnackBarError(context, R.strings.serverError);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }
@@ -248,6 +254,39 @@ class MatchPage extends StatelessWidget {
     ).timeout(
       $constants.times.slow,
       onTimeout: () => Navigator.pop(context),
+    );
+  }
+
+  Widget _buildAddSuperLikesBlocListeners() {
+    return BlocBuilder<AddSuperLikesBloc, MutationState>(
+      builder: (context, state) {
+        return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            failed: (error, result) {
+              showSnackBarError(context, R.strings.serverError);
+              return const SizedBox.shrink();
+            },
+            succeeded: (data, result) {
+              final response = result.data;
+
+              if (response == null) {
+                // handle this fatal error
+                logIt.wtf("A successful empty response just got set user");
+                return const SizedBox.shrink();
+              }
+              final superLikeCount =
+                  response["addSuperLikes"]["user"]["superLikeCount"];
+              if (superLikeCount == null) {
+                showSnackBarError(context, R.strings.nullUser);
+                logIt.error("A user with error");
+                return const SizedBox.shrink();
+              }
+              final matchBloc = BlocProvider.of<MatchBloc>(context);
+              matchBloc.superLikeCount = superLikeCount ?? 0;
+              return const SizedBox.shrink();
+            },
+            orElse: () => const SizedBox.shrink());
+      },
     );
   }
 }

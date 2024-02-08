@@ -5,7 +5,7 @@ import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_music/add_favorite_music_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_music/delete_favorite_music_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/user_profile/mappers/user_spotify_mapper.dart';
 
@@ -124,7 +124,7 @@ class EditSpotifyMusicPage extends StatelessWidget {
           }
         }
         if (state is ErrorEditSpotifyState) {
-          showSnackBarError(context, TextConstants.spotifyServerError);
+          showSnackBarError(context, R.strings.spotifyServerError);
         }
       },
       builder: (context, state) {
@@ -141,7 +141,7 @@ class EditSpotifyMusicPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -156,7 +156,7 @@ class EditSpotifyMusicPage extends StatelessWidget {
               dynamic user = response["addFavoriteMusic"]["user"];
 
               if (user.isEmpty) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user without an music tried to again");
                 return const SizedBox.shrink();
               }
@@ -182,7 +182,7 @@ class EditSpotifyMusicPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -208,7 +208,7 @@ class EditSpotifyMusicPage extends StatelessWidget {
 
                 return const SizedBox.shrink();
               } else {
-                showSnackBarError(context, TextConstants.serverError);
+                showSnackBarError(context, R.strings.serverError);
               }
               return const SizedBox.shrink();
             },

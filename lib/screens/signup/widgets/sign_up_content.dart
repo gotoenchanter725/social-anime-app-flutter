@@ -7,7 +7,7 @@ import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/phone_input.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/core/auth/blocs/create_user_bloc.dart';
 import 'package:senpai/screens/signup/bloc/sign_up_form/sign_up_form_bloc.dart';
 import 'package:senpai/utils/constants.dart';
@@ -52,14 +52,14 @@ class SignupContent extends StatelessWidget {
                     height: $constants.insets.lg,
                   ),
                   Text(
-                    TextConstants.hello,
+                    R.strings.hello,
                     style: getTextTheme(context)
                         .headlineLarge
                         ?.copyWith(color: $constants.palette.white),
                     textAlign: TextAlign.left,
                   ),
                   Text(
-                    TextConstants.createUserPrompt,
+                    R.strings.createUserPrompt,
                     style: getTextTheme(context).headlineLarge?.copyWith(
                           color: $constants.palette.white,
                         ),
@@ -73,7 +73,7 @@ class SignupContent extends StatelessWidget {
                     height: $constants.insets.sm,
                   ),
                   Text(
-                    TextConstants.createUserInstructions,
+                    R.strings.createUserInstructions,
                     style: getTextTheme(context).labelMedium?.copyWith(
                           color: $constants.palette.grey2,
                         ),
@@ -131,7 +131,7 @@ class SignupContent extends StatelessWidget {
                   value: bloc.isAccepted,
                   onChanged: bloc.onTermsAndConditionsTapped,
                   title: Text(
-                    TextConstants.termsAndConditions,
+                    R.strings.termsAndConditions,
                     style: getTextTheme(context).labelMedium?.copyWith(
                           color: $constants.palette.white,
                         ),
@@ -156,7 +156,7 @@ class SignupContent extends StatelessWidget {
     return BlocBuilder<SignUpFormBloc, SignUpFormState>(
       builder: (context, state) {
         return PrimaryButton(
-          text: TextConstants.continueText,
+          text: R.strings.continueText,
           onPressed: () {
             if (!formBloc.isAccepted && !isExistingUser) {
               return;
@@ -186,7 +186,7 @@ class SignupContent extends StatelessWidget {
           onTextChanged: (PhoneNumber phoneNumber) {
             bloc.add(OnTextChangedEvent(phoneNumber: phoneNumber));
           },
-          errorText: TextConstants.invalidPhoneError,
+          errorText: R.strings.invalidPhoneError,
           isError: state is ErrorState ? state.isEnabled : false,
           isValid: state is ValidState
               ? true

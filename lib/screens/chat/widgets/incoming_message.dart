@@ -8,20 +8,20 @@ import 'package:senpai/core/widgets/user_avator.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
+import 'package:senpai/screens/chat/animation/fade_and_translate.dart';
 import 'package:senpai/screens/chat/bloc/message_reaction_bloc/message_reaction_bloc.dart';
 import 'package:senpai/utils/constants.dart';
-import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class IncomingMessage extends StatelessWidget {
   final ChatMessage message;
   final User user;
+
   const IncomingMessage({super.key, required this.message, required this.user});
 
   @override
   Widget build(BuildContext context) {
-    MessageReactionBloc messageReactionBloc =
-        BlocProvider.of<MessageReactionBloc>(context);
+    MessageReactionBloc messageReactionBloc = BlocProvider.of<MessageReactionBloc>(context);
     return Padding(
       padding: EdgeInsets.only(top: $constants.insets.md),
       child: BlocBuilder<MessageReactionBloc, MessageReactionState>(
@@ -71,8 +71,7 @@ class IncomingMessage extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             ConstrainedBox(
-              constraints: BoxConstraints(
-                  maxWidth: MediaQuery.of(context).size.width * 0.7),
+              constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.7),
               child: _buildMessage(context),
             ),
             Positioned(
@@ -87,9 +86,7 @@ class IncomingMessage extends StatelessWidget {
         ),
         Text(
           DateFormat('hh:mm').format(message.timestamp),
-          style: getTextTheme(context)
-              .labelMedium!
-              .copyWith(color: $constants.palette.grey),
+          style: getTextTheme(context).labelMedium!.copyWith(color: $constants.palette.grey),
         )
       ],
     );
@@ -111,57 +108,86 @@ class IncomingMessage extends StatelessWidget {
   }
 
   Widget _buildEmojiReactionsSelector(BuildContext context) {
-    final MessageReactionBloc messageReactionBloc =
-        BlocProvider.of<MessageReactionBloc>(context);
-    final UpdateMessageBloc updateMessageBloc =
-        BlocProvider.of<UpdateMessageBloc>(context);
+    final MessageReactionBloc messageReactionBloc = BlocProvider.of<MessageReactionBloc>(context);
+    final UpdateMessageBloc updateMessageBloc = BlocProvider.of<UpdateMessageBloc>(context);
     bool showReactions = messageReactionBloc.state.showReactions &&
         messageReactionBloc.state.activeMessageId == message.id;
-    double containerWidth = 0;
-    if (showReactions) {
-      containerWidth = getSize(context).width * 0.6;
-    }
+    bool showEmojiReactions = messageReactionBloc.state.showEmojiReactions &&
+        messageReactionBloc.state.activeMessageId == message.id;
+
     final double emojiSize = getSize(context).width * 0.06;
     return BlocBuilder<MessageReactionBloc, MessageReactionState>(
       builder: (context, state) {
-        return AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          curve: Curves.easeOut,
-          height: 40,
-          width: containerWidth,
-          decoration: BoxDecoration(
-            color: $constants.palette.lightBlue,
-            borderRadius: BorderRadius.circular($constants.corners.lg),
-          ),
-          child: ClipRect(
-            child: OverflowBox(
-              minWidth: 0,
-              maxWidth: getSize(context).width * 0.6,
-              alignment: Alignment.center,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: _emojis.map((item) {
-                  return GestureDetector(
-                    onTap: () {
-                      logIt.info("Emoji tapped");
-                      updateMessageBloc.updateMessage(
-                        messageId: message.id,
-                        reactionType: item.reactionType,
-                        content: message.text,
-                      );
-                      messageReactionBloc.hideReactions();
-                    },
-                    child: SenpaiEmoji(
-                      emojiName: item.emojiName,
-                      size: emojiSize,
-                    ),
+        return FadeAndTranslate(
+          visible: showReactions,
+          translate: const Offset(0.0, 20.0),
+          duration: const Duration(milliseconds: 200),
+          child: Container(
+            height: 40,
+            width: getSize(context).width * 0.6,
+            decoration: BoxDecoration(
+              color: $constants.palette.lightBlue,
+              borderRadius: BorderRadius.circular($constants.corners.lg),
+            ),
+            child: ClipRect(
+              child: OverflowBox(
+                minWidth: 0,
+                alignment: Alignment.center,
+                child: Builder(builder: (context) {
+                  List<Widget> emojis = [];
+                  for (final (index, item) in _emojis.indexed) {
+                    emojis.add(
+                      buildEmojiWithDelayedAnimation(
+                        showEmojiReactions,
+                        index,
+                        updateMessageBloc,
+                        item,
+                        messageReactionBloc,
+                        emojiSize,
+                      ),
+                    );
+                  }
+                  return Row(
+                    children: emojis,
                   );
-                }).toList(),
+                }),
               ),
             ),
           ),
         );
       },
+    );
+  }
+
+  Padding buildEmojiWithDelayedAnimation(
+      bool showEmojiReactions,
+      int index,
+      UpdateMessageBloc updateMessageBloc,
+      _EmojiItem item,
+      MessageReactionBloc messageReactionBloc,
+      double emojiSize) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: FadeAndTranslate(
+        translate: const Offset(0.0, 20.0),
+        visible: showEmojiReactions,
+        duration: const Duration(milliseconds: 100),
+        delay: Duration(milliseconds: 80 * index),
+        child: GestureDetector(
+          onTap: () {
+            updateMessageBloc.updateMessage(
+              messageId: message.id,
+              reactionType: item.reactionType,
+              content: message.text,
+            );
+            messageReactionBloc.hideReactions();
+          },
+          child: SenpaiEmoji(
+            emojiName: item.emojiName,
+            size: emojiSize,
+          ),
+        ),
+      ),
     );
   }
 
@@ -251,6 +277,7 @@ class IncomingMessage extends StatelessWidget {
               title: message.recommendation!.animeName,
             ),
             hasBackground: true,
+            locale: null,
           ),
         ),
         SizedBox(
@@ -284,8 +311,8 @@ class IncomingMessage extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: $constants.insets.sm, vertical: $constants.insets.xs),
+        padding:
+            EdgeInsets.symmetric(horizontal: $constants.insets.sm, vertical: $constants.insets.xs),
         child: child,
       ),
     );
@@ -295,20 +322,15 @@ class IncomingMessage extends StatelessWidget {
 class _EmojiItem {
   final String emojiName;
   final ReactionType reactionType;
+
   _EmojiItem({required this.emojiName, required this.reactionType});
 }
 
 final List<_EmojiItem> _emojis = [
-  _EmojiItem(
-      emojiName: $constants.emojis.happy, reactionType: ReactionType.laughing),
-  _EmojiItem(
-      emojiName: $constants.emojis.like, reactionType: ReactionType.thumbsUp),
-  _EmojiItem(
-      emojiName: $constants.emojis.heart, reactionType: ReactionType.heart),
-  _EmojiItem(
-      emojiName: $constants.emojis.vomit, reactionType: ReactionType.puke),
-  _EmojiItem(
-      emojiName: $constants.emojis.anger, reactionType: ReactionType.anger),
-  _EmojiItem(
-      emojiName: $constants.emojis.demon, reactionType: ReactionType.demon),
+  _EmojiItem(emojiName: $constants.emojis.happy, reactionType: ReactionType.laughing),
+  _EmojiItem(emojiName: $constants.emojis.like, reactionType: ReactionType.thumbsUp),
+  _EmojiItem(emojiName: $constants.emojis.heart, reactionType: ReactionType.heart),
+  _EmojiItem(emojiName: $constants.emojis.vomit, reactionType: ReactionType.puke),
+  _EmojiItem(emojiName: $constants.emojis.anger, reactionType: ReactionType.anger),
+  _EmojiItem(emojiName: $constants.emojis.demon, reactionType: ReactionType.demon),
 ];

@@ -10,6 +10,7 @@ _$_AnimeModel _$$_AnimeModelFromJson(Map<String, dynamic> json) =>
     _$_AnimeModel(
       id: json['id'] as String,
       title: json['title'] as String?,
+      japaneseTitle: json['japaneseTitle'] as String?,
       genres: json['genres'] as String?,
       cover: json['cover'] as String?,
       episodes: json['episodes'] as int?,
@@ -26,6 +27,7 @@ Map<String, dynamic> _$$_AnimeModelToJson(_$_AnimeModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
+      'japaneseTitle': instance.japaneseTitle,
       'genres': instance.genres,
       'cover': instance.cover,
       'episodes': instance.episodes,

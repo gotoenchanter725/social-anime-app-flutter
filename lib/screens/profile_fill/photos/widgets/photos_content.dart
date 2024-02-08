@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:senpai/core/widgets/primary_button.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/widgets/list_photos_widget.dart';
@@ -35,11 +35,11 @@ class PhotosContent extends StatelessWidget {
                   ),
                   _buildHelperText(
                     context,
-                    TextConstants.youCanChangeOrder,
+                    R.strings.youCanChangeOrder,
                   ),
                   _buildHelperText(
                     context,
-                    TextConstants.justDragPhoto,
+                    R.strings.justDragPhoto,
                   ),
                 ],
               ),
@@ -63,8 +63,8 @@ class PhotosContent extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
     return HeaderSimpleField(
-      title: TextConstants.uploadPhotosText,
-      description: TextConstants.uploadPhotosDescription,
+      title: R.strings.uploadPhotosText,
+      description: R.strings.uploadPhotosDescription,
       onTapBackButton: () {
         bloc.add(
           OnChangeStepEvent(
@@ -94,7 +94,7 @@ class PhotosContent extends StatelessWidget {
         blocProfileFill.add(OnPhotosListSaveEvent(photos: bloc.uploadedPhotos));
       },
       child: PrimaryButton(
-        text: TextConstants.nextText,
+        text: R.strings.nextText,
         onPressed: () async {
           bloc.add(NextTappedEvent());
         },

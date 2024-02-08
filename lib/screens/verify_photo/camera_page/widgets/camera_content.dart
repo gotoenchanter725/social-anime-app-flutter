@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/widgets/custom_close_button.dart';
 import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
 import 'package:senpai/screens/verify_photo/camera_page/camera_bloc/camera_bloc.dart';
@@ -58,7 +58,7 @@ class CameraContent extends StatelessWidget {
                       right: $constants.insets.xxs,
                       child: Center(
                         child: Text(
-                          TextConstants.copyPosePhotoText,
+                          R.strings.copyPosePhotoText,
                           style: getTextTheme(context).titleSmall,
                         ),
                       ),

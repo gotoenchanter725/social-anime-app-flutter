@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/core/widgets/senpai_input.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/occupation/bloc/occupation_bloc.dart';
 import 'package:senpai/screens/profile_fill/occupation/bloc/universities_bloc/universities_bloc.dart';
 import 'package:senpai/screens/profile_fill/widgets/custom_close_button.dart';
@@ -90,12 +90,12 @@ class UniversityDialog extends StatelessWidget {
       },
       builder: (context, state) {
         return SenpaiInput(
-          placeholder: TextConstants.universityName,
+          placeholder: R.strings.universityName,
           controller: bloc.universityController,
           onTextChanged: (String university) {
             bloc.add(OnUniversityChangedEvent(university: university));
           },
-          errorText: TextConstants.invalidUniversityNameError,
+          errorText: R.strings.invalidUniversityNameError,
           isError: state is ErrorUniversityState ? state.isEnabled : false,
           isValid: state is ValidUniversityState
               ? true
@@ -122,8 +122,8 @@ class UniversityDialog extends StatelessWidget {
         }
 
         if (bloc.searchText.isNotEmpty && bloc.universities.isEmpty) {
-          return const Center(
-            child: Text(TextConstants.noUniversityFound),
+          return Center(
+            child: Text(R.strings.noUniversityFound),
           );
         }
 

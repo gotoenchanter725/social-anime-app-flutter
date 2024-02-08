@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 part 'occupation_event.dart';
 part 'occupation_state.dart';
@@ -31,25 +31,25 @@ class OccupationBloc extends Bloc<OccupationEvent, OccupationState> {
     on<OnUniversityChangedEvent>((event, emit) async {
       emit(ValidUniversityState());
       emit(ErrorUniversityState(
-        message: TextConstants.serverError,
+        message: R.strings.serverError,
         isEnabled: false,
       ));
       universityName = event.university;
     });
 
     on<OnJobTitleChangedEvent>((event, emit) {
-      emit(ErrorJobState(message: TextConstants.serverError, isEnabled: false));
+      emit(ErrorJobState(message: R.strings.serverError, isEnabled: false));
       jobTitle = event.jobTitle;
     });
 
     on<NextTappedEvent>((event, emit) {
       if (universityName.isNotEmpty) {
         emit(ErrorUniversityState(
-          message: TextConstants.serverError,
+          message: R.strings.serverError,
           isEnabled: false,
         ));
         emit(ErrorJobState(
-          message: TextConstants.serverError,
+          message: R.strings.serverError,
           isEnabled: false,
         ));
         emit(ValidUniversityState());
@@ -59,7 +59,7 @@ class OccupationBloc extends Bloc<OccupationEvent, OccupationState> {
       } else {
         emit(
           ErrorUniversityState(
-            message: TextConstants.serverError,
+            message: R.strings.serverError,
             isEnabled: true,
           ),
         );

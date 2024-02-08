@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/domain/profile_fill/universities_usecase.dart';
 import 'package:senpai/models/profile_fill/university/university_model.dart';
@@ -26,7 +26,7 @@ class UniversitiesBloc extends Bloc<UniversitiesEvent, UniversitiesState> {
           result.fold(
             (failure) {
               emit(ErrorUniversitiesState(
-                message: TextConstants.serverError,
+                message: R.strings.serverError,
                 isEnabled: true,
               ));
             },
@@ -38,7 +38,7 @@ class UniversitiesBloc extends Bloc<UniversitiesEvent, UniversitiesState> {
           );
         } catch (_) {
           emit(ErrorUniversitiesState(
-            message: TextConstants.serverError,
+            message: R.strings.serverError,
             isEnabled: true,
           ));
         }
@@ -46,7 +46,7 @@ class UniversitiesBloc extends Bloc<UniversitiesEvent, UniversitiesState> {
         universities = [];
         searchText = '';
         emit(ErrorUniversitiesState(
-          message: TextConstants.serverError,
+          message: R.strings.serverError,
           isEnabled: false,
         ));
       }

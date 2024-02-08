@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:senpai/core/widgets/icon_input.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/chat_list/blocs/conversations_filter/conversations_filter_bloc.dart';
 import 'package:senpai/screens/chat_list/widgets/conversation_list.dart';
 import 'package:senpai/screens/chat_list/widgets/empty_conversations.dart';
@@ -44,7 +44,7 @@ class SearchChatListContent extends StatelessWidget {
         context.router.pop();
       },
       child: Text(
-        TextConstants.cancelSearchText,
+        R.strings.cancelText,
         style: getTextTheme(context)
             .labelMedium!
             .copyWith(color: $constants.palette.white, fontSize: 14),
@@ -67,7 +67,7 @@ class SearchChatListContent extends StatelessWidget {
                 width: getSize(context).width * 0.637,
                 child: SenpaiIconInput(
                   iconPath: PathConstants.searchIcon,
-                  hintText: TextConstants.searchHintText,
+                  hintText: R.strings.searchHintText,
                   controller: bloc.searchController,
                   focusNode: bloc.searchFocusNode,
                   onChange: (text) {
@@ -113,7 +113,7 @@ class SearchChatListContent extends StatelessWidget {
       return [];
     }
     return [
-      _buildTitle(context, TextConstants.matchesTitle),
+      _buildTitle(context, R.strings.matchesTitle),
       SizedBox(
         height: $constants.insets.sm,
       ),
@@ -135,7 +135,7 @@ class SearchChatListContent extends StatelessWidget {
       SizedBox(
         height: $constants.insets.lg,
       ),
-      _buildTitle(context, TextConstants.messagesTitle),
+      _buildTitle(context, R.strings.messagesTitle),
       Padding(
         padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
         child: ConversationList(chatList: conversation.activeConversations),
@@ -145,10 +145,10 @@ class SearchChatListContent extends StatelessWidget {
 
   List<Widget> _buildEmptyConversations(BuildContext context) {
     return [
-      const EmptyConversations(
+      EmptyConversations(
         avatorImagePath: PathConstants.emptySearchConversationImage,
-        title: TextConstants.emptyConversationSearchPromptText,
-        subtitle: TextConstants.emptyConversationSearchText,
+        title: R.strings.emptyConversationSearchPromptText,
+        subtitle: R.strings.emptyConversationSearchText,
       )
     ];
   }
@@ -161,7 +161,7 @@ class SearchChatListContent extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
           child: Text(
-            TextConstants.emptySearchConversationsHintText,
+            R.strings.emptySearchConversationsHintText,
             textAlign: TextAlign.left,
             style: getTextTheme(context)
                 .labelMedium!

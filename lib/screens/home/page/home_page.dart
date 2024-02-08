@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/home/bloc/home_storage_bloc.dart';
@@ -46,7 +46,7 @@ class HomePage extends StatelessWidget {
           activeIcon: SvgPicture.asset(
             PathConstants.matchIcon,
           ),
-          label: TextConstants.matchTabText,
+          label: R.strings.matchTabText,
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
           activeIcon: SvgPicture.asset(
             PathConstants.chatIcon,
           ),
-          label: TextConstants.chatTabText,
+          label: R.strings.chatTabText,
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
           activeIcon: SvgPicture.asset(
             PathConstants.profileIcon,
           ),
-          label: TextConstants.profileTabText,
+          label: R.strings.profileTabText,
         ),
       ],
       onTap: (index) {

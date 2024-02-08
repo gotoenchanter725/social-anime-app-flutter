@@ -14,3 +14,7 @@ class ErrorState extends MatchUsersState {
 class ValidState extends MatchUsersState {}
 
 class LoadingState extends MatchUsersState {}
+
+class StartAnimationFireworkState extends MatchUsersState {}
+
+class FinishAnimationFireworkState extends MatchUsersState {}

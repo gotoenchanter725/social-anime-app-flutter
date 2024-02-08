@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/user_profile/user_favorite_music/user_favorite_music_model.dart';
 import 'package:senpai/screens/profile_fill/spotify/enums/spotify_enums.dart';
 import 'package:senpai/screens/preview_profile/bloc/preview_profile_bloc.dart';
@@ -48,7 +48,7 @@ class PreviewSpotifyTracksWidget extends StatelessWidget {
               height: $constants.insets.xl,
             ),
             SpotifyMusicHeader(
-              title: TextConstants.myTopSpotifyListeningSongsText,
+              title: R.strings.myTopSpotifyListeningSongsText,
               hasIndicators: tracksList.length > 3,
               isSecondPage: bloc.isTracksPagination,
             ),

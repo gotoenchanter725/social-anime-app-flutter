@@ -5,7 +5,7 @@ import 'package:senpai/core/chat/blocs/fetch_conversations_bloc.dart';
 import 'package:senpai/core/chat/blocs/room_subscriptions/conversation_subscription_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/chat_list/widgets/chat_list_content.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -85,7 +85,7 @@ class _ChatListControllerState extends State<ChatListController>
         listener: (context, state) {
           state.maybeWhen(
             error: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
             },
             orElse: () {},
           );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/profile_fill/favorite_anime/enums/anime_enums.dart';
 
@@ -37,6 +37,9 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
       }
       if (event.myAnimeList != null) {
         myAnimeList = event.myAnimeList!;
+      }
+      if (event.premium == true) {
+        maxAnimeCount = 15;
       }
 
       animeListController.addListener(_pagination);
@@ -79,7 +82,7 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
 
     on<OnChangeAnimeStepEvent>((event, emit) {
       emit(ErrorState(
-        message: TextConstants.serverError,
+        message: R.strings.serverError,
         isEnabled: false,
       ));
       step = event.step;
@@ -90,13 +93,15 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
 
     on<OnFavoriteAnimeSelectEvent>((event, emit) {
       emit(LoadingState());
-      if (selectedAnimeList.length >= 10) {
+      if (selectedAnimeList.length >= maxAnimeCount) {
         emit(ErrorState(
-          message: TextConstants.selectedAnimeError,
+          message: R.strings.selectedAnimeError,
           isEnabled: false,
         ));
         if (event.isSelectedAnime) {
-          selectedAnimeList.remove(event.favoriteAnime);
+          selectedAnimeList.removeWhere(
+            (anime) => anime.id == event.favoriteAnime.id,
+          );
         }
       } else {
         event.isSelectedAnime
@@ -118,14 +123,14 @@ class FavoriteAnimeBloc extends Bloc<FavoriteAnimeEvent, FavoriteAnimeState> {
     on<NextTappedEvent>((event, emit) {
       if (selectedAnimeList.isNotEmpty) {
         emit(ErrorState(
-          message: TextConstants.serverError,
+          message: R.strings.serverError,
           isEnabled: false,
         ));
         emit(ValidState());
         emit(LoadingState());
         emit(FavoriteAnimeSucssesfulState());
       } else {
-        emit(ErrorState(message: TextConstants.animeError, isEnabled: true));
+        emit(ErrorState(message: R.strings.animeError, isEnabled: true));
       }
     });
 

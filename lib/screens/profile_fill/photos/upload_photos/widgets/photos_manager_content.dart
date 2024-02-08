@@ -4,7 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/gallery/bloc/upload_photos_bloc.dart';
@@ -36,7 +36,7 @@ class PhotosManagerContent extends StatelessWidget {
         }
       });
     } catch (e) {
-      _showSnackBarError(context, TextConstants.cameraError);
+      _showSnackBarError(context, R.strings.cameraError);
     }
   }
 
@@ -56,16 +56,16 @@ class PhotosManagerContent extends StatelessWidget {
                 ),
                 PhotosButton(
                   onPressed: () => _pickImagefromGallery(context),
-                  title: TextConstants.uploadText,
-                  text: TextConstants.yourPhotosText,
+                  title: R.strings.uploadText,
+                  text: R.strings.yourPhotosText,
                 ),
                 SizedBox(
                   height: $constants.insets.sm,
                 ),
                 PhotosButton(
                   onPressed: () => _pickImagefromCamera(context),
-                  title: TextConstants.openText,
-                  text: TextConstants.cameraText,
+                  title: R.strings.openText,
+                  text: R.strings.cameraText,
                 ),
               ],
             ),
@@ -85,7 +85,7 @@ class PhotosManagerContent extends StatelessWidget {
         child: TextButton(
           onPressed: () => context.router.pop(),
           child: Text(
-            TextConstants.cancelText,
+            R.strings.cancelText,
             style: getTextTheme(context).titleSmall,
           ),
         ),
@@ -94,7 +94,7 @@ class PhotosManagerContent extends StatelessWidget {
         height: $constants.insets.lg,
       ),
       Text(
-        TextConstants.choosePhotosText,
+        R.strings.choosePhotosText,
         style: getTextTheme(context).headlineLarge?.copyWith(),
         textAlign: TextAlign.left,
       ),

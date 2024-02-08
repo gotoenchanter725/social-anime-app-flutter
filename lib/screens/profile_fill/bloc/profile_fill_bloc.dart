@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/profile_fill/location/location_user_model.dart';
 import 'package:senpai/models/profile_fill/photos/upload_photo_model.dart';
@@ -60,7 +60,7 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
       } else {
         emit(
           ErrorProfileFillState(
-            message: TextConstants.serverError,
+            message: R.strings.serverError,
             isEnabled: true,
           ),
         );
@@ -76,7 +76,7 @@ class ProfileFillBloc extends Bloc<ProfileFillEvent, ProfileFillState> {
       } else {
         emit(
           ErrorProfileFillState(
-            message: TextConstants.serverError,
+            message: R.strings.serverError,
             isEnabled: true,
           ),
         );

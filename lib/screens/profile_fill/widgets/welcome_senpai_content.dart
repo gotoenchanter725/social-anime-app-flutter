@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -53,13 +53,13 @@ class WelcomeSenpaiContent extends StatelessWidget {
           height: $constants.insets.sm,
         ),
         Text(
-          TextConstants.welcomeSenpaiTitle,
+          R.strings.welcomeSenpaiTitle,
           style: getTextTheme(context)
               .headlineLarge
               ?.copyWith(color: $constants.palette.white),
         ),
         Text(
-          TextConstants.welcomeSenpaiDescription,
+          R.strings.welcomeSenpaiDescription,
           style: getTextTheme(context).bodySmall?.copyWith(
                 color: $constants.palette.grey,
                 letterSpacing: 0,
@@ -76,7 +76,7 @@ class WelcomeSenpaiContent extends StatelessWidget {
     final bloc = BlocProvider.of<ProfileFillBloc>(context);
     final serverBloc = BlocProvider.of<UpdateUserBloc>(context);
     return PrimaryButton(
-      text: TextConstants.fillProfileText,
+      text: R.strings.fillProfileText,
       onPressed: () async {
         await serverBloc.updateUserInfo(user: bloc.user);
       },

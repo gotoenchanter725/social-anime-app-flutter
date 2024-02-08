@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/profile/widgets/profile_item_header.dart';
@@ -30,7 +30,7 @@ class EditProfileOccupationWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ProfileItemHeader(
-            title: TextConstants.workAndEducationTitle,
+            title: R.strings.workAndEducationTitle,
             onTap: () async {
               await context.router.push(WorkEducationRoute(
                 occupation: occupation,

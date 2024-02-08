@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/subscription_plan_model.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -50,7 +50,7 @@ class PremiumItemButton extends StatelessWidget {
             SizedBox(height: $constants.insets.xs),
             FittedBox(
               child: Text(
-                TextConstants.superLikes,
+                R.strings.superLikes,
                 style: getTextTheme(context).headlineSmall!.copyWith(
                       fontWeight: FontWeight.w500,
                     ),

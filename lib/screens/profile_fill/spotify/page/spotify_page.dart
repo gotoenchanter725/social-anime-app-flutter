@@ -6,7 +6,7 @@ import 'package:senpai/core/profile_fill/favorite_music/add_favorite_music_bloc.
 import 'package:senpai/core/profile_fill/favorite_music/delete_favorite_music_bloc.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/user_profile/user_favorite_music/user_favorite_music_model.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
@@ -50,7 +50,7 @@ class SpotifyPage extends StatelessWidget {
     return BlocListener<SpotifyBloc, SpotifyState>(
       listener: (context, state) {
         if (state is ErrorSpotifyState) {
-          showSnackBarError(context, TextConstants.serverError);
+          showSnackBarError(context, R.strings.serverError);
         }
       },
       child: const SafeArea(
@@ -65,7 +65,7 @@ class SpotifyPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -82,7 +82,7 @@ class SpotifyPage extends StatelessWidget {
                   response["addFavoriteMusic"]["user"]["favoriteMusic"];
 
               if (favoriteMusic.isEmpty) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user without an favorite Music tried to again");
                 return const SizedBox.shrink();
               }
@@ -107,7 +107,7 @@ class SpotifyPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -124,7 +124,7 @@ class SpotifyPage extends StatelessWidget {
                 bloc.add(OnSpotifyFetchArtistsEvent());
                 return const SizedBox.shrink();
               } else {
-                showSnackBarError(context, TextConstants.serverError);
+                showSnackBarError(context, R.strings.serverError);
               }
               return const SizedBox.shrink();
             },
@@ -140,7 +140,7 @@ class SpotifyPage extends StatelessWidget {
             loading: (result) => const SenpaiLoading(),
             loaded: (data, result) {
               if (result.data == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A successful empty response just got users");
                 return const SizedBox.shrink();
               } else {
@@ -171,7 +171,7 @@ class SpotifyPage extends StatelessWidget {
               return const SizedBox.shrink();
             },
             error: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             orElse: () => const SizedBox.shrink());

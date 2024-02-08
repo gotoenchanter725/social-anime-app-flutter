@@ -4,7 +4,7 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 part 'camera_event.dart';
 part 'camera_state.dart';
@@ -48,7 +48,7 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
         }
         emit(ValidState());
       } catch (e) {
-        emit(ErrorState(message: TextConstants.cameraError, isEnabled: true));
+        emit(ErrorState(message: R.strings.cameraError, isEnabled: true));
       }
     });
 
@@ -64,7 +64,7 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
         currentFlashMode = cameraController?.value.flashMode;
         emit(ValidState());
       } else {
-        emit(ErrorState(message: TextConstants.cameraError, isEnabled: true));
+        emit(ErrorState(message: R.strings.cameraError, isEnabled: true));
       }
     });
 
@@ -72,7 +72,7 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
       emit(LoadingState());
 
       if (cameraController != null && cameraController!.value.isTakingPicture) {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: true));
+        emit(ErrorState(message: R.strings.serverError, isEnabled: true));
       }
       try {
         XFile? file = await cameraController?.takePicture();
@@ -87,10 +87,10 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
               .copy('${directory.path}/$currentUnix.$fileFormat')
               .then((value) => emit(CameraSucssesfulState()));
         } else {
-          emit(ErrorState(message: TextConstants.serverError, isEnabled: true));
+          emit(ErrorState(message: R.strings.serverError, isEnabled: true));
         }
       } on CameraException catch (_) {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: true));
+        emit(ErrorState(message: R.strings.serverError, isEnabled: true));
       }
     });
 
@@ -104,7 +104,7 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
         await cameraController!.setFlashMode(currentFlashMode ?? FlashMode.off);
         emit(ValidState());
       } else {
-        emit(ErrorState(message: TextConstants.serverError, isEnabled: true));
+        emit(ErrorState(message: R.strings.serverError, isEnabled: true));
       }
     });
 
@@ -121,7 +121,7 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
         await cameraController?.setFlashMode(currentFlashMode ?? FlashMode.off);
         emit(ValidState());
       } else {
-        emit(ErrorState(message: TextConstants.cameraError, isEnabled: true));
+        emit(ErrorState(message: R.strings.cameraError, isEnabled: true));
       }
     });
   }

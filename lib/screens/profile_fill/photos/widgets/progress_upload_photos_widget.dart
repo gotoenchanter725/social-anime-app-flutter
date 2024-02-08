@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/widgets/progress_line_widget.dart';
 import 'package:senpai/utils/constants.dart';
@@ -69,7 +69,7 @@ class ProgressUploadPhotosWidget extends StatelessWidget {
       children: [
         SizedBox(height: $constants.insets.xs),
         Text(
-          '${TextConstants.uploadingPhoto} $uploadedCount/${bloc.newPhotos.length}',
+          '${R.strings.uploadingPhoto} $uploadedCount/${bloc.newPhotos.length}',
           textAlign: TextAlign.start,
           style: getTextTheme(context).bodySmall?.copyWith(
                 letterSpacing: 0,
@@ -88,7 +88,7 @@ class ProgressUploadPhotosWidget extends StatelessWidget {
 
   Widget _buildSuccessfullyTitle(BuildContext context) {
     return Text(
-      TextConstants.yourPhotoSuccessfullyAdded,
+      R.strings.yourPhotoSuccessfullyAdded,
       textAlign: TextAlign.start,
       style: getTextTheme(context).bodySmall?.copyWith(
             letterSpacing: 0,

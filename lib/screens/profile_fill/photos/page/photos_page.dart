@@ -8,7 +8,7 @@ import 'package:senpai/core/profile_fill/blocs/reorder_photos/reorder_photos_blo
 import 'package:senpai/core/profile_fill/blocs/upload_photo/upload_photo_bloc.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/profile_fill/photos/upload_photo_model.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
@@ -67,7 +67,7 @@ class PhotosPage extends StatelessWidget {
             loading: (result) => const SenpaiLoading(),
             loaded: (data, result) {
               if (result.data == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A successful empty response just got recorded");
                 return const SizedBox.shrink();
               } else {
@@ -120,12 +120,12 @@ class PhotosPage extends StatelessWidget {
               final bloc = BlocProvider.of<FetchUserBloc>(context);
               bloc.fetchUser(userId: blocProfileFill.userId);
             } else {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
             }
             return const SizedBox.shrink();
           },
           failed: (error, result) {
-            showSnackBarError(context, TextConstants.serverError);
+            showSnackBarError(context, R.strings.serverError);
             return const SizedBox.shrink();
           },
           orElse: () => const SizedBox.shrink(),
@@ -171,7 +171,7 @@ class PhotosPage extends StatelessWidget {
                   response["uploadPhoto"]["user"]["gallery"]["photos"];
 
               if (photos == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user without photos");
                 return const SizedBox.shrink();
               }
@@ -196,7 +196,7 @@ class PhotosPage extends StatelessWidget {
               if (bloc.isShowProgressDialog) {
                 context.router.pop();
               }
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {

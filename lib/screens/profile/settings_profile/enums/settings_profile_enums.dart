@@ -1,4 +1,4 @@
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 enum PushNotificationOptions {
   newMatches,
@@ -9,11 +9,11 @@ enum PushNotificationOptions {
 
 extension PushNotificationOptionsX on PushNotificationOptions {
   String get optionsString =>
-      const {
-        PushNotificationOptions.newMatches: TextConstants.newMatchesTitle,
-        PushNotificationOptions.newMessages: TextConstants.newMessagesTitle,
-        PushNotificationOptions.superlikes: TextConstants.superlikesTitle,
-        PushNotificationOptions.appSounds: TextConstants.appSoundsTitle,
+      {
+        PushNotificationOptions.newMatches: R.strings.newMatchesTitle,
+        PushNotificationOptions.newMessages: R.strings.newMessagesTitle,
+        PushNotificationOptions.superlikes: R.strings.superlikesTitle,
+        PushNotificationOptions.appSounds: R.strings.appSoundsTitle,
       }[this] ??
       '';
 }

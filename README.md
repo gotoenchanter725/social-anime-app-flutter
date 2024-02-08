@@ -12,15 +12,8 @@ Setup flutter sdk: https://docs.flutter.dev/get-started/install
 4.  Open iOS Simulator or Android Studio simulator
 5.  `flutter run`
 
-## Getting Started
+Command to generate files: 
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. `dart run build_runner build --delete-conflicting-outputs`
+2. `/bin/zsh ./localization_update.sh` <- Command to upload new translation from 
+https://localise.biz/ or you can go to the file and run the script right from there

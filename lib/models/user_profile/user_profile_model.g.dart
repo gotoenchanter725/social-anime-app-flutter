@@ -11,6 +11,7 @@ _$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       phone: json['phone'] as String,
       firstName: json['firstName'] as String?,
+      country: json['country'] as String?,
       role: json['role'] as String?,
       birthday: json['birthday'] == null
           ? null
@@ -40,6 +41,11 @@ _$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) =>
           .toList(),
       hasLocationHidden: json['hasLocationHidden'] as bool?,
       milesAway: json['milesAway'] as int?,
+      nextPaymentDate: json['nextPaymentDate'] == null
+          ? null
+          : DateTime.parse(json['nextPaymentDate'] as String),
+      isDisplayingRecentlyActive: json['isDisplayingRecentlyActive'] as bool?,
+      isDisplayingActive: json['isDisplayingActive'] as bool?,
     );
 
 Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
@@ -47,6 +53,7 @@ Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
       'id': instance.id,
       'phone': instance.phone,
       'firstName': instance.firstName,
+      'country': instance.country,
       'role': instance.role,
       'birthday': instance.birthday?.toIso8601String(),
       'gender': instance.gender,
@@ -67,4 +74,7 @@ Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
       'favoriteMusic': instance.favoriteMusic,
       'hasLocationHidden': instance.hasLocationHidden,
       'milesAway': instance.milesAway,
+      'nextPaymentDate': instance.nextPaymentDate?.toIso8601String(),
+      'isDisplayingRecentlyActive': instance.isDisplayingRecentlyActive,
+      'isDisplayingActive': instance.isDisplayingActive,
     };

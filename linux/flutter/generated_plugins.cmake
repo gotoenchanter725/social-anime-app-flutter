@@ -5,7 +5,6 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   dynamic_color
   file_selector_linux
-  flutter_localization
   flutter_secure_storage_linux
   sentry_flutter
   url_launcher_linux

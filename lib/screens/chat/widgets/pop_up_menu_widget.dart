@@ -1,8 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/user/blocs/unmatch_user/unmatch_bloc.dart';
 import 'package:senpai/core/widgets/user_avator.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
+import 'package:senpai/models/report_user/report_user_params.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -18,6 +22,39 @@ class PopUpMenuWidget extends StatelessWidget {
   final User receipientUser;
   final String currentUserId;
   final String roomId;
+
+  void _deleteUserDialog(BuildContext context) {
+    showCupertinoModalPopup<String>(
+      context: context,
+      builder: (_) => CupertinoAlertDialog(
+        title: Text(
+          R.strings.unmatchText,
+          style: getTextTheme(context).headlineSmall,
+        ),
+        content: Text(
+          R.strings.areYouSureYouWantToUnmatchUser,
+          style: getTextTheme(context).titleSmall,
+        ),
+        actions: [
+          CupertinoDialogAction(
+            onPressed: Navigator.of(context).pop,
+            child: Text(R.strings.noButton),
+          ),
+          CupertinoDialogAction(
+            onPressed: () {
+              Navigator.pop(context);
+              final serverBloc = BlocProvider.of<UnmatchUserBloc>(context);
+              serverBloc.unmatchUser(
+                userId: currentUserId,
+                blockedUserId: receipientUser.id,
+              );
+            },
+            child: Text(R.strings.yesButton),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +87,7 @@ class PopUpMenuWidget extends StatelessWidget {
               ),
             );
           },
-          title: TextConstants.viewProfileText,
+          title: R.strings.viewProfileText,
         ),
         Divider(
           height: 0,
@@ -58,8 +95,10 @@ class PopUpMenuWidget extends StatelessWidget {
         ),
         _buildMenuItemButton(
           context,
-          onPressed: () {},
-          title: TextConstants.unmatchText,
+          onPressed: () {
+            _deleteUserDialog(context);
+          },
+          title: R.strings.unmatchText,
         ),
         Divider(
           height: 0,
@@ -67,8 +106,18 @@ class PopUpMenuWidget extends StatelessWidget {
         ),
         _buildMenuItemButton(
           context,
-          onPressed: () {},
-          title: TextConstants.reportText,
+          onPressed: () async {
+            await context.router.push(
+              ReportUserRoute(
+                reportArgs: ReportUserParams(
+                  roomId: roomId,
+                  currentUserId: currentUserId,
+                  reciepientId: receipientUser.id,
+                ),
+              ),
+            );
+          },
+          title: R.strings.reportText,
         ),
       ],
     );

@@ -23,6 +23,7 @@ mixin _$UserProfileModel {
   String get id => throw _privateConstructorUsedError;
   String get phone => throw _privateConstructorUsedError;
   String? get firstName => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
   String? get role => throw _privateConstructorUsedError;
   DateTime? get birthday => throw _privateConstructorUsedError;
   String? get gender => throw _privateConstructorUsedError;
@@ -44,6 +45,9 @@ mixin _$UserProfileModel {
       throw _privateConstructorUsedError;
   bool? get hasLocationHidden => throw _privateConstructorUsedError;
   int? get milesAway => throw _privateConstructorUsedError;
+  DateTime? get nextPaymentDate => throw _privateConstructorUsedError;
+  bool? get isDisplayingRecentlyActive => throw _privateConstructorUsedError;
+  bool? get isDisplayingActive => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -61,6 +65,7 @@ abstract class $UserProfileModelCopyWith<$Res> {
       {String id,
       String phone,
       String? firstName,
+      String? country,
       String? role,
       DateTime? birthday,
       String? gender,
@@ -80,7 +85,10 @@ abstract class $UserProfileModelCopyWith<$Res> {
       int? superLikeCount,
       List<UserFavoriteMusicModel>? favoriteMusic,
       bool? hasLocationHidden,
-      int? milesAway});
+      int? milesAway,
+      DateTime? nextPaymentDate,
+      bool? isDisplayingRecentlyActive,
+      bool? isDisplayingActive});
 
   $GalleryUserModelCopyWith<$Res>? get gallery;
 }
@@ -101,6 +109,7 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
     Object? id = null,
     Object? phone = null,
     Object? firstName = freezed,
+    Object? country = freezed,
     Object? role = freezed,
     Object? birthday = freezed,
     Object? gender = freezed,
@@ -121,6 +130,9 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
     Object? favoriteMusic = freezed,
     Object? hasLocationHidden = freezed,
     Object? milesAway = freezed,
+    Object? nextPaymentDate = freezed,
+    Object? isDisplayingRecentlyActive = freezed,
+    Object? isDisplayingActive = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -134,6 +146,10 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
       firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
               as String?,
       role: freezed == role
           ? _value.role
@@ -215,6 +231,18 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
           ? _value.milesAway
           : milesAway // ignore: cast_nullable_to_non_nullable
               as int?,
+      nextPaymentDate: freezed == nextPaymentDate
+          ? _value.nextPaymentDate
+          : nextPaymentDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      isDisplayingRecentlyActive: freezed == isDisplayingRecentlyActive
+          ? _value.isDisplayingRecentlyActive
+          : isDisplayingRecentlyActive // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDisplayingActive: freezed == isDisplayingActive
+          ? _value.isDisplayingActive
+          : isDisplayingActive // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 
@@ -243,6 +271,7 @@ abstract class _$$_UserProfileModelCopyWith<$Res>
       {String id,
       String phone,
       String? firstName,
+      String? country,
       String? role,
       DateTime? birthday,
       String? gender,
@@ -262,7 +291,10 @@ abstract class _$$_UserProfileModelCopyWith<$Res>
       int? superLikeCount,
       List<UserFavoriteMusicModel>? favoriteMusic,
       bool? hasLocationHidden,
-      int? milesAway});
+      int? milesAway,
+      DateTime? nextPaymentDate,
+      bool? isDisplayingRecentlyActive,
+      bool? isDisplayingActive});
 
   @override
   $GalleryUserModelCopyWith<$Res>? get gallery;
@@ -282,6 +314,7 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
     Object? id = null,
     Object? phone = null,
     Object? firstName = freezed,
+    Object? country = freezed,
     Object? role = freezed,
     Object? birthday = freezed,
     Object? gender = freezed,
@@ -302,6 +335,9 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
     Object? favoriteMusic = freezed,
     Object? hasLocationHidden = freezed,
     Object? milesAway = freezed,
+    Object? nextPaymentDate = freezed,
+    Object? isDisplayingRecentlyActive = freezed,
+    Object? isDisplayingActive = freezed,
   }) {
     return _then(_$_UserProfileModel(
       id: null == id
@@ -315,6 +351,10 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
       firstName: freezed == firstName
           ? _value.firstName
           : firstName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      country: freezed == country
+          ? _value.country
+          : country // ignore: cast_nullable_to_non_nullable
               as String?,
       role: freezed == role
           ? _value.role
@@ -396,6 +436,18 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
           ? _value.milesAway
           : milesAway // ignore: cast_nullable_to_non_nullable
               as int?,
+      nextPaymentDate: freezed == nextPaymentDate
+          ? _value.nextPaymentDate
+          : nextPaymentDate // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      isDisplayingRecentlyActive: freezed == isDisplayingRecentlyActive
+          ? _value.isDisplayingRecentlyActive
+          : isDisplayingRecentlyActive // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      isDisplayingActive: freezed == isDisplayingActive
+          ? _value.isDisplayingActive
+          : isDisplayingActive // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -407,6 +459,7 @@ class _$_UserProfileModel implements _UserProfileModel {
       {required this.id,
       required this.phone,
       this.firstName,
+      this.country,
       this.role,
       this.birthday,
       this.gender,
@@ -426,7 +479,10 @@ class _$_UserProfileModel implements _UserProfileModel {
       this.superLikeCount,
       final List<UserFavoriteMusicModel>? favoriteMusic,
       this.hasLocationHidden,
-      this.milesAway})
+      this.milesAway,
+      this.nextPaymentDate,
+      this.isDisplayingRecentlyActive,
+      this.isDisplayingActive})
       : _animes = animes,
         _favoriteMusic = favoriteMusic;
 
@@ -439,6 +495,8 @@ class _$_UserProfileModel implements _UserProfileModel {
   final String phone;
   @override
   final String? firstName;
+  @override
+  final String? country;
   @override
   final String? role;
   @override
@@ -495,10 +553,16 @@ class _$_UserProfileModel implements _UserProfileModel {
   final bool? hasLocationHidden;
   @override
   final int? milesAway;
+  @override
+  final DateTime? nextPaymentDate;
+  @override
+  final bool? isDisplayingRecentlyActive;
+  @override
+  final bool? isDisplayingActive;
 
   @override
   String toString() {
-    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium, superLikeCount: $superLikeCount, favoriteMusic: $favoriteMusic, hasLocationHidden: $hasLocationHidden, milesAway: $milesAway)';
+    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, country: $country, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium, superLikeCount: $superLikeCount, favoriteMusic: $favoriteMusic, hasLocationHidden: $hasLocationHidden, milesAway: $milesAway, nextPaymentDate: $nextPaymentDate, isDisplayingRecentlyActive: $isDisplayingRecentlyActive, isDisplayingActive: $isDisplayingActive)';
   }
 
   @override
@@ -510,6 +574,7 @@ class _$_UserProfileModel implements _UserProfileModel {
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.firstName, firstName) ||
                 other.firstName == firstName) &&
+            (identical(other.country, country) || other.country == country) &&
             (identical(other.role, role) || other.role == role) &&
             (identical(other.birthday, birthday) ||
                 other.birthday == birthday) &&
@@ -541,7 +606,15 @@ class _$_UserProfileModel implements _UserProfileModel {
             (identical(other.hasLocationHidden, hasLocationHidden) ||
                 other.hasLocationHidden == hasLocationHidden) &&
             (identical(other.milesAway, milesAway) ||
-                other.milesAway == milesAway));
+                other.milesAway == milesAway) &&
+            (identical(other.nextPaymentDate, nextPaymentDate) ||
+                other.nextPaymentDate == nextPaymentDate) &&
+            (identical(other.isDisplayingRecentlyActive,
+                    isDisplayingRecentlyActive) ||
+                other.isDisplayingRecentlyActive ==
+                    isDisplayingRecentlyActive) &&
+            (identical(other.isDisplayingActive, isDisplayingActive) ||
+                other.isDisplayingActive == isDisplayingActive));
   }
 
   @JsonKey(ignore: true)
@@ -551,6 +624,7 @@ class _$_UserProfileModel implements _UserProfileModel {
         id,
         phone,
         firstName,
+        country,
         role,
         birthday,
         gender,
@@ -570,7 +644,10 @@ class _$_UserProfileModel implements _UserProfileModel {
         superLikeCount,
         const DeepCollectionEquality().hash(_favoriteMusic),
         hasLocationHidden,
-        milesAway
+        milesAway,
+        nextPaymentDate,
+        isDisplayingRecentlyActive,
+        isDisplayingActive
       ]);
 
   @JsonKey(ignore: true)
@@ -592,6 +669,7 @@ abstract class _UserProfileModel implements UserProfileModel {
       {required final String id,
       required final String phone,
       final String? firstName,
+      final String? country,
       final String? role,
       final DateTime? birthday,
       final String? gender,
@@ -611,7 +689,10 @@ abstract class _UserProfileModel implements UserProfileModel {
       final int? superLikeCount,
       final List<UserFavoriteMusicModel>? favoriteMusic,
       final bool? hasLocationHidden,
-      final int? milesAway}) = _$_UserProfileModel;
+      final int? milesAway,
+      final DateTime? nextPaymentDate,
+      final bool? isDisplayingRecentlyActive,
+      final bool? isDisplayingActive}) = _$_UserProfileModel;
 
   factory _UserProfileModel.fromJson(Map<String, dynamic> json) =
       _$_UserProfileModel.fromJson;
@@ -622,6 +703,8 @@ abstract class _UserProfileModel implements UserProfileModel {
   String get phone;
   @override
   String? get firstName;
+  @override
+  String? get country;
   @override
   String? get role;
   @override
@@ -662,6 +745,12 @@ abstract class _UserProfileModel implements UserProfileModel {
   bool? get hasLocationHidden;
   @override
   int? get milesAway;
+  @override
+  DateTime? get nextPaymentDate;
+  @override
+  bool? get isDisplayingRecentlyActive;
+  @override
+  bool? get isDisplayingActive;
   @override
   @JsonKey(ignore: true)
   _$$_UserProfileModelCopyWith<_$_UserProfileModel> get copyWith =>

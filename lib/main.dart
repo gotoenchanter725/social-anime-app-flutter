@@ -12,6 +12,7 @@ import 'package:senpai/core/sentry/sentry_module.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/i18n/strings.g.dart';
 import 'package:senpai/models/auth/device_token_model.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/theme/app_theme.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -48,6 +49,7 @@ Future<void> main() async {
 
     // Inits sentry for error tracking.
     await initializeSentry();
+    await R.ensureInitialized();
 
     // Inits firebase for push notifications.
     await Firebase.initializeApp(
@@ -120,10 +122,7 @@ Future<void> main() async {
     runApp(
       DefaultAssetBundle(
         bundle: SentryAssetBundle(),
-        child: TranslationProvider(
-          child: MyApp(theme: theme),
-          // child: MatchPage(),
-        ),
+        child: MyApp(theme: theme),
       ),
     );
   }, (error, stack) async {

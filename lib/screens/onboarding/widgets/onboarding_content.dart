@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/data_constants.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/onboarding/bloc/onboarding_bloc.dart';
 import 'package:senpai/screens/onboarding/widgets/circle_progress_bar.dart';
 import 'package:senpai/utils/constants.dart';
@@ -132,7 +132,7 @@ class OnboardingContent extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: TextButton(
             child: Text(
-              TextConstants.onboardingButtonText,
+              R.strings.onboardingButtonText,
               style: getTextTheme(context).displaySmall,
             ),
             onPressed: () {

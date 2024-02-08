@@ -5,7 +5,7 @@ import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 
 import 'package:senpai/core/user/blocs/verify_photo_user/verify_photo_user_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
 
@@ -55,7 +55,7 @@ class VerifyPhotoPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
             loading: () => const SenpaiLoading(),
             failed: (error, result) {
-              showSnackBarError(context, TextConstants.serverError);
+              showSnackBarError(context, R.strings.serverError);
               return const SizedBox.shrink();
             },
             succeeded: (data, result) {
@@ -68,7 +68,7 @@ class VerifyPhotoPage extends StatelessWidget {
               }
               final user = response["submitVerifyRequest"]["user"];
               if (user == null) {
-                showSnackBarError(context, TextConstants.nullUser);
+                showSnackBarError(context, R.strings.nullUser);
                 logIt.error("A user with error");
                 return const SizedBox.shrink();
               }

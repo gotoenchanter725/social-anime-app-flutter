@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
@@ -27,7 +27,7 @@ class UserFavoriteAnimeWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ProfileItemHeader(
-            title: TextConstants.favoriteAnimesTitle,
+            title: R.strings.favoriteAnimesTitle,
             onTap: () async {
               await context.router.push(
                 EditFavoriteAnimeRoute(

@@ -7,8 +7,9 @@ import 'package:senpai/core/chat/blocs/room_subscriptions/room_subscription_bloc
 import 'package:senpai/core/chat/blocs/update_message_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
+import 'package:senpai/core/user/blocs/unmatch_user/unmatch_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/chat/widgets/chat_content.dart';
@@ -44,6 +45,7 @@ class ChatController extends StatelessWidget {
                     roomCreationDate: roomArgs.createdDate,
                     roomId: roomArgs.roomId,
                   ),
+                  _buildUnmatchUserListeners(),
                 ],
               ),
             ),
@@ -60,12 +62,12 @@ class ChatController extends StatelessWidget {
       loading: (result) => const SenpaiLoading(),
       loaded: (data, result) {
         if (result.data == null) {
-          showSnackBarError(context, TextConstants.serverError);
+          showSnackBarError(context, R.strings.serverError);
           logIt.error("A successful empty response just got recorded");
         }
       },
       error: (error, result) {
-        showSnackBarError(context, TextConstants.serverError);
+        showSnackBarError(context, R.strings.serverError);
       },
       refetch: (data, result) {
         roomSubscriptionsBloc.enterRoom(roomArgs.roomId);
@@ -86,7 +88,7 @@ class ChatController extends StatelessWidget {
       },
       failed: (error, result) {
         logIt.error(error);
-        showSnackBarError(context, TextConstants.failedToUpdateMessageText);
+        showSnackBarError(context, R.strings.failedToUpdateMessageText);
       },
     );
   }
@@ -122,11 +124,41 @@ class ChatController extends StatelessWidget {
       },
       error: (message) {
         showSnackBarError(context, message);
-        if (message == TextConstants.actionCableAuthError) {
+        if (message == R.strings.actionCableAuthError) {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             context.router.replaceAll([const EntryRoute()]);
           });
         }
+      },
+    );
+  }
+
+  Widget _buildUnmatchUserListeners() {
+    return BlocBuilder<UnmatchUserBloc, MutationState>(
+      builder: (context, state) {
+        return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            failed: (error, result) {
+              showSnackBarError(context, R.strings.serverError);
+              return const SizedBox.shrink();
+            },
+            succeeded: (data, result) {
+              final response = result.data;
+              if (response == null) {
+                logIt.wtf("A successful empty response just got set user");
+                return const SizedBox.shrink();
+              }
+              final user = response["unmatchUser"]["user"];
+              if (user == null) {
+                showSnackBarError(context, R.strings.nullUser);
+                logIt.error("A user with error");
+                return const SizedBox.shrink();
+              } else {
+                context.router.replaceAll([const HomeRoute()]);
+              }
+              return const SizedBox.shrink();
+            },
+            orElse: () => const SizedBox.shrink());
       },
     );
   }

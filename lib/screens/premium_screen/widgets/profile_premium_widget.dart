@@ -1,57 +1,103 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:senpai/core/user/blocs/grant_user_premium/grant_user_premium_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
+import 'package:senpai/screens/premium_screen/bloc/purchase_bloc.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/utils.dart';
-
-import '../../../routes/app_router.dart';
 
 class ProfilePremiumWidget extends StatelessWidget {
   final bool isCenterContent;
+  final int userId;
 
   const ProfilePremiumWidget({
     super.key,
     this.isCenterContent = false,
+    required this.userId,
   });
+
+  void _onTapBuy(BuildContext context) {
+    final bloc = BlocProvider.of<PurchaseBloc>(context);
+    final Map<String, PurchaseDetails> purchases =
+        Map<String, PurchaseDetails>.fromEntries(
+      bloc.purchases.map((PurchaseDetails purchase) {
+        if (purchase.pendingCompletePurchase) {
+          bloc.inAppPurchase.completePurchase(purchase);
+        }
+        return MapEntry<String, PurchaseDetails>(
+          purchase.productID,
+          purchase,
+        );
+      }),
+    );
+    bloc.add(
+      OnTapBuyNonConsumableEvent(
+        purchases: purchases,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(top: $constants.insets.sm),
-      padding: EdgeInsets.all($constants.insets.md),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular($constants.corners.lg),
-        shape: BoxShape.rectangle,
-        color: isCenterContent ? null : $constants.palette.lightBlue,
-      ),
-      child: Column(
-        mainAxisAlignment: isCenterContent
-            ? MainAxisAlignment.center
-            : MainAxisAlignment.start,
-        children: [
-          _buildPremiumTitle(context),
-          SizedBox(height: $constants.insets.sm),
-          _buildPremiumText(context, TextConstants.premiumHigherText),
-          SizedBox(height: $constants.insets.sm),
-          _buildPremiumText(context, TextConstants.premiumSuperLikesText),
-          SizedBox(height: $constants.insets.sm),
-          _buildPremiumText(context, TextConstants.premiumAbilityAnimesText),
-          SizedBox(height: $constants.insets.md),
-          if (!isCenterContent)
-            PrimaryButton(
-              text: TextConstants.premiumUpgradeText,
-              onPressed: () async{
-                print('Premium');
-                await context.router.push(
-                  const PremiumRoute(),
-                );
-              },
-            ),
-        ],
-      ),
+    return BlocConsumer<PurchaseBloc, PurchaseState>(
+      listener: (context, state) {
+        final bloc = BlocProvider.of<PurchaseBloc>(context);
+
+        if (state is PurchaseErrorState && state.message.isNotEmpty) {
+          showSnackBarError(context, state.message);
+        } else if (bloc.isAvailablePurchase == false) {
+          showSnackBarError(
+            context,
+            R.strings.unableToConnectToThePaymentsProcessor,
+          );
+        }
+
+        if (bloc.isPurchased == true) {
+          final serverBloc = BlocProvider.of<GrantUserPremiumBloc>(context);
+          serverBloc.grantUserPremium(
+            userId: userId,
+          );
+        }
+      },
+      builder: (context, state) {
+        return Container(
+          margin: EdgeInsets.only(top: $constants.insets.sm),
+          padding: EdgeInsets.all($constants.insets.md),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular($constants.corners.lg),
+            shape: BoxShape.rectangle,
+            color: isCenterContent ? null : $constants.palette.lightBlue,
+          ),
+          child: Column(
+            mainAxisAlignment: isCenterContent
+                ? MainAxisAlignment.center
+                : MainAxisAlignment.start,
+            children: [
+              _buildPremiumTitle(context),
+              SizedBox(height: $constants.insets.sm),
+              _buildPremiumText(context, R.strings.premiumHigherText),
+              SizedBox(height: $constants.insets.sm),
+              _buildPremiumText(context, R.strings.premiumSuperLikesText),
+              SizedBox(height: $constants.insets.sm),
+              _buildPremiumText(
+                  context, R.strings.premiumAbilityAnimesText),
+              SizedBox(height: $constants.insets.md),
+              PrimaryButton(
+                text: R.strings.premiumUpgradeText,
+                onPressed: () async {
+                  _onTapBuy(context);
+                },
+              ),
+              if (isCenterContent) SizedBox(height: $constants.insets.lg),
+            ],
+          ),
+        );
+      },
     );
   }
 
@@ -65,7 +111,7 @@ class ProfilePremiumWidget extends StatelessWidget {
           ),
           SizedBox(height: $constants.insets.xs),
           Text(
-            TextConstants.senpaiPremiumTitle,
+            R.strings.senpaiPremiumTitle,
             style: getTextTheme(context).headlineLarge?.copyWith(),
           ),
           SizedBox(height: $constants.insets.xs),
@@ -75,7 +121,7 @@ class ProfilePremiumWidget extends StatelessWidget {
     return Row(
       children: [
         Text(
-          TextConstants.senpaiPremiumTitle,
+          R.strings.senpaiPremiumTitle,
           style: getTextTheme(context).headlineMedium?.copyWith(
                 color: $constants.palette.white,
                 fontWeight: FontWeight.w500,

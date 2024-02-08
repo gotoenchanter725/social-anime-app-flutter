@@ -314,6 +314,7 @@ abstract class _HideReactions implements MessageReactionEvent {
 /// @nodoc
 mixin _$MessageReactionState {
   bool get showReactions => throw _privateConstructorUsedError;
+  bool get showEmojiReactions => throw _privateConstructorUsedError;
   String? get activeMessageId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -327,7 +328,8 @@ abstract class $MessageReactionStateCopyWith<$Res> {
           $Res Function(MessageReactionState) then) =
       _$MessageReactionStateCopyWithImpl<$Res, MessageReactionState>;
   @useResult
-  $Res call({bool showReactions, String? activeMessageId});
+  $Res call(
+      {bool showReactions, bool showEmojiReactions, String? activeMessageId});
 }
 
 /// @nodoc
@@ -345,12 +347,17 @@ class _$MessageReactionStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? showReactions = null,
+    Object? showEmojiReactions = null,
     Object? activeMessageId = freezed,
   }) {
     return _then(_value.copyWith(
       showReactions: null == showReactions
           ? _value.showReactions
           : showReactions // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showEmojiReactions: null == showEmojiReactions
+          ? _value.showEmojiReactions
+          : showEmojiReactions // ignore: cast_nullable_to_non_nullable
               as bool,
       activeMessageId: freezed == activeMessageId
           ? _value.activeMessageId
@@ -368,7 +375,8 @@ abstract class _$$_MessageReactionStateCopyWith<$Res>
       __$$_MessageReactionStateCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool showReactions, String? activeMessageId});
+  $Res call(
+      {bool showReactions, bool showEmojiReactions, String? activeMessageId});
 }
 
 /// @nodoc
@@ -383,12 +391,17 @@ class __$$_MessageReactionStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? showReactions = null,
+    Object? showEmojiReactions = null,
     Object? activeMessageId = freezed,
   }) {
     return _then(_$_MessageReactionState(
       showReactions: null == showReactions
           ? _value.showReactions
           : showReactions // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showEmojiReactions: null == showEmojiReactions
+          ? _value.showEmojiReactions
+          : showEmojiReactions // ignore: cast_nullable_to_non_nullable
               as bool,
       activeMessageId: freezed == activeMessageId
           ? _value.activeMessageId
@@ -402,17 +415,22 @@ class __$$_MessageReactionStateCopyWithImpl<$Res>
 
 class _$_MessageReactionState implements _MessageReactionState {
   const _$_MessageReactionState(
-      {this.showReactions = false, this.activeMessageId});
+      {this.showReactions = false,
+      this.showEmojiReactions = false,
+      this.activeMessageId});
 
   @override
   @JsonKey()
   final bool showReactions;
   @override
+  @JsonKey()
+  final bool showEmojiReactions;
+  @override
   final String? activeMessageId;
 
   @override
   String toString() {
-    return 'MessageReactionState(showReactions: $showReactions, activeMessageId: $activeMessageId)';
+    return 'MessageReactionState(showReactions: $showReactions, showEmojiReactions: $showEmojiReactions, activeMessageId: $activeMessageId)';
   }
 
   @override
@@ -422,12 +440,15 @@ class _$_MessageReactionState implements _MessageReactionState {
             other is _$_MessageReactionState &&
             (identical(other.showReactions, showReactions) ||
                 other.showReactions == showReactions) &&
+            (identical(other.showEmojiReactions, showEmojiReactions) ||
+                other.showEmojiReactions == showEmojiReactions) &&
             (identical(other.activeMessageId, activeMessageId) ||
                 other.activeMessageId == activeMessageId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, showReactions, activeMessageId);
+  int get hashCode => Object.hash(
+      runtimeType, showReactions, showEmojiReactions, activeMessageId);
 
   @JsonKey(ignore: true)
   @override
@@ -440,10 +461,13 @@ class _$_MessageReactionState implements _MessageReactionState {
 abstract class _MessageReactionState implements MessageReactionState {
   const factory _MessageReactionState(
       {final bool showReactions,
+      final bool showEmojiReactions,
       final String? activeMessageId}) = _$_MessageReactionState;
 
   @override
   bool get showReactions;
+  @override
+  bool get showEmojiReactions;
   @override
   String? get activeMessageId;
   @override

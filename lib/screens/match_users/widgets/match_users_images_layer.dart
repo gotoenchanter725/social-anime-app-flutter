@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/screens/match_users/bloc/match_users_bloc.dart';
+import 'package:senpai/screens/match_users/widgets/match_heart_widget.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -17,6 +18,7 @@ class MatchUsersImagesLayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = BlocProvider.of<MatchUsersBloc>(context);
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         return Stack(
@@ -31,12 +33,12 @@ class MatchUsersImagesLayer extends StatelessWidget {
                 children: [
                   _buildImage(
                     context,
-                    userUrl, 
+                    userUrl,
                     constraints.maxHeight,
                   ),
                   _buildImage(
                     context,
-                    matcheeUrl, 
+                    matcheeUrl,
                     constraints.maxHeight,
                   ),
                 ],
@@ -44,10 +46,8 @@ class MatchUsersImagesLayer extends StatelessWidget {
             ),
             Positioned(
               top: 0,
-              child: SvgPicture.asset(
-                PathConstants.matchHeartBgIcon,
-                height: $constants.insets.offset,
-                width: $constants.insets.offset,
+              child: MatchHeartWidget(
+                chageSize: bloc.state is FinishAnimationFireworkState,
               ),
             ),
             Positioned(

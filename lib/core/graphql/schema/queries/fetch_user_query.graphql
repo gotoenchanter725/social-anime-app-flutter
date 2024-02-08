@@ -4,6 +4,7 @@ query fetchUser($userId: ID!) {
     role
     firstName
     birthday
+    country
     bio
     gender
     desiredGender
@@ -33,6 +34,7 @@ query fetchUser($userId: ID!) {
     animes {
       id
       title
+      japaneseTitle
       cover
     }
     favoriteMusic {
@@ -46,5 +48,8 @@ query fetchUser($userId: ID!) {
     premium
     superLikeCount
     hasLocationHidden
+    nextPaymentDate
+    isDisplayingRecentlyActive
+    isDisplayingActive
   }
 }

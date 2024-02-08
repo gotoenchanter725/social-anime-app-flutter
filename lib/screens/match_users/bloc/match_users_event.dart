@@ -20,3 +20,7 @@ class OnMessageChangedEvent extends MatchUsersEvent {
 
   OnMessageChangedEvent({required this.message});
 }
+
+class OnFinishTimerEvent extends MatchUsersEvent {
+  OnFinishTimerEvent();
+}

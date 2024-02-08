@@ -31,11 +31,15 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Senpai needs access to location when app in the background.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Senpai needs access to location when app open.</string>
+	<string>Senpai needs access to location when app open for locating matches.</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Senpai needs access to location when app open for locating matches.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>Senpai needs access to your microphone when app open.</string>
+	<string>Senpai needs access to your microphone when app open for voice messaging.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Senpai needs access to your photos so you can include them in your profile.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>We need permission to access your phone number, name, location, and demographic information. We use this information for basic app functionality, like using your location to show nearby profiles. We may use this information to provide ads you will be interested in.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>

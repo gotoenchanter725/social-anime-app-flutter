@@ -1,4 +1,4 @@
-import 'package:senpai/data/text_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 
 enum AnimeGenresEnums {
   action,
@@ -23,25 +23,48 @@ enum AnimeGenresEnums {
 
 extension AnimeGenresEnumsX on AnimeGenresEnums {
   String get genresString =>
-      const {
-        AnimeGenresEnums.action: TextConstants.actionGenresTitle,
-        AnimeGenresEnums.adventure: TextConstants.adventureGenresTitle,
-        AnimeGenresEnums.drama: TextConstants.dramaGenresTitle,
-        AnimeGenresEnums.ecchi: TextConstants.ecchiGenresTitle,
-        AnimeGenresEnums.music: TextConstants.musicGenresTitle,
-        AnimeGenresEnums.mecha: TextConstants.mechaGenresTitle,
-        AnimeGenresEnums.horror: TextConstants.horrorGenresTitle,
-        AnimeGenresEnums.fantasy: TextConstants.fantasyGenresTitle,
-        AnimeGenresEnums.mahouShoujo: TextConstants.mahouShoujoGenresTitle,
-        AnimeGenresEnums.psychological: TextConstants.psychologicalGenresTitle,
-        AnimeGenresEnums.romance: TextConstants.romanceGenresTitle,
-        AnimeGenresEnums.sciFi: TextConstants.sciFiGenresTitle,
-        AnimeGenresEnums.sports: TextConstants.sportsGenresTitle,
-        AnimeGenresEnums.comedy: TextConstants.comedyGenresTitle,
-        AnimeGenresEnums.mystery: TextConstants.mysteryGenresTitle,
-        AnimeGenresEnums.supernatural: TextConstants.supernaturalGenresTitle,
-        AnimeGenresEnums.thriller: TextConstants.thrillerGenresTitle,
-        AnimeGenresEnums.sliceOfLife: TextConstants.sliceOfLifeGenresTitle,
+      {
+        AnimeGenresEnums.action: R.strings.actionGenresTitle,
+        AnimeGenresEnums.adventure: R.strings.adventureGenresTitle,
+        AnimeGenresEnums.drama: R.strings.dramaGenresTitle,
+        AnimeGenresEnums.ecchi: R.strings.ecchiGenresTitle,
+        AnimeGenresEnums.music: R.strings.musicGenresTitle,
+        AnimeGenresEnums.mecha: R.strings.mechaGenresTitle,
+        AnimeGenresEnums.horror: R.strings.horrorGenresTitle,
+        AnimeGenresEnums.fantasy: R.strings.fantasyGenresTitle,
+        AnimeGenresEnums.mahouShoujo: R.strings.mahouShoujoGenresTitle,
+        AnimeGenresEnums.psychological: R.strings.psychologicalGenresTitle,
+        AnimeGenresEnums.romance: R.strings.romanceGenresTitle,
+        AnimeGenresEnums.sciFi: R.strings.sciFiGenresTitle,
+        AnimeGenresEnums.sports: R.strings.sportsGenresTitle,
+        AnimeGenresEnums.comedy: R.strings.comedyGenresTitle,
+        AnimeGenresEnums.mystery: R.strings.mysteryGenresTitle,
+        AnimeGenresEnums.supernatural: R.strings.supernaturalGenresTitle,
+        AnimeGenresEnums.thriller: R.strings.thrillerGenresTitle,
+        AnimeGenresEnums.sliceOfLife: R.strings.sliceOfLifeGenresTitle,
+      }[this] ??
+      '';
+
+  String get englishGenresString =>
+      {
+        AnimeGenresEnums.action: R.englishStrings.actionGenresTitle,
+        AnimeGenresEnums.adventure: R.englishStrings.adventureGenresTitle,
+        AnimeGenresEnums.drama: R.englishStrings.dramaGenresTitle,
+        AnimeGenresEnums.ecchi: R.englishStrings.ecchiGenresTitle,
+        AnimeGenresEnums.music: R.englishStrings.musicGenresTitle,
+        AnimeGenresEnums.mecha: R.englishStrings.mechaGenresTitle,
+        AnimeGenresEnums.horror: R.englishStrings.horrorGenresTitle,
+        AnimeGenresEnums.fantasy: R.englishStrings.fantasyGenresTitle,
+        AnimeGenresEnums.mahouShoujo: R.englishStrings.mahouShoujoGenresTitle,
+        AnimeGenresEnums.psychological: R.englishStrings.psychologicalGenresTitle,
+        AnimeGenresEnums.romance: R.englishStrings.romanceGenresTitle,
+        AnimeGenresEnums.sciFi: R.englishStrings.sciFiGenresTitle,
+        AnimeGenresEnums.sports: R.englishStrings.sportsGenresTitle,
+        AnimeGenresEnums.comedy: R.englishStrings.comedyGenresTitle,
+        AnimeGenresEnums.mystery: R.englishStrings.mysteryGenresTitle,
+        AnimeGenresEnums.supernatural: R.englishStrings.supernaturalGenresTitle,
+        AnimeGenresEnums.thriller: R.englishStrings.thrillerGenresTitle,
+        AnimeGenresEnums.sliceOfLife: R.englishStrings.sliceOfLifeGenresTitle,
       }[this] ??
       '';
 }
