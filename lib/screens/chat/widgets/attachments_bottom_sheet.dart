@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:senpai/data/text_constants.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
+import 'package:senpai/l10n/resources.dart';
 
 class AttachmentsBottomSheet extends StatelessWidget {
   final void Function(XFile) onMediaSelected;
@@ -51,13 +51,13 @@ class AttachmentsBottomSheet extends StatelessWidget {
               _buildAttachmentOption(
                 context,
                 Icons.image,
-                TextConstants.openGalleryButtonText,
+                R.strings.openGalleryButtonText,
                 () => _pickMedia(context),
               ),
               _buildAttachmentOption(
                 context,
                 Icons.camera_alt,
-                TextConstants.openCameraButtonText,
+                R.strings.openCameraButtonText,
                 () => _pickImage(context),
               ),
             ],

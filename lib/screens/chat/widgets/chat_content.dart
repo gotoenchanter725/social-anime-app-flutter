@@ -327,8 +327,7 @@ class ChatContent extends StatelessWidget {
     const int bytesInMB = 1048576;
     final int mediaSizeInMB = mediaSize ~/ bytesInMB;
     if (mediaSizeInMB > $constants.api.maxSizeForAttachmentsInMB) {
-      showSnackBarError(
-          context, TextConstants.maximumAttachmentSizeExceededError);
+      showSnackBarError(context, R.strings.maximumAttachmentSizeExceededError);
       logIt.error("Media size exceeds the maximum size :: $mediaSize Bytes");
       return;
     }
@@ -340,7 +339,7 @@ class ChatContent extends StatelessWidget {
         context,
         ChatMessage(
           id: generateRandomId($constants.specials.pendingMessageIdLength),
-          text: TextConstants.gifMessageText,
+          text: R.strings.gifMessageText,
           status: MessageStatus.pending,
           senderId: currentUser.id,
           timestamp: DateTime.now(),
