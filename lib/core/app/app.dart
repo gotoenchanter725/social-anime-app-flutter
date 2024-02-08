@@ -41,9 +41,8 @@ class _MyAppState extends State<MyApp> {
 
     FirebaseMessaging.onMessage.listen((message) async {
       RemoteNotification? notification = message.notification;
-      AndroidNotification? android = message.notification?.android;
 
-      if (notification != null && android != null && !kIsWeb) {
+      if (notification != null && !kIsWeb) {
         String action = jsonEncode(message.data);
         logIt.debug(message.toMap());
 
@@ -58,6 +57,7 @@ class _MyAppState extends State<MyApp> {
                 priority: Priority.high,
                 importance: Importance.max,
               ),
+              iOS: const DarwinNotificationDetails(),
             ),
             payload: action);
       }
