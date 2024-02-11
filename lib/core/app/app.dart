@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
         builder: (BuildContext context, ApplicationLocaleState state) {
           return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             title: $constants.appTitle,
             theme: theme,
             routerConfig: _appRouter.config(),
