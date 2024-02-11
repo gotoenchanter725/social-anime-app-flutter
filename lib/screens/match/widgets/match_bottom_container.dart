@@ -76,8 +76,8 @@ class MatchBottomContainer extends StatelessWidget {
         ),
         SvgPicture.asset(
           PathConstants.senpaiLogoIcon,
-          width: $constants.insets.xl,
-          height: $constants.insets.xl,
+          width: $constants.insets.lg,
+          height: $constants.insets.lg,
         ),
       ],
     );

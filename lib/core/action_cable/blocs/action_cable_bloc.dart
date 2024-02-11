@@ -97,8 +97,8 @@ abstract class ActionCableBloc<T>
       add(const ActionCableEvent.connect());
     }, onConnectionLost: () {
       _isConnected = false;
-      add(ActionCableEvent.error(
-          message: R.strings.actionCableConnectionError));
+      // add(ActionCableEvent.error(
+      //     message: R.strings.actionCableConnectionError));
     }, onCannotConnect: () {
       add(ActionCableEvent.error(
           message: R.strings.actionCableCannotConnectError));
