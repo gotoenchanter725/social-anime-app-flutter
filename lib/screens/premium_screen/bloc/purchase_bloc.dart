@@ -95,10 +95,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
           _listenToPurchaseUpdated(purchaseDetailsList).then(
             (_) {
               if (_purchaseErrorText != null) {
-                //TODO: return after test
-                // add(OnErrorEvent(R.string.serverError));
-                add(OnErrorEvent(
-                    _purchaseErrorText ?? '---- listen _purchaseErrorText'));
+                add(OnErrorEvent(R.strings.serverError));
               }
               if (isPurchased == true) {
                 add(OnNavigateEvent());
@@ -110,21 +107,15 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
           _subscription.cancel();
         },
         onError: (Object error) {
-          logIt.debug(
-            "-- PurchaseDetails onError $error",
-          );
-          //TODO: return after test
-          add(OnErrorEvent("PurchaseDetails onError --  $error"));
-          //     R.string.serverError));
+          logIt.debug("-- PurchaseDetails onError $error");
+          add(OnErrorEvent(R.strings.serverError));
         },
       );
 
       await _initStoreInfo().then((_) {
         if (_purchaseErrorText != null) {
-          //TODO: return after test
-          // add(OnErrorEvent(_purchaseErrorText ?? R.string.serverError));
-          add(OnErrorEvent(
-              _purchaseErrorText ?? '---- init  _purchaseErrorText'));
+          logIt.debug("-- PurchaseDetails onError $_purchaseErrorText");
+          add(OnErrorEvent(_purchaseErrorText ?? R.strings.serverError));
         } else {
           emit(UpdatePlanState());
         }
@@ -240,9 +231,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     }
 
     if (productDetailResponse.productDetails.isEmpty) {
-      //TODO: return after test
-      _purchaseErrorText =
-          'productDetailResponse.productDetails.isEmpty'; // R.string.serverError;
+      R.strings.serverError;
       isAvailablePurchase = isAvailable;
       products = productDetailResponse.productDetails;
       purchases = <PurchaseDetails>[];
@@ -267,9 +256,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     for (final PurchaseDetails purchaseDetails in purchaseDetailsList) {
       if (purchaseDetails.status == PurchaseStatus.error) {
         logIt.debug("--- purchaseDetails ${purchaseDetails.error}");
-        //TODO: return after test
-        _purchaseErrorText =
-            purchaseDetails.error?.message ?? R.strings.invalidPurchase;
+        _purchaseErrorText = R.strings.invalidPurchase;
       } else if (purchaseDetails.status == PurchaseStatus.purchased ||
           purchaseDetails.status == PurchaseStatus.restored) {
         final bool valid = await _verifyPurchase(purchaseDetails);
