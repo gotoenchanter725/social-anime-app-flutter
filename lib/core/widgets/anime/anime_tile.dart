@@ -11,6 +11,7 @@ class AnimeTile extends StatelessWidget {
   final bool hasBackground;
   final void Function(AnimeModel anime)? onTap;
   final Locale? locale;
+  final bool hasHeight;
 
   const AnimeTile({
     super.key,
@@ -19,6 +20,7 @@ class AnimeTile extends StatelessWidget {
     this.isActive = false,
     this.hasBackground = false,
     required this.locale,
+    this.hasHeight = true,
   });
 
   @override
@@ -28,7 +30,7 @@ class AnimeTile extends StatelessWidget {
       subtitleText = extractGenres(anime.genres!);
     }
     return Container(
-      height: $constants.sizes.animeTileHeight,
+      height: hasHeight ? $constants.sizes.animeTileHeight : null,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular($constants.corners.md),
         shape: BoxShape.rectangle,
@@ -61,7 +63,7 @@ class AnimeTile extends StatelessWidget {
         title: Text(
           anime.getLocalizedTitle(locale),
           style: getTextTheme(context).bodyMedium!,
-          maxLines: 1,
+          maxLines: hasHeight ? 1 : 10,
           overflow: TextOverflow.ellipsis,
         ),
         subtitle: Text(
