@@ -278,6 +278,7 @@ class IncomingMessage extends StatelessWidget {
             ),
             hasBackground: true,
             locale: null,
+            hasHeight: false,
           ),
         ),
         SizedBox(
