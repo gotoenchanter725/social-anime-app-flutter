@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/chat/blocs/fetch_stickers_bloc.dart';
@@ -51,7 +52,10 @@ class StickersSelector extends StatelessWidget {
                   onTap: () => {
                     onStickerSelected(sticker),
                   },
-                  child: Image.network(sticker.url, fit: BoxFit.cover),
+                  child: CachedNetworkImage(
+                    imageUrl: sticker.url,
+                    fit: BoxFit.cover,
+                  ),
                 );
               },
             ),
