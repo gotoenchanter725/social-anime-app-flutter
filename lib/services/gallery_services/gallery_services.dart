@@ -1,7 +1,6 @@
 import 'package:photo_manager/photo_manager.dart';
 import 'package:photo_manager_image_provider/photo_manager_image_provider.dart';
 
-
 class AssetPathEntityWithCount {
   final AssetPathEntity assetPathEntity;
   final int assetCount;
@@ -18,10 +17,10 @@ class GalleryServices {
   Future<List<AssetPathEntityWithCount>> loadAlbumsWithItemCount(
     RequestType requestType,
   ) async {
-    var permission = await PhotoManager.requestPermissionExtend();
+    PermissionState permission = await PhotoManager.requestPermissionExtend();
     List<AssetPathEntityWithCount> assetPathEntityWithCount = [];
 
-    if (permission.isAuth == true) {
+    if (permission.isAuth == true || permission == PermissionState.limited) {
       await PhotoManager.getAssetPathList(
         type: requestType,
       ).then((albumList) async {
