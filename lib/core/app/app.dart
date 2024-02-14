@@ -23,6 +23,12 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+
+    final mySystemTheme = SystemUiOverlayStyle.dark.copyWith(
+      systemNavigationBarColor: $constants.palette.lightBlue,
+    );
+
+    SystemChrome.setSystemUIOverlayStyle(mySystemTheme);
     return MultiBlocProvider(
       providers: [
         BlocProvider(
