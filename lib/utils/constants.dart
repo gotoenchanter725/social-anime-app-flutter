@@ -53,6 +53,12 @@ class _Specials {
 
   /// Constants for Match
   late final match = _MatchConstants();
+
+  /// Allowed countries for phone input
+  late final allowedCountries = ['US', 'CA', 'JP', 'GB', 'UG', 'UA'];
+
+  /// Default country for phone input
+  late final defaultCountry = 'US';
 }
 
 @immutable
@@ -117,8 +123,7 @@ class _Palette {
         const Color(0xFFE39F04),
         const Color(0xFFE39F04),
         const Color(0xFF000000).withOpacity(0.5),
-      ]
-  );
+      ]);
 
   final mainGradient = const LinearGradient(
       colors: [Color(0xFFDE0BC9), Color(0xFF1286F0)],
