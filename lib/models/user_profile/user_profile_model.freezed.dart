@@ -34,7 +34,6 @@ mixin _$UserProfileModel {
   String? get bio => throw _privateConstructorUsedError;
   String? get displayCity => throw _privateConstructorUsedError;
   String? get displayState => throw _privateConstructorUsedError;
-  String? get spotifyEmail => throw _privateConstructorUsedError;
   List<AnimeModel>? get animes => throw _privateConstructorUsedError;
   GalleryUserModel? get gallery => throw _privateConstructorUsedError;
   String? get lonlat => throw _privateConstructorUsedError;
@@ -76,7 +75,6 @@ abstract class $UserProfileModelCopyWith<$Res> {
       String? bio,
       String? displayCity,
       String? displayState,
-      String? spotifyEmail,
       List<AnimeModel>? animes,
       GalleryUserModel? gallery,
       String? lonlat,
@@ -120,7 +118,6 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
     Object? bio = freezed,
     Object? displayCity = freezed,
     Object? displayState = freezed,
-    Object? spotifyEmail = freezed,
     Object? animes = freezed,
     Object? gallery = freezed,
     Object? lonlat = freezed,
@@ -190,10 +187,6 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
       displayState: freezed == displayState
           ? _value.displayState
           : displayState // ignore: cast_nullable_to_non_nullable
-              as String?,
-      spotifyEmail: freezed == spotifyEmail
-          ? _value.spotifyEmail
-          : spotifyEmail // ignore: cast_nullable_to_non_nullable
               as String?,
       animes: freezed == animes
           ? _value.animes
@@ -282,7 +275,6 @@ abstract class _$$_UserProfileModelCopyWith<$Res>
       String? bio,
       String? displayCity,
       String? displayState,
-      String? spotifyEmail,
       List<AnimeModel>? animes,
       GalleryUserModel? gallery,
       String? lonlat,
@@ -325,7 +317,6 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
     Object? bio = freezed,
     Object? displayCity = freezed,
     Object? displayState = freezed,
-    Object? spotifyEmail = freezed,
     Object? animes = freezed,
     Object? gallery = freezed,
     Object? lonlat = freezed,
@@ -395,10 +386,6 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
       displayState: freezed == displayState
           ? _value.displayState
           : displayState // ignore: cast_nullable_to_non_nullable
-              as String?,
-      spotifyEmail: freezed == spotifyEmail
-          ? _value.spotifyEmail
-          : spotifyEmail // ignore: cast_nullable_to_non_nullable
               as String?,
       animes: freezed == animes
           ? _value._animes
@@ -470,7 +457,6 @@ class _$_UserProfileModel implements _UserProfileModel {
       this.bio,
       this.displayCity,
       this.displayState,
-      this.spotifyEmail,
       final List<AnimeModel>? animes,
       this.gallery,
       this.lonlat,
@@ -517,8 +503,6 @@ class _$_UserProfileModel implements _UserProfileModel {
   final String? displayCity;
   @override
   final String? displayState;
-  @override
-  final String? spotifyEmail;
   final List<AnimeModel>? _animes;
   @override
   List<AnimeModel>? get animes {
@@ -562,7 +546,7 @@ class _$_UserProfileModel implements _UserProfileModel {
 
   @override
   String toString() {
-    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, country: $country, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, spotifyEmail: $spotifyEmail, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium, superLikeCount: $superLikeCount, favoriteMusic: $favoriteMusic, hasLocationHidden: $hasLocationHidden, milesAway: $milesAway, nextPaymentDate: $nextPaymentDate, isDisplayingRecentlyActive: $isDisplayingRecentlyActive, isDisplayingActive: $isDisplayingActive)';
+    return 'UserProfileModel(id: $id, phone: $phone, firstName: $firstName, country: $country, role: $role, birthday: $birthday, gender: $gender, desiredGender: $desiredGender, verified: $verified, occupation: $occupation, school: $school, bio: $bio, displayCity: $displayCity, displayState: $displayState, animes: $animes, gallery: $gallery, lonlat: $lonlat, onlineStatus: $onlineStatus, premium: $premium, superLikeCount: $superLikeCount, favoriteMusic: $favoriteMusic, hasLocationHidden: $hasLocationHidden, milesAway: $milesAway, nextPaymentDate: $nextPaymentDate, isDisplayingRecentlyActive: $isDisplayingRecentlyActive, isDisplayingActive: $isDisplayingActive)';
   }
 
   @override
@@ -591,8 +575,6 @@ class _$_UserProfileModel implements _UserProfileModel {
                 other.displayCity == displayCity) &&
             (identical(other.displayState, displayState) ||
                 other.displayState == displayState) &&
-            (identical(other.spotifyEmail, spotifyEmail) ||
-                other.spotifyEmail == spotifyEmail) &&
             const DeepCollectionEquality().equals(other._animes, _animes) &&
             (identical(other.gallery, gallery) || other.gallery == gallery) &&
             (identical(other.lonlat, lonlat) || other.lonlat == lonlat) &&
@@ -635,7 +617,6 @@ class _$_UserProfileModel implements _UserProfileModel {
         bio,
         displayCity,
         displayState,
-        spotifyEmail,
         const DeepCollectionEquality().hash(_animes),
         gallery,
         lonlat,
@@ -680,7 +661,6 @@ abstract class _UserProfileModel implements UserProfileModel {
       final String? bio,
       final String? displayCity,
       final String? displayState,
-      final String? spotifyEmail,
       final List<AnimeModel>? animes,
       final GalleryUserModel? gallery,
       final String? lonlat,
@@ -725,8 +705,6 @@ abstract class _UserProfileModel implements UserProfileModel {
   String? get displayCity;
   @override
   String? get displayState;
-  @override
-  String? get spotifyEmail;
   @override
   List<AnimeModel>? get animes;
   @override

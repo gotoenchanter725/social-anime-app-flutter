@@ -14,7 +14,6 @@ query fetchUser($userId: ID!) {
     occupation
     displayCity
     displayState
-    spotifyEmail
     onlineStatus
     lonlat
     matches {

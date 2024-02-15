@@ -24,7 +24,6 @@ _$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) =>
       bio: json['bio'] as String?,
       displayCity: json['displayCity'] as String?,
       displayState: json['displayState'] as String?,
-      spotifyEmail: json['spotifyEmail'] as String?,
       animes: (json['animes'] as List<dynamic>?)
           ?.map((e) => AnimeModel.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -64,7 +63,6 @@ Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
       'bio': instance.bio,
       'displayCity': instance.displayCity,
       'displayState': instance.displayState,
-      'spotifyEmail': instance.spotifyEmail,
       'animes': instance.animes,
       'gallery': instance.gallery,
       'lonlat': instance.lonlat,
