@@ -1079,7 +1079,6 @@ type User {
   role: String!
   school: String
   signInCount: Int!
-  spotifyEmail: String
   superLikeCount: Int
   updatedAt: ISO8601DateTime!
   verified: Boolean!

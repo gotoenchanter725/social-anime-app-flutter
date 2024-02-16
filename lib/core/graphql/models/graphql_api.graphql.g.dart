@@ -2164,7 +2164,6 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
       ..occupation = json['occupation'] as String?
       ..displayCity = json['displayCity'] as String?
       ..displayState = json['displayState'] as String?
-      ..spotifyEmail = json['spotifyEmail'] as String?
       ..onlineStatus = json['onlineStatus'] as String?
       ..lonlat = json['lonlat'] as String?
       ..matches = (json['matches'] as List<dynamic>?)
@@ -2210,7 +2209,6 @@ Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
       'occupation': instance.occupation,
       'displayCity': instance.displayCity,
       'displayState': instance.displayState,
-      'spotifyEmail': instance.spotifyEmail,
       'onlineStatus': instance.onlineStatus,
       'lonlat': instance.lonlat,
       'matches': instance.matches?.map((e) => e.toJson()).toList(),
