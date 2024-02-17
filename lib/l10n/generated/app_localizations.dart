@@ -501,7 +501,7 @@ abstract class AppLocalizations {
   /// No description provided for @animeTabText.
   ///
   /// In en, this message translates to:
-  /// **'Anime'**
+  /// **'Recommend'**
   String get animeTabText;
 
   /// No description provided for @favouriteAnimeSelectionTitle.
@@ -1119,7 +1119,7 @@ abstract class AppLocalizations {
   /// No description provided for @topSpotifyListeningSongsText.
   ///
   /// In en, this message translates to:
-  /// **'Top 5 Spotify Listening Songs'**
+  /// **'Top 5 Spotify Songs'**
   String get topSpotifyListeningSongsText;
 
   /// No description provided for @connectText.
@@ -1919,6 +1919,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Maximum attachment size exceeded'**
   String get maximumAttachmentSizeExceededError;
+
+  /// No description provided for @bearWithUsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to Senpai!'**
+  String get bearWithUsTitle;
+
+  /// No description provided for @bearWithUsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Please bear with us, as we continue to grow and more profiles are available!'**
+  String get bearWithUsDescription;
 }
 
 class _AppLocalizationsDelegate

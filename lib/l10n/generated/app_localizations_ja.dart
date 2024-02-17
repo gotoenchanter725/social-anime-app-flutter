@@ -209,7 +209,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get gifsTabText => 'GIPHY';
 
   @override
-  String get animeTabText => 'アニメ';
+  String get animeTabText => '推薦する';
 
   @override
   String get favouriteAnimeSelectionTitle => '好きなアニメ';
@@ -924,4 +924,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get maximumAttachmentSizeExceededError => '添付ファイルサイズの上限を超えました ';
+  String get bearWithUsTitle => '「先輩」へようこそ！';
+
+  @override
+  String get bearWithUsDescription =>
+      '私たちは成長を続けており、より多くのプロフィールが利用可能になりますので、ご容赦ください。';
 }

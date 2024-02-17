@@ -7,7 +7,7 @@
   "graphApiUrl": "https://api.senpaiapp.com/graphql",
   "httpApiUrl": "https://api.senpaiapp.com",
   "httpApiUrlUniversities": "http://universities.hipolabs.com",
-  "webSocketUrl": "wss://staging.senpaiapp.com/cable",
+  "webSocketUrl": "wss://api.senpaiapp.com/cable",
   "httpApiAccountsSpotify": "https://accounts.spotify.com",
   "httpApiSpotify": "https://api.spotify.com/v1",
   "spotifyClientId": "6f81b8df5df14a138e4aff694ccbca5c",

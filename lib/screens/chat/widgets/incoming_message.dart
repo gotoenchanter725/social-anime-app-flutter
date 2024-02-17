@@ -124,7 +124,7 @@ class IncomingMessage extends StatelessWidget {
           duration: const Duration(milliseconds: 200),
           child: Container(
             height: 40,
-            width: getSize(context).width * 0.6,
+            width: getSize(context).width * 0.6 + _emojis.length * 6,
             decoration: BoxDecoration(
               color: $constants.palette.lightBlue,
               borderRadius: BorderRadius.circular($constants.corners.lg),
@@ -278,6 +278,7 @@ class IncomingMessage extends StatelessWidget {
             ),
             hasBackground: true,
             locale: null,
+            hasHeight: false,
           ),
         ),
         SizedBox(

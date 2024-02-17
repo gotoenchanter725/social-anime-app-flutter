@@ -218,7 +218,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get gifsTabText => 'GIPHY';
 
   @override
-  String get animeTabText => 'Anime';
+  String get animeTabText => 'Recommend';
 
   @override
   String get favouriteAnimeSelectionTitle => 'My favorite animes';
@@ -536,7 +536,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get topSpotifyArtistsText => 'Top 5 Spotify Artists';
 
   @override
-  String get topSpotifyListeningSongsText => 'Top 5 Spotify Listening Songs';
+  String get topSpotifyListeningSongsText => 'Top 5 Spotify Songs';
 
   @override
   String get connectText => 'Connect';
@@ -956,4 +956,9 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get maximumAttachmentSizeExceededError =>
       'Maximum attachment size exceeded';
+  String get bearWithUsTitle => 'Welcome to Senpai!';
+
+  @override
+  String get bearWithUsDescription =>
+      'Please bear with us, as we continue to grow and more profiles are available!';
 }

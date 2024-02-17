@@ -53,6 +53,12 @@ class _Specials {
 
   /// Constants for Match
   late final match = _MatchConstants();
+
+  /// Allowed countries for phone input
+  late final allowedCountries = ['US', 'CA', 'JP', 'GB', 'UG', 'UA'];
+
+  /// Default country for phone input
+  late final defaultCountry = 'US';
 }
 
 @immutable

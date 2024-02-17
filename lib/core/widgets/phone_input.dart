@@ -30,6 +30,7 @@ class SenpaiPhoneInput extends StatefulWidget {
 class _SenpaiPhoneInputState extends State<SenpaiPhoneInput> {
   final focusNode = FocusNode();
 
+  PhoneNumber number = PhoneNumber(isoCode: $constants.specials.defaultCountry);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -61,7 +62,8 @@ class _SenpaiPhoneInputState extends State<SenpaiPhoneInput> {
                   ),
                   hintText: widget.placeholder,
                   focusNode: focusNode,
-                  countries: const ["CA", "US", "UG", "UA"],
+                  countries: $constants.specials.allowedCountries,
+                  initialValue: number,
                   formatInput: true,
                   textFieldController: widget.controller,
                   keyboardType: widget.keyboardType!,

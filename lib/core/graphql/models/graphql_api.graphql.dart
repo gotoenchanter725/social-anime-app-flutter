@@ -3143,8 +3143,6 @@ class FetchUser$Query$FetchUser extends JsonSerializable with EquatableMixin {
 
   String? displayState;
 
-  String? spotifyEmail;
-
   String? onlineStatus;
 
   String? lonlat;
@@ -3188,7 +3186,6 @@ class FetchUser$Query$FetchUser extends JsonSerializable with EquatableMixin {
         occupation,
         displayCity,
         displayState,
-        spotifyEmail,
         onlineStatus,
         lonlat,
         matches,
@@ -7305,13 +7302,6 @@ final FETCH_USER_QUERY_DOCUMENT = DocumentNode(definitions: [
           ),
           FieldNode(
             name: NameNode(value: 'displayState'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'spotifyEmail'),
             alias: null,
             arguments: [],
             directives: [],

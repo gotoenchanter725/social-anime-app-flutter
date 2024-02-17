@@ -74,6 +74,12 @@ class _MyAppState extends State<MyApp> {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+
+    final mySystemTheme = SystemUiOverlayStyle.dark.copyWith(
+      systemNavigationBarColor: $constants.palette.lightBlue,
+    );
+
+    SystemChrome.setSystemUIOverlayStyle(mySystemTheme);
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -84,6 +90,7 @@ class _MyAppState extends State<MyApp> {
       child: BlocBuilder<ApplicationLocaleBloc, ApplicationLocaleState>(
         builder: (BuildContext context, ApplicationLocaleState state) {
           return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             title: $constants.appTitle,
             theme: widget.theme,
             routerConfig: _appRouter.config(),
