@@ -265,8 +265,10 @@ double matchRadius(int milesAway) {
 }
 
 Future<http.MultipartFile> urlToFileMultipart(String url) async {
+  // Determine if the attachment is a local file or a network URL.
+  bool isLocalFile = Uri.tryParse(url)?.hasScheme != true;
   // Check if the URL is a local file
-  if (Uri.parse(url).isAbsolute && !url.startsWith('http')) {
+  if (isLocalFile) {
     // It's a local file
     var file = File(url);
     var mimeTypeData =

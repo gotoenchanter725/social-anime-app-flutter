@@ -52,7 +52,7 @@ class SendMessageBloc extends MutationBloc<SendMessage$Mutation> {
       file = await urlToFileMultipart(attachmentUrl);
     } catch (e) {
       logIt.error(e);
-      return;
+      rethrow;
     }
     logIt.debug("sent attachment with url: $attachmentUrl");
     final variables = SendMessageArguments(
