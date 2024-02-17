@@ -346,7 +346,7 @@ class ChatContent extends StatelessWidget {
 
     final composedMessage = ChatMessage(
       id: generateRandomId($constants.specials.pendingMessageIdLength),
-      text: R.strings.gifMessageText,
+      text: R.strings.attachmentMessageText,
       status: MessageStatus.pending,
       senderId: currentUser.id,
       timestamp: DateTime.now(),
