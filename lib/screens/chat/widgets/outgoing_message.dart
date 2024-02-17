@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:senpai/core/widgets/anime/anime_tile.dart';
@@ -22,7 +24,8 @@ class OutgoingMessage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.8),
+                constraints: BoxConstraints(
+                    maxWidth: MediaQuery.of(context).size.width * 0.8),
                 child: _buildMessageContent(context),
               ),
               const SizedBox(
@@ -30,7 +33,9 @@ class OutgoingMessage extends StatelessWidget {
               ),
               Text(
                 DateFormat('hh:mm').format(message.timestamp),
-                style: getTextTheme(context).labelMedium!.copyWith(color: $constants.palette.grey),
+                style: getTextTheme(context)
+                    .labelMedium!
+                    .copyWith(color: $constants.palette.grey),
               )
             ],
           ),
@@ -84,13 +89,25 @@ class OutgoingMessage extends StatelessWidget {
   }
 
   Widget _buildPhotoWidget(BuildContext context) {
+    // Determine if the attachment is a local file or a network URL.
+    String attachment = message.attachment!;
+    bool isLocalFile = Uri.tryParse(attachment)?.hasScheme != true;
+
+    // Create the appropriate image provider based on the attachment type.
+    ImageProvider imageProvider;
+    if (isLocalFile) {
+      imageProvider = FileImage(File(attachment));
+    } else {
+      imageProvider = NetworkImage(attachment);
+    }
+
     return Container(
       width: getSize(context).width * 0.7,
       height: getSize(context).width * 0.7,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular($constants.corners.lg),
         image: DecorationImage(
-          image: NetworkImage(message.attachment!),
+          image: imageProvider,
           fit: BoxFit.cover,
         ),
       ),

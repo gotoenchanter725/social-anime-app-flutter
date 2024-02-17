@@ -89,14 +89,18 @@ class ChatContent extends StatelessWidget {
   }
 
   void _addPendingMessage(BuildContext context, ChatMessage message) {
-    PendingMessagesBloc pendingMessagesBloc =
-        BlocProvider.of<PendingMessagesBloc>(context);
-    pendingMessagesBloc.add(
-      PendingMessagesEvent.addMessage(
-        channelId: roomId,
-        message: message,
-      ),
-    );
+    try {
+      PendingMessagesBloc pendingMessagesBloc =
+          BlocProvider.of<PendingMessagesBloc>(context);
+      pendingMessagesBloc.add(
+        PendingMessagesEvent.addMessage(
+          channelId: roomId,
+          message: message,
+        ),
+      );
+    } catch (e) {
+      logIt.error("Error adding pending message: $e");
+    }
   }
 
   Widget _buildMessagesList(BuildContext context) {
@@ -191,6 +195,9 @@ class ChatContent extends StatelessWidget {
   Widget _buildInput(BuildContext context) {
     final textEditingBloc = BlocProvider.of<TextEditingBloc>(context);
 
+    // This will help pass down context to bottom sheet content
+    final pageContext = context;
+
     return BlocBuilder<TextEditingBloc, TextEditingState>(
       builder: (context, state) {
         return SizedBox(
@@ -246,7 +253,7 @@ class ChatContent extends StatelessWidget {
                             builder: (BuildContext context) {
                               return AttachmentsBottomSheet(
                                 onMediaSelected: (media) {
-                                  _sendAttachment(context, media);
+                                  _sendAttachment(pageContext, media);
                                 },
                               );
                             },
@@ -322,6 +329,7 @@ class ChatContent extends StatelessWidget {
   }
 
   void _sendAttachment(BuildContext context, XFile media) async {
+    logIt.info("Media selected: ${media.path}");
     // check that media doesn't exceed the maximum size
     final int mediaSize = await media.length();
     const int bytesInMB = 1048576;
@@ -335,16 +343,20 @@ class ChatContent extends StatelessWidget {
     if (isVideo(media)) {
       attachmentType = AttachmentType.video;
     }
+
+    final composedMessage = ChatMessage(
+      id: generateRandomId($constants.specials.pendingMessageIdLength),
+      text: R.strings.gifMessageText,
+      status: MessageStatus.pending,
+      senderId: currentUser.id,
+      timestamp: DateTime.now(),
+      attachment: media.path,
+      attachmentType: attachmentType,
+    );
+
     _addPendingMessage(
-        context,
-        ChatMessage(
-          id: generateRandomId($constants.specials.pendingMessageIdLength),
-          text: R.strings.gifMessageText,
-          status: MessageStatus.pending,
-          senderId: currentUser.id,
-          timestamp: DateTime.now(),
-          attachment: media.path,
-          attachmentType: attachmentType,
-        ));
+      context,
+      composedMessage,
+    );
   }
 }
