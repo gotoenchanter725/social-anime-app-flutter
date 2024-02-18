@@ -264,6 +264,17 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    VideoViewerRoute.name: (routeData) {
+      final args = routeData.argsAs<VideoViewerRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: VideoViewerPage(
+          key: args.key,
+          video: args.video,
+          controllable: args.controllable,
+        ),
+      );
+    },
     WorkEducationRoute.name: (routeData) {
       final args = routeData.argsAs<WorkEducationRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -1178,6 +1189,49 @@ class VerifyPhotoRouteArgs {
   @override
   String toString() {
     return 'VerifyPhotoRouteArgs{key: $key, userID: $userID}';
+  }
+}
+
+/// generated route for
+/// [VideoViewerPage]
+class VideoViewerRoute extends PageRouteInfo<VideoViewerRouteArgs> {
+  VideoViewerRoute({
+    Key? key,
+    required File video,
+    required bool controllable,
+    List<PageRouteInfo>? children,
+  }) : super(
+          VideoViewerRoute.name,
+          args: VideoViewerRouteArgs(
+            key: key,
+            video: video,
+            controllable: controllable,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'VideoViewerRoute';
+
+  static const PageInfo<VideoViewerRouteArgs> page =
+      PageInfo<VideoViewerRouteArgs>(name);
+}
+
+class VideoViewerRouteArgs {
+  const VideoViewerRouteArgs({
+    this.key,
+    required this.video,
+    required this.controllable,
+  });
+
+  final Key? key;
+
+  final File video;
+
+  final bool controllable;
+
+  @override
+  String toString() {
+    return 'VideoViewerRouteArgs{key: $key, video: $video, controllable: $controllable}';
   }
 }
 

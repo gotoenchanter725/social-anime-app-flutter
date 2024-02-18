@@ -5,7 +5,6 @@ import 'package:intl/intl.dart';
 import 'package:senpai/core/widgets/anime/anime_tile.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
-import 'package:senpai/screens/chat/widgets/video_message.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -108,7 +107,7 @@ class OutgoingMessage extends StatelessWidget {
         borderRadius: BorderRadius.circular($constants.corners.lg),
         color: $constants.palette.grey,
       ),
-      child: VideoMessageWidget(videoPath: message.attachment!),
+      child: const SizedBox(),
     );
   }
 

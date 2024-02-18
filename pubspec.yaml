@@ -106,6 +106,7 @@ dependencies:
   mime: ^1.0.4
   path: ^1.8.3
   video_player: ^2.8.2
+  chewie: ^1.7.5
   firebase_core: ^2.25.4
   firebase_messaging: ^14.7.15
   firebase_analytics: ^10.8.5
