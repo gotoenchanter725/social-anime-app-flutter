@@ -1,0 +1,97 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:senpai/models/chat/chat_message.dart';
+import 'package:video_player/video_player.dart';
+
+class AttachedVideoViewer extends StatefulWidget {
+  final double width;
+  final double height;
+  final File video;
+  final ChatMessage message;
+
+  const AttachedVideoViewer({
+    super.key,
+    required this.width,
+    required this.height,
+    required this.video,
+    required this.message,
+  });
+
+  @override
+  State<AttachedVideoViewer> createState() => _AttachedVideoViewerState();
+}
+
+class _AttachedVideoViewerState extends State<AttachedVideoViewer> {
+  late final VideoPlayerController videoController;
+
+  @override
+  void initState() {
+    videoController = VideoPlayerController.file(widget.video);
+    super.initState();
+  }
+
+  Future<void> navigateToViewer() async {
+    Future.delayed(
+      Duration(
+        milliseconds: MediaQuery.of(context).viewInsets.bottom > 0 ? 300 : 0,
+      ),
+      () async {
+        if (!mounted) {
+          return;
+        }
+        // TODO change route to the video viewer
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    const background = Color.fromARGB(150, 0, 0, 0);
+
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        GestureDetector(
+          onTap: navigateToViewer,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8.0),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  color: background,
+                  width: widget.width,
+                  height: widget.height,
+                ),
+                SizedBox(
+                  width: widget.width,
+                  height: widget.height,
+                  child: Hero(
+                    tag: widget.message.id,
+                    child: AspectRatio(
+                      aspectRatio: videoController.value.aspectRatio,
+                      child: VideoPlayer(videoController),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        CircleAvatar(
+          backgroundColor: const Color.fromARGB(255, 209, 208, 208),
+          foregroundColor: Colors.black87,
+          radius: 25,
+          child: GestureDetector(
+            onTap: navigateToViewer,
+            child: const Icon(
+              Icons.play_arrow_rounded,
+              size: 40,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
