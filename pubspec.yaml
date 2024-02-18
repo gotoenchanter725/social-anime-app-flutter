@@ -105,6 +105,7 @@ dependencies:
   http_parser: ^4.0.2
   mime: ^1.0.4
   path: ^1.8.3
+  video_player: ^2.8.2
   firebase_core: ^2.25.4
   firebase_messaging: ^14.7.15
   firebase_analytics: ^10.8.5
@@ -112,7 +113,6 @@ dependencies:
   app_tracking_transparency: ^2.0.4
   newton_particles: ^0.1.7
   cached_network_image: ^3.3.1
-  video_player: ^2.8.2
 
   flutter_localizations:
     sdk: flutter
