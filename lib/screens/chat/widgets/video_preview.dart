@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:senpai/models/chat/chat_message.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:video_player/video_player.dart';
 
 class AttachedVideoViewer extends StatefulWidget {
@@ -50,7 +52,7 @@ class _AttachedVideoViewerState extends State<AttachedVideoViewer> {
     super.dispose();
   }
 
-  Future<void> navigateToViewer() async {
+  Future<void> navigateToViewer(BuildContext context) async {
     Future.delayed(
       Duration(
         milliseconds: MediaQuery.of(context).viewInsets.bottom > 0 ? 300 : 0,
@@ -59,7 +61,12 @@ class _AttachedVideoViewerState extends State<AttachedVideoViewer> {
         if (!mounted) {
           return;
         }
-        // TODO change route to the video viewer
+        context.router.push(
+          VideoViewerRoute(
+            videoUrl: widget.videoUrl,
+            controllable: true,
+          ),
+        );
       },
     );
   }
@@ -72,7 +79,9 @@ class _AttachedVideoViewerState extends State<AttachedVideoViewer> {
       alignment: Alignment.center,
       children: [
         GestureDetector(
-          onTap: navigateToViewer,
+          onTap: () {
+            navigateToViewer(context);
+          },
           child: ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
             child: Stack(
@@ -103,7 +112,9 @@ class _AttachedVideoViewerState extends State<AttachedVideoViewer> {
           foregroundColor: Colors.black87,
           radius: 25,
           child: GestureDetector(
-            onTap: navigateToViewer,
+            onTap: () {
+              navigateToViewer(context);
+            },
             child: const Icon(
               Icons.play_arrow_rounded,
               size: 40,

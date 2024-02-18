@@ -8,10 +8,10 @@ import 'package:video_player/video_player.dart';
 class VideoViewerPage extends StatefulWidget {
   const VideoViewerPage({
     super.key,
-    required this.video,
+    required this.videoUrl,
     required this.controllable,
   });
-  final File video;
+  final String videoUrl;
   final bool controllable;
 
   @override
@@ -25,7 +25,14 @@ class _VideoViewerState extends State<VideoViewerPage> {
 
   @override
   void initState() {
-    videoController = VideoPlayerController.file(widget.video);
+    super.initState();
+    // Determine if the URL is for a network video or a local file
+    Uri uri = Uri.parse(widget.videoUrl);
+    if (uri.scheme.contains('http')) {
+      videoController = VideoPlayerController.networkUrl(uri);
+    } else {
+      videoController = VideoPlayerController.file(File(widget.videoUrl));
+    }
     videoController.initialize().then((value) {
       if (widget.controllable) {
         videoController.play();
@@ -35,8 +42,6 @@ class _VideoViewerState extends State<VideoViewerPage> {
       setState(() {});
     });
     videoController.addListener(playerListener);
-
-    super.initState();
   }
 
   @override

@@ -270,7 +270,7 @@ abstract class _$AppRouter extends RootStackRouter {
         routeData: routeData,
         child: VideoViewerPage(
           key: args.key,
-          video: args.video,
+          videoUrl: args.videoUrl,
           controllable: args.controllable,
         ),
       );
@@ -1197,14 +1197,14 @@ class VerifyPhotoRouteArgs {
 class VideoViewerRoute extends PageRouteInfo<VideoViewerRouteArgs> {
   VideoViewerRoute({
     Key? key,
-    required File video,
+    required String videoUrl,
     required bool controllable,
     List<PageRouteInfo>? children,
   }) : super(
           VideoViewerRoute.name,
           args: VideoViewerRouteArgs(
             key: key,
-            video: video,
+            videoUrl: videoUrl,
             controllable: controllable,
           ),
           initialChildren: children,
@@ -1219,19 +1219,19 @@ class VideoViewerRoute extends PageRouteInfo<VideoViewerRouteArgs> {
 class VideoViewerRouteArgs {
   const VideoViewerRouteArgs({
     this.key,
-    required this.video,
+    required this.videoUrl,
     required this.controllable,
   });
 
   final Key? key;
 
-  final File video;
+  final String videoUrl;
 
   final bool controllable;
 
   @override
   String toString() {
-    return 'VideoViewerRouteArgs{key: $key, video: $video, controllable: $controllable}';
+    return 'VideoViewerRouteArgs{key: $key, videoUrl: $videoUrl, controllable: $controllable}';
   }
 }
 
