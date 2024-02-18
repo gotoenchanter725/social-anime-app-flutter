@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:senpai/core/widgets/anime/anime_tile.dart';
 import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
+import 'package:senpai/screens/chat/widgets/video_message.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -78,6 +79,10 @@ class OutgoingMessage extends StatelessWidget {
       return _buildPhotoMessage(context);
     }
 
+    if (message.attachmentType == AttachmentType.video) {
+      return _buildVideoMessage(context);
+    }
+
     return const SizedBox.shrink();
   }
 
@@ -85,6 +90,25 @@ class OutgoingMessage extends StatelessWidget {
     return _buildChatBubble(
       context,
       _buildPhotoWidget(context),
+    );
+  }
+
+  Widget _buildVideoMessage(BuildContext context) {
+    return _buildChatBubble(
+      context,
+      _buildVideoWidget(context),
+    );
+  }
+
+  Widget _buildVideoWidget(BuildContext context) {
+    return Container(
+      width: getSize(context).width * 0.7,
+      height: getSize(context).width * 0.7,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular($constants.corners.lg),
+        color: $constants.palette.grey,
+      ),
+      child: VideoMessageWidget(videoPath: message.attachment!),
     );
   }
 
