@@ -7,14 +7,14 @@ import 'package:video_player/video_player.dart';
 class AttachedVideoViewer extends StatefulWidget {
   final double width;
   final double height;
-  final File video;
+  final String videoUrl;
   final ChatMessage message;
 
   const AttachedVideoViewer({
     super.key,
     required this.width,
     required this.height,
-    required this.video,
+    required this.videoUrl,
     required this.message,
   });
 
@@ -27,8 +27,27 @@ class _AttachedVideoViewerState extends State<AttachedVideoViewer> {
 
   @override
   void initState() {
-    videoController = VideoPlayerController.file(widget.video);
     super.initState();
+    // Determine if the URL is for a network video or a local file
+    Uri uri = Uri.parse(widget.videoUrl);
+    if (uri.scheme.contains('http')) {
+      videoController = VideoPlayerController.networkUrl(uri);
+    } else {
+      videoController = VideoPlayerController.file(File(widget.videoUrl));
+    }
+
+    // Initialize the controller and update the UI when video is ready
+    videoController.initialize().then((_) {
+      if (mounted) {
+        setState(() {});
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    videoController.dispose();
+    super.dispose();
   }
 
   Future<void> navigateToViewer() async {
