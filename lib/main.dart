@@ -68,6 +68,12 @@ Future<void> main() async {
       sound: true,
     );
 
+    final apnsToken = await FirebaseMessaging.instance.getAPNSToken();
+    if (apnsToken != null) {
+      // APNS token is available, make FCM plugin API requests...
+      logIt.debug('APN Token: $apnsToken');
+    }
+
     String? token = await messaging.getToken();
     if (env.debug) {
       logIt.debug('Token: $token');

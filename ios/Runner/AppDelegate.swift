@@ -1,6 +1,8 @@
 import UIKit
 import Flutter
 import flutter_local_notifications
+import Firebase
+import FirebaseMessaging
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -20,4 +22,5 @@ import flutter_local_notifications
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
+
 }
