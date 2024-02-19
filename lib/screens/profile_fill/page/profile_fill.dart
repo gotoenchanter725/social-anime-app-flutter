@@ -33,13 +33,16 @@ class ProfileFillPage extends StatelessWidget {
         ),
         BlocProvider(create: (_) => getIt<UpdateUserBloc>()),
       ],
-      child: Scaffold(
-        backgroundColor: $constants.palette.darkBlue,
-        body: Stack(
-          children: [
-            const ProfileFillContent(),
-            _buildUpdateUserListeners(),
-          ],
+      child: PopScope(
+        canPop: false,
+        child: Scaffold(
+          backgroundColor: $constants.palette.darkBlue,
+          body: Stack(
+            children: [
+              const ProfileFillContent(),
+              _buildUpdateUserListeners(),
+            ],
+          ),
         ),
       ),
     );
