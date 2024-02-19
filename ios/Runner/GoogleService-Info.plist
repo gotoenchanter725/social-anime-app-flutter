@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>makeshift.software.inc.senpai</string>
+	<string>com.senpaiapp.com</string>
 	<key>PROJECT_ID</key>
 	<string>senpai-536b6</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:598331345581:ios:ec459fb0759fd158dc9424</string>
+	<string>1:598331345581:ios:78ee885dab8fcf30dc9424</string>
 </dict>
 </plist>
