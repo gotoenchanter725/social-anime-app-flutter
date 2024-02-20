@@ -9,6 +9,7 @@ import 'package:senpai/screens/profile_fill/occupation/bloc/universities_bloc/un
 import 'package:senpai/screens/profile_fill/widgets/custom_close_button.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 
 class UniversityDialog extends StatelessWidget {
   const UniversityDialog({super.key});
@@ -93,13 +94,17 @@ class UniversityDialog extends StatelessWidget {
           placeholder: R.strings.universityName,
           controller: bloc.universityController,
           onTextChanged: (String university) {
-            bloc.add(OnUniversityChangedEvent(university: university));
+            EasyDebounce.debounce(
+              'OnUniversityChangedEvent',
+              const Duration(milliseconds: 1000),
+              () {
+                bloc.add(OnUniversityChangedEvent(university: university));
+              },
+            );
           },
           errorText: R.strings.invalidUniversityNameError,
           isError: state is ErrorUniversityState ? state.isEnabled : false,
-          isValid: state is ValidUniversityState
-              ? true
-              : bloc.universityController.text.isNotEmpty,
+          isValid: state is ValidUniversityState ? true : bloc.universityController.text.isNotEmpty,
         );
       },
     );
@@ -110,9 +115,8 @@ class UniversityDialog extends StatelessWidget {
 
     return BlocBuilder<UniversitiesBloc, UniversitiesState>(
       builder: (context, state) {
-        final errorMessage = state is ErrorUniversitiesState && state.isEnabled
-            ? state.message
-            : '';
+        final errorMessage =
+            state is ErrorUniversitiesState && state.isEnabled ? state.message : '';
         if (errorMessage.isNotEmpty) {
           return Center(child: Text(errorMessage));
         }
