@@ -114,6 +114,7 @@ dependencies:
   app_tracking_transparency: ^2.0.4
   newton_particles: ^0.1.7
   cached_network_image: ^3.3.1
+  easy_debounce: 2.0.3
 
   flutter_localizations:
     sdk: flutter
@@ -140,7 +141,6 @@ dev_dependencies:
   slang_build_runner: ^3.22.0
   r_resources: ^1.0.1
   flutter_launcher_icons: ^0.13.1
-  easy_debounce: 2.0.3
 
 flutter_icons:
   android: "launcher_icon"
