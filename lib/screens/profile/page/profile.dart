@@ -48,104 +48,142 @@ class ProfilePage extends StatelessWidget {
   }
 
   Widget _buildFetchUserListeners() {
-    return BlocBuilder<FetchUserBloc, QueryState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: (result) => const SenpaiLoading(),
-            loaded: (data, result) {
-              if (result.data == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              } else {
-                final bloc = BlocProvider.of<ProfileBloc>(context);
-                UserProfileModel user = UserProfileModel.fromJson(
-                  result.data!["fetchUser"],
-                );
-                print("user profile data: $user");
-                bloc.add(OnFetchUser(user: user));
-              }
-              return const SizedBox.shrink();
-            },
-            error: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+    return BlocListener<FetchUserBloc, QueryState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: (result) {},
+          error: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          loaded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            UserProfileModel? user;
+            try {
+              user = UserProfileModel.fromJson(result.data!["fetchUser"]);
+              final bloc = BlocProvider.of<ProfileBloc>(context);
+              bloc.add(OnFetchUser(user: user));
+            } catch (e) {
+              logIt.error("Error accessing fetchUser from response: $e");
+              user = null;
+            }
+            if (user == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<FetchUserBloc, QueryState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildFetchVerifyRequestsListeners() {
-    return BlocBuilder<FetchVerifyRequestsBloc, QueryState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: (result) => const SenpaiLoading(),
-            loaded: (data, result) {
-              if (result.data == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              } else {
-                final bloc = BlocProvider.of<ProfileBloc>(context);
-                List<dynamic> verifyRequests =
-                    result.data!["fetchVerifyRequests"];
-
-                if (verifyRequests.isNotEmpty) {
-                  List<UserVerifyModel> list = verifyRequests
-                      .map((e) => UserVerifyModel.fromJson(e))
-                      .toList();
-                  final userID = int.parse(bloc.userID);
-                  final user = list.firstWhere(
-                    (user) => user.userId == userID,
-                    orElse: () => UserVerifyModel(userId: userID, status: ''),
-                  );
-                  bloc.add(OnChangeUserStatus(
-                    user.status == UserVerifyStatus.pending.name,
-                  ));
-                }
-              }
-
-              return const SizedBox.shrink();
-            },
-            error: (error, result) {
+    return BlocListener<FetchVerifyRequestsBloc, QueryState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: (result) {},
+          error: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          loaded: (data, result) {
+            final response = result.data;
+            if (response == null) {
               showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            List<dynamic>? verifyRequests;
+            try {
+              verifyRequests = response["fetchVerifyRequests"];
+
+              final bloc = BlocProvider.of<ProfileBloc>(context);
+              if (verifyRequests != null && verifyRequests.isNotEmpty) {
+                List<UserVerifyModel> list = verifyRequests
+                    .map((e) => UserVerifyModel.fromJson(e))
+                    .toList();
+                final userID = int.parse(bloc.userID);
+                final user = list.firstWhere(
+                  (user) => user.userId == userID,
+                  orElse: () => UserVerifyModel(userId: userID, status: ''),
+                );
+                bloc.add(OnChangeUserStatus(
+                  user.status == UserVerifyStatus.pending.name,
+                ));
+              }
+            } catch (e) {
+              logIt.error(
+                  "Error accessing fetchVerifyRequests from response: $e");
+              verifyRequests = null;
+            }
+            if (verifyRequests == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A fetchVerifyRequests with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<FetchVerifyRequestsBloc, QueryState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildGrantUserPremiumBlocListeners() {
-    return BlocBuilder<GrantUserPremiumBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-              if (response == null) {
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-              final user = response["grantUserPremium"]["user"];
-              if (user == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user with error");
-                return const SizedBox.shrink();
-              }
+    return BlocListener<GrantUserPremiumBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: () {},
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            dynamic user;
+            try {
+              user = response["grantUserPremium"]["user"];
               final bloc = BlocProvider.of<ProfileBloc>(context);
               final fetchUserBloc = BlocProvider.of<FetchUserBloc>(context);
               fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
-
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error("Error accessing grantUserPremium from response: $e");
+              user = null;
+            }
+            if (user == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<GrantUserPremiumBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 }
