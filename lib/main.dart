@@ -76,7 +76,7 @@ Future<void> main() async {
 
     String? token = await messaging.getToken();
     if (env.debug) {
-      logIt.debug('Token: $token');
+      logIt.debug('Firebase Token: $token');
     }
 
     // Set the background messaging handler early on, as a named top-level function
