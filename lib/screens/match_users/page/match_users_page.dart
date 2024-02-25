@@ -45,36 +45,43 @@ class MatchUsersPage extends StatelessWidget {
   }
 
   Widget _buildSendMessageBlocListeners() {
-    return BlocBuilder<SendMessageBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-              final model = response["sendMessage"]["message"];
-              if (model == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user with error");
-                return const SizedBox.shrink();
-              } else {
-                final bloc = BlocProvider.of<MatchUsersBloc>(context);
-                context.router.pop(bloc.likeUserModel.match?.matchee);
-              }
-
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+    return BlocListener<SendMessageBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got recorded");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["sendMessage"]["message"];
+              final bloc = BlocProvider.of<MatchUsersBloc>(context);
+              context.router.pop(bloc.likeUserModel.match?.matchee);
+            } catch (e) {
+              logIt.error(
+                  "Error accessing sendMessage or message from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<SendMessageBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 }
