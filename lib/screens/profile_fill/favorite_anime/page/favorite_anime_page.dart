@@ -64,30 +64,46 @@ class FavoriteAnimePage extends StatelessWidget {
   }
 
   Widget _buildFetchAnimeListeners() {
-    return BlocBuilder<FetchAnimeBloc, QueryState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: (result) => const SenpaiLoading(),
-            loaded: (data, result) {
-              if (result.data == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              } else {
-                final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
-                List<dynamic>? animes = result.data!["fetchAnime"];
-                final animeList =
-                    animes!.map((e) => AnimeModel.fromJson(e)).toList();
-                bloc.add(OnFetchFavoriteAnimeListEvent(animeList: animeList));
-              }
-              return const SizedBox.shrink();
-            },
-            error: (error, result) {
+    return BlocListener<FetchAnimeBloc, QueryState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: (result) {},
+          error: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          loaded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A successful empty response just got recorded");
+              return;
+            }
+            List<dynamic>? animes;
+            try {
+              animes = result.data!["fetchAnime"];
+              final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
+              final animeList =
+                  animes!.map((e) => AnimeModel.fromJson(e)).toList();
+              bloc.add(OnFetchFavoriteAnimeListEvent(animeList: animeList));
+            } catch (e) {
+              logIt.error("Error accessing FetchAnime from response: $e");
+              animes = null;
+            }
+            if (animes == null) {
               showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+              logIt.error("A anime list with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<FetchAnimeBloc, QueryState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 }
