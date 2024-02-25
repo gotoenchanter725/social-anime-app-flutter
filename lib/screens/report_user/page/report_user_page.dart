@@ -10,10 +10,9 @@ import 'package:senpai/models/report_user/report_user_params.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/report_user/bloc/report_bloc.dart';
 import 'package:senpai/screens/report_user/widgets/report_user_content.dart';
+import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
-
-import '../../../utils/constants.dart';
 
 @RoutePage()
 class ReportUserPage extends StatelessWidget {
@@ -50,32 +49,44 @@ class ReportUserPage extends StatelessWidget {
   }
 
   Widget _buildReportUserListeners() {
-    return BlocBuilder<ReportUserBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-              if (response == null) {
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-              final blocked = response["reportUser"]["blocked"];
-              if (blocked == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user with error");
-                return const SizedBox.shrink();
-              } else {
+    return BlocListener<ReportUserBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["reportUser"]["blocked"];
+              if (model != null) {
                 context.router.replaceAll([const HomeRoute()]);
               }
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error(
+                  "Error accessing submitVerifyRequest or user from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<ReportUserBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 }
