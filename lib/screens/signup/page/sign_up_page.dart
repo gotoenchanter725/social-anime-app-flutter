@@ -48,84 +48,106 @@ class SignUpPage extends StatelessWidget {
   }
 
   Widget _buildCreateUserListeners() {
-    return BlocBuilder<CreateUserBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              if (error.graphqlErrors.isNotEmpty) {
-                _showSnackBarError(
-                  context,
-                  R.strings.alreadyHasAccount,
-                  isWarning: true,
-                );
-              } else {
-                _showSnackBarError(context, R.strings.serverError);
+    return BlocListener<CreateUserBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            if (error.graphqlErrors.isNotEmpty) {
+              _showSnackBarError(
+                context,
+                R.strings.alreadyHasAccount,
+                isWarning: true,
+              );
+            } else {
+              _showSnackBarError(context, R.strings.serverError);
+            }
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got recorded");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["createUser"]["user"];
+              if (model != null) {
+                String phone = model["phone"];
+                String id = model["id"];
+                context.router.push(VerifyPhoneRoute(phone: phone, id: id));
               }
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              }
-
-              String phone = response["createUser"]["user"]["phone"];
-              String id = response["createUser"]["user"]["id"];
-              context.router.push(VerifyPhoneRoute(phone: phone, id: id));
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error(
+                  "Error accessing createUser or user from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              _showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<CreateUserBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildSignInListeners() {
-    return BlocBuilder<ResendVerificationCodeBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              if (error.graphqlErrors.isNotEmpty) {
-                _showSnackBarError(
-                  context,
-                  R.strings.noAccountWithThisNumber,
-                  isWarning: true,
-                );
-              } else {
-                _showSnackBarError(context, R.strings.serverError);
+    return BlocListener<ResendVerificationCodeBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            if (error.graphqlErrors.isNotEmpty) {
+              _showSnackBarError(
+                context,
+                R.strings.noAccountWithThisNumber,
+                isWarning: true,
+              );
+            } else {
+              _showSnackBarError(context, R.strings.serverError);
+            }
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got recorded");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["resendVerifyText"]["user"];
+              if (model != null) {
+                String phone = model["phone"];
+                String id = model["id"];
+                context.router.push(VerifyPhoneRoute(phone: phone, id: id));
               }
-
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              }
-
-              Map<String, dynamic>? user = response["resendVerifyText"]["user"];
-
-              if (user == null) {
-                _showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user without an account just tried to sign in");
-                return const SizedBox.shrink();
-              }
-
-              String phone = user["phone"];
-              String id = user["id"];
-              context.router.push(VerifyPhoneRoute(phone: phone, id: id));
-
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error(
+                  "Error accessing resendVerifyText or user from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              _showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user without an account just tried to sign in");
+            }
+          },
+        );
       },
+      child: BlocBuilder<ResendVerificationCodeBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
