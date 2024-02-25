@@ -182,7 +182,6 @@ class MatchPage extends StatelessWidget {
     return BlocListener<LikeUserBloc, MutationState>(
       listener: (context, state) {
         state.whenOrNull(
-          loading: () {},
           failed: (error, result) {
             showSnackBarError(context, R.strings.serverError);
           },
@@ -242,7 +241,6 @@ class MatchPage extends StatelessWidget {
     return BlocListener<UndoLikeUserBloc, MutationState>(
       listener: (context, state) {
         state.whenOrNull(
-          loading: () {},
           failed: (error, result) {
             showSnackBarError(context, R.strings.serverError);
           },
@@ -300,7 +298,6 @@ class MatchPage extends StatelessWidget {
     return BlocListener<AddSuperLikesBloc, MutationState>(
       listener: (context, state) {
         state.whenOrNull(
-          loading: () {},
           failed: (error, result) {
             showSnackBarError(context, R.strings.serverError);
           },
