@@ -51,7 +51,6 @@ class ProfilePage extends StatelessWidget {
     return BlocListener<FetchUserBloc, QueryState>(
       listener: (context, state) {
         state.whenOrNull(
-          loading: (result) {},
           error: (error, result) {
             showSnackBarError(context, R.strings.serverError);
           },
@@ -93,7 +92,6 @@ class ProfilePage extends StatelessWidget {
     return BlocListener<FetchVerifyRequestsBloc, QueryState>(
       listener: (context, state) {
         state.whenOrNull(
-          loading: (result) {},
           error: (error, result) {
             showSnackBarError(context, R.strings.serverError);
           },
@@ -149,7 +147,6 @@ class ProfilePage extends StatelessWidget {
     return BlocListener<GrantUserPremiumBloc, MutationState>(
       listener: (context, state) {
         state.whenOrNull(
-          loading: () {},
           failed: (error, result) {
             showSnackBarError(context, R.strings.serverError);
           },
