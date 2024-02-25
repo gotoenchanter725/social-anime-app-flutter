@@ -136,30 +136,21 @@ class EditSpotifyMusicPage extends StatelessWidget {
   }
 
   Widget _buildAddFavoriteMusicListeners() {
-    return BlocBuilder<AddFavoriteMusicBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-
-              dynamic user = response["addFavoriteMusic"]["user"];
-
-              if (user.isEmpty) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user without an music tried to again");
-                return const SizedBox.shrink();
-              }
+    return BlocListener<AddFavoriteMusicBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            dynamic user;
+            try {
+              user = response["addFavoriteMusic"]["user"];
               if (isSpotifyArtists) {
                 final artistsBloc =
                     BlocProvider.of<EditSpotifyArtistsBloc>(context);
@@ -169,33 +160,45 @@ class EditSpotifyMusicPage extends StatelessWidget {
                     BlocProvider.of<EditSpotifyTracksBloc>(context);
                 tracksBloc.add(OnUpdateFavoriteTracksEvent());
               }
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error("Error accessing addFavoriteMusic from response: $e");
+              user = null;
+            }
+            if (user == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user without an favorite Music tried to again");
+            }
+          },
+        );
       },
+      child: BlocBuilder<AddFavoriteMusicBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildDeleteFavoriteMusicListeners() {
-    return BlocBuilder<DeleteFavoriteMusicBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-
-              final deleted = response["deleteFavoriteMusic"]["deleted"];
-              if (deleted == true) {
+    return BlocListener<DeleteFavoriteMusicBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["deleteFavoriteMusic"]["deleted"];
+              if (model == true) {
                 if (isSpotifyArtists) {
                   final artistsBloc =
                       BlocProvider.of<EditSpotifyArtistsBloc>(context);
@@ -205,15 +208,27 @@ class EditSpotifyMusicPage extends StatelessWidget {
                       BlocProvider.of<EditSpotifyTracksBloc>(context);
                   tracksBloc.add(OnDeleteFavoriteTracksEvent());
                 }
-
-                return const SizedBox.shrink();
-              } else {
-                showSnackBarError(context, R.strings.serverError);
               }
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error(
+                  "Error accessing deleteFavoriteMusic or deleted from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A deleteFavoriteMusic with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<DeleteFavoriteMusicBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 }
