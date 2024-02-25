@@ -83,202 +83,248 @@ class EditProfilePage extends StatelessWidget {
   }
 
   Widget _buildFetchUserListeners() {
-    return BlocBuilder<FetchUserBloc, QueryState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: (result) => const SenpaiLoading(),
-            loaded: (data, result) {
-              if (result.data == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              } else {
-                final bloc = BlocProvider.of<EditProfileBloc>(context);
-                UserProfileModel user =
-                    UserProfileModel.fromJson(result.data!["fetchUser"]);
-                bloc.add(OnFetchUser(user: user));
-                final photosBloc = BlocProvider.of<PhotosBloc>(context);
-
-                photosBloc.add(
-                  OnChangeUploadedPhotosFromServerEvent(
-                    user.gallery?.photos ?? [],
-                  ),
-                );
-              }
-              return const SizedBox.shrink();
-            },
-            error: (error, result) {
+    return BlocListener<FetchUserBloc, QueryState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: (result) {},
+          error: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          loaded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            UserProfileModel? user;
+            try {
+              user = UserProfileModel.fromJson(result.data!["fetchUser"]);
+              final bloc = BlocProvider.of<EditProfileBloc>(context);
+              bloc.add(OnFetchUser(user: user));
+              final photosBloc = BlocProvider.of<PhotosBloc>(context);
+              photosBloc.add(
+                OnChangeUploadedPhotosFromServerEvent(
+                  user.gallery?.photos ?? [],
+                ),
+              );
+            } catch (e) {
+              logIt.error("Error accessing fetchUser from response: $e");
+              user = null;
+            }
+            if (user == null) {
               showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<FetchUserBloc, QueryState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildUpdateUserListeners() {
-    return BlocBuilder<UpdateUserBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-
-              final user = response["updateUser"]["user"];
-              if (user == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user with error");
-                return const SizedBox.shrink();
-              }
+    return BlocListener<UpdateUserBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["updateUser"]["user"];
               context.router.pop();
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error(
+                  "Error accessing updateUser or user from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<UpdateUserBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildUploadPhotoListeners() {
-    return BlocConsumer<UploadPhotoBloc, MutationState>(
+    return BlocListener<UploadPhotoBloc, MutationState>(
       listener: (context, state) {
-        state.maybeWhen(
+        state.whenOrNull(
           loading: () {
             _uploadingPhotoDialog(context);
           },
-          orElse: () {},
-        );
-      },
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              final bloc = BlocProvider.of<PhotosBloc>(context);
-              if (bloc.isShowProgressDialog) {
-                context.router.pop();
-              }
-              bloc.add(OnRestartShowPhotosEvent());
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
+          failed: (error, result) {
+            final bloc = BlocProvider.of<PhotosBloc>(context);
+            if (bloc.isShowProgressDialog) {
+              context.router.pop();
+            }
+            bloc.add(OnRestartShowPhotosEvent());
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got got recorded");
+              return;
+            }
+            List<dynamic>? photos;
+            try {
               final bloc = BlocProvider.of<PhotosBloc>(context);
               bloc.add(OnChangeUploadedPhotosCountEvent());
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              }
-              List<dynamic>? photos =
-                  response["uploadPhoto"]["user"]["gallery"]["photos"];
-              if (photos == null) {
-                showSnackBarError(context, R.strings.noPhotoFoundText);
-                logIt.error("A user without photos");
-                return const SizedBox.shrink();
-              }
+              photos =
+                  response["uploadPhoto"]["user"]["gallery"]["photos"] ?? [];
               final uploadPhotos =
-                  photos.map((e) => UploadPhotoModel.fromJson(e)).toList();
+                  photos!.map((e) => UploadPhotoModel.fromJson(e)).toList();
               bloc.add(OnChangeUploadedPhotosFromServerEvent(uploadPhotos));
 
               final blocEdit = BlocProvider.of<EditProfileBloc>(context);
               blocEdit.add(OnChangePhotosListEvent(photos: uploadPhotos));
-
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error("Error accessing uploadPhoto from response: $e");
+              photos = null;
+            }
+            if (photos == null) {
+              showSnackBarError(context, R.strings.noPhotoFoundText);
+              logIt.error("A user without photos");
+            }
+          },
+        );
       },
+      child: BlocBuilder<UploadPhotoBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildDeletePhotoListeners() {
-    return BlocBuilder<DeletePhotoBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-          loading: () => const SenpaiLoading(),
-          succeeded: (data, result) {
-            final response = result.data;
-
-            final bloc = BlocProvider.of<PhotosBloc>(context);
-            bloc.add(OnChangeUploadedPhotosCountEvent());
-
-            if (response == null) {
-              // handle this fatal error
-              logIt.wtf("A successful empty response just got recorded");
-              return const SizedBox.shrink();
-            }
-            bool deleted = response["deletePhoto"]["deleted"];
-            if (deleted == true) {
-              List<dynamic>? photos =
-                  response["deletePhoto"]["gallery"]["photos"];
-              if (photos == null) {
-                showSnackBarError(context, R.strings.noPhotoFoundText);
-                logIt.error("A user without photos");
-                return const SizedBox.shrink();
-              }
-              final uploadPhotos =
-                  photos.map((e) => UploadPhotoModel.fromJson(e)).toList();
-              bloc.add(OnChangeUploadedPhotosFromServerEvent(uploadPhotos));
-              final blocEdit = BlocProvider.of<EditProfileBloc>(context);
-              blocEdit.add(OnChangePhotosListEvent(photos: uploadPhotos));
-              return const SizedBox.shrink();
-            } else {
-              showSnackBarError(context, R.strings.serverError);
-            }
-            return const SizedBox.shrink();
-          },
+    return BlocListener<DeletePhotoBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
           failed: (error, result) {
             showSnackBarError(context, R.strings.serverError);
-            return const SizedBox.shrink();
           },
-          orElse: () => const SizedBox.shrink(),
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got got recorded");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["deletePhoto"];
+              bool deleted = model["deleted"];
+              final bloc = BlocProvider.of<PhotosBloc>(context);
+              bloc.add(OnChangeUploadedPhotosCountEvent());
+              if (deleted == true) {
+                List<dynamic> photos = model["gallery"]["photos"] ?? [];
+                if (photos.isEmpty) {
+                  showSnackBarError(context, R.strings.noPhotoFoundText);
+                  logIt.error("A user without photos");
+                }
+                final uploadPhotos =
+                    photos.map((e) => UploadPhotoModel.fromJson(e)).toList();
+                bloc.add(OnChangeUploadedPhotosFromServerEvent(uploadPhotos));
+                final blocEdit = BlocProvider.of<EditProfileBloc>(context);
+                blocEdit.add(OnChangePhotosListEvent(photos: uploadPhotos));
+              } else {
+                showSnackBarError(context, R.strings.serverError);
+              }
+            } catch (e) {
+              logIt.error("Error accessing deletePhoto from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A user without photos");
+            }
+          },
         );
       },
+      child: BlocBuilder<DeletePhotoBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildReorderPhotosListeners() {
-    return BlocBuilder<ReorderPhotosBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              final bloc = BlocProvider.of<PhotosBloc>(context);
-              if (bloc.isShowProgressDialog) {
-                context.router.pop();
-              }
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
+    return BlocListener<ReorderPhotosBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            final bloc = BlocProvider.of<PhotosBloc>(context);
+            if (bloc.isShowProgressDialog) {
+              context.router.pop();
+            }
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got got recorded");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["reorderPhotos"];
               final bloc = BlocProvider.of<PhotosBloc>(context);
               bloc.add(OnChangeUploadedPhotosCountEvent());
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              }
               final blocEdit = BlocProvider.of<EditProfileBloc>(context);
               blocEdit.add(OnChangePhotosListEvent(
                 photos: bloc.uploadedPhotos,
               ));
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error("Error accessing ReorderPhotos from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.noPhotoFoundText);
+              logIt.error("A user without photos");
+            }
+          },
+        );
       },
+      child: BlocBuilder<ReorderPhotosBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
