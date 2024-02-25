@@ -69,59 +69,86 @@ class PreviewProfilePage extends StatelessWidget {
   }
 
   Widget _buildFetchUserListeners() {
-    return BlocBuilder<FetchUserBloc, QueryState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: (result) => const SenpaiLoading(),
-            loaded: (data, result) {
-              if (result.data == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              } else {
-                final bloc = BlocProvider.of<PreviewProfileBloc>(context);
-                UserProfileModel user =
-                    UserProfileModel.fromJson(result.data!["fetchUser"]);
-                bloc.add(OnPreviewProfileInitEvent(user: user));
-              }
-              return const SizedBox.shrink();
-            },
-            error: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+    return BlocListener<FetchUserBloc, QueryState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          error: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          loaded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            UserProfileModel? user;
+            try {
+              final bloc = BlocProvider.of<PreviewProfileBloc>(context);
+              user = UserProfileModel.fromJson(response["fetchUser"]);
+              bloc.add(OnPreviewProfileInitEvent(user: user));
+            } catch (e) {
+              logIt.error("Error accessing fetchUser from response: $e");
+              user = null;
+            }
+            if (user == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<FetchUserBloc, QueryState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildDistanceBetweenUsersListeners() {
-    return BlocBuilder<GetDistanceBetweenUsersBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response with distance");
-                return const SizedBox.shrink();
-              }
-              final bloc = BlocProvider.of<PreviewProfileBloc>(context);
-              final data = response["getDistanceBetweenUsers"];
+    return BlocListener<GetDistanceBetweenUsersBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got distance");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["getDistanceBetweenUsers"];
               DistanceBetweenUsersModel distance =
-                  DistanceBetweenUsersModel.fromJson(data);
-
+                  DistanceBetweenUsersModel.fromJson(model);
+              final bloc = BlocProvider.of<PreviewProfileBloc>(context);
               bloc.add(OnFetchDistanceBeetwenUsersEvent(distance: distance));
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error(
+                  "Error accessing DistanceBetweenUsers from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<GetDistanceBetweenUsersBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 }
