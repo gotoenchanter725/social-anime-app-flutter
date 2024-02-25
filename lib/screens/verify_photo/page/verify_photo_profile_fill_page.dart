@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
@@ -16,6 +15,7 @@ import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
 
 import 'package:senpai/screens/verify_photo/widgets/verify_photo_content.dart';
+import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
 class VerifyPhotoProfileFillPage extends StatelessWidget {
@@ -57,131 +57,130 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
   }
 
   Widget _buildVerifyPhotoUserListeners() {
-    return BlocBuilder<VerifyPhotoUserBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              _showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
+    return BlocListener<VerifyPhotoUserBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["submitVerifyRequest"]["user"];
               final bloc = BlocProvider.of<VerifyPhotoBloc>(context);
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-              final user = response["submitVerifyRequest"]["user"];
-              if (user == null) {
-                _showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user with error");
-                return const SizedBox.shrink();
-              }
               bloc.add(OnOpenStartMatchSceenEvent());
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error(
+                  "Error accessing submitVerifyRequest or user from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<VerifyPhotoUserBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildUpdateUserListeners() {
-    return BlocConsumer<UpdateUserBloc, MutationState>(
+    return BlocListener<UpdateUserBloc, MutationState>(
       listener: (context, state) {
-        state.maybeWhen(
-          loading: () {},
-          orElse: () {},
-        );
-      },
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              _showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-
-              final user = response["updateUser"]["user"];
-              if (user == null) {
-                _showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user with error");
-                return const SizedBox.shrink();
-              }
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["updateUser"]["user"];
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 context.router.replaceAll([HomeRoute()]);
               });
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error(
+                  "Error accessing updateUser or user from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<UpdateUserBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildAddAnimeListListeners() {
-    return BlocBuilder<AddFavoriteAnimeBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-          loading: () => const SenpaiLoading(),
+    return BlocListener<AddFavoriteAnimeBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
           succeeded: (data, result) {
             final response = result.data;
-
             if (response == null) {
-              // handle this fatal error
               logIt.wtf("A successful empty response just got recorded");
-              return const SizedBox.shrink();
+              return;
             }
-            List<dynamic> listAnime =
-                response["addFavoriteAnime"]["user"]["animes"];
-
-            if (listAnime.isEmpty) {
-              _showSnackBarError(context, R.strings.nullUser);
+            List<dynamic>? animes;
+            try {
+              animes = response["addFavoriteAnime"]["user"]["animes"] ?? [];
+              if (animes!.isEmpty) {
+                showSnackBarError(context, R.strings.serverError);
+                logIt.error("A user without an animes tried to again");
+              }
+              final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
+              final serverBloc = BlocProvider.of<UpdateUserBloc>(context);
+              serverBloc.updateUserInfo(user: blocProfileFill.user);
+            } catch (e) {
+              logIt.error("Error accessing AddFavoriteAnime from response: $e");
+              animes = null;
+            }
+            if (animes == null) {
+              showSnackBarError(context, R.strings.serverError);
               logIt.error("A user without an animes tried to again");
-              return const SizedBox.shrink();
             }
-            final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
-            final serverBloc = BlocProvider.of<UpdateUserBloc>(context);
-            serverBloc.updateUserInfo(user: blocProfileFill.user);
-            return const SizedBox.shrink();
           },
-          failed: (error, result) {
-            _showSnackBarError(context, R.strings.serverError);
-            return const SizedBox.shrink();
-          },
-          orElse: () => const SizedBox.shrink(),
         );
       },
-    );
-  }
-
-  _showSnackBarError(BuildContext context, String message) {
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) {
-        ScaffoldMessenger.of(context)
-          ..hideCurrentSnackBar()
-          ..showSnackBar(
-            SnackBar(
-              elevation: 0,
-              behavior: SnackBarBehavior.floating,
-              backgroundColor: Colors.transparent,
-              content: AwesomeSnackbarContent(
-                title: 'On Snap!',
-                message: message,
-                contentType: ContentType.failure,
-              ),
-            ),
+      child: BlocBuilder<AddFavoriteAnimeBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
           );
-      },
+        },
+      ),
     );
   }
 }
