@@ -78,47 +78,47 @@ class SettingsVerifyPhonePage extends StatelessWidget {
   }
 
   Widget _buildResendVerificationCodeListeners() {
-    return BlocBuilder<ResendVerificationCodeBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              final formBloc = BlocProvider.of<OTPFormBloc>(context);
-              formBloc.add(const OtpFormEvent.failed());
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+    return BlocListener<ResendVerificationCodeBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            final formBloc = BlocProvider.of<OTPFormBloc>(context);
+            formBloc.add(const OtpFormEvent.failed());
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {},
+        );
       },
+      child: BlocBuilder<ResendVerificationCodeBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildResendValidatePhoneBlocListeners() {
-    return BlocBuilder<ValidatePhoneBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              final formBloc = BlocProvider.of<OTPFormBloc>(context);
-              formBloc.add(const OtpFormEvent.failed());
-              showSnackBarError(context, R.strings.serverError);
-
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              }
-
-              String token = response["validatePhone"]["token"];
-              bool hasFilledProfile =
-                  response["validatePhone"]["profileFilled"];
-              UserModel user =
-                  UserModel.fromJson(response["validatePhone"]["user"]);
+    return BlocListener<ValidatePhoneBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got recorded");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["validatePhone"];
+              String token = model["token"];
+              bool hasFilledProfile = model["profileFilled"];
+              UserModel user = UserModel.fromJson(model["user"]);
               final formBloc = BlocProvider.of<OTPFormBloc>(context);
               formBloc.isProfileFilled = hasFilledProfile;
 
@@ -127,10 +127,25 @@ class SettingsVerifyPhonePage extends StatelessWidget {
 
               settingsBloc.add(OnChangeIsVerifyPhone(isVerifyPhone: true));
               context.router.pop();
-              return const SenpaiLoading();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error("Error accessing validatePhone from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A validatePhone with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<ValidatePhoneBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 }
