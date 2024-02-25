@@ -53,34 +53,25 @@ class EditLocationPage extends StatelessWidget {
   }
 
   Widget _buildSetUserLocationListeners() {
-    return BlocBuilder<SetUserLocationBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf(
-                    "A successful empty response just got set user location");
-                return const SizedBox.shrink();
-              }
-
-              final user = response["setUserLocation"]["user"];
-              if (user == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user with error");
-                return const SizedBox.shrink();
-              }
+    return BlocListener<SetUserLocationBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf(
+                  "A successful empty response just got set user location");
+              return;
+            }
+            dynamic user;
+            try {
+              user = response["setUserLocation"]["user"];
 
               LocationUserModel locationUserModel =
                   LocationUserModel.fromJson(user);
-
               editBloc.add(
                 OnUpdateUserLocationEvent(
                   lonlat: locationUserModel.lonlat,
@@ -89,10 +80,25 @@ class EditLocationPage extends StatelessWidget {
                 ),
               );
               context.router.pop();
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error("Error accessing setUserLocation from response: $e");
+              user = null;
+            }
+            if (user == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<SetUserLocationBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 }
