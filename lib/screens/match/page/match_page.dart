@@ -94,92 +94,109 @@ class MatchPage extends StatelessWidget {
   }
 
   Widget _buildFetchUserListeners() {
-    return BlocBuilder<FetchUserBloc, QueryState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: (result) => const SenpaiLoading(),
-            loaded: (data, result) {
-              if (result.data == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              } else {
-                UserProfileModel user = UserProfileModel.fromJson(
-                  result.data!["fetchUser"],
-                );
-
-                final matchBloc = BlocProvider.of<MatchBloc>(context);
-                matchBloc.superLikeCount = user.superLikeCount ?? 0;
-              }
-              return const SizedBox.shrink();
-            },
-            error: (error, result) {
+    return BlocListener<FetchUserBloc, QueryState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: (result) {},
+          error: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          loaded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            UserProfileModel? user;
+            try {
+              user = UserProfileModel.fromJson(response["fetchUser"]);
+              final matchBloc = BlocProvider.of<MatchBloc>(context);
+              matchBloc.superLikeCount = user.superLikeCount ?? 0;
+            } catch (e) {
+              logIt.error("Error accessing fetchUser from response: $e");
+              user = null;
+            }
+            if (user == null) {
               showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<FetchUserBloc, QueryState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildFetchFeedListeners() {
-    return BlocBuilder<FetchFeedBloc, QueryState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: (result) {
-              return const SenpaiLoading();
-            },
-            loaded: (data, result) {
-              if (result.data == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              } else {
-                final bloc = BlocProvider.of<MatchBloc>(context);
-
-                List<dynamic>? users = result.data!["fetchFeed"];
-                final userList =
-                    users!.map((e) => UserProfileModel.fromJson(e)).toList();
-                bloc.add(OnMatchInitEvent(users: userList));
-                return const SizedBox.shrink();
-              }
-            },
-            error: (error, result) {
+    return BlocListener<FetchFeedBloc, QueryState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: (result) {},
+          error: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          loaded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            List<dynamic>? users;
+            try {
+              users = response["fetchFeed"];
+              final userList = users!.map((e) => UserProfileModel.fromJson(e)).toList();
+              final bloc = BlocProvider.of<MatchBloc>(context);
+              bloc.add(OnMatchInitEvent(users: userList));
+            } catch (e) {
+              logIt.error("Error accessing FetchFeed from response: $e");
+              users = null;
+            }
+            if (users == null) {
               showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+              logIt.error("A FetchFeed with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<FetchFeedBloc, QueryState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildLikeUserListeners() {
-    return BlocBuilder<LikeUserBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-              final model = response["likeUser"];
-              if (model == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user with error");
-                return const SizedBox.shrink();
-              }
+    return BlocListener<LikeUserBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["likeUser"];
               final bloc = BlocProvider.of<MatchBloc>(context);
               final serverBloc = BlocProvider.of<FetchFeedBloc>(context);
               final storageBloc = BlocProvider.of<HomeStorageBloc>(context);
-
               LikeUserModel likeUserModel = LikeUserModel.fromJson(model);
               if (likeUserModel.match != null) {
                 context.router
@@ -195,47 +212,67 @@ class MatchPage extends StatelessWidget {
                   );
                 });
               }
-
               if (bloc.cardsSwipeController.currentIndex == bloc.users.length) {
                 bloc.add(OnChangePageEvent(isRefresh: true));
               }
-
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error("Error accessing LikeUser from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<LikeUserBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildUndoLikeUserListeners() {
-    return BlocBuilder<UndoLikeUserBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
+    return BlocListener<UndoLikeUserBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["undoLike"]["undidUser"];
+            } catch (e) {
+              logIt.error(
+                  "Error accessing undoLike or undidUser from response: $e");
+              model = null;
+            }
+            if (model == null) {
               showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-              final model = response["undoLike"]["undidUser"];
-
-              if (model == null) {
-                showSnackBarError(context, R.strings.serverError);
-                logIt.error("A user with error");
-                return const SizedBox.shrink();
-              }
-
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<UndoLikeUserBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
@@ -258,35 +295,42 @@ class MatchPage extends StatelessWidget {
   }
 
   Widget _buildAddSuperLikesBlocListeners() {
-    return BlocBuilder<AddSuperLikesBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-              final superLikeCount =
-                  response["addSuperLikes"]["user"]["superLikeCount"];
-              if (superLikeCount == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user with error");
-                return const SizedBox.shrink();
-              }
+    return BlocListener<AddSuperLikesBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["addSuperLikes"]["user"]["superLikeCount"];
               final matchBloc = BlocProvider.of<MatchBloc>(context);
-              matchBloc.superLikeCount = superLikeCount ?? 0;
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+              matchBloc.superLikeCount = model ?? 0;
+            } catch (e) {
+              logIt.error("Error accessing user or superLikeCount from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<AddSuperLikesBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 }

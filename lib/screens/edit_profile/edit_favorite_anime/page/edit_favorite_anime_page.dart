@@ -76,112 +76,148 @@ class EditFavoriteAnimePage extends StatelessWidget {
   }
 
   Widget _buildFetchAnimeListeners() {
-    return BlocBuilder<FetchAnimeBloc, QueryState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: (result) => const SenpaiLoading(),
-            loaded: (data, result) {
-              if (result.data == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A successful empty response just got recorded");
-                return const SizedBox.shrink();
-              } else {
-                final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
-                List<dynamic>? animes = result.data!["fetchAnime"];
-                final animeList =
-                    animes!.map((e) => AnimeModel.fromJson(e)).toList();
-                bloc.add(OnFetchFavoriteAnimeListEvent(animeList: animeList));
-              }
-              return const SizedBox.shrink();
-            },
-            error: (error, result) {
+    return BlocListener<FetchAnimeBloc, QueryState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: (result) {},
+          error: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          loaded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A successful empty response just got recorded");
+              return;
+            }
+            List<dynamic>? animes;
+            try {
+              animes = result.data!["fetchAnime"];
+              final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
+              final animeList =
+                  animes!.map((e) => AnimeModel.fromJson(e)).toList();
+              bloc.add(OnFetchFavoriteAnimeListEvent(animeList: animeList));
+            } catch (e) {
+              logIt.error("Error accessing FetchAnime from response: $e");
+              animes = null;
+            }
+            if (animes == null) {
               showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+              logIt.error("A anime list with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<FetchAnimeBloc, QueryState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildDeleteAnimeListeners() {
-    return BlocBuilder<DeleteFavoriteAnimeBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-          loading: () => const SenpaiLoading(),
-          succeeded: (data, result) {
-            final response = result.data;
-
-            if (response == null) {
-              // handle this fatal error
-              logIt.wtf("A successful empty response just got recorded");
-              return const SizedBox.shrink();
-            }
-            bool deleted = response["deleteFavoriteAnime"]["deleted"];
-            if (deleted == true) {
-              final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
-              final serverAddAnimesBloc =
-                  BlocProvider.of<AddFavoriteAnimeBloc>(context);
-              int userId = int.parse(editBloc.user.id);
-              if (bloc.selectedAnimeList.isNotEmpty) {
-                final selectedAnimeIds =
-                    bloc.selectedAnimeList.map((anime) => anime.id).toList();
-
-                serverAddAnimesBloc.addFavoriteAnimeList(
-                  userId: userId,
-                  animeIds: selectedAnimeIds,
-                );
-              } else {
-                editBloc.add(OnChangeAnimeListEvent(selectedAnimes: const []));
-              }
-              return const SizedBox.shrink();
-            } else {
-              showSnackBarError(context, R.strings.serverError);
-            }
-            return const SizedBox.shrink();
-          },
+    return BlocListener<DeleteFavoriteAnimeBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
           failed: (error, result) {
             showSnackBarError(context, R.strings.serverError);
-            return const SizedBox.shrink();
           },
-          orElse: () => const SizedBox.shrink(),
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got recorded");
+              return;
+            }
+            dynamic deleted;
+            try {
+              deleted = response["deleteFavoriteAnime"]["deleted"];
+              if (deleted == true) {
+                final bloc = BlocProvider.of<FavoriteAnimeBloc>(context);
+                final serverAddAnimesBloc =
+                    BlocProvider.of<AddFavoriteAnimeBloc>(context);
+                int userId = int.parse(editBloc.user.id);
+                if (bloc.selectedAnimeList.isNotEmpty) {
+                  final selectedAnimeIds =
+                      bloc.selectedAnimeList.map((anime) => anime.id).toList();
+                  serverAddAnimesBloc.addFavoriteAnimeList(
+                    userId: userId,
+                    animeIds: selectedAnimeIds,
+                  );
+                } else {
+                  editBloc
+                      .add(OnChangeAnimeListEvent(selectedAnimes: const []));
+                }
+              } else {
+                deleted = null;
+              }
+            } catch (e) {
+              logIt.error(
+                  "Error accessing deleteFavoriteAnime or deleted from response: $e");
+              deleted = null;
+            }
+            if (deleted == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A anime list with error");
+            }
+          },
         );
       },
+      child: BlocBuilder<DeleteFavoriteAnimeBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildAddAnimeListListeners() {
-    return BlocBuilder<AddFavoriteAnimeBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-          loading: () => const SenpaiLoading(),
-          succeeded: (data, result) {
-            final response = result.data;
-
-            if (response == null) {
-              // handle this fatal error
-              logIt.wtf("A successful empty response just got recorded");
-              return const SizedBox.shrink();
-            }
-            List<dynamic> animes =
-                response["addFavoriteAnime"]["user"]["animes"];
-
-            if (animes.isEmpty) {
-              showSnackBarError(context, R.strings.nullUser);
-              logIt.error("A user without an animes tried to again");
-              return const SizedBox.shrink();
-            }
-            final animeList =
-                animes.map((e) => AnimeModel.fromJson(e)).toList();
-            editBloc.add(OnChangeAnimeListEvent(selectedAnimes: animeList));
-            return const SizedBox.shrink();
-          },
+    return BlocListener<AddFavoriteAnimeBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
           failed: (error, result) {
             showSnackBarError(context, R.strings.serverError);
-            return const SizedBox.shrink();
           },
-          orElse: () => const SizedBox.shrink(),
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got recorded");
+              return;
+            }
+            List<dynamic>? animes;
+            try {
+              animes = response["addFavoriteAnime"]["user"]["animes"] ?? [];
+              if (animes!.isEmpty) {
+                showSnackBarError(context, R.strings.serverError);
+                logIt.error("A user without an animes tried to again");
+              }
+              final animeList = animes.map((e) => AnimeModel.fromJson(e)).toList();
+              editBloc.add(OnChangeAnimeListEvent(selectedAnimes: animeList));
+            } catch (e) {
+              logIt.error("Error accessing AddFavoriteAnime from response: $e");
+              animes = null;
+            }
+            if (animes == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A user without an animes tried to again");
+            }
+          },
         );
       },
+      child: BlocBuilder<AddFavoriteAnimeBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 }

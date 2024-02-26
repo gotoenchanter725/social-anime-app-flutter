@@ -60,122 +60,160 @@ class SpotifyPage extends StatelessWidget {
   }
 
   Widget _buildAddFavoriteMusicListeners() {
-    return BlocBuilder<AddFavoriteMusicBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final blocProfileFill = BlocProvider.of<ProfileFillBloc>(context);
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-
-              List<dynamic> favoriteMusic =
+    return BlocListener<AddFavoriteMusicBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            List<dynamic>? favoriteMusic;
+            try {
+              favoriteMusic =
                   response["addFavoriteMusic"]["user"]["favoriteMusic"];
+              if (favoriteMusic != null && favoriteMusic.isNotEmpty) {
+                final blocProfileFill =
+                    BlocProvider.of<ProfileFillBloc>(context);
+                List<UserFavoriteMusicModel> favoriteMusicList = favoriteMusic
+                    .map((e) => UserFavoriteMusicModel.fromJson(e))
+                    .toList();
 
-              if (favoriteMusic.isEmpty) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A user without an favorite Music tried to again");
-                return const SizedBox.shrink();
+                blocProfileFill.add(
+                  OnFavoriteMusicSaveEvent(
+                    favoriteMusicList: favoriteMusicList,
+                  ),
+                );
+              } else {
+                favoriteMusic = null;
               }
-
-              List<UserFavoriteMusicModel> favoriteMusicList = favoriteMusic
-                  .map((e) => UserFavoriteMusicModel.fromJson(e))
-                  .toList();
-
-              blocProfileFill.add(
-                OnFavoriteMusicSaveEvent(favoriteMusicList: favoriteMusicList),
-              );
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error("Error accessing addFavoriteMusic from response: $e");
+              favoriteMusic = null;
+            }
+            if (favoriteMusic == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user without an favorite Music tried to again");
+            }
+          },
+        );
       },
+      child: BlocBuilder<AddFavoriteMusicBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildDeleteFavoriteMusicListeners() {
-    return BlocBuilder<DeleteFavoriteMusicBloc, MutationState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: () => const SenpaiLoading(),
-            failed: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            succeeded: (data, result) {
-              final response = result.data;
-
-              if (response == null) {
-                // handle this fatal error
-                logIt.wtf("A successful empty response just got set user");
-                return const SizedBox.shrink();
-              }
-              final deleted = response["deleteFavoriteMusic"]["deleted"];
-              if (deleted == true) {
+    return BlocListener<DeleteFavoriteMusicBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["deleteFavoriteMusic"]["deleted"];
+              if (model == true) {
                 final bloc = BlocProvider.of<SpotifyBloc>(context);
                 bloc.add(OnSpotifyFetchArtistsEvent());
-                return const SizedBox.shrink();
-              } else {
-                showSnackBarError(context, R.strings.serverError);
               }
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error(
+                  "Error accessing deleteFavoriteMusic or deleted from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A deleteFavoriteMusic with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<DeleteFavoriteMusicBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 
   Widget _buildFetchUserListeners() {
-    return BlocBuilder<FetchUserBloc, QueryState>(
-      builder: (context, state) {
-        return state.maybeWhen<Widget>(
-            loading: (result) => const SenpaiLoading(),
-            loaded: (data, result) {
-              if (result.data == null) {
-                showSnackBarError(context, R.strings.nullUser);
-                logIt.error("A successful empty response just got users");
-                return const SizedBox.shrink();
+    return BlocListener<FetchUserBloc, QueryState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: (result) {},
+          error: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          loaded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            List<dynamic>? favoriteMusic;
+            try {
+              favoriteMusic = response["fetchUser"]["favoriteMusic"];
+              // It's necessary to handle the state when the user starts
+              // filling out the profile form and doesn't finish it the first time
+              if (favoriteMusic != null && favoriteMusic.isNotEmpty) {
+                final blocProfileFill =
+                    BlocProvider.of<ProfileFillBloc>(context);
+                final serviceBloc =
+                    BlocProvider.of<DeleteFavoriteMusicBloc>(context);
+
+                List<UserFavoriteMusicModel> music = favoriteMusic
+                    .map((e) => UserFavoriteMusicModel.fromJson(e))
+                    .toList();
+                final musicIds = music.map((track) => track.id).toList();
+
+                serviceBloc.deleteFavoriteMusicList(
+                  userId: blocProfileFill.userId,
+                  musicIds: musicIds,
+                );
               } else {
-                List<dynamic>? favoriteMusic =
-                    result.data!["fetchUser"]["favoriteMusic"];
-                // It's necessary to handle the state when the user starts
-                // filling out the profile form and doesn't finish it the first time
-                if (favoriteMusic != null && favoriteMusic.isNotEmpty) {
-                  final blocProfileFill =
-                      BlocProvider.of<ProfileFillBloc>(context);
-                  final serviceBloc =
-                      BlocProvider.of<DeleteFavoriteMusicBloc>(context);
-
-                  List<UserFavoriteMusicModel> music = favoriteMusic
-                      .map((e) => UserFavoriteMusicModel.fromJson(e))
-                      .toList();
-                  final musicIds = music.map((track) => track.id).toList();
-
-                  serviceBloc.deleteFavoriteMusicList(
-                    userId: blocProfileFill.userId,
-                    musicIds: musicIds,
-                  );
-                } else {
-                  final bloc = BlocProvider.of<SpotifyBloc>(context);
-                  bloc.add(OnSpotifyFetchArtistsEvent());
-                }
+                final bloc = BlocProvider.of<SpotifyBloc>(context);
+                bloc.add(OnSpotifyFetchArtistsEvent());
               }
-              return const SizedBox.shrink();
-            },
-            error: (error, result) {
-              showSnackBarError(context, R.strings.serverError);
-              return const SizedBox.shrink();
-            },
-            orElse: () => const SizedBox.shrink());
+            } catch (e) {
+              logIt.error("Error accessing fetchUser from response: $e");
+              favoriteMusic = null;
+            }
+            if (favoriteMusic == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A user with error");
+            }
+          },
+        );
       },
+      child: BlocBuilder<FetchUserBloc, QueryState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
     );
   }
 }
