@@ -68,16 +68,7 @@ Future<void> main() async {
       sound: true,
     );
 
-    final apnsToken = await FirebaseMessaging.instance.getAPNSToken();
-    if (apnsToken != null) {
-      // APNS token is available, make FCM plugin API requests...
-      logIt.debug('APN Token: $apnsToken');
-    }
-
     String? token = await messaging.getToken();
-    if (env.debug) {
-      logIt.debug('Firebase Token: $token');
-    }
 
     // Set the background messaging handler early on, as a named top-level function
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
@@ -112,6 +103,8 @@ Future<void> main() async {
     if (savedToken == null || savedToken.token != token) {
       await getIt<TokenStorage<DeviceTokenModel>>()
           .write(DeviceTokenModel(token: token ?? ''));
+
+      logIt.info('Device token updated: $token');
     }
 
     // Listen to notifications.
