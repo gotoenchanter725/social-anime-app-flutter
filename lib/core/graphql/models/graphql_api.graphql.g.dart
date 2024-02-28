@@ -156,6 +156,7 @@ AddDeviceTokenInput _$AddDeviceTokenInputFromJson(Map<String, dynamic> json) =>
     AddDeviceTokenInput(
       clientMutationId: json['clientMutationId'] as String?,
       deviceToken: json['deviceToken'] as String,
+      deviceType: json['deviceType'] as String,
       userId: json['userId'] as String,
     );
 
@@ -164,6 +165,7 @@ Map<String, dynamic> _$AddDeviceTokenInputToJson(
     <String, dynamic>{
       'clientMutationId': instance.clientMutationId,
       'deviceToken': instance.deviceToken,
+      'deviceType': instance.deviceType,
       'userId': instance.userId,
     };
 
@@ -386,8 +388,8 @@ UpdateUser$Mutation$UpdateUser$User
           ..occupation = json['occupation'] as String?
           ..hasLocationHidden = json['hasLocationHidden'] as bool?
           ..isDisplayingRecentlyActive =
-              json['isDisplayingRecentlyActive'] as bool
-          ..isDisplayingActive = json['isDisplayingActive'] as bool;
+              json['isDisplayingRecentlyActive'] as bool?
+          ..isDisplayingActive = json['isDisplayingActive'] as bool?;
 
 Map<String, dynamic> _$UpdateUser$Mutation$UpdateUser$UserToJson(
         UpdateUser$Mutation$UpdateUser$User instance) =>
@@ -2297,8 +2299,8 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
       ..nextPaymentDate =
           fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
               json['nextPaymentDate'] as String?)
-      ..isDisplayingRecentlyActive = json['isDisplayingRecentlyActive'] as bool
-      ..isDisplayingActive = json['isDisplayingActive'] as bool;
+      ..isDisplayingRecentlyActive = json['isDisplayingRecentlyActive'] as bool?
+      ..isDisplayingActive = json['isDisplayingActive'] as bool?;
 
 Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
         FetchUser$Query$FetchUser instance) =>

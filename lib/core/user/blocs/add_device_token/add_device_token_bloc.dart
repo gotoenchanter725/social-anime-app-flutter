@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:fresh_dio/fresh_dio.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
@@ -23,10 +25,15 @@ class AddDeviceTokenBloc extends MutationBloc<AddDeviceToken$Mutation> {
     required String userId,
   }) {
     logIt.info('Adding device token to user: $userId with token: $token');
+    var deviceType = 'android';
+    if (Platform.isIOS) {
+      deviceType = 'ios';
+    }
     final variables = AddDeviceTokenArguments(
       input: AddDeviceTokenInput(
         deviceToken: token,
         userId: userId,
+        deviceType: deviceType,
       ),
     ).toJson();
 

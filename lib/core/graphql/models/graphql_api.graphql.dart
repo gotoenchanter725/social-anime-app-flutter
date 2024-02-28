@@ -218,6 +218,7 @@ class AddDeviceTokenInput extends JsonSerializable with EquatableMixin {
   AddDeviceTokenInput({
     this.clientMutationId,
     required this.deviceToken,
+    required this.deviceType,
     required this.userId,
   });
 
@@ -228,10 +229,13 @@ class AddDeviceTokenInput extends JsonSerializable with EquatableMixin {
 
   late String deviceToken;
 
+  late String deviceType;
+
   late String userId;
 
   @override
-  List<Object?> get props => [clientMutationId, deviceToken, userId];
+  List<Object?> get props =>
+      [clientMutationId, deviceToken, deviceType, userId];
   @override
   Map<String, dynamic> toJson() => _$AddDeviceTokenInputToJson(this);
 }
@@ -537,9 +541,9 @@ class UpdateUser$Mutation$UpdateUser$User extends JsonSerializable
 
   bool? hasLocationHidden;
 
-  late bool isDisplayingRecentlyActive;
+  bool? isDisplayingRecentlyActive;
 
-  late bool isDisplayingActive;
+  bool? isDisplayingActive;
 
   @override
   List<Object?> get props => [
@@ -3166,9 +3170,9 @@ class FetchUser$Query$FetchUser extends JsonSerializable with EquatableMixin {
       toJson: fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable)
   DateTime? nextPaymentDate;
 
-  late bool isDisplayingRecentlyActive;
+  bool? isDisplayingRecentlyActive;
 
-  late bool isDisplayingActive;
+  bool? isDisplayingActive;
 
   @override
   List<Object?> get props => [
