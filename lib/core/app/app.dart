@@ -1,10 +1,9 @@
 // Main page widget resides here
 
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
-// import 'package:flutter/foundation.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -46,7 +45,7 @@ class _MyAppState extends State<MyApp> {
     FirebaseMessaging.onMessage.listen((message) async {
       RemoteNotification? notification = message.notification;
 
-      if (notification != null && Platform.isAndroid) {
+      if (notification != null && !kIsWeb) {
         String action = jsonEncode(message.data);
         logIt.debug(message.toMap());
 
@@ -61,6 +60,7 @@ class _MyAppState extends State<MyApp> {
                 priority: Priority.high,
                 importance: Importance.max,
               ),
+              iOS: const DarwinNotificationDetails(),
             ),
             payload: action);
       }
