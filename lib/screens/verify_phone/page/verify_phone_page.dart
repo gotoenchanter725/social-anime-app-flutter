@@ -18,6 +18,7 @@ import 'package:senpai/screens/verify_phone/widget/verify_phone_content.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
+
 @RoutePage()
 class VerifyPhonePage extends StatelessWidget {
   const VerifyPhonePage({super.key, required this.phone, required this.id});

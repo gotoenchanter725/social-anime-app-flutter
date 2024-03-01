@@ -56,18 +56,6 @@ class AddDeviceTokenBloc extends MutationBloc<AddDeviceToken$Mutation> {
         );
       }
     });
-    
-    // DeviceTokenModel? savedDeviceTokenModel = await getIt<TokenStorage<DeviceTokenModel>>().read();
-    
-    // if (savedDeviceTokenModel != null &&
-    //     savedDeviceTokenModel.token.isNotEmpty) {
-    //   logIt.info(
-    //       'Saving device token to user: ${userId} with token: ${savedDeviceTokenModel.token}');
-    //   addDeviceToken(
-    //     token: savedDeviceTokenModel.token,
-    //     userId: userId,
-    //   );
-    // }
   }
 
   @override
