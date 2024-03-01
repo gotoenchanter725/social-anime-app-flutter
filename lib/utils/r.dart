@@ -14,6 +14,9 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/launcher.png)
   final launcher = r'assets/images/launcher.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/senpai_logo.png)
+  final senpai_logo = r'assets/images/senpai_logo.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/logo.png)
   final logo = r'assets/images/logo.png';
 
@@ -79,6 +82,9 @@ class _ImageResources {
 
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/empty_animations.png)
   final empty_animations = r'assets/images/chat/empty_animations.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/giphy_attribution.png)
+  final giphy_attribution = r'assets/images/chat/giphy_attribution.png';
 
   /// ![](/Users/daniel/Desktop/work/senpai/assets/images/chat/empty_conversations.png)
   final empty_conversations = r'assets/images/chat/empty_conversations.png';

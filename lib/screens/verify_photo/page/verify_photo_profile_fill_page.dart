@@ -114,7 +114,7 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
             try {
               model = response["updateUser"]["user"];
               WidgetsBinding.instance.addPostFrameCallback((_) {
-                context.router.replaceAll([const HomeRoute()]);
+                context.router.replaceAll([HomeRoute()]);
               });
             } catch (e) {
               logIt.error(

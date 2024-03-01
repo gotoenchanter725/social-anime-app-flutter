@@ -88,7 +88,7 @@ dependencies:
   flutter_markdown: ^0.6.17+1
   reorderable_grid_view: ^2.2.7
   photo_manager: ^3.0.0-dev.2
-  photo_manager_image_provider: ^2.0.1
+  photo_manager_image_provider: ^2.1.0
   geolocator: ^10.0.1
   camera: ^0.10.5+5
   action_cable: ^1.2.0
@@ -105,8 +105,12 @@ dependencies:
   http_parser: ^4.0.2
   mime: ^1.0.4
   path: ^1.8.3
-  firebase_core: ^2.24.2
-  firebase_messaging: ^14.7.10
+  video_player: ^2.8.2
+  chewie: ^1.7.5
+  firebase_core: ^2.25.4
+  firebase_messaging: ^14.7.15
+  firebase_analytics: ^10.8.5
+  flutter_local_notifications: ^16.3.2
   app_tracking_transparency: ^2.0.4
   newton_particles: ^0.1.7
   cached_network_image: ^3.3.1

@@ -7,6 +7,7 @@ import 'package:senpai/models/report_user/report_user_params.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/routes/guards/onboarding_guard.dart';
 import 'package:senpai/screens/chat/page/chat_page.dart';
+import 'package:senpai/screens/chat/widgets/video_viewer.dart';
 import 'package:senpai/screens/chat_list/page/chat_list_page.dart';
 import 'package:senpai/screens/edit_profile/bloc/edit_profile_bloc.dart';
 import 'package:senpai/screens/edit_profile/edit_favorite_anime/page/edit_favorite_anime_page.dart';
@@ -90,5 +91,6 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: EditLocationRoute.page, path: '/edit_location'),
         AutoRoute(page: MatchUsersRoute.page, path: '/match_users'),
         AutoRoute(page: ReportUserRoute.page, path: '/report_user'),
+        AutoRoute(page: VideoViewerRoute.page, path: '/video_viewer'),
       ];
 }

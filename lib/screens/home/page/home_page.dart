@@ -11,7 +11,8 @@ import 'package:senpai/utils/constants.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final int defaultIndex;
+  const HomePage({super.key, this.defaultIndex = 0});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +24,7 @@ class HomePage extends StatelessWidget {
           ChatListRoute(),
           ProfileRoute(),
         ],
+        homeIndex: defaultIndex,
         bottomNavigationBuilder: _createdBottomTabBar,
       ),
     );

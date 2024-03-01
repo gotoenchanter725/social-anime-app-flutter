@@ -142,20 +142,25 @@ class PendingMessagesBloc
     logIt.info('Processing message with id: ${message.id}');
     // Send message logic (call SendMessageBloc with message details)
     // This can be adapted based on how SendMessageBloc is implemented
-    if (message.attachment != null) {
-      sendMessageBloc.sendAttachment(
-        conversationId: roomArgs.roomId,
-        senderId: roomArgs.currentUser.id,
-        attachmentUrl: message.attachment!,
-      );
-    } else {
-      sendMessageBloc.sendMessage(
-        message: message.text,
-        conversationId: roomArgs.roomId,
-        senderId: roomArgs.currentUser.id,
-        recommendedAnimeId: message.recommendation?.animeId,
-        stickerId: message.sticker?.id,
-      );
+    try {
+      if (message.attachment != null) {
+        sendMessageBloc.sendAttachment(
+          conversationId: roomArgs.roomId,
+          senderId: roomArgs.currentUser.id,
+          attachmentUrl: message.attachment!,
+        );
+      } else {
+        sendMessageBloc.sendMessage(
+          message: message.text,
+          conversationId: roomArgs.roomId,
+          senderId: roomArgs.currentUser.id,
+          recommendedAnimeId: message.recommendation?.animeId,
+          stickerId: message.sticker?.id,
+        );
+      }
+    } catch (e) {
+      logIt.error(e);
+      _handleMessageSendFailure();
     }
   }
 }

@@ -1,0 +1,7 @@
+mutation addDeviceToken($input: AddDeviceTokenInput!) {
+  addDeviceToken(input: $input) {
+    user {
+      id
+    }
+  }
+}

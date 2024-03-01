@@ -59,10 +59,10 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDHgrwq97EE833IpsaF03ZWyUxIsEh96pg',
-    appId: '1:598331345581:ios:ec459fb0759fd158dc9424',
+    appId: '1:598331345581:ios:21dbd1874798ead3dc9424',
     messagingSenderId: '598331345581',
     projectId: 'senpai-536b6',
     storageBucket: 'senpai-536b6.appspot.com',
-    iosBundleId: 'makeshift.software.inc.senpai',
+    iosBundleId: 'com.senpaiapp.senpai',
   );
 }

@@ -10,6 +10,7 @@ import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/screens/chat/animation/fade_and_translate.dart';
 import 'package:senpai/screens/chat/bloc/message_reaction_bloc/message_reaction_bloc.dart';
+import 'package:senpai/screens/chat/widgets/video_preview.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -21,7 +22,8 @@ class IncomingMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MessageReactionBloc messageReactionBloc = BlocProvider.of<MessageReactionBloc>(context);
+    MessageReactionBloc messageReactionBloc =
+        BlocProvider.of<MessageReactionBloc>(context);
     return Padding(
       padding: EdgeInsets.only(top: $constants.insets.md),
       child: BlocBuilder<MessageReactionBloc, MessageReactionState>(
@@ -71,7 +73,8 @@ class IncomingMessage extends StatelessWidget {
           clipBehavior: Clip.none,
           children: [
             ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.7),
+              constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width * 0.7),
               child: _buildMessage(context),
             ),
             Positioned(
@@ -86,7 +89,9 @@ class IncomingMessage extends StatelessWidget {
         ),
         Text(
           DateFormat('hh:mm').format(message.timestamp),
-          style: getTextTheme(context).labelMedium!.copyWith(color: $constants.palette.grey),
+          style: getTextTheme(context)
+              .labelMedium!
+              .copyWith(color: $constants.palette.grey),
         )
       ],
     );
@@ -108,8 +113,10 @@ class IncomingMessage extends StatelessWidget {
   }
 
   Widget _buildEmojiReactionsSelector(BuildContext context) {
-    final MessageReactionBloc messageReactionBloc = BlocProvider.of<MessageReactionBloc>(context);
-    final UpdateMessageBloc updateMessageBloc = BlocProvider.of<UpdateMessageBloc>(context);
+    final MessageReactionBloc messageReactionBloc =
+        BlocProvider.of<MessageReactionBloc>(context);
+    final UpdateMessageBloc updateMessageBloc =
+        BlocProvider.of<UpdateMessageBloc>(context);
     bool showReactions = messageReactionBloc.state.showReactions &&
         messageReactionBloc.state.activeMessageId == message.id;
     bool showEmojiReactions = messageReactionBloc.state.showEmojiReactions &&
@@ -216,6 +223,10 @@ class IncomingMessage extends StatelessWidget {
       return _buildPhotoMessage(context);
     }
 
+    if (message.attachmentType == AttachmentType.video) {
+      return _buildVideoMessage(context);
+    }
+
     return const SizedBox.shrink();
   }
 
@@ -237,6 +248,22 @@ class IncomingMessage extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
+    );
+  }
+
+  Widget _buildVideoMessage(BuildContext context) {
+    return _buildChatBubble(
+      context,
+      _buildVideoWidget(context),
+    );
+  }
+
+  Widget _buildVideoWidget(BuildContext context) {
+    return AttachedVideoViewer(
+      width: getSize(context).width * 0.7,
+      height: getSize(context).width * 0.7,
+      videoUrl: message.attachment!,
+      message: message,
     );
   }
 
@@ -312,8 +339,8 @@ class IncomingMessage extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: $constants.insets.sm, vertical: $constants.insets.xs),
+        padding: EdgeInsets.symmetric(
+            horizontal: $constants.insets.sm, vertical: $constants.insets.xs),
         child: child,
       ),
     );
@@ -328,10 +355,16 @@ class _EmojiItem {
 }
 
 final List<_EmojiItem> _emojis = [
-  _EmojiItem(emojiName: $constants.emojis.happy, reactionType: ReactionType.laughing),
-  _EmojiItem(emojiName: $constants.emojis.like, reactionType: ReactionType.thumbsUp),
-  _EmojiItem(emojiName: $constants.emojis.heart, reactionType: ReactionType.heart),
-  _EmojiItem(emojiName: $constants.emojis.vomit, reactionType: ReactionType.puke),
-  _EmojiItem(emojiName: $constants.emojis.anger, reactionType: ReactionType.anger),
-  _EmojiItem(emojiName: $constants.emojis.demon, reactionType: ReactionType.demon),
+  _EmojiItem(
+      emojiName: $constants.emojis.happy, reactionType: ReactionType.laughing),
+  _EmojiItem(
+      emojiName: $constants.emojis.like, reactionType: ReactionType.thumbsUp),
+  _EmojiItem(
+      emojiName: $constants.emojis.heart, reactionType: ReactionType.heart),
+  _EmojiItem(
+      emojiName: $constants.emojis.vomit, reactionType: ReactionType.puke),
+  _EmojiItem(
+      emojiName: $constants.emojis.anger, reactionType: ReactionType.anger),
+  _EmojiItem(
+      emojiName: $constants.emojis.demon, reactionType: ReactionType.demon),
 ];

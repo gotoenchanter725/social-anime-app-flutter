@@ -6,6 +6,7 @@ import 'package:senpai/core/auth/blocs/resend_verification_code_bloc.dart';
 import 'package:senpai/core/auth/blocs/sign_in_bloc.dart';
 import 'package:senpai/core/auth/blocs/validate_phone_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
+import 'package:senpai/core/user/blocs/add_device_token/add_device_token_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
@@ -104,6 +105,12 @@ class VerifyPhonePage extends StatelessWidget {
               final storage = getIt<TokenStorage<AuthModel>>();
               storage.write(AuthModel(token: token, user: user));
 
+              // save the device token for notifications
+              final addDeviceTokenBloc = getIt<AddDeviceTokenBloc>();
+              addDeviceTokenBloc.checkStorageAndAddDeviceToken(
+                userId: user.id,
+              );
+
               final serviceBloc = BlocProvider.of<SignInBloc>(context);
               serviceBloc.signInExistingUser(token);
             } catch (e) {
@@ -182,7 +189,7 @@ class VerifyPhonePage extends StatelessWidget {
 
               if (hasFilledProfile) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
-                  context.router.replaceAll([const HomeRoute()]);
+                  context.router.replaceAll([HomeRoute()]);
                 });
               } else {
                 context.router.push(ProfileFillRoute(

@@ -150,7 +150,7 @@ class ChatController extends StatelessWidget {
             try {
               model = response["unmatchUser"]["user"];
               if (model != null) {
-                context.router.replaceAll([const HomeRoute()]);
+                context.router.replaceAll([HomeRoute()]);
               }
             } catch (e) {
               logIt.error(

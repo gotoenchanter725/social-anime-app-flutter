@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:senpai/core/chat/blocs/fetch_messages_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/widgets/bottom_sheet/animated_bottom_sheet.dart';
@@ -14,11 +15,13 @@ import 'package:senpai/models/chat/chat_message.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 import 'package:senpai/screens/chat/bloc/pending_messages_bloc/pending_messages_bloc.dart';
 import 'package:senpai/screens/chat/bloc/text_editing_bloc/text_editing_bloc.dart';
+import 'package:senpai/screens/chat/widgets/attachments_bottom_sheet.dart';
 import 'package:senpai/screens/chat/widgets/chat_bottom_sheet_content.dart';
 import 'package:senpai/screens/chat/widgets/empty_messages.dart';
 import 'package:senpai/screens/chat/widgets/messages_list.dart';
 import 'package:senpai/screens/chat/widgets/pop_up_menu_widget.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -86,14 +89,18 @@ class ChatContent extends StatelessWidget {
   }
 
   void _addPendingMessage(BuildContext context, ChatMessage message) {
-    PendingMessagesBloc pendingMessagesBloc =
-        BlocProvider.of<PendingMessagesBloc>(context);
-    pendingMessagesBloc.add(
-      PendingMessagesEvent.addMessage(
-        channelId: roomId,
-        message: message,
-      ),
-    );
+    try {
+      PendingMessagesBloc pendingMessagesBloc =
+          BlocProvider.of<PendingMessagesBloc>(context);
+      pendingMessagesBloc.add(
+        PendingMessagesEvent.addMessage(
+          channelId: roomId,
+          message: message,
+        ),
+      );
+    } catch (e) {
+      logIt.error("Error adding pending message: $e");
+    }
   }
 
   Widget _buildMessagesList(BuildContext context) {
@@ -188,6 +195,9 @@ class ChatContent extends StatelessWidget {
   Widget _buildInput(BuildContext context) {
     final textEditingBloc = BlocProvider.of<TextEditingBloc>(context);
 
+    // This will help pass down context to bottom sheet content
+    final pageContext = context;
+
     return BlocBuilder<TextEditingBloc, TextEditingState>(
       builder: (context, state) {
         return SizedBox(
@@ -237,6 +247,31 @@ class ChatContent extends StatelessWidget {
                         onTap: () {
                           // Hide the keyboard before showing the bottom sheet
                           FocusScope.of(context).unfocus();
+                          // show bottom sheet with attachments
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AttachmentsBottomSheet(
+                                onMediaSelected: (media) {
+                                  _sendAttachment(pageContext, media);
+                                },
+                              );
+                            },
+                          );
+                        },
+                        child: Icon(
+                          Icons.attachment_outlined,
+                          size: 24.0,
+                          color: $constants.palette.white,
+                        ),
+                      ),
+                      SizedBox(
+                        width: $constants.insets.xs,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          // Hide the keyboard before showing the bottom sheet
+                          FocusScope.of(context).unfocus();
                           final BottomSheetBloc bottomSheetBloc =
                               BlocProvider.of<BottomSheetBloc>(context);
                           bottomSheetBloc.show();
@@ -246,7 +281,7 @@ class ChatContent extends StatelessWidget {
                           width: 24.0,
                           height: 24.0,
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -290,6 +325,38 @@ class ChatContent extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  void _sendAttachment(BuildContext context, XFile media) async {
+    logIt.info("Media selected: ${media.path}");
+    // check that media doesn't exceed the maximum size
+    final int mediaSize = await media.length();
+    const int bytesInMB = 1048576;
+    final int mediaSizeInMB = mediaSize ~/ bytesInMB;
+    if (mediaSizeInMB > $constants.api.maxSizeForAttachmentsInMB) {
+      showSnackBarError(context, R.strings.maximumAttachmentSizeExceededError);
+      logIt.error("Media size exceeds the maximum size :: $mediaSize Bytes");
+      return;
+    }
+    AttachmentType attachmentType = AttachmentType.photo;
+    if (isVideo(media)) {
+      attachmentType = AttachmentType.video;
+    }
+
+    final composedMessage = ChatMessage(
+      id: generateRandomId($constants.specials.pendingMessageIdLength),
+      text: R.strings.attachmentMessageText,
+      status: MessageStatus.pending,
+      senderId: currentUser.id,
+      timestamp: DateTime.now(),
+      attachment: media.path,
+      attachmentType: attachmentType,
+    );
+
+    _addPendingMessage(
+      context,
+      composedMessage,
     );
   }
 }

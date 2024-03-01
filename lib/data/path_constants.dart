@@ -50,6 +50,8 @@ class PathConstants {
   static const String startMatchBg = 'assets/images/profile/start_match_bg.png';
   static const String emptyChatAnimeSearch =
       'assets/images/chat/empty_animations.png';
+  static const String giphyAttribution =
+      'assets/images/chat/giphy_attribution.png';
 
   // Photos
   static const String addIcon = 'assets/icons/add.svg';

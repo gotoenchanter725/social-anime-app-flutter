@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fresh_graphql/fresh_graphql.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+import 'package:senpai/core/user/blocs/remove_device_token/remove_device_token.dart';
 import 'package:senpai/data/storage_keys_constants.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
@@ -146,6 +147,10 @@ class SettingsProfileBloc
       if (event.isDeleteStorage) {
         await HydratedBloc.storage.clear();
       }
+      // remove device token
+      final removeDeviceTokenBloc = getIt<RemoveDeviceTokenBloc>();
+      await removeDeviceTokenBloc.checkStorageAndRemoveDeviceToken(
+          userId: user.id);
       await Future.delayed($constants.times.slow);
       emit(LogoutSucssesfulState());
     });

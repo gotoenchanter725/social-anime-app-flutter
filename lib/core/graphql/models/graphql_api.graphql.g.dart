@@ -113,6 +113,117 @@ Map<String, dynamic> _$UserInputToJson(UserInput instance) => <String, dynamic>{
       'phone': instance.phone,
     };
 
+AddDeviceToken$Mutation$AddDeviceToken$User
+    _$AddDeviceToken$Mutation$AddDeviceToken$UserFromJson(
+            Map<String, dynamic> json) =>
+        AddDeviceToken$Mutation$AddDeviceToken$User()
+          ..id = json['id'] as String;
+
+Map<String, dynamic> _$AddDeviceToken$Mutation$AddDeviceToken$UserToJson(
+        AddDeviceToken$Mutation$AddDeviceToken$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+AddDeviceToken$Mutation$AddDeviceToken
+    _$AddDeviceToken$Mutation$AddDeviceTokenFromJson(
+            Map<String, dynamic> json) =>
+        AddDeviceToken$Mutation$AddDeviceToken()
+          ..user = AddDeviceToken$Mutation$AddDeviceToken$User.fromJson(
+              json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AddDeviceToken$Mutation$AddDeviceTokenToJson(
+        AddDeviceToken$Mutation$AddDeviceToken instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+AddDeviceToken$Mutation _$AddDeviceToken$MutationFromJson(
+        Map<String, dynamic> json) =>
+    AddDeviceToken$Mutation()
+      ..addDeviceToken = json['addDeviceToken'] == null
+          ? null
+          : AddDeviceToken$Mutation$AddDeviceToken.fromJson(
+              json['addDeviceToken'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AddDeviceToken$MutationToJson(
+        AddDeviceToken$Mutation instance) =>
+    <String, dynamic>{
+      'addDeviceToken': instance.addDeviceToken?.toJson(),
+    };
+
+AddDeviceTokenInput _$AddDeviceTokenInputFromJson(Map<String, dynamic> json) =>
+    AddDeviceTokenInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      deviceToken: json['deviceToken'] as String,
+      deviceType: json['deviceType'] as String,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$AddDeviceTokenInputToJson(
+        AddDeviceTokenInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'deviceToken': instance.deviceToken,
+      'deviceType': instance.deviceType,
+      'userId': instance.userId,
+    };
+
+RemoveDeviceToken$Mutation$RemoveDeviceToken$User
+    _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserFromJson(
+            Map<String, dynamic> json) =>
+        RemoveDeviceToken$Mutation$RemoveDeviceToken$User()
+          ..id = json['id'] as String;
+
+Map<String, dynamic> _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserToJson(
+        RemoveDeviceToken$Mutation$RemoveDeviceToken$User instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+    };
+
+RemoveDeviceToken$Mutation$RemoveDeviceToken
+    _$RemoveDeviceToken$Mutation$RemoveDeviceTokenFromJson(
+            Map<String, dynamic> json) =>
+        RemoveDeviceToken$Mutation$RemoveDeviceToken()
+          ..user = RemoveDeviceToken$Mutation$RemoveDeviceToken$User.fromJson(
+              json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$RemoveDeviceToken$Mutation$RemoveDeviceTokenToJson(
+        RemoveDeviceToken$Mutation$RemoveDeviceToken instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+RemoveDeviceToken$Mutation _$RemoveDeviceToken$MutationFromJson(
+        Map<String, dynamic> json) =>
+    RemoveDeviceToken$Mutation()
+      ..removeDeviceToken = json['removeDeviceToken'] == null
+          ? null
+          : RemoveDeviceToken$Mutation$RemoveDeviceToken.fromJson(
+              json['removeDeviceToken'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$RemoveDeviceToken$MutationToJson(
+        RemoveDeviceToken$Mutation instance) =>
+    <String, dynamic>{
+      'removeDeviceToken': instance.removeDeviceToken?.toJson(),
+    };
+
+RemoveDeviceTokenInput _$RemoveDeviceTokenInputFromJson(
+        Map<String, dynamic> json) =>
+    RemoveDeviceTokenInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      deviceToken: json['deviceToken'] as String,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$RemoveDeviceTokenInputToJson(
+        RemoveDeviceTokenInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'deviceToken': instance.deviceToken,
+      'userId': instance.userId,
+    };
+
 SubmitVerifyRequest$Mutation$SubmitVerifyRequest$User
     _$SubmitVerifyRequest$Mutation$SubmitVerifyRequest$UserFromJson(
             Map<String, dynamic> json) =>
@@ -277,8 +388,8 @@ UpdateUser$Mutation$UpdateUser$User
           ..occupation = json['occupation'] as String?
           ..hasLocationHidden = json['hasLocationHidden'] as bool?
           ..isDisplayingRecentlyActive =
-              json['isDisplayingRecentlyActive'] as bool
-          ..isDisplayingActive = json['isDisplayingActive'] as bool;
+              json['isDisplayingRecentlyActive'] as bool?
+          ..isDisplayingActive = json['isDisplayingActive'] as bool?;
 
 Map<String, dynamic> _$UpdateUser$Mutation$UpdateUser$UserToJson(
         UpdateUser$Mutation$UpdateUser$User instance) =>
@@ -2188,8 +2299,8 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
       ..nextPaymentDate =
           fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
               json['nextPaymentDate'] as String?)
-      ..isDisplayingRecentlyActive = json['isDisplayingRecentlyActive'] as bool
-      ..isDisplayingActive = json['isDisplayingActive'] as bool;
+      ..isDisplayingRecentlyActive = json['isDisplayingRecentlyActive'] as bool?
+      ..isDisplayingActive = json['isDisplayingActive'] as bool?;
 
 Map<String, dynamic> _$FetchUser$Query$FetchUserToJson(
         FetchUser$Query$FetchUser instance) =>
@@ -2638,6 +2749,32 @@ CreateUserArguments _$CreateUserArgumentsFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$CreateUserArgumentsToJson(
         CreateUserArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+AddDeviceTokenArguments _$AddDeviceTokenArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    AddDeviceTokenArguments(
+      input:
+          AddDeviceTokenInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$AddDeviceTokenArgumentsToJson(
+        AddDeviceTokenArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+RemoveDeviceTokenArguments _$RemoveDeviceTokenArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    RemoveDeviceTokenArguments(
+      input: RemoveDeviceTokenInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$RemoveDeviceTokenArgumentsToJson(
+        RemoveDeviceTokenArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };

@@ -29,10 +29,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onboardingButtonText => 'Skip';
 
   @override
-  String get entryText => 'By tapping \"Create account\" or \"Sign in\", you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookies Policy.';
+  String get entryText =>
+      'By tapping \"Create account\" or \"Sign in\", you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookies Policy.';
 
   @override
-  String get entrySpanText1 => 'By tapping \"Create account\" or \"Sign in\", you agree to our';
+  String get entrySpanText1 =>
+      'By tapping \"Create account\" or \"Sign in\", you agree to our';
 
   @override
   String get entryActionText1 => 'Terms';
@@ -71,19 +73,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get invalidPhoneError => 'Invalid phone number. Please try again';
 
   @override
-  String get createUserInstructions => 'We will send a text with a verification code.';
+  String get createUserInstructions =>
+      'We will send a text with a verification code.';
 
   @override
   String get serverError => 'Something went wrong, please try again';
 
   @override
-  String get nullUser => 'There\'s no existing account associated with this phone number';
+  String get nullUser =>
+      'There\'s no existing account associated with this phone number';
 
   @override
   String get alreadyHasAccount => 'This user already has an account';
 
   @override
-  String get termsAndConditions => 'I agree to receive SMS texts from Senpai at the phone number provided. Reply STOP to opt-out.';
+  String get termsAndConditions =>
+      'I agree to receive SMS texts from Senpai at the phone number provided. Reply STOP to opt-out.';
 
   @override
   String get verifyPhoneHeading => 'Your code is';
@@ -104,7 +109,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get verifyPhotoHeading => 'Photo verify';
 
   @override
-  String get verifyPhotoDescription => 'Photo verify to let everyone know\nyour photos are really you';
+  String get verifyPhotoDescription =>
+      'Photo verify to let everyone know\nyour photos are really you';
 
   @override
   String get verifyPhotoButtonText => 'Verify by photo';
@@ -122,7 +128,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get happyWithPhotoText => 'Happy with\nyour photo?';
 
   @override
-  String get weWillScanYourPhotoText => 'We will scan your photo to verify your identity';
+  String get weWillScanYourPhotoText =>
+      'We will scan your photo to verify your identity';
 
   @override
   String get retakeButton => 'Retake';
@@ -134,7 +141,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get thanksLotText => 'Thanks a lot!';
 
   @override
-  String get weReceivedYourPhotoText => 'We have received your photo and will answer within 1-2 business days';
+  String get weReceivedYourPhotoText =>
+      'We have received your photo and will answer within 1-2 business days';
 
   @override
   String get startMatchingButton => 'Start matching!';
@@ -161,13 +169,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nextText => 'Next';
 
   @override
-  String get conversationsDataErrorText => 'Failed to get conversations from the server';
+  String get conversationsDataErrorText =>
+      'Failed to get conversations from the server';
 
   @override
   String get emptyConversationsPromptText => 'Start liking';
 
   @override
-  String get emptyConversationsText => 'When you match with other users they will appear here';
+  String get emptyConversationsText =>
+      'When you match with other users they will appear here';
 
   @override
   String get emptyChatTitle => 'You matched with';
@@ -191,13 +201,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cancelText => 'Cancel';
 
   @override
-  String get emptySearchConversationsHintText => 'Try to search your matches or chats';
+  String get emptySearchConversationsHintText =>
+      'Try to search your matches or chats';
 
   @override
   String get emptyConversationSearchPromptText => 'Oops. No matches found';
 
   @override
-  String get emptyConversationSearchText => 'Maybe there is a mistake in search? Please check and try again';
+  String get emptyConversationSearchText =>
+      'Maybe there is a mistake in search? Please check and try again';
 
   @override
   String get stickersTabText => 'Stickers';
@@ -245,7 +257,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get emptyChatAnimationsSearchTitle => 'Oops. No animes found';
 
   @override
-  String get emptyChatAnimationsSearchText => 'Maybe there is a mistake in search? Please check and try again';
+  String get emptyChatAnimationsSearchText =>
+      'Maybe there is a mistake in search? Please check and try again';
 
   @override
   String get searchGifPlaceHolderText => 'Search in GIPHY';
@@ -272,7 +285,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get doxxingIdentityThreat => 'Doxxing / Identity threat';
 
   @override
-  String get areYouSureYouWantToUnmatchUser => 'Are you sure you want to unmatch this user?';
+  String get areYouSureYouWantToUnmatchUser =>
+      'Are you sure you want to unmatch this user?';
 
   @override
   String get yourBirthdayText => 'Your birthday';
@@ -317,10 +331,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get jobTitleName => 'Job title';
 
   @override
-  String get jobTitleNameHelper => 'If you don’t have a job or don’t want to fill in this field, just skip it.';
+  String get jobTitleNameHelper =>
+      'If you don’t have a job or don’t want to fill in this field, just skip it.';
 
   @override
-  String get invalidUniversityNameError => 'Invalid university name. Please try again';
+  String get invalidUniversityNameError =>
+      'Invalid university name. Please try again';
 
   @override
   String get noUniversityFound => 'No university with such a name was found.';
@@ -410,13 +426,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get almostDoneText => 'Almost done!';
 
   @override
-  String get nowChooseYourFavoriteAnimesText => 'Now choose your favorite animes\nand start matching';
+  String get nowChooseYourFavoriteAnimesText =>
+      'Now choose your favorite animes\nand start matching';
 
   @override
   String get oopsNoAnimeFound => 'Oops. No anime found.';
 
   @override
-  String get noAnimesFoundText => 'Maybe there is a mistake in search? Please check and try again.';
+  String get noAnimesFoundText =>
+      'Maybe there is a mistake in search? Please check and try again.';
 
   @override
   String get selectedAnimeError => 'Sorry, you have already selected 10 anime.';
@@ -491,7 +509,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enableLocationText => 'Enable location';
 
   @override
-  String get enableLocationDescription => 'Your location will be used to show \npotential matches near you';
+  String get enableLocationDescription =>
+      'Your location will be used to show \npotential matches near you';
 
   @override
   String get allowLocationText => 'Allow location';
@@ -500,13 +519,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get locationPermissionsDenied => 'Location permissions are denied';
 
   @override
-  String get locationPermissionsPermanentlyDenied => 'Location permissions are permanently denied, we cannot request permissions.';
+  String get locationPermissionsPermanentlyDenied =>
+      'Location permissions are permanently denied, we cannot request permissions.';
 
   @override
   String get connectYourSpotifyText => 'Connect your Spotify';
 
   @override
-  String get connectYourSpotifyDescription => 'Show potential matches your favorite artists';
+  String get connectYourSpotifyDescription =>
+      'Show potential matches your favorite artists';
 
   @override
   String get connectSpotifyText => 'Connect Spotify';
@@ -533,7 +554,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get disconnectSpotifyText => 'Disconnect Spotify';
 
   @override
-  String get myTopSpotifyListeningSongsText => 'My top 5 Spotify listening songs';
+  String get myTopSpotifyListeningSongsText =>
+      'My top 5 Spotify listening songs';
 
   @override
   String get myTopSpotifyArtistsText => 'My top 5 Spotify artists';
@@ -545,7 +567,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get selectedTracksText => 'Selected Tracks';
 
   @override
-  String get spotifyServerError => 'Something went wrong, please disconnect spotify and try again';
+  String get spotifyServerError =>
+      'Something went wrong, please disconnect spotify and try again';
 
   @override
   String get senpaiPremiumTitle => 'Senpai Premium';
@@ -581,7 +604,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get currentlyNotActiveTitle => 'Currently not active';
 
   @override
-  String get waitingForPhotoVerificationTitle => 'Waiting for photo verification';
+  String get waitingForPhotoVerificationTitle =>
+      'Waiting for photo verification';
 
   @override
   String get milesAwayText => 'miles away';
@@ -590,16 +614,20 @@ class AppLocalizationsEn extends AppLocalizations {
   String get findCityNearbyTitle => 'Find a city nearby';
 
   @override
-  String get yourPhotosHaveBeenVerifiedTitle => 'Your photos have been verified!';
+  String get yourPhotosHaveBeenVerifiedTitle =>
+      'Your photos have been verified!';
 
   @override
-  String get yourPhotosHaveNotBeenVerifiedTitle => 'Your photos have not been verified :(';
+  String get yourPhotosHaveNotBeenVerifiedTitle =>
+      'Your photos have not been verified :(';
 
   @override
-  String get nowEveryoneWillKnowThatYouText => 'Now everyone will know that you\'re not pretending to be someone else';
+  String get nowEveryoneWillKnowThatYouText =>
+      'Now everyone will know that you\'re not pretending to be someone else';
 
   @override
-  String get thereSeemsToBeSomethingWrongYourPhotoText => 'There seems to be something wrong with your photo. Please try to pass the verification again';
+  String get thereSeemsToBeSomethingWrongYourPhotoText =>
+      'There seems to be something wrong with your photo. Please try to pass the verification again';
 
   @override
   String get closeButton => 'Close';
@@ -683,7 +711,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsTitle => 'Settings';
 
   @override
-  String get senpaiPremiumDescription => 'Higher visibility rates, 30 Super Likes \nand much more!';
+  String get senpaiPremiumDescription =>
+      'Higher visibility rates, 30 Super Likes \nand much more!';
 
   @override
   String get accountSettingsTitle => 'Account settings';
@@ -707,13 +736,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get showActiveStatusTitle => 'Show “Active” status';
 
   @override
-  String get showActiveStatusDescription => 'The “Activity” status is displayed in the profile if the Senpai app has been used by you in the last 2 hours.';
+  String get showActiveStatusDescription =>
+      'The “Activity” status is displayed in the profile if the Senpai app has been used by you in the last 2 hours.';
 
   @override
   String get showRecentlyActivetatusTitle => 'Show “Recently active” status';
 
   @override
-  String get showRecentlyActivetatusDescription => 'The “Recently activity” status is displayed in the profile if the Senpai app has been used by you in the last 24 hours.';
+  String get showRecentlyActivetatusDescription =>
+      'The “Recently activity” status is displayed in the profile if the Senpai app has been used by you in the last 24 hours.';
 
   @override
   String get deleteAccountTitle => 'Delete account';
@@ -740,7 +771,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get rateSenpaiTitle => 'Rate Senpai';
 
   @override
-  String get deleteAccountDescriprion => 'Are you sure you want to delete your account? We\'ll keep it for 30 days, if you change your mind.';
+  String get deleteAccountDescriprion =>
+      'Are you sure you want to delete your account? We\'ll keep it for 30 days, if you change your mind.';
 
   @override
   String get noButton => 'No';
@@ -755,10 +787,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pleaseWaitText => 'Please wait...';
 
   @override
-  String get areSureDeleteAccountTitle => 'Are you sure you want to delete your account? If you’d just like to hide for a while or start over, you can:';
+  String get areSureDeleteAccountTitle =>
+      'Are you sure you want to delete your account? If you’d just like to hide for a while or start over, you can:';
 
   @override
-  String get hideYourAccountTitle => 'Hide your account, like you delete it, but you can come back when you like';
+  String get hideYourAccountTitle =>
+      'Hide your account, like you delete it, but you can come back when you like';
 
   @override
   String get switchNotificationsOffTitle => 'Switch notifications off';
@@ -791,7 +825,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get areYouSureLogoutTitle => 'Are you sure you want to log out?';
 
   @override
-  String get areYouSureLogoutDescription => 'If you ask Senpai to remember you, you will be able to log in again on this device with single tap.';
+  String get areYouSureLogoutDescription =>
+      'If you ask Senpai to remember you, you will be able to log in again on this device with single tap.';
 
   @override
   String get forgetMeTitle => 'Forget me on this device';
@@ -833,13 +868,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sentText => 'sent';
 
   @override
-  String get actionCableConnectionError => 'Connection is lost. Please check your internet connection.';
+  String get actionCableConnectionError =>
+      'Connection is lost. Please check your internet connection.';
 
   @override
-  String get actionCableCannotConnectError => 'Cannot establish a connection. Please check your internet connection.';
+  String get actionCableCannotConnectError =>
+      'Cannot establish a connection. Please check your internet connection.';
 
   @override
-  String get actionCableAuthError => 'User is not authorized. Please sign in again';
+  String get actionCableAuthError =>
+      'User is not authorized. Please sign in again';
 
   @override
   String get outOfSuperLikes => 'Out of Super Likes!';
@@ -857,7 +895,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noThanks => 'No, Thanks';
 
   @override
-  String get unableToConnectToThePaymentsProcessor => 'Unable to connect to the payments processor';
+  String get unableToConnectToThePaymentsProcessor =>
+      'Unable to connect to the payments processor';
 
   @override
   String get invalidPurchase => 'Invalid Purchase';
@@ -899,7 +938,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dearUserText => 'Dear User';
 
   @override
-  String get dearUserDescription => 'We care about your privacy and data security. Your information will not ever be sold to third parties, but used internally to make the app better.';
+  String get dearUserDescription =>
+      'We care about your privacy and data security. Your information will not ever be sold to third parties, but used internally to make the app better.';
 
   @override
   String get whatYouGetText => 'What you get:';
@@ -908,8 +948,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nextPaymentText => 'Next payment:';
 
   @override
+  String get openGalleryButtonText => 'Gallery';
+
+  @override
+  String get openCameraButtonText => 'Camera';
+
+  @override
+  String get maximumAttachmentSizeExceededError =>
+      'Maximum attachment size exceeded';
   String get bearWithUsTitle => 'Welcome to Senpai!';
 
   @override
-  String get bearWithUsDescription => 'Please bear with us, as we continue to grow and more profiles are available!';
+  String get bearWithUsDescription =>
+      'Please bear with us, as we continue to grow and more profiles are available!';
 }
