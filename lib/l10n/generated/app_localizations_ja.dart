@@ -29,12 +29,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get onboardingButtonText => 'スキップ';
 
   @override
-  String get entryText =>
-      'アカウントを作成する」または「サインインする」をタップすると、利用規約に同意したことになります。プライバシーポリシーとクッキーポリシーで、当社がお客様のデータをどのように処理するかをご確認ください。';
+  String get entryText => 'アカウントを作成する」または「サインインする」をタップすると、利用規約に同意したことになります。プライバシーポリシーとクッキーポリシーで、当社がお客様のデータをどのように処理するかをご確認ください。';
 
   @override
-  String get entrySpanText1 =>
-      'アカウントを作成する」または「サインインする」をタップすると、以下の事項に同意したものとみなされます。';
+  String get entrySpanText1 => 'アカウントを作成する」または「サインインする」をタップすると、以下の事項に同意したものとみなされます。';
 
   @override
   String get entryActionText1 => '条件';
@@ -85,8 +83,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get alreadyHasAccount => 'このユーザーはすでにアカウントを持っている';
 
   @override
-  String get termsAndConditions =>
-      '提供された電話番号でSenpaiからSMSを受信することに同意します。受信を拒否するにはSTOPと返信してください。';
+  String get termsAndConditions => '提供された電話番号でSenpaiからSMSを受信することに同意します。受信を拒否するにはSTOPと返信してください。';
 
   @override
   String get verifyPhoneHeading => 'あなたのコードは';
@@ -494,8 +491,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get enableLocationText => '場所を有効にする';
 
   @override
-  String get enableLocationDescription =>
-      'あなたの位置情報は、あなたの近くにいる潜在的なマッチを表示するために使用されます。';
+  String get enableLocationDescription => 'あなたの位置情報は、あなたの近くにいる潜在的なマッチを表示するために使用されます。';
 
   @override
   String get allowLocationText => '場所を許可する';
@@ -603,8 +599,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nowEveryoneWillKnowThatYouText => 'これで誰もが、あなたが他人のふりをしていないことを知るだろう';
 
   @override
-  String get thereSeemsToBeSomethingWrongYourPhotoText =>
-      'あなたの写真に何か問題があるようです。もう一度認証をお試しください。';
+  String get thereSeemsToBeSomethingWrongYourPhotoText => 'あなたの写真に何か問題があるようです。もう一度認証をお試しください。';
 
   @override
   String get closeButton => '閉じる';
@@ -712,15 +707,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get showActiveStatusTitle => 'アクティブ」ステータスを表示';
 
   @override
-  String get showActiveStatusDescription =>
-      '過去2時間以内にSenpaiアプリが使用された場合、プロフィールに「アクティビティ」ステータスが表示されます。';
+  String get showActiveStatusDescription => '過去2時間以内にSenpaiアプリが使用された場合、プロフィールに「アクティビティ」ステータスが表示されます。';
 
   @override
   String get showRecentlyActivetatusTitle => '最近アクティブ」のステータスを表示';
 
   @override
-  String get showRecentlyActivetatusDescription =>
-      '過去24時間以内にSenpaiアプリが使用された場合、プロフィールに「最近使用されたアプリ」のステータスが表示されます。';
+  String get showRecentlyActivetatusDescription => '過去24時間以内にSenpaiアプリが使用された場合、プロフィールに「最近使用されたアプリ」のステータスが表示されます。';
 
   @override
   String get deleteAccountTitle => 'アカウント削除';
@@ -762,8 +755,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get pleaseWaitText => 'お待ちください...';
 
   @override
-  String get areSureDeleteAccountTitle =>
-      '本当にアカウントを削除しますか？しばらく身を隠したり、やり直したいのであれば、可能です：';
+  String get areSureDeleteAccountTitle => '本当にアカウントを削除しますか？しばらく身を隠したり、やり直したいのであれば、可能です：';
 
   @override
   String get hideYourAccountTitle => 'アカウントを非表示にする。';
@@ -799,8 +791,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get areYouSureLogoutTitle => '本当にログアウトしますか？';
 
   @override
-  String get areYouSureLogoutDescription =>
-      'Senpaiに自分を記憶してもらうと、このデバイスからワンタップで再ログインできるようになります。';
+  String get areYouSureLogoutDescription => 'Senpaiに自分を記憶してもらうと、このデバイスからワンタップで再ログインできるようになります。';
 
   @override
   String get forgetMeTitle => 'このデバイスで私を忘れてください';
@@ -866,27 +857,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get noThanks => 'いや、ありがとう';
 
   @override
-  String get unableToConnectToThePaymentsProcessor => 'ペイメントプロセッサーに接続できない';
-
-  @override
-  String get invalidPurchase => '無効な購入';
-
-  @override
-  String get senpaiPremiumIsActivated => '先輩プレミアムが有効になりました！';
-
-  @override
-  String get nextPayment => '次の支払い';
-
-  @override
-  String get whatYouGet => '得られるもの';
-
-  @override
-  String get senpaiDatingForAnimeFans => '先輩 - アニメファンのためのデート';
-
-  @override
-  String get findYourMatchToday => '今日、あなたの相手を見つけよう。';
-
-  @override
   String get japaneseNotTranslated => '日本語';
 
   @override
@@ -917,16 +887,38 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nextPaymentText => '';
 
   @override
+  String get bearWithUsTitle => '「先輩」へようこそ！';
+
+  @override
+  String get bearWithUsDescription => '私たちは成長を続けており、より多くのプロフィールが利用可能になりますので、ご容赦ください。';
+
+  @override
+  String get unableToConnectToThePaymentsProcessor => 'ペイメントプロセッサーに接続できない';
+
+  @override
+  String get invalidPurchase => '無効な購入';
+
+  @override
+  String get senpaiPremiumIsActivated => '先輩プレミアムが有効になりました！';
+
+  @override
+  String get senpaiDatingForAnimeFans => '先輩 - アニメファンのためのデート';
+
+  @override
+  String get findYourMatchToday => '今日、あなたの相手を見つけよう。';
+
+  @override
   String get openGalleryButtonText => 'ギャラリ';
 
   @override
   String get openCameraButtonText => 'カメラ';
 
   @override
-  String get maximumAttachmentSizeExceededError => '添付ファイルサイズの上限を超えました ';
-  String get bearWithUsTitle => '「先輩」へようこそ！';
+  String get maximumAttachmentSizeExceededError => '添付ファイルサイズの上限を超えました';
 
   @override
-  String get bearWithUsDescription =>
-      '私たちは成長を続けており、より多くのプロフィールが利用可能になりますので、ご容赦ください。';
+  String get portugueseNotTranslated => 'Português';
+
+  @override
+  String get portuguese => 'ポルトガル語';
 }
