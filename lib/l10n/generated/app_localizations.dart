@@ -7,6 +7,7 @@ import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
 import 'app_localizations_ja.dart';
+import 'app_localizations_pt.dart';
 
 /// Callers can lookup localized strings with an instance of AppLocalizations
 /// returned by `AppLocalizations.of(context)`.
@@ -60,8 +61,7 @@ import 'app_localizations_ja.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale)
-      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -69,8 +69,7 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -82,8 +81,7 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -93,7 +91,8 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('ja')
+    Locale('ja'),
+    Locale('pt')
   ];
 
   /// No description provided for @englishNotTranslated.
@@ -1800,48 +1799,6 @@ abstract class AppLocalizations {
   /// **'No, Thanks'**
   String get noThanks;
 
-  /// No description provided for @unableToConnectToThePaymentsProcessor.
-  ///
-  /// In en, this message translates to:
-  /// **'Unable to connect to the payments processor'**
-  String get unableToConnectToThePaymentsProcessor;
-
-  /// No description provided for @invalidPurchase.
-  ///
-  /// In en, this message translates to:
-  /// **'Invalid Purchase'**
-  String get invalidPurchase;
-
-  /// No description provided for @senpaiPremiumIsActivated.
-  ///
-  /// In en, this message translates to:
-  /// **'Senpai Premium is activated!'**
-  String get senpaiPremiumIsActivated;
-
-  /// No description provided for @nextPayment.
-  ///
-  /// In en, this message translates to:
-  /// **'Next payment:'**
-  String get nextPayment;
-
-  /// No description provided for @whatYouGet.
-  ///
-  /// In en, this message translates to:
-  /// **'What you get:'**
-  String get whatYouGet;
-
-  /// No description provided for @senpaiDatingForAnimeFans.
-  ///
-  /// In en, this message translates to:
-  /// **'Senpai - Dating for Anime Fans\n'**
-  String get senpaiDatingForAnimeFans;
-
-  /// No description provided for @findYourMatchToday.
-  ///
-  /// In en, this message translates to:
-  /// **'Find your match today.\n'**
-  String get findYourMatchToday;
-
   /// No description provided for @japaneseNotTranslated.
   ///
   /// In en, this message translates to:
@@ -1902,24 +1859,6 @@ abstract class AppLocalizations {
   /// **'Next payment:'**
   String get nextPaymentText;
 
-  /// No description provided for @openGalleryButtonText
-  ///
-  /// In en, this message translates to:
-  /// **'Gallery'**
-  String get openGalleryButtonText;
-
-  /// No description provided for @openCameraButtonText
-  ///
-  /// In en, this message translates to:
-  /// **'Camera'**
-  String get openCameraButtonText;
-
-  /// No description provided for @maximumAttachmentSizeExceededError
-  ///
-  /// In en, this message translates to:
-  /// **'Maximum attachment size exceeded'**
-  String get maximumAttachmentSizeExceededError;
-
   /// No description provided for @bearWithUsTitle.
   ///
   /// In en, this message translates to:
@@ -1931,10 +1870,69 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Please bear with us, as we continue to grow and more profiles are available!'**
   String get bearWithUsDescription;
+
+  /// No description provided for @unableToConnectToThePaymentsProcessor.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to connect to the payments processor'**
+  String get unableToConnectToThePaymentsProcessor;
+
+  /// No description provided for @invalidPurchase.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Purchase'**
+  String get invalidPurchase;
+
+  /// No description provided for @senpaiPremiumIsActivated.
+  ///
+  /// In en, this message translates to:
+  /// **'Senpai Premium is activated!'**
+  String get senpaiPremiumIsActivated;
+
+  /// No description provided for @senpaiDatingForAnimeFans.
+  ///
+  /// In en, this message translates to:
+  /// **'Senpai - Dating for Anime Fans\n'**
+  String get senpaiDatingForAnimeFans;
+
+  /// No description provided for @findYourMatchToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Find your match today.\n'**
+  String get findYourMatchToday;
+
+  /// No description provided for @openGalleryButtonText.
+  ///
+  /// In en, this message translates to:
+  /// **'Gallery'**
+  String get openGalleryButtonText;
+
+  /// No description provided for @openCameraButtonText.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera'**
+  String get openCameraButtonText;
+
+  /// No description provided for @maximumAttachmentSizeExceededError.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum attachment size exceeded'**
+  String get maximumAttachmentSizeExceededError;
+
+  /// No description provided for @portugueseNotTranslated.
+  ///
+  /// In en, this message translates to:
+  /// **'Português'**
+  String get portugueseNotTranslated;
+
+  /// No description provided for @portuguese.
+  ///
+  /// In en, this message translates to:
+  /// **'Portuguese'**
+  String get portuguese;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -1943,25 +1941,26 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'ja'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'ja', 'pt'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
+
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en':
-      return AppLocalizationsEn();
-    case 'ja':
-      return AppLocalizationsJa();
+    case 'en': return AppLocalizationsEn();
+    case 'ja': return AppLocalizationsJa();
+    case 'pt': return AppLocalizationsPt();
   }
 
   throw FlutterError(
-      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-      'an issue with the localizations generation tool. Please file an issue '
-      'on GitHub with a reproducible sample app and the gen-l10n configuration '
-      'that was used.');
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.'
+  );
 }
