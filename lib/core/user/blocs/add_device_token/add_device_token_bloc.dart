@@ -8,6 +8,8 @@ import 'package:senpai/core/graphql/models/graphql_api.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/auth/device_token_model.dart';
 import 'package:senpai/utils/methods/aliases.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
 
 @injectable
 class AddDeviceTokenBloc extends MutationBloc<AddDeviceToken$Mutation> {
@@ -43,17 +45,29 @@ class AddDeviceTokenBloc extends MutationBloc<AddDeviceToken$Mutation> {
   checkStorageAndAddDeviceToken({
     required String userId,
   }) async {
-    DeviceTokenModel? savedDeviceTokenModel =
-        await getIt<TokenStorage<DeviceTokenModel>>().read();
-    if (savedDeviceTokenModel != null &&
-        savedDeviceTokenModel.token.isNotEmpty) {
-      logIt.info(
-          'Saving device token to user: $userId with token: ${savedDeviceTokenModel.token}');
-      addDeviceToken(
-        token: savedDeviceTokenModel.token,
-        userId: userId,
-      );
-    }
+    FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
+    _firebaseMessaging.getToken().then((token) {
+      logIt.info("Device token: ${token}");
+
+      if (token != null) {
+        addDeviceToken(
+          token: token,
+          userId: userId,
+        );
+      }
+    });
+    
+    // DeviceTokenModel? savedDeviceTokenModel = await getIt<TokenStorage<DeviceTokenModel>>().read();
+    
+    // if (savedDeviceTokenModel != null &&
+    //     savedDeviceTokenModel.token.isNotEmpty) {
+    //   logIt.info(
+    //       'Saving device token to user: ${userId} with token: ${savedDeviceTokenModel.token}');
+    //   addDeviceToken(
+    //     token: savedDeviceTokenModel.token,
+    //     userId: userId,
+    //   );
+    // }
   }
 
   @override
