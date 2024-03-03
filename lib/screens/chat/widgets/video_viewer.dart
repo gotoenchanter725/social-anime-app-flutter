@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:senpai/utils/constants.dart';
 import 'package:video_player/video_player.dart';
 
 @RoutePage()
@@ -116,6 +117,19 @@ class _VideoViewerState extends State<VideoViewerPage> {
             ),
           );
 
+    Widget closeButton = Positioned(
+      top: 40,
+      left: 10,
+      child: GestureDetector(
+        onTap: () => context.router.pop(),
+        child: Icon(
+          Icons.arrow_back_ios_rounded,
+          size: 30,
+          color: $constants.palette.white,
+        ),
+      ),
+    );
+
     return widget.controllable
         ? GestureDetector(
             onTap: toggleControls,
@@ -126,7 +140,7 @@ class _VideoViewerState extends State<VideoViewerPage> {
                   aspectRatio: videoController.value.aspectRatio,
                   child: VideoPlayer(videoController),
                 ),
-                if (showControls) ...[button],
+                if (showControls) ...[button, closeButton],
               ],
             ),
           )
