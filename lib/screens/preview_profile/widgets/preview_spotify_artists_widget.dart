@@ -7,6 +7,7 @@ import 'package:senpai/screens/preview_profile/bloc/preview_profile_bloc.dart';
 import 'package:senpai/screens/preview_profile/widgets/spotify_music_header.dart';
 
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/helpers/spotify_helpers.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class PreviewSpotifyArtistsWidget extends StatelessWidget {
@@ -65,7 +66,6 @@ class PreviewSpotifyArtistsWidget extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(height: $constants.insets.sm),
           ],
         );
       },
@@ -73,35 +73,39 @@ class PreviewSpotifyArtistsWidget extends StatelessWidget {
   }
 
   Widget _buildItemArtist(BuildContext context, UserFavoriteMusicModel artist) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(
-            right: $constants.corners.md,
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular($constants.insets.xs),
-            child: Image.network(
-              artist.coverUrl,
-              height: $constants.spotify.spotifyImageSize,
-              width: $constants.spotify.spotifyImageSize,
-              fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        openSpotify(artist.musicType, artist.spotifyId ?? '');
+      },
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(
+              right: $constants.corners.md,
+            ),
+            child: ClipRect(
+              child: Image.network(
+                artist.coverUrl,
+                height: $constants.spotify.spotifyImageSize,
+                width: $constants.spotify.spotifyImageSize,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
-        ),
-        SizedBox(height: $constants.insets.xs),
-        SizedBox(
-          width: $constants.spotify.spotifyImageSize,
-          child: _buildArtistName(context, artist.artistName ?? ''),
-        ),
-      ],
+          SizedBox(height: $constants.insets.xs),
+          SizedBox(
+            width: $constants.spotify.spotifyImageSize,
+            child: _buildArtistName(context, artist.artistName ?? ''),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildArtistName(BuildContext context, String artistName) {
     return Text(
       artistName,
-      maxLines: 1,
+      maxLines: 2,
       overflow: TextOverflow.ellipsis,
       textAlign: TextAlign.center,
       style: getTextTheme(context).titleMedium?.copyWith(

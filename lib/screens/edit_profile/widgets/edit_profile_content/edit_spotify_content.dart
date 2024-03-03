@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
 import 'package:senpai/data/path_constants.dart';
@@ -104,14 +103,13 @@ class EditSpotifyContent extends StatelessWidget {
               padding: EdgeInsets.only(top: $constants.insets.xxs),
               child: Row(
                 children: [
-                  SvgPicture.asset(
-                    PathConstants.spotifyIcon,
+                  Image.asset(
+                    PathConstants.spotifyImage,
                     width: $constants.insets.md,
                     height: $constants.insets.md,
-                    fit: BoxFit.contain,
-                    alignment: Alignment.center,
+                    fit: BoxFit.fitWidth,
                   ),
-                  SizedBox(width: $constants.insets.xxs),
+                  SizedBox(width: $constants.insets.xs),
                   Flexible(
                     child: Text(
                       artists,
@@ -158,14 +156,13 @@ class EditSpotifyContent extends StatelessWidget {
               padding: EdgeInsets.only(top: $constants.insets.xxs),
               child: Row(
                 children: [
-                  SvgPicture.asset(
-                    PathConstants.spotifyIcon,
+                  Image.asset(
+                    PathConstants.spotifyImage,
                     width: $constants.insets.md,
                     height: $constants.insets.md,
-                    fit: BoxFit.contain,
-                    alignment: Alignment.center,
+                    fit: BoxFit.fitWidth,
                   ),
-                  SizedBox(width: $constants.insets.xxs),
+                  SizedBox(width: $constants.insets.xs),
                   Flexible(
                     child: Text(
                       songs,

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/l10n/resources.dart';
@@ -9,6 +7,7 @@ import 'package:senpai/screens/preview_profile/bloc/preview_profile_bloc.dart';
 import 'package:senpai/screens/preview_profile/widgets/spotify_music_header.dart';
 
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/helpers/spotify_helpers.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class PreviewSpotifyTracksWidget extends StatelessWidget {
@@ -75,60 +74,33 @@ class PreviewSpotifyTracksWidget extends StatelessWidget {
   }
 
   Widget _buildItemTrack(BuildContext context, UserFavoriteMusicModel track) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.only(right: $constants.corners.md),
-          child: Stack(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular($constants.insets.xs),
-                child: Image.network(
-                  track.coverUrl,
-                  height: $constants.spotify.spotifyImageSize,
-                  width: $constants.spotify.spotifyImageSize,
-                  fit: BoxFit.cover,
-                ),
+    return GestureDetector(
+      onTap: () {
+        openSpotify(track.musicType, track.spotifyId ?? '');
+      },
+      child: Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(right: $constants.corners.md),
+            child: ClipRect(
+              child: Image.network(
+                track.coverUrl,
+                height: $constants.spotify.spotifyImageSize,
+                width: $constants.spotify.spotifyImageSize,
+                fit: BoxFit.cover,
               ),
-              Positioned(
-                top: $constants.spotify.spotifyPlayPadding,
-                left: $constants.spotify.spotifyPlayPadding,
-                child: _buildBackdropFilter(),
-              ),
-            ],
+            ),
           ),
-        ),
-        SizedBox(height: $constants.insets.xs),
-        SizedBox(
-          width: $constants.spotify.spotifyImageSize,
-          child: _buildTrackName(context, track.trackName ?? ''),
-        ),
-        SizedBox(
-          width: $constants.spotify.spotifyImageSize,
-          child: _buildArtistName(context, track.artistName ?? ''),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildBackdropFilter() {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(24.0),
-      child: BackdropFilter(
-        filter: ImageFilter.blur(
-          sigmaX: $constants.match.blur,
-          sigmaY: $constants.match.blur,
-        ),
-        child: Container(
-          height: $constants.corners.xxl,
-          width: $constants.corners.xxl,
-          alignment: Alignment.center,
-          color: $constants.palette.black.withOpacity(0.3),
-          child: const Icon(
-            Icons.play_arrow,
-            color: Colors.white,
+          SizedBox(height: $constants.insets.xs),
+          SizedBox(
+            width: $constants.spotify.spotifyImageSize,
+            child: _buildTrackName(context, track.trackName ?? ''),
           ),
-        ),
+          SizedBox(
+            width: $constants.spotify.spotifyImageSize,
+            child: _buildArtistName(context, track.artistName ?? ''),
+          ),
+        ],
       ),
     );
   }
@@ -150,7 +122,7 @@ class PreviewSpotifyTracksWidget extends StatelessWidget {
   Widget _buildArtistName(BuildContext context, String artistName) {
     return Text(
       artistName,
-      maxLines: 1,
+      maxLines: 2,
       overflow: TextOverflow.ellipsis,
       textAlign: TextAlign.center,
       style: getTextTheme(context).labelMedium?.copyWith(
