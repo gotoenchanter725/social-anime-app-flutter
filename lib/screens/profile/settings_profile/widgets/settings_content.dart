@@ -49,7 +49,7 @@ class SettingsContent extends StatelessWidget {
           title: R.strings.settingsTitle,
           onDoneTap: () => _onDoneTap(context),
         ),
-        const SettingsPremiumWidget(),
+        _buildPremiumWidget(context),
         Expanded(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
@@ -61,6 +61,17 @@ class SettingsContent extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Widget _buildPremiumWidget(BuildContext context) {
+    final bloc = BlocProvider.of<SettingsProfileBloc>(context);
+
+    return BlocBuilder<SettingsProfileBloc, SettingsProfileState>(
+        builder: (context, state) {
+      return bloc.user.premium == true
+          ? const SizedBox()
+          : const SettingsPremiumWidget();
+    });
   }
 
   Widget _buildSettingsContent(BuildContext context) {
