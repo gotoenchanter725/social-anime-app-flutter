@@ -244,8 +244,8 @@ class _MatchConstants {
 class _SpotifyConstants {
   late final double spotifyImageSize = 98;
   late final double spotifyPlayPadding = 28;
-  late final double spotifyTracksHeight = 170;
-  late final double spotifyArtistsHeight = 130;
+  late final double spotifyTracksHeight = 190;
+  late final double spotifyArtistsHeight = 150;
   late final double spotifyCheckBoxHeight = 84;
   late final double spotifyImageTrackHeight = 68;
 }
