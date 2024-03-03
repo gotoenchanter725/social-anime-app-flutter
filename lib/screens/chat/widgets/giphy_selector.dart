@@ -42,12 +42,6 @@ class GiphySelector extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.asset(
-            PathConstants.giphyAttribution,
-            width: 100,
-            height: 50,
-            fit: BoxFit.contain,
-          ),
           _buildSearchInput(context),
           SizedBox(height: $constants.insets.lg),
           BlocBuilder<GiphyBloc, GiphyState>(
