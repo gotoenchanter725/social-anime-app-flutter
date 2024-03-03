@@ -48,12 +48,13 @@ class SenpaiCheckBox extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: getTextTheme(context).bodyMedium,
-                ),
+                if (title.isNotEmpty)
+                  Text(
+                    title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: getTextTheme(context).bodyMedium,
+                  ),
                 if (optionalContent != null) optionalContent!
               ],
             ),
