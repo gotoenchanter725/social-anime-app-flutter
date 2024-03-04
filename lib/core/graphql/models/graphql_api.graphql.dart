@@ -3940,7 +3940,7 @@ final ADD_DEVICE_TOKEN_MUTATION_DOCUMENT = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FieldNode(
-            name: NameNode(value: 'user'),
+            name: NameNode(value: 'deviceInfo'),
             alias: null,
             arguments: [],
             directives: [],
