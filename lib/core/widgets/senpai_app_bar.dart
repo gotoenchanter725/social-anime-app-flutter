@@ -7,12 +7,14 @@ class SenpaiAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final Widget? leading;
   final List<Widget>? actions;
+  final bool hasLeading;
 
   const SenpaiAppBar({
     super.key,
     this.leading,
     required this.title,
     this.actions,
+    this.hasLeading = true,
   });
 
   @override
@@ -32,26 +34,31 @@ class SenpaiAppBar extends StatelessWidget implements PreferredSizeWidget {
     if (leading != null) {
       return leading!;
     }
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-      ),
-      child: Row(
-        children: [
-          SenpaiIconButton(
-            onPressed: () => Navigator.of(context).pop(),
-            iconPath: PathConstants.backIcon,
-          ),
-        ],
-      ),
-    );
+    if (hasLeading) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
+        child: Row(
+          children: [
+            SenpaiIconButton(
+              onPressed: () => Navigator.of(context).pop(),
+              iconPath: PathConstants.backIcon,
+            ),
+          ],
+        ),
+      );
+    }
+    return const SizedBox();
   }
 
   Widget _buildTitle(BuildContext context) {
     return Text(
       title,
-      style: getTextTheme(context).bodyMedium,
+      style: getTextTheme(context).titleMedium!.copyWith(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
     );
   }
 
