@@ -17,4 +17,4 @@ class ValidState extends UploadPhotosState {}
 
 class LoadingUploadPhotosState extends UploadPhotosState {}
 
-class ChangeStepSucssesfulState extends UploadPhotosState {}
+class ChangeStepSuccessfulState extends UploadPhotosState {}

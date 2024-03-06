@@ -4,20 +4,20 @@ part of 'upload_photos_bloc.dart';
 @immutable
 abstract class UploadPhotosEvent {}
 
-class OnInitAssetsListLenghtEvent extends UploadPhotosEvent {
+class OnInitAssetsListLengthEvent extends UploadPhotosEvent {
   final int count;
 
-  OnInitAssetsListLenghtEvent({required this.count});
+  OnInitAssetsListLengthEvent({required this.count});
 }
 
-class OnFetchdAlbumsListEvent extends UploadPhotosEvent {
-  OnFetchdAlbumsListEvent();
+class OnFetchAlbumsListEvent extends UploadPhotosEvent {
+  OnFetchAlbumsListEvent();
 }
 
-class OnFetchdAssetsListEvent extends UploadPhotosEvent {
+class OnFetchAssetsListEvent extends UploadPhotosEvent {
   final AssetPathEntity album;
 
-  OnFetchdAssetsListEvent({required this.album});
+  OnFetchAssetsListEvent({required this.album});
 }
 
 class OnChangeSelectedAssetsListEvent extends UploadPhotosEvent {
