@@ -113,29 +113,30 @@ Map<String, dynamic> _$UserInputToJson(UserInput instance) => <String, dynamic>{
       'phone': instance.phone,
     };
 
-AddDeviceToken$Mutation$AddDeviceToken$User
-    _$AddDeviceToken$Mutation$AddDeviceToken$UserFromJson(
+AddDeviceToken$Mutation$AddDeviceToken$DeviceInfo
+    _$AddDeviceToken$Mutation$AddDeviceToken$DeviceInfoFromJson(
             Map<String, dynamic> json) =>
-        AddDeviceToken$Mutation$AddDeviceToken$User()
-          ..id = json['id'] as String;
+        AddDeviceToken$Mutation$AddDeviceToken$DeviceInfo()
+          ..token = json['token'] as String?;
 
-Map<String, dynamic> _$AddDeviceToken$Mutation$AddDeviceToken$UserToJson(
-        AddDeviceToken$Mutation$AddDeviceToken$User instance) =>
+Map<String, dynamic> _$AddDeviceToken$Mutation$AddDeviceToken$DeviceInfoToJson(
+        AddDeviceToken$Mutation$AddDeviceToken$DeviceInfo instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      'token': instance.token,
     };
 
 AddDeviceToken$Mutation$AddDeviceToken
     _$AddDeviceToken$Mutation$AddDeviceTokenFromJson(
             Map<String, dynamic> json) =>
         AddDeviceToken$Mutation$AddDeviceToken()
-          ..user = AddDeviceToken$Mutation$AddDeviceToken$User.fromJson(
-              json['user'] as Map<String, dynamic>);
+          ..deviceInfo =
+              AddDeviceToken$Mutation$AddDeviceToken$DeviceInfo.fromJson(
+                  json['deviceInfo'] as Map<String, dynamic>);
 
 Map<String, dynamic> _$AddDeviceToken$Mutation$AddDeviceTokenToJson(
         AddDeviceToken$Mutation$AddDeviceToken instance) =>
     <String, dynamic>{
-      'user': instance.user.toJson(),
+      'deviceInfo': instance.deviceInfo.toJson(),
     };
 
 AddDeviceToken$Mutation _$AddDeviceToken$MutationFromJson(

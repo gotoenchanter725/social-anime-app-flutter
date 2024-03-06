@@ -163,21 +163,21 @@ class UserInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddDeviceToken$Mutation$AddDeviceToken$User extends JsonSerializable
+class AddDeviceToken$Mutation$AddDeviceToken$DeviceInfo extends JsonSerializable
     with EquatableMixin {
-  AddDeviceToken$Mutation$AddDeviceToken$User();
+  AddDeviceToken$Mutation$AddDeviceToken$DeviceInfo();
 
-  factory AddDeviceToken$Mutation$AddDeviceToken$User.fromJson(
+  factory AddDeviceToken$Mutation$AddDeviceToken$DeviceInfo.fromJson(
           Map<String, dynamic> json) =>
-      _$AddDeviceToken$Mutation$AddDeviceToken$UserFromJson(json);
+      _$AddDeviceToken$Mutation$AddDeviceToken$DeviceInfoFromJson(json);
 
-  late String id;
+  String? token;
 
   @override
-  List<Object?> get props => [id];
+  List<Object?> get props => [token];
   @override
   Map<String, dynamic> toJson() =>
-      _$AddDeviceToken$Mutation$AddDeviceToken$UserToJson(this);
+      _$AddDeviceToken$Mutation$AddDeviceToken$DeviceInfoToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -189,10 +189,10 @@ class AddDeviceToken$Mutation$AddDeviceToken extends JsonSerializable
           Map<String, dynamic> json) =>
       _$AddDeviceToken$Mutation$AddDeviceTokenFromJson(json);
 
-  late AddDeviceToken$Mutation$AddDeviceToken$User user;
+  late AddDeviceToken$Mutation$AddDeviceToken$DeviceInfo deviceInfo;
 
   @override
-  List<Object?> get props => [user];
+  List<Object?> get props => [deviceInfo];
   @override
   Map<String, dynamic> toJson() =>
       _$AddDeviceToken$Mutation$AddDeviceTokenToJson(this);
@@ -3946,7 +3946,7 @@ final ADD_DEVICE_TOKEN_MUTATION_DOCUMENT = DocumentNode(definitions: [
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                name: NameNode(value: 'id'),
+                name: NameNode(value: 'token'),
                 alias: null,
                 arguments: [],
                 directives: [],

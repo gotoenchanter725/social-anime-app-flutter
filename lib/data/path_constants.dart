@@ -95,4 +95,8 @@ class PathConstants {
   static const String matchHeartBgIcon = 'assets/icons/match_heart.svg';
   static const String matchCardBg = 'assets/images/match/super_like_bg.png';
   static const String distanceIcon = 'assets/icons/distance_icon.svg';
+
+  //Events
+  static const String eventsIcon = 'assets/icons/events_icon.svg';
+
 }
