@@ -22,6 +22,7 @@ class HomePage extends StatelessWidget {
         routes: const [
           MatchRoute(),
           ChatListRoute(),
+          EventsListRoute(),
           ProfileRoute(),
         ],
         homeIndex: defaultIndex,
@@ -36,6 +37,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: $constants.palette.lightBlue,
       selectedItemColor: $constants.palette.white,
       unselectedItemColor: $constants.palette.darkGrey,
+      type: BottomNavigationBarType.fixed,
       items: [
         BottomNavigationBarItem(
           icon: SvgPicture.asset(
@@ -58,6 +60,18 @@ class HomePage extends StatelessWidget {
             PathConstants.chatIcon,
           ),
           label: R.strings.chatTabText,
+        ),
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            PathConstants.eventsIcon,
+            colorFilter:
+                ColorFilter.mode($constants.palette.darkGrey, BlendMode.srcIn),
+          ),
+          activeIcon: SvgPicture.asset(
+            PathConstants.eventsIcon,
+          ),
+          //change text
+          label: 'Events',
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(

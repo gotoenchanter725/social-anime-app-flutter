@@ -78,6 +78,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const EntryPage(),
       );
     },
+    EventsListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EventsListPage(),
+      );
+    },
     HomeRoute.name: (routeData) {
       final args =
           routeData.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
@@ -508,6 +514,20 @@ class EntryRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'EntryRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EventsListPage]
+class EventsListRoute extends PageRouteInfo<void> {
+  const EventsListRoute({List<PageRouteInfo>? children})
+      : super(
+          EventsListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EventsListRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
