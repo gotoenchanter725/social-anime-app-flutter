@@ -15,12 +15,12 @@ class UploadPhotosManagerContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<UploadPhotosBloc, UploadPhotosState>(
-      listenWhen: (_, currState) => currState is ChangeStepSucssesfulState,
+      listenWhen: (_, currState) => currState is ChangeStepSuccessfulState,
       listener: (context, state) {
         final bloc = BlocProvider.of<UploadPhotosBloc>(context);
         if (bloc.step == PhotoManagerStep.galleryAlbums &&
             bloc.albumList.isEmpty) {
-          bloc.add(OnFetchdAlbumsListEvent());
+          bloc.add(OnFetchAlbumsListEvent());
         }
         if (bloc.step == PhotoManagerStep.galleryPhotos) {}
       },

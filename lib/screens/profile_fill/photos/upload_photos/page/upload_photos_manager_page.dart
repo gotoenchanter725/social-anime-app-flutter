@@ -22,7 +22,7 @@ class UploadPhotosManagerPage extends StatelessWidget {
         BlocProvider.value(value: bloc),
         BlocProvider<UploadPhotosBloc>(
           create: (context) => UploadPhotosBloc()
-            ..add(OnInitAssetsListLenghtEvent(
+            ..add(OnInitAssetsListLengthEvent(
               count: bloc.uploadedPhotos.length,
             )),
         ),

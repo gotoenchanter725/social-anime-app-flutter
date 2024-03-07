@@ -26,14 +26,14 @@ class UploadPhotosBloc extends Bloc<UploadPhotosEvent, UploadPhotosState> {
   File? selectedFile;
 
   UploadPhotosBloc() : super(GalleryInitial()) {
-    on<OnInitAssetsListLenghtEvent>((event, emit) {
+    on<OnInitAssetsListLengthEvent>((event, emit) {
       if (event.count > 0) {
         emit(ValidState());
         maxCount -= event.count;
       }
     });
 
-    on<OnFetchdAlbumsListEvent>((event, emit) async {
+    on<OnFetchAlbumsListEvent>((event, emit) async {
       emit(LoadingUploadPhotosState());
       try {
         albumList = await GalleryServices().loadAlbumsWithItemCount(
@@ -45,7 +45,7 @@ class UploadPhotosBloc extends Bloc<UploadPhotosEvent, UploadPhotosState> {
       }
     });
 
-    on<OnFetchdAssetsListEvent>((event, emit) async {
+    on<OnFetchAssetsListEvent>((event, emit) async {
       emit(LoadingUploadPhotosState());
       try {
         await GalleryServices().loadAssets(event.album).then((value) {
@@ -75,9 +75,12 @@ class UploadPhotosBloc extends Bloc<UploadPhotosEvent, UploadPhotosState> {
       emit(ValidState());
     });
 
-    on<OnChangePhotoManagerStepEvent>((event, emit) {
-      step = event.step;
-      emit(ChangeStepSucssesfulState());
+    on<OnChangePhotoManagerStepEvent>((event, emit) async {
+      final hasPermissions = await GalleryServices().havePermissionsForGallery();
+      if (hasPermissions) {
+        step = event.step;
+        emit(ChangeStepSuccessfulState());
+      }
     });
   }
 }

@@ -16,7 +16,7 @@ class GalleryAlbumsContent extends StatelessWidget {
 
   void _openGelleryPhotos(BuildContext context, AssetPathEntity album) {
     final bloc = BlocProvider.of<UploadPhotosBloc>(context);
-    bloc.add(OnFetchdAssetsListEvent(album: album));
+    bloc.add(OnFetchAssetsListEvent(album: album));
   }
 
   @override

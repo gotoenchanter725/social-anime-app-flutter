@@ -16,32 +16,36 @@ class AssetPathEntityWithCount {
 }
 
 class GalleryServices {
+  Future<bool> havePermissionsForGallery() async {
+    PermissionState permission = await PhotoManager.requestPermissionExtend();
+    if (Platform.isAndroid || permission.isAuth == true || permission == PermissionState.limited) {
+      return true;
+    } else {
+      PhotoManager.openSetting();
+      return false;
+    }
+  }
+
   Future<List<AssetPathEntityWithCount>> loadAlbumsWithItemCount(
     RequestType requestType,
   ) async {
-    PermissionState permission = await PhotoManager.requestPermissionExtend();
     List<AssetPathEntityWithCount> assetPathEntityWithCount = [];
+    await PhotoManager.getAssetPathList(
+      type: requestType,
+    ).then((albumList) async {
+      for (var item in albumList) {
+        final assetCount = await item.assetCountAsync;
+        final previewImage = await item.getAssetListRange(start: 0, end: 1);
 
-    if (Platform.isAndroid || permission.isAuth == true || permission == PermissionState.limited) {
-      await PhotoManager.getAssetPathList(
-        type: requestType,
-      ).then((albumList) async {
-        for (var item in albumList) {
-          final assetCount = await item.assetCountAsync;
-          final previewImage = await item.getAssetListRange(start: 0, end: 1);
-
-          assetPathEntityWithCount.add(
-            AssetPathEntityWithCount(
-              assetPathEntity: item,
-              assetCount: assetCount,
-              previewImage: previewImage.isNotEmpty ? previewImage.first : null,
-            ),
-          );
-        }
-      });
-    } else {
-      PhotoManager.openSetting();
-    }
+        assetPathEntityWithCount.add(
+          AssetPathEntityWithCount(
+            assetPathEntity: item,
+            assetCount: assetCount,
+            previewImage: previewImage.isNotEmpty ? previewImage.first : null,
+          ),
+        );
+      }
+    });
     return assetPathEntityWithCount;
   }
 

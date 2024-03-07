@@ -17,14 +17,14 @@ import 'package:senpai/utils/methods/utils.dart';
 class PhotosManagerContent extends StatelessWidget {
   const PhotosManagerContent({super.key});
 
-  _pickImagefromGallery(BuildContext context) async {
+  _pickImageFromGallery(BuildContext context) async {
     final bloc = BlocProvider.of<UploadPhotosBloc>(context);
     bloc.add(OnChangePhotoManagerStepEvent(
       step: PhotoManagerStep.galleryAlbums,
     ));
   }
 
-  _pickImagefromCamera(BuildContext context) async {
+  _pickImageFromCamera(BuildContext context) async {
     final bloc = BlocProvider.of<PhotosBloc>(context);
     try {
       await ImagePicker()
@@ -55,7 +55,7 @@ class PhotosManagerContent extends StatelessWidget {
                   height: $constants.insets.xl,
                 ),
                 PhotosButton(
-                  onPressed: () => _pickImagefromGallery(context),
+                  onPressed: () => _pickImageFromGallery(context),
                   title: R.strings.uploadText,
                   text: R.strings.yourPhotosText,
                 ),
@@ -63,7 +63,7 @@ class PhotosManagerContent extends StatelessWidget {
                   height: $constants.insets.sm,
                 ),
                 PhotosButton(
-                  onPressed: () => _pickImagefromCamera(context),
+                  onPressed: () => _pickImageFromCamera(context),
                   title: R.strings.openText,
                   text: R.strings.cameraText,
                 ),
