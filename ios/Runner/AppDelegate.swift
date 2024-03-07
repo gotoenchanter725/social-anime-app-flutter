@@ -3,6 +3,7 @@ import Flutter
 import flutter_local_notifications
 import Firebase
 import FirebaseMessaging
+import GoogleMaps
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -18,7 +19,7 @@ import FirebaseMessaging
     if #available(iOS 10.0, *) {
       UNUserNotificationCenter.current().delegate = self as UNUserNotificationCenterDelegate
     }
-    
+    GMSServices.provideAPIKey("AIzaSyBh9ne0PjH2P7fiM5C9sia0qt56Vt6NmpY")
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
