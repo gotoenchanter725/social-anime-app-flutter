@@ -4,9 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/profile_fill/widgets/custom_close_button.dart';
-import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
+import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart'
+    as verifyBloc;
 import 'package:senpai/screens/verify_photo/camera_page/camera_bloc/camera_bloc.dart';
 import 'package:senpai/screens/verify_photo/camera_page/widgets/camera_bottom_buttons.dart';
+import 'package:senpai/screens/verify_photo/camera_page/widgets/camera_error_content.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -18,15 +20,18 @@ class CameraContent extends StatelessWidget {
     return BlocConsumer<CameraBloc, CameraState>(
       listenWhen: (_, currState) => currState is CameraSucssesfulState,
       listener: (context, state) {
-        final bloc = BlocProvider.of<VerifyPhotoBloc>(context);
+        final bloc = BlocProvider.of<verifyBloc.VerifyPhotoBloc>(context);
         final cameraBloc = BlocProvider.of<CameraBloc>(context);
         if (state is CameraSucssesfulState) {
-          bloc.add(OnVerifyPhotoInitEvent(photo: cameraBloc.photo));
+          bloc.add(verifyBloc.OnVerifyPhotoInitEvent(photo: cameraBloc.photo));
           context.router.pop();
         }
       },
       builder: (context, state) {
         final bloc = BlocProvider.of<CameraBloc>(context);
+        if (state is ErrorState) {
+          return const CameraErrorContent();
+        }
         return Scaffold(
           body: bloc.isCameraInitialized
               ? Stack(

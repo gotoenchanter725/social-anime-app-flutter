@@ -1930,6 +1930,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Portuguese'**
   String get portuguese;
+
+  /// No description provided for @eventsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Events'**
+  String get eventsTitle;
+
+  /// No description provided for @createEventTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Event'**
+  String get createEventTitle;
+
+  /// No description provided for @addPromoImageText.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Promo Image'**
+  String get addPromoImageText;
+
+  /// No description provided for @eventNameText.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Name'**
+  String get eventNameText;
+
+  /// No description provided for @aboutEventText.
+  ///
+  /// In en, this message translates to:
+  /// **'About Event'**
+  String get aboutEventText;
+
+  /// No description provided for @dateText.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get dateText;
+
+  /// No description provided for @canBeRangeText.
+  ///
+  /// In en, this message translates to:
+  /// **'Can be range'**
+  String get canBeRangeText;
+
+  /// No description provided for @timeText.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get timeText;
+
+  /// No description provided for @maxPartySizeText.
+  ///
+  /// In en, this message translates to:
+  /// **'Max Party Size'**
+  String get maxPartySizeText;
+
+  /// No description provided for @availableSlotsText.
+  ///
+  /// In en, this message translates to:
+  /// **'1-10 available slots'**
+  String get availableSlotsText;
+
+  /// No description provided for @requiresPaymentText.
+  ///
+  /// In en, this message translates to:
+  /// **'Requires Payment?'**
+  String get requiresPaymentText;
+
+  /// No description provided for @cosplayText.
+  ///
+  /// In en, this message translates to:
+  /// **'Cosplay'**
+  String get cosplayText;
+
+  /// No description provided for @optionalButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional'**
+  String get optionalButton;
+
+  /// No description provided for @eventAssociatedWithConventionText.
+  ///
+  /// In en, this message translates to:
+  /// **'Is the event associated with a Convention?'**
+  String get eventAssociatedWithConventionText;
+
+  /// No description provided for @findConventionText.
+  ///
+  /// In en, this message translates to:
+  /// **'Find Convention'**
+  String get findConventionText;
+
+  /// No description provided for @selectConventionText.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Convention'**
+  String get selectConventionText;
+
+  /// No description provided for @saveChangesButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Changes'**
+  String get saveChangesButton;
+
+  /// No description provided for @filterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Filter'**
+  String get filterTitle;
+
+  /// No description provided for @searchCountryCityText.
+  ///
+  /// In en, this message translates to:
+  /// **'Search country, city'**
+  String get searchCountryCityText;
+
+  /// No description provided for @freeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'FREE'**
+  String get freeTitle;
+
+  /// No description provided for @paidTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid'**
+  String get paidTitle;
+
+  /// No description provided for @hostRatingFromText.
+  ///
+  /// In en, this message translates to:
+  /// **'Host Rating from:'**
+  String get hostRatingFromText;
+
+  /// No description provided for @eventsConventionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Events & Conventions'**
+  String get eventsConventionsTitle;
+
+  /// No description provided for @noEventsFoundText.
+  ///
+  /// In en, this message translates to:
+  /// **'Oops, no Events found!'**
+  String get noEventsFoundText;
+
+  /// No description provided for @noEventsFoundDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Try tweaking your filters or come\nback later for more fun options.'**
+  String get noEventsFoundDescription;
+
+  /// No description provided for @openAppSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open App Settings'**
+  String get openAppSettings;
+
+  /// No description provided for @cameraErrorCheckPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong with your camera, please check permission.'**
+  String get cameraErrorCheckPermission;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
