@@ -48,6 +48,9 @@ class Constants {
 
   /// Map constants
   late final map = _MapConstants();
+
+  /// API keys
+  late final apiKeys = _ApiKeys();
 }
 
 @immutable
@@ -274,4 +277,9 @@ class _Sizes {
 @immutable
 class _MapConstants {
   late final double zoom = 15;
+}
+
+@immutable
+class _ApiKeys {
+  late final placesApiKey = 'AIzaSyBTY9seNFQSG-Gem59s9V7wVeqg12j-pAQ';
 }
