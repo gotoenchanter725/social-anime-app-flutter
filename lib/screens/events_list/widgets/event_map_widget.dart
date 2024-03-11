@@ -22,7 +22,7 @@ class EventMapWidget extends StatelessWidget {
         myLocationButtonEnabled: false,
         markers: {
           Marker(
-            markerId: const MarkerId('event'),
+            markerId: MarkerId($constants.map.markerId),
             position: eventCoordinates,
           ),
         },
@@ -31,12 +31,12 @@ class EventMapWidget extends StatelessWidget {
         },
       ),
       floatingActionButton: FloatingActionButton(
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
-                topRight: Radius.circular(100),
-                bottomLeft: Radius.circular(100),
-                bottomRight: Radius.circular(100),
-                topLeft: Radius.circular(100))),
+                topRight: Radius.circular($constants.corners.rounded),
+                bottomLeft: Radius.circular($constants.corners.rounded),
+                bottomRight: Radius.circular($constants.corners.rounded),
+                topLeft: Radius.circular($constants.corners.rounded))),
         backgroundColor: $constants.palette.white,
         onPressed: goToTheEvent,
         child: Icon(

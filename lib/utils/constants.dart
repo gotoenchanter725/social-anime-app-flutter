@@ -83,6 +83,7 @@ class _Corners {
   late final double lg = 16;
   late final double xl = 30;
   late final double xxl = 40;
+  late final double rounded = 100;
 }
 
 @immutable
@@ -276,7 +277,8 @@ class _Sizes {
 
 @immutable
 class _MapConstants {
-  late final double zoom = 15;
+  late final zoom = 15.0;
+  late final markerId = 'event';
 }
 
 @immutable

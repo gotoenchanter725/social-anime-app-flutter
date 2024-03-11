@@ -16,7 +16,7 @@ class EventLocationTextFieldWidget extends StatelessWidget {
       textEditingController: controller,
       googleAPIKey: $constants.apiKeys.placesApiKey,
       inputDecoration: const InputDecoration.collapsed(hintText: ''),
-      debounceTime: 300,
+      debounceTime: $constants.times.fast.inMilliseconds,
       isLatLngRequired: true,
       getPlaceDetailWithLatLng: (Prediction prediction) {},
       itemClick: (Prediction prediction) {
@@ -33,7 +33,7 @@ class EventLocationTextFieldWidget extends StatelessWidget {
               SizedBox(
                 width: $constants.insets.xs,
               ),
-              Expanded(child: Text(prediction.description ?? ""))
+              Expanded(child: Text(prediction.description ?? ''))
             ],
           ),
         );
@@ -43,7 +43,7 @@ class EventLocationTextFieldWidget extends StatelessWidget {
         child: const Divider(),
       ),
       isCrossBtnShown: true,
-      containerHorizontalPadding: 10,
+      containerHorizontalPadding: $constants.insets.xs,
     );
   }
 }
