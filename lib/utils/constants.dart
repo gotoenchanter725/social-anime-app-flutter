@@ -45,6 +45,12 @@ class Constants {
 
   /// Element sizes.
   late final sizes = _Sizes();
+
+  /// Map constants
+  late final map = _MapConstants();
+
+  /// API keys
+  late final apiKeys = _ApiKeys();
 }
 
 @immutable
@@ -77,6 +83,7 @@ class _Corners {
   late final double lg = 16;
   late final double xl = 30;
   late final double xxl = 40;
+  late final double rounded = 100;
 }
 
 @immutable
@@ -97,6 +104,7 @@ class _Palette {
   final black = const Color(0xFF000000);
   final pink = const Color(0xFFDE0BC9);
   final blue = const Color(0xFF1286F0);
+  final blue2 = const Color(0xFF3559bd);
   final lightBlue = const Color(0xFF1A1D28);
   final darkBlue = const Color(0xFF0E1018);
   final grey = const Color(0xFFA9AFC2);
@@ -265,4 +273,15 @@ class _Sizes {
   late final double smallButtonHeight = 32;
   late final double attachmentsIconSize = 36;
   late final double attachmentsBottomSheetSize = 100;
+}
+
+@immutable
+class _MapConstants {
+  late final zoom = 15.0;
+  late final markerId = 'event';
+}
+
+@immutable
+class _ApiKeys {
+  late final placesApiKey = 'AIzaSyBTY9seNFQSG-Gem59s9V7wVeqg12j-pAQ';
 }

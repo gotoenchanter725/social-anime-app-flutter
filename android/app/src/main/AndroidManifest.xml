@@ -45,6 +45,8 @@
                     android:scheme="senpaiflutterapp"/>
             </intent-filter>
         </activity>
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBh9ne0PjH2P7fiM5C9sia0qt56Vt6NmpY"/>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data

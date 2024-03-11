@@ -115,6 +115,8 @@ dependencies:
   newton_particles: ^0.1.7
   cached_network_image: ^3.3.1
   easy_debounce: 2.0.3
+  google_maps_flutter: ^2.5.3
+  google_places_flutter: ^2.0.8
 
   flutter_localizations:
     sdk: flutter
