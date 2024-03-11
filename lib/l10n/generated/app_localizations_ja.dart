@@ -921,4 +921,103 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get portuguese => 'ポルトガル語';
+
+  @override
+  String get eventsTitle => '';
+
+  @override
+  String get createEventTitle => '';
+
+  @override
+  String get addPromoImageText => '';
+
+  @override
+  String get eventNameText => '';
+
+  @override
+  String get aboutEventText => '';
+
+  @override
+  String get dateText => '';
+
+  @override
+  String get canBeRangeText => '';
+
+  @override
+  String get timeText => '';
+
+  @override
+  String get maxPartySizeText => '';
+
+  @override
+  String get availableSlotsText => '';
+
+  @override
+  String get requiresPaymentText => '';
+
+  @override
+  String get cosplayText => '';
+
+  @override
+  String get optionalButton => '';
+
+  @override
+  String get eventAssociatedWithConventionText => '';
+
+  @override
+  String get findConventionText => '';
+
+  @override
+  String get selectConventionText => '';
+
+  @override
+  String get saveChangesButton => '';
+
+  @override
+  String get filterTitle => '';
+
+  @override
+  String get searchCountryCityText => '';
+
+  @override
+  String get freeTitle => '';
+
+  @override
+  String get paidTitle => '';
+
+  @override
+  String get hostRatingFromText => '';
+
+  @override
+  String get eventsConventionsTitle => '';
+
+  @override
+  String get noEventsFoundText => '';
+
+  @override
+  String get noEventsFoundDescription => '';
+
+  @override
+  String get openAppSettings => '';
+
+  @override
+  String get cameraErrorCheckPermission => '';
+
+  @override
+  String get editPromoImage => '';
+
+  @override
+  String get invalidEventNameError => '';
+
+  @override
+  String get invalidDescriptionError => '';
+
+  @override
+  String get venueText => '';
+
+  @override
+  String get invalidVenueError => '';
+
+  @override
+  String get invalidMaxPartySizeError => '';
 }

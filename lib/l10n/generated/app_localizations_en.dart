@@ -921,4 +921,103 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get portuguese => 'Portuguese';
+
+  @override
+  String get eventsTitle => 'Events';
+
+  @override
+  String get createEventTitle => 'Create Event';
+
+  @override
+  String get addPromoImageText => 'Add Promo Image';
+
+  @override
+  String get eventNameText => 'Event Name';
+
+  @override
+  String get aboutEventText => 'About Event';
+
+  @override
+  String get dateText => 'Date';
+
+  @override
+  String get canBeRangeText => 'Can be range';
+
+  @override
+  String get timeText => 'Time';
+
+  @override
+  String get maxPartySizeText => 'Max Party Size';
+
+  @override
+  String get availableSlotsText => '1-10 available slots';
+
+  @override
+  String get requiresPaymentText => 'Requires Payment?';
+
+  @override
+  String get cosplayText => 'Cosplay';
+
+  @override
+  String get optionalButton => 'Optional';
+
+  @override
+  String get eventAssociatedWithConventionText => 'Is the event associated with a Convention?';
+
+  @override
+  String get findConventionText => 'Find Convention';
+
+  @override
+  String get selectConventionText => 'Select Convention';
+
+  @override
+  String get saveChangesButton => 'Save Changes';
+
+  @override
+  String get filterTitle => 'Filter';
+
+  @override
+  String get searchCountryCityText => 'Search country, city';
+
+  @override
+  String get freeTitle => 'FREE';
+
+  @override
+  String get paidTitle => 'Paid';
+
+  @override
+  String get hostRatingFromText => 'Host Rating from:';
+
+  @override
+  String get eventsConventionsTitle => 'Events & Conventions';
+
+  @override
+  String get noEventsFoundText => 'Oops, no Events found!';
+
+  @override
+  String get noEventsFoundDescription => 'Try tweaking your filters or come\nback later for more fun options.';
+
+  @override
+  String get openAppSettings => 'Open App Settings';
+
+  @override
+  String get cameraErrorCheckPermission => 'Something went wrong with your camera, please check permission.';
+
+  @override
+  String get editPromoImage => 'Edit Promo Image';
+
+  @override
+  String get invalidEventNameError => 'Invalid event name. Please try again';
+
+  @override
+  String get invalidDescriptionError => 'Invalid description. Please try again';
+
+  @override
+  String get venueText => 'Venue';
+
+  @override
+  String get invalidVenueError => 'Invalid venue. Please try again';
+
+  @override
+  String get invalidMaxPartySizeError => 'Invalid max party size. Please try again';
 }
