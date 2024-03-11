@@ -70,8 +70,7 @@ class HomePage extends StatelessWidget {
           activeIcon: SvgPicture.asset(
             PathConstants.eventsIcon,
           ),
-          //change text
-          label: 'Events',
+          label: R.strings.eventsTitle,
         ),
         BottomNavigationBarItem(
           icon: SvgPicture.asset(

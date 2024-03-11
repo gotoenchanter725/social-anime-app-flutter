@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
+import 'package:senpai/l10n/resources.dart';
 
-import 'package:senpai/screens/events_list/widgets/events_list_content.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -13,21 +13,17 @@ class EventsListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: $constants.palette.darkBlue,
       appBar: SenpaiAppBar(
-        // change it
-        title: 'Events & Conventions',
+        title: R.strings.eventsConventionsTitle,
         hasLeading: false,
-
         actions: [
           GestureDetector(
-            onTap: () {
-              //TODO: add EventsFilterRoute
-            },
+            onTap: () {},
             child: Padding(
               padding: EdgeInsets.only(right: $constants.insets.sm),
               child: Text(
-                // change it
-                'Filter',
+                R.strings.filterTitle,
                 style: getTextTheme(context).bodySmall!.copyWith(
                       letterSpacing: 0,
                     ),
@@ -36,7 +32,13 @@ class EventsListPage extends StatelessWidget {
           ),
         ],
       ),
-      body: const EventsListContent(),
+      // Herbert Joseph 11.03
+      // Just a note: until Events & Conventions are fully complete,
+      // let's leave the Events tab as "To be Implemented"
+      // body: const EventsListContent(),
+      body: const Center(
+        child: Text("To be implemented"),
+      ),
     );
   }
 }

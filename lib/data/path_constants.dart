@@ -98,5 +98,10 @@ class PathConstants {
 
   //Events
   static const String eventsIcon = 'assets/icons/events_icon.svg';
-
+  static const String emptyEventsImage =
+      'assets/images/events/empty_events_list.png';
+  static const String eventButtonIcon =
+      'assets/images/events/event_button_icon.svg';
+  static const String newEventImage =
+      'assets/images/events/event_image_icon.svg';
 }
