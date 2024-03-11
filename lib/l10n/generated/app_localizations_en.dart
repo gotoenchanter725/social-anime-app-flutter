@@ -1002,4 +1002,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cameraErrorCheckPermission => 'Something went wrong with your camera, please check permission.';
+
+  @override
+  String get editPromoImage => 'Edit Promo Image';
+
+  @override
+  String get invalidEventNameError => 'Invalid event name. Please try again';
+
+  @override
+  String get invalidDescriptionError => 'Invalid description. Please try again';
+
+  @override
+  String get venueText => 'Venue';
+
+  @override
+  String get invalidVenueError => 'Invalid venue. Please try again';
+
+  @override
+  String get invalidMaxPartySizeError => 'Invalid max party size. Please try again';
 }

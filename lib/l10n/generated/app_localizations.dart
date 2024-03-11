@@ -2092,6 +2092,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Something went wrong with your camera, please check permission.'**
   String get cameraErrorCheckPermission;
+
+  /// No description provided for @editPromoImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Promo Image'**
+  String get editPromoImage;
+
+  /// No description provided for @invalidEventNameError.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid event name. Please try again'**
+  String get invalidEventNameError;
+
+  /// No description provided for @invalidDescriptionError.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid description. Please try again'**
+  String get invalidDescriptionError;
+
+  /// No description provided for @venueText.
+  ///
+  /// In en, this message translates to:
+  /// **'Venue'**
+  String get venueText;
+
+  /// No description provided for @invalidVenueError.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid venue. Please try again'**
+  String get invalidVenueError;
+
+  /// No description provided for @invalidMaxPartySizeError.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid max party size. Please try again'**
+  String get invalidMaxPartySizeError;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -1002,4 +1002,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get cameraErrorCheckPermission => '';
+
+  @override
+  String get editPromoImage => '';
+
+  @override
+  String get invalidEventNameError => '';
+
+  @override
+  String get invalidDescriptionError => '';
+
+  @override
+  String get venueText => '';
+
+  @override
+  String get invalidVenueError => '';
+
+  @override
+  String get invalidMaxPartySizeError => '';
 }
