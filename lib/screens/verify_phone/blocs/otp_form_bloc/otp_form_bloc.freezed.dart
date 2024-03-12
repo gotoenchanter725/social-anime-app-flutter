@@ -12,7 +12,7 @@ part of 'otp_form_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$OtpFormEvent {
@@ -93,20 +93,20 @@ class _$OtpFormEventCopyWithImpl<$Res, $Val extends OtpFormEvent>
 }
 
 /// @nodoc
-abstract class _$$_CodeChangedCopyWith<$Res> {
-  factory _$$_CodeChangedCopyWith(
-          _$_CodeChanged value, $Res Function(_$_CodeChanged) then) =
-      __$$_CodeChangedCopyWithImpl<$Res>;
+abstract class _$$CodeChangedImplCopyWith<$Res> {
+  factory _$$CodeChangedImplCopyWith(
+          _$CodeChangedImpl value, $Res Function(_$CodeChangedImpl) then) =
+      __$$CodeChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String otpCode});
 }
 
 /// @nodoc
-class __$$_CodeChangedCopyWithImpl<$Res>
-    extends _$OtpFormEventCopyWithImpl<$Res, _$_CodeChanged>
-    implements _$$_CodeChangedCopyWith<$Res> {
-  __$$_CodeChangedCopyWithImpl(
-      _$_CodeChanged _value, $Res Function(_$_CodeChanged) _then)
+class __$$CodeChangedImplCopyWithImpl<$Res>
+    extends _$OtpFormEventCopyWithImpl<$Res, _$CodeChangedImpl>
+    implements _$$CodeChangedImplCopyWith<$Res> {
+  __$$CodeChangedImplCopyWithImpl(
+      _$CodeChangedImpl _value, $Res Function(_$CodeChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,7 +114,7 @@ class __$$_CodeChangedCopyWithImpl<$Res>
   $Res call({
     Object? otpCode = null,
   }) {
-    return _then(_$_CodeChanged(
+    return _then(_$CodeChangedImpl(
       null == otpCode
           ? _value.otpCode
           : otpCode // ignore: cast_nullable_to_non_nullable
@@ -125,8 +125,8 @@ class __$$_CodeChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_CodeChanged implements _CodeChanged {
-  const _$_CodeChanged(this.otpCode);
+class _$CodeChangedImpl implements _CodeChanged {
+  const _$CodeChangedImpl(this.otpCode);
 
   @override
   final String otpCode;
@@ -137,10 +137,10 @@ class _$_CodeChanged implements _CodeChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CodeChanged &&
+            other is _$CodeChangedImpl &&
             (identical(other.otpCode, otpCode) || other.otpCode == otpCode));
   }
 
@@ -150,8 +150,8 @@ class _$_CodeChanged implements _CodeChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_CodeChangedCopyWith<_$_CodeChanged> get copyWith =>
-      __$$_CodeChangedCopyWithImpl<_$_CodeChanged>(this, _$identity);
+  _$$CodeChangedImplCopyWith<_$CodeChangedImpl> get copyWith =>
+      __$$CodeChangedImplCopyWithImpl<_$CodeChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -235,32 +235,34 @@ class _$_CodeChanged implements _CodeChanged {
 }
 
 abstract class _CodeChanged implements OtpFormEvent {
-  const factory _CodeChanged(final String otpCode) = _$_CodeChanged;
+  const factory _CodeChanged(final String otpCode) = _$CodeChangedImpl;
 
   String get otpCode;
   @JsonKey(ignore: true)
-  _$$_CodeChangedCopyWith<_$_CodeChanged> get copyWith =>
+  _$$CodeChangedImplCopyWith<_$CodeChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_SubmitCopyWith<$Res> {
-  factory _$$_SubmitCopyWith(_$_Submit value, $Res Function(_$_Submit) then) =
-      __$$_SubmitCopyWithImpl<$Res>;
+abstract class _$$SubmitImplCopyWith<$Res> {
+  factory _$$SubmitImplCopyWith(
+          _$SubmitImpl value, $Res Function(_$SubmitImpl) then) =
+      __$$SubmitImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_SubmitCopyWithImpl<$Res>
-    extends _$OtpFormEventCopyWithImpl<$Res, _$_Submit>
-    implements _$$_SubmitCopyWith<$Res> {
-  __$$_SubmitCopyWithImpl(_$_Submit _value, $Res Function(_$_Submit) _then)
+class __$$SubmitImplCopyWithImpl<$Res>
+    extends _$OtpFormEventCopyWithImpl<$Res, _$SubmitImpl>
+    implements _$$SubmitImplCopyWith<$Res> {
+  __$$SubmitImplCopyWithImpl(
+      _$SubmitImpl _value, $Res Function(_$SubmitImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Submit implements _Submit {
-  const _$_Submit();
+class _$SubmitImpl implements _Submit {
+  const _$SubmitImpl();
 
   @override
   String toString() {
@@ -268,9 +270,9 @@ class _$_Submit implements _Submit {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Submit);
+        (other.runtimeType == runtimeType && other is _$SubmitImpl);
   }
 
   @override
@@ -358,27 +360,29 @@ class _$_Submit implements _Submit {
 }
 
 abstract class _Submit implements OtpFormEvent {
-  const factory _Submit() = _$_Submit;
+  const factory _Submit() = _$SubmitImpl;
 }
 
 /// @nodoc
-abstract class _$$_ResendCopyWith<$Res> {
-  factory _$$_ResendCopyWith(_$_Resend value, $Res Function(_$_Resend) then) =
-      __$$_ResendCopyWithImpl<$Res>;
+abstract class _$$ResendImplCopyWith<$Res> {
+  factory _$$ResendImplCopyWith(
+          _$ResendImpl value, $Res Function(_$ResendImpl) then) =
+      __$$ResendImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ResendCopyWithImpl<$Res>
-    extends _$OtpFormEventCopyWithImpl<$Res, _$_Resend>
-    implements _$$_ResendCopyWith<$Res> {
-  __$$_ResendCopyWithImpl(_$_Resend _value, $Res Function(_$_Resend) _then)
+class __$$ResendImplCopyWithImpl<$Res>
+    extends _$OtpFormEventCopyWithImpl<$Res, _$ResendImpl>
+    implements _$$ResendImplCopyWith<$Res> {
+  __$$ResendImplCopyWithImpl(
+      _$ResendImpl _value, $Res Function(_$ResendImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Resend implements _Resend {
-  const _$_Resend();
+class _$ResendImpl implements _Resend {
+  const _$ResendImpl();
 
   @override
   String toString() {
@@ -386,9 +390,9 @@ class _$_Resend implements _Resend {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Resend);
+        (other.runtimeType == runtimeType && other is _$ResendImpl);
   }
 
   @override
@@ -476,29 +480,29 @@ class _$_Resend implements _Resend {
 }
 
 abstract class _Resend implements OtpFormEvent {
-  const factory _Resend() = _$_Resend;
+  const factory _Resend() = _$ResendImpl;
 }
 
 /// @nodoc
-abstract class _$$_ActivateResendCopyWith<$Res> {
-  factory _$$_ActivateResendCopyWith(
-          _$_ActivateResend value, $Res Function(_$_ActivateResend) then) =
-      __$$_ActivateResendCopyWithImpl<$Res>;
+abstract class _$$ActivateResendImplCopyWith<$Res> {
+  factory _$$ActivateResendImplCopyWith(_$ActivateResendImpl value,
+          $Res Function(_$ActivateResendImpl) then) =
+      __$$ActivateResendImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ActivateResendCopyWithImpl<$Res>
-    extends _$OtpFormEventCopyWithImpl<$Res, _$_ActivateResend>
-    implements _$$_ActivateResendCopyWith<$Res> {
-  __$$_ActivateResendCopyWithImpl(
-      _$_ActivateResend _value, $Res Function(_$_ActivateResend) _then)
+class __$$ActivateResendImplCopyWithImpl<$Res>
+    extends _$OtpFormEventCopyWithImpl<$Res, _$ActivateResendImpl>
+    implements _$$ActivateResendImplCopyWith<$Res> {
+  __$$ActivateResendImplCopyWithImpl(
+      _$ActivateResendImpl _value, $Res Function(_$ActivateResendImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActivateResend implements _ActivateResend {
-  const _$_ActivateResend();
+class _$ActivateResendImpl implements _ActivateResend {
+  const _$ActivateResendImpl();
 
   @override
   String toString() {
@@ -506,9 +510,9 @@ class _$_ActivateResend implements _ActivateResend {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ActivateResend);
+        (other.runtimeType == runtimeType && other is _$ActivateResendImpl);
   }
 
   @override
@@ -596,27 +600,29 @@ class _$_ActivateResend implements _ActivateResend {
 }
 
 abstract class _ActivateResend implements OtpFormEvent {
-  const factory _ActivateResend() = _$_ActivateResend;
+  const factory _ActivateResend() = _$ActivateResendImpl;
 }
 
 /// @nodoc
-abstract class _$$_FailedCopyWith<$Res> {
-  factory _$$_FailedCopyWith(_$_Failed value, $Res Function(_$_Failed) then) =
-      __$$_FailedCopyWithImpl<$Res>;
+abstract class _$$FailedImplCopyWith<$Res> {
+  factory _$$FailedImplCopyWith(
+          _$FailedImpl value, $Res Function(_$FailedImpl) then) =
+      __$$FailedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_FailedCopyWithImpl<$Res>
-    extends _$OtpFormEventCopyWithImpl<$Res, _$_Failed>
-    implements _$$_FailedCopyWith<$Res> {
-  __$$_FailedCopyWithImpl(_$_Failed _value, $Res Function(_$_Failed) _then)
+class __$$FailedImplCopyWithImpl<$Res>
+    extends _$OtpFormEventCopyWithImpl<$Res, _$FailedImpl>
+    implements _$$FailedImplCopyWith<$Res> {
+  __$$FailedImplCopyWithImpl(
+      _$FailedImpl _value, $Res Function(_$FailedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Failed implements _Failed {
-  const _$_Failed();
+class _$FailedImpl implements _Failed {
+  const _$FailedImpl();
 
   @override
   String toString() {
@@ -624,9 +630,9 @@ class _$_Failed implements _Failed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Failed);
+        (other.runtimeType == runtimeType && other is _$FailedImpl);
   }
 
   @override
@@ -714,7 +720,7 @@ class _$_Failed implements _Failed {
 }
 
 abstract class _Failed implements OtpFormEvent {
-  const factory _Failed() = _$_Failed;
+  const factory _Failed() = _$FailedImpl;
 }
 
 /// @nodoc
@@ -782,11 +788,11 @@ class _$OtpFormStateCopyWithImpl<$Res, $Val extends OtpFormState>
 }
 
 /// @nodoc
-abstract class _$$_OtpFormStateCopyWith<$Res>
+abstract class _$$OtpFormStateImplCopyWith<$Res>
     implements $OtpFormStateCopyWith<$Res> {
-  factory _$$_OtpFormStateCopyWith(
-          _$_OtpFormState value, $Res Function(_$_OtpFormState) then) =
-      __$$_OtpFormStateCopyWithImpl<$Res>;
+  factory _$$OtpFormStateImplCopyWith(
+          _$OtpFormStateImpl value, $Res Function(_$OtpFormStateImpl) then) =
+      __$$OtpFormStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -797,11 +803,11 @@ abstract class _$$_OtpFormStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_OtpFormStateCopyWithImpl<$Res>
-    extends _$OtpFormStateCopyWithImpl<$Res, _$_OtpFormState>
-    implements _$$_OtpFormStateCopyWith<$Res> {
-  __$$_OtpFormStateCopyWithImpl(
-      _$_OtpFormState _value, $Res Function(_$_OtpFormState) _then)
+class __$$OtpFormStateImplCopyWithImpl<$Res>
+    extends _$OtpFormStateCopyWithImpl<$Res, _$OtpFormStateImpl>
+    implements _$$OtpFormStateImplCopyWith<$Res> {
+  __$$OtpFormStateImplCopyWithImpl(
+      _$OtpFormStateImpl _value, $Res Function(_$OtpFormStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -812,7 +818,7 @@ class __$$_OtpFormStateCopyWithImpl<$Res>
     Object? isResendButtonActive = null,
     Object? isError = null,
   }) {
-    return _then(_$_OtpFormState(
+    return _then(_$OtpFormStateImpl(
       otpCode: null == otpCode
           ? _value.otpCode
           : otpCode // ignore: cast_nullable_to_non_nullable
@@ -835,8 +841,8 @@ class __$$_OtpFormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_OtpFormState implements _OtpFormState {
-  const _$_OtpFormState(
+class _$OtpFormStateImpl implements _OtpFormState {
+  const _$OtpFormStateImpl(
       {required this.otpCode,
       required this.isSubmitting,
       required this.isResendButtonActive,
@@ -857,10 +863,10 @@ class _$_OtpFormState implements _OtpFormState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OtpFormState &&
+            other is _$OtpFormStateImpl &&
             (identical(other.otpCode, otpCode) || other.otpCode == otpCode) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 other.isSubmitting == isSubmitting) &&
@@ -876,8 +882,8 @@ class _$_OtpFormState implements _OtpFormState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OtpFormStateCopyWith<_$_OtpFormState> get copyWith =>
-      __$$_OtpFormStateCopyWithImpl<_$_OtpFormState>(this, _$identity);
+  _$$OtpFormStateImplCopyWith<_$OtpFormStateImpl> get copyWith =>
+      __$$OtpFormStateImplCopyWithImpl<_$OtpFormStateImpl>(this, _$identity);
 }
 
 abstract class _OtpFormState implements OtpFormState {
@@ -885,7 +891,7 @@ abstract class _OtpFormState implements OtpFormState {
       {required final String otpCode,
       required final bool isSubmitting,
       required final bool isResendButtonActive,
-      required final bool isError}) = _$_OtpFormState;
+      required final bool isError}) = _$OtpFormStateImpl;
 
   @override
   String get otpCode;
@@ -897,6 +903,6 @@ abstract class _OtpFormState implements OtpFormState {
   bool get isError;
   @override
   @JsonKey(ignore: true)
-  _$$_OtpFormStateCopyWith<_$_OtpFormState> get copyWith =>
+  _$$OtpFormStateImplCopyWith<_$OtpFormStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

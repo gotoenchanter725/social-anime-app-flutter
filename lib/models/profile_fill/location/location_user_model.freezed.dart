@@ -12,7 +12,7 @@ part of 'location_user_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LocationUserModel _$LocationUserModelFromJson(Map<String, dynamic> json) {
   return _LocationUserModel.fromJson(json);
@@ -81,11 +81,11 @@ class _$LocationUserModelCopyWithImpl<$Res, $Val extends LocationUserModel>
 }
 
 /// @nodoc
-abstract class _$$_LocationUserModelCopyWith<$Res>
+abstract class _$$LocationUserModelImplCopyWith<$Res>
     implements $LocationUserModelCopyWith<$Res> {
-  factory _$$_LocationUserModelCopyWith(_$_LocationUserModel value,
-          $Res Function(_$_LocationUserModel) then) =
-      __$$_LocationUserModelCopyWithImpl<$Res>;
+  factory _$$LocationUserModelImplCopyWith(_$LocationUserModelImpl value,
+          $Res Function(_$LocationUserModelImpl) then) =
+      __$$LocationUserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -93,11 +93,11 @@ abstract class _$$_LocationUserModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LocationUserModelCopyWithImpl<$Res>
-    extends _$LocationUserModelCopyWithImpl<$Res, _$_LocationUserModel>
-    implements _$$_LocationUserModelCopyWith<$Res> {
-  __$$_LocationUserModelCopyWithImpl(
-      _$_LocationUserModel _value, $Res Function(_$_LocationUserModel) _then)
+class __$$LocationUserModelImplCopyWithImpl<$Res>
+    extends _$LocationUserModelCopyWithImpl<$Res, _$LocationUserModelImpl>
+    implements _$$LocationUserModelImplCopyWith<$Res> {
+  __$$LocationUserModelImplCopyWithImpl(_$LocationUserModelImpl _value,
+      $Res Function(_$LocationUserModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +108,7 @@ class __$$_LocationUserModelCopyWithImpl<$Res>
     Object? displayCity = freezed,
     Object? displayState = freezed,
   }) {
-    return _then(_$_LocationUserModel(
+    return _then(_$LocationUserModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -131,12 +131,12 @@ class __$$_LocationUserModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LocationUserModel implements _LocationUserModel {
-  const _$_LocationUserModel(
+class _$LocationUserModelImpl implements _LocationUserModel {
+  const _$LocationUserModelImpl(
       {required this.id, this.lonlat, this.displayCity, this.displayState});
 
-  factory _$_LocationUserModel.fromJson(Map<String, dynamic> json) =>
-      _$$_LocationUserModelFromJson(json);
+  factory _$LocationUserModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LocationUserModelImplFromJson(json);
 
   @override
   final String id;
@@ -153,10 +153,10 @@ class _$_LocationUserModel implements _LocationUserModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LocationUserModel &&
+            other is _$LocationUserModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.lonlat, lonlat) || other.lonlat == lonlat) &&
             (identical(other.displayCity, displayCity) ||
@@ -173,13 +173,13 @@ class _$_LocationUserModel implements _LocationUserModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LocationUserModelCopyWith<_$_LocationUserModel> get copyWith =>
-      __$$_LocationUserModelCopyWithImpl<_$_LocationUserModel>(
+  _$$LocationUserModelImplCopyWith<_$LocationUserModelImpl> get copyWith =>
+      __$$LocationUserModelImplCopyWithImpl<_$LocationUserModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LocationUserModelToJson(
+    return _$$LocationUserModelImplToJson(
       this,
     );
   }
@@ -190,10 +190,10 @@ abstract class _LocationUserModel implements LocationUserModel {
       {required final String id,
       final String? lonlat,
       final String? displayCity,
-      final String? displayState}) = _$_LocationUserModel;
+      final String? displayState}) = _$LocationUserModelImpl;
 
   factory _LocationUserModel.fromJson(Map<String, dynamic> json) =
-      _$_LocationUserModel.fromJson;
+      _$LocationUserModelImpl.fromJson;
 
   @override
   String get id;
@@ -205,6 +205,6 @@ abstract class _LocationUserModel implements LocationUserModel {
   String? get displayState;
   @override
   @JsonKey(ignore: true)
-  _$$_LocationUserModelCopyWith<_$_LocationUserModel> get copyWith =>
+  _$$LocationUserModelImplCopyWith<_$LocationUserModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

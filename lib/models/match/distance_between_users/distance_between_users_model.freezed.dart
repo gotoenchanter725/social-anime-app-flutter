@@ -12,7 +12,7 @@ part of 'distance_between_users_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DistanceBetweenUsersModel _$DistanceBetweenUsersModelFromJson(
     Map<String, dynamic> json) {
@@ -64,25 +64,25 @@ class _$DistanceBetweenUsersModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_DistanceBetweenUsersModelCopyWith<$Res>
+abstract class _$$DistanceBetweenUsersModelImplCopyWith<$Res>
     implements $DistanceBetweenUsersModelCopyWith<$Res> {
-  factory _$$_DistanceBetweenUsersModelCopyWith(
-          _$_DistanceBetweenUsersModel value,
-          $Res Function(_$_DistanceBetweenUsersModel) then) =
-      __$$_DistanceBetweenUsersModelCopyWithImpl<$Res>;
+  factory _$$DistanceBetweenUsersModelImplCopyWith(
+          _$DistanceBetweenUsersModelImpl value,
+          $Res Function(_$DistanceBetweenUsersModelImpl) then) =
+      __$$DistanceBetweenUsersModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int mi});
 }
 
 /// @nodoc
-class __$$_DistanceBetweenUsersModelCopyWithImpl<$Res>
+class __$$DistanceBetweenUsersModelImplCopyWithImpl<$Res>
     extends _$DistanceBetweenUsersModelCopyWithImpl<$Res,
-        _$_DistanceBetweenUsersModel>
-    implements _$$_DistanceBetweenUsersModelCopyWith<$Res> {
-  __$$_DistanceBetweenUsersModelCopyWithImpl(
-      _$_DistanceBetweenUsersModel _value,
-      $Res Function(_$_DistanceBetweenUsersModel) _then)
+        _$DistanceBetweenUsersModelImpl>
+    implements _$$DistanceBetweenUsersModelImplCopyWith<$Res> {
+  __$$DistanceBetweenUsersModelImplCopyWithImpl(
+      _$DistanceBetweenUsersModelImpl _value,
+      $Res Function(_$DistanceBetweenUsersModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +90,7 @@ class __$$_DistanceBetweenUsersModelCopyWithImpl<$Res>
   $Res call({
     Object? mi = null,
   }) {
-    return _then(_$_DistanceBetweenUsersModel(
+    return _then(_$DistanceBetweenUsersModelImpl(
       mi: null == mi
           ? _value.mi
           : mi // ignore: cast_nullable_to_non_nullable
@@ -101,11 +101,11 @@ class __$$_DistanceBetweenUsersModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DistanceBetweenUsersModel implements _DistanceBetweenUsersModel {
-  const _$_DistanceBetweenUsersModel({required this.mi});
+class _$DistanceBetweenUsersModelImpl implements _DistanceBetweenUsersModel {
+  const _$DistanceBetweenUsersModelImpl({required this.mi});
 
-  factory _$_DistanceBetweenUsersModel.fromJson(Map<String, dynamic> json) =>
-      _$$_DistanceBetweenUsersModelFromJson(json);
+  factory _$DistanceBetweenUsersModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DistanceBetweenUsersModelImplFromJson(json);
 
   @override
   final int mi;
@@ -116,10 +116,10 @@ class _$_DistanceBetweenUsersModel implements _DistanceBetweenUsersModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DistanceBetweenUsersModel &&
+            other is _$DistanceBetweenUsersModelImpl &&
             (identical(other.mi, mi) || other.mi == mi));
   }
 
@@ -130,13 +130,13 @@ class _$_DistanceBetweenUsersModel implements _DistanceBetweenUsersModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DistanceBetweenUsersModelCopyWith<_$_DistanceBetweenUsersModel>
-      get copyWith => __$$_DistanceBetweenUsersModelCopyWithImpl<
-          _$_DistanceBetweenUsersModel>(this, _$identity);
+  _$$DistanceBetweenUsersModelImplCopyWith<_$DistanceBetweenUsersModelImpl>
+      get copyWith => __$$DistanceBetweenUsersModelImplCopyWithImpl<
+          _$DistanceBetweenUsersModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DistanceBetweenUsersModelToJson(
+    return _$$DistanceBetweenUsersModelImplToJson(
       this,
     );
   }
@@ -144,15 +144,15 @@ class _$_DistanceBetweenUsersModel implements _DistanceBetweenUsersModel {
 
 abstract class _DistanceBetweenUsersModel implements DistanceBetweenUsersModel {
   const factory _DistanceBetweenUsersModel({required final int mi}) =
-      _$_DistanceBetweenUsersModel;
+      _$DistanceBetweenUsersModelImpl;
 
   factory _DistanceBetweenUsersModel.fromJson(Map<String, dynamic> json) =
-      _$_DistanceBetweenUsersModel.fromJson;
+      _$DistanceBetweenUsersModelImpl.fromJson;
 
   @override
   int get mi;
   @override
   @JsonKey(ignore: true)
-  _$$_DistanceBetweenUsersModelCopyWith<_$_DistanceBetweenUsersModel>
+  _$$DistanceBetweenUsersModelImplCopyWith<_$DistanceBetweenUsersModelImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -137,7 +137,7 @@ dev_dependencies:
   injectable_generator: ^2.3.0
   json_serializable: ^6.7.1
   artemis: ^7.9.0-beta
-  freezed: ^2.4.1
+  freezed: ^2.4.7
   golden_toolkit: ^0.15.0
   slang_flutter: ^3.22.0
   slang_build_runner: ^3.22.0

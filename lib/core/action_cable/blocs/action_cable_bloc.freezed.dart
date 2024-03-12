@@ -12,7 +12,7 @@ part of 'action_cable_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ActionCableEvent<T> {
@@ -110,27 +110,28 @@ class _$ActionCableEventCopyWithImpl<T, $Res, $Val extends ActionCableEvent<T>>
 }
 
 /// @nodoc
-abstract class _$$_ActionCableEventConnectCopyWith<T, $Res> {
-  factory _$$_ActionCableEventConnectCopyWith(
-          _$_ActionCableEventConnect<T> value,
-          $Res Function(_$_ActionCableEventConnect<T>) then) =
-      __$$_ActionCableEventConnectCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableEventConnectImplCopyWith<T, $Res> {
+  factory _$$ActionCableEventConnectImplCopyWith(
+          _$ActionCableEventConnectImpl<T> value,
+          $Res Function(_$ActionCableEventConnectImpl<T>) then) =
+      __$$ActionCableEventConnectImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_ActionCableEventConnectCopyWithImpl<T, $Res>
+class __$$ActionCableEventConnectImplCopyWithImpl<T, $Res>
     extends _$ActionCableEventCopyWithImpl<T, $Res,
-        _$_ActionCableEventConnect<T>>
-    implements _$$_ActionCableEventConnectCopyWith<T, $Res> {
-  __$$_ActionCableEventConnectCopyWithImpl(_$_ActionCableEventConnect<T> _value,
-      $Res Function(_$_ActionCableEventConnect<T>) _then)
+        _$ActionCableEventConnectImpl<T>>
+    implements _$$ActionCableEventConnectImplCopyWith<T, $Res> {
+  __$$ActionCableEventConnectImplCopyWithImpl(
+      _$ActionCableEventConnectImpl<T> _value,
+      $Res Function(_$ActionCableEventConnectImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionCableEventConnect<T> implements _ActionCableEventConnect<T> {
-  const _$_ActionCableEventConnect();
+class _$ActionCableEventConnectImpl<T> implements _ActionCableEventConnect<T> {
+  const _$ActionCableEventConnectImpl();
 
   @override
   String toString() {
@@ -138,10 +139,10 @@ class _$_ActionCableEventConnect<T> implements _ActionCableEventConnect<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableEventConnect<T>);
+            other is _$ActionCableEventConnectImpl<T>);
   }
 
   @override
@@ -246,33 +247,33 @@ class _$_ActionCableEventConnect<T> implements _ActionCableEventConnect<T> {
 }
 
 abstract class _ActionCableEventConnect<T> implements ActionCableEvent<T> {
-  const factory _ActionCableEventConnect() = _$_ActionCableEventConnect<T>;
+  const factory _ActionCableEventConnect() = _$ActionCableEventConnectImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableEventDisconnectCopyWith<T, $Res> {
-  factory _$$_ActionCableEventDisconnectCopyWith(
-          _$_ActionCableEventDisconnect<T> value,
-          $Res Function(_$_ActionCableEventDisconnect<T>) then) =
-      __$$_ActionCableEventDisconnectCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableEventDisconnectImplCopyWith<T, $Res> {
+  factory _$$ActionCableEventDisconnectImplCopyWith(
+          _$ActionCableEventDisconnectImpl<T> value,
+          $Res Function(_$ActionCableEventDisconnectImpl<T>) then) =
+      __$$ActionCableEventDisconnectImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_ActionCableEventDisconnectCopyWithImpl<T, $Res>
+class __$$ActionCableEventDisconnectImplCopyWithImpl<T, $Res>
     extends _$ActionCableEventCopyWithImpl<T, $Res,
-        _$_ActionCableEventDisconnect<T>>
-    implements _$$_ActionCableEventDisconnectCopyWith<T, $Res> {
-  __$$_ActionCableEventDisconnectCopyWithImpl(
-      _$_ActionCableEventDisconnect<T> _value,
-      $Res Function(_$_ActionCableEventDisconnect<T>) _then)
+        _$ActionCableEventDisconnectImpl<T>>
+    implements _$$ActionCableEventDisconnectImplCopyWith<T, $Res> {
+  __$$ActionCableEventDisconnectImplCopyWithImpl(
+      _$ActionCableEventDisconnectImpl<T> _value,
+      $Res Function(_$ActionCableEventDisconnectImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionCableEventDisconnect<T>
+class _$ActionCableEventDisconnectImpl<T>
     implements _ActionCableEventDisconnect<T> {
-  const _$_ActionCableEventDisconnect();
+  const _$ActionCableEventDisconnectImpl();
 
   @override
   String toString() {
@@ -280,10 +281,10 @@ class _$_ActionCableEventDisconnect<T>
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableEventDisconnect<T>);
+            other is _$ActionCableEventDisconnectImpl<T>);
   }
 
   @override
@@ -389,32 +390,33 @@ class _$_ActionCableEventDisconnect<T>
 
 abstract class _ActionCableEventDisconnect<T> implements ActionCableEvent<T> {
   const factory _ActionCableEventDisconnect() =
-      _$_ActionCableEventDisconnect<T>;
+      _$ActionCableEventDisconnectImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableEventSubscribeCopyWith<T, $Res> {
-  factory _$$_ActionCableEventSubscribeCopyWith(
-          _$_ActionCableEventSubscribe<T> value,
-          $Res Function(_$_ActionCableEventSubscribe<T>) then) =
-      __$$_ActionCableEventSubscribeCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableEventSubscribeImplCopyWith<T, $Res> {
+  factory _$$ActionCableEventSubscribeImplCopyWith(
+          _$ActionCableEventSubscribeImpl<T> value,
+          $Res Function(_$ActionCableEventSubscribeImpl<T>) then) =
+      __$$ActionCableEventSubscribeImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_ActionCableEventSubscribeCopyWithImpl<T, $Res>
+class __$$ActionCableEventSubscribeImplCopyWithImpl<T, $Res>
     extends _$ActionCableEventCopyWithImpl<T, $Res,
-        _$_ActionCableEventSubscribe<T>>
-    implements _$$_ActionCableEventSubscribeCopyWith<T, $Res> {
-  __$$_ActionCableEventSubscribeCopyWithImpl(
-      _$_ActionCableEventSubscribe<T> _value,
-      $Res Function(_$_ActionCableEventSubscribe<T>) _then)
+        _$ActionCableEventSubscribeImpl<T>>
+    implements _$$ActionCableEventSubscribeImplCopyWith<T, $Res> {
+  __$$ActionCableEventSubscribeImplCopyWithImpl(
+      _$ActionCableEventSubscribeImpl<T> _value,
+      $Res Function(_$ActionCableEventSubscribeImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionCableEventSubscribe<T> implements _ActionCableEventSubscribe<T> {
-  const _$_ActionCableEventSubscribe();
+class _$ActionCableEventSubscribeImpl<T>
+    implements _ActionCableEventSubscribe<T> {
+  const _$ActionCableEventSubscribeImpl();
 
   @override
   String toString() {
@@ -422,10 +424,10 @@ class _$_ActionCableEventSubscribe<T> implements _ActionCableEventSubscribe<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableEventSubscribe<T>);
+            other is _$ActionCableEventSubscribeImpl<T>);
   }
 
   @override
@@ -530,33 +532,34 @@ class _$_ActionCableEventSubscribe<T> implements _ActionCableEventSubscribe<T> {
 }
 
 abstract class _ActionCableEventSubscribe<T> implements ActionCableEvent<T> {
-  const factory _ActionCableEventSubscribe() = _$_ActionCableEventSubscribe<T>;
+  const factory _ActionCableEventSubscribe() =
+      _$ActionCableEventSubscribeImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableEventUnsubscribeCopyWith<T, $Res> {
-  factory _$$_ActionCableEventUnsubscribeCopyWith(
-          _$_ActionCableEventUnsubscribe<T> value,
-          $Res Function(_$_ActionCableEventUnsubscribe<T>) then) =
-      __$$_ActionCableEventUnsubscribeCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableEventUnsubscribeImplCopyWith<T, $Res> {
+  factory _$$ActionCableEventUnsubscribeImplCopyWith(
+          _$ActionCableEventUnsubscribeImpl<T> value,
+          $Res Function(_$ActionCableEventUnsubscribeImpl<T>) then) =
+      __$$ActionCableEventUnsubscribeImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_ActionCableEventUnsubscribeCopyWithImpl<T, $Res>
+class __$$ActionCableEventUnsubscribeImplCopyWithImpl<T, $Res>
     extends _$ActionCableEventCopyWithImpl<T, $Res,
-        _$_ActionCableEventUnsubscribe<T>>
-    implements _$$_ActionCableEventUnsubscribeCopyWith<T, $Res> {
-  __$$_ActionCableEventUnsubscribeCopyWithImpl(
-      _$_ActionCableEventUnsubscribe<T> _value,
-      $Res Function(_$_ActionCableEventUnsubscribe<T>) _then)
+        _$ActionCableEventUnsubscribeImpl<T>>
+    implements _$$ActionCableEventUnsubscribeImplCopyWith<T, $Res> {
+  __$$ActionCableEventUnsubscribeImplCopyWithImpl(
+      _$ActionCableEventUnsubscribeImpl<T> _value,
+      $Res Function(_$ActionCableEventUnsubscribeImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionCableEventUnsubscribe<T>
+class _$ActionCableEventUnsubscribeImpl<T>
     implements _ActionCableEventUnsubscribe<T> {
-  const _$_ActionCableEventUnsubscribe();
+  const _$ActionCableEventUnsubscribeImpl();
 
   @override
   String toString() {
@@ -564,10 +567,10 @@ class _$_ActionCableEventUnsubscribe<T>
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableEventUnsubscribe<T>);
+            other is _$ActionCableEventUnsubscribeImpl<T>);
   }
 
   @override
@@ -673,27 +676,27 @@ class _$_ActionCableEventUnsubscribe<T>
 
 abstract class _ActionCableEventUnsubscribe<T> implements ActionCableEvent<T> {
   const factory _ActionCableEventUnsubscribe() =
-      _$_ActionCableEventUnsubscribe<T>;
+      _$ActionCableEventUnsubscribeImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableEventPerformActionCopyWith<T, $Res> {
-  factory _$$_ActionCableEventPerformActionCopyWith(
-          _$_ActionCableEventPerformAction<T> value,
-          $Res Function(_$_ActionCableEventPerformAction<T>) then) =
-      __$$_ActionCableEventPerformActionCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableEventPerformActionImplCopyWith<T, $Res> {
+  factory _$$ActionCableEventPerformActionImplCopyWith(
+          _$ActionCableEventPerformActionImpl<T> value,
+          $Res Function(_$ActionCableEventPerformActionImpl<T>) then) =
+      __$$ActionCableEventPerformActionImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String actionName, Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$_ActionCableEventPerformActionCopyWithImpl<T, $Res>
+class __$$ActionCableEventPerformActionImplCopyWithImpl<T, $Res>
     extends _$ActionCableEventCopyWithImpl<T, $Res,
-        _$_ActionCableEventPerformAction<T>>
-    implements _$$_ActionCableEventPerformActionCopyWith<T, $Res> {
-  __$$_ActionCableEventPerformActionCopyWithImpl(
-      _$_ActionCableEventPerformAction<T> _value,
-      $Res Function(_$_ActionCableEventPerformAction<T>) _then)
+        _$ActionCableEventPerformActionImpl<T>>
+    implements _$$ActionCableEventPerformActionImplCopyWith<T, $Res> {
+  __$$ActionCableEventPerformActionImplCopyWithImpl(
+      _$ActionCableEventPerformActionImpl<T> _value,
+      $Res Function(_$ActionCableEventPerformActionImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -702,7 +705,7 @@ class __$$_ActionCableEventPerformActionCopyWithImpl<T, $Res>
     Object? actionName = null,
     Object? data = null,
   }) {
-    return _then(_$_ActionCableEventPerformAction<T>(
+    return _then(_$ActionCableEventPerformActionImpl<T>(
       actionName: null == actionName
           ? _value.actionName
           : actionName // ignore: cast_nullable_to_non_nullable
@@ -717,9 +720,9 @@ class __$$_ActionCableEventPerformActionCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_ActionCableEventPerformAction<T>
+class _$ActionCableEventPerformActionImpl<T>
     implements _ActionCableEventPerformAction<T> {
-  const _$_ActionCableEventPerformAction(
+  const _$ActionCableEventPerformActionImpl(
       {required this.actionName, required final Map<String, dynamic> data})
       : _data = data;
 
@@ -739,10 +742,10 @@ class _$_ActionCableEventPerformAction<T>
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableEventPerformAction<T> &&
+            other is _$ActionCableEventPerformActionImpl<T> &&
             (identical(other.actionName, actionName) ||
                 other.actionName == actionName) &&
             const DeepCollectionEquality().equals(other._data, _data));
@@ -755,10 +758,10 @@ class _$_ActionCableEventPerformAction<T>
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActionCableEventPerformActionCopyWith<T,
-          _$_ActionCableEventPerformAction<T>>
-      get copyWith => __$$_ActionCableEventPerformActionCopyWithImpl<T,
-          _$_ActionCableEventPerformAction<T>>(this, _$identity);
+  _$$ActionCableEventPerformActionImplCopyWith<T,
+          _$ActionCableEventPerformActionImpl<T>>
+      get copyWith => __$$ActionCableEventPerformActionImplCopyWithImpl<T,
+          _$ActionCableEventPerformActionImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -863,31 +866,33 @@ abstract class _ActionCableEventPerformAction<T>
   const factory _ActionCableEventPerformAction(
           {required final String actionName,
           required final Map<String, dynamic> data}) =
-      _$_ActionCableEventPerformAction<T>;
+      _$ActionCableEventPerformActionImpl<T>;
 
   String get actionName;
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$_ActionCableEventPerformActionCopyWith<T,
-          _$_ActionCableEventPerformAction<T>>
+  _$$ActionCableEventPerformActionImplCopyWith<T,
+          _$ActionCableEventPerformActionImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableEventDataCopyWith<T, $Res> {
-  factory _$$_ActionCableEventDataCopyWith(_$_ActionCableEventData<T> value,
-          $Res Function(_$_ActionCableEventData<T>) then) =
-      __$$_ActionCableEventDataCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableEventDataImplCopyWith<T, $Res> {
+  factory _$$ActionCableEventDataImplCopyWith(
+          _$ActionCableEventDataImpl<T> value,
+          $Res Function(_$ActionCableEventDataImpl<T>) then) =
+      __$$ActionCableEventDataImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data});
 }
 
 /// @nodoc
-class __$$_ActionCableEventDataCopyWithImpl<T, $Res>
-    extends _$ActionCableEventCopyWithImpl<T, $Res, _$_ActionCableEventData<T>>
-    implements _$$_ActionCableEventDataCopyWith<T, $Res> {
-  __$$_ActionCableEventDataCopyWithImpl(_$_ActionCableEventData<T> _value,
-      $Res Function(_$_ActionCableEventData<T>) _then)
+class __$$ActionCableEventDataImplCopyWithImpl<T, $Res>
+    extends _$ActionCableEventCopyWithImpl<T, $Res,
+        _$ActionCableEventDataImpl<T>>
+    implements _$$ActionCableEventDataImplCopyWith<T, $Res> {
+  __$$ActionCableEventDataImplCopyWithImpl(_$ActionCableEventDataImpl<T> _value,
+      $Res Function(_$ActionCableEventDataImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -895,7 +900,7 @@ class __$$_ActionCableEventDataCopyWithImpl<T, $Res>
   $Res call({
     Object? data = freezed,
   }) {
-    return _then(_$_ActionCableEventData<T>(
+    return _then(_$ActionCableEventDataImpl<T>(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -906,8 +911,8 @@ class __$$_ActionCableEventDataCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_ActionCableEventData<T> implements _ActionCableEventData<T> {
-  const _$_ActionCableEventData({required this.data});
+class _$ActionCableEventDataImpl<T> implements _ActionCableEventData<T> {
+  const _$ActionCableEventDataImpl({required this.data});
 
   @override
   final T data;
@@ -918,10 +923,10 @@ class _$_ActionCableEventData<T> implements _ActionCableEventData<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableEventData<T> &&
+            other is _$ActionCableEventDataImpl<T> &&
             const DeepCollectionEquality().equals(other.data, data));
   }
 
@@ -932,10 +937,9 @@ class _$_ActionCableEventData<T> implements _ActionCableEventData<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActionCableEventDataCopyWith<T, _$_ActionCableEventData<T>>
-      get copyWith =>
-          __$$_ActionCableEventDataCopyWithImpl<T, _$_ActionCableEventData<T>>(
-              this, _$identity);
+  _$$ActionCableEventDataImplCopyWith<T, _$ActionCableEventDataImpl<T>>
+      get copyWith => __$$ActionCableEventDataImplCopyWithImpl<T,
+          _$ActionCableEventDataImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1037,29 +1041,32 @@ class _$_ActionCableEventData<T> implements _ActionCableEventData<T> {
 
 abstract class _ActionCableEventData<T> implements ActionCableEvent<T> {
   const factory _ActionCableEventData({required final T data}) =
-      _$_ActionCableEventData<T>;
+      _$ActionCableEventDataImpl<T>;
 
   T get data;
   @JsonKey(ignore: true)
-  _$$_ActionCableEventDataCopyWith<T, _$_ActionCableEventData<T>>
+  _$$ActionCableEventDataImplCopyWith<T, _$ActionCableEventDataImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableEventErrorCopyWith<T, $Res> {
-  factory _$$_ActionCableEventErrorCopyWith(_$_ActionCableEventError<T> value,
-          $Res Function(_$_ActionCableEventError<T>) then) =
-      __$$_ActionCableEventErrorCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableEventErrorImplCopyWith<T, $Res> {
+  factory _$$ActionCableEventErrorImplCopyWith(
+          _$ActionCableEventErrorImpl<T> value,
+          $Res Function(_$ActionCableEventErrorImpl<T>) then) =
+      __$$ActionCableEventErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_ActionCableEventErrorCopyWithImpl<T, $Res>
-    extends _$ActionCableEventCopyWithImpl<T, $Res, _$_ActionCableEventError<T>>
-    implements _$$_ActionCableEventErrorCopyWith<T, $Res> {
-  __$$_ActionCableEventErrorCopyWithImpl(_$_ActionCableEventError<T> _value,
-      $Res Function(_$_ActionCableEventError<T>) _then)
+class __$$ActionCableEventErrorImplCopyWithImpl<T, $Res>
+    extends _$ActionCableEventCopyWithImpl<T, $Res,
+        _$ActionCableEventErrorImpl<T>>
+    implements _$$ActionCableEventErrorImplCopyWith<T, $Res> {
+  __$$ActionCableEventErrorImplCopyWithImpl(
+      _$ActionCableEventErrorImpl<T> _value,
+      $Res Function(_$ActionCableEventErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1067,7 +1074,7 @@ class __$$_ActionCableEventErrorCopyWithImpl<T, $Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_ActionCableEventError<T>(
+    return _then(_$ActionCableEventErrorImpl<T>(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1078,8 +1085,8 @@ class __$$_ActionCableEventErrorCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_ActionCableEventError<T> implements _ActionCableEventError<T> {
-  const _$_ActionCableEventError({required this.message});
+class _$ActionCableEventErrorImpl<T> implements _ActionCableEventError<T> {
+  const _$ActionCableEventErrorImpl({required this.message});
 
   @override
   final String message;
@@ -1090,10 +1097,10 @@ class _$_ActionCableEventError<T> implements _ActionCableEventError<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableEventError<T> &&
+            other is _$ActionCableEventErrorImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1103,9 +1110,9 @@ class _$_ActionCableEventError<T> implements _ActionCableEventError<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActionCableEventErrorCopyWith<T, _$_ActionCableEventError<T>>
-      get copyWith => __$$_ActionCableEventErrorCopyWithImpl<T,
-          _$_ActionCableEventError<T>>(this, _$identity);
+  _$$ActionCableEventErrorImplCopyWith<T, _$ActionCableEventErrorImpl<T>>
+      get copyWith => __$$ActionCableEventErrorImplCopyWithImpl<T,
+          _$ActionCableEventErrorImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1207,11 +1214,11 @@ class _$_ActionCableEventError<T> implements _ActionCableEventError<T> {
 
 abstract class _ActionCableEventError<T> implements ActionCableEvent<T> {
   const factory _ActionCableEventError({required final String message}) =
-      _$_ActionCableEventError<T>;
+      _$ActionCableEventErrorImpl<T>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$_ActionCableEventErrorCopyWith<T, _$_ActionCableEventError<T>>
+  _$$ActionCableEventErrorImplCopyWith<T, _$ActionCableEventErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1308,27 +1315,28 @@ class _$ActionCableStateCopyWithImpl<T, $Res, $Val extends ActionCableState<T>>
 }
 
 /// @nodoc
-abstract class _$$_ActionCableStateInitialCopyWith<T, $Res> {
-  factory _$$_ActionCableStateInitialCopyWith(
-          _$_ActionCableStateInitial<T> value,
-          $Res Function(_$_ActionCableStateInitial<T>) then) =
-      __$$_ActionCableStateInitialCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableStateInitialImplCopyWith<T, $Res> {
+  factory _$$ActionCableStateInitialImplCopyWith(
+          _$ActionCableStateInitialImpl<T> value,
+          $Res Function(_$ActionCableStateInitialImpl<T>) then) =
+      __$$ActionCableStateInitialImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_ActionCableStateInitialCopyWithImpl<T, $Res>
+class __$$ActionCableStateInitialImplCopyWithImpl<T, $Res>
     extends _$ActionCableStateCopyWithImpl<T, $Res,
-        _$_ActionCableStateInitial<T>>
-    implements _$$_ActionCableStateInitialCopyWith<T, $Res> {
-  __$$_ActionCableStateInitialCopyWithImpl(_$_ActionCableStateInitial<T> _value,
-      $Res Function(_$_ActionCableStateInitial<T>) _then)
+        _$ActionCableStateInitialImpl<T>>
+    implements _$$ActionCableStateInitialImplCopyWith<T, $Res> {
+  __$$ActionCableStateInitialImplCopyWithImpl(
+      _$ActionCableStateInitialImpl<T> _value,
+      $Res Function(_$ActionCableStateInitialImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionCableStateInitial<T> implements _ActionCableStateInitial<T> {
-  const _$_ActionCableStateInitial();
+class _$ActionCableStateInitialImpl<T> implements _ActionCableStateInitial<T> {
+  const _$ActionCableStateInitialImpl();
 
   @override
   String toString() {
@@ -1336,10 +1344,10 @@ class _$_ActionCableStateInitial<T> implements _ActionCableStateInitial<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableStateInitial<T>);
+            other is _$ActionCableStateInitialImpl<T>);
   }
 
   @override
@@ -1441,32 +1449,33 @@ class _$_ActionCableStateInitial<T> implements _ActionCableStateInitial<T> {
 }
 
 abstract class _ActionCableStateInitial<T> implements ActionCableState<T> {
-  const factory _ActionCableStateInitial() = _$_ActionCableStateInitial<T>;
+  const factory _ActionCableStateInitial() = _$ActionCableStateInitialImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableStateConnectedCopyWith<T, $Res> {
-  factory _$$_ActionCableStateConnectedCopyWith(
-          _$_ActionCableStateConnected<T> value,
-          $Res Function(_$_ActionCableStateConnected<T>) then) =
-      __$$_ActionCableStateConnectedCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableStateConnectedImplCopyWith<T, $Res> {
+  factory _$$ActionCableStateConnectedImplCopyWith(
+          _$ActionCableStateConnectedImpl<T> value,
+          $Res Function(_$ActionCableStateConnectedImpl<T>) then) =
+      __$$ActionCableStateConnectedImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_ActionCableStateConnectedCopyWithImpl<T, $Res>
+class __$$ActionCableStateConnectedImplCopyWithImpl<T, $Res>
     extends _$ActionCableStateCopyWithImpl<T, $Res,
-        _$_ActionCableStateConnected<T>>
-    implements _$$_ActionCableStateConnectedCopyWith<T, $Res> {
-  __$$_ActionCableStateConnectedCopyWithImpl(
-      _$_ActionCableStateConnected<T> _value,
-      $Res Function(_$_ActionCableStateConnected<T>) _then)
+        _$ActionCableStateConnectedImpl<T>>
+    implements _$$ActionCableStateConnectedImplCopyWith<T, $Res> {
+  __$$ActionCableStateConnectedImplCopyWithImpl(
+      _$ActionCableStateConnectedImpl<T> _value,
+      $Res Function(_$ActionCableStateConnectedImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionCableStateConnected<T> implements _ActionCableStateConnected<T> {
-  const _$_ActionCableStateConnected();
+class _$ActionCableStateConnectedImpl<T>
+    implements _ActionCableStateConnected<T> {
+  const _$ActionCableStateConnectedImpl();
 
   @override
   String toString() {
@@ -1474,10 +1483,10 @@ class _$_ActionCableStateConnected<T> implements _ActionCableStateConnected<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableStateConnected<T>);
+            other is _$ActionCableStateConnectedImpl<T>);
   }
 
   @override
@@ -1579,33 +1588,34 @@ class _$_ActionCableStateConnected<T> implements _ActionCableStateConnected<T> {
 }
 
 abstract class _ActionCableStateConnected<T> implements ActionCableState<T> {
-  const factory _ActionCableStateConnected() = _$_ActionCableStateConnected<T>;
+  const factory _ActionCableStateConnected() =
+      _$ActionCableStateConnectedImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableStateDisconnectedCopyWith<T, $Res> {
-  factory _$$_ActionCableStateDisconnectedCopyWith(
-          _$_ActionCableStateDisconnected<T> value,
-          $Res Function(_$_ActionCableStateDisconnected<T>) then) =
-      __$$_ActionCableStateDisconnectedCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableStateDisconnectedImplCopyWith<T, $Res> {
+  factory _$$ActionCableStateDisconnectedImplCopyWith(
+          _$ActionCableStateDisconnectedImpl<T> value,
+          $Res Function(_$ActionCableStateDisconnectedImpl<T>) then) =
+      __$$ActionCableStateDisconnectedImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_ActionCableStateDisconnectedCopyWithImpl<T, $Res>
+class __$$ActionCableStateDisconnectedImplCopyWithImpl<T, $Res>
     extends _$ActionCableStateCopyWithImpl<T, $Res,
-        _$_ActionCableStateDisconnected<T>>
-    implements _$$_ActionCableStateDisconnectedCopyWith<T, $Res> {
-  __$$_ActionCableStateDisconnectedCopyWithImpl(
-      _$_ActionCableStateDisconnected<T> _value,
-      $Res Function(_$_ActionCableStateDisconnected<T>) _then)
+        _$ActionCableStateDisconnectedImpl<T>>
+    implements _$$ActionCableStateDisconnectedImplCopyWith<T, $Res> {
+  __$$ActionCableStateDisconnectedImplCopyWithImpl(
+      _$ActionCableStateDisconnectedImpl<T> _value,
+      $Res Function(_$ActionCableStateDisconnectedImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionCableStateDisconnected<T>
+class _$ActionCableStateDisconnectedImpl<T>
     implements _ActionCableStateDisconnected<T> {
-  const _$_ActionCableStateDisconnected();
+  const _$ActionCableStateDisconnectedImpl();
 
   @override
   String toString() {
@@ -1613,10 +1623,10 @@ class _$_ActionCableStateDisconnected<T>
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableStateDisconnected<T>);
+            other is _$ActionCableStateDisconnectedImpl<T>);
   }
 
   @override
@@ -1719,24 +1729,27 @@ class _$_ActionCableStateDisconnected<T>
 
 abstract class _ActionCableStateDisconnected<T> implements ActionCableState<T> {
   const factory _ActionCableStateDisconnected() =
-      _$_ActionCableStateDisconnected<T>;
+      _$ActionCableStateDisconnectedImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableStateErrorCopyWith<T, $Res> {
-  factory _$$_ActionCableStateErrorCopyWith(_$_ActionCableStateError<T> value,
-          $Res Function(_$_ActionCableStateError<T>) then) =
-      __$$_ActionCableStateErrorCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableStateErrorImplCopyWith<T, $Res> {
+  factory _$$ActionCableStateErrorImplCopyWith(
+          _$ActionCableStateErrorImpl<T> value,
+          $Res Function(_$ActionCableStateErrorImpl<T>) then) =
+      __$$ActionCableStateErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$_ActionCableStateErrorCopyWithImpl<T, $Res>
-    extends _$ActionCableStateCopyWithImpl<T, $Res, _$_ActionCableStateError<T>>
-    implements _$$_ActionCableStateErrorCopyWith<T, $Res> {
-  __$$_ActionCableStateErrorCopyWithImpl(_$_ActionCableStateError<T> _value,
-      $Res Function(_$_ActionCableStateError<T>) _then)
+class __$$ActionCableStateErrorImplCopyWithImpl<T, $Res>
+    extends _$ActionCableStateCopyWithImpl<T, $Res,
+        _$ActionCableStateErrorImpl<T>>
+    implements _$$ActionCableStateErrorImplCopyWith<T, $Res> {
+  __$$ActionCableStateErrorImplCopyWithImpl(
+      _$ActionCableStateErrorImpl<T> _value,
+      $Res Function(_$ActionCableStateErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1744,7 +1757,7 @@ class __$$_ActionCableStateErrorCopyWithImpl<T, $Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$_ActionCableStateError<T>(
+    return _then(_$ActionCableStateErrorImpl<T>(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1755,8 +1768,8 @@ class __$$_ActionCableStateErrorCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_ActionCableStateError<T> implements _ActionCableStateError<T> {
-  const _$_ActionCableStateError({required this.message});
+class _$ActionCableStateErrorImpl<T> implements _ActionCableStateError<T> {
+  const _$ActionCableStateErrorImpl({required this.message});
 
   @override
   final String message;
@@ -1767,10 +1780,10 @@ class _$_ActionCableStateError<T> implements _ActionCableStateError<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableStateError<T> &&
+            other is _$ActionCableStateErrorImpl<T> &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1780,9 +1793,9 @@ class _$_ActionCableStateError<T> implements _ActionCableStateError<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActionCableStateErrorCopyWith<T, _$_ActionCableStateError<T>>
-      get copyWith => __$$_ActionCableStateErrorCopyWithImpl<T,
-          _$_ActionCableStateError<T>>(this, _$identity);
+  _$$ActionCableStateErrorImplCopyWith<T, _$ActionCableStateErrorImpl<T>>
+      get copyWith => __$$ActionCableStateErrorImplCopyWithImpl<T,
+          _$ActionCableStateErrorImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1881,38 +1894,38 @@ class _$_ActionCableStateError<T> implements _ActionCableStateError<T> {
 
 abstract class _ActionCableStateError<T> implements ActionCableState<T> {
   const factory _ActionCableStateError({required final String message}) =
-      _$_ActionCableStateError<T>;
+      _$ActionCableStateErrorImpl<T>;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$_ActionCableStateErrorCopyWith<T, _$_ActionCableStateError<T>>
+  _$$ActionCableStateErrorImplCopyWith<T, _$ActionCableStateErrorImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableStateSubscribedCopyWith<T, $Res> {
-  factory _$$_ActionCableStateSubscribedCopyWith(
-          _$_ActionCableStateSubscribed<T> value,
-          $Res Function(_$_ActionCableStateSubscribed<T>) then) =
-      __$$_ActionCableStateSubscribedCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableStateSubscribedImplCopyWith<T, $Res> {
+  factory _$$ActionCableStateSubscribedImplCopyWith(
+          _$ActionCableStateSubscribedImpl<T> value,
+          $Res Function(_$ActionCableStateSubscribedImpl<T>) then) =
+      __$$ActionCableStateSubscribedImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_ActionCableStateSubscribedCopyWithImpl<T, $Res>
+class __$$ActionCableStateSubscribedImplCopyWithImpl<T, $Res>
     extends _$ActionCableStateCopyWithImpl<T, $Res,
-        _$_ActionCableStateSubscribed<T>>
-    implements _$$_ActionCableStateSubscribedCopyWith<T, $Res> {
-  __$$_ActionCableStateSubscribedCopyWithImpl(
-      _$_ActionCableStateSubscribed<T> _value,
-      $Res Function(_$_ActionCableStateSubscribed<T>) _then)
+        _$ActionCableStateSubscribedImpl<T>>
+    implements _$$ActionCableStateSubscribedImplCopyWith<T, $Res> {
+  __$$ActionCableStateSubscribedImplCopyWithImpl(
+      _$ActionCableStateSubscribedImpl<T> _value,
+      $Res Function(_$ActionCableStateSubscribedImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionCableStateSubscribed<T>
+class _$ActionCableStateSubscribedImpl<T>
     implements _ActionCableStateSubscribed<T> {
-  const _$_ActionCableStateSubscribed();
+  const _$ActionCableStateSubscribedImpl();
 
   @override
   String toString() {
@@ -1920,10 +1933,10 @@ class _$_ActionCableStateSubscribed<T>
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableStateSubscribed<T>);
+            other is _$ActionCableStateSubscribedImpl<T>);
   }
 
   @override
@@ -2026,33 +2039,33 @@ class _$_ActionCableStateSubscribed<T>
 
 abstract class _ActionCableStateSubscribed<T> implements ActionCableState<T> {
   const factory _ActionCableStateSubscribed() =
-      _$_ActionCableStateSubscribed<T>;
+      _$ActionCableStateSubscribedImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableStateUnsubscribedCopyWith<T, $Res> {
-  factory _$$_ActionCableStateUnsubscribedCopyWith(
-          _$_ActionCableStateUnsubscribed<T> value,
-          $Res Function(_$_ActionCableStateUnsubscribed<T>) then) =
-      __$$_ActionCableStateUnsubscribedCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableStateUnsubscribedImplCopyWith<T, $Res> {
+  factory _$$ActionCableStateUnsubscribedImplCopyWith(
+          _$ActionCableStateUnsubscribedImpl<T> value,
+          $Res Function(_$ActionCableStateUnsubscribedImpl<T>) then) =
+      __$$ActionCableStateUnsubscribedImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_ActionCableStateUnsubscribedCopyWithImpl<T, $Res>
+class __$$ActionCableStateUnsubscribedImplCopyWithImpl<T, $Res>
     extends _$ActionCableStateCopyWithImpl<T, $Res,
-        _$_ActionCableStateUnsubscribed<T>>
-    implements _$$_ActionCableStateUnsubscribedCopyWith<T, $Res> {
-  __$$_ActionCableStateUnsubscribedCopyWithImpl(
-      _$_ActionCableStateUnsubscribed<T> _value,
-      $Res Function(_$_ActionCableStateUnsubscribed<T>) _then)
+        _$ActionCableStateUnsubscribedImpl<T>>
+    implements _$$ActionCableStateUnsubscribedImplCopyWith<T, $Res> {
+  __$$ActionCableStateUnsubscribedImplCopyWithImpl(
+      _$ActionCableStateUnsubscribedImpl<T> _value,
+      $Res Function(_$ActionCableStateUnsubscribedImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ActionCableStateUnsubscribed<T>
+class _$ActionCableStateUnsubscribedImpl<T>
     implements _ActionCableStateUnsubscribed<T> {
-  const _$_ActionCableStateUnsubscribed();
+  const _$ActionCableStateUnsubscribedImpl();
 
   @override
   String toString() {
@@ -2060,10 +2073,10 @@ class _$_ActionCableStateUnsubscribed<T>
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableStateUnsubscribed<T>);
+            other is _$ActionCableStateUnsubscribedImpl<T>);
   }
 
   @override
@@ -2166,24 +2179,26 @@ class _$_ActionCableStateUnsubscribed<T>
 
 abstract class _ActionCableStateUnsubscribed<T> implements ActionCableState<T> {
   const factory _ActionCableStateUnsubscribed() =
-      _$_ActionCableStateUnsubscribed<T>;
+      _$ActionCableStateUnsubscribedImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_ActionCableStateDataCopyWith<T, $Res> {
-  factory _$$_ActionCableStateDataCopyWith(_$_ActionCableStateData<T> value,
-          $Res Function(_$_ActionCableStateData<T>) then) =
-      __$$_ActionCableStateDataCopyWithImpl<T, $Res>;
+abstract class _$$ActionCableStateDataImplCopyWith<T, $Res> {
+  factory _$$ActionCableStateDataImplCopyWith(
+          _$ActionCableStateDataImpl<T> value,
+          $Res Function(_$ActionCableStateDataImpl<T>) then) =
+      __$$ActionCableStateDataImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({Map<dynamic, dynamic> data});
 }
 
 /// @nodoc
-class __$$_ActionCableStateDataCopyWithImpl<T, $Res>
-    extends _$ActionCableStateCopyWithImpl<T, $Res, _$_ActionCableStateData<T>>
-    implements _$$_ActionCableStateDataCopyWith<T, $Res> {
-  __$$_ActionCableStateDataCopyWithImpl(_$_ActionCableStateData<T> _value,
-      $Res Function(_$_ActionCableStateData<T>) _then)
+class __$$ActionCableStateDataImplCopyWithImpl<T, $Res>
+    extends _$ActionCableStateCopyWithImpl<T, $Res,
+        _$ActionCableStateDataImpl<T>>
+    implements _$$ActionCableStateDataImplCopyWith<T, $Res> {
+  __$$ActionCableStateDataImplCopyWithImpl(_$ActionCableStateDataImpl<T> _value,
+      $Res Function(_$ActionCableStateDataImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2191,7 +2206,7 @@ class __$$_ActionCableStateDataCopyWithImpl<T, $Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$_ActionCableStateData<T>(
+    return _then(_$ActionCableStateDataImpl<T>(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -2202,8 +2217,8 @@ class __$$_ActionCableStateDataCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_ActionCableStateData<T> implements _ActionCableStateData<T> {
-  const _$_ActionCableStateData({required final Map<dynamic, dynamic> data})
+class _$ActionCableStateDataImpl<T> implements _ActionCableStateData<T> {
+  const _$ActionCableStateDataImpl({required final Map<dynamic, dynamic> data})
       : _data = data;
 
   final Map<dynamic, dynamic> _data;
@@ -2220,10 +2235,10 @@ class _$_ActionCableStateData<T> implements _ActionCableStateData<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ActionCableStateData<T> &&
+            other is _$ActionCableStateDataImpl<T> &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -2234,10 +2249,9 @@ class _$_ActionCableStateData<T> implements _ActionCableStateData<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ActionCableStateDataCopyWith<T, _$_ActionCableStateData<T>>
-      get copyWith =>
-          __$$_ActionCableStateDataCopyWithImpl<T, _$_ActionCableStateData<T>>(
-              this, _$identity);
+  _$$ActionCableStateDataImplCopyWith<T, _$ActionCableStateDataImpl<T>>
+      get copyWith => __$$ActionCableStateDataImplCopyWithImpl<T,
+          _$ActionCableStateDataImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2336,10 +2350,11 @@ class _$_ActionCableStateData<T> implements _ActionCableStateData<T> {
 
 abstract class _ActionCableStateData<T> implements ActionCableState<T> {
   const factory _ActionCableStateData(
-      {required final Map<dynamic, dynamic> data}) = _$_ActionCableStateData<T>;
+          {required final Map<dynamic, dynamic> data}) =
+      _$ActionCableStateDataImpl<T>;
 
   Map<dynamic, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$_ActionCableStateDataCopyWith<T, _$_ActionCableStateData<T>>
+  _$$ActionCableStateDataImplCopyWith<T, _$ActionCableStateDataImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

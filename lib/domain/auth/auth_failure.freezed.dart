@@ -12,7 +12,7 @@ part of 'auth_failure.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AuthFailure {
@@ -82,25 +82,25 @@ class _$AuthFailureCopyWithImpl<$Res, $Val extends AuthFailure>
 }
 
 /// @nodoc
-abstract class _$$ServerErrorCopyWith<$Res> {
-  factory _$$ServerErrorCopyWith(
-          _$ServerError value, $Res Function(_$ServerError) then) =
-      __$$ServerErrorCopyWithImpl<$Res>;
+abstract class _$$ServerErrorImplCopyWith<$Res> {
+  factory _$$ServerErrorImplCopyWith(
+          _$ServerErrorImpl value, $Res Function(_$ServerErrorImpl) then) =
+      __$$ServerErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ServerErrorCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$ServerError>
-    implements _$$ServerErrorCopyWith<$Res> {
-  __$$ServerErrorCopyWithImpl(
-      _$ServerError _value, $Res Function(_$ServerError) _then)
+class __$$ServerErrorImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$ServerErrorImpl>
+    implements _$$ServerErrorImplCopyWith<$Res> {
+  __$$ServerErrorImplCopyWithImpl(
+      _$ServerErrorImpl _value, $Res Function(_$ServerErrorImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ServerError implements ServerError {
-  const _$ServerError();
+class _$ServerErrorImpl implements ServerError {
+  const _$ServerErrorImpl();
 
   @override
   String toString() {
@@ -108,9 +108,9 @@ class _$ServerError implements ServerError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ServerError);
+        (other.runtimeType == runtimeType && other is _$ServerErrorImpl);
   }
 
   @override
@@ -187,29 +187,31 @@ class _$ServerError implements ServerError {
 }
 
 abstract class ServerError implements AuthFailure {
-  const factory ServerError() = _$ServerError;
+  const factory ServerError() = _$ServerErrorImpl;
 }
 
 /// @nodoc
-abstract class _$$PhoneNumberAlreadyInUseCopyWith<$Res> {
-  factory _$$PhoneNumberAlreadyInUseCopyWith(_$PhoneNumberAlreadyInUse value,
-          $Res Function(_$PhoneNumberAlreadyInUse) then) =
-      __$$PhoneNumberAlreadyInUseCopyWithImpl<$Res>;
+abstract class _$$PhoneNumberAlreadyInUseImplCopyWith<$Res> {
+  factory _$$PhoneNumberAlreadyInUseImplCopyWith(
+          _$PhoneNumberAlreadyInUseImpl value,
+          $Res Function(_$PhoneNumberAlreadyInUseImpl) then) =
+      __$$PhoneNumberAlreadyInUseImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PhoneNumberAlreadyInUseCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$PhoneNumberAlreadyInUse>
-    implements _$$PhoneNumberAlreadyInUseCopyWith<$Res> {
-  __$$PhoneNumberAlreadyInUseCopyWithImpl(_$PhoneNumberAlreadyInUse _value,
-      $Res Function(_$PhoneNumberAlreadyInUse) _then)
+class __$$PhoneNumberAlreadyInUseImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$PhoneNumberAlreadyInUseImpl>
+    implements _$$PhoneNumberAlreadyInUseImplCopyWith<$Res> {
+  __$$PhoneNumberAlreadyInUseImplCopyWithImpl(
+      _$PhoneNumberAlreadyInUseImpl _value,
+      $Res Function(_$PhoneNumberAlreadyInUseImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PhoneNumberAlreadyInUse implements PhoneNumberAlreadyInUse {
-  const _$PhoneNumberAlreadyInUse();
+class _$PhoneNumberAlreadyInUseImpl implements PhoneNumberAlreadyInUse {
+  const _$PhoneNumberAlreadyInUseImpl();
 
   @override
   String toString() {
@@ -217,10 +219,10 @@ class _$PhoneNumberAlreadyInUse implements PhoneNumberAlreadyInUse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PhoneNumberAlreadyInUse);
+            other is _$PhoneNumberAlreadyInUseImpl);
   }
 
   @override
@@ -297,29 +299,29 @@ class _$PhoneNumberAlreadyInUse implements PhoneNumberAlreadyInUse {
 }
 
 abstract class PhoneNumberAlreadyInUse implements AuthFailure {
-  const factory PhoneNumberAlreadyInUse() = _$PhoneNumberAlreadyInUse;
+  const factory PhoneNumberAlreadyInUse() = _$PhoneNumberAlreadyInUseImpl;
 }
 
 /// @nodoc
-abstract class _$$InvalidCodeCopyWith<$Res> {
-  factory _$$InvalidCodeCopyWith(
-          _$InvalidCode value, $Res Function(_$InvalidCode) then) =
-      __$$InvalidCodeCopyWithImpl<$Res>;
+abstract class _$$InvalidCodeImplCopyWith<$Res> {
+  factory _$$InvalidCodeImplCopyWith(
+          _$InvalidCodeImpl value, $Res Function(_$InvalidCodeImpl) then) =
+      __$$InvalidCodeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InvalidCodeCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res, _$InvalidCode>
-    implements _$$InvalidCodeCopyWith<$Res> {
-  __$$InvalidCodeCopyWithImpl(
-      _$InvalidCode _value, $Res Function(_$InvalidCode) _then)
+class __$$InvalidCodeImplCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res, _$InvalidCodeImpl>
+    implements _$$InvalidCodeImplCopyWith<$Res> {
+  __$$InvalidCodeImplCopyWithImpl(
+      _$InvalidCodeImpl _value, $Res Function(_$InvalidCodeImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$InvalidCode implements InvalidCode {
-  const _$InvalidCode();
+class _$InvalidCodeImpl implements InvalidCode {
+  const _$InvalidCodeImpl();
 
   @override
   String toString() {
@@ -327,9 +329,9 @@ class _$InvalidCode implements InvalidCode {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InvalidCode);
+        (other.runtimeType == runtimeType && other is _$InvalidCodeImpl);
   }
 
   @override
@@ -406,5 +408,5 @@ class _$InvalidCode implements InvalidCode {
 }
 
 abstract class InvalidCode implements AuthFailure {
-  const factory InvalidCode() = _$InvalidCode;
+  const factory InvalidCode() = _$InvalidCodeImpl;
 }

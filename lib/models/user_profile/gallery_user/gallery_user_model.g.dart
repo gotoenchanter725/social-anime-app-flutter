@@ -6,14 +6,16 @@ part of 'gallery_user_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GalleryUserModel _$$_GalleryUserModelFromJson(Map<String, dynamic> json) =>
-    _$_GalleryUserModel(
+_$GalleryUserModelImpl _$$GalleryUserModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$GalleryUserModelImpl(
       photos: (json['photos'] as List<dynamic>)
           .map((e) => UploadPhotoModel.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_GalleryUserModelToJson(_$_GalleryUserModel instance) =>
+Map<String, dynamic> _$$GalleryUserModelImplToJson(
+        _$GalleryUserModelImpl instance) =>
     <String, dynamic>{
       'photos': instance.photos,
     };

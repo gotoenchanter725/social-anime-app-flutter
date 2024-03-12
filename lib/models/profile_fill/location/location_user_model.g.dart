@@ -6,16 +6,17 @@ part of 'location_user_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LocationUserModel _$$_LocationUserModelFromJson(Map<String, dynamic> json) =>
-    _$_LocationUserModel(
+_$LocationUserModelImpl _$$LocationUserModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$LocationUserModelImpl(
       id: json['id'] as String,
       lonlat: json['lonlat'] as String?,
       displayCity: json['displayCity'] as String?,
       displayState: json['displayState'] as String?,
     );
 
-Map<String, dynamic> _$$_LocationUserModelToJson(
-        _$_LocationUserModel instance) =>
+Map<String, dynamic> _$$LocationUserModelImplToJson(
+        _$LocationUserModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'lonlat': instance.lonlat,

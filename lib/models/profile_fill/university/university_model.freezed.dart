@@ -12,7 +12,7 @@ part of 'university_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UniversityModel _$UniversityModelFromJson(Map<String, dynamic> json) {
   return _UniversityModel.fromJson(json);
@@ -68,22 +68,22 @@ class _$UniversityModelCopyWithImpl<$Res, $Val extends UniversityModel>
 }
 
 /// @nodoc
-abstract class _$$_UniversityModelCopyWith<$Res>
+abstract class _$$UniversityModelImplCopyWith<$Res>
     implements $UniversityModelCopyWith<$Res> {
-  factory _$$_UniversityModelCopyWith(
-          _$_UniversityModel value, $Res Function(_$_UniversityModel) then) =
-      __$$_UniversityModelCopyWithImpl<$Res>;
+  factory _$$UniversityModelImplCopyWith(_$UniversityModelImpl value,
+          $Res Function(_$UniversityModelImpl) then) =
+      __$$UniversityModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? name, String? country});
 }
 
 /// @nodoc
-class __$$_UniversityModelCopyWithImpl<$Res>
-    extends _$UniversityModelCopyWithImpl<$Res, _$_UniversityModel>
-    implements _$$_UniversityModelCopyWith<$Res> {
-  __$$_UniversityModelCopyWithImpl(
-      _$_UniversityModel _value, $Res Function(_$_UniversityModel) _then)
+class __$$UniversityModelImplCopyWithImpl<$Res>
+    extends _$UniversityModelCopyWithImpl<$Res, _$UniversityModelImpl>
+    implements _$$UniversityModelImplCopyWith<$Res> {
+  __$$UniversityModelImplCopyWithImpl(
+      _$UniversityModelImpl _value, $Res Function(_$UniversityModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_UniversityModelCopyWithImpl<$Res>
     Object? name = freezed,
     Object? country = freezed,
   }) {
-    return _then(_$_UniversityModel(
+    return _then(_$UniversityModelImpl(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_UniversityModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UniversityModel implements _UniversityModel {
-  const _$_UniversityModel({this.name, this.country});
+class _$UniversityModelImpl implements _UniversityModel {
+  const _$UniversityModelImpl({this.name, this.country});
 
-  factory _$_UniversityModel.fromJson(Map<String, dynamic> json) =>
-      _$$_UniversityModelFromJson(json);
+  factory _$UniversityModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UniversityModelImplFromJson(json);
 
   @override
   final String? name;
@@ -124,10 +124,10 @@ class _$_UniversityModel implements _UniversityModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UniversityModel &&
+            other is _$UniversityModelImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.country, country) || other.country == country));
   }
@@ -139,12 +139,13 @@ class _$_UniversityModel implements _UniversityModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UniversityModelCopyWith<_$_UniversityModel> get copyWith =>
-      __$$_UniversityModelCopyWithImpl<_$_UniversityModel>(this, _$identity);
+  _$$UniversityModelImplCopyWith<_$UniversityModelImpl> get copyWith =>
+      __$$UniversityModelImplCopyWithImpl<_$UniversityModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UniversityModelToJson(
+    return _$$UniversityModelImplToJson(
       this,
     );
   }
@@ -152,10 +153,10 @@ class _$_UniversityModel implements _UniversityModel {
 
 abstract class _UniversityModel implements UniversityModel {
   const factory _UniversityModel({final String? name, final String? country}) =
-      _$_UniversityModel;
+      _$UniversityModelImpl;
 
   factory _UniversityModel.fromJson(Map<String, dynamic> json) =
-      _$_UniversityModel.fromJson;
+      _$UniversityModelImpl.fromJson;
 
   @override
   String? get name;
@@ -163,6 +164,6 @@ abstract class _UniversityModel implements UniversityModel {
   String? get country;
   @override
   @JsonKey(ignore: true)
-  _$$_UniversityModelCopyWith<_$_UniversityModel> get copyWith =>
+  _$$UniversityModelImplCopyWith<_$UniversityModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

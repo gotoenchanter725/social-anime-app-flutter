@@ -12,7 +12,7 @@ part of 'mutation_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$MutationEvent<T> {
@@ -98,22 +98,22 @@ class _$MutationEventCopyWithImpl<T, $Res, $Val extends MutationEvent<T>>
 }
 
 /// @nodoc
-abstract class _$$_MutationEventRunCopyWith<T, $Res>
+abstract class _$$MutationEventRunImplCopyWith<T, $Res>
     implements $MutationEventCopyWith<T, $Res> {
-  factory _$$_MutationEventRunCopyWith(_$_MutationEventRun<T> value,
-          $Res Function(_$_MutationEventRun<T>) then) =
-      __$$_MutationEventRunCopyWithImpl<T, $Res>;
+  factory _$$MutationEventRunImplCopyWith(_$MutationEventRunImpl<T> value,
+          $Res Function(_$MutationEventRunImpl<T>) then) =
+      __$$MutationEventRunImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({Map<String, dynamic> variables, Object? optimisticResult});
 }
 
 /// @nodoc
-class __$$_MutationEventRunCopyWithImpl<T, $Res>
-    extends _$MutationEventCopyWithImpl<T, $Res, _$_MutationEventRun<T>>
-    implements _$$_MutationEventRunCopyWith<T, $Res> {
-  __$$_MutationEventRunCopyWithImpl(_$_MutationEventRun<T> _value,
-      $Res Function(_$_MutationEventRun<T>) _then)
+class __$$MutationEventRunImplCopyWithImpl<T, $Res>
+    extends _$MutationEventCopyWithImpl<T, $Res, _$MutationEventRunImpl<T>>
+    implements _$$MutationEventRunImplCopyWith<T, $Res> {
+  __$$MutationEventRunImplCopyWithImpl(_$MutationEventRunImpl<T> _value,
+      $Res Function(_$MutationEventRunImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -122,7 +122,7 @@ class __$$_MutationEventRunCopyWithImpl<T, $Res>
     Object? variables = null,
     Object? optimisticResult = freezed,
   }) {
-    return _then(_$_MutationEventRun<T>(
+    return _then(_$MutationEventRunImpl<T>(
       null == variables
           ? _value._variables
           : variables // ignore: cast_nullable_to_non_nullable
@@ -136,8 +136,8 @@ class __$$_MutationEventRunCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_MutationEventRun<T> implements _MutationEventRun<T> {
-  const _$_MutationEventRun(final Map<String, dynamic> variables,
+class _$MutationEventRunImpl<T> implements _MutationEventRun<T> {
+  const _$MutationEventRunImpl(final Map<String, dynamic> variables,
       {this.optimisticResult})
       : _variables = variables;
 
@@ -158,10 +158,10 @@ class _$_MutationEventRun<T> implements _MutationEventRun<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MutationEventRun<T> &&
+            other is _$MutationEventRunImpl<T> &&
             const DeepCollectionEquality()
                 .equals(other._variables, _variables) &&
             const DeepCollectionEquality()
@@ -177,8 +177,8 @@ class _$_MutationEventRun<T> implements _MutationEventRun<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MutationEventRunCopyWith<T, _$_MutationEventRun<T>> get copyWith =>
-      __$$_MutationEventRunCopyWithImpl<T, _$_MutationEventRun<T>>(
+  _$$MutationEventRunImplCopyWith<T, _$MutationEventRunImpl<T>> get copyWith =>
+      __$$MutationEventRunImplCopyWithImpl<T, _$MutationEventRunImpl<T>>(
           this, _$identity);
 
   @override
@@ -244,7 +244,7 @@ class _$_MutationEventRun<T> implements _MutationEventRun<T> {
 
 abstract class _MutationEventRun<T> implements MutationEvent<T> {
   const factory _MutationEventRun(final Map<String, dynamic> variables,
-      {final Object? optimisticResult}) = _$_MutationEventRun<T>;
+      {final Object? optimisticResult}) = _$MutationEventRunImpl<T>;
 
   @override
   Map<String, dynamic> get variables;
@@ -252,7 +252,7 @@ abstract class _MutationEventRun<T> implements MutationEvent<T> {
   Object? get optimisticResult;
   @override
   @JsonKey(ignore: true)
-  _$$_MutationEventRunCopyWith<T, _$_MutationEventRun<T>> get copyWith =>
+  _$$MutationEventRunImplCopyWith<T, _$MutationEventRunImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -333,25 +333,25 @@ class _$MutationStateCopyWithImpl<T, $Res, $Val extends MutationState<T>>
 }
 
 /// @nodoc
-abstract class _$$_MutationInitialCopyWith<T, $Res> {
-  factory _$$_MutationInitialCopyWith(_$_MutationInitial<T> value,
-          $Res Function(_$_MutationInitial<T>) then) =
-      __$$_MutationInitialCopyWithImpl<T, $Res>;
+abstract class _$$MutationInitialImplCopyWith<T, $Res> {
+  factory _$$MutationInitialImplCopyWith(_$MutationInitialImpl<T> value,
+          $Res Function(_$MutationInitialImpl<T>) then) =
+      __$$MutationInitialImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_MutationInitialCopyWithImpl<T, $Res>
-    extends _$MutationStateCopyWithImpl<T, $Res, _$_MutationInitial<T>>
-    implements _$$_MutationInitialCopyWith<T, $Res> {
-  __$$_MutationInitialCopyWithImpl(
-      _$_MutationInitial<T> _value, $Res Function(_$_MutationInitial<T>) _then)
+class __$$MutationInitialImplCopyWithImpl<T, $Res>
+    extends _$MutationStateCopyWithImpl<T, $Res, _$MutationInitialImpl<T>>
+    implements _$$MutationInitialImplCopyWith<T, $Res> {
+  __$$MutationInitialImplCopyWithImpl(_$MutationInitialImpl<T> _value,
+      $Res Function(_$MutationInitialImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_MutationInitial<T> implements _MutationInitial<T> {
-  const _$_MutationInitial();
+class _$MutationInitialImpl<T> implements _MutationInitial<T> {
+  const _$MutationInitialImpl();
 
   @override
   String toString() {
@@ -359,9 +359,9 @@ class _$_MutationInitial<T> implements _MutationInitial<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_MutationInitial<T>);
+        (other.runtimeType == runtimeType && other is _$MutationInitialImpl<T>);
   }
 
   @override
@@ -447,29 +447,29 @@ class _$_MutationInitial<T> implements _MutationInitial<T> {
 }
 
 abstract class _MutationInitial<T> implements MutationState<T> {
-  const factory _MutationInitial() = _$_MutationInitial<T>;
+  const factory _MutationInitial() = _$MutationInitialImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_MutationLoadingCopyWith<T, $Res> {
-  factory _$$_MutationLoadingCopyWith(_$_MutationLoading<T> value,
-          $Res Function(_$_MutationLoading<T>) then) =
-      __$$_MutationLoadingCopyWithImpl<T, $Res>;
+abstract class _$$MutationLoadingImplCopyWith<T, $Res> {
+  factory _$$MutationLoadingImplCopyWith(_$MutationLoadingImpl<T> value,
+          $Res Function(_$MutationLoadingImpl<T>) then) =
+      __$$MutationLoadingImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_MutationLoadingCopyWithImpl<T, $Res>
-    extends _$MutationStateCopyWithImpl<T, $Res, _$_MutationLoading<T>>
-    implements _$$_MutationLoadingCopyWith<T, $Res> {
-  __$$_MutationLoadingCopyWithImpl(
-      _$_MutationLoading<T> _value, $Res Function(_$_MutationLoading<T>) _then)
+class __$$MutationLoadingImplCopyWithImpl<T, $Res>
+    extends _$MutationStateCopyWithImpl<T, $Res, _$MutationLoadingImpl<T>>
+    implements _$$MutationLoadingImplCopyWith<T, $Res> {
+  __$$MutationLoadingImplCopyWithImpl(_$MutationLoadingImpl<T> _value,
+      $Res Function(_$MutationLoadingImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_MutationLoading<T> implements _MutationLoading<T> {
-  const _$_MutationLoading();
+class _$MutationLoadingImpl<T> implements _MutationLoading<T> {
+  const _$MutationLoadingImpl();
 
   @override
   String toString() {
@@ -477,9 +477,9 @@ class _$_MutationLoading<T> implements _MutationLoading<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_MutationLoading<T>);
+        (other.runtimeType == runtimeType && other is _$MutationLoadingImpl<T>);
   }
 
   @override
@@ -565,24 +565,24 @@ class _$_MutationLoading<T> implements _MutationLoading<T> {
 }
 
 abstract class _MutationLoading<T> implements MutationState<T> {
-  const factory _MutationLoading() = _$_MutationLoading<T>;
+  const factory _MutationLoading() = _$MutationLoadingImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_MutationSucceededCopyWith<T, $Res> {
-  factory _$$_MutationSucceededCopyWith(_$_MutationSucceeded<T> value,
-          $Res Function(_$_MutationSucceeded<T>) then) =
-      __$$_MutationSucceededCopyWithImpl<T, $Res>;
+abstract class _$$MutationSucceededImplCopyWith<T, $Res> {
+  factory _$$MutationSucceededImplCopyWith(_$MutationSucceededImpl<T> value,
+          $Res Function(_$MutationSucceededImpl<T>) then) =
+      __$$MutationSucceededImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data, QueryResult<Object?> result});
 }
 
 /// @nodoc
-class __$$_MutationSucceededCopyWithImpl<T, $Res>
-    extends _$MutationStateCopyWithImpl<T, $Res, _$_MutationSucceeded<T>>
-    implements _$$_MutationSucceededCopyWith<T, $Res> {
-  __$$_MutationSucceededCopyWithImpl(_$_MutationSucceeded<T> _value,
-      $Res Function(_$_MutationSucceeded<T>) _then)
+class __$$MutationSucceededImplCopyWithImpl<T, $Res>
+    extends _$MutationStateCopyWithImpl<T, $Res, _$MutationSucceededImpl<T>>
+    implements _$$MutationSucceededImplCopyWith<T, $Res> {
+  __$$MutationSucceededImplCopyWithImpl(_$MutationSucceededImpl<T> _value,
+      $Res Function(_$MutationSucceededImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -591,7 +591,7 @@ class __$$_MutationSucceededCopyWithImpl<T, $Res>
     Object? data = freezed,
     Object? result = null,
   }) {
-    return _then(_$_MutationSucceeded<T>(
+    return _then(_$MutationSucceededImpl<T>(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -606,8 +606,8 @@ class __$$_MutationSucceededCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_MutationSucceeded<T> implements _MutationSucceeded<T> {
-  const _$_MutationSucceeded({required this.data, required this.result});
+class _$MutationSucceededImpl<T> implements _MutationSucceeded<T> {
+  const _$MutationSucceededImpl({required this.data, required this.result});
 
   @override
   final T data;
@@ -620,10 +620,10 @@ class _$_MutationSucceeded<T> implements _MutationSucceeded<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MutationSucceeded<T> &&
+            other is _$MutationSucceededImpl<T> &&
             const DeepCollectionEquality().equals(other.data, data) &&
             (identical(other.result, result) || other.result == result));
   }
@@ -635,9 +635,10 @@ class _$_MutationSucceeded<T> implements _MutationSucceeded<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MutationSucceededCopyWith<T, _$_MutationSucceeded<T>> get copyWith =>
-      __$$_MutationSucceededCopyWithImpl<T, _$_MutationSucceeded<T>>(
-          this, _$identity);
+  _$$MutationSucceededImplCopyWith<T, _$MutationSucceededImpl<T>>
+      get copyWith =>
+          __$$MutationSucceededImplCopyWithImpl<T, _$MutationSucceededImpl<T>>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -721,30 +722,30 @@ class _$_MutationSucceeded<T> implements _MutationSucceeded<T> {
 abstract class _MutationSucceeded<T> implements MutationState<T> {
   const factory _MutationSucceeded(
       {required final T data,
-      required final QueryResult<Object?> result}) = _$_MutationSucceeded<T>;
+      required final QueryResult<Object?> result}) = _$MutationSucceededImpl<T>;
 
   T get data;
   QueryResult<Object?> get result;
   @JsonKey(ignore: true)
-  _$$_MutationSucceededCopyWith<T, _$_MutationSucceeded<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$MutationSucceededImplCopyWith<T, _$MutationSucceededImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_MutationFailedCopyWith<T, $Res> {
-  factory _$$_MutationFailedCopyWith(_$_MutationFailed<T> value,
-          $Res Function(_$_MutationFailed<T>) then) =
-      __$$_MutationFailedCopyWithImpl<T, $Res>;
+abstract class _$$MutationFailedImplCopyWith<T, $Res> {
+  factory _$$MutationFailedImplCopyWith(_$MutationFailedImpl<T> value,
+          $Res Function(_$MutationFailedImpl<T>) then) =
+      __$$MutationFailedImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({OperationException error, QueryResult<Object?> result});
 }
 
 /// @nodoc
-class __$$_MutationFailedCopyWithImpl<T, $Res>
-    extends _$MutationStateCopyWithImpl<T, $Res, _$_MutationFailed<T>>
-    implements _$$_MutationFailedCopyWith<T, $Res> {
-  __$$_MutationFailedCopyWithImpl(
-      _$_MutationFailed<T> _value, $Res Function(_$_MutationFailed<T>) _then)
+class __$$MutationFailedImplCopyWithImpl<T, $Res>
+    extends _$MutationStateCopyWithImpl<T, $Res, _$MutationFailedImpl<T>>
+    implements _$$MutationFailedImplCopyWith<T, $Res> {
+  __$$MutationFailedImplCopyWithImpl(_$MutationFailedImpl<T> _value,
+      $Res Function(_$MutationFailedImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -753,7 +754,7 @@ class __$$_MutationFailedCopyWithImpl<T, $Res>
     Object? error = null,
     Object? result = null,
   }) {
-    return _then(_$_MutationFailed<T>(
+    return _then(_$MutationFailedImpl<T>(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -768,8 +769,8 @@ class __$$_MutationFailedCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_MutationFailed<T> implements _MutationFailed<T> {
-  const _$_MutationFailed({required this.error, required this.result});
+class _$MutationFailedImpl<T> implements _MutationFailed<T> {
+  const _$MutationFailedImpl({required this.error, required this.result});
 
   @override
   final OperationException error;
@@ -782,10 +783,10 @@ class _$_MutationFailed<T> implements _MutationFailed<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MutationFailed<T> &&
+            other is _$MutationFailedImpl<T> &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.result, result) || other.result == result));
   }
@@ -796,8 +797,8 @@ class _$_MutationFailed<T> implements _MutationFailed<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MutationFailedCopyWith<T, _$_MutationFailed<T>> get copyWith =>
-      __$$_MutationFailedCopyWithImpl<T, _$_MutationFailed<T>>(
+  _$$MutationFailedImplCopyWith<T, _$MutationFailedImpl<T>> get copyWith =>
+      __$$MutationFailedImplCopyWithImpl<T, _$MutationFailedImpl<T>>(
           this, _$identity);
 
   @override
@@ -882,11 +883,11 @@ class _$_MutationFailed<T> implements _MutationFailed<T> {
 abstract class _MutationFailed<T> implements MutationState<T> {
   const factory _MutationFailed(
       {required final OperationException error,
-      required final QueryResult<Object?> result}) = _$_MutationFailed<T>;
+      required final QueryResult<Object?> result}) = _$MutationFailedImpl<T>;
 
   OperationException get error;
   QueryResult<Object?> get result;
   @JsonKey(ignore: true)
-  _$$_MutationFailedCopyWith<T, _$_MutationFailed<T>> get copyWith =>
+  _$$MutationFailedImplCopyWith<T, _$MutationFailedImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

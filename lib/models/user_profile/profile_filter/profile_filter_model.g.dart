@@ -6,9 +6,9 @@ part of 'profile_filter_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ProfileFilterModel _$$_ProfileFilterModelFromJson(
+_$ProfileFilterModelImpl _$$ProfileFilterModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ProfileFilterModel(
+    _$ProfileFilterModelImpl(
       milesAway: json['milesAway'] as int,
       minAge: json['minAge'] as int,
       maxAge: json['maxAge'] as int,
@@ -18,8 +18,8 @@ _$_ProfileFilterModel _$$_ProfileFilterModelFromJson(
           (json['animeIds'] as List<dynamic>).map((e) => e as String).toList(),
     );
 
-Map<String, dynamic> _$$_ProfileFilterModelToJson(
-        _$_ProfileFilterModel instance) =>
+Map<String, dynamic> _$$ProfileFilterModelImplToJson(
+        _$ProfileFilterModelImpl instance) =>
     <String, dynamic>{
       'milesAway': instance.milesAway,
       'minAge': instance.minAge,

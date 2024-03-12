@@ -12,7 +12,7 @@ part of 'app_color_scheme.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AppColorScheme {
@@ -261,11 +261,11 @@ class _$AppColorSchemeCopyWithImpl<$Res, $Val extends AppColorScheme>
 }
 
 /// @nodoc
-abstract class _$$_AppColorSchemeCopyWith<$Res>
+abstract class _$$AppColorSchemeImplCopyWith<$Res>
     implements $AppColorSchemeCopyWith<$Res> {
-  factory _$$_AppColorSchemeCopyWith(
-          _$_AppColorScheme value, $Res Function(_$_AppColorScheme) then) =
-      __$$_AppColorSchemeCopyWithImpl<$Res>;
+  factory _$$AppColorSchemeImplCopyWith(_$AppColorSchemeImpl value,
+          $Res Function(_$AppColorSchemeImpl) then) =
+      __$$AppColorSchemeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -302,11 +302,11 @@ abstract class _$$_AppColorSchemeCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AppColorSchemeCopyWithImpl<$Res>
-    extends _$AppColorSchemeCopyWithImpl<$Res, _$_AppColorScheme>
-    implements _$$_AppColorSchemeCopyWith<$Res> {
-  __$$_AppColorSchemeCopyWithImpl(
-      _$_AppColorScheme _value, $Res Function(_$_AppColorScheme) _then)
+class __$$AppColorSchemeImplCopyWithImpl<$Res>
+    extends _$AppColorSchemeCopyWithImpl<$Res, _$AppColorSchemeImpl>
+    implements _$$AppColorSchemeImplCopyWith<$Res> {
+  __$$AppColorSchemeImplCopyWithImpl(
+      _$AppColorSchemeImpl _value, $Res Function(_$AppColorSchemeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -343,7 +343,7 @@ class __$$_AppColorSchemeCopyWithImpl<$Res>
     Object? disabled = null,
     Object? onDisabled = null,
   }) {
-    return _then(_$_AppColorScheme(
+    return _then(_$AppColorSchemeImpl(
       brightness: null == brightness
           ? _value.brightness
           : brightness // ignore: cast_nullable_to_non_nullable
@@ -470,8 +470,8 @@ class __$$_AppColorSchemeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AppColorScheme extends _AppColorScheme {
-  _$_AppColorScheme(
+class _$AppColorSchemeImpl extends _AppColorScheme {
+  _$AppColorSchemeImpl(
       {required this.brightness,
       required this.primary,
       required this.onPrimary,
@@ -571,10 +571,10 @@ class _$_AppColorScheme extends _AppColorScheme {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppColorScheme &&
+            other is _$AppColorSchemeImpl &&
             (identical(other.brightness, brightness) ||
                 other.brightness == brightness) &&
             (identical(other.primary, primary) || other.primary == primary) &&
@@ -669,8 +669,9 @@ class _$_AppColorScheme extends _AppColorScheme {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppColorSchemeCopyWith<_$_AppColorScheme> get copyWith =>
-      __$$_AppColorSchemeCopyWithImpl<_$_AppColorScheme>(this, _$identity);
+  _$$AppColorSchemeImplCopyWith<_$AppColorSchemeImpl> get copyWith =>
+      __$$AppColorSchemeImplCopyWithImpl<_$AppColorSchemeImpl>(
+          this, _$identity);
 }
 
 abstract class _AppColorScheme extends AppColorScheme {
@@ -704,7 +705,7 @@ abstract class _AppColorScheme extends AppColorScheme {
       required final Color onInverseSurface,
       required final Color inversePrimary,
       required final Color disabled,
-      required final Color onDisabled}) = _$_AppColorScheme;
+      required final Color onDisabled}) = _$AppColorSchemeImpl;
   _AppColorScheme._() : super._();
 
   @override
@@ -769,6 +770,6 @@ abstract class _AppColorScheme extends AppColorScheme {
   Color get onDisabled;
   @override
   @JsonKey(ignore: true)
-  _$$_AppColorSchemeCopyWith<_$_AppColorScheme> get copyWith =>
+  _$$AppColorSchemeImplCopyWith<_$AppColorSchemeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

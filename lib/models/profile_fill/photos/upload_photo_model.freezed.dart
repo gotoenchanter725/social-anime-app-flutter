@@ -12,7 +12,7 @@ part of 'upload_photo_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UploadPhotoModel _$UploadPhotoModelFromJson(Map<String, dynamic> json) {
   return _UploadPhotoModel.fromJson(json);
@@ -74,22 +74,22 @@ class _$UploadPhotoModelCopyWithImpl<$Res, $Val extends UploadPhotoModel>
 }
 
 /// @nodoc
-abstract class _$$_UploadPhotoModelCopyWith<$Res>
+abstract class _$$UploadPhotoModelImplCopyWith<$Res>
     implements $UploadPhotoModelCopyWith<$Res> {
-  factory _$$_UploadPhotoModelCopyWith(
-          _$_UploadPhotoModel value, $Res Function(_$_UploadPhotoModel) then) =
-      __$$_UploadPhotoModelCopyWithImpl<$Res>;
+  factory _$$UploadPhotoModelImplCopyWith(_$UploadPhotoModelImpl value,
+          $Res Function(_$UploadPhotoModelImpl) then) =
+      __$$UploadPhotoModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String? url, int? order});
 }
 
 /// @nodoc
-class __$$_UploadPhotoModelCopyWithImpl<$Res>
-    extends _$UploadPhotoModelCopyWithImpl<$Res, _$_UploadPhotoModel>
-    implements _$$_UploadPhotoModelCopyWith<$Res> {
-  __$$_UploadPhotoModelCopyWithImpl(
-      _$_UploadPhotoModel _value, $Res Function(_$_UploadPhotoModel) _then)
+class __$$UploadPhotoModelImplCopyWithImpl<$Res>
+    extends _$UploadPhotoModelCopyWithImpl<$Res, _$UploadPhotoModelImpl>
+    implements _$$UploadPhotoModelImplCopyWith<$Res> {
+  __$$UploadPhotoModelImplCopyWithImpl(_$UploadPhotoModelImpl _value,
+      $Res Function(_$UploadPhotoModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_UploadPhotoModelCopyWithImpl<$Res>
     Object? url = freezed,
     Object? order = freezed,
   }) {
-    return _then(_$_UploadPhotoModel(
+    return _then(_$UploadPhotoModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -118,11 +118,11 @@ class __$$_UploadPhotoModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UploadPhotoModel implements _UploadPhotoModel {
-  const _$_UploadPhotoModel({required this.id, this.url, this.order});
+class _$UploadPhotoModelImpl implements _UploadPhotoModel {
+  const _$UploadPhotoModelImpl({required this.id, this.url, this.order});
 
-  factory _$_UploadPhotoModel.fromJson(Map<String, dynamic> json) =>
-      _$$_UploadPhotoModelFromJson(json);
+  factory _$UploadPhotoModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UploadPhotoModelImplFromJson(json);
 
   @override
   final String id;
@@ -137,10 +137,10 @@ class _$_UploadPhotoModel implements _UploadPhotoModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UploadPhotoModel &&
+            other is _$UploadPhotoModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.order, order) || other.order == order));
@@ -153,12 +153,13 @@ class _$_UploadPhotoModel implements _UploadPhotoModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UploadPhotoModelCopyWith<_$_UploadPhotoModel> get copyWith =>
-      __$$_UploadPhotoModelCopyWithImpl<_$_UploadPhotoModel>(this, _$identity);
+  _$$UploadPhotoModelImplCopyWith<_$UploadPhotoModelImpl> get copyWith =>
+      __$$UploadPhotoModelImplCopyWithImpl<_$UploadPhotoModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UploadPhotoModelToJson(
+    return _$$UploadPhotoModelImplToJson(
       this,
     );
   }
@@ -168,10 +169,10 @@ abstract class _UploadPhotoModel implements UploadPhotoModel {
   const factory _UploadPhotoModel(
       {required final String id,
       final String? url,
-      final int? order}) = _$_UploadPhotoModel;
+      final int? order}) = _$UploadPhotoModelImpl;
 
   factory _UploadPhotoModel.fromJson(Map<String, dynamic> json) =
-      _$_UploadPhotoModel.fromJson;
+      _$UploadPhotoModelImpl.fromJson;
 
   @override
   String get id;
@@ -181,6 +182,6 @@ abstract class _UploadPhotoModel implements UploadPhotoModel {
   int? get order;
   @override
   @JsonKey(ignore: true)
-  _$$_UploadPhotoModelCopyWith<_$_UploadPhotoModel> get copyWith =>
+  _$$UploadPhotoModelImplCopyWith<_$UploadPhotoModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

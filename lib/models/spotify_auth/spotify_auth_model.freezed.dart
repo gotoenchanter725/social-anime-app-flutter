@@ -12,7 +12,7 @@ part of 'spotify_auth_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SpotifyAuthModel _$SpotifyAuthModelFromJson(Map<String, dynamic> json) {
   return _SpotifyAuthModel.fromJson(json);
@@ -68,22 +68,22 @@ class _$SpotifyAuthModelCopyWithImpl<$Res, $Val extends SpotifyAuthModel>
 }
 
 /// @nodoc
-abstract class _$$_SpotifyAuthModelCopyWith<$Res>
+abstract class _$$SpotifyAuthModelImplCopyWith<$Res>
     implements $SpotifyAuthModelCopyWith<$Res> {
-  factory _$$_SpotifyAuthModelCopyWith(
-          _$_SpotifyAuthModel value, $Res Function(_$_SpotifyAuthModel) then) =
-      __$$_SpotifyAuthModelCopyWithImpl<$Res>;
+  factory _$$SpotifyAuthModelImplCopyWith(_$SpotifyAuthModelImpl value,
+          $Res Function(_$SpotifyAuthModelImpl) then) =
+      __$$SpotifyAuthModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String token, String refreshToken});
 }
 
 /// @nodoc
-class __$$_SpotifyAuthModelCopyWithImpl<$Res>
-    extends _$SpotifyAuthModelCopyWithImpl<$Res, _$_SpotifyAuthModel>
-    implements _$$_SpotifyAuthModelCopyWith<$Res> {
-  __$$_SpotifyAuthModelCopyWithImpl(
-      _$_SpotifyAuthModel _value, $Res Function(_$_SpotifyAuthModel) _then)
+class __$$SpotifyAuthModelImplCopyWithImpl<$Res>
+    extends _$SpotifyAuthModelCopyWithImpl<$Res, _$SpotifyAuthModelImpl>
+    implements _$$SpotifyAuthModelImplCopyWith<$Res> {
+  __$$SpotifyAuthModelImplCopyWithImpl(_$SpotifyAuthModelImpl _value,
+      $Res Function(_$SpotifyAuthModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_SpotifyAuthModelCopyWithImpl<$Res>
     Object? token = null,
     Object? refreshToken = null,
   }) {
-    return _then(_$_SpotifyAuthModel(
+    return _then(_$SpotifyAuthModelImpl(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,12 @@ class __$$_SpotifyAuthModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SpotifyAuthModel implements _SpotifyAuthModel {
-  const _$_SpotifyAuthModel({required this.token, required this.refreshToken});
+class _$SpotifyAuthModelImpl implements _SpotifyAuthModel {
+  const _$SpotifyAuthModelImpl(
+      {required this.token, required this.refreshToken});
 
-  factory _$_SpotifyAuthModel.fromJson(Map<String, dynamic> json) =>
-      _$$_SpotifyAuthModelFromJson(json);
+  factory _$SpotifyAuthModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SpotifyAuthModelImplFromJson(json);
 
   @override
   final String token;
@@ -124,10 +125,10 @@ class _$_SpotifyAuthModel implements _SpotifyAuthModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SpotifyAuthModel &&
+            other is _$SpotifyAuthModelImpl &&
             (identical(other.token, token) || other.token == token) &&
             (identical(other.refreshToken, refreshToken) ||
                 other.refreshToken == refreshToken));
@@ -140,12 +141,13 @@ class _$_SpotifyAuthModel implements _SpotifyAuthModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SpotifyAuthModelCopyWith<_$_SpotifyAuthModel> get copyWith =>
-      __$$_SpotifyAuthModelCopyWithImpl<_$_SpotifyAuthModel>(this, _$identity);
+  _$$SpotifyAuthModelImplCopyWith<_$SpotifyAuthModelImpl> get copyWith =>
+      __$$SpotifyAuthModelImplCopyWithImpl<_$SpotifyAuthModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SpotifyAuthModelToJson(
+    return _$$SpotifyAuthModelImplToJson(
       this,
     );
   }
@@ -154,10 +156,10 @@ class _$_SpotifyAuthModel implements _SpotifyAuthModel {
 abstract class _SpotifyAuthModel implements SpotifyAuthModel {
   const factory _SpotifyAuthModel(
       {required final String token,
-      required final String refreshToken}) = _$_SpotifyAuthModel;
+      required final String refreshToken}) = _$SpotifyAuthModelImpl;
 
   factory _SpotifyAuthModel.fromJson(Map<String, dynamic> json) =
-      _$_SpotifyAuthModel.fromJson;
+      _$SpotifyAuthModelImpl.fromJson;
 
   @override
   String get token;
@@ -165,6 +167,6 @@ abstract class _SpotifyAuthModel implements SpotifyAuthModel {
   String get refreshToken;
   @override
   @JsonKey(ignore: true)
-  _$$_SpotifyAuthModelCopyWith<_$_SpotifyAuthModel> get copyWith =>
+  _$$SpotifyAuthModelImplCopyWith<_$SpotifyAuthModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

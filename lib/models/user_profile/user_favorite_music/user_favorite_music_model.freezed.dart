@@ -12,7 +12,7 @@ part of 'user_favorite_music_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UserFavoriteMusicModel _$UserFavoriteMusicModelFromJson(
     Map<String, dynamic> json) {
@@ -100,11 +100,12 @@ class _$UserFavoriteMusicModelCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_UserFavoriteMusicModelCopyWith<$Res>
+abstract class _$$UserFavoriteMusicModelImplCopyWith<$Res>
     implements $UserFavoriteMusicModelCopyWith<$Res> {
-  factory _$$_UserFavoriteMusicModelCopyWith(_$_UserFavoriteMusicModel value,
-          $Res Function(_$_UserFavoriteMusicModel) then) =
-      __$$_UserFavoriteMusicModelCopyWithImpl<$Res>;
+  factory _$$UserFavoriteMusicModelImplCopyWith(
+          _$UserFavoriteMusicModelImpl value,
+          $Res Function(_$UserFavoriteMusicModelImpl) then) =
+      __$$UserFavoriteMusicModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -117,12 +118,13 @@ abstract class _$$_UserFavoriteMusicModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserFavoriteMusicModelCopyWithImpl<$Res>
+class __$$UserFavoriteMusicModelImplCopyWithImpl<$Res>
     extends _$UserFavoriteMusicModelCopyWithImpl<$Res,
-        _$_UserFavoriteMusicModel>
-    implements _$$_UserFavoriteMusicModelCopyWith<$Res> {
-  __$$_UserFavoriteMusicModelCopyWithImpl(_$_UserFavoriteMusicModel _value,
-      $Res Function(_$_UserFavoriteMusicModel) _then)
+        _$UserFavoriteMusicModelImpl>
+    implements _$$UserFavoriteMusicModelImplCopyWith<$Res> {
+  __$$UserFavoriteMusicModelImplCopyWithImpl(
+      _$UserFavoriteMusicModelImpl _value,
+      $Res Function(_$UserFavoriteMusicModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -135,7 +137,7 @@ class __$$_UserFavoriteMusicModelCopyWithImpl<$Res>
     Object? trackName = freezed,
     Object? spotifyId = freezed,
   }) {
-    return _then(_$_UserFavoriteMusicModel(
+    return _then(_$UserFavoriteMusicModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -166,8 +168,8 @@ class __$$_UserFavoriteMusicModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserFavoriteMusicModel implements _UserFavoriteMusicModel {
-  const _$_UserFavoriteMusicModel(
+class _$UserFavoriteMusicModelImpl implements _UserFavoriteMusicModel {
+  const _$UserFavoriteMusicModelImpl(
       {required this.id,
       required this.coverUrl,
       required this.musicType,
@@ -175,8 +177,8 @@ class _$_UserFavoriteMusicModel implements _UserFavoriteMusicModel {
       this.trackName,
       this.spotifyId});
 
-  factory _$_UserFavoriteMusicModel.fromJson(Map<String, dynamic> json) =>
-      _$$_UserFavoriteMusicModelFromJson(json);
+  factory _$UserFavoriteMusicModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserFavoriteMusicModelImplFromJson(json);
 
   @override
   final String id;
@@ -197,10 +199,10 @@ class _$_UserFavoriteMusicModel implements _UserFavoriteMusicModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserFavoriteMusicModel &&
+            other is _$UserFavoriteMusicModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.coverUrl, coverUrl) ||
                 other.coverUrl == coverUrl) &&
@@ -222,13 +224,13 @@ class _$_UserFavoriteMusicModel implements _UserFavoriteMusicModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserFavoriteMusicModelCopyWith<_$_UserFavoriteMusicModel> get copyWith =>
-      __$$_UserFavoriteMusicModelCopyWithImpl<_$_UserFavoriteMusicModel>(
-          this, _$identity);
+  _$$UserFavoriteMusicModelImplCopyWith<_$UserFavoriteMusicModelImpl>
+      get copyWith => __$$UserFavoriteMusicModelImplCopyWithImpl<
+          _$UserFavoriteMusicModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserFavoriteMusicModelToJson(
+    return _$$UserFavoriteMusicModelImplToJson(
       this,
     );
   }
@@ -241,10 +243,10 @@ abstract class _UserFavoriteMusicModel implements UserFavoriteMusicModel {
       required final String musicType,
       final String? artistName,
       final String? trackName,
-      final String? spotifyId}) = _$_UserFavoriteMusicModel;
+      final String? spotifyId}) = _$UserFavoriteMusicModelImpl;
 
   factory _UserFavoriteMusicModel.fromJson(Map<String, dynamic> json) =
-      _$_UserFavoriteMusicModel.fromJson;
+      _$UserFavoriteMusicModelImpl.fromJson;
 
   @override
   String get id;
@@ -260,6 +262,6 @@ abstract class _UserFavoriteMusicModel implements UserFavoriteMusicModel {
   String? get spotifyId;
   @override
   @JsonKey(ignore: true)
-  _$$_UserFavoriteMusicModelCopyWith<_$_UserFavoriteMusicModel> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UserFavoriteMusicModelImplCopyWith<_$UserFavoriteMusicModelImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

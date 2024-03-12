@@ -12,7 +12,7 @@ part of 'user_anime_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UserAnimeModel _$UserAnimeModelFromJson(Map<String, dynamic> json) {
   return _UserAnimeModel.fromJson(json);
@@ -74,22 +74,22 @@ class _$UserAnimeModelCopyWithImpl<$Res, $Val extends UserAnimeModel>
 }
 
 /// @nodoc
-abstract class _$$_UserAnimeModelCopyWith<$Res>
+abstract class _$$UserAnimeModelImplCopyWith<$Res>
     implements $UserAnimeModelCopyWith<$Res> {
-  factory _$$_UserAnimeModelCopyWith(
-          _$_UserAnimeModel value, $Res Function(_$_UserAnimeModel) then) =
-      __$$_UserAnimeModelCopyWithImpl<$Res>;
+  factory _$$UserAnimeModelImplCopyWith(_$UserAnimeModelImpl value,
+          $Res Function(_$UserAnimeModelImpl) then) =
+      __$$UserAnimeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String? title, String? cover});
 }
 
 /// @nodoc
-class __$$_UserAnimeModelCopyWithImpl<$Res>
-    extends _$UserAnimeModelCopyWithImpl<$Res, _$_UserAnimeModel>
-    implements _$$_UserAnimeModelCopyWith<$Res> {
-  __$$_UserAnimeModelCopyWithImpl(
-      _$_UserAnimeModel _value, $Res Function(_$_UserAnimeModel) _then)
+class __$$UserAnimeModelImplCopyWithImpl<$Res>
+    extends _$UserAnimeModelCopyWithImpl<$Res, _$UserAnimeModelImpl>
+    implements _$$UserAnimeModelImplCopyWith<$Res> {
+  __$$UserAnimeModelImplCopyWithImpl(
+      _$UserAnimeModelImpl _value, $Res Function(_$UserAnimeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_UserAnimeModelCopyWithImpl<$Res>
     Object? title = freezed,
     Object? cover = freezed,
   }) {
-    return _then(_$_UserAnimeModel(
+    return _then(_$UserAnimeModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -118,11 +118,11 @@ class __$$_UserAnimeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserAnimeModel implements _UserAnimeModel {
-  const _$_UserAnimeModel({required this.id, this.title, this.cover});
+class _$UserAnimeModelImpl implements _UserAnimeModel {
+  const _$UserAnimeModelImpl({required this.id, this.title, this.cover});
 
-  factory _$_UserAnimeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_UserAnimeModelFromJson(json);
+  factory _$UserAnimeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserAnimeModelImplFromJson(json);
 
   @override
   final String id;
@@ -137,10 +137,10 @@ class _$_UserAnimeModel implements _UserAnimeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserAnimeModel &&
+            other is _$UserAnimeModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.cover, cover) || other.cover == cover));
@@ -153,12 +153,13 @@ class _$_UserAnimeModel implements _UserAnimeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserAnimeModelCopyWith<_$_UserAnimeModel> get copyWith =>
-      __$$_UserAnimeModelCopyWithImpl<_$_UserAnimeModel>(this, _$identity);
+  _$$UserAnimeModelImplCopyWith<_$UserAnimeModelImpl> get copyWith =>
+      __$$UserAnimeModelImplCopyWithImpl<_$UserAnimeModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserAnimeModelToJson(
+    return _$$UserAnimeModelImplToJson(
       this,
     );
   }
@@ -168,10 +169,10 @@ abstract class _UserAnimeModel implements UserAnimeModel {
   const factory _UserAnimeModel(
       {required final String id,
       final String? title,
-      final String? cover}) = _$_UserAnimeModel;
+      final String? cover}) = _$UserAnimeModelImpl;
 
   factory _UserAnimeModel.fromJson(Map<String, dynamic> json) =
-      _$_UserAnimeModel.fromJson;
+      _$UserAnimeModelImpl.fromJson;
 
   @override
   String get id;
@@ -181,6 +182,6 @@ abstract class _UserAnimeModel implements UserAnimeModel {
   String? get cover;
   @override
   @JsonKey(ignore: true)
-  _$$_UserAnimeModelCopyWith<_$_UserAnimeModel> get copyWith =>
+  _$$UserAnimeModelImplCopyWith<_$UserAnimeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

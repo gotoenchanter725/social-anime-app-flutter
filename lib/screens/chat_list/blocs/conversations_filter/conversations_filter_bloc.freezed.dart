@@ -12,7 +12,7 @@ part of 'conversations_filter_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ConversationsFilterEvent {
@@ -90,22 +90,22 @@ class _$ConversationsFilterEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_FilterChangedCopyWith<$Res>
+abstract class _$$FilterChangedImplCopyWith<$Res>
     implements $ConversationsFilterEventCopyWith<$Res> {
-  factory _$$_FilterChangedCopyWith(
-          _$_FilterChanged value, $Res Function(_$_FilterChanged) then) =
-      __$$_FilterChangedCopyWithImpl<$Res>;
+  factory _$$FilterChangedImplCopyWith(
+          _$FilterChangedImpl value, $Res Function(_$FilterChangedImpl) then) =
+      __$$FilterChangedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String filter});
 }
 
 /// @nodoc
-class __$$_FilterChangedCopyWithImpl<$Res>
-    extends _$ConversationsFilterEventCopyWithImpl<$Res, _$_FilterChanged>
-    implements _$$_FilterChangedCopyWith<$Res> {
-  __$$_FilterChangedCopyWithImpl(
-      _$_FilterChanged _value, $Res Function(_$_FilterChanged) _then)
+class __$$FilterChangedImplCopyWithImpl<$Res>
+    extends _$ConversationsFilterEventCopyWithImpl<$Res, _$FilterChangedImpl>
+    implements _$$FilterChangedImplCopyWith<$Res> {
+  __$$FilterChangedImplCopyWithImpl(
+      _$FilterChangedImpl _value, $Res Function(_$FilterChangedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +113,7 @@ class __$$_FilterChangedCopyWithImpl<$Res>
   $Res call({
     Object? filter = null,
   }) {
-    return _then(_$_FilterChanged(
+    return _then(_$FilterChangedImpl(
       null == filter
           ? _value.filter
           : filter // ignore: cast_nullable_to_non_nullable
@@ -124,8 +124,8 @@ class __$$_FilterChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FilterChanged implements _FilterChanged {
-  const _$_FilterChanged(this.filter);
+class _$FilterChangedImpl implements _FilterChanged {
+  const _$FilterChangedImpl(this.filter);
 
   @override
   final String filter;
@@ -136,10 +136,10 @@ class _$_FilterChanged implements _FilterChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_FilterChanged &&
+            other is _$FilterChangedImpl &&
             (identical(other.filter, filter) || other.filter == filter));
   }
 
@@ -149,8 +149,8 @@ class _$_FilterChanged implements _FilterChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FilterChangedCopyWith<_$_FilterChanged> get copyWith =>
-      __$$_FilterChangedCopyWithImpl<_$_FilterChanged>(this, _$identity);
+  _$$FilterChangedImplCopyWith<_$FilterChangedImpl> get copyWith =>
+      __$$FilterChangedImplCopyWithImpl<_$FilterChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -210,13 +210,13 @@ class _$_FilterChanged implements _FilterChanged {
 }
 
 abstract class _FilterChanged implements ConversationsFilterEvent {
-  const factory _FilterChanged(final String filter) = _$_FilterChanged;
+  const factory _FilterChanged(final String filter) = _$FilterChangedImpl;
 
   @override
   String get filter;
   @override
   @JsonKey(ignore: true)
-  _$$_FilterChangedCopyWith<_$_FilterChanged> get copyWith =>
+  _$$FilterChangedImplCopyWith<_$FilterChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -321,21 +321,22 @@ class _$ConversationsFilterStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res>
+abstract class _$$InitialImplCopyWith<$Res>
     implements $ConversationsFilterStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({CategorizedConversations filteredConversations, String filter});
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res>
-    extends _$ConversationsFilterStateCopyWithImpl<$Res, _$_Initial>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ConversationsFilterStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -344,7 +345,7 @@ class __$$_InitialCopyWithImpl<$Res>
     Object? filteredConversations = null,
     Object? filter = null,
   }) {
-    return _then(_$_Initial(
+    return _then(_$InitialImpl(
       filteredConversations: null == filteredConversations
           ? _value.filteredConversations
           : filteredConversations // ignore: cast_nullable_to_non_nullable
@@ -359,8 +360,9 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial implements _Initial {
-  const _$_Initial({required this.filteredConversations, required this.filter});
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl(
+      {required this.filteredConversations, required this.filter});
 
   @override
   final CategorizedConversations filteredConversations;
@@ -373,10 +375,10 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
+            other is _$InitialImpl &&
             (identical(other.filteredConversations, filteredConversations) ||
                 other.filteredConversations == filteredConversations) &&
             (identical(other.filter, filter) || other.filter == filter));
@@ -388,8 +390,8 @@ class _$_Initial implements _Initial {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -469,7 +471,7 @@ class _$_Initial implements _Initial {
 abstract class _Initial implements ConversationsFilterState {
   const factory _Initial(
       {required final CategorizedConversations filteredConversations,
-      required final String filter}) = _$_Initial;
+      required final String filter}) = _$InitialImpl;
 
   @override
   CategorizedConversations get filteredConversations;
@@ -477,27 +479,27 @@ abstract class _Initial implements ConversationsFilterState {
   String get filter;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_FilteredCopyWith<$Res>
+abstract class _$$FilteredImplCopyWith<$Res>
     implements $ConversationsFilterStateCopyWith<$Res> {
-  factory _$$_FilteredCopyWith(
-          _$_Filtered value, $Res Function(_$_Filtered) then) =
-      __$$_FilteredCopyWithImpl<$Res>;
+  factory _$$FilteredImplCopyWith(
+          _$FilteredImpl value, $Res Function(_$FilteredImpl) then) =
+      __$$FilteredImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({CategorizedConversations filteredConversations, String filter});
 }
 
 /// @nodoc
-class __$$_FilteredCopyWithImpl<$Res>
-    extends _$ConversationsFilterStateCopyWithImpl<$Res, _$_Filtered>
-    implements _$$_FilteredCopyWith<$Res> {
-  __$$_FilteredCopyWithImpl(
-      _$_Filtered _value, $Res Function(_$_Filtered) _then)
+class __$$FilteredImplCopyWithImpl<$Res>
+    extends _$ConversationsFilterStateCopyWithImpl<$Res, _$FilteredImpl>
+    implements _$$FilteredImplCopyWith<$Res> {
+  __$$FilteredImplCopyWithImpl(
+      _$FilteredImpl _value, $Res Function(_$FilteredImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -506,7 +508,7 @@ class __$$_FilteredCopyWithImpl<$Res>
     Object? filteredConversations = null,
     Object? filter = null,
   }) {
-    return _then(_$_Filtered(
+    return _then(_$FilteredImpl(
       filteredConversations: null == filteredConversations
           ? _value.filteredConversations
           : filteredConversations // ignore: cast_nullable_to_non_nullable
@@ -521,8 +523,8 @@ class __$$_FilteredCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Filtered implements _Filtered {
-  const _$_Filtered(
+class _$FilteredImpl implements _Filtered {
+  const _$FilteredImpl(
       {required this.filteredConversations, required this.filter});
 
   @override
@@ -536,10 +538,10 @@ class _$_Filtered implements _Filtered {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Filtered &&
+            other is _$FilteredImpl &&
             (identical(other.filteredConversations, filteredConversations) ||
                 other.filteredConversations == filteredConversations) &&
             (identical(other.filter, filter) || other.filter == filter));
@@ -551,8 +553,8 @@ class _$_Filtered implements _Filtered {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_FilteredCopyWith<_$_Filtered> get copyWith =>
-      __$$_FilteredCopyWithImpl<_$_Filtered>(this, _$identity);
+  _$$FilteredImplCopyWith<_$FilteredImpl> get copyWith =>
+      __$$FilteredImplCopyWithImpl<_$FilteredImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -632,7 +634,7 @@ class _$_Filtered implements _Filtered {
 abstract class _Filtered implements ConversationsFilterState {
   const factory _Filtered(
       {required final CategorizedConversations filteredConversations,
-      required final String filter}) = _$_Filtered;
+      required final String filter}) = _$FilteredImpl;
 
   @override
   CategorizedConversations get filteredConversations;
@@ -640,6 +642,6 @@ abstract class _Filtered implements ConversationsFilterState {
   String get filter;
   @override
   @JsonKey(ignore: true)
-  _$$_FilteredCopyWith<_$_Filtered> get copyWith =>
+  _$$FilteredImplCopyWith<_$FilteredImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

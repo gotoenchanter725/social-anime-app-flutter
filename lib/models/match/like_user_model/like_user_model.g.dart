@@ -6,15 +6,15 @@ part of 'like_user_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_LikeUserModel _$$_LikeUserModelFromJson(Map<String, dynamic> json) =>
-    _$_LikeUserModel(
+_$LikeUserModelImpl _$$LikeUserModelImplFromJson(Map<String, dynamic> json) =>
+    _$LikeUserModelImpl(
       like: LikeModel.fromJson(json['like'] as Map<String, dynamic>),
       match: json['match'] == null
           ? null
           : MatchesUsersModel.fromJson(json['match'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_LikeUserModelToJson(_$_LikeUserModel instance) =>
+Map<String, dynamic> _$$LikeUserModelImplToJson(_$LikeUserModelImpl instance) =>
     <String, dynamic>{
       'like': instance.like,
       'match': instance.match,

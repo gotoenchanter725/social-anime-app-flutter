@@ -12,7 +12,7 @@ part of 'spotify_artist_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SpotifyArtistModel _$SpotifyArtistModelFromJson(Map<String, dynamic> json) {
   return _SpotifyArtistModel.fromJson(json);
@@ -74,22 +74,22 @@ class _$SpotifyArtistModelCopyWithImpl<$Res, $Val extends SpotifyArtistModel>
 }
 
 /// @nodoc
-abstract class _$$_SpotifyArtistModelCopyWith<$Res>
+abstract class _$$SpotifyArtistModelImplCopyWith<$Res>
     implements $SpotifyArtistModelCopyWith<$Res> {
-  factory _$$_SpotifyArtistModelCopyWith(_$_SpotifyArtistModel value,
-          $Res Function(_$_SpotifyArtistModel) then) =
-      __$$_SpotifyArtistModelCopyWithImpl<$Res>;
+  factory _$$SpotifyArtistModelImplCopyWith(_$SpotifyArtistModelImpl value,
+          $Res Function(_$SpotifyArtistModelImpl) then) =
+      __$$SpotifyArtistModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String name, List<SpotifyImageModel>? images});
 }
 
 /// @nodoc
-class __$$_SpotifyArtistModelCopyWithImpl<$Res>
-    extends _$SpotifyArtistModelCopyWithImpl<$Res, _$_SpotifyArtistModel>
-    implements _$$_SpotifyArtistModelCopyWith<$Res> {
-  __$$_SpotifyArtistModelCopyWithImpl(
-      _$_SpotifyArtistModel _value, $Res Function(_$_SpotifyArtistModel) _then)
+class __$$SpotifyArtistModelImplCopyWithImpl<$Res>
+    extends _$SpotifyArtistModelCopyWithImpl<$Res, _$SpotifyArtistModelImpl>
+    implements _$$SpotifyArtistModelImplCopyWith<$Res> {
+  __$$SpotifyArtistModelImplCopyWithImpl(_$SpotifyArtistModelImpl _value,
+      $Res Function(_$SpotifyArtistModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$_SpotifyArtistModelCopyWithImpl<$Res>
     Object? name = null,
     Object? images = freezed,
   }) {
-    return _then(_$_SpotifyArtistModel(
+    return _then(_$SpotifyArtistModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -118,15 +118,15 @@ class __$$_SpotifyArtistModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SpotifyArtistModel implements _SpotifyArtistModel {
-  const _$_SpotifyArtistModel(
+class _$SpotifyArtistModelImpl implements _SpotifyArtistModel {
+  const _$SpotifyArtistModelImpl(
       {required this.id,
       required this.name,
       final List<SpotifyImageModel>? images})
       : _images = images;
 
-  factory _$_SpotifyArtistModel.fromJson(Map<String, dynamic> json) =>
-      _$$_SpotifyArtistModelFromJson(json);
+  factory _$SpotifyArtistModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SpotifyArtistModelImplFromJson(json);
 
   @override
   final String id;
@@ -148,10 +148,10 @@ class _$_SpotifyArtistModel implements _SpotifyArtistModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SpotifyArtistModel &&
+            other is _$SpotifyArtistModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other._images, _images));
@@ -165,13 +165,13 @@ class _$_SpotifyArtistModel implements _SpotifyArtistModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SpotifyArtistModelCopyWith<_$_SpotifyArtistModel> get copyWith =>
-      __$$_SpotifyArtistModelCopyWithImpl<_$_SpotifyArtistModel>(
+  _$$SpotifyArtistModelImplCopyWith<_$SpotifyArtistModelImpl> get copyWith =>
+      __$$SpotifyArtistModelImplCopyWithImpl<_$SpotifyArtistModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SpotifyArtistModelToJson(
+    return _$$SpotifyArtistModelImplToJson(
       this,
     );
   }
@@ -181,10 +181,10 @@ abstract class _SpotifyArtistModel implements SpotifyArtistModel {
   const factory _SpotifyArtistModel(
       {required final String id,
       required final String name,
-      final List<SpotifyImageModel>? images}) = _$_SpotifyArtistModel;
+      final List<SpotifyImageModel>? images}) = _$SpotifyArtistModelImpl;
 
   factory _SpotifyArtistModel.fromJson(Map<String, dynamic> json) =
-      _$_SpotifyArtistModel.fromJson;
+      _$SpotifyArtistModelImpl.fromJson;
 
   @override
   String get id;
@@ -194,6 +194,6 @@ abstract class _SpotifyArtistModel implements SpotifyArtistModel {
   List<SpotifyImageModel>? get images;
   @override
   @JsonKey(ignore: true)
-  _$$_SpotifyArtistModelCopyWith<_$_SpotifyArtistModel> get copyWith =>
+  _$$SpotifyArtistModelImplCopyWith<_$SpotifyArtistModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

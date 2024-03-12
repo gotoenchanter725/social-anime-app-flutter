@@ -12,7 +12,7 @@ part of 'profile_filter_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ProfileFilterModel _$ProfileFilterModelFromJson(Map<String, dynamic> json) {
   return _ProfileFilterModel.fromJson(json);
@@ -98,11 +98,11 @@ class _$ProfileFilterModelCopyWithImpl<$Res, $Val extends ProfileFilterModel>
 }
 
 /// @nodoc
-abstract class _$$_ProfileFilterModelCopyWith<$Res>
+abstract class _$$ProfileFilterModelImplCopyWith<$Res>
     implements $ProfileFilterModelCopyWith<$Res> {
-  factory _$$_ProfileFilterModelCopyWith(_$_ProfileFilterModel value,
-          $Res Function(_$_ProfileFilterModel) then) =
-      __$$_ProfileFilterModelCopyWithImpl<$Res>;
+  factory _$$ProfileFilterModelImplCopyWith(_$ProfileFilterModelImpl value,
+          $Res Function(_$ProfileFilterModelImpl) then) =
+      __$$ProfileFilterModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -115,11 +115,11 @@ abstract class _$$_ProfileFilterModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProfileFilterModelCopyWithImpl<$Res>
-    extends _$ProfileFilterModelCopyWithImpl<$Res, _$_ProfileFilterModel>
-    implements _$$_ProfileFilterModelCopyWith<$Res> {
-  __$$_ProfileFilterModelCopyWithImpl(
-      _$_ProfileFilterModel _value, $Res Function(_$_ProfileFilterModel) _then)
+class __$$ProfileFilterModelImplCopyWithImpl<$Res>
+    extends _$ProfileFilterModelCopyWithImpl<$Res, _$ProfileFilterModelImpl>
+    implements _$$ProfileFilterModelImplCopyWith<$Res> {
+  __$$ProfileFilterModelImplCopyWithImpl(_$ProfileFilterModelImpl _value,
+      $Res Function(_$ProfileFilterModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -132,7 +132,7 @@ class __$$_ProfileFilterModelCopyWithImpl<$Res>
     Object? verified = null,
     Object? animeIds = null,
   }) {
-    return _then(_$_ProfileFilterModel(
+    return _then(_$ProfileFilterModelImpl(
       milesAway: null == milesAway
           ? _value.milesAway
           : milesAway // ignore: cast_nullable_to_non_nullable
@@ -163,8 +163,8 @@ class __$$_ProfileFilterModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProfileFilterModel implements _ProfileFilterModel {
-  const _$_ProfileFilterModel(
+class _$ProfileFilterModelImpl implements _ProfileFilterModel {
+  const _$ProfileFilterModelImpl(
       {required this.milesAway,
       required this.minAge,
       required this.maxAge,
@@ -173,8 +173,8 @@ class _$_ProfileFilterModel implements _ProfileFilterModel {
       required final List<String> animeIds})
       : _animeIds = animeIds;
 
-  factory _$_ProfileFilterModel.fromJson(Map<String, dynamic> json) =>
-      _$$_ProfileFilterModelFromJson(json);
+  factory _$ProfileFilterModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProfileFilterModelImplFromJson(json);
 
   @override
   final int milesAway;
@@ -200,10 +200,10 @@ class _$_ProfileFilterModel implements _ProfileFilterModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProfileFilterModel &&
+            other is _$ProfileFilterModelImpl &&
             (identical(other.milesAway, milesAway) ||
                 other.milesAway == milesAway) &&
             (identical(other.minAge, minAge) || other.minAge == minAge) &&
@@ -222,13 +222,13 @@ class _$_ProfileFilterModel implements _ProfileFilterModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProfileFilterModelCopyWith<_$_ProfileFilterModel> get copyWith =>
-      __$$_ProfileFilterModelCopyWithImpl<_$_ProfileFilterModel>(
+  _$$ProfileFilterModelImplCopyWith<_$ProfileFilterModelImpl> get copyWith =>
+      __$$ProfileFilterModelImplCopyWithImpl<_$ProfileFilterModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProfileFilterModelToJson(
+    return _$$ProfileFilterModelImplToJson(
       this,
     );
   }
@@ -241,10 +241,10 @@ abstract class _ProfileFilterModel implements ProfileFilterModel {
       required final int maxAge,
       required final bool hasBio,
       required final bool verified,
-      required final List<String> animeIds}) = _$_ProfileFilterModel;
+      required final List<String> animeIds}) = _$ProfileFilterModelImpl;
 
   factory _ProfileFilterModel.fromJson(Map<String, dynamic> json) =
-      _$_ProfileFilterModel.fromJson;
+      _$ProfileFilterModelImpl.fromJson;
 
   @override
   int get milesAway;
@@ -260,6 +260,6 @@ abstract class _ProfileFilterModel implements ProfileFilterModel {
   List<String> get animeIds;
   @override
   @JsonKey(ignore: true)
-  _$$_ProfileFilterModelCopyWith<_$_ProfileFilterModel> get copyWith =>
+  _$$ProfileFilterModelImplCopyWith<_$ProfileFilterModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

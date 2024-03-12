@@ -12,7 +12,7 @@ part of 'spotify_image_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SpotifyImageModel _$SpotifyImageModelFromJson(Map<String, dynamic> json) {
   return _SpotifyImageModel.fromJson(json);
@@ -62,22 +62,22 @@ class _$SpotifyImageModelCopyWithImpl<$Res, $Val extends SpotifyImageModel>
 }
 
 /// @nodoc
-abstract class _$$_SpotifyImageModelCopyWith<$Res>
+abstract class _$$SpotifyImageModelImplCopyWith<$Res>
     implements $SpotifyImageModelCopyWith<$Res> {
-  factory _$$_SpotifyImageModelCopyWith(_$_SpotifyImageModel value,
-          $Res Function(_$_SpotifyImageModel) then) =
-      __$$_SpotifyImageModelCopyWithImpl<$Res>;
+  factory _$$SpotifyImageModelImplCopyWith(_$SpotifyImageModelImpl value,
+          $Res Function(_$SpotifyImageModelImpl) then) =
+      __$$SpotifyImageModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String url});
 }
 
 /// @nodoc
-class __$$_SpotifyImageModelCopyWithImpl<$Res>
-    extends _$SpotifyImageModelCopyWithImpl<$Res, _$_SpotifyImageModel>
-    implements _$$_SpotifyImageModelCopyWith<$Res> {
-  __$$_SpotifyImageModelCopyWithImpl(
-      _$_SpotifyImageModel _value, $Res Function(_$_SpotifyImageModel) _then)
+class __$$SpotifyImageModelImplCopyWithImpl<$Res>
+    extends _$SpotifyImageModelCopyWithImpl<$Res, _$SpotifyImageModelImpl>
+    implements _$$SpotifyImageModelImplCopyWith<$Res> {
+  __$$SpotifyImageModelImplCopyWithImpl(_$SpotifyImageModelImpl _value,
+      $Res Function(_$SpotifyImageModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_SpotifyImageModelCopyWithImpl<$Res>
   $Res call({
     Object? url = null,
   }) {
-    return _then(_$_SpotifyImageModel(
+    return _then(_$SpotifyImageModelImpl(
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_SpotifyImageModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SpotifyImageModel implements _SpotifyImageModel {
-  const _$_SpotifyImageModel({required this.url});
+class _$SpotifyImageModelImpl implements _SpotifyImageModel {
+  const _$SpotifyImageModelImpl({required this.url});
 
-  factory _$_SpotifyImageModel.fromJson(Map<String, dynamic> json) =>
-      _$$_SpotifyImageModelFromJson(json);
+  factory _$SpotifyImageModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SpotifyImageModelImplFromJson(json);
 
   @override
   final String url;
@@ -111,10 +111,10 @@ class _$_SpotifyImageModel implements _SpotifyImageModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SpotifyImageModel &&
+            other is _$SpotifyImageModelImpl &&
             (identical(other.url, url) || other.url == url));
   }
 
@@ -125,13 +125,13 @@ class _$_SpotifyImageModel implements _SpotifyImageModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SpotifyImageModelCopyWith<_$_SpotifyImageModel> get copyWith =>
-      __$$_SpotifyImageModelCopyWithImpl<_$_SpotifyImageModel>(
+  _$$SpotifyImageModelImplCopyWith<_$SpotifyImageModelImpl> get copyWith =>
+      __$$SpotifyImageModelImplCopyWithImpl<_$SpotifyImageModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SpotifyImageModelToJson(
+    return _$$SpotifyImageModelImplToJson(
       this,
     );
   }
@@ -139,15 +139,15 @@ class _$_SpotifyImageModel implements _SpotifyImageModel {
 
 abstract class _SpotifyImageModel implements SpotifyImageModel {
   const factory _SpotifyImageModel({required final String url}) =
-      _$_SpotifyImageModel;
+      _$SpotifyImageModelImpl;
 
   factory _SpotifyImageModel.fromJson(Map<String, dynamic> json) =
-      _$_SpotifyImageModel.fromJson;
+      _$SpotifyImageModelImpl.fromJson;
 
   @override
   String get url;
   @override
   @JsonKey(ignore: true)
-  _$$_SpotifyImageModelCopyWith<_$_SpotifyImageModel> get copyWith =>
+  _$$SpotifyImageModelImplCopyWith<_$SpotifyImageModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

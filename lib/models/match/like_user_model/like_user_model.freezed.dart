@@ -12,7 +12,7 @@ part of 'like_user_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 LikeUserModel _$LikeUserModelFromJson(Map<String, dynamic> json) {
   return _LikeUserModel.fromJson(json);
@@ -91,11 +91,11 @@ class _$LikeUserModelCopyWithImpl<$Res, $Val extends LikeUserModel>
 }
 
 /// @nodoc
-abstract class _$$_LikeUserModelCopyWith<$Res>
+abstract class _$$LikeUserModelImplCopyWith<$Res>
     implements $LikeUserModelCopyWith<$Res> {
-  factory _$$_LikeUserModelCopyWith(
-          _$_LikeUserModel value, $Res Function(_$_LikeUserModel) then) =
-      __$$_LikeUserModelCopyWithImpl<$Res>;
+  factory _$$LikeUserModelImplCopyWith(
+          _$LikeUserModelImpl value, $Res Function(_$LikeUserModelImpl) then) =
+      __$$LikeUserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({LikeModel like, MatchesUsersModel? match});
@@ -107,11 +107,11 @@ abstract class _$$_LikeUserModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LikeUserModelCopyWithImpl<$Res>
-    extends _$LikeUserModelCopyWithImpl<$Res, _$_LikeUserModel>
-    implements _$$_LikeUserModelCopyWith<$Res> {
-  __$$_LikeUserModelCopyWithImpl(
-      _$_LikeUserModel _value, $Res Function(_$_LikeUserModel) _then)
+class __$$LikeUserModelImplCopyWithImpl<$Res>
+    extends _$LikeUserModelCopyWithImpl<$Res, _$LikeUserModelImpl>
+    implements _$$LikeUserModelImplCopyWith<$Res> {
+  __$$LikeUserModelImplCopyWithImpl(
+      _$LikeUserModelImpl _value, $Res Function(_$LikeUserModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +120,7 @@ class __$$_LikeUserModelCopyWithImpl<$Res>
     Object? like = null,
     Object? match = freezed,
   }) {
-    return _then(_$_LikeUserModel(
+    return _then(_$LikeUserModelImpl(
       like: null == like
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
@@ -135,11 +135,11 @@ class __$$_LikeUserModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LikeUserModel implements _LikeUserModel {
-  const _$_LikeUserModel({required this.like, this.match});
+class _$LikeUserModelImpl implements _LikeUserModel {
+  const _$LikeUserModelImpl({required this.like, this.match});
 
-  factory _$_LikeUserModel.fromJson(Map<String, dynamic> json) =>
-      _$$_LikeUserModelFromJson(json);
+  factory _$LikeUserModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LikeUserModelImplFromJson(json);
 
   @override
   final LikeModel like;
@@ -152,10 +152,10 @@ class _$_LikeUserModel implements _LikeUserModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LikeUserModel &&
+            other is _$LikeUserModelImpl &&
             (identical(other.like, like) || other.like == like) &&
             (identical(other.match, match) || other.match == match));
   }
@@ -167,12 +167,12 @@ class _$_LikeUserModel implements _LikeUserModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LikeUserModelCopyWith<_$_LikeUserModel> get copyWith =>
-      __$$_LikeUserModelCopyWithImpl<_$_LikeUserModel>(this, _$identity);
+  _$$LikeUserModelImplCopyWith<_$LikeUserModelImpl> get copyWith =>
+      __$$LikeUserModelImplCopyWithImpl<_$LikeUserModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LikeUserModelToJson(
+    return _$$LikeUserModelImplToJson(
       this,
     );
   }
@@ -181,10 +181,10 @@ class _$_LikeUserModel implements _LikeUserModel {
 abstract class _LikeUserModel implements LikeUserModel {
   const factory _LikeUserModel(
       {required final LikeModel like,
-      final MatchesUsersModel? match}) = _$_LikeUserModel;
+      final MatchesUsersModel? match}) = _$LikeUserModelImpl;
 
   factory _LikeUserModel.fromJson(Map<String, dynamic> json) =
-      _$_LikeUserModel.fromJson;
+      _$LikeUserModelImpl.fromJson;
 
   @override
   LikeModel get like;
@@ -192,6 +192,6 @@ abstract class _LikeUserModel implements LikeUserModel {
   MatchesUsersModel? get match;
   @override
   @JsonKey(ignore: true)
-  _$$_LikeUserModelCopyWith<_$_LikeUserModel> get copyWith =>
+  _$$LikeUserModelImplCopyWith<_$LikeUserModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

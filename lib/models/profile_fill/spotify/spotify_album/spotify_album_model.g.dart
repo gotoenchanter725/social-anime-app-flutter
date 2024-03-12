@@ -6,8 +6,9 @@ part of 'spotify_album_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SpotifyAlbumModel _$$_SpotifyAlbumModelFromJson(Map<String, dynamic> json) =>
-    _$_SpotifyAlbumModel(
+_$SpotifyAlbumModelImpl _$$SpotifyAlbumModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SpotifyAlbumModelImpl(
       name: json['name'] as String,
       images: (json['images'] as List<dynamic>?)
           ?.map((e) => SpotifyImageModel.fromJson(e as Map<String, dynamic>))
@@ -17,8 +18,8 @@ _$_SpotifyAlbumModel _$$_SpotifyAlbumModelFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_SpotifyAlbumModelToJson(
-        _$_SpotifyAlbumModel instance) =>
+Map<String, dynamic> _$$SpotifyAlbumModelImplToJson(
+        _$SpotifyAlbumModelImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'images': instance.images,

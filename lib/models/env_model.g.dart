@@ -6,7 +6,8 @@ part of 'env_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EnvModel _$$_EnvModelFromJson(Map<String, dynamic> json) => _$_EnvModel(
+_$EnvModelImpl _$$EnvModelImplFromJson(Map<String, dynamic> json) =>
+    _$EnvModelImpl(
       env: json['env'] as String,
       debug: json['debug'] as bool,
       debugShowCheckedModeBanner: json['debugShowCheckedModeBanner'] as bool,
@@ -25,7 +26,7 @@ _$_EnvModel _$$_EnvModelFromJson(Map<String, dynamic> json) => _$_EnvModel(
       giphyApiKey: json['giphyApiKey'] as String,
     );
 
-Map<String, dynamic> _$$_EnvModelToJson(_$_EnvModel instance) =>
+Map<String, dynamic> _$$EnvModelImplToJson(_$EnvModelImpl instance) =>
     <String, dynamic>{
       'env': instance.env,
       'debug': instance.debug,

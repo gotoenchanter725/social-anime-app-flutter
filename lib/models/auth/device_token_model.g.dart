@@ -6,12 +6,14 @@ part of 'device_token_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DeviceTokenModel _$$_DeviceTokenModelFromJson(Map<String, dynamic> json) =>
-    _$_DeviceTokenModel(
+_$DeviceTokenModelImpl _$$DeviceTokenModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$DeviceTokenModelImpl(
       token: json['token'] as String,
     );
 
-Map<String, dynamic> _$$_DeviceTokenModelToJson(_$_DeviceTokenModel instance) =>
+Map<String, dynamic> _$$DeviceTokenModelImplToJson(
+        _$DeviceTokenModelImpl instance) =>
     <String, dynamic>{
       'token': instance.token,
     };

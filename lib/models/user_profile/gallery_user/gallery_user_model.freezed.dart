@@ -12,7 +12,7 @@ part of 'gallery_user_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 GalleryUserModel _$GalleryUserModelFromJson(Map<String, dynamic> json) {
   return _GalleryUserModel.fromJson(json);
@@ -62,22 +62,22 @@ class _$GalleryUserModelCopyWithImpl<$Res, $Val extends GalleryUserModel>
 }
 
 /// @nodoc
-abstract class _$$_GalleryUserModelCopyWith<$Res>
+abstract class _$$GalleryUserModelImplCopyWith<$Res>
     implements $GalleryUserModelCopyWith<$Res> {
-  factory _$$_GalleryUserModelCopyWith(
-          _$_GalleryUserModel value, $Res Function(_$_GalleryUserModel) then) =
-      __$$_GalleryUserModelCopyWithImpl<$Res>;
+  factory _$$GalleryUserModelImplCopyWith(_$GalleryUserModelImpl value,
+          $Res Function(_$GalleryUserModelImpl) then) =
+      __$$GalleryUserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<UploadPhotoModel> photos});
 }
 
 /// @nodoc
-class __$$_GalleryUserModelCopyWithImpl<$Res>
-    extends _$GalleryUserModelCopyWithImpl<$Res, _$_GalleryUserModel>
-    implements _$$_GalleryUserModelCopyWith<$Res> {
-  __$$_GalleryUserModelCopyWithImpl(
-      _$_GalleryUserModel _value, $Res Function(_$_GalleryUserModel) _then)
+class __$$GalleryUserModelImplCopyWithImpl<$Res>
+    extends _$GalleryUserModelCopyWithImpl<$Res, _$GalleryUserModelImpl>
+    implements _$$GalleryUserModelImplCopyWith<$Res> {
+  __$$GalleryUserModelImplCopyWithImpl(_$GalleryUserModelImpl _value,
+      $Res Function(_$GalleryUserModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_GalleryUserModelCopyWithImpl<$Res>
   $Res call({
     Object? photos = null,
   }) {
-    return _then(_$_GalleryUserModel(
+    return _then(_$GalleryUserModelImpl(
       photos: null == photos
           ? _value._photos
           : photos // ignore: cast_nullable_to_non_nullable
@@ -96,12 +96,12 @@ class __$$_GalleryUserModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GalleryUserModel implements _GalleryUserModel {
-  const _$_GalleryUserModel({required final List<UploadPhotoModel> photos})
+class _$GalleryUserModelImpl implements _GalleryUserModel {
+  const _$GalleryUserModelImpl({required final List<UploadPhotoModel> photos})
       : _photos = photos;
 
-  factory _$_GalleryUserModel.fromJson(Map<String, dynamic> json) =>
-      _$$_GalleryUserModelFromJson(json);
+  factory _$GalleryUserModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GalleryUserModelImplFromJson(json);
 
   final List<UploadPhotoModel> _photos;
   @override
@@ -117,10 +117,10 @@ class _$_GalleryUserModel implements _GalleryUserModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GalleryUserModel &&
+            other is _$GalleryUserModelImpl &&
             const DeepCollectionEquality().equals(other._photos, _photos));
   }
 
@@ -132,12 +132,13 @@ class _$_GalleryUserModel implements _GalleryUserModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GalleryUserModelCopyWith<_$_GalleryUserModel> get copyWith =>
-      __$$_GalleryUserModelCopyWithImpl<_$_GalleryUserModel>(this, _$identity);
+  _$$GalleryUserModelImplCopyWith<_$GalleryUserModelImpl> get copyWith =>
+      __$$GalleryUserModelImplCopyWithImpl<_$GalleryUserModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GalleryUserModelToJson(
+    return _$$GalleryUserModelImplToJson(
       this,
     );
   }
@@ -145,15 +146,15 @@ class _$_GalleryUserModel implements _GalleryUserModel {
 
 abstract class _GalleryUserModel implements GalleryUserModel {
   const factory _GalleryUserModel(
-      {required final List<UploadPhotoModel> photos}) = _$_GalleryUserModel;
+      {required final List<UploadPhotoModel> photos}) = _$GalleryUserModelImpl;
 
   factory _GalleryUserModel.fromJson(Map<String, dynamic> json) =
-      _$_GalleryUserModel.fromJson;
+      _$GalleryUserModelImpl.fromJson;
 
   @override
   List<UploadPhotoModel> get photos;
   @override
   @JsonKey(ignore: true)
-  _$$_GalleryUserModelCopyWith<_$_GalleryUserModel> get copyWith =>
+  _$$GalleryUserModelImplCopyWith<_$GalleryUserModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

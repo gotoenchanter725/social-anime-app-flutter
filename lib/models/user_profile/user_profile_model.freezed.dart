@@ -12,7 +12,7 @@ part of 'user_profile_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UserProfileModel _$UserProfileModelFromJson(Map<String, dynamic> json) {
   return _UserProfileModel.fromJson(json);
@@ -253,11 +253,11 @@ class _$UserProfileModelCopyWithImpl<$Res, $Val extends UserProfileModel>
 }
 
 /// @nodoc
-abstract class _$$_UserProfileModelCopyWith<$Res>
+abstract class _$$UserProfileModelImplCopyWith<$Res>
     implements $UserProfileModelCopyWith<$Res> {
-  factory _$$_UserProfileModelCopyWith(
-          _$_UserProfileModel value, $Res Function(_$_UserProfileModel) then) =
-      __$$_UserProfileModelCopyWithImpl<$Res>;
+  factory _$$UserProfileModelImplCopyWith(_$UserProfileModelImpl value,
+          $Res Function(_$UserProfileModelImpl) then) =
+      __$$UserProfileModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -293,11 +293,11 @@ abstract class _$$_UserProfileModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserProfileModelCopyWithImpl<$Res>
-    extends _$UserProfileModelCopyWithImpl<$Res, _$_UserProfileModel>
-    implements _$$_UserProfileModelCopyWith<$Res> {
-  __$$_UserProfileModelCopyWithImpl(
-      _$_UserProfileModel _value, $Res Function(_$_UserProfileModel) _then)
+class __$$UserProfileModelImplCopyWithImpl<$Res>
+    extends _$UserProfileModelCopyWithImpl<$Res, _$UserProfileModelImpl>
+    implements _$$UserProfileModelImplCopyWith<$Res> {
+  __$$UserProfileModelImplCopyWithImpl(_$UserProfileModelImpl _value,
+      $Res Function(_$UserProfileModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -330,7 +330,7 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
     Object? isDisplayingRecentlyActive = freezed,
     Object? isDisplayingActive = freezed,
   }) {
-    return _then(_$_UserProfileModel(
+    return _then(_$UserProfileModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -441,8 +441,8 @@ class __$$_UserProfileModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserProfileModel implements _UserProfileModel {
-  const _$_UserProfileModel(
+class _$UserProfileModelImpl implements _UserProfileModel {
+  const _$UserProfileModelImpl(
       {required this.id,
       required this.phone,
       this.firstName,
@@ -472,8 +472,8 @@ class _$_UserProfileModel implements _UserProfileModel {
       : _animes = animes,
         _favoriteMusic = favoriteMusic;
 
-  factory _$_UserProfileModel.fromJson(Map<String, dynamic> json) =>
-      _$$_UserProfileModelFromJson(json);
+  factory _$UserProfileModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserProfileModelImplFromJson(json);
 
   @override
   final String id;
@@ -550,10 +550,10 @@ class _$_UserProfileModel implements _UserProfileModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserProfileModel &&
+            other is _$UserProfileModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.firstName, firstName) ||
@@ -634,12 +634,13 @@ class _$_UserProfileModel implements _UserProfileModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserProfileModelCopyWith<_$_UserProfileModel> get copyWith =>
-      __$$_UserProfileModelCopyWithImpl<_$_UserProfileModel>(this, _$identity);
+  _$$UserProfileModelImplCopyWith<_$UserProfileModelImpl> get copyWith =>
+      __$$UserProfileModelImplCopyWithImpl<_$UserProfileModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserProfileModelToJson(
+    return _$$UserProfileModelImplToJson(
       this,
     );
   }
@@ -672,10 +673,10 @@ abstract class _UserProfileModel implements UserProfileModel {
       final int? milesAway,
       final DateTime? nextPaymentDate,
       final bool? isDisplayingRecentlyActive,
-      final bool? isDisplayingActive}) = _$_UserProfileModel;
+      final bool? isDisplayingActive}) = _$UserProfileModelImpl;
 
   factory _UserProfileModel.fromJson(Map<String, dynamic> json) =
-      _$_UserProfileModel.fromJson;
+      _$UserProfileModelImpl.fromJson;
 
   @override
   String get id;
@@ -731,6 +732,6 @@ abstract class _UserProfileModel implements UserProfileModel {
   bool? get isDisplayingActive;
   @override
   @JsonKey(ignore: true)
-  _$$_UserProfileModelCopyWith<_$_UserProfileModel> get copyWith =>
+  _$$UserProfileModelImplCopyWith<_$UserProfileModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

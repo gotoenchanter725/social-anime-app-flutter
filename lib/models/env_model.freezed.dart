@@ -12,7 +12,7 @@ part of 'env_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 EnvModel _$EnvModelFromJson(Map<String, dynamic> json) {
   return _EnvModel.fromJson(json);
@@ -167,10 +167,11 @@ class _$EnvModelCopyWithImpl<$Res, $Val extends EnvModel>
 }
 
 /// @nodoc
-abstract class _$$_EnvModelCopyWith<$Res> implements $EnvModelCopyWith<$Res> {
-  factory _$$_EnvModelCopyWith(
-          _$_EnvModel value, $Res Function(_$_EnvModel) then) =
-      __$$_EnvModelCopyWithImpl<$Res>;
+abstract class _$$EnvModelImplCopyWith<$Res>
+    implements $EnvModelCopyWith<$Res> {
+  factory _$$EnvModelImplCopyWith(
+          _$EnvModelImpl value, $Res Function(_$EnvModelImpl) then) =
+      __$$EnvModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -193,11 +194,11 @@ abstract class _$$_EnvModelCopyWith<$Res> implements $EnvModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_EnvModelCopyWithImpl<$Res>
-    extends _$EnvModelCopyWithImpl<$Res, _$_EnvModel>
-    implements _$$_EnvModelCopyWith<$Res> {
-  __$$_EnvModelCopyWithImpl(
-      _$_EnvModel _value, $Res Function(_$_EnvModel) _then)
+class __$$EnvModelImplCopyWithImpl<$Res>
+    extends _$EnvModelCopyWithImpl<$Res, _$EnvModelImpl>
+    implements _$$EnvModelImplCopyWith<$Res> {
+  __$$EnvModelImplCopyWithImpl(
+      _$EnvModelImpl _value, $Res Function(_$EnvModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -220,7 +221,7 @@ class __$$_EnvModelCopyWithImpl<$Res>
     Object? spotifyCallbackUrlScheme = null,
     Object? giphyApiKey = null,
   }) {
-    return _then(_$_EnvModel(
+    return _then(_$EnvModelImpl(
       env: null == env
           ? _value.env
           : env // ignore: cast_nullable_to_non_nullable
@@ -291,8 +292,8 @@ class __$$_EnvModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EnvModel extends _EnvModel {
-  _$_EnvModel(
+class _$EnvModelImpl extends _EnvModel {
+  _$EnvModelImpl(
       {required this.env,
       required this.debug,
       required this.debugShowCheckedModeBanner,
@@ -311,8 +312,8 @@ class _$_EnvModel extends _EnvModel {
       required this.giphyApiKey})
       : super._();
 
-  factory _$_EnvModel.fromJson(Map<String, dynamic> json) =>
-      _$$_EnvModelFromJson(json);
+  factory _$EnvModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EnvModelImplFromJson(json);
 
   @override
   final String env;
@@ -353,10 +354,10 @@ class _$_EnvModel extends _EnvModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EnvModel &&
+            other is _$EnvModelImpl &&
             (identical(other.env, env) || other.env == env) &&
             (identical(other.debug, debug) || other.debug == debug) &&
             (identical(other.debugShowCheckedModeBanner,
@@ -416,12 +417,12 @@ class _$_EnvModel extends _EnvModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EnvModelCopyWith<_$_EnvModel> get copyWith =>
-      __$$_EnvModelCopyWithImpl<_$_EnvModel>(this, _$identity);
+  _$$EnvModelImplCopyWith<_$EnvModelImpl> get copyWith =>
+      __$$EnvModelImplCopyWithImpl<_$EnvModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EnvModelToJson(
+    return _$$EnvModelImplToJson(
       this,
     );
   }
@@ -444,10 +445,11 @@ abstract class _EnvModel extends EnvModel {
       required final String spotifyClientSecret,
       required final String spotifyRedirectUri,
       required final String spotifyCallbackUrlScheme,
-      required final String giphyApiKey}) = _$_EnvModel;
+      required final String giphyApiKey}) = _$EnvModelImpl;
   _EnvModel._() : super._();
 
-  factory _EnvModel.fromJson(Map<String, dynamic> json) = _$_EnvModel.fromJson;
+  factory _EnvModel.fromJson(Map<String, dynamic> json) =
+      _$EnvModelImpl.fromJson;
 
   @override
   String get env;
@@ -483,6 +485,6 @@ abstract class _EnvModel extends EnvModel {
   String get giphyApiKey;
   @override
   @JsonKey(ignore: true)
-  _$$_EnvModelCopyWith<_$_EnvModel> get copyWith =>
+  _$$EnvModelImplCopyWith<_$EnvModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

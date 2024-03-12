@@ -6,8 +6,9 @@ part of 'matches_users_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MatchesUsersModel _$$_MatchesUsersModelFromJson(Map<String, dynamic> json) =>
-    _$_MatchesUsersModel(
+_$MatchesUsersModelImpl _$$MatchesUsersModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$MatchesUsersModelImpl(
       conversation: json['conversation'] == null
           ? null
           : MatchesUsersConversationModel.fromJson(
@@ -20,22 +21,22 @@ _$_MatchesUsersModel _$$_MatchesUsersModelFromJson(Map<String, dynamic> json) =>
           : UserProfileModel.fromJson(json['matchee'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_MatchesUsersModelToJson(
-        _$_MatchesUsersModel instance) =>
+Map<String, dynamic> _$$MatchesUsersModelImplToJson(
+        _$MatchesUsersModelImpl instance) =>
     <String, dynamic>{
       'conversation': instance.conversation,
       'user': instance.user,
       'matchee': instance.matchee,
     };
 
-_$_MatchesUsersConversationModel _$$_MatchesUsersConversationModelFromJson(
-        Map<String, dynamic> json) =>
-    _$_MatchesUsersConversationModel(
-      id: json['id'] as String,
-    );
+_$MatchesUsersConversationModelImpl
+    _$$MatchesUsersConversationModelImplFromJson(Map<String, dynamic> json) =>
+        _$MatchesUsersConversationModelImpl(
+          id: json['id'] as String,
+        );
 
-Map<String, dynamic> _$$_MatchesUsersConversationModelToJson(
-        _$_MatchesUsersConversationModel instance) =>
+Map<String, dynamic> _$$MatchesUsersConversationModelImplToJson(
+        _$MatchesUsersConversationModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
     };
