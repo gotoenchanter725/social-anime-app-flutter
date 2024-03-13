@@ -12,7 +12,7 @@ part of 'paginated_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PaginatedModel<T> {
@@ -63,22 +63,22 @@ class _$PaginatedModelCopyWithImpl<T, $Res, $Val extends PaginatedModel<T>>
 }
 
 /// @nodoc
-abstract class _$$_PaginatedModelCopyWith<T, $Res>
+abstract class _$$PaginatedModelImplCopyWith<T, $Res>
     implements $PaginatedModelCopyWith<T, $Res> {
-  factory _$$_PaginatedModelCopyWith(_$_PaginatedModel<T> value,
-          $Res Function(_$_PaginatedModel<T>) then) =
-      __$$_PaginatedModelCopyWithImpl<T, $Res>;
+  factory _$$PaginatedModelImplCopyWith(_$PaginatedModelImpl<T> value,
+          $Res Function(_$PaginatedModelImpl<T>) then) =
+      __$$PaginatedModelImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({int currentPage, List<T> items});
 }
 
 /// @nodoc
-class __$$_PaginatedModelCopyWithImpl<T, $Res>
-    extends _$PaginatedModelCopyWithImpl<T, $Res, _$_PaginatedModel<T>>
-    implements _$$_PaginatedModelCopyWith<T, $Res> {
-  __$$_PaginatedModelCopyWithImpl(
-      _$_PaginatedModel<T> _value, $Res Function(_$_PaginatedModel<T>) _then)
+class __$$PaginatedModelImplCopyWithImpl<T, $Res>
+    extends _$PaginatedModelCopyWithImpl<T, $Res, _$PaginatedModelImpl<T>>
+    implements _$$PaginatedModelImplCopyWith<T, $Res> {
+  __$$PaginatedModelImplCopyWithImpl(_$PaginatedModelImpl<T> _value,
+      $Res Function(_$PaginatedModelImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_PaginatedModelCopyWithImpl<T, $Res>
     Object? currentPage = null,
     Object? items = null,
   }) {
-    return _then(_$_PaginatedModel<T>(
+    return _then(_$PaginatedModelImpl<T>(
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,8 @@ class __$$_PaginatedModelCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_PaginatedModel<T> implements _PaginatedModel<T> {
-  const _$_PaginatedModel(
+class _$PaginatedModelImpl<T> implements _PaginatedModel<T> {
+  const _$PaginatedModelImpl(
       {required this.currentPage, required final List<T> items})
       : _items = items;
 
@@ -123,10 +123,10 @@ class _$_PaginatedModel<T> implements _PaginatedModel<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PaginatedModel<T> &&
+            other is _$PaginatedModelImpl<T> &&
             (identical(other.currentPage, currentPage) ||
                 other.currentPage == currentPage) &&
             const DeepCollectionEquality().equals(other._items, _items));
@@ -139,15 +139,15 @@ class _$_PaginatedModel<T> implements _PaginatedModel<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PaginatedModelCopyWith<T, _$_PaginatedModel<T>> get copyWith =>
-      __$$_PaginatedModelCopyWithImpl<T, _$_PaginatedModel<T>>(
+  _$$PaginatedModelImplCopyWith<T, _$PaginatedModelImpl<T>> get copyWith =>
+      __$$PaginatedModelImplCopyWithImpl<T, _$PaginatedModelImpl<T>>(
           this, _$identity);
 }
 
 abstract class _PaginatedModel<T> implements PaginatedModel<T> {
   const factory _PaginatedModel(
       {required final int currentPage,
-      required final List<T> items}) = _$_PaginatedModel<T>;
+      required final List<T> items}) = _$PaginatedModelImpl<T>;
 
   @override
   int get currentPage;
@@ -155,6 +155,6 @@ abstract class _PaginatedModel<T> implements PaginatedModel<T> {
   List<T> get items;
   @override
   @JsonKey(ignore: true)
-  _$$_PaginatedModelCopyWith<T, _$_PaginatedModel<T>> get copyWith =>
+  _$$PaginatedModelImplCopyWith<T, _$PaginatedModelImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

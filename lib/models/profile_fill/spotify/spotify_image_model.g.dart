@@ -6,13 +6,14 @@ part of 'spotify_image_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SpotifyImageModel _$$_SpotifyImageModelFromJson(Map<String, dynamic> json) =>
-    _$_SpotifyImageModel(
+_$SpotifyImageModelImpl _$$SpotifyImageModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SpotifyImageModelImpl(
       url: json['url'] as String,
     );
 
-Map<String, dynamic> _$$_SpotifyImageModelToJson(
-        _$_SpotifyImageModel instance) =>
+Map<String, dynamic> _$$SpotifyImageModelImplToJson(
+        _$SpotifyImageModelImpl instance) =>
     <String, dynamic>{
       'url': instance.url,
     };

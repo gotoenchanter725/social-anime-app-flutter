@@ -12,7 +12,7 @@ part of 'app_typography.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AppTypography {
@@ -82,11 +82,11 @@ class _$AppTypographyCopyWithImpl<$Res, $Val extends AppTypography>
 }
 
 /// @nodoc
-abstract class _$$_AppTypographyCopyWith<$Res>
+abstract class _$$AppTypographyImplCopyWith<$Res>
     implements $AppTypographyCopyWith<$Res> {
-  factory _$$_AppTypographyCopyWith(
-          _$_AppTypography value, $Res Function(_$_AppTypography) then) =
-      __$$_AppTypographyCopyWithImpl<$Res>;
+  factory _$$AppTypographyImplCopyWith(
+          _$AppTypographyImpl value, $Res Function(_$AppTypographyImpl) then) =
+      __$$AppTypographyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({AppTextTheme black, AppTextTheme white});
@@ -98,11 +98,11 @@ abstract class _$$_AppTypographyCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AppTypographyCopyWithImpl<$Res>
-    extends _$AppTypographyCopyWithImpl<$Res, _$_AppTypography>
-    implements _$$_AppTypographyCopyWith<$Res> {
-  __$$_AppTypographyCopyWithImpl(
-      _$_AppTypography _value, $Res Function(_$_AppTypography) _then)
+class __$$AppTypographyImplCopyWithImpl<$Res>
+    extends _$AppTypographyCopyWithImpl<$Res, _$AppTypographyImpl>
+    implements _$$AppTypographyImplCopyWith<$Res> {
+  __$$AppTypographyImplCopyWithImpl(
+      _$AppTypographyImpl _value, $Res Function(_$AppTypographyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +111,7 @@ class __$$_AppTypographyCopyWithImpl<$Res>
     Object? black = null,
     Object? white = null,
   }) {
-    return _then(_$_AppTypography(
+    return _then(_$AppTypographyImpl(
       black: null == black
           ? _value.black
           : black // ignore: cast_nullable_to_non_nullable
@@ -126,8 +126,8 @@ class __$$_AppTypographyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AppTypography extends _AppTypography {
-  _$_AppTypography({required this.black, required this.white}) : super._();
+class _$AppTypographyImpl extends _AppTypography {
+  _$AppTypographyImpl({required this.black, required this.white}) : super._();
 
   @override
   final AppTextTheme black;
@@ -140,10 +140,10 @@ class _$_AppTypography extends _AppTypography {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppTypography &&
+            other is _$AppTypographyImpl &&
             (identical(other.black, black) || other.black == black) &&
             (identical(other.white, white) || other.white == white));
   }
@@ -154,14 +154,14 @@ class _$_AppTypography extends _AppTypography {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppTypographyCopyWith<_$_AppTypography> get copyWith =>
-      __$$_AppTypographyCopyWithImpl<_$_AppTypography>(this, _$identity);
+  _$$AppTypographyImplCopyWith<_$AppTypographyImpl> get copyWith =>
+      __$$AppTypographyImplCopyWithImpl<_$AppTypographyImpl>(this, _$identity);
 }
 
 abstract class _AppTypography extends AppTypography {
   factory _AppTypography(
       {required final AppTextTheme black,
-      required final AppTextTheme white}) = _$_AppTypography;
+      required final AppTextTheme white}) = _$AppTypographyImpl;
   _AppTypography._() : super._();
 
   @override
@@ -170,6 +170,6 @@ abstract class _AppTypography extends AppTypography {
   AppTextTheme get white;
   @override
   @JsonKey(ignore: true)
-  _$$_AppTypographyCopyWith<_$_AppTypography> get copyWith =>
+  _$$AppTypographyImplCopyWith<_$AppTypographyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

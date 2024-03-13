@@ -6,8 +6,9 @@ part of 'user_profile_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) =>
-    _$_UserProfileModel(
+_$UserProfileModelImpl _$$UserProfileModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UserProfileModelImpl(
       id: json['id'] as String,
       phone: json['phone'] as String,
       firstName: json['firstName'] as String?,
@@ -47,7 +48,8 @@ _$_UserProfileModel _$$_UserProfileModelFromJson(Map<String, dynamic> json) =>
       isDisplayingActive: json['isDisplayingActive'] as bool?,
     );
 
-Map<String, dynamic> _$$_UserProfileModelToJson(_$_UserProfileModel instance) =>
+Map<String, dynamic> _$$UserProfileModelImplToJson(
+        _$UserProfileModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'phone': instance.phone,

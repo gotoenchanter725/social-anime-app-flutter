@@ -12,7 +12,7 @@ part of 'anime_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 AnimeModel _$AnimeModelFromJson(Map<String, dynamic> json) {
   return _AnimeModel.fromJson(json);
@@ -147,11 +147,11 @@ class _$AnimeModelCopyWithImpl<$Res, $Val extends AnimeModel>
 }
 
 /// @nodoc
-abstract class _$$_AnimeModelCopyWith<$Res>
+abstract class _$$AnimeModelImplCopyWith<$Res>
     implements $AnimeModelCopyWith<$Res> {
-  factory _$$_AnimeModelCopyWith(
-          _$_AnimeModel value, $Res Function(_$_AnimeModel) then) =
-      __$$_AnimeModelCopyWithImpl<$Res>;
+  factory _$$AnimeModelImplCopyWith(
+          _$AnimeModelImpl value, $Res Function(_$AnimeModelImpl) then) =
+      __$$AnimeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -171,11 +171,11 @@ abstract class _$$_AnimeModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AnimeModelCopyWithImpl<$Res>
-    extends _$AnimeModelCopyWithImpl<$Res, _$_AnimeModel>
-    implements _$$_AnimeModelCopyWith<$Res> {
-  __$$_AnimeModelCopyWithImpl(
-      _$_AnimeModel _value, $Res Function(_$_AnimeModel) _then)
+class __$$AnimeModelImplCopyWithImpl<$Res>
+    extends _$AnimeModelCopyWithImpl<$Res, _$AnimeModelImpl>
+    implements _$$AnimeModelImplCopyWith<$Res> {
+  __$$AnimeModelImplCopyWithImpl(
+      _$AnimeModelImpl _value, $Res Function(_$AnimeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -195,7 +195,7 @@ class __$$_AnimeModelCopyWithImpl<$Res>
     Object? year = freezed,
     Object? status = freezed,
   }) {
-    return _then(_$_AnimeModel(
+    return _then(_$AnimeModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -254,8 +254,8 @@ class __$$_AnimeModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AnimeModel implements _AnimeModel {
-  const _$_AnimeModel(
+class _$AnimeModelImpl implements _AnimeModel {
+  const _$AnimeModelImpl(
       {required this.id,
       this.title,
       this.japaneseTitle,
@@ -270,8 +270,8 @@ class _$_AnimeModel implements _AnimeModel {
       this.year,
       this.status});
 
-  factory _$_AnimeModel.fromJson(Map<String, dynamic> json) =>
-      _$$_AnimeModelFromJson(json);
+  factory _$AnimeModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AnimeModelImplFromJson(json);
 
   @override
   final String id;
@@ -306,10 +306,10 @@ class _$_AnimeModel implements _AnimeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AnimeModel &&
+            other is _$AnimeModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.japaneseTitle, japaneseTitle) ||
@@ -351,12 +351,12 @@ class _$_AnimeModel implements _AnimeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AnimeModelCopyWith<_$_AnimeModel> get copyWith =>
-      __$$_AnimeModelCopyWithImpl<_$_AnimeModel>(this, _$identity);
+  _$$AnimeModelImplCopyWith<_$AnimeModelImpl> get copyWith =>
+      __$$AnimeModelImplCopyWithImpl<_$AnimeModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AnimeModelToJson(
+    return _$$AnimeModelImplToJson(
       this,
     );
   }
@@ -376,10 +376,10 @@ abstract class _AnimeModel implements AnimeModel {
       final String? endDate,
       final String? studios,
       final int? year,
-      final String? status}) = _$_AnimeModel;
+      final String? status}) = _$AnimeModelImpl;
 
   factory _AnimeModel.fromJson(Map<String, dynamic> json) =
-      _$_AnimeModel.fromJson;
+      _$AnimeModelImpl.fromJson;
 
   @override
   String get id;
@@ -409,6 +409,6 @@ abstract class _AnimeModel implements AnimeModel {
   String? get status;
   @override
   @JsonKey(ignore: true)
-  _$$_AnimeModelCopyWith<_$_AnimeModel> get copyWith =>
+  _$$AnimeModelImplCopyWith<_$AnimeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

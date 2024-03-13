@@ -6,13 +6,15 @@ part of 'user_verify_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserVerifyModel _$$_UserVerifyModelFromJson(Map<String, dynamic> json) =>
-    _$_UserVerifyModel(
+_$UserVerifyModelImpl _$$UserVerifyModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UserVerifyModelImpl(
       userId: json['userId'] as int,
       status: json['status'] as String?,
     );
 
-Map<String, dynamic> _$$_UserVerifyModelToJson(_$_UserVerifyModel instance) =>
+Map<String, dynamic> _$$UserVerifyModelImplToJson(
+        _$UserVerifyModelImpl instance) =>
     <String, dynamic>{
       'userId': instance.userId,
       'status': instance.status,

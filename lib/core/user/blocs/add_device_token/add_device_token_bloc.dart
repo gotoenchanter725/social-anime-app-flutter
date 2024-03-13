@@ -1,15 +1,11 @@
 import 'dart:io';
 
-import 'package:fresh_dio/fresh_dio.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/models/graphql_api.dart';
-import 'package:senpai/dependency_injection/injection.dart';
-import 'package:senpai/models/auth/device_token_model.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-
 
 @injectable
 class AddDeviceTokenBloc extends MutationBloc<AddDeviceToken$Mutation> {

@@ -12,7 +12,7 @@ part of 'update_user_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UpdateUserModel _$UpdateUserModelFromJson(Map<String, dynamic> json) {
   return _UpdateUserModel.fromJson(json);
@@ -140,11 +140,11 @@ class _$UpdateUserModelCopyWithImpl<$Res, $Val extends UpdateUserModel>
 }
 
 /// @nodoc
-abstract class _$$_UpdateUserModelCopyWith<$Res>
+abstract class _$$UpdateUserModelImplCopyWith<$Res>
     implements $UpdateUserModelCopyWith<$Res> {
-  factory _$$_UpdateUserModelCopyWith(
-          _$_UpdateUserModel value, $Res Function(_$_UpdateUserModel) then) =
-      __$$_UpdateUserModelCopyWithImpl<$Res>;
+  factory _$$UpdateUserModelImplCopyWith(_$UpdateUserModelImpl value,
+          $Res Function(_$UpdateUserModelImpl) then) =
+      __$$UpdateUserModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -163,11 +163,11 @@ abstract class _$$_UpdateUserModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UpdateUserModelCopyWithImpl<$Res>
-    extends _$UpdateUserModelCopyWithImpl<$Res, _$_UpdateUserModel>
-    implements _$$_UpdateUserModelCopyWith<$Res> {
-  __$$_UpdateUserModelCopyWithImpl(
-      _$_UpdateUserModel _value, $Res Function(_$_UpdateUserModel) _then)
+class __$$UpdateUserModelImplCopyWithImpl<$Res>
+    extends _$UpdateUserModelCopyWithImpl<$Res, _$UpdateUserModelImpl>
+    implements _$$UpdateUserModelImplCopyWith<$Res> {
+  __$$UpdateUserModelImplCopyWithImpl(
+      _$UpdateUserModelImpl _value, $Res Function(_$UpdateUserModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -186,7 +186,7 @@ class __$$_UpdateUserModelCopyWithImpl<$Res>
     Object? isDisplayingRecentlyActive = freezed,
     Object? isDisplayingActive = freezed,
   }) {
-    return _then(_$_UpdateUserModel(
+    return _then(_$UpdateUserModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -241,8 +241,8 @@ class __$$_UpdateUserModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UpdateUserModel implements _UpdateUserModel {
-  const _$_UpdateUserModel(
+class _$UpdateUserModelImpl implements _UpdateUserModel {
+  const _$UpdateUserModelImpl(
       {required this.id,
       required this.phone,
       this.firstName,
@@ -256,8 +256,8 @@ class _$_UpdateUserModel implements _UpdateUserModel {
       this.isDisplayingRecentlyActive,
       this.isDisplayingActive});
 
-  factory _$_UpdateUserModel.fromJson(Map<String, dynamic> json) =>
-      _$$_UpdateUserModelFromJson(json);
+  factory _$UpdateUserModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UpdateUserModelImplFromJson(json);
 
   @override
   final String id;
@@ -290,10 +290,10 @@ class _$_UpdateUserModel implements _UpdateUserModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdateUserModel &&
+            other is _$UpdateUserModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.firstName, firstName) ||
@@ -337,12 +337,13 @@ class _$_UpdateUserModel implements _UpdateUserModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdateUserModelCopyWith<_$_UpdateUserModel> get copyWith =>
-      __$$_UpdateUserModelCopyWithImpl<_$_UpdateUserModel>(this, _$identity);
+  _$$UpdateUserModelImplCopyWith<_$UpdateUserModelImpl> get copyWith =>
+      __$$UpdateUserModelImplCopyWithImpl<_$UpdateUserModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UpdateUserModelToJson(
+    return _$$UpdateUserModelImplToJson(
       this,
     );
   }
@@ -361,10 +362,10 @@ abstract class _UpdateUserModel implements UpdateUserModel {
       final String? bio,
       final bool? hasLocationHidden,
       final bool? isDisplayingRecentlyActive,
-      final bool? isDisplayingActive}) = _$_UpdateUserModel;
+      final bool? isDisplayingActive}) = _$UpdateUserModelImpl;
 
   factory _UpdateUserModel.fromJson(Map<String, dynamic> json) =
-      _$_UpdateUserModel.fromJson;
+      _$UpdateUserModelImpl.fromJson;
 
   @override
   String get id;
@@ -392,6 +393,6 @@ abstract class _UpdateUserModel implements UpdateUserModel {
   bool? get isDisplayingActive;
   @override
   @JsonKey(ignore: true)
-  _$$_UpdateUserModelCopyWith<_$_UpdateUserModel> get copyWith =>
+  _$$UpdateUserModelImplCopyWith<_$UpdateUserModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

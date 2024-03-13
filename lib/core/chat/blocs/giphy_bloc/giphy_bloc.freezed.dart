@@ -12,7 +12,7 @@ part of 'giphy_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$GiphyEvent {
@@ -75,25 +75,25 @@ class _$GiphyEventCopyWithImpl<$Res, $Val extends GiphyEvent>
 }
 
 /// @nodoc
-abstract class _$$FetchTrendingCopyWith<$Res> {
-  factory _$$FetchTrendingCopyWith(
-          _$FetchTrending value, $Res Function(_$FetchTrending) then) =
-      __$$FetchTrendingCopyWithImpl<$Res>;
+abstract class _$$FetchTrendingImplCopyWith<$Res> {
+  factory _$$FetchTrendingImplCopyWith(
+          _$FetchTrendingImpl value, $Res Function(_$FetchTrendingImpl) then) =
+      __$$FetchTrendingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FetchTrendingCopyWithImpl<$Res>
-    extends _$GiphyEventCopyWithImpl<$Res, _$FetchTrending>
-    implements _$$FetchTrendingCopyWith<$Res> {
-  __$$FetchTrendingCopyWithImpl(
-      _$FetchTrending _value, $Res Function(_$FetchTrending) _then)
+class __$$FetchTrendingImplCopyWithImpl<$Res>
+    extends _$GiphyEventCopyWithImpl<$Res, _$FetchTrendingImpl>
+    implements _$$FetchTrendingImplCopyWith<$Res> {
+  __$$FetchTrendingImplCopyWithImpl(
+      _$FetchTrendingImpl _value, $Res Function(_$FetchTrendingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FetchTrending implements FetchTrending {
-  const _$FetchTrending();
+class _$FetchTrendingImpl implements FetchTrending {
+  const _$FetchTrendingImpl();
 
   @override
   String toString() {
@@ -101,9 +101,9 @@ class _$FetchTrending implements FetchTrending {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchTrending);
+        (other.runtimeType == runtimeType && other is _$FetchTrendingImpl);
   }
 
   @override
@@ -173,22 +173,24 @@ class _$FetchTrending implements FetchTrending {
 }
 
 abstract class FetchTrending implements GiphyEvent {
-  const factory FetchTrending() = _$FetchTrending;
+  const factory FetchTrending() = _$FetchTrendingImpl;
 }
 
 /// @nodoc
-abstract class _$$SearchCopyWith<$Res> {
-  factory _$$SearchCopyWith(_$Search value, $Res Function(_$Search) then) =
-      __$$SearchCopyWithImpl<$Res>;
+abstract class _$$SearchImplCopyWith<$Res> {
+  factory _$$SearchImplCopyWith(
+          _$SearchImpl value, $Res Function(_$SearchImpl) then) =
+      __$$SearchImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String query});
 }
 
 /// @nodoc
-class __$$SearchCopyWithImpl<$Res>
-    extends _$GiphyEventCopyWithImpl<$Res, _$Search>
-    implements _$$SearchCopyWith<$Res> {
-  __$$SearchCopyWithImpl(_$Search _value, $Res Function(_$Search) _then)
+class __$$SearchImplCopyWithImpl<$Res>
+    extends _$GiphyEventCopyWithImpl<$Res, _$SearchImpl>
+    implements _$$SearchImplCopyWith<$Res> {
+  __$$SearchImplCopyWithImpl(
+      _$SearchImpl _value, $Res Function(_$SearchImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -196,7 +198,7 @@ class __$$SearchCopyWithImpl<$Res>
   $Res call({
     Object? query = null,
   }) {
-    return _then(_$Search(
+    return _then(_$SearchImpl(
       null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -207,8 +209,8 @@ class __$$SearchCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Search implements Search {
-  const _$Search(this.query);
+class _$SearchImpl implements Search {
+  const _$SearchImpl(this.query);
 
   @override
   final String query;
@@ -219,10 +221,10 @@ class _$Search implements Search {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Search &&
+            other is _$SearchImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -232,8 +234,8 @@ class _$Search implements Search {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SearchCopyWith<_$Search> get copyWith =>
-      __$$SearchCopyWithImpl<_$Search>(this, _$identity);
+  _$$SearchImplCopyWith<_$SearchImpl> get copyWith =>
+      __$$SearchImplCopyWithImpl<_$SearchImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -299,11 +301,11 @@ class _$Search implements Search {
 }
 
 abstract class Search implements GiphyEvent {
-  const factory Search(final String query) = _$Search;
+  const factory Search(final String query) = _$SearchImpl;
 
   String get query;
   @JsonKey(ignore: true)
-  _$$SearchCopyWith<_$Search> get copyWith =>
+  _$$SearchImplCopyWith<_$SearchImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -380,23 +382,25 @@ class _$GiphyStateCopyWithImpl<$Res, $Val extends GiphyState>
 }
 
 /// @nodoc
-abstract class _$$InitialCopyWith<$Res> {
-  factory _$$InitialCopyWith(_$Initial value, $Res Function(_$Initial) then) =
-      __$$InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialCopyWithImpl<$Res>
-    extends _$GiphyStateCopyWithImpl<$Res, _$Initial>
-    implements _$$InitialCopyWith<$Res> {
-  __$$InitialCopyWithImpl(_$Initial _value, $Res Function(_$Initial) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$GiphyStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Initial implements Initial {
-  const _$Initial();
+class _$InitialImpl implements Initial {
+  const _$InitialImpl();
 
   @override
   String toString() {
@@ -404,9 +408,9 @@ class _$Initial implements Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Initial);
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
   }
 
   @override
@@ -488,27 +492,29 @@ class _$Initial implements Initial {
 }
 
 abstract class Initial implements GiphyState {
-  const factory Initial() = _$Initial;
+  const factory Initial() = _$InitialImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadingCopyWith<$Res> {
-  factory _$$LoadingCopyWith(_$Loading value, $Res Function(_$Loading) then) =
-      __$$LoadingCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$LoadingCopyWithImpl<$Res>
-    extends _$GiphyStateCopyWithImpl<$Res, _$Loading>
-    implements _$$LoadingCopyWith<$Res> {
-  __$$LoadingCopyWithImpl(_$Loading _value, $Res Function(_$Loading) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$GiphyStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$Loading implements Loading {
-  const _$Loading();
+class _$LoadingImpl implements Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
@@ -516,9 +522,9 @@ class _$Loading implements Loading {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Loading);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -600,22 +606,24 @@ class _$Loading implements Loading {
 }
 
 abstract class Loading implements GiphyState {
-  const factory Loading() = _$Loading;
+  const factory Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$LoadedCopyWith<$Res> {
-  factory _$$LoadedCopyWith(_$Loaded value, $Res Function(_$Loaded) then) =
-      __$$LoadedCopyWithImpl<$Res>;
+abstract class _$$LoadedImplCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<GiphyGif> gifs});
 }
 
 /// @nodoc
-class __$$LoadedCopyWithImpl<$Res>
-    extends _$GiphyStateCopyWithImpl<$Res, _$Loaded>
-    implements _$$LoadedCopyWith<$Res> {
-  __$$LoadedCopyWithImpl(_$Loaded _value, $Res Function(_$Loaded) _then)
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$GiphyStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -623,7 +631,7 @@ class __$$LoadedCopyWithImpl<$Res>
   $Res call({
     Object? gifs = null,
   }) {
-    return _then(_$Loaded(
+    return _then(_$LoadedImpl(
       null == gifs
           ? _value._gifs
           : gifs // ignore: cast_nullable_to_non_nullable
@@ -634,8 +642,8 @@ class __$$LoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Loaded implements Loaded {
-  const _$Loaded(final List<GiphyGif> gifs) : _gifs = gifs;
+class _$LoadedImpl implements Loaded {
+  const _$LoadedImpl(final List<GiphyGif> gifs) : _gifs = gifs;
 
   final List<GiphyGif> _gifs;
   @override
@@ -651,10 +659,10 @@ class _$Loaded implements Loaded {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Loaded &&
+            other is _$LoadedImpl &&
             const DeepCollectionEquality().equals(other._gifs, _gifs));
   }
 
@@ -665,8 +673,8 @@ class _$Loaded implements Loaded {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LoadedCopyWith<_$Loaded> get copyWith =>
-      __$$LoadedCopyWithImpl<_$Loaded>(this, _$identity);
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -744,27 +752,29 @@ class _$Loaded implements Loaded {
 }
 
 abstract class Loaded implements GiphyState {
-  const factory Loaded(final List<GiphyGif> gifs) = _$Loaded;
+  const factory Loaded(final List<GiphyGif> gifs) = _$LoadedImpl;
 
   List<GiphyGif> get gifs;
   @JsonKey(ignore: true)
-  _$$LoadedCopyWith<_$Loaded> get copyWith =>
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ErrorCopyWith<$Res> {
-  factory _$$ErrorCopyWith(_$Error value, $Res Function(_$Error) then) =
-      __$$ErrorCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$ErrorCopyWithImpl<$Res>
-    extends _$GiphyStateCopyWithImpl<$Res, _$Error>
-    implements _$$ErrorCopyWith<$Res> {
-  __$$ErrorCopyWithImpl(_$Error _value, $Res Function(_$Error) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$GiphyStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -772,7 +782,7 @@ class __$$ErrorCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$Error(
+    return _then(_$ErrorImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -783,8 +793,8 @@ class __$$ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Error implements Error {
-  const _$Error(this.message);
+class _$ErrorImpl implements Error {
+  const _$ErrorImpl(this.message);
 
   @override
   final String message;
@@ -795,10 +805,10 @@ class _$Error implements Error {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Error &&
+            other is _$ErrorImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -808,8 +818,8 @@ class _$Error implements Error {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ErrorCopyWith<_$Error> get copyWith =>
-      __$$ErrorCopyWithImpl<_$Error>(this, _$identity);
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      __$$ErrorImplCopyWithImpl<_$ErrorImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -887,9 +897,10 @@ class _$Error implements Error {
 }
 
 abstract class Error implements GiphyState {
-  const factory Error(final String message) = _$Error;
+  const factory Error(final String message) = _$ErrorImpl;
 
   String get message;
   @JsonKey(ignore: true)
-  _$$ErrorCopyWith<_$Error> get copyWith => throw _privateConstructorUsedError;
+  _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

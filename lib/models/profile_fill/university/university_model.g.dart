@@ -6,13 +6,15 @@ part of 'university_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UniversityModel _$$_UniversityModelFromJson(Map<String, dynamic> json) =>
-    _$_UniversityModel(
+_$UniversityModelImpl _$$UniversityModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UniversityModelImpl(
       name: json['name'] as String?,
       country: json['country'] as String?,
     );
 
-Map<String, dynamic> _$$_UniversityModelToJson(_$_UniversityModel instance) =>
+Map<String, dynamic> _$$UniversityModelImplToJson(
+        _$UniversityModelImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'country': instance.country,

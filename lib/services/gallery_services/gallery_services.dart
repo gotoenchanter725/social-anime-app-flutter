@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:photo_manager/photo_manager.dart';
-import 'package:photo_manager_image_provider/photo_manager_image_provider.dart';
 
 class AssetPathEntityWithCount {
   final AssetPathEntity assetPathEntity;
@@ -18,7 +17,9 @@ class AssetPathEntityWithCount {
 class GalleryServices {
   Future<bool> havePermissionsForGallery() async {
     PermissionState permission = await PhotoManager.requestPermissionExtend();
-    if (Platform.isAndroid || permission.isAuth == true || permission == PermissionState.limited) {
+    if (Platform.isAndroid ||
+        permission.isAuth == true ||
+        permission == PermissionState.limited) {
       return true;
     } else {
       PhotoManager.openSetting();

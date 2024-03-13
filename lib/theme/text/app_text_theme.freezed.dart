@@ -12,7 +12,7 @@ part of 'app_text_theme.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AppTextTheme {
@@ -156,11 +156,11 @@ class _$AppTextThemeCopyWithImpl<$Res, $Val extends AppTextTheme>
 }
 
 /// @nodoc
-abstract class _$$_AppTextThemeCopyWith<$Res>
+abstract class _$$AppTextThemeImplCopyWith<$Res>
     implements $AppTextThemeCopyWith<$Res> {
-  factory _$$_AppTextThemeCopyWith(
-          _$_AppTextTheme value, $Res Function(_$_AppTextTheme) then) =
-      __$$_AppTextThemeCopyWithImpl<$Res>;
+  factory _$$AppTextThemeImplCopyWith(
+          _$AppTextThemeImpl value, $Res Function(_$AppTextThemeImpl) then) =
+      __$$AppTextThemeImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -182,11 +182,11 @@ abstract class _$$_AppTextThemeCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AppTextThemeCopyWithImpl<$Res>
-    extends _$AppTextThemeCopyWithImpl<$Res, _$_AppTextTheme>
-    implements _$$_AppTextThemeCopyWith<$Res> {
-  __$$_AppTextThemeCopyWithImpl(
-      _$_AppTextTheme _value, $Res Function(_$_AppTextTheme) _then)
+class __$$AppTextThemeImplCopyWithImpl<$Res>
+    extends _$AppTextThemeCopyWithImpl<$Res, _$AppTextThemeImpl>
+    implements _$$AppTextThemeImplCopyWith<$Res> {
+  __$$AppTextThemeImplCopyWithImpl(
+      _$AppTextThemeImpl _value, $Res Function(_$AppTextThemeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -208,7 +208,7 @@ class __$$_AppTextThemeCopyWithImpl<$Res>
     Object? labelMedium = null,
     Object? labelSmall = null,
   }) {
-    return _then(_$_AppTextTheme(
+    return _then(_$AppTextThemeImpl(
       displayLarge: null == displayLarge
           ? _value.displayLarge
           : displayLarge // ignore: cast_nullable_to_non_nullable
@@ -275,8 +275,8 @@ class __$$_AppTextThemeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AppTextTheme extends _AppTextTheme {
-  _$_AppTextTheme(
+class _$AppTextThemeImpl extends _AppTextTheme {
+  _$AppTextThemeImpl(
       {required this.displayLarge,
       required this.displayMedium,
       required this.displaySmall,
@@ -331,10 +331,10 @@ class _$_AppTextTheme extends _AppTextTheme {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AppTextTheme &&
+            other is _$AppTextThemeImpl &&
             (identical(other.displayLarge, displayLarge) ||
                 other.displayLarge == displayLarge) &&
             (identical(other.displayMedium, displayMedium) ||
@@ -389,8 +389,8 @@ class _$_AppTextTheme extends _AppTextTheme {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AppTextThemeCopyWith<_$_AppTextTheme> get copyWith =>
-      __$$_AppTextThemeCopyWithImpl<_$_AppTextTheme>(this, _$identity);
+  _$$AppTextThemeImplCopyWith<_$AppTextThemeImpl> get copyWith =>
+      __$$AppTextThemeImplCopyWithImpl<_$AppTextThemeImpl>(this, _$identity);
 }
 
 abstract class _AppTextTheme extends AppTextTheme {
@@ -409,7 +409,7 @@ abstract class _AppTextTheme extends AppTextTheme {
       required final TextStyle bodySmall,
       required final TextStyle labelLarge,
       required final TextStyle labelMedium,
-      required final TextStyle labelSmall}) = _$_AppTextTheme;
+      required final TextStyle labelSmall}) = _$AppTextThemeImpl;
   _AppTextTheme._() : super._();
 
   @override
@@ -444,6 +444,6 @@ abstract class _AppTextTheme extends AppTextTheme {
   TextStyle get labelSmall;
   @override
   @JsonKey(ignore: true)
-  _$$_AppTextThemeCopyWith<_$_AppTextTheme> get copyWith =>
+  _$$AppTextThemeImplCopyWith<_$AppTextThemeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

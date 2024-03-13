@@ -12,7 +12,7 @@ part of 'query_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$QueryEvent<T> {
@@ -108,20 +108,20 @@ class _$QueryEventCopyWithImpl<T, $Res, $Val extends QueryEvent<T>>
 }
 
 /// @nodoc
-abstract class _$$_QueryEventErrorCopyWith<T, $Res> {
-  factory _$$_QueryEventErrorCopyWith(_$_QueryEventError<T> value,
-          $Res Function(_$_QueryEventError<T>) then) =
-      __$$_QueryEventErrorCopyWithImpl<T, $Res>;
+abstract class _$$QueryEventErrorImplCopyWith<T, $Res> {
+  factory _$$QueryEventErrorImplCopyWith(_$QueryEventErrorImpl<T> value,
+          $Res Function(_$QueryEventErrorImpl<T>) then) =
+      __$$QueryEventErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({OperationException error, QueryResult<Object?> result});
 }
 
 /// @nodoc
-class __$$_QueryEventErrorCopyWithImpl<T, $Res>
-    extends _$QueryEventCopyWithImpl<T, $Res, _$_QueryEventError<T>>
-    implements _$$_QueryEventErrorCopyWith<T, $Res> {
-  __$$_QueryEventErrorCopyWithImpl(
-      _$_QueryEventError<T> _value, $Res Function(_$_QueryEventError<T>) _then)
+class __$$QueryEventErrorImplCopyWithImpl<T, $Res>
+    extends _$QueryEventCopyWithImpl<T, $Res, _$QueryEventErrorImpl<T>>
+    implements _$$QueryEventErrorImplCopyWith<T, $Res> {
+  __$$QueryEventErrorImplCopyWithImpl(_$QueryEventErrorImpl<T> _value,
+      $Res Function(_$QueryEventErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -130,7 +130,7 @@ class __$$_QueryEventErrorCopyWithImpl<T, $Res>
     Object? error = null,
     Object? result = null,
   }) {
-    return _then(_$_QueryEventError<T>(
+    return _then(_$QueryEventErrorImpl<T>(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -145,8 +145,8 @@ class __$$_QueryEventErrorCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_QueryEventError<T> implements _QueryEventError<T> {
-  const _$_QueryEventError({required this.error, required this.result});
+class _$QueryEventErrorImpl<T> implements _QueryEventError<T> {
+  const _$QueryEventErrorImpl({required this.error, required this.result});
 
   @override
   final OperationException error;
@@ -159,10 +159,10 @@ class _$_QueryEventError<T> implements _QueryEventError<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QueryEventError<T> &&
+            other is _$QueryEventErrorImpl<T> &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.result, result) || other.result == result));
   }
@@ -173,8 +173,8 @@ class _$_QueryEventError<T> implements _QueryEventError<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QueryEventErrorCopyWith<T, _$_QueryEventError<T>> get copyWith =>
-      __$$_QueryEventErrorCopyWithImpl<T, _$_QueryEventError<T>>(
+  _$$QueryEventErrorImplCopyWith<T, _$QueryEventErrorImpl<T>> get copyWith =>
+      __$$QueryEventErrorImplCopyWithImpl<T, _$QueryEventErrorImpl<T>>(
           this, _$identity);
 
   @override
@@ -276,30 +276,30 @@ class _$_QueryEventError<T> implements _QueryEventError<T> {
 abstract class _QueryEventError<T> implements QueryEvent<T> {
   const factory _QueryEventError(
       {required final OperationException error,
-      required final QueryResult<Object?> result}) = _$_QueryEventError<T>;
+      required final QueryResult<Object?> result}) = _$QueryEventErrorImpl<T>;
 
   OperationException get error;
   QueryResult<Object?> get result;
   @JsonKey(ignore: true)
-  _$$_QueryEventErrorCopyWith<T, _$_QueryEventError<T>> get copyWith =>
+  _$$QueryEventErrorImplCopyWith<T, _$QueryEventErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_QueryEventRunCopyWith<T, $Res> {
-  factory _$$_QueryEventRunCopyWith(
-          _$_QueryEventRun<T> value, $Res Function(_$_QueryEventRun<T>) then) =
-      __$$_QueryEventRunCopyWithImpl<T, $Res>;
+abstract class _$$QueryEventRunImplCopyWith<T, $Res> {
+  factory _$$QueryEventRunImplCopyWith(_$QueryEventRunImpl<T> value,
+          $Res Function(_$QueryEventRunImpl<T>) then) =
+      __$$QueryEventRunImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({Map<String, dynamic>? variables, Object? optimisticResult});
 }
 
 /// @nodoc
-class __$$_QueryEventRunCopyWithImpl<T, $Res>
-    extends _$QueryEventCopyWithImpl<T, $Res, _$_QueryEventRun<T>>
-    implements _$$_QueryEventRunCopyWith<T, $Res> {
-  __$$_QueryEventRunCopyWithImpl(
-      _$_QueryEventRun<T> _value, $Res Function(_$_QueryEventRun<T>) _then)
+class __$$QueryEventRunImplCopyWithImpl<T, $Res>
+    extends _$QueryEventCopyWithImpl<T, $Res, _$QueryEventRunImpl<T>>
+    implements _$$QueryEventRunImplCopyWith<T, $Res> {
+  __$$QueryEventRunImplCopyWithImpl(_$QueryEventRunImpl<T> _value,
+      $Res Function(_$QueryEventRunImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -308,7 +308,7 @@ class __$$_QueryEventRunCopyWithImpl<T, $Res>
     Object? variables = freezed,
     Object? optimisticResult = freezed,
   }) {
-    return _then(_$_QueryEventRun<T>(
+    return _then(_$QueryEventRunImpl<T>(
       variables: freezed == variables
           ? _value._variables
           : variables // ignore: cast_nullable_to_non_nullable
@@ -322,8 +322,8 @@ class __$$_QueryEventRunCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_QueryEventRun<T> implements _QueryEventRun<T> {
-  const _$_QueryEventRun(
+class _$QueryEventRunImpl<T> implements _QueryEventRun<T> {
+  const _$QueryEventRunImpl(
       {final Map<String, dynamic>? variables, this.optimisticResult})
       : _variables = variables;
 
@@ -346,10 +346,10 @@ class _$_QueryEventRun<T> implements _QueryEventRun<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QueryEventRun<T> &&
+            other is _$QueryEventRunImpl<T> &&
             const DeepCollectionEquality()
                 .equals(other._variables, _variables) &&
             const DeepCollectionEquality()
@@ -365,8 +365,9 @@ class _$_QueryEventRun<T> implements _QueryEventRun<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QueryEventRunCopyWith<T, _$_QueryEventRun<T>> get copyWith =>
-      __$$_QueryEventRunCopyWithImpl<T, _$_QueryEventRun<T>>(this, _$identity);
+  _$$QueryEventRunImplCopyWith<T, _$QueryEventRunImpl<T>> get copyWith =>
+      __$$QueryEventRunImplCopyWithImpl<T, _$QueryEventRunImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -467,30 +468,30 @@ class _$_QueryEventRun<T> implements _QueryEventRun<T> {
 abstract class _QueryEventRun<T> implements QueryEvent<T> {
   const factory _QueryEventRun(
       {final Map<String, dynamic>? variables,
-      final Object? optimisticResult}) = _$_QueryEventRun<T>;
+      final Object? optimisticResult}) = _$QueryEventRunImpl<T>;
 
   Map<String, dynamic>? get variables;
   Object? get optimisticResult;
   @JsonKey(ignore: true)
-  _$$_QueryEventRunCopyWith<T, _$_QueryEventRun<T>> get copyWith =>
+  _$$QueryEventRunImplCopyWith<T, _$QueryEventRunImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_QueryEventLoadingCopyWith<T, $Res> {
-  factory _$$_QueryEventLoadingCopyWith(_$_QueryEventLoading<T> value,
-          $Res Function(_$_QueryEventLoading<T>) then) =
-      __$$_QueryEventLoadingCopyWithImpl<T, $Res>;
+abstract class _$$QueryEventLoadingImplCopyWith<T, $Res> {
+  factory _$$QueryEventLoadingImplCopyWith(_$QueryEventLoadingImpl<T> value,
+          $Res Function(_$QueryEventLoadingImpl<T>) then) =
+      __$$QueryEventLoadingImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({QueryResult<Object?> result});
 }
 
 /// @nodoc
-class __$$_QueryEventLoadingCopyWithImpl<T, $Res>
-    extends _$QueryEventCopyWithImpl<T, $Res, _$_QueryEventLoading<T>>
-    implements _$$_QueryEventLoadingCopyWith<T, $Res> {
-  __$$_QueryEventLoadingCopyWithImpl(_$_QueryEventLoading<T> _value,
-      $Res Function(_$_QueryEventLoading<T>) _then)
+class __$$QueryEventLoadingImplCopyWithImpl<T, $Res>
+    extends _$QueryEventCopyWithImpl<T, $Res, _$QueryEventLoadingImpl<T>>
+    implements _$$QueryEventLoadingImplCopyWith<T, $Res> {
+  __$$QueryEventLoadingImplCopyWithImpl(_$QueryEventLoadingImpl<T> _value,
+      $Res Function(_$QueryEventLoadingImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -498,7 +499,7 @@ class __$$_QueryEventLoadingCopyWithImpl<T, $Res>
   $Res call({
     Object? result = null,
   }) {
-    return _then(_$_QueryEventLoading<T>(
+    return _then(_$QueryEventLoadingImpl<T>(
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -509,8 +510,8 @@ class __$$_QueryEventLoadingCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_QueryEventLoading<T> implements _QueryEventLoading<T> {
-  const _$_QueryEventLoading({required this.result});
+class _$QueryEventLoadingImpl<T> implements _QueryEventLoading<T> {
+  const _$QueryEventLoadingImpl({required this.result});
 
   @override
   final QueryResult<Object?> result;
@@ -521,10 +522,10 @@ class _$_QueryEventLoading<T> implements _QueryEventLoading<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QueryEventLoading<T> &&
+            other is _$QueryEventLoadingImpl<T> &&
             (identical(other.result, result) || other.result == result));
   }
 
@@ -534,9 +535,10 @@ class _$_QueryEventLoading<T> implements _QueryEventLoading<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QueryEventLoadingCopyWith<T, _$_QueryEventLoading<T>> get copyWith =>
-      __$$_QueryEventLoadingCopyWithImpl<T, _$_QueryEventLoading<T>>(
-          this, _$identity);
+  _$$QueryEventLoadingImplCopyWith<T, _$QueryEventLoadingImpl<T>>
+      get copyWith =>
+          __$$QueryEventLoadingImplCopyWithImpl<T, _$QueryEventLoadingImpl<T>>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -636,29 +638,30 @@ class _$_QueryEventLoading<T> implements _QueryEventLoading<T> {
 
 abstract class _QueryEventLoading<T> implements QueryEvent<T> {
   const factory _QueryEventLoading(
-      {required final QueryResult<Object?> result}) = _$_QueryEventLoading<T>;
+          {required final QueryResult<Object?> result}) =
+      _$QueryEventLoadingImpl<T>;
 
   QueryResult<Object?> get result;
   @JsonKey(ignore: true)
-  _$$_QueryEventLoadingCopyWith<T, _$_QueryEventLoading<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$QueryEventLoadingImplCopyWith<T, _$QueryEventLoadingImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_QueryEventLoadedCopyWith<T, $Res> {
-  factory _$$_QueryEventLoadedCopyWith(_$_QueryEventLoaded<T> value,
-          $Res Function(_$_QueryEventLoaded<T>) then) =
-      __$$_QueryEventLoadedCopyWithImpl<T, $Res>;
+abstract class _$$QueryEventLoadedImplCopyWith<T, $Res> {
+  factory _$$QueryEventLoadedImplCopyWith(_$QueryEventLoadedImpl<T> value,
+          $Res Function(_$QueryEventLoadedImpl<T>) then) =
+      __$$QueryEventLoadedImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data, QueryResult<Object?> result});
 }
 
 /// @nodoc
-class __$$_QueryEventLoadedCopyWithImpl<T, $Res>
-    extends _$QueryEventCopyWithImpl<T, $Res, _$_QueryEventLoaded<T>>
-    implements _$$_QueryEventLoadedCopyWith<T, $Res> {
-  __$$_QueryEventLoadedCopyWithImpl(_$_QueryEventLoaded<T> _value,
-      $Res Function(_$_QueryEventLoaded<T>) _then)
+class __$$QueryEventLoadedImplCopyWithImpl<T, $Res>
+    extends _$QueryEventCopyWithImpl<T, $Res, _$QueryEventLoadedImpl<T>>
+    implements _$$QueryEventLoadedImplCopyWith<T, $Res> {
+  __$$QueryEventLoadedImplCopyWithImpl(_$QueryEventLoadedImpl<T> _value,
+      $Res Function(_$QueryEventLoadedImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -667,7 +670,7 @@ class __$$_QueryEventLoadedCopyWithImpl<T, $Res>
     Object? data = freezed,
     Object? result = null,
   }) {
-    return _then(_$_QueryEventLoaded<T>(
+    return _then(_$QueryEventLoadedImpl<T>(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -682,8 +685,8 @@ class __$$_QueryEventLoadedCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_QueryEventLoaded<T> implements _QueryEventLoaded<T> {
-  const _$_QueryEventLoaded({required this.data, required this.result});
+class _$QueryEventLoadedImpl<T> implements _QueryEventLoaded<T> {
+  const _$QueryEventLoadedImpl({required this.data, required this.result});
 
   @override
   final T data;
@@ -696,10 +699,10 @@ class _$_QueryEventLoaded<T> implements _QueryEventLoaded<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QueryEventLoaded<T> &&
+            other is _$QueryEventLoadedImpl<T> &&
             const DeepCollectionEquality().equals(other.data, data) &&
             (identical(other.result, result) || other.result == result));
   }
@@ -711,8 +714,8 @@ class _$_QueryEventLoaded<T> implements _QueryEventLoaded<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QueryEventLoadedCopyWith<T, _$_QueryEventLoaded<T>> get copyWith =>
-      __$$_QueryEventLoadedCopyWithImpl<T, _$_QueryEventLoaded<T>>(
+  _$$QueryEventLoadedImplCopyWith<T, _$QueryEventLoadedImpl<T>> get copyWith =>
+      __$$QueryEventLoadedImplCopyWithImpl<T, _$QueryEventLoadedImpl<T>>(
           this, _$identity);
 
   @override
@@ -814,35 +817,35 @@ class _$_QueryEventLoaded<T> implements _QueryEventLoaded<T> {
 abstract class _QueryEventLoaded<T> implements QueryEvent<T> {
   const factory _QueryEventLoaded(
       {required final T data,
-      required final QueryResult<Object?> result}) = _$_QueryEventLoaded<T>;
+      required final QueryResult<Object?> result}) = _$QueryEventLoadedImpl<T>;
 
   T get data;
   QueryResult<Object?> get result;
   @JsonKey(ignore: true)
-  _$$_QueryEventLoadedCopyWith<T, _$_QueryEventLoaded<T>> get copyWith =>
+  _$$QueryEventLoadedImplCopyWith<T, _$QueryEventLoadedImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_QueryEventRefetchCopyWith<T, $Res> {
-  factory _$$_QueryEventRefetchCopyWith(_$_QueryEventRefetch<T> value,
-          $Res Function(_$_QueryEventRefetch<T>) then) =
-      __$$_QueryEventRefetchCopyWithImpl<T, $Res>;
+abstract class _$$QueryEventRefetchImplCopyWith<T, $Res> {
+  factory _$$QueryEventRefetchImplCopyWith(_$QueryEventRefetchImpl<T> value,
+          $Res Function(_$QueryEventRefetchImpl<T>) then) =
+      __$$QueryEventRefetchImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_QueryEventRefetchCopyWithImpl<T, $Res>
-    extends _$QueryEventCopyWithImpl<T, $Res, _$_QueryEventRefetch<T>>
-    implements _$$_QueryEventRefetchCopyWith<T, $Res> {
-  __$$_QueryEventRefetchCopyWithImpl(_$_QueryEventRefetch<T> _value,
-      $Res Function(_$_QueryEventRefetch<T>) _then)
+class __$$QueryEventRefetchImplCopyWithImpl<T, $Res>
+    extends _$QueryEventCopyWithImpl<T, $Res, _$QueryEventRefetchImpl<T>>
+    implements _$$QueryEventRefetchImplCopyWith<T, $Res> {
+  __$$QueryEventRefetchImplCopyWithImpl(_$QueryEventRefetchImpl<T> _value,
+      $Res Function(_$QueryEventRefetchImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_QueryEventRefetch<T> implements _QueryEventRefetch<T> {
-  const _$_QueryEventRefetch();
+class _$QueryEventRefetchImpl<T> implements _QueryEventRefetch<T> {
+  const _$QueryEventRefetchImpl();
 
   @override
   String toString() {
@@ -850,9 +853,10 @@ class _$_QueryEventRefetch<T> implements _QueryEventRefetch<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_QueryEventRefetch<T>);
+        (other.runtimeType == runtimeType &&
+            other is _$QueryEventRefetchImpl<T>);
   }
 
   @override
@@ -955,24 +959,24 @@ class _$_QueryEventRefetch<T> implements _QueryEventRefetch<T> {
 }
 
 abstract class _QueryEventRefetch<T> implements QueryEvent<T> {
-  const factory _QueryEventRefetch() = _$_QueryEventRefetch<T>;
+  const factory _QueryEventRefetch() = _$QueryEventRefetchImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_QueryEventFetchMoreCopyWith<T, $Res> {
-  factory _$$_QueryEventFetchMoreCopyWith(_$_QueryEventFetchMore<T> value,
-          $Res Function(_$_QueryEventFetchMore<T>) then) =
-      __$$_QueryEventFetchMoreCopyWithImpl<T, $Res>;
+abstract class _$$QueryEventFetchMoreImplCopyWith<T, $Res> {
+  factory _$$QueryEventFetchMoreImplCopyWith(_$QueryEventFetchMoreImpl<T> value,
+          $Res Function(_$QueryEventFetchMoreImpl<T>) then) =
+      __$$QueryEventFetchMoreImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({FetchMoreOptions options});
 }
 
 /// @nodoc
-class __$$_QueryEventFetchMoreCopyWithImpl<T, $Res>
-    extends _$QueryEventCopyWithImpl<T, $Res, _$_QueryEventFetchMore<T>>
-    implements _$$_QueryEventFetchMoreCopyWith<T, $Res> {
-  __$$_QueryEventFetchMoreCopyWithImpl(_$_QueryEventFetchMore<T> _value,
-      $Res Function(_$_QueryEventFetchMore<T>) _then)
+class __$$QueryEventFetchMoreImplCopyWithImpl<T, $Res>
+    extends _$QueryEventCopyWithImpl<T, $Res, _$QueryEventFetchMoreImpl<T>>
+    implements _$$QueryEventFetchMoreImplCopyWith<T, $Res> {
+  __$$QueryEventFetchMoreImplCopyWithImpl(_$QueryEventFetchMoreImpl<T> _value,
+      $Res Function(_$QueryEventFetchMoreImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -980,7 +984,7 @@ class __$$_QueryEventFetchMoreCopyWithImpl<T, $Res>
   $Res call({
     Object? options = null,
   }) {
-    return _then(_$_QueryEventFetchMore<T>(
+    return _then(_$QueryEventFetchMoreImpl<T>(
       options: null == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
@@ -991,8 +995,8 @@ class __$$_QueryEventFetchMoreCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_QueryEventFetchMore<T> implements _QueryEventFetchMore<T> {
-  const _$_QueryEventFetchMore({required this.options});
+class _$QueryEventFetchMoreImpl<T> implements _QueryEventFetchMore<T> {
+  const _$QueryEventFetchMoreImpl({required this.options});
 
   @override
   final FetchMoreOptions options;
@@ -1003,10 +1007,10 @@ class _$_QueryEventFetchMore<T> implements _QueryEventFetchMore<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QueryEventFetchMore<T> &&
+            other is _$QueryEventFetchMoreImpl<T> &&
             (identical(other.options, options) || other.options == options));
   }
 
@@ -1016,9 +1020,9 @@ class _$_QueryEventFetchMore<T> implements _QueryEventFetchMore<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QueryEventFetchMoreCopyWith<T, _$_QueryEventFetchMore<T>> get copyWith =>
-      __$$_QueryEventFetchMoreCopyWithImpl<T, _$_QueryEventFetchMore<T>>(
-          this, _$identity);
+  _$$QueryEventFetchMoreImplCopyWith<T, _$QueryEventFetchMoreImpl<T>>
+      get copyWith => __$$QueryEventFetchMoreImplCopyWithImpl<T,
+          _$QueryEventFetchMoreImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1118,12 +1122,12 @@ class _$_QueryEventFetchMore<T> implements _QueryEventFetchMore<T> {
 
 abstract class _QueryEventFetchMore<T> implements QueryEvent<T> {
   const factory _QueryEventFetchMore(
-      {required final FetchMoreOptions options}) = _$_QueryEventFetchMore<T>;
+      {required final FetchMoreOptions options}) = _$QueryEventFetchMoreImpl<T>;
 
   FetchMoreOptions get options;
   @JsonKey(ignore: true)
-  _$$_QueryEventFetchMoreCopyWith<T, _$_QueryEventFetchMore<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$QueryEventFetchMoreImplCopyWith<T, _$QueryEventFetchMoreImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1215,25 +1219,25 @@ class _$QueryStateCopyWithImpl<T, $Res, $Val extends QueryState<T>>
 }
 
 /// @nodoc
-abstract class _$$_QueryStateInitialCopyWith<T, $Res> {
-  factory _$$_QueryStateInitialCopyWith(_$_QueryStateInitial<T> value,
-          $Res Function(_$_QueryStateInitial<T>) then) =
-      __$$_QueryStateInitialCopyWithImpl<T, $Res>;
+abstract class _$$QueryStateInitialImplCopyWith<T, $Res> {
+  factory _$$QueryStateInitialImplCopyWith(_$QueryStateInitialImpl<T> value,
+          $Res Function(_$QueryStateInitialImpl<T>) then) =
+      __$$QueryStateInitialImplCopyWithImpl<T, $Res>;
 }
 
 /// @nodoc
-class __$$_QueryStateInitialCopyWithImpl<T, $Res>
-    extends _$QueryStateCopyWithImpl<T, $Res, _$_QueryStateInitial<T>>
-    implements _$$_QueryStateInitialCopyWith<T, $Res> {
-  __$$_QueryStateInitialCopyWithImpl(_$_QueryStateInitial<T> _value,
-      $Res Function(_$_QueryStateInitial<T>) _then)
+class __$$QueryStateInitialImplCopyWithImpl<T, $Res>
+    extends _$QueryStateCopyWithImpl<T, $Res, _$QueryStateInitialImpl<T>>
+    implements _$$QueryStateInitialImplCopyWith<T, $Res> {
+  __$$QueryStateInitialImplCopyWithImpl(_$QueryStateInitialImpl<T> _value,
+      $Res Function(_$QueryStateInitialImpl<T>) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_QueryStateInitial<T> implements _QueryStateInitial<T> {
-  const _$_QueryStateInitial();
+class _$QueryStateInitialImpl<T> implements _QueryStateInitial<T> {
+  const _$QueryStateInitialImpl();
 
   @override
   String toString() {
@@ -1241,9 +1245,10 @@ class _$_QueryStateInitial<T> implements _QueryStateInitial<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_QueryStateInitial<T>);
+        (other.runtimeType == runtimeType &&
+            other is _$QueryStateInitialImpl<T>);
   }
 
   @override
@@ -1341,24 +1346,24 @@ class _$_QueryStateInitial<T> implements _QueryStateInitial<T> {
 }
 
 abstract class _QueryStateInitial<T> implements QueryState<T> {
-  const factory _QueryStateInitial() = _$_QueryStateInitial<T>;
+  const factory _QueryStateInitial() = _$QueryStateInitialImpl<T>;
 }
 
 /// @nodoc
-abstract class _$$_QueryStateLoadingCopyWith<T, $Res> {
-  factory _$$_QueryStateLoadingCopyWith(_$_QueryStateLoading<T> value,
-          $Res Function(_$_QueryStateLoading<T>) then) =
-      __$$_QueryStateLoadingCopyWithImpl<T, $Res>;
+abstract class _$$QueryStateLoadingImplCopyWith<T, $Res> {
+  factory _$$QueryStateLoadingImplCopyWith(_$QueryStateLoadingImpl<T> value,
+          $Res Function(_$QueryStateLoadingImpl<T>) then) =
+      __$$QueryStateLoadingImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({QueryResult<Object?> result});
 }
 
 /// @nodoc
-class __$$_QueryStateLoadingCopyWithImpl<T, $Res>
-    extends _$QueryStateCopyWithImpl<T, $Res, _$_QueryStateLoading<T>>
-    implements _$$_QueryStateLoadingCopyWith<T, $Res> {
-  __$$_QueryStateLoadingCopyWithImpl(_$_QueryStateLoading<T> _value,
-      $Res Function(_$_QueryStateLoading<T>) _then)
+class __$$QueryStateLoadingImplCopyWithImpl<T, $Res>
+    extends _$QueryStateCopyWithImpl<T, $Res, _$QueryStateLoadingImpl<T>>
+    implements _$$QueryStateLoadingImplCopyWith<T, $Res> {
+  __$$QueryStateLoadingImplCopyWithImpl(_$QueryStateLoadingImpl<T> _value,
+      $Res Function(_$QueryStateLoadingImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1366,7 +1371,7 @@ class __$$_QueryStateLoadingCopyWithImpl<T, $Res>
   $Res call({
     Object? result = null,
   }) {
-    return _then(_$_QueryStateLoading<T>(
+    return _then(_$QueryStateLoadingImpl<T>(
       result: null == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
@@ -1377,8 +1382,8 @@ class __$$_QueryStateLoadingCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_QueryStateLoading<T> implements _QueryStateLoading<T> {
-  const _$_QueryStateLoading({required this.result});
+class _$QueryStateLoadingImpl<T> implements _QueryStateLoading<T> {
+  const _$QueryStateLoadingImpl({required this.result});
 
   @override
   final QueryResult<Object?> result;
@@ -1389,10 +1394,10 @@ class _$_QueryStateLoading<T> implements _QueryStateLoading<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QueryStateLoading<T> &&
+            other is _$QueryStateLoadingImpl<T> &&
             (identical(other.result, result) || other.result == result));
   }
 
@@ -1402,9 +1407,10 @@ class _$_QueryStateLoading<T> implements _QueryStateLoading<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QueryStateLoadingCopyWith<T, _$_QueryStateLoading<T>> get copyWith =>
-      __$$_QueryStateLoadingCopyWithImpl<T, _$_QueryStateLoading<T>>(
-          this, _$identity);
+  _$$QueryStateLoadingImplCopyWith<T, _$QueryStateLoadingImpl<T>>
+      get copyWith =>
+          __$$QueryStateLoadingImplCopyWithImpl<T, _$QueryStateLoadingImpl<T>>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1499,29 +1505,30 @@ class _$_QueryStateLoading<T> implements _QueryStateLoading<T> {
 
 abstract class _QueryStateLoading<T> implements QueryState<T> {
   const factory _QueryStateLoading(
-      {required final QueryResult<Object?> result}) = _$_QueryStateLoading<T>;
+          {required final QueryResult<Object?> result}) =
+      _$QueryStateLoadingImpl<T>;
 
   QueryResult<Object?> get result;
   @JsonKey(ignore: true)
-  _$$_QueryStateLoadingCopyWith<T, _$_QueryStateLoading<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$QueryStateLoadingImplCopyWith<T, _$QueryStateLoadingImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_QueryStateErrorCopyWith<T, $Res> {
-  factory _$$_QueryStateErrorCopyWith(_$_QueryStateError<T> value,
-          $Res Function(_$_QueryStateError<T>) then) =
-      __$$_QueryStateErrorCopyWithImpl<T, $Res>;
+abstract class _$$QueryStateErrorImplCopyWith<T, $Res> {
+  factory _$$QueryStateErrorImplCopyWith(_$QueryStateErrorImpl<T> value,
+          $Res Function(_$QueryStateErrorImpl<T>) then) =
+      __$$QueryStateErrorImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({OperationException error, QueryResult<Object?> result});
 }
 
 /// @nodoc
-class __$$_QueryStateErrorCopyWithImpl<T, $Res>
-    extends _$QueryStateCopyWithImpl<T, $Res, _$_QueryStateError<T>>
-    implements _$$_QueryStateErrorCopyWith<T, $Res> {
-  __$$_QueryStateErrorCopyWithImpl(
-      _$_QueryStateError<T> _value, $Res Function(_$_QueryStateError<T>) _then)
+class __$$QueryStateErrorImplCopyWithImpl<T, $Res>
+    extends _$QueryStateCopyWithImpl<T, $Res, _$QueryStateErrorImpl<T>>
+    implements _$$QueryStateErrorImplCopyWith<T, $Res> {
+  __$$QueryStateErrorImplCopyWithImpl(_$QueryStateErrorImpl<T> _value,
+      $Res Function(_$QueryStateErrorImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1530,7 +1537,7 @@ class __$$_QueryStateErrorCopyWithImpl<T, $Res>
     Object? error = null,
     Object? result = null,
   }) {
-    return _then(_$_QueryStateError<T>(
+    return _then(_$QueryStateErrorImpl<T>(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -1545,8 +1552,8 @@ class __$$_QueryStateErrorCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_QueryStateError<T> implements _QueryStateError<T> {
-  const _$_QueryStateError({required this.error, required this.result});
+class _$QueryStateErrorImpl<T> implements _QueryStateError<T> {
+  const _$QueryStateErrorImpl({required this.error, required this.result});
 
   @override
   final OperationException error;
@@ -1559,10 +1566,10 @@ class _$_QueryStateError<T> implements _QueryStateError<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QueryStateError<T> &&
+            other is _$QueryStateErrorImpl<T> &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.result, result) || other.result == result));
   }
@@ -1573,8 +1580,8 @@ class _$_QueryStateError<T> implements _QueryStateError<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QueryStateErrorCopyWith<T, _$_QueryStateError<T>> get copyWith =>
-      __$$_QueryStateErrorCopyWithImpl<T, _$_QueryStateError<T>>(
+  _$$QueryStateErrorImplCopyWith<T, _$QueryStateErrorImpl<T>> get copyWith =>
+      __$$QueryStateErrorImplCopyWithImpl<T, _$QueryStateErrorImpl<T>>(
           this, _$identity);
 
   @override
@@ -1671,30 +1678,30 @@ class _$_QueryStateError<T> implements _QueryStateError<T> {
 abstract class _QueryStateError<T> implements QueryState<T> {
   const factory _QueryStateError(
       {required final OperationException error,
-      required final QueryResult<Object?> result}) = _$_QueryStateError<T>;
+      required final QueryResult<Object?> result}) = _$QueryStateErrorImpl<T>;
 
   OperationException get error;
   QueryResult<Object?> get result;
   @JsonKey(ignore: true)
-  _$$_QueryStateErrorCopyWith<T, _$_QueryStateError<T>> get copyWith =>
+  _$$QueryStateErrorImplCopyWith<T, _$QueryStateErrorImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_QueryStateLoadedCopyWith<T, $Res> {
-  factory _$$_QueryStateLoadedCopyWith(_$_QueryStateLoaded<T> value,
-          $Res Function(_$_QueryStateLoaded<T>) then) =
-      __$$_QueryStateLoadedCopyWithImpl<T, $Res>;
+abstract class _$$QueryStateLoadedImplCopyWith<T, $Res> {
+  factory _$$QueryStateLoadedImplCopyWith(_$QueryStateLoadedImpl<T> value,
+          $Res Function(_$QueryStateLoadedImpl<T>) then) =
+      __$$QueryStateLoadedImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data, QueryResult<Object?> result});
 }
 
 /// @nodoc
-class __$$_QueryStateLoadedCopyWithImpl<T, $Res>
-    extends _$QueryStateCopyWithImpl<T, $Res, _$_QueryStateLoaded<T>>
-    implements _$$_QueryStateLoadedCopyWith<T, $Res> {
-  __$$_QueryStateLoadedCopyWithImpl(_$_QueryStateLoaded<T> _value,
-      $Res Function(_$_QueryStateLoaded<T>) _then)
+class __$$QueryStateLoadedImplCopyWithImpl<T, $Res>
+    extends _$QueryStateCopyWithImpl<T, $Res, _$QueryStateLoadedImpl<T>>
+    implements _$$QueryStateLoadedImplCopyWith<T, $Res> {
+  __$$QueryStateLoadedImplCopyWithImpl(_$QueryStateLoadedImpl<T> _value,
+      $Res Function(_$QueryStateLoadedImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1703,7 +1710,7 @@ class __$$_QueryStateLoadedCopyWithImpl<T, $Res>
     Object? data = freezed,
     Object? result = null,
   }) {
-    return _then(_$_QueryStateLoaded<T>(
+    return _then(_$QueryStateLoadedImpl<T>(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1718,8 +1725,8 @@ class __$$_QueryStateLoadedCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_QueryStateLoaded<T> implements _QueryStateLoaded<T> {
-  const _$_QueryStateLoaded({required this.data, required this.result});
+class _$QueryStateLoadedImpl<T> implements _QueryStateLoaded<T> {
+  const _$QueryStateLoadedImpl({required this.data, required this.result});
 
   @override
   final T data;
@@ -1732,10 +1739,10 @@ class _$_QueryStateLoaded<T> implements _QueryStateLoaded<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QueryStateLoaded<T> &&
+            other is _$QueryStateLoadedImpl<T> &&
             const DeepCollectionEquality().equals(other.data, data) &&
             (identical(other.result, result) || other.result == result));
   }
@@ -1747,8 +1754,8 @@ class _$_QueryStateLoaded<T> implements _QueryStateLoaded<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QueryStateLoadedCopyWith<T, _$_QueryStateLoaded<T>> get copyWith =>
-      __$$_QueryStateLoadedCopyWithImpl<T, _$_QueryStateLoaded<T>>(
+  _$$QueryStateLoadedImplCopyWith<T, _$QueryStateLoadedImpl<T>> get copyWith =>
+      __$$QueryStateLoadedImplCopyWithImpl<T, _$QueryStateLoadedImpl<T>>(
           this, _$identity);
 
   @override
@@ -1845,30 +1852,30 @@ class _$_QueryStateLoaded<T> implements _QueryStateLoaded<T> {
 abstract class _QueryStateLoaded<T> implements QueryState<T> {
   const factory _QueryStateLoaded(
       {required final T data,
-      required final QueryResult<Object?> result}) = _$_QueryStateLoaded<T>;
+      required final QueryResult<Object?> result}) = _$QueryStateLoadedImpl<T>;
 
   T get data;
   QueryResult<Object?> get result;
   @JsonKey(ignore: true)
-  _$$_QueryStateLoadedCopyWith<T, _$_QueryStateLoaded<T>> get copyWith =>
+  _$$QueryStateLoadedImplCopyWith<T, _$QueryStateLoadedImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_QueryStateRefetchCopyWith<T, $Res> {
-  factory _$$_QueryStateRefetchCopyWith(_$_QueryStateRefetch<T> value,
-          $Res Function(_$_QueryStateRefetch<T>) then) =
-      __$$_QueryStateRefetchCopyWithImpl<T, $Res>;
+abstract class _$$QueryStateRefetchImplCopyWith<T, $Res> {
+  factory _$$QueryStateRefetchImplCopyWith(_$QueryStateRefetchImpl<T> value,
+          $Res Function(_$QueryStateRefetchImpl<T>) then) =
+      __$$QueryStateRefetchImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T? data, QueryResult<Object?>? result});
 }
 
 /// @nodoc
-class __$$_QueryStateRefetchCopyWithImpl<T, $Res>
-    extends _$QueryStateCopyWithImpl<T, $Res, _$_QueryStateRefetch<T>>
-    implements _$$_QueryStateRefetchCopyWith<T, $Res> {
-  __$$_QueryStateRefetchCopyWithImpl(_$_QueryStateRefetch<T> _value,
-      $Res Function(_$_QueryStateRefetch<T>) _then)
+class __$$QueryStateRefetchImplCopyWithImpl<T, $Res>
+    extends _$QueryStateCopyWithImpl<T, $Res, _$QueryStateRefetchImpl<T>>
+    implements _$$QueryStateRefetchImplCopyWith<T, $Res> {
+  __$$QueryStateRefetchImplCopyWithImpl(_$QueryStateRefetchImpl<T> _value,
+      $Res Function(_$QueryStateRefetchImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1877,7 +1884,7 @@ class __$$_QueryStateRefetchCopyWithImpl<T, $Res>
     Object? data = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$_QueryStateRefetch<T>(
+    return _then(_$QueryStateRefetchImpl<T>(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -1892,8 +1899,8 @@ class __$$_QueryStateRefetchCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_QueryStateRefetch<T> implements _QueryStateRefetch<T> {
-  const _$_QueryStateRefetch({this.data, this.result});
+class _$QueryStateRefetchImpl<T> implements _QueryStateRefetch<T> {
+  const _$QueryStateRefetchImpl({this.data, this.result});
 
   @override
   final T? data;
@@ -1906,10 +1913,10 @@ class _$_QueryStateRefetch<T> implements _QueryStateRefetch<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QueryStateRefetch<T> &&
+            other is _$QueryStateRefetchImpl<T> &&
             const DeepCollectionEquality().equals(other.data, data) &&
             (identical(other.result, result) || other.result == result));
   }
@@ -1921,9 +1928,10 @@ class _$_QueryStateRefetch<T> implements _QueryStateRefetch<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QueryStateRefetchCopyWith<T, _$_QueryStateRefetch<T>> get copyWith =>
-      __$$_QueryStateRefetchCopyWithImpl<T, _$_QueryStateRefetch<T>>(
-          this, _$identity);
+  _$$QueryStateRefetchImplCopyWith<T, _$QueryStateRefetchImpl<T>>
+      get copyWith =>
+          __$$QueryStateRefetchImplCopyWithImpl<T, _$QueryStateRefetchImpl<T>>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2019,30 +2027,30 @@ class _$_QueryStateRefetch<T> implements _QueryStateRefetch<T> {
 abstract class _QueryStateRefetch<T> implements QueryState<T> {
   const factory _QueryStateRefetch(
       {final T? data,
-      final QueryResult<Object?>? result}) = _$_QueryStateRefetch<T>;
+      final QueryResult<Object?>? result}) = _$QueryStateRefetchImpl<T>;
 
   T? get data;
   QueryResult<Object?>? get result;
   @JsonKey(ignore: true)
-  _$$_QueryStateRefetchCopyWith<T, _$_QueryStateRefetch<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$QueryStateRefetchImplCopyWith<T, _$QueryStateRefetchImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_QueryStateFetchMoreCopyWith<T, $Res> {
-  factory _$$_QueryStateFetchMoreCopyWith(_$_QueryStateFetchMore<T> value,
-          $Res Function(_$_QueryStateFetchMore<T>) then) =
-      __$$_QueryStateFetchMoreCopyWithImpl<T, $Res>;
+abstract class _$$QueryStateFetchMoreImplCopyWith<T, $Res> {
+  factory _$$QueryStateFetchMoreImplCopyWith(_$QueryStateFetchMoreImpl<T> value,
+          $Res Function(_$QueryStateFetchMoreImpl<T>) then) =
+      __$$QueryStateFetchMoreImplCopyWithImpl<T, $Res>;
   @useResult
   $Res call({T data, QueryResult<Object?>? result});
 }
 
 /// @nodoc
-class __$$_QueryStateFetchMoreCopyWithImpl<T, $Res>
-    extends _$QueryStateCopyWithImpl<T, $Res, _$_QueryStateFetchMore<T>>
-    implements _$$_QueryStateFetchMoreCopyWith<T, $Res> {
-  __$$_QueryStateFetchMoreCopyWithImpl(_$_QueryStateFetchMore<T> _value,
-      $Res Function(_$_QueryStateFetchMore<T>) _then)
+class __$$QueryStateFetchMoreImplCopyWithImpl<T, $Res>
+    extends _$QueryStateCopyWithImpl<T, $Res, _$QueryStateFetchMoreImpl<T>>
+    implements _$$QueryStateFetchMoreImplCopyWith<T, $Res> {
+  __$$QueryStateFetchMoreImplCopyWithImpl(_$QueryStateFetchMoreImpl<T> _value,
+      $Res Function(_$QueryStateFetchMoreImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2051,7 +2059,7 @@ class __$$_QueryStateFetchMoreCopyWithImpl<T, $Res>
     Object? data = freezed,
     Object? result = freezed,
   }) {
-    return _then(_$_QueryStateFetchMore<T>(
+    return _then(_$QueryStateFetchMoreImpl<T>(
       data: freezed == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -2066,8 +2074,8 @@ class __$$_QueryStateFetchMoreCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$_QueryStateFetchMore<T> implements _QueryStateFetchMore<T> {
-  const _$_QueryStateFetchMore({required this.data, this.result});
+class _$QueryStateFetchMoreImpl<T> implements _QueryStateFetchMore<T> {
+  const _$QueryStateFetchMoreImpl({required this.data, this.result});
 
   @override
   final T data;
@@ -2080,10 +2088,10 @@ class _$_QueryStateFetchMore<T> implements _QueryStateFetchMore<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_QueryStateFetchMore<T> &&
+            other is _$QueryStateFetchMoreImpl<T> &&
             const DeepCollectionEquality().equals(other.data, data) &&
             (identical(other.result, result) || other.result == result));
   }
@@ -2095,9 +2103,9 @@ class _$_QueryStateFetchMore<T> implements _QueryStateFetchMore<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_QueryStateFetchMoreCopyWith<T, _$_QueryStateFetchMore<T>> get copyWith =>
-      __$$_QueryStateFetchMoreCopyWithImpl<T, _$_QueryStateFetchMore<T>>(
-          this, _$identity);
+  _$$QueryStateFetchMoreImplCopyWith<T, _$QueryStateFetchMoreImpl<T>>
+      get copyWith => __$$QueryStateFetchMoreImplCopyWithImpl<T,
+          _$QueryStateFetchMoreImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2193,11 +2201,11 @@ class _$_QueryStateFetchMore<T> implements _QueryStateFetchMore<T> {
 abstract class _QueryStateFetchMore<T> implements QueryState<T> {
   const factory _QueryStateFetchMore(
       {required final T data,
-      final QueryResult<Object?>? result}) = _$_QueryStateFetchMore<T>;
+      final QueryResult<Object?>? result}) = _$QueryStateFetchMoreImpl<T>;
 
   T get data;
   QueryResult<Object?>? get result;
   @JsonKey(ignore: true)
-  _$$_QueryStateFetchMoreCopyWith<T, _$_QueryStateFetchMore<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$QueryStateFetchMoreImplCopyWith<T, _$QueryStateFetchMoreImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

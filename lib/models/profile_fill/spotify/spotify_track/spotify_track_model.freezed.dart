@@ -12,7 +12,7 @@ part of 'spotify_track_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SpotifyTrackModel _$SpotifyTrackModelFromJson(Map<String, dynamic> json) {
   return _SpotifyTrackModel.fromJson(json);
@@ -84,11 +84,11 @@ class _$SpotifyTrackModelCopyWithImpl<$Res, $Val extends SpotifyTrackModel>
 }
 
 /// @nodoc
-abstract class _$$_SpotifyTrackModelCopyWith<$Res>
+abstract class _$$SpotifyTrackModelImplCopyWith<$Res>
     implements $SpotifyTrackModelCopyWith<$Res> {
-  factory _$$_SpotifyTrackModelCopyWith(_$_SpotifyTrackModel value,
-          $Res Function(_$_SpotifyTrackModel) then) =
-      __$$_SpotifyTrackModelCopyWithImpl<$Res>;
+  factory _$$SpotifyTrackModelImplCopyWith(_$SpotifyTrackModelImpl value,
+          $Res Function(_$SpotifyTrackModelImpl) then) =
+      __$$SpotifyTrackModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String name, SpotifyAlbumModel album});
@@ -98,11 +98,11 @@ abstract class _$$_SpotifyTrackModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SpotifyTrackModelCopyWithImpl<$Res>
-    extends _$SpotifyTrackModelCopyWithImpl<$Res, _$_SpotifyTrackModel>
-    implements _$$_SpotifyTrackModelCopyWith<$Res> {
-  __$$_SpotifyTrackModelCopyWithImpl(
-      _$_SpotifyTrackModel _value, $Res Function(_$_SpotifyTrackModel) _then)
+class __$$SpotifyTrackModelImplCopyWithImpl<$Res>
+    extends _$SpotifyTrackModelCopyWithImpl<$Res, _$SpotifyTrackModelImpl>
+    implements _$$SpotifyTrackModelImplCopyWith<$Res> {
+  __$$SpotifyTrackModelImplCopyWithImpl(_$SpotifyTrackModelImpl _value,
+      $Res Function(_$SpotifyTrackModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -112,7 +112,7 @@ class __$$_SpotifyTrackModelCopyWithImpl<$Res>
     Object? name = null,
     Object? album = null,
   }) {
-    return _then(_$_SpotifyTrackModel(
+    return _then(_$SpotifyTrackModelImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -131,12 +131,12 @@ class __$$_SpotifyTrackModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SpotifyTrackModel implements _SpotifyTrackModel {
-  const _$_SpotifyTrackModel(
+class _$SpotifyTrackModelImpl implements _SpotifyTrackModel {
+  const _$SpotifyTrackModelImpl(
       {required this.id, required this.name, required this.album});
 
-  factory _$_SpotifyTrackModel.fromJson(Map<String, dynamic> json) =>
-      _$$_SpotifyTrackModelFromJson(json);
+  factory _$SpotifyTrackModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SpotifyTrackModelImplFromJson(json);
 
   @override
   final String id;
@@ -151,10 +151,10 @@ class _$_SpotifyTrackModel implements _SpotifyTrackModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SpotifyTrackModel &&
+            other is _$SpotifyTrackModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.album, album) || other.album == album));
@@ -167,13 +167,13 @@ class _$_SpotifyTrackModel implements _SpotifyTrackModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SpotifyTrackModelCopyWith<_$_SpotifyTrackModel> get copyWith =>
-      __$$_SpotifyTrackModelCopyWithImpl<_$_SpotifyTrackModel>(
+  _$$SpotifyTrackModelImplCopyWith<_$SpotifyTrackModelImpl> get copyWith =>
+      __$$SpotifyTrackModelImplCopyWithImpl<_$SpotifyTrackModelImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SpotifyTrackModelToJson(
+    return _$$SpotifyTrackModelImplToJson(
       this,
     );
   }
@@ -183,10 +183,10 @@ abstract class _SpotifyTrackModel implements SpotifyTrackModel {
   const factory _SpotifyTrackModel(
       {required final String id,
       required final String name,
-      required final SpotifyAlbumModel album}) = _$_SpotifyTrackModel;
+      required final SpotifyAlbumModel album}) = _$SpotifyTrackModelImpl;
 
   factory _SpotifyTrackModel.fromJson(Map<String, dynamic> json) =
-      _$_SpotifyTrackModel.fromJson;
+      _$SpotifyTrackModelImpl.fromJson;
 
   @override
   String get id;
@@ -196,6 +196,6 @@ abstract class _SpotifyTrackModel implements SpotifyTrackModel {
   SpotifyAlbumModel get album;
   @override
   @JsonKey(ignore: true)
-  _$$_SpotifyTrackModelCopyWith<_$_SpotifyTrackModel> get copyWith =>
+  _$$SpotifyTrackModelImplCopyWith<_$SpotifyTrackModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

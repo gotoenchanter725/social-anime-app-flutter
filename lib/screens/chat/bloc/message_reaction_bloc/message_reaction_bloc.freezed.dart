@@ -12,7 +12,7 @@ part of 'message_reaction_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$MessageReactionEvent {
@@ -76,20 +76,20 @@ class _$MessageReactionEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ShowReactionsCopyWith<$Res> {
-  factory _$$_ShowReactionsCopyWith(
-          _$_ShowReactions value, $Res Function(_$_ShowReactions) then) =
-      __$$_ShowReactionsCopyWithImpl<$Res>;
+abstract class _$$ShowReactionsImplCopyWith<$Res> {
+  factory _$$ShowReactionsImplCopyWith(
+          _$ShowReactionsImpl value, $Res Function(_$ShowReactionsImpl) then) =
+      __$$ShowReactionsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String messageId});
 }
 
 /// @nodoc
-class __$$_ShowReactionsCopyWithImpl<$Res>
-    extends _$MessageReactionEventCopyWithImpl<$Res, _$_ShowReactions>
-    implements _$$_ShowReactionsCopyWith<$Res> {
-  __$$_ShowReactionsCopyWithImpl(
-      _$_ShowReactions _value, $Res Function(_$_ShowReactions) _then)
+class __$$ShowReactionsImplCopyWithImpl<$Res>
+    extends _$MessageReactionEventCopyWithImpl<$Res, _$ShowReactionsImpl>
+    implements _$$ShowReactionsImplCopyWith<$Res> {
+  __$$ShowReactionsImplCopyWithImpl(
+      _$ShowReactionsImpl _value, $Res Function(_$ShowReactionsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +97,7 @@ class __$$_ShowReactionsCopyWithImpl<$Res>
   $Res call({
     Object? messageId = null,
   }) {
-    return _then(_$_ShowReactions(
+    return _then(_$ShowReactionsImpl(
       null == messageId
           ? _value.messageId
           : messageId // ignore: cast_nullable_to_non_nullable
@@ -108,8 +108,8 @@ class __$$_ShowReactionsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ShowReactions implements _ShowReactions {
-  const _$_ShowReactions(this.messageId);
+class _$ShowReactionsImpl implements _ShowReactions {
+  const _$ShowReactionsImpl(this.messageId);
 
   @override
   final String messageId;
@@ -120,10 +120,10 @@ class _$_ShowReactions implements _ShowReactions {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ShowReactions &&
+            other is _$ShowReactionsImpl &&
             (identical(other.messageId, messageId) ||
                 other.messageId == messageId));
   }
@@ -134,8 +134,8 @@ class _$_ShowReactions implements _ShowReactions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ShowReactionsCopyWith<_$_ShowReactions> get copyWith =>
-      __$$_ShowReactionsCopyWithImpl<_$_ShowReactions>(this, _$identity);
+  _$$ShowReactionsImplCopyWith<_$ShowReactionsImpl> get copyWith =>
+      __$$ShowReactionsImplCopyWithImpl<_$ShowReactionsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -201,34 +201,34 @@ class _$_ShowReactions implements _ShowReactions {
 }
 
 abstract class _ShowReactions implements MessageReactionEvent {
-  const factory _ShowReactions(final String messageId) = _$_ShowReactions;
+  const factory _ShowReactions(final String messageId) = _$ShowReactionsImpl;
 
   String get messageId;
   @JsonKey(ignore: true)
-  _$$_ShowReactionsCopyWith<_$_ShowReactions> get copyWith =>
+  _$$ShowReactionsImplCopyWith<_$ShowReactionsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_HideReactionsCopyWith<$Res> {
-  factory _$$_HideReactionsCopyWith(
-          _$_HideReactions value, $Res Function(_$_HideReactions) then) =
-      __$$_HideReactionsCopyWithImpl<$Res>;
+abstract class _$$HideReactionsImplCopyWith<$Res> {
+  factory _$$HideReactionsImplCopyWith(
+          _$HideReactionsImpl value, $Res Function(_$HideReactionsImpl) then) =
+      __$$HideReactionsImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_HideReactionsCopyWithImpl<$Res>
-    extends _$MessageReactionEventCopyWithImpl<$Res, _$_HideReactions>
-    implements _$$_HideReactionsCopyWith<$Res> {
-  __$$_HideReactionsCopyWithImpl(
-      _$_HideReactions _value, $Res Function(_$_HideReactions) _then)
+class __$$HideReactionsImplCopyWithImpl<$Res>
+    extends _$MessageReactionEventCopyWithImpl<$Res, _$HideReactionsImpl>
+    implements _$$HideReactionsImplCopyWith<$Res> {
+  __$$HideReactionsImplCopyWithImpl(
+      _$HideReactionsImpl _value, $Res Function(_$HideReactionsImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_HideReactions implements _HideReactions {
-  const _$_HideReactions();
+class _$HideReactionsImpl implements _HideReactions {
+  const _$HideReactionsImpl();
 
   @override
   String toString() {
@@ -236,9 +236,9 @@ class _$_HideReactions implements _HideReactions {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_HideReactions);
+        (other.runtimeType == runtimeType && other is _$HideReactionsImpl);
   }
 
   @override
@@ -308,7 +308,7 @@ class _$_HideReactions implements _HideReactions {
 }
 
 abstract class _HideReactions implements MessageReactionEvent {
-  const factory _HideReactions() = _$_HideReactions;
+  const factory _HideReactions() = _$HideReactionsImpl;
 }
 
 /// @nodoc
@@ -368,11 +368,11 @@ class _$MessageReactionStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_MessageReactionStateCopyWith<$Res>
+abstract class _$$MessageReactionStateImplCopyWith<$Res>
     implements $MessageReactionStateCopyWith<$Res> {
-  factory _$$_MessageReactionStateCopyWith(_$_MessageReactionState value,
-          $Res Function(_$_MessageReactionState) then) =
-      __$$_MessageReactionStateCopyWithImpl<$Res>;
+  factory _$$MessageReactionStateImplCopyWith(_$MessageReactionStateImpl value,
+          $Res Function(_$MessageReactionStateImpl) then) =
+      __$$MessageReactionStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -380,11 +380,11 @@ abstract class _$$_MessageReactionStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MessageReactionStateCopyWithImpl<$Res>
-    extends _$MessageReactionStateCopyWithImpl<$Res, _$_MessageReactionState>
-    implements _$$_MessageReactionStateCopyWith<$Res> {
-  __$$_MessageReactionStateCopyWithImpl(_$_MessageReactionState _value,
-      $Res Function(_$_MessageReactionState) _then)
+class __$$MessageReactionStateImplCopyWithImpl<$Res>
+    extends _$MessageReactionStateCopyWithImpl<$Res, _$MessageReactionStateImpl>
+    implements _$$MessageReactionStateImplCopyWith<$Res> {
+  __$$MessageReactionStateImplCopyWithImpl(_$MessageReactionStateImpl _value,
+      $Res Function(_$MessageReactionStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -394,7 +394,7 @@ class __$$_MessageReactionStateCopyWithImpl<$Res>
     Object? showEmojiReactions = null,
     Object? activeMessageId = freezed,
   }) {
-    return _then(_$_MessageReactionState(
+    return _then(_$MessageReactionStateImpl(
       showReactions: null == showReactions
           ? _value.showReactions
           : showReactions // ignore: cast_nullable_to_non_nullable
@@ -413,8 +413,8 @@ class __$$_MessageReactionStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_MessageReactionState implements _MessageReactionState {
-  const _$_MessageReactionState(
+class _$MessageReactionStateImpl implements _MessageReactionState {
+  const _$MessageReactionStateImpl(
       {this.showReactions = false,
       this.showEmojiReactions = false,
       this.activeMessageId});
@@ -434,10 +434,10 @@ class _$_MessageReactionState implements _MessageReactionState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MessageReactionState &&
+            other is _$MessageReactionStateImpl &&
             (identical(other.showReactions, showReactions) ||
                 other.showReactions == showReactions) &&
             (identical(other.showEmojiReactions, showEmojiReactions) ||
@@ -453,16 +453,17 @@ class _$_MessageReactionState implements _MessageReactionState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MessageReactionStateCopyWith<_$_MessageReactionState> get copyWith =>
-      __$$_MessageReactionStateCopyWithImpl<_$_MessageReactionState>(
-          this, _$identity);
+  _$$MessageReactionStateImplCopyWith<_$MessageReactionStateImpl>
+      get copyWith =>
+          __$$MessageReactionStateImplCopyWithImpl<_$MessageReactionStateImpl>(
+              this, _$identity);
 }
 
 abstract class _MessageReactionState implements MessageReactionState {
   const factory _MessageReactionState(
       {final bool showReactions,
       final bool showEmojiReactions,
-      final String? activeMessageId}) = _$_MessageReactionState;
+      final String? activeMessageId}) = _$MessageReactionStateImpl;
 
   @override
   bool get showReactions;
@@ -472,6 +473,6 @@ abstract class _MessageReactionState implements MessageReactionState {
   String? get activeMessageId;
   @override
   @JsonKey(ignore: true)
-  _$$_MessageReactionStateCopyWith<_$_MessageReactionState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$MessageReactionStateImplCopyWith<_$MessageReactionStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

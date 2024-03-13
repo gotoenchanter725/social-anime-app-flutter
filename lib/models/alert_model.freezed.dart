@@ -12,7 +12,7 @@ part of 'alert_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AlertModel {
@@ -75,22 +75,22 @@ class _$AlertModelCopyWithImpl<$Res, $Val extends AlertModel>
 }
 
 /// @nodoc
-abstract class _$$_AlertModelCopyWith<$Res>
+abstract class _$$AlertModelImplCopyWith<$Res>
     implements $AlertModelCopyWith<$Res> {
-  factory _$$_AlertModelCopyWith(
-          _$_AlertModel value, $Res Function(_$_AlertModel) then) =
-      __$$_AlertModelCopyWithImpl<$Res>;
+  factory _$$AlertModelImplCopyWith(
+          _$AlertModelImpl value, $Res Function(_$AlertModelImpl) then) =
+      __$$AlertModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String message, AlertType type, bool translatable, int? code});
 }
 
 /// @nodoc
-class __$$_AlertModelCopyWithImpl<$Res>
-    extends _$AlertModelCopyWithImpl<$Res, _$_AlertModel>
-    implements _$$_AlertModelCopyWith<$Res> {
-  __$$_AlertModelCopyWithImpl(
-      _$_AlertModel _value, $Res Function(_$_AlertModel) _then)
+class __$$AlertModelImplCopyWithImpl<$Res>
+    extends _$AlertModelCopyWithImpl<$Res, _$AlertModelImpl>
+    implements _$$AlertModelImplCopyWith<$Res> {
+  __$$AlertModelImplCopyWithImpl(
+      _$AlertModelImpl _value, $Res Function(_$AlertModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +101,7 @@ class __$$_AlertModelCopyWithImpl<$Res>
     Object? translatable = null,
     Object? code = freezed,
   }) {
-    return _then(_$_AlertModel(
+    return _then(_$AlertModelImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -124,8 +124,8 @@ class __$$_AlertModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AlertModel implements _AlertModel {
-  const _$_AlertModel(
+class _$AlertModelImpl implements _AlertModel {
+  const _$AlertModelImpl(
       {required this.message,
       required this.type,
       this.translatable = false,
@@ -147,10 +147,10 @@ class _$_AlertModel implements _AlertModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AlertModel &&
+            other is _$AlertModelImpl &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.translatable, translatable) ||
@@ -165,8 +165,8 @@ class _$_AlertModel implements _AlertModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AlertModelCopyWith<_$_AlertModel> get copyWith =>
-      __$$_AlertModelCopyWithImpl<_$_AlertModel>(this, _$identity);
+  _$$AlertModelImplCopyWith<_$AlertModelImpl> get copyWith =>
+      __$$AlertModelImplCopyWithImpl<_$AlertModelImpl>(this, _$identity);
 }
 
 abstract class _AlertModel implements AlertModel {
@@ -174,7 +174,7 @@ abstract class _AlertModel implements AlertModel {
       {required final String message,
       required final AlertType type,
       final bool translatable,
-      final int? code}) = _$_AlertModel;
+      final int? code}) = _$AlertModelImpl;
 
   @override
   String get message;
@@ -186,6 +186,6 @@ abstract class _AlertModel implements AlertModel {
   int? get code;
   @override
   @JsonKey(ignore: true)
-  _$$_AlertModelCopyWith<_$_AlertModel> get copyWith =>
+  _$$AlertModelImplCopyWith<_$AlertModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

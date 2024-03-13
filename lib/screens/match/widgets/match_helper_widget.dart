@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/home/bloc/home_storage_bloc.dart';
-import 'package:senpai/screens/profile_fill/occupation/widgets/university_dialog.dart';
 
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -53,13 +52,17 @@ class MatchHelperWidget extends StatelessWidget {
                           Text(
                             R.strings.bearWithUsTitle,
                             textAlign: TextAlign.center,
-                            style: getTextTheme(context).headlineSmall?.copyWith(color: $constants.palette.white),
+                            style: getTextTheme(context)
+                                .headlineSmall
+                                ?.copyWith(color: $constants.palette.white),
                           ),
                           const SizedBox(height: 16),
                           Text(
                             R.strings.bearWithUsDescription,
                             textAlign: TextAlign.center,
-                            style: getTextTheme(context).bodySmall?.copyWith(color: $constants.palette.white),
+                            style: getTextTheme(context)
+                                .bodySmall
+                                ?.copyWith(color: $constants.palette.white),
                           ),
                         ],
                       ),
@@ -106,12 +109,18 @@ class MatchHelperWidget extends StatelessWidget {
           Text(
             isLike ? R.strings.likeWhatYouSeeTitle : R.strings.notForYouTitle,
             textAlign: TextAlign.center,
-            style: getTextTheme(context).headlineSmall?.copyWith(color: $constants.palette.white),
+            style: getTextTheme(context)
+                .headlineSmall
+                ?.copyWith(color: $constants.palette.white),
           ),
           Text(
-            isLike ? R.strings.swipeRightDescription : R.strings.swipeLeftDescription,
+            isLike
+                ? R.strings.swipeRightDescription
+                : R.strings.swipeLeftDescription,
             textAlign: TextAlign.center,
-            style: getTextTheme(context).labelMedium?.copyWith(color: $constants.palette.white),
+            style: getTextTheme(context)
+                .labelMedium
+                ?.copyWith(color: $constants.palette.white),
           ),
         ],
       ),

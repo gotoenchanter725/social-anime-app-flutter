@@ -12,7 +12,7 @@ part of 'pending_messages_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$PendingMessagesEvent {
@@ -96,22 +96,22 @@ class _$PendingMessagesEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$AddMessageCopyWith<$Res>
+abstract class _$$AddMessageImplCopyWith<$Res>
     implements $PendingMessagesEventCopyWith<$Res> {
-  factory _$$AddMessageCopyWith(
-          _$AddMessage value, $Res Function(_$AddMessage) then) =
-      __$$AddMessageCopyWithImpl<$Res>;
+  factory _$$AddMessageImplCopyWith(
+          _$AddMessageImpl value, $Res Function(_$AddMessageImpl) then) =
+      __$$AddMessageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String channelId, ChatMessage message});
 }
 
 /// @nodoc
-class __$$AddMessageCopyWithImpl<$Res>
-    extends _$PendingMessagesEventCopyWithImpl<$Res, _$AddMessage>
-    implements _$$AddMessageCopyWith<$Res> {
-  __$$AddMessageCopyWithImpl(
-      _$AddMessage _value, $Res Function(_$AddMessage) _then)
+class __$$AddMessageImplCopyWithImpl<$Res>
+    extends _$PendingMessagesEventCopyWithImpl<$Res, _$AddMessageImpl>
+    implements _$$AddMessageImplCopyWith<$Res> {
+  __$$AddMessageImplCopyWithImpl(
+      _$AddMessageImpl _value, $Res Function(_$AddMessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +120,7 @@ class __$$AddMessageCopyWithImpl<$Res>
     Object? channelId = null,
     Object? message = null,
   }) {
-    return _then(_$AddMessage(
+    return _then(_$AddMessageImpl(
       channelId: null == channelId
           ? _value.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
@@ -135,8 +135,8 @@ class __$$AddMessageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AddMessage implements AddMessage {
-  const _$AddMessage({required this.channelId, required this.message});
+class _$AddMessageImpl implements AddMessage {
+  const _$AddMessageImpl({required this.channelId, required this.message});
 
   @override
   final String channelId;
@@ -149,10 +149,10 @@ class _$AddMessage implements AddMessage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AddMessage &&
+            other is _$AddMessageImpl &&
             (identical(other.channelId, channelId) ||
                 other.channelId == channelId) &&
             (identical(other.message, message) || other.message == message));
@@ -164,8 +164,8 @@ class _$AddMessage implements AddMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AddMessageCopyWith<_$AddMessage> get copyWith =>
-      __$$AddMessageCopyWithImpl<_$AddMessage>(this, _$identity);
+  _$$AddMessageImplCopyWith<_$AddMessageImpl> get copyWith =>
+      __$$AddMessageImplCopyWithImpl<_$AddMessageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -233,34 +233,34 @@ class _$AddMessage implements AddMessage {
 abstract class AddMessage implements PendingMessagesEvent {
   const factory AddMessage(
       {required final String channelId,
-      required final ChatMessage message}) = _$AddMessage;
+      required final ChatMessage message}) = _$AddMessageImpl;
 
   @override
   String get channelId;
   ChatMessage get message;
   @override
   @JsonKey(ignore: true)
-  _$$AddMessageCopyWith<_$AddMessage> get copyWith =>
+  _$$AddMessageImplCopyWith<_$AddMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RemoveMessageCopyWith<$Res>
+abstract class _$$RemoveMessageImplCopyWith<$Res>
     implements $PendingMessagesEventCopyWith<$Res> {
-  factory _$$RemoveMessageCopyWith(
-          _$RemoveMessage value, $Res Function(_$RemoveMessage) then) =
-      __$$RemoveMessageCopyWithImpl<$Res>;
+  factory _$$RemoveMessageImplCopyWith(
+          _$RemoveMessageImpl value, $Res Function(_$RemoveMessageImpl) then) =
+      __$$RemoveMessageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String channelId, String messageId});
 }
 
 /// @nodoc
-class __$$RemoveMessageCopyWithImpl<$Res>
-    extends _$PendingMessagesEventCopyWithImpl<$Res, _$RemoveMessage>
-    implements _$$RemoveMessageCopyWith<$Res> {
-  __$$RemoveMessageCopyWithImpl(
-      _$RemoveMessage _value, $Res Function(_$RemoveMessage) _then)
+class __$$RemoveMessageImplCopyWithImpl<$Res>
+    extends _$PendingMessagesEventCopyWithImpl<$Res, _$RemoveMessageImpl>
+    implements _$$RemoveMessageImplCopyWith<$Res> {
+  __$$RemoveMessageImplCopyWithImpl(
+      _$RemoveMessageImpl _value, $Res Function(_$RemoveMessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -269,7 +269,7 @@ class __$$RemoveMessageCopyWithImpl<$Res>
     Object? channelId = null,
     Object? messageId = null,
   }) {
-    return _then(_$RemoveMessage(
+    return _then(_$RemoveMessageImpl(
       channelId: null == channelId
           ? _value.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
@@ -284,8 +284,8 @@ class __$$RemoveMessageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RemoveMessage implements RemoveMessage {
-  const _$RemoveMessage({required this.channelId, required this.messageId});
+class _$RemoveMessageImpl implements RemoveMessage {
+  const _$RemoveMessageImpl({required this.channelId, required this.messageId});
 
   @override
   final String channelId;
@@ -298,10 +298,10 @@ class _$RemoveMessage implements RemoveMessage {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RemoveMessage &&
+            other is _$RemoveMessageImpl &&
             (identical(other.channelId, channelId) ||
                 other.channelId == channelId) &&
             (identical(other.messageId, messageId) ||
@@ -314,8 +314,8 @@ class _$RemoveMessage implements RemoveMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RemoveMessageCopyWith<_$RemoveMessage> get copyWith =>
-      __$$RemoveMessageCopyWithImpl<_$RemoveMessage>(this, _$identity);
+  _$$RemoveMessageImplCopyWith<_$RemoveMessageImpl> get copyWith =>
+      __$$RemoveMessageImplCopyWithImpl<_$RemoveMessageImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -383,14 +383,14 @@ class _$RemoveMessage implements RemoveMessage {
 abstract class RemoveMessage implements PendingMessagesEvent {
   const factory RemoveMessage(
       {required final String channelId,
-      required final String messageId}) = _$RemoveMessage;
+      required final String messageId}) = _$RemoveMessageImpl;
 
   @override
   String get channelId;
   String get messageId;
   @override
   @JsonKey(ignore: true)
-  _$$RemoveMessageCopyWith<_$RemoveMessage> get copyWith =>
+  _$$RemoveMessageImplCopyWith<_$RemoveMessageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -439,22 +439,22 @@ class _$PendingMessagesStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PendingMessagesStateCopyWith<$Res>
+abstract class _$$PendingMessagesStateImplCopyWith<$Res>
     implements $PendingMessagesStateCopyWith<$Res> {
-  factory _$$_PendingMessagesStateCopyWith(_$_PendingMessagesState value,
-          $Res Function(_$_PendingMessagesState) then) =
-      __$$_PendingMessagesStateCopyWithImpl<$Res>;
+  factory _$$PendingMessagesStateImplCopyWith(_$PendingMessagesStateImpl value,
+          $Res Function(_$PendingMessagesStateImpl) then) =
+      __$$PendingMessagesStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Map<String, Queue<ChatMessage>> messagesQueue});
 }
 
 /// @nodoc
-class __$$_PendingMessagesStateCopyWithImpl<$Res>
-    extends _$PendingMessagesStateCopyWithImpl<$Res, _$_PendingMessagesState>
-    implements _$$_PendingMessagesStateCopyWith<$Res> {
-  __$$_PendingMessagesStateCopyWithImpl(_$_PendingMessagesState _value,
-      $Res Function(_$_PendingMessagesState) _then)
+class __$$PendingMessagesStateImplCopyWithImpl<$Res>
+    extends _$PendingMessagesStateCopyWithImpl<$Res, _$PendingMessagesStateImpl>
+    implements _$$PendingMessagesStateImplCopyWith<$Res> {
+  __$$PendingMessagesStateImplCopyWithImpl(_$PendingMessagesStateImpl _value,
+      $Res Function(_$PendingMessagesStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -462,7 +462,7 @@ class __$$_PendingMessagesStateCopyWithImpl<$Res>
   $Res call({
     Object? messagesQueue = null,
   }) {
-    return _then(_$_PendingMessagesState(
+    return _then(_$PendingMessagesStateImpl(
       messagesQueue: null == messagesQueue
           ? _value._messagesQueue
           : messagesQueue // ignore: cast_nullable_to_non_nullable
@@ -473,8 +473,8 @@ class __$$_PendingMessagesStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PendingMessagesState implements _PendingMessagesState {
-  const _$_PendingMessagesState(
+class _$PendingMessagesStateImpl implements _PendingMessagesState {
+  const _$PendingMessagesStateImpl(
       {final Map<String, Queue<ChatMessage>> messagesQueue = const {}})
       : _messagesQueue = messagesQueue;
 
@@ -493,10 +493,10 @@ class _$_PendingMessagesState implements _PendingMessagesState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PendingMessagesState &&
+            other is _$PendingMessagesStateImpl &&
             const DeepCollectionEquality()
                 .equals(other._messagesQueue, _messagesQueue));
   }
@@ -508,20 +508,21 @@ class _$_PendingMessagesState implements _PendingMessagesState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PendingMessagesStateCopyWith<_$_PendingMessagesState> get copyWith =>
-      __$$_PendingMessagesStateCopyWithImpl<_$_PendingMessagesState>(
-          this, _$identity);
+  _$$PendingMessagesStateImplCopyWith<_$PendingMessagesStateImpl>
+      get copyWith =>
+          __$$PendingMessagesStateImplCopyWithImpl<_$PendingMessagesStateImpl>(
+              this, _$identity);
 }
 
 abstract class _PendingMessagesState implements PendingMessagesState {
   const factory _PendingMessagesState(
           {final Map<String, Queue<ChatMessage>> messagesQueue}) =
-      _$_PendingMessagesState;
+      _$PendingMessagesStateImpl;
 
   @override
   Map<String, Queue<ChatMessage>> get messagesQueue;
   @override
   @JsonKey(ignore: true)
-  _$$_PendingMessagesStateCopyWith<_$_PendingMessagesState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$PendingMessagesStateImplCopyWith<_$PendingMessagesStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,7 +12,7 @@ part of 'device_token_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 DeviceTokenModel _$DeviceTokenModelFromJson(Map<String, dynamic> json) {
   return _DeviceTokenModel.fromJson(json);
@@ -62,22 +62,22 @@ class _$DeviceTokenModelCopyWithImpl<$Res, $Val extends DeviceTokenModel>
 }
 
 /// @nodoc
-abstract class _$$_DeviceTokenModelCopyWith<$Res>
+abstract class _$$DeviceTokenModelImplCopyWith<$Res>
     implements $DeviceTokenModelCopyWith<$Res> {
-  factory _$$_DeviceTokenModelCopyWith(
-          _$_DeviceTokenModel value, $Res Function(_$_DeviceTokenModel) then) =
-      __$$_DeviceTokenModelCopyWithImpl<$Res>;
+  factory _$$DeviceTokenModelImplCopyWith(_$DeviceTokenModelImpl value,
+          $Res Function(_$DeviceTokenModelImpl) then) =
+      __$$DeviceTokenModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String token});
 }
 
 /// @nodoc
-class __$$_DeviceTokenModelCopyWithImpl<$Res>
-    extends _$DeviceTokenModelCopyWithImpl<$Res, _$_DeviceTokenModel>
-    implements _$$_DeviceTokenModelCopyWith<$Res> {
-  __$$_DeviceTokenModelCopyWithImpl(
-      _$_DeviceTokenModel _value, $Res Function(_$_DeviceTokenModel) _then)
+class __$$DeviceTokenModelImplCopyWithImpl<$Res>
+    extends _$DeviceTokenModelCopyWithImpl<$Res, _$DeviceTokenModelImpl>
+    implements _$$DeviceTokenModelImplCopyWith<$Res> {
+  __$$DeviceTokenModelImplCopyWithImpl(_$DeviceTokenModelImpl _value,
+      $Res Function(_$DeviceTokenModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_DeviceTokenModelCopyWithImpl<$Res>
   $Res call({
     Object? token = null,
   }) {
-    return _then(_$_DeviceTokenModel(
+    return _then(_$DeviceTokenModelImpl(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_DeviceTokenModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DeviceTokenModel implements _DeviceTokenModel {
-  const _$_DeviceTokenModel({required this.token});
+class _$DeviceTokenModelImpl implements _DeviceTokenModel {
+  const _$DeviceTokenModelImpl({required this.token});
 
-  factory _$_DeviceTokenModel.fromJson(Map<String, dynamic> json) =>
-      _$$_DeviceTokenModelFromJson(json);
+  factory _$DeviceTokenModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DeviceTokenModelImplFromJson(json);
 
   @override
   final String token;
@@ -111,10 +111,10 @@ class _$_DeviceTokenModel implements _DeviceTokenModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DeviceTokenModel &&
+            other is _$DeviceTokenModelImpl &&
             (identical(other.token, token) || other.token == token));
   }
 
@@ -125,12 +125,13 @@ class _$_DeviceTokenModel implements _DeviceTokenModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DeviceTokenModelCopyWith<_$_DeviceTokenModel> get copyWith =>
-      __$$_DeviceTokenModelCopyWithImpl<_$_DeviceTokenModel>(this, _$identity);
+  _$$DeviceTokenModelImplCopyWith<_$DeviceTokenModelImpl> get copyWith =>
+      __$$DeviceTokenModelImplCopyWithImpl<_$DeviceTokenModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DeviceTokenModelToJson(
+    return _$$DeviceTokenModelImplToJson(
       this,
     );
   }
@@ -138,15 +139,15 @@ class _$_DeviceTokenModel implements _DeviceTokenModel {
 
 abstract class _DeviceTokenModel implements DeviceTokenModel {
   const factory _DeviceTokenModel({required final String token}) =
-      _$_DeviceTokenModel;
+      _$DeviceTokenModelImpl;
 
   factory _DeviceTokenModel.fromJson(Map<String, dynamic> json) =
-      _$_DeviceTokenModel.fromJson;
+      _$DeviceTokenModelImpl.fromJson;
 
   @override
   String get token;
   @override
   @JsonKey(ignore: true)
-  _$$_DeviceTokenModelCopyWith<_$_DeviceTokenModel> get copyWith =>
+  _$$DeviceTokenModelImplCopyWith<_$DeviceTokenModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

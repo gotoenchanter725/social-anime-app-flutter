@@ -6,9 +6,9 @@ part of 'spotify_artist_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SpotifyArtistModel _$$_SpotifyArtistModelFromJson(
+_$SpotifyArtistModelImpl _$$SpotifyArtistModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_SpotifyArtistModel(
+    _$SpotifyArtistModelImpl(
       id: json['id'] as String,
       name: json['name'] as String,
       images: (json['images'] as List<dynamic>?)
@@ -16,8 +16,8 @@ _$_SpotifyArtistModel _$$_SpotifyArtistModelFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_SpotifyArtistModelToJson(
-        _$_SpotifyArtistModel instance) =>
+Map<String, dynamic> _$$SpotifyArtistModelImplToJson(
+        _$SpotifyArtistModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

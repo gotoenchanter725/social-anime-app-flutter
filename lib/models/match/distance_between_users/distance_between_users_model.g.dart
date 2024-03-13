@@ -6,14 +6,14 @@ part of 'distance_between_users_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DistanceBetweenUsersModel _$$_DistanceBetweenUsersModelFromJson(
+_$DistanceBetweenUsersModelImpl _$$DistanceBetweenUsersModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$_DistanceBetweenUsersModel(
+    _$DistanceBetweenUsersModelImpl(
       mi: json['mi'] as int,
     );
 
-Map<String, dynamic> _$$_DistanceBetweenUsersModelToJson(
-        _$_DistanceBetweenUsersModel instance) =>
+Map<String, dynamic> _$$DistanceBetweenUsersModelImplToJson(
+        _$DistanceBetweenUsersModelImpl instance) =>
     <String, dynamic>{
       'mi': instance.mi,
     };

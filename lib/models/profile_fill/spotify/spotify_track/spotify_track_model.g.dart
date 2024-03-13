@@ -6,15 +6,16 @@ part of 'spotify_track_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SpotifyTrackModel _$$_SpotifyTrackModelFromJson(Map<String, dynamic> json) =>
-    _$_SpotifyTrackModel(
+_$SpotifyTrackModelImpl _$$SpotifyTrackModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SpotifyTrackModelImpl(
       id: json['id'] as String,
       name: json['name'] as String,
       album: SpotifyAlbumModel.fromJson(json['album'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_SpotifyTrackModelToJson(
-        _$_SpotifyTrackModel instance) =>
+Map<String, dynamic> _$$SpotifyTrackModelImplToJson(
+        _$SpotifyTrackModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

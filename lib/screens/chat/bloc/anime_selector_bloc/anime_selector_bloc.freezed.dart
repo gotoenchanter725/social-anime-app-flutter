@@ -12,7 +12,7 @@ part of 'anime_selector_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AnimeSelectorEvent {
@@ -94,25 +94,25 @@ class _$AnimeSelectorEventCopyWithImpl<$Res, $Val extends AnimeSelectorEvent>
 }
 
 /// @nodoc
-abstract class _$$_ToggleSearchModeCopyWith<$Res> {
-  factory _$$_ToggleSearchModeCopyWith(
-          _$_ToggleSearchMode value, $Res Function(_$_ToggleSearchMode) then) =
-      __$$_ToggleSearchModeCopyWithImpl<$Res>;
+abstract class _$$ToggleSearchModeImplCopyWith<$Res> {
+  factory _$$ToggleSearchModeImplCopyWith(_$ToggleSearchModeImpl value,
+          $Res Function(_$ToggleSearchModeImpl) then) =
+      __$$ToggleSearchModeImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_ToggleSearchModeCopyWithImpl<$Res>
-    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_ToggleSearchMode>
-    implements _$$_ToggleSearchModeCopyWith<$Res> {
-  __$$_ToggleSearchModeCopyWithImpl(
-      _$_ToggleSearchMode _value, $Res Function(_$_ToggleSearchMode) _then)
+class __$$ToggleSearchModeImplCopyWithImpl<$Res>
+    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$ToggleSearchModeImpl>
+    implements _$$ToggleSearchModeImplCopyWith<$Res> {
+  __$$ToggleSearchModeImplCopyWithImpl(_$ToggleSearchModeImpl _value,
+      $Res Function(_$ToggleSearchModeImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_ToggleSearchMode implements _ToggleSearchMode {
-  const _$_ToggleSearchMode();
+class _$ToggleSearchModeImpl implements _ToggleSearchMode {
+  const _$ToggleSearchModeImpl();
 
   @override
   String toString() {
@@ -120,9 +120,9 @@ class _$_ToggleSearchMode implements _ToggleSearchMode {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ToggleSearchMode);
+        (other.runtimeType == runtimeType && other is _$ToggleSearchModeImpl);
   }
 
   @override
@@ -211,14 +211,14 @@ class _$_ToggleSearchMode implements _ToggleSearchMode {
 }
 
 abstract class _ToggleSearchMode implements AnimeSelectorEvent {
-  const factory _ToggleSearchMode() = _$_ToggleSearchMode;
+  const factory _ToggleSearchMode() = _$ToggleSearchModeImpl;
 }
 
 /// @nodoc
-abstract class _$$_SelectAnimeCopyWith<$Res> {
-  factory _$$_SelectAnimeCopyWith(
-          _$_SelectAnime value, $Res Function(_$_SelectAnime) then) =
-      __$$_SelectAnimeCopyWithImpl<$Res>;
+abstract class _$$SelectAnimeImplCopyWith<$Res> {
+  factory _$$SelectAnimeImplCopyWith(
+          _$SelectAnimeImpl value, $Res Function(_$SelectAnimeImpl) then) =
+      __$$SelectAnimeImplCopyWithImpl<$Res>;
   @useResult
   $Res call({AnimeModel selectedAnime});
 
@@ -226,11 +226,11 @@ abstract class _$$_SelectAnimeCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SelectAnimeCopyWithImpl<$Res>
-    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_SelectAnime>
-    implements _$$_SelectAnimeCopyWith<$Res> {
-  __$$_SelectAnimeCopyWithImpl(
-      _$_SelectAnime _value, $Res Function(_$_SelectAnime) _then)
+class __$$SelectAnimeImplCopyWithImpl<$Res>
+    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$SelectAnimeImpl>
+    implements _$$SelectAnimeImplCopyWith<$Res> {
+  __$$SelectAnimeImplCopyWithImpl(
+      _$SelectAnimeImpl _value, $Res Function(_$SelectAnimeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -238,7 +238,7 @@ class __$$_SelectAnimeCopyWithImpl<$Res>
   $Res call({
     Object? selectedAnime = null,
   }) {
-    return _then(_$_SelectAnime(
+    return _then(_$SelectAnimeImpl(
       null == selectedAnime
           ? _value.selectedAnime
           : selectedAnime // ignore: cast_nullable_to_non_nullable
@@ -257,8 +257,8 @@ class __$$_SelectAnimeCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SelectAnime implements _SelectAnime {
-  const _$_SelectAnime(this.selectedAnime);
+class _$SelectAnimeImpl implements _SelectAnime {
+  const _$SelectAnimeImpl(this.selectedAnime);
 
   @override
   final AnimeModel selectedAnime;
@@ -269,10 +269,10 @@ class _$_SelectAnime implements _SelectAnime {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SelectAnime &&
+            other is _$SelectAnimeImpl &&
             (identical(other.selectedAnime, selectedAnime) ||
                 other.selectedAnime == selectedAnime));
   }
@@ -283,8 +283,8 @@ class _$_SelectAnime implements _SelectAnime {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_SelectAnimeCopyWith<_$_SelectAnime> get copyWith =>
-      __$$_SelectAnimeCopyWithImpl<_$_SelectAnime>(this, _$identity);
+  _$$SelectAnimeImplCopyWith<_$SelectAnimeImpl> get copyWith =>
+      __$$SelectAnimeImplCopyWithImpl<_$SelectAnimeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -369,29 +369,30 @@ class _$_SelectAnime implements _SelectAnime {
 }
 
 abstract class _SelectAnime implements AnimeSelectorEvent {
-  const factory _SelectAnime(final AnimeModel selectedAnime) = _$_SelectAnime;
+  const factory _SelectAnime(final AnimeModel selectedAnime) =
+      _$SelectAnimeImpl;
 
   AnimeModel get selectedAnime;
   @JsonKey(ignore: true)
-  _$$_SelectAnimeCopyWith<_$_SelectAnime> get copyWith =>
+  _$$SelectAnimeImplCopyWith<_$SelectAnimeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_UpdateDescriptionCopyWith<$Res> {
-  factory _$$_UpdateDescriptionCopyWith(_$_UpdateDescription value,
-          $Res Function(_$_UpdateDescription) then) =
-      __$$_UpdateDescriptionCopyWithImpl<$Res>;
+abstract class _$$UpdateDescriptionImplCopyWith<$Res> {
+  factory _$$UpdateDescriptionImplCopyWith(_$UpdateDescriptionImpl value,
+          $Res Function(_$UpdateDescriptionImpl) then) =
+      __$$UpdateDescriptionImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String description});
 }
 
 /// @nodoc
-class __$$_UpdateDescriptionCopyWithImpl<$Res>
-    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_UpdateDescription>
-    implements _$$_UpdateDescriptionCopyWith<$Res> {
-  __$$_UpdateDescriptionCopyWithImpl(
-      _$_UpdateDescription _value, $Res Function(_$_UpdateDescription) _then)
+class __$$UpdateDescriptionImplCopyWithImpl<$Res>
+    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$UpdateDescriptionImpl>
+    implements _$$UpdateDescriptionImplCopyWith<$Res> {
+  __$$UpdateDescriptionImplCopyWithImpl(_$UpdateDescriptionImpl _value,
+      $Res Function(_$UpdateDescriptionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -399,7 +400,7 @@ class __$$_UpdateDescriptionCopyWithImpl<$Res>
   $Res call({
     Object? description = null,
   }) {
-    return _then(_$_UpdateDescription(
+    return _then(_$UpdateDescriptionImpl(
       null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -410,8 +411,8 @@ class __$$_UpdateDescriptionCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateDescription implements _UpdateDescription {
-  const _$_UpdateDescription(this.description);
+class _$UpdateDescriptionImpl implements _UpdateDescription {
+  const _$UpdateDescriptionImpl(this.description);
 
   @override
   final String description;
@@ -422,10 +423,10 @@ class _$_UpdateDescription implements _UpdateDescription {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdateDescription &&
+            other is _$UpdateDescriptionImpl &&
             (identical(other.description, description) ||
                 other.description == description));
   }
@@ -436,8 +437,8 @@ class _$_UpdateDescription implements _UpdateDescription {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdateDescriptionCopyWith<_$_UpdateDescription> get copyWith =>
-      __$$_UpdateDescriptionCopyWithImpl<_$_UpdateDescription>(
+  _$$UpdateDescriptionImplCopyWith<_$UpdateDescriptionImpl> get copyWith =>
+      __$$UpdateDescriptionImplCopyWithImpl<_$UpdateDescriptionImpl>(
           this, _$identity);
 
   @override
@@ -524,29 +525,29 @@ class _$_UpdateDescription implements _UpdateDescription {
 
 abstract class _UpdateDescription implements AnimeSelectorEvent {
   const factory _UpdateDescription(final String description) =
-      _$_UpdateDescription;
+      _$UpdateDescriptionImpl;
 
   String get description;
   @JsonKey(ignore: true)
-  _$$_UpdateDescriptionCopyWith<_$_UpdateDescription> get copyWith =>
+  _$$UpdateDescriptionImplCopyWith<_$UpdateDescriptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_PerformSearchCopyWith<$Res> {
-  factory _$$_PerformSearchCopyWith(
-          _$_PerformSearch value, $Res Function(_$_PerformSearch) then) =
-      __$$_PerformSearchCopyWithImpl<$Res>;
+abstract class _$$PerformSearchImplCopyWith<$Res> {
+  factory _$$PerformSearchImplCopyWith(
+          _$PerformSearchImpl value, $Res Function(_$PerformSearchImpl) then) =
+      __$$PerformSearchImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String query});
 }
 
 /// @nodoc
-class __$$_PerformSearchCopyWithImpl<$Res>
-    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_PerformSearch>
-    implements _$$_PerformSearchCopyWith<$Res> {
-  __$$_PerformSearchCopyWithImpl(
-      _$_PerformSearch _value, $Res Function(_$_PerformSearch) _then)
+class __$$PerformSearchImplCopyWithImpl<$Res>
+    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$PerformSearchImpl>
+    implements _$$PerformSearchImplCopyWith<$Res> {
+  __$$PerformSearchImplCopyWithImpl(
+      _$PerformSearchImpl _value, $Res Function(_$PerformSearchImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -554,7 +555,7 @@ class __$$_PerformSearchCopyWithImpl<$Res>
   $Res call({
     Object? query = null,
   }) {
-    return _then(_$_PerformSearch(
+    return _then(_$PerformSearchImpl(
       null == query
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
@@ -565,8 +566,8 @@ class __$$_PerformSearchCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PerformSearch implements _PerformSearch {
-  const _$_PerformSearch(this.query);
+class _$PerformSearchImpl implements _PerformSearch {
+  const _$PerformSearchImpl(this.query);
 
   @override
   final String query;
@@ -577,10 +578,10 @@ class _$_PerformSearch implements _PerformSearch {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PerformSearch &&
+            other is _$PerformSearchImpl &&
             (identical(other.query, query) || other.query == query));
   }
 
@@ -590,8 +591,8 @@ class _$_PerformSearch implements _PerformSearch {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PerformSearchCopyWith<_$_PerformSearch> get copyWith =>
-      __$$_PerformSearchCopyWithImpl<_$_PerformSearch>(this, _$identity);
+  _$$PerformSearchImplCopyWith<_$PerformSearchImpl> get copyWith =>
+      __$$PerformSearchImplCopyWithImpl<_$PerformSearchImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -676,29 +677,29 @@ class _$_PerformSearch implements _PerformSearch {
 }
 
 abstract class _PerformSearch implements AnimeSelectorEvent {
-  const factory _PerformSearch(final String query) = _$_PerformSearch;
+  const factory _PerformSearch(final String query) = _$PerformSearchImpl;
 
   String get query;
   @JsonKey(ignore: true)
-  _$$_PerformSearchCopyWith<_$_PerformSearch> get copyWith =>
+  _$$PerformSearchImplCopyWith<_$PerformSearchImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_UpdatePaginationCopyWith<$Res> {
-  factory _$$_UpdatePaginationCopyWith(
-          _$_UpdatePagination value, $Res Function(_$_UpdatePagination) then) =
-      __$$_UpdatePaginationCopyWithImpl<$Res>;
+abstract class _$$UpdatePaginationImplCopyWith<$Res> {
+  factory _$$UpdatePaginationImplCopyWith(_$UpdatePaginationImpl value,
+          $Res Function(_$UpdatePaginationImpl) then) =
+      __$$UpdatePaginationImplCopyWithImpl<$Res>;
   @useResult
   $Res call({bool needUpdatePagination, int page});
 }
 
 /// @nodoc
-class __$$_UpdatePaginationCopyWithImpl<$Res>
-    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$_UpdatePagination>
-    implements _$$_UpdatePaginationCopyWith<$Res> {
-  __$$_UpdatePaginationCopyWithImpl(
-      _$_UpdatePagination _value, $Res Function(_$_UpdatePagination) _then)
+class __$$UpdatePaginationImplCopyWithImpl<$Res>
+    extends _$AnimeSelectorEventCopyWithImpl<$Res, _$UpdatePaginationImpl>
+    implements _$$UpdatePaginationImplCopyWith<$Res> {
+  __$$UpdatePaginationImplCopyWithImpl(_$UpdatePaginationImpl _value,
+      $Res Function(_$UpdatePaginationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -707,7 +708,7 @@ class __$$_UpdatePaginationCopyWithImpl<$Res>
     Object? needUpdatePagination = null,
     Object? page = null,
   }) {
-    return _then(_$_UpdatePagination(
+    return _then(_$UpdatePaginationImpl(
       needUpdatePagination: null == needUpdatePagination
           ? _value.needUpdatePagination
           : needUpdatePagination // ignore: cast_nullable_to_non_nullable
@@ -722,8 +723,8 @@ class __$$_UpdatePaginationCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdatePagination implements _UpdatePagination {
-  const _$_UpdatePagination(
+class _$UpdatePaginationImpl implements _UpdatePagination {
+  const _$UpdatePaginationImpl(
       {required this.needUpdatePagination, required this.page});
 
   @override
@@ -737,10 +738,10 @@ class _$_UpdatePagination implements _UpdatePagination {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UpdatePagination &&
+            other is _$UpdatePaginationImpl &&
             (identical(other.needUpdatePagination, needUpdatePagination) ||
                 other.needUpdatePagination == needUpdatePagination) &&
             (identical(other.page, page) || other.page == page));
@@ -752,8 +753,9 @@ class _$_UpdatePagination implements _UpdatePagination {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UpdatePaginationCopyWith<_$_UpdatePagination> get copyWith =>
-      __$$_UpdatePaginationCopyWithImpl<_$_UpdatePagination>(this, _$identity);
+  _$$UpdatePaginationImplCopyWith<_$UpdatePaginationImpl> get copyWith =>
+      __$$UpdatePaginationImplCopyWithImpl<_$UpdatePaginationImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -840,12 +842,12 @@ class _$_UpdatePagination implements _UpdatePagination {
 abstract class _UpdatePagination implements AnimeSelectorEvent {
   const factory _UpdatePagination(
       {required final bool needUpdatePagination,
-      required final int page}) = _$_UpdatePagination;
+      required final int page}) = _$UpdatePaginationImpl;
 
   bool get needUpdatePagination;
   int get page;
   @JsonKey(ignore: true)
-  _$$_UpdatePaginationCopyWith<_$_UpdatePagination> get copyWith =>
+  _$$UpdatePaginationImplCopyWith<_$UpdatePaginationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -942,11 +944,11 @@ class _$AnimeSelectorStateCopyWithImpl<$Res, $Val extends AnimeSelectorState>
 }
 
 /// @nodoc
-abstract class _$$_AnimeSelectorStateCopyWith<$Res>
+abstract class _$$AnimeSelectorStateImplCopyWith<$Res>
     implements $AnimeSelectorStateCopyWith<$Res> {
-  factory _$$_AnimeSelectorStateCopyWith(_$_AnimeSelectorState value,
-          $Res Function(_$_AnimeSelectorState) then) =
-      __$$_AnimeSelectorStateCopyWithImpl<$Res>;
+  factory _$$AnimeSelectorStateImplCopyWith(_$AnimeSelectorStateImpl value,
+          $Res Function(_$AnimeSelectorStateImpl) then) =
+      __$$AnimeSelectorStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -962,11 +964,11 @@ abstract class _$$_AnimeSelectorStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_AnimeSelectorStateCopyWithImpl<$Res>
-    extends _$AnimeSelectorStateCopyWithImpl<$Res, _$_AnimeSelectorState>
-    implements _$$_AnimeSelectorStateCopyWith<$Res> {
-  __$$_AnimeSelectorStateCopyWithImpl(
-      _$_AnimeSelectorState _value, $Res Function(_$_AnimeSelectorState) _then)
+class __$$AnimeSelectorStateImplCopyWithImpl<$Res>
+    extends _$AnimeSelectorStateCopyWithImpl<$Res, _$AnimeSelectorStateImpl>
+    implements _$$AnimeSelectorStateImplCopyWith<$Res> {
+  __$$AnimeSelectorStateImplCopyWithImpl(_$AnimeSelectorStateImpl _value,
+      $Res Function(_$AnimeSelectorStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -979,7 +981,7 @@ class __$$_AnimeSelectorStateCopyWithImpl<$Res>
     Object? needUpdatePagination = null,
     Object? searchText = null,
   }) {
-    return _then(_$_AnimeSelectorState(
+    return _then(_$AnimeSelectorStateImpl(
       isSearchMode: null == isSearchMode
           ? _value.isSearchMode
           : isSearchMode // ignore: cast_nullable_to_non_nullable
@@ -1010,8 +1012,8 @@ class __$$_AnimeSelectorStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnimeSelectorState implements _AnimeSelectorState {
-  const _$_AnimeSelectorState(
+class _$AnimeSelectorStateImpl implements _AnimeSelectorState {
+  const _$AnimeSelectorStateImpl(
       {this.isSearchMode = false,
       this.selectedAnime,
       this.description,
@@ -1042,10 +1044,10 @@ class _$_AnimeSelectorState implements _AnimeSelectorState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_AnimeSelectorState &&
+            other is _$AnimeSelectorStateImpl &&
             (identical(other.isSearchMode, isSearchMode) ||
                 other.isSearchMode == isSearchMode) &&
             (identical(other.selectedAnime, selectedAnime) ||
@@ -1066,8 +1068,8 @@ class _$_AnimeSelectorState implements _AnimeSelectorState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AnimeSelectorStateCopyWith<_$_AnimeSelectorState> get copyWith =>
-      __$$_AnimeSelectorStateCopyWithImpl<_$_AnimeSelectorState>(
+  _$$AnimeSelectorStateImplCopyWith<_$AnimeSelectorStateImpl> get copyWith =>
+      __$$AnimeSelectorStateImplCopyWithImpl<_$AnimeSelectorStateImpl>(
           this, _$identity);
 }
 
@@ -1078,7 +1080,7 @@ abstract class _AnimeSelectorState implements AnimeSelectorState {
       final String? description,
       final int page,
       final bool needUpdatePagination,
-      final String searchText}) = _$_AnimeSelectorState;
+      final String searchText}) = _$AnimeSelectorStateImpl;
 
   @override
   bool get isSearchMode;
@@ -1094,6 +1096,6 @@ abstract class _AnimeSelectorState implements AnimeSelectorState {
   String get searchText;
   @override
   @JsonKey(ignore: true)
-  _$$_AnimeSelectorStateCopyWith<_$_AnimeSelectorState> get copyWith =>
+  _$$AnimeSelectorStateImplCopyWith<_$AnimeSelectorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

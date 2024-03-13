@@ -12,7 +12,7 @@ part of 'failures.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ValueFailure<T> {
@@ -95,22 +95,22 @@ class _$ValueFailureCopyWithImpl<T, $Res, $Val extends ValueFailure<T>>
 }
 
 /// @nodoc
-abstract class _$$InvalidPhoneCopyWith<T, $Res>
+abstract class _$$InvalidPhoneImplCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory _$$InvalidPhoneCopyWith(
-          _$InvalidPhone<T> value, $Res Function(_$InvalidPhone<T>) then) =
-      __$$InvalidPhoneCopyWithImpl<T, $Res>;
+  factory _$$InvalidPhoneImplCopyWith(_$InvalidPhoneImpl<T> value,
+          $Res Function(_$InvalidPhoneImpl<T>) then) =
+      __$$InvalidPhoneImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({String failedValue});
 }
 
 /// @nodoc
-class __$$InvalidPhoneCopyWithImpl<T, $Res>
-    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidPhone<T>>
-    implements _$$InvalidPhoneCopyWith<T, $Res> {
-  __$$InvalidPhoneCopyWithImpl(
-      _$InvalidPhone<T> _value, $Res Function(_$InvalidPhone<T>) _then)
+class __$$InvalidPhoneImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidPhoneImpl<T>>
+    implements _$$InvalidPhoneImplCopyWith<T, $Res> {
+  __$$InvalidPhoneImplCopyWithImpl(
+      _$InvalidPhoneImpl<T> _value, $Res Function(_$InvalidPhoneImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$InvalidPhoneCopyWithImpl<T, $Res>
   $Res call({
     Object? failedValue = null,
   }) {
-    return _then(_$InvalidPhone<T>(
+    return _then(_$InvalidPhoneImpl<T>(
       failedValue: null == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -129,8 +129,8 @@ class __$$InvalidPhoneCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$InvalidPhone<T> implements InvalidPhone<T> {
-  const _$InvalidPhone({required this.failedValue});
+class _$InvalidPhoneImpl<T> implements InvalidPhone<T> {
+  const _$InvalidPhoneImpl({required this.failedValue});
 
   @override
   final String failedValue;
@@ -141,10 +141,10 @@ class _$InvalidPhone<T> implements InvalidPhone<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidPhone<T> &&
+            other is _$InvalidPhoneImpl<T> &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -155,8 +155,9 @@ class _$InvalidPhone<T> implements InvalidPhone<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidPhoneCopyWith<T, _$InvalidPhone<T>> get copyWith =>
-      __$$InvalidPhoneCopyWithImpl<T, _$InvalidPhone<T>>(this, _$identity);
+  _$$InvalidPhoneImplCopyWith<T, _$InvalidPhoneImpl<T>> get copyWith =>
+      __$$InvalidPhoneImplCopyWithImpl<T, _$InvalidPhoneImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -223,33 +224,33 @@ class _$InvalidPhone<T> implements InvalidPhone<T> {
 
 abstract class InvalidPhone<T> implements ValueFailure<T> {
   const factory InvalidPhone({required final String failedValue}) =
-      _$InvalidPhone<T>;
+      _$InvalidPhoneImpl<T>;
 
   @override
   String get failedValue;
   @override
   @JsonKey(ignore: true)
-  _$$InvalidPhoneCopyWith<T, _$InvalidPhone<T>> get copyWith =>
+  _$$InvalidPhoneImplCopyWith<T, _$InvalidPhoneImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidCodeCopyWith<T, $Res>
+abstract class _$$InvalidCodeImplCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory _$$InvalidCodeCopyWith(
-          _$InvalidCode<T> value, $Res Function(_$InvalidCode<T>) then) =
-      __$$InvalidCodeCopyWithImpl<T, $Res>;
+  factory _$$InvalidCodeImplCopyWith(_$InvalidCodeImpl<T> value,
+          $Res Function(_$InvalidCodeImpl<T>) then) =
+      __$$InvalidCodeImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({String failedValue});
 }
 
 /// @nodoc
-class __$$InvalidCodeCopyWithImpl<T, $Res>
-    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidCode<T>>
-    implements _$$InvalidCodeCopyWith<T, $Res> {
-  __$$InvalidCodeCopyWithImpl(
-      _$InvalidCode<T> _value, $Res Function(_$InvalidCode<T>) _then)
+class __$$InvalidCodeImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidCodeImpl<T>>
+    implements _$$InvalidCodeImplCopyWith<T, $Res> {
+  __$$InvalidCodeImplCopyWithImpl(
+      _$InvalidCodeImpl<T> _value, $Res Function(_$InvalidCodeImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -257,7 +258,7 @@ class __$$InvalidCodeCopyWithImpl<T, $Res>
   $Res call({
     Object? failedValue = null,
   }) {
-    return _then(_$InvalidCode<T>(
+    return _then(_$InvalidCodeImpl<T>(
       failedValue: null == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -268,8 +269,8 @@ class __$$InvalidCodeCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$InvalidCode<T> implements InvalidCode<T> {
-  const _$InvalidCode({required this.failedValue});
+class _$InvalidCodeImpl<T> implements InvalidCode<T> {
+  const _$InvalidCodeImpl({required this.failedValue});
 
   @override
   final String failedValue;
@@ -280,10 +281,10 @@ class _$InvalidCode<T> implements InvalidCode<T> {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidCode<T> &&
+            other is _$InvalidCodeImpl<T> &&
             (identical(other.failedValue, failedValue) ||
                 other.failedValue == failedValue));
   }
@@ -294,8 +295,9 @@ class _$InvalidCode<T> implements InvalidCode<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidCodeCopyWith<T, _$InvalidCode<T>> get copyWith =>
-      __$$InvalidCodeCopyWithImpl<T, _$InvalidCode<T>>(this, _$identity);
+  _$$InvalidCodeImplCopyWith<T, _$InvalidCodeImpl<T>> get copyWith =>
+      __$$InvalidCodeImplCopyWithImpl<T, _$InvalidCodeImpl<T>>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -362,12 +364,12 @@ class _$InvalidCode<T> implements InvalidCode<T> {
 
 abstract class InvalidCode<T> implements ValueFailure<T> {
   const factory InvalidCode({required final String failedValue}) =
-      _$InvalidCode<T>;
+      _$InvalidCodeImpl<T>;
 
   @override
   String get failedValue;
   @override
   @JsonKey(ignore: true)
-  _$$InvalidCodeCopyWith<T, _$InvalidCode<T>> get copyWith =>
+  _$$InvalidCodeImplCopyWith<T, _$InvalidCodeImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

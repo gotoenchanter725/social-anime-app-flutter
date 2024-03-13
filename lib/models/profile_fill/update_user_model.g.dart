@@ -6,8 +6,9 @@ part of 'update_user_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UpdateUserModel _$$_UpdateUserModelFromJson(Map<String, dynamic> json) =>
-    _$_UpdateUserModel(
+_$UpdateUserModelImpl _$$UpdateUserModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$UpdateUserModelImpl(
       id: json['id'] as String,
       phone: json['phone'] as String,
       firstName: json['firstName'] as String?,
@@ -24,7 +25,8 @@ _$_UpdateUserModel _$$_UpdateUserModelFromJson(Map<String, dynamic> json) =>
       isDisplayingActive: json['isDisplayingActive'] as bool?,
     );
 
-Map<String, dynamic> _$$_UpdateUserModelToJson(_$_UpdateUserModel instance) =>
+Map<String, dynamic> _$$UpdateUserModelImplToJson(
+        _$UpdateUserModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'phone': instance.phone,

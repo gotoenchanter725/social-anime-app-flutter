@@ -12,7 +12,7 @@ part of 'theme_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ThemeModel {
@@ -69,22 +69,22 @@ class _$ThemeModelCopyWithImpl<$Res, $Val extends ThemeModel>
 }
 
 /// @nodoc
-abstract class _$$_ThemeModelCopyWith<$Res>
+abstract class _$$ThemeModelImplCopyWith<$Res>
     implements $ThemeModelCopyWith<$Res> {
-  factory _$$_ThemeModelCopyWith(
-          _$_ThemeModel value, $Res Function(_$_ThemeModel) then) =
-      __$$_ThemeModelCopyWithImpl<$Res>;
+  factory _$$ThemeModelImplCopyWith(
+          _$ThemeModelImpl value, $Res Function(_$ThemeModelImpl) then) =
+      __$$ThemeModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ThemeMode mode, ThemeData light, ThemeData dark});
 }
 
 /// @nodoc
-class __$$_ThemeModelCopyWithImpl<$Res>
-    extends _$ThemeModelCopyWithImpl<$Res, _$_ThemeModel>
-    implements _$$_ThemeModelCopyWith<$Res> {
-  __$$_ThemeModelCopyWithImpl(
-      _$_ThemeModel _value, $Res Function(_$_ThemeModel) _then)
+class __$$ThemeModelImplCopyWithImpl<$Res>
+    extends _$ThemeModelCopyWithImpl<$Res, _$ThemeModelImpl>
+    implements _$$ThemeModelImplCopyWith<$Res> {
+  __$$ThemeModelImplCopyWithImpl(
+      _$ThemeModelImpl _value, $Res Function(_$ThemeModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +94,7 @@ class __$$_ThemeModelCopyWithImpl<$Res>
     Object? light = null,
     Object? dark = null,
   }) {
-    return _then(_$_ThemeModel(
+    return _then(_$ThemeModelImpl(
       mode: null == mode
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
@@ -113,8 +113,9 @@ class __$$_ThemeModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ThemeModel extends _ThemeModel {
-  _$_ThemeModel({required this.mode, required this.light, required this.dark})
+class _$ThemeModelImpl extends _ThemeModel {
+  _$ThemeModelImpl(
+      {required this.mode, required this.light, required this.dark})
       : super._();
 
   @override
@@ -130,10 +131,10 @@ class _$_ThemeModel extends _ThemeModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ThemeModel &&
+            other is _$ThemeModelImpl &&
             (identical(other.mode, mode) || other.mode == mode) &&
             (identical(other.light, light) || other.light == light) &&
             (identical(other.dark, dark) || other.dark == dark));
@@ -145,15 +146,15 @@ class _$_ThemeModel extends _ThemeModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ThemeModelCopyWith<_$_ThemeModel> get copyWith =>
-      __$$_ThemeModelCopyWithImpl<_$_ThemeModel>(this, _$identity);
+  _$$ThemeModelImplCopyWith<_$ThemeModelImpl> get copyWith =>
+      __$$ThemeModelImplCopyWithImpl<_$ThemeModelImpl>(this, _$identity);
 }
 
 abstract class _ThemeModel extends ThemeModel {
   factory _ThemeModel(
       {required final ThemeMode mode,
       required final ThemeData light,
-      required final ThemeData dark}) = _$_ThemeModel;
+      required final ThemeData dark}) = _$ThemeModelImpl;
   _ThemeModel._() : super._();
 
   @override
@@ -164,6 +165,6 @@ abstract class _ThemeModel extends ThemeModel {
   ThemeData get dark;
   @override
   @JsonKey(ignore: true)
-  _$$_ThemeModelCopyWith<_$_ThemeModel> get copyWith =>
+  _$$ThemeModelImplCopyWith<_$ThemeModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

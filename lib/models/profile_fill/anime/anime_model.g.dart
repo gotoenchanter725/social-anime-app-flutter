@@ -6,8 +6,8 @@ part of 'anime_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AnimeModel _$$_AnimeModelFromJson(Map<String, dynamic> json) =>
-    _$_AnimeModel(
+_$AnimeModelImpl _$$AnimeModelImplFromJson(Map<String, dynamic> json) =>
+    _$AnimeModelImpl(
       id: json['id'] as String,
       title: json['title'] as String?,
       japaneseTitle: json['japaneseTitle'] as String?,
@@ -23,7 +23,7 @@ _$_AnimeModel _$$_AnimeModelFromJson(Map<String, dynamic> json) =>
       status: json['status'] as String?,
     );
 
-Map<String, dynamic> _$$_AnimeModelToJson(_$_AnimeModel instance) =>
+Map<String, dynamic> _$$AnimeModelImplToJson(_$AnimeModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

@@ -6,13 +6,15 @@ part of 'spotify_auth_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SpotifyAuthModel _$$_SpotifyAuthModelFromJson(Map<String, dynamic> json) =>
-    _$_SpotifyAuthModel(
+_$SpotifyAuthModelImpl _$$SpotifyAuthModelImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SpotifyAuthModelImpl(
       token: json['token'] as String,
       refreshToken: json['refreshToken'] as String,
     );
 
-Map<String, dynamic> _$$_SpotifyAuthModelToJson(_$_SpotifyAuthModel instance) =>
+Map<String, dynamic> _$$SpotifyAuthModelImplToJson(
+        _$SpotifyAuthModelImpl instance) =>
     <String, dynamic>{
       'token': instance.token,
       'refreshToken': instance.refreshToken,

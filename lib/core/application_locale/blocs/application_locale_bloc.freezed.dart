@@ -12,7 +12,7 @@ part of 'application_locale_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ApplicationLocaleState {
@@ -58,23 +58,25 @@ class _$ApplicationLocaleStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ApplicationLocaleStateCopyWith<$Res>
+abstract class _$$ApplicationLocaleStateImplCopyWith<$Res>
     implements $ApplicationLocaleStateCopyWith<$Res> {
-  factory _$$_ApplicationLocaleStateCopyWith(_$_ApplicationLocaleState value,
-          $Res Function(_$_ApplicationLocaleState) then) =
-      __$$_ApplicationLocaleStateCopyWithImpl<$Res>;
+  factory _$$ApplicationLocaleStateImplCopyWith(
+          _$ApplicationLocaleStateImpl value,
+          $Res Function(_$ApplicationLocaleStateImpl) then) =
+      __$$ApplicationLocaleStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Locale? locale});
 }
 
 /// @nodoc
-class __$$_ApplicationLocaleStateCopyWithImpl<$Res>
+class __$$ApplicationLocaleStateImplCopyWithImpl<$Res>
     extends _$ApplicationLocaleStateCopyWithImpl<$Res,
-        _$_ApplicationLocaleState>
-    implements _$$_ApplicationLocaleStateCopyWith<$Res> {
-  __$$_ApplicationLocaleStateCopyWithImpl(_$_ApplicationLocaleState _value,
-      $Res Function(_$_ApplicationLocaleState) _then)
+        _$ApplicationLocaleStateImpl>
+    implements _$$ApplicationLocaleStateImplCopyWith<$Res> {
+  __$$ApplicationLocaleStateImplCopyWithImpl(
+      _$ApplicationLocaleStateImpl _value,
+      $Res Function(_$ApplicationLocaleStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -82,7 +84,7 @@ class __$$_ApplicationLocaleStateCopyWithImpl<$Res>
   $Res call({
     Object? locale = freezed,
   }) {
-    return _then(_$_ApplicationLocaleState(
+    return _then(_$ApplicationLocaleStateImpl(
       freezed == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
@@ -93,8 +95,8 @@ class __$$_ApplicationLocaleStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ApplicationLocaleState implements _ApplicationLocaleState {
-  const _$_ApplicationLocaleState(this.locale);
+class _$ApplicationLocaleStateImpl implements _ApplicationLocaleState {
+  const _$ApplicationLocaleStateImpl(this.locale);
 
   @override
   final Locale? locale;
@@ -105,10 +107,10 @@ class _$_ApplicationLocaleState implements _ApplicationLocaleState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ApplicationLocaleState &&
+            other is _$ApplicationLocaleStateImpl &&
             (identical(other.locale, locale) || other.locale == locale));
   }
 
@@ -118,19 +120,19 @@ class _$_ApplicationLocaleState implements _ApplicationLocaleState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ApplicationLocaleStateCopyWith<_$_ApplicationLocaleState> get copyWith =>
-      __$$_ApplicationLocaleStateCopyWithImpl<_$_ApplicationLocaleState>(
-          this, _$identity);
+  _$$ApplicationLocaleStateImplCopyWith<_$ApplicationLocaleStateImpl>
+      get copyWith => __$$ApplicationLocaleStateImplCopyWithImpl<
+          _$ApplicationLocaleStateImpl>(this, _$identity);
 }
 
 abstract class _ApplicationLocaleState implements ApplicationLocaleState {
   const factory _ApplicationLocaleState(final Locale? locale) =
-      _$_ApplicationLocaleState;
+      _$ApplicationLocaleStateImpl;
 
   @override
   Locale? get locale;
   @override
   @JsonKey(ignore: true)
-  _$$_ApplicationLocaleStateCopyWith<_$_ApplicationLocaleState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ApplicationLocaleStateImplCopyWith<_$ApplicationLocaleStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,7 +12,7 @@ part of 'user_verify_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 UserVerifyModel _$UserVerifyModelFromJson(Map<String, dynamic> json) {
   return _UserVerifyModel.fromJson(json);
@@ -68,22 +68,22 @@ class _$UserVerifyModelCopyWithImpl<$Res, $Val extends UserVerifyModel>
 }
 
 /// @nodoc
-abstract class _$$_UserVerifyModelCopyWith<$Res>
+abstract class _$$UserVerifyModelImplCopyWith<$Res>
     implements $UserVerifyModelCopyWith<$Res> {
-  factory _$$_UserVerifyModelCopyWith(
-          _$_UserVerifyModel value, $Res Function(_$_UserVerifyModel) then) =
-      __$$_UserVerifyModelCopyWithImpl<$Res>;
+  factory _$$UserVerifyModelImplCopyWith(_$UserVerifyModelImpl value,
+          $Res Function(_$UserVerifyModelImpl) then) =
+      __$$UserVerifyModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int userId, String? status});
 }
 
 /// @nodoc
-class __$$_UserVerifyModelCopyWithImpl<$Res>
-    extends _$UserVerifyModelCopyWithImpl<$Res, _$_UserVerifyModel>
-    implements _$$_UserVerifyModelCopyWith<$Res> {
-  __$$_UserVerifyModelCopyWithImpl(
-      _$_UserVerifyModel _value, $Res Function(_$_UserVerifyModel) _then)
+class __$$UserVerifyModelImplCopyWithImpl<$Res>
+    extends _$UserVerifyModelCopyWithImpl<$Res, _$UserVerifyModelImpl>
+    implements _$$UserVerifyModelImplCopyWith<$Res> {
+  __$$UserVerifyModelImplCopyWithImpl(
+      _$UserVerifyModelImpl _value, $Res Function(_$UserVerifyModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_UserVerifyModelCopyWithImpl<$Res>
     Object? userId = null,
     Object? status = freezed,
   }) {
-    return _then(_$_UserVerifyModel(
+    return _then(_$UserVerifyModelImpl(
       userId: null == userId
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_UserVerifyModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserVerifyModel implements _UserVerifyModel {
-  const _$_UserVerifyModel({required this.userId, this.status});
+class _$UserVerifyModelImpl implements _UserVerifyModel {
+  const _$UserVerifyModelImpl({required this.userId, this.status});
 
-  factory _$_UserVerifyModel.fromJson(Map<String, dynamic> json) =>
-      _$$_UserVerifyModelFromJson(json);
+  factory _$UserVerifyModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserVerifyModelImplFromJson(json);
 
   @override
   final int userId;
@@ -124,10 +124,10 @@ class _$_UserVerifyModel implements _UserVerifyModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserVerifyModel &&
+            other is _$UserVerifyModelImpl &&
             (identical(other.userId, userId) || other.userId == userId) &&
             (identical(other.status, status) || other.status == status));
   }
@@ -139,12 +139,13 @@ class _$_UserVerifyModel implements _UserVerifyModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserVerifyModelCopyWith<_$_UserVerifyModel> get copyWith =>
-      __$$_UserVerifyModelCopyWithImpl<_$_UserVerifyModel>(this, _$identity);
+  _$$UserVerifyModelImplCopyWith<_$UserVerifyModelImpl> get copyWith =>
+      __$$UserVerifyModelImplCopyWithImpl<_$UserVerifyModelImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserVerifyModelToJson(
+    return _$$UserVerifyModelImplToJson(
       this,
     );
   }
@@ -152,10 +153,11 @@ class _$_UserVerifyModel implements _UserVerifyModel {
 
 abstract class _UserVerifyModel implements UserVerifyModel {
   const factory _UserVerifyModel(
-      {required final int userId, final String? status}) = _$_UserVerifyModel;
+      {required final int userId,
+      final String? status}) = _$UserVerifyModelImpl;
 
   factory _UserVerifyModel.fromJson(Map<String, dynamic> json) =
-      _$_UserVerifyModel.fromJson;
+      _$UserVerifyModelImpl.fromJson;
 
   @override
   int get userId;
@@ -163,6 +165,6 @@ abstract class _UserVerifyModel implements UserVerifyModel {
   String? get status;
   @override
   @JsonKey(ignore: true)
-  _$$_UserVerifyModelCopyWith<_$_UserVerifyModel> get copyWith =>
+  _$$UserVerifyModelImplCopyWith<_$UserVerifyModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -6,14 +6,15 @@ part of 'user_anime_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserAnimeModel _$$_UserAnimeModelFromJson(Map<String, dynamic> json) =>
-    _$_UserAnimeModel(
+_$UserAnimeModelImpl _$$UserAnimeModelImplFromJson(Map<String, dynamic> json) =>
+    _$UserAnimeModelImpl(
       id: json['id'] as String,
       title: json['title'] as String?,
       cover: json['cover'] as String?,
     );
 
-Map<String, dynamic> _$$_UserAnimeModelToJson(_$_UserAnimeModel instance) =>
+Map<String, dynamic> _$$UserAnimeModelImplToJson(
+        _$UserAnimeModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
