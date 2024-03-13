@@ -123,7 +123,11 @@ class SettingsVerifyPhonePage extends StatelessWidget {
               formBloc.isProfileFilled = hasFilledProfile;
 
               final storage = getIt<TokenStorage<AuthModel>>();
-              storage.write(AuthModel(token: token, user: user));
+              storage.write(AuthModel(
+                token: token,
+                user: user,
+                isProfileFilled: hasFilledProfile,
+              ));
 
               settingsBloc.add(OnChangeIsVerifyPhone(isVerifyPhone: true));
               context.router.pop();

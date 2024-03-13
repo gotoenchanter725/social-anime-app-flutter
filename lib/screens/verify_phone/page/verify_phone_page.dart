@@ -104,7 +104,11 @@ class VerifyPhonePage extends StatelessWidget {
               formBloc.isProfileFilled = hasFilledProfile;
 
               final storage = getIt<TokenStorage<AuthModel>>();
-              storage.write(AuthModel(token: token, user: user));
+              storage.write(AuthModel(
+                token: token,
+                user: user,
+                isProfileFilled: hasFilledProfile,
+              ));
 
               // save the device token for notifications
               final addDeviceTokenBloc = getIt<AddDeviceTokenBloc>();
