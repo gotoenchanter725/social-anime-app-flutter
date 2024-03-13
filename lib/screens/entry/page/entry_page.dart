@@ -30,14 +30,21 @@ import 'package:senpai/screens/entry/widgets/entry_content.dart';
 class EntryPage extends StatelessWidget {
   const EntryPage({super.key});
 
-  void _checkAndSignIn(SignInBloc bloc) async {
+  void _checkAndSignIn(SignInBloc bloc, BuildContext context) async {
     final storage = getIt<TokenStorage<AuthModel>>();
-    AuthModel? authModel = await storage.read();
-
-    if (authModel != null) {
-      bloc.signInExistingUser(
-          authModel.token); // Assuming this method exists in your SignInBloc
-    }
+    await storage.read().then((authModel) {
+      if (authModel != null) {
+        if (authModel.isProfileFilled == true) {
+          // Assuming this method exists in your SignInBloc
+          bloc.signInExistingUser(authModel.token);
+        } else {
+          context.router.push(ProfileFillRoute(
+            id: authModel.user.id,
+            phone: authModel.user.phone,
+          ));
+        }
+      }
+    });
   }
 
   Widget _buildListeners(BuildContext context) {
@@ -46,7 +53,7 @@ class EntryPage extends StatelessWidget {
         return state.maybeWhen<Widget>(
           initial: () {
             final signInBloc = BlocProvider.of<SignInBloc>(context);
-            _checkAndSignIn(signInBloc);
+            _checkAndSignIn(signInBloc, context);
             return const SizedBox.shrink();
           },
           loading: () => const SenpaiLoading(),
