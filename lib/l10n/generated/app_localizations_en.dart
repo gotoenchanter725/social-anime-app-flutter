@@ -560,7 +560,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get premiumAbilityAnimesText => 'Ability to add up to 15 animes';
 
   @override
-  String get premiumUpgradeText => 'Upgrade for \$19.99';
+  String get premiumUpgradeText => 'Upgrade for \$19.99/monthly';
 
   @override
   String get editProfileButton => 'Edit profile';
@@ -1020,4 +1020,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalidMaxPartySizeError => 'Invalid max party size. Please try again';
+
+  @override
+  String get normalEvents => 'Normal Events';
+
+  @override
+  String get conventionsText => 'Conventions';
+
+  @override
+  String get yourEvents => 'Your Events';
+
+  @override
+  String get invalidLocationError => 'Invalid location. Please try again';
 }
