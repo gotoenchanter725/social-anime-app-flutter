@@ -9,10 +9,12 @@ class AuthModel with _$AuthModel {
   const factory AuthModel({
     required String token,
     required UserModel user,
+    bool? isProfileFilled,
   }) = _AuthModel;
 
   factory AuthModel.initial() => const AuthModel(
         token: '',
+        isProfileFilled: false,
         user: UserModel(
           id: '',
           phone: '',

@@ -22,6 +22,7 @@ AuthModel _$AuthModelFromJson(Map<String, dynamic> json) {
 mixin _$AuthModel {
   String get token => throw _privateConstructorUsedError;
   UserModel get user => throw _privateConstructorUsedError;
+  bool? get isProfileFilled => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $AuthModelCopyWith<$Res> {
   factory $AuthModelCopyWith(AuthModel value, $Res Function(AuthModel) then) =
       _$AuthModelCopyWithImpl<$Res, AuthModel>;
   @useResult
-  $Res call({String token, UserModel user});
+  $Res call({String token, UserModel user, bool? isProfileFilled});
 
   $UserModelCopyWith<$Res> get user;
 }
@@ -54,6 +55,7 @@ class _$AuthModelCopyWithImpl<$Res, $Val extends AuthModel>
   $Res call({
     Object? token = null,
     Object? user = null,
+    Object? isProfileFilled = freezed,
   }) {
     return _then(_value.copyWith(
       token: null == token
@@ -64,6 +66,10 @@ class _$AuthModelCopyWithImpl<$Res, $Val extends AuthModel>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel,
+      isProfileFilled: freezed == isProfileFilled
+          ? _value.isProfileFilled
+          : isProfileFilled // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 
@@ -84,7 +90,7 @@ abstract class _$$AuthModelImplCopyWith<$Res>
       __$$AuthModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String token, UserModel user});
+  $Res call({String token, UserModel user, bool? isProfileFilled});
 
   @override
   $UserModelCopyWith<$Res> get user;
@@ -103,6 +109,7 @@ class __$$AuthModelImplCopyWithImpl<$Res>
   $Res call({
     Object? token = null,
     Object? user = null,
+    Object? isProfileFilled = freezed,
   }) {
     return _then(_$AuthModelImpl(
       token: null == token
@@ -113,6 +120,10 @@ class __$$AuthModelImplCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserModel,
+      isProfileFilled: freezed == isProfileFilled
+          ? _value.isProfileFilled
+          : isProfileFilled // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -120,7 +131,8 @@ class __$$AuthModelImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AuthModelImpl implements _AuthModel {
-  const _$AuthModelImpl({required this.token, required this.user});
+  const _$AuthModelImpl(
+      {required this.token, required this.user, this.isProfileFilled});
 
   factory _$AuthModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$AuthModelImplFromJson(json);
@@ -129,10 +141,12 @@ class _$AuthModelImpl implements _AuthModel {
   final String token;
   @override
   final UserModel user;
+  @override
+  final bool? isProfileFilled;
 
   @override
   String toString() {
-    return 'AuthModel(token: $token, user: $user)';
+    return 'AuthModel(token: $token, user: $user, isProfileFilled: $isProfileFilled)';
   }
 
   @override
@@ -141,12 +155,14 @@ class _$AuthModelImpl implements _AuthModel {
         (other.runtimeType == runtimeType &&
             other is _$AuthModelImpl &&
             (identical(other.token, token) || other.token == token) &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.isProfileFilled, isProfileFilled) ||
+                other.isProfileFilled == isProfileFilled));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, token, user);
+  int get hashCode => Object.hash(runtimeType, token, user, isProfileFilled);
 
   @JsonKey(ignore: true)
   @override
@@ -165,7 +181,8 @@ class _$AuthModelImpl implements _AuthModel {
 abstract class _AuthModel implements AuthModel {
   const factory _AuthModel(
       {required final String token,
-      required final UserModel user}) = _$AuthModelImpl;
+      required final UserModel user,
+      final bool? isProfileFilled}) = _$AuthModelImpl;
 
   factory _AuthModel.fromJson(Map<String, dynamic> json) =
       _$AuthModelImpl.fromJson;
@@ -174,6 +191,8 @@ abstract class _AuthModel implements AuthModel {
   String get token;
   @override
   UserModel get user;
+  @override
+  bool? get isProfileFilled;
   @override
   @JsonKey(ignore: true)
   _$$AuthModelImplCopyWith<_$AuthModelImpl> get copyWith =>

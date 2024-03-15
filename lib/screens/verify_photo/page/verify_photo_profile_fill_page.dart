@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fresh_graphql/fresh_graphql.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/profile_fill/favorite_anime/add_favorite_anime_bloc.dart';
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
@@ -10,6 +11,7 @@ import 'package:senpai/core/user/blocs/verify_photo_user/verify_photo_user_bloc.
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/models/auth/auth_model.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile_fill/bloc/profile_fill_bloc.dart';
 import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
@@ -113,8 +115,21 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
             dynamic model;
             try {
               model = response["updateUser"]["user"];
-              WidgetsBinding.instance.addPostFrameCallback((_) {
-                context.router.replaceAll([HomeRoute()]);
+
+              WidgetsBinding.instance.addPostFrameCallback((_) async {
+                final storage = getIt<TokenStorage<AuthModel>>();
+                await storage.read().then((authModel) {
+                  if (authModel != null) {
+                    storage.write(
+                      AuthModel(
+                        token: authModel.token,
+                        user: authModel.user,
+                        isProfileFilled: true,
+                      ),
+                    );
+                    context.router.replaceAll([HomeRoute()]);
+                  }
+                });
               });
             } catch (e) {
               logIt.error(

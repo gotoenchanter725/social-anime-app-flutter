@@ -560,7 +560,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get premiumAbilityAnimesText => 'Capacidade de adicionar até 15 animes';
 
   @override
-  String get premiumUpgradeText => 'Atualizar por \$19.99';
+  String get premiumUpgradeText => 'Atualizar por \$19.99/mês';
 
   @override
   String get editProfileButton => 'Editar perfil';
@@ -1020,4 +1020,16 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get invalidMaxPartySizeError => '';
+
+  @override
+  String get normalEvents => '';
+
+  @override
+  String get conventionsText => '';
+
+  @override
+  String get yourEvents => '';
+
+  @override
+  String get invalidLocationError => '';
 }
