@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -22,11 +23,33 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
+AndroidNotificationChannel? channel;
+
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
-}
+  RemoteNotification? notification = message.notification;
+  String action = jsonEncode(message.data);
+  logIt.debug(message.toMap());
 
-AndroidNotificationChannel? channel;
+  if (notification == null) {
+    return;
+  }
+
+  flutterLocalNotificationsPlugin!.show(
+      notification.hashCode,
+      notification.title,
+      notification.body,
+      NotificationDetails(
+        android: AndroidNotificationDetails(
+          channel!.id,
+          channel!.name,
+          priority: Priority.high,
+          importance: Importance.max,
+        ),
+        iOS: const DarwinNotificationDetails(),
+      ),
+      payload: action);
+}
 
 FlutterLocalNotificationsPlugin? flutterLocalNotificationsPlugin;
 late FirebaseMessaging messaging;
