@@ -1032,4 +1032,85 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get invalidLocationError => 'Invalid location. Please try again';
+
+  @override
+  String get eventManagementTitle => 'Event Management';
+
+  @override
+  String get paidEntryText => 'Paid Entry';
+
+  @override
+  String get associationWithConvention => 'Association with Convention:';
+
+  @override
+  String get attendButton => 'Attend';
+
+  @override
+  String get hostTheEventText => 'Host of the event';
+
+  @override
+  String get maximumPartyMemberLimit => 'Maximum party member limit: 10';
+
+  @override
+  String get youCanParticipateInPartyDescription => 'You can participate in a party, find new friends and have a good time.';
+
+  @override
+  String get associatedEventsTitle => 'Associated Events';
+
+  @override
+  String get startDateTitle => 'Start Date';
+
+  @override
+  String get endDateTitle => 'End Date';
+
+  @override
+  String get creatingEventTitle => 'Creating an event';
+
+  @override
+  String get creatingEventDescription => 'You must be verified before you can create an event';
+
+  @override
+  String get verifyNowButton => 'Verify Now';
+
+  @override
+  String get hostAnEventTitle => 'Host an Event';
+
+  @override
+  String get hostAnEventDescription => 'Whether it\'s a night out for bowling or going out for drinks or assembling your cosplay squad for the convention, host an event today and build your party!';
+
+  @override
+  String get inviteFriendsGetPremiumText => 'Invite Friends, Get Premium!';
+
+  @override
+  String get keepInvitingPeopleDescription => 'Keep inviting people and soon you will get a Premium account․';
+
+  @override
+  String get attendSuccessfulDescription => 'You have successfully applied to join the party and will be notified when the host makes a decision.';
+
+  @override
+  String get attendSuccessTitle => 'Success';
+
+  @override
+  String get scanQRCodeTitle => 'Scan QR Code';
+
+  @override
+  String get congratulationsTitle => 'Congratulations!';
+
+  @override
+  String get youHavePremiumAccountForMonth => 'You have a Premium account for 1 month.';
+
+  @override
+  String get higherVisibilityRatesSuperLikesAndMuchMore => 'Higher visibility rates, 30 Super Likes and much more!';
+
+  @override
+  String get backHomeTitle => 'Back Home';
+
+  @override
+  String get openInvitesFilterTitle => 'Accepting invites';
+
+  @override
+  String get closedInvitesFilterTitle => 'Party filled';
+
+  @override
+  String get manageSubscriptionTitle => 'Manage Subscription';
 }

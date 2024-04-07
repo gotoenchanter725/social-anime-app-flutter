@@ -1032,4 +1032,85 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get invalidLocationError => '';
+
+  @override
+  String get eventManagementTitle => 'Gestão de Eventos';
+
+  @override
+  String get paidEntryText => '';
+
+  @override
+  String get associationWithConvention => '';
+
+  @override
+  String get attendButton => '';
+
+  @override
+  String get hostTheEventText => '';
+
+  @override
+  String get maximumPartyMemberLimit => '';
+
+  @override
+  String get youCanParticipateInPartyDescription => '';
+
+  @override
+  String get associatedEventsTitle => '';
+
+  @override
+  String get startDateTitle => '';
+
+  @override
+  String get endDateTitle => '';
+
+  @override
+  String get creatingEventTitle => '';
+
+  @override
+  String get creatingEventDescription => '';
+
+  @override
+  String get verifyNowButton => '';
+
+  @override
+  String get hostAnEventTitle => '';
+
+  @override
+  String get hostAnEventDescription => '';
+
+  @override
+  String get inviteFriendsGetPremiumText => '';
+
+  @override
+  String get keepInvitingPeopleDescription => '';
+
+  @override
+  String get attendSuccessfulDescription => '';
+
+  @override
+  String get attendSuccessTitle => '';
+
+  @override
+  String get scanQRCodeTitle => '';
+
+  @override
+  String get congratulationsTitle => '';
+
+  @override
+  String get youHavePremiumAccountForMonth => '';
+
+  @override
+  String get higherVisibilityRatesSuperLikesAndMuchMore => '';
+
+  @override
+  String get backHomeTitle => '';
+
+  @override
+  String get openInvitesFilterTitle => '';
+
+  @override
+  String get closedInvitesFilterTitle => '';
+
+  @override
+  String get manageSubscriptionTitle => 'Gerenciar assinatura';
 }

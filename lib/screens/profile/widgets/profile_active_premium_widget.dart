@@ -6,6 +6,11 @@ import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'dart:io' show Platform;
+
+
+
 
 class ProfileActivePremiumWidget extends StatelessWidget {
   final DateTime nextDate;
@@ -46,6 +51,7 @@ class ProfileActivePremiumWidget extends StatelessWidget {
           SizedBox(height: $constants.insets.sm),
           _buildPremiumText(context, R.strings.premiumAbilityAnimesText),
           SizedBox(height: $constants.insets.md),
+          _buildManageLink(context)
         ],
       ),
     );
@@ -118,6 +124,30 @@ class ProfileActivePremiumWidget extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildManageLink(BuildContext context) {
+    
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        InkWell(
+          child: Text(
+            R.strings.manageSubscriptionTitle,
+            style: getTextTheme(context)
+                .bodyMedium
+                ?.copyWith(color: $constants.palette.grey)
+          ),
+          onTap: () => {
+            if (Platform.isIOS) {
+              launchUrl(Uri.parse("https://apps.apple.com/account/subscriptions"), mode: LaunchMode.externalApplication)
+            } else {
+              launchUrl(Uri.parse("https://play.google.com/store/account/subscriptions?sku=senpaipremium&package=makeshift.software.inc.senpai"), mode: LaunchMode.externalApplication)
+            }
+          }
+        )
+      ]
     );
   }
 }

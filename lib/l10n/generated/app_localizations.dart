@@ -2152,6 +2152,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Invalid location. Please try again'**
   String get invalidLocationError;
+
+  /// This is the title of the event management app bar
+  ///
+  /// In en, this message translates to:
+  /// **'Event Management'**
+  String get eventManagementTitle;
+
+  /// No description provided for @paidEntryText.
+  ///
+  /// In en, this message translates to:
+  /// **'Paid Entry'**
+  String get paidEntryText;
+
+  /// No description provided for @associationWithConvention.
+  ///
+  /// In en, this message translates to:
+  /// **'Association with Convention:'**
+  String get associationWithConvention;
+
+  /// No description provided for @attendButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Attend'**
+  String get attendButton;
+
+  /// No description provided for @hostTheEventText.
+  ///
+  /// In en, this message translates to:
+  /// **'Host of the event'**
+  String get hostTheEventText;
+
+  /// No description provided for @maximumPartyMemberLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum party member limit: 10'**
+  String get maximumPartyMemberLimit;
+
+  /// No description provided for @youCanParticipateInPartyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'You can participate in a party, find new friends and have a good time.'**
+  String get youCanParticipateInPartyDescription;
+
+  /// No description provided for @associatedEventsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Associated Events'**
+  String get associatedEventsTitle;
+
+  /// No description provided for @startDateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Date'**
+  String get startDateTitle;
+
+  /// No description provided for @endDateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'End Date'**
+  String get endDateTitle;
+
+  /// No description provided for @creatingEventTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Creating an event'**
+  String get creatingEventTitle;
+
+  /// No description provided for @creatingEventDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'You must be verified before you can create an event'**
+  String get creatingEventDescription;
+
+  /// No description provided for @verifyNowButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify Now'**
+  String get verifyNowButton;
+
+  /// No description provided for @hostAnEventTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Host an Event'**
+  String get hostAnEventTitle;
+
+  /// No description provided for @hostAnEventDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Whether it\'s a night out for bowling or going out for drinks or assembling your cosplay squad for the convention, host an event today and build your party!'**
+  String get hostAnEventDescription;
+
+  /// No description provided for @inviteFriendsGetPremiumText.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite Friends, Get Premium!'**
+  String get inviteFriendsGetPremiumText;
+
+  /// No description provided for @keepInvitingPeopleDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep inviting people and soon you will get a Premium account․'**
+  String get keepInvitingPeopleDescription;
+
+  /// No description provided for @attendSuccessfulDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'You have successfully applied to join the party and will be notified when the host makes a decision.'**
+  String get attendSuccessfulDescription;
+
+  /// No description provided for @attendSuccessTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get attendSuccessTitle;
+
+  /// No description provided for @scanQRCodeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Scan QR Code'**
+  String get scanQRCodeTitle;
+
+  /// No description provided for @congratulationsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Congratulations!'**
+  String get congratulationsTitle;
+
+  /// No description provided for @youHavePremiumAccountForMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'You have a Premium account for 1 month.'**
+  String get youHavePremiumAccountForMonth;
+
+  /// No description provided for @higherVisibilityRatesSuperLikesAndMuchMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Higher visibility rates, 30 Super Likes and much more!'**
+  String get higherVisibilityRatesSuperLikesAndMuchMore;
+
+  /// No description provided for @backHomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Back Home'**
+  String get backHomeTitle;
+
+  /// No description provided for @openInvitesFilterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Accepting invites'**
+  String get openInvitesFilterTitle;
+
+  /// No description provided for @closedInvitesFilterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Party filled'**
+  String get closedInvitesFilterTitle;
+
+  /// No description provided for @manageSubscriptionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage Subscription'**
+  String get manageSubscriptionTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
