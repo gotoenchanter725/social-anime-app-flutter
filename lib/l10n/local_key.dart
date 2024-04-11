@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:senpai/l10n/resources.dart';
 
-enum LocaleKey { en, ja, pt }
+enum LocaleKey { en, ja, pt, es }
 
 extension LocaleKeyExtension on LocaleKey {
   String get value {
@@ -12,6 +12,8 @@ extension LocaleKeyExtension on LocaleKey {
         return 'ja';
       case LocaleKey.pt:
         return 'pt';
+      case LocaleKey.es:
+        return 'es';
     }
   }
 
@@ -23,6 +25,8 @@ extension LocaleKeyExtension on LocaleKey {
         return R.strings.japanese;
       case LocaleKey.pt:
         return R.strings.portuguese;
+      case LocaleKey.es:
+        return R.strings.spanish;
     }
   }
 
@@ -34,6 +38,8 @@ extension LocaleKeyExtension on LocaleKey {
         return R.strings.japaneseNotTranslated;
       case LocaleKey.pt:
         return R.strings.portugueseNotTranslated;
+      case LocaleKey.es:
+        return R.strings.spanishNotTranslated;
     }
   }
 
@@ -47,6 +53,8 @@ extension LocaleKeyExtension on LocaleKey {
         return LocaleKey.ja;
       case 'pt':
         return LocaleKey.pt;
+      case 'es':
+        return LocaleKey.es;
       default:
         return LocaleKey.en;
     }

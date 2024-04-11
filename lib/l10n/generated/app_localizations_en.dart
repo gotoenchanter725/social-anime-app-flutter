@@ -269,9 +269,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get sexualAbuseText => 'Sexual Abuse';
 
   @override
-  String get doxxingIdentityThreat => 'Doxxing / Identity threat';
-
-  @override
   String get areYouSureYouWantToUnmatchUser => 'Are you sure you want to unmatch this user?';
 
   @override
@@ -413,9 +410,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get nowChooseYourFavoriteAnimesText => 'Now choose your favorite animes\nand start matching';
 
   @override
-  String get oopsNoAnimeFound => 'Oops. No anime found.';
-
-  @override
   String get noAnimesFoundText => 'Maybe there is a mistake in search? Please check and try again.';
 
   @override
@@ -491,7 +485,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enableLocationText => 'Enable location';
 
   @override
-  String get enableLocationDescription => 'Your location will be used to show \npotential matches near you';
+  String get enableLocationDescription => 'Su ubicación se utilizará para mostrar\nposibles coincidencias cerca de ti';
 
   @override
   String get allowLocationText => 'Allow location';
@@ -627,9 +621,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get locationTitle => 'Location';
-
-  @override
-  String get favoriteAnime => 'Favorite anime';
 
   @override
   String get studiedAtTitle => 'Studied at ';
@@ -866,7 +857,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get onboarding1Title => 'Find';
 
   @override
-  String get favoriteAnimesTitle => 'Favorite animes';
+  String get favoriteAnimesTitle => 'Favorite anime';
 
   @override
   String get miTitle => 'mi';
@@ -1113,4 +1104,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get manageSubscriptionTitle => 'Manage Subscription';
+
+  @override
+  String get cancelAnytimeTitle => 'Cancel Anytime';
+
+  @override
+  String get conventionWebsiteText => 'Website';
+
+  @override
+  String get oopsNoAnimeFound => 'Oops, no anime found!';
+
+  @override
+  String get spanishNotTranslated => 'Español';
+
+  @override
+  String get spanish => 'Spanish';
 }

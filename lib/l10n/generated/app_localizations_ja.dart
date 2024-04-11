@@ -269,9 +269,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get sexualAbuseText => '性的虐待';
 
   @override
-  String get doxxingIdentityThreat => 'Doxing／アイデンティティの脅威';
-
-  @override
   String get areYouSureYouWantToUnmatchUser => '本当にこのユーザーをアンマッチしますか？';
 
   @override
@@ -411,9 +408,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get nowChooseYourFavoriteAnimesText => 'さあ、好きなアニメを選んでマッチングを始めよう';
-
-  @override
-  String get oopsNoAnimeFound => 'おっと。アニメが見つからない。';
 
   @override
   String get noAnimesFoundText => '検索に誤りがあるのでは？ご確認の上、再度お試しください。';
@@ -629,9 +623,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get locationTitle => '所在地';
 
   @override
-  String get favoriteAnime => '好きなアニメ';
-
-  @override
   String get studiedAtTitle => '留学先';
 
   @override
@@ -827,7 +818,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get successText => '成功だ！';
 
   @override
-  String get messageToText => 'メッセージ';
+  String get messageToText => 'メッセージ ';
 
   @override
   String get sentText => '送信';
@@ -872,19 +863,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get miTitle => '私';
 
   @override
-  String get noAccountWithThisNumber => '';
+  String get noAccountWithThisNumber => 'この番号のアカウントはありません';
 
   @override
-  String get dearUserText => '';
+  String get dearUserText => 'ユーザーの皆様';
 
   @override
-  String get dearUserDescription => '';
+  String get dearUserDescription => '当社はお客様のプライバシーとデータのセキュリティを重視しています。お客様の情報は第三者に販売されることはなく、アプリの改善のために社内で使用されます。';
 
   @override
-  String get whatYouGetText => '';
+  String get whatYouGetText => '得られるもの:';
 
   @override
-  String get nextPaymentText => '';
+  String get nextPaymentText => '次回の支払い:';
 
   @override
   String get bearWithUsTitle => '「先輩」へようこそ！';
@@ -923,194 +914,209 @@ class AppLocalizationsJa extends AppLocalizations {
   String get portuguese => 'ポルトガル語';
 
   @override
-  String get eventsTitle => '';
+  String get eventsTitle => 'イベント';
 
   @override
-  String get createEventTitle => '';
+  String get createEventTitle => 'イベントの作成';
 
   @override
-  String get addPromoImageText => '';
+  String get addPromoImageText => 'プロモーション画像を追加';
 
   @override
-  String get eventNameText => '';
+  String get eventNameText => 'イベント名';
 
   @override
-  String get aboutEventText => '';
+  String get aboutEventText => 'イベントについて';
 
   @override
-  String get dateText => '';
+  String get dateText => '日付';
 
   @override
-  String get canBeRangeText => '';
+  String get canBeRangeText => '範囲指定可能';
 
   @override
-  String get timeText => '';
+  String get timeText => '時間';
 
   @override
-  String get maxPartySizeText => '';
+  String get maxPartySizeText => '最大パーティーサイズ';
 
   @override
-  String get availableSlotsText => '';
+  String get availableSlotsText => '利用可能なスロット数 1～10';
 
   @override
-  String get requiresPaymentText => '';
+  String get requiresPaymentText => '支払いが必要ですか?';
 
   @override
-  String get cosplayText => '';
+  String get cosplayText => 'コスプレ';
 
   @override
-  String get optionalButton => '';
+  String get optionalButton => 'オプション';
 
   @override
-  String get eventAssociatedWithConventionText => '';
+  String get eventAssociatedWithConventionText => 'このイベントはコンベンションに関連していますか?';
 
   @override
-  String get findConventionText => '';
+  String get findConventionText => 'コンベンションを探す';
 
   @override
-  String get selectConventionText => '';
+  String get selectConventionText => 'コンベンションを選択';
 
   @override
-  String get saveChangesButton => '';
+  String get saveChangesButton => '変更内容を保存';
 
   @override
-  String get filterTitle => '';
+  String get filterTitle => 'フィルター';
 
   @override
-  String get searchCountryCityText => '';
+  String get searchCountryCityText => '国、都市を検索';
 
   @override
-  String get freeTitle => '';
+  String get freeTitle => '無料';
 
   @override
-  String get paidTitle => '';
+  String get paidTitle => '有料';
 
   @override
-  String get hostRatingFromText => '';
+  String get hostRatingFromText => 'ホストの評価:';
 
   @override
-  String get eventsConventionsTitle => '';
+  String get eventsConventionsTitle => 'イベントとコンベンション';
 
   @override
-  String get noEventsFoundText => '';
+  String get noEventsFoundText => '申し訳ありません。イベントが見つかりません。';
 
   @override
-  String get noEventsFoundDescription => '';
+  String get noEventsFoundDescription => 'フィルターを微調整するか、後で戻ってもっと楽しいオプションを試してください。';
 
   @override
-  String get openAppSettings => '';
+  String get openAppSettings => 'アプリ設定を開く';
 
   @override
-  String get cameraErrorCheckPermission => '';
+  String get cameraErrorCheckPermission => 'カメラに問題が発生しました。権限を確認してください。';
 
   @override
-  String get editPromoImage => '';
+  String get editPromoImage => 'プロモーション画像を編集';
 
   @override
-  String get invalidEventNameError => '';
+  String get invalidEventNameError => 'イベント名が無効です。もう一度お試しください';
 
   @override
-  String get invalidDescriptionError => '';
+  String get invalidDescriptionError => '説明が無効です。もう一度お試しください。';
 
   @override
-  String get venueText => '';
+  String get venueText => '会場';
 
   @override
-  String get invalidVenueError => '';
+  String get invalidVenueError => '会場が無効です。もう一度お試しください';
 
   @override
-  String get invalidMaxPartySizeError => '';
+  String get invalidMaxPartySizeError => '最大パーティーサイズが無効です。もう一度お試しください。';
 
   @override
-  String get normalEvents => '';
+  String get normalEvents => '通常イベント';
 
   @override
-  String get conventionsText => '';
+  String get conventionsText => 'コンベンション';
 
   @override
-  String get yourEvents => '';
+  String get yourEvents => 'あなたのイベント';
 
   @override
-  String get invalidLocationError => '';
+  String get invalidLocationError => '場所が無効です。もう一度お試しください';
 
   @override
-  String get eventManagementTitle => '';
+  String get eventManagementTitle => 'イベント管理';
 
   @override
-  String get paidEntryText => '';
+  String get paidEntryText => '有料入場';
 
   @override
-  String get associationWithConvention => '';
+  String get associationWithConvention => '条約との関連:';
 
   @override
-  String get attendButton => '';
+  String get attendButton => '出席する';
 
   @override
-  String get hostTheEventText => '';
+  String get hostTheEventText => 'イベント主催者';
 
   @override
-  String get maximumPartyMemberLimit => '';
+  String get maximumPartyMemberLimit => 'パーティーメンバーの最大人数: 10';
 
   @override
-  String get youCanParticipateInPartyDescription => '';
+  String get youCanParticipateInPartyDescription => 'パーティーに参加して新しい友達を見つけ、楽しい時間を過ごすことができます。';
 
   @override
-  String get associatedEventsTitle => '';
+  String get associatedEventsTitle => '関連イベント';
 
   @override
-  String get startDateTitle => '';
+  String get startDateTitle => '開始日';
 
   @override
-  String get endDateTitle => '';
+  String get endDateTitle => '終了日';
 
   @override
-  String get creatingEventTitle => '';
+  String get creatingEventTitle => 'イベントの作成';
 
   @override
-  String get creatingEventDescription => '';
+  String get creatingEventDescription => 'イベントを作成するには認証が必要です';
 
   @override
-  String get verifyNowButton => '';
+  String get verifyNowButton => '今すぐ確認';
 
   @override
-  String get hostAnEventTitle => '';
+  String get hostAnEventTitle => 'イベントを主催する';
 
   @override
-  String get hostAnEventDescription => '';
+  String get hostAnEventDescription => 'ボウリングに出かけたり、飲みに行ったり、コンベンションのためにコスプレチームを編成したり、今日イベントを主催してパーティーを盛り上げましょう。';
 
   @override
-  String get inviteFriendsGetPremiumText => '';
+  String get inviteFriendsGetPremiumText => '友達を招待してプレミアムをゲット！';
 
   @override
-  String get keepInvitingPeopleDescription => '';
+  String get keepInvitingPeopleDescription => '招待し続けるとすぐにプレミアムアカウントを取得できます。';
 
   @override
-  String get attendSuccessfulDescription => '';
+  String get attendSuccessfulDescription => 'パーティーへの参加申し込みが完了しました。主催者が決定したら通知が届きます。';
 
   @override
-  String get attendSuccessTitle => '';
+  String get attendSuccessTitle => '成功';
 
   @override
-  String get scanQRCodeTitle => '';
+  String get scanQRCodeTitle => 'QRコードをスキャン';
 
   @override
-  String get congratulationsTitle => '';
+  String get congratulationsTitle => 'おめでとう！';
 
   @override
-  String get youHavePremiumAccountForMonth => '';
+  String get youHavePremiumAccountForMonth => 'プレミアムアカウントは 1 か月間ご利用いただけます。';
 
   @override
-  String get higherVisibilityRatesSuperLikesAndMuchMore => '';
+  String get higherVisibilityRatesSuperLikesAndMuchMore => 'より高い可視性、30 のスーパー ライクなど、さまざまな特典があります。';
 
   @override
-  String get backHomeTitle => '';
+  String get backHomeTitle => '帰国';
 
   @override
-  String get openInvitesFilterTitle => '';
+  String get openInvitesFilterTitle => '招待を受け入れる';
 
   @override
-  String get closedInvitesFilterTitle => '';
+  String get closedInvitesFilterTitle => 'パーティー満員';
 
   @override
   String get manageSubscriptionTitle => 'サブスクリプションの管理';
+
+  @override
+  String get cancelAnytimeTitle => 'いつでもキャンセル';
+
+  @override
+  String get conventionWebsiteText => 'ウェブサイト';
+
+  @override
+  String get oopsNoAnimeFound => 'おっと、アニメが見つかりません!';
+
+  @override
+  String get spanishNotTranslated => 'Español';
+
+  @override
+  String get spanish => 'スペイン語';
 }

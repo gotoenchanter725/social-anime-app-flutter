@@ -61,7 +61,7 @@ class _Specials {
   late final match = _MatchConstants();
 
   /// Allowed countries for phone input
-  late final allowedCountries = ['US', 'CA', 'JP', 'GB', 'UG', 'UA', 'BR'];
+  late final allowedCountries = ['US', 'CA', 'JP', 'BR', 'MX', 'ESP', 'ARG', 'COL', 'BOL', 'GB', 'UG', 'UA'];
 
   /// Default country for phone input
   late final defaultCountry = 'US';

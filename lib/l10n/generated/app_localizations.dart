@@ -6,6 +6,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
+import 'app_localizations_es.dart';
 import 'app_localizations_ja.dart';
 import 'app_localizations_pt.dart';
 
@@ -91,6 +92,7 @@ abstract class AppLocalizations {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
+    Locale('es'),
     Locale('ja'),
     Locale('pt')
   ];
@@ -623,12 +625,6 @@ abstract class AppLocalizations {
   /// **'Sexual Abuse'**
   String get sexualAbuseText;
 
-  /// No description provided for @doxxingIdentityThreat.
-  ///
-  /// In en, this message translates to:
-  /// **'Doxxing / Identity threat'**
-  String get doxxingIdentityThreat;
-
   /// No description provided for @areYouSureYouWantToUnmatchUser.
   ///
   /// In en, this message translates to:
@@ -911,12 +907,6 @@ abstract class AppLocalizations {
   /// **'Now choose your favorite animes\nand start matching'**
   String get nowChooseYourFavoriteAnimesText;
 
-  /// No description provided for @oopsNoAnimeFound.
-  ///
-  /// In en, this message translates to:
-  /// **'Oops. No anime found.'**
-  String get oopsNoAnimeFound;
-
   /// No description provided for @noAnimesFoundText.
   ///
   /// In en, this message translates to:
@@ -1070,7 +1060,7 @@ abstract class AppLocalizations {
   /// No description provided for @enableLocationDescription.
   ///
   /// In en, this message translates to:
-  /// **'Your location will be used to show \npotential matches near you'**
+  /// **'Su ubicación se utilizará para mostrar\nposibles coincidencias cerca de ti'**
   String get enableLocationDescription;
 
   /// No description provided for @allowLocationText.
@@ -1342,12 +1332,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Location'**
   String get locationTitle;
-
-  /// No description provided for @favoriteAnime.
-  ///
-  /// In en, this message translates to:
-  /// **'Favorite anime'**
-  String get favoriteAnime;
 
   /// No description provided for @studiedAtTitle.
   ///
@@ -1820,7 +1804,7 @@ abstract class AppLocalizations {
   /// No description provided for @favoriteAnimesTitle.
   ///
   /// In en, this message translates to:
-  /// **'Favorite animes'**
+  /// **'Favorite anime'**
   String get favoriteAnimesTitle;
 
   /// No description provided for @miTitle.
@@ -2314,6 +2298,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Manage Subscription'**
   String get manageSubscriptionTitle;
+
+  /// No description provided for @cancelAnytimeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel Anytime'**
+  String get cancelAnytimeTitle;
+
+  /// No description provided for @conventionWebsiteText.
+  ///
+  /// In en, this message translates to:
+  /// **'Website'**
+  String get conventionWebsiteText;
+
+  /// No description provided for @oopsNoAnimeFound.
+  ///
+  /// In en, this message translates to:
+  /// **'Oops, no anime found!'**
+  String get oopsNoAnimeFound;
+
+  /// No description provided for @spanishNotTranslated.
+  ///
+  /// In en, this message translates to:
+  /// **'Español'**
+  String get spanishNotTranslated;
+
+  /// No description provided for @spanish.
+  ///
+  /// In en, this message translates to:
+  /// **'Spanish'**
+  String get spanish;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
@@ -2325,7 +2339,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'ja', 'pt'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'es', 'ja', 'pt'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
@@ -2337,6 +2351,7 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
     case 'en': return AppLocalizationsEn();
+    case 'es': return AppLocalizationsEs();
     case 'ja': return AppLocalizationsJa();
     case 'pt': return AppLocalizationsPt();
   }

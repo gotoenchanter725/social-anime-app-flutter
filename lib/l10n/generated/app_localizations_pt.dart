@@ -86,13 +86,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get termsAndConditions => 'Concordo em receber mensagens SMS da Senpai no número de telefone fornecido. Responda STOP para optar por não participar.';
 
   @override
-  String get verifyPhoneHeading => '';
+  String get verifyPhoneHeading => 'Seu código é';
 
   @override
-  String get verifyPhoneInstruction => '';
+  String get verifyPhoneInstruction => 'Enviamos o código de verificação em';
 
   @override
-  String get invalidCodeError => '';
+  String get invalidCodeError => 'Código inválido. Por favor, tente novamente';
 
   @override
   String get verifyCodeAction => 'Código não recebido? Reenviar';
@@ -269,9 +269,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get sexualAbuseText => 'Abuso Sexual';
 
   @override
-  String get doxxingIdentityThreat => '';
-
-  @override
   String get areYouSureYouWantToUnmatchUser => 'Tem certeza de que deseja desfazer a combinação com este usuário?';
 
   @override
@@ -411,9 +408,6 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get nowChooseYourFavoriteAnimesText => 'Agora escolha seus animes favoritos\ne comece a combinar';
-
-  @override
-  String get oopsNoAnimeFound => '';
 
   @override
   String get noAnimesFoundText => 'Talvez haja um erro na busca? Por favor, verifique e tente novamente.';
@@ -627,9 +621,6 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get locationTitle => 'Localização';
-
-  @override
-  String get favoriteAnime => '';
 
   @override
   String get studiedAtTitle => 'Estudou em ';
@@ -923,194 +914,209 @@ class AppLocalizationsPt extends AppLocalizations {
   String get portuguese => 'Português';
 
   @override
-  String get eventsTitle => '';
+  String get eventsTitle => 'Eventos';
 
   @override
-  String get createEventTitle => '';
+  String get createEventTitle => 'Criar Evento';
 
   @override
-  String get addPromoImageText => '';
+  String get addPromoImageText => 'Adicionar imagem promocional';
 
   @override
-  String get eventNameText => '';
+  String get eventNameText => 'Nome do Evento';
 
   @override
-  String get aboutEventText => '';
+  String get aboutEventText => 'Sobre o Evento';
 
   @override
-  String get dateText => '';
+  String get dateText => 'Data';
 
   @override
-  String get canBeRangeText => '';
+  String get canBeRangeText => 'Pode ser intervalo';
 
   @override
-  String get timeText => '';
+  String get timeText => 'Tempo';
 
   @override
-  String get maxPartySizeText => '';
+  String get maxPartySizeText => 'Tamanho Máximo da Festa';
 
   @override
-  String get availableSlotsText => '';
+  String get availableSlotsText => '1 a 10 vagas disponíveis';
 
   @override
-  String get requiresPaymentText => '';
+  String get requiresPaymentText => 'Requer Pagamento?';
 
   @override
-  String get cosplayText => '';
+  String get cosplayText => 'Cosplay';
 
   @override
-  String get optionalButton => '';
+  String get optionalButton => 'Opcional';
 
   @override
-  String get eventAssociatedWithConventionText => '';
+  String get eventAssociatedWithConventionText => 'O evento está associado a uma Convenção?';
 
   @override
-  String get findConventionText => '';
+  String get findConventionText => 'Encontrar Convenção';
 
   @override
-  String get selectConventionText => '';
+  String get selectConventionText => 'Selecione Convenção';
 
   @override
-  String get saveChangesButton => '';
+  String get saveChangesButton => 'Salvar alterações';
 
   @override
-  String get filterTitle => '';
+  String get filterTitle => 'Filtro';
 
   @override
-  String get searchCountryCityText => '';
+  String get searchCountryCityText => 'Pesquisar país, cidade';
 
   @override
-  String get freeTitle => '';
+  String get freeTitle => 'LIVRE';
 
   @override
-  String get paidTitle => '';
+  String get paidTitle => 'Pago';
 
   @override
-  String get hostRatingFromText => '';
+  String get hostRatingFromText => 'Classificação do Anfitrião de:';
 
   @override
-  String get eventsConventionsTitle => '';
+  String get eventsConventionsTitle => 'Eventos e Convenções';
 
   @override
-  String get noEventsFoundText => '';
+  String get noEventsFoundText => 'Ops, nenhum evento encontrado!';
 
   @override
-  String get noEventsFoundDescription => '';
+  String get noEventsFoundDescription => 'Experimente ajustar seus filtros ou venha\nvolte mais tarde para mais opções divertidas.';
 
   @override
-  String get openAppSettings => '';
+  String get openAppSettings => 'Abra as Configurações do Aplicativo';
 
   @override
-  String get cameraErrorCheckPermission => '';
+  String get cameraErrorCheckPermission => 'Algo deu errado com sua câmera. Verifique a permissão.';
 
   @override
-  String get editPromoImage => '';
+  String get editPromoImage => 'Editar Imagem Promocional';
 
   @override
-  String get invalidEventNameError => '';
+  String get invalidEventNameError => 'Nome de evento inválido. Por favor, tente novamente';
 
   @override
-  String get invalidDescriptionError => '';
+  String get invalidDescriptionError => 'Descrição inválida. Por favor, tente novamente';
 
   @override
-  String get venueText => '';
+  String get venueText => 'Local';
 
   @override
-  String get invalidVenueError => '';
+  String get invalidVenueError => 'Local inválido. Por favor, tente novamente';
 
   @override
-  String get invalidMaxPartySizeError => '';
+  String get invalidMaxPartySizeError => 'Tamanho máximo do grupo inválido. Por favor, tente novamente';
 
   @override
-  String get normalEvents => '';
+  String get normalEvents => 'Eventos Normais';
 
   @override
-  String get conventionsText => '';
+  String get conventionsText => 'Convenções';
 
   @override
-  String get yourEvents => '';
+  String get yourEvents => 'Seus Eventos';
 
   @override
-  String get invalidLocationError => '';
+  String get invalidLocationError => 'Localização inválida. Por favor, tente novamente';
 
   @override
   String get eventManagementTitle => 'Gestão de Eventos';
 
   @override
-  String get paidEntryText => '';
+  String get paidEntryText => 'Entrada Paga';
 
   @override
-  String get associationWithConvention => '';
+  String get associationWithConvention => 'Associação com Convenção:';
 
   @override
-  String get attendButton => '';
+  String get attendButton => 'Participar';
 
   @override
-  String get hostTheEventText => '';
+  String get hostTheEventText => 'Anfitrião do evento';
 
   @override
-  String get maximumPartyMemberLimit => '';
+  String get maximumPartyMemberLimit => 'Limite máximo de membros do grupo: 10';
 
   @override
-  String get youCanParticipateInPartyDescription => '';
+  String get youCanParticipateInPartyDescription => 'Você pode participar de uma festa, fazer novos amigos e se divertir.';
 
   @override
-  String get associatedEventsTitle => '';
+  String get associatedEventsTitle => 'Eventos Associados';
 
   @override
-  String get startDateTitle => '';
+  String get startDateTitle => 'Data de Início';
 
   @override
-  String get endDateTitle => '';
+  String get endDateTitle => 'Data Final';
 
   @override
-  String get creatingEventTitle => '';
+  String get creatingEventTitle => 'Criando um Evento';
 
   @override
-  String get creatingEventDescription => '';
+  String get creatingEventDescription => 'Você deve ser verificado antes de poder criar um evento';
 
   @override
-  String get verifyNowButton => '';
+  String get verifyNowButton => 'Verifique Agora';
 
   @override
-  String get hostAnEventTitle => '';
+  String get hostAnEventTitle => 'Hospede um Evento';
 
   @override
-  String get hostAnEventDescription => '';
+  String get hostAnEventDescription => 'Quer seja uma noite para jogar boliche, sair para tomar uma bebida ou montar seu esquadrão de cosplay para a convenção, organize um evento hoje e construa sua festa!';
 
   @override
-  String get inviteFriendsGetPremiumText => '';
+  String get inviteFriendsGetPremiumText => 'Convide amigos, ganhe Premium!';
 
   @override
-  String get keepInvitingPeopleDescription => '';
+  String get keepInvitingPeopleDescription => 'Continue convidando pessoas e em breve você terá uma conta Premium․';
 
   @override
-  String get attendSuccessfulDescription => '';
+  String get attendSuccessfulDescription => 'Você se inscreveu com sucesso para participar da festa e será notificado quando o anfitrião tomar uma decisão.';
 
   @override
-  String get attendSuccessTitle => '';
+  String get attendSuccessTitle => 'Sucesso';
 
   @override
-  String get scanQRCodeTitle => '';
+  String get scanQRCodeTitle => 'Digitalize o código QR';
 
   @override
-  String get congratulationsTitle => '';
+  String get congratulationsTitle => 'Parabéns!';
 
   @override
-  String get youHavePremiumAccountForMonth => '';
+  String get youHavePremiumAccountForMonth => 'Você tem uma conta Premium por 1 mês.';
 
   @override
-  String get higherVisibilityRatesSuperLikesAndMuchMore => '';
+  String get higherVisibilityRatesSuperLikesAndMuchMore => 'Maiores taxas de visibilidade, 30 Super Likes e muito mais!';
 
   @override
-  String get backHomeTitle => '';
+  String get backHomeTitle => 'De volta para casa';
 
   @override
-  String get openInvitesFilterTitle => '';
+  String get openInvitesFilterTitle => 'Aceitando convites';
 
   @override
-  String get closedInvitesFilterTitle => '';
+  String get closedInvitesFilterTitle => 'Festa cheia';
 
   @override
   String get manageSubscriptionTitle => 'Gerenciar assinatura';
+
+  @override
+  String get cancelAnytimeTitle => 'Cancelar a qualquer momento';
+
+  @override
+  String get conventionWebsiteText => 'Site';
+
+  @override
+  String get oopsNoAnimeFound => 'Ops, nenhum anime encontrado!';
+
+  @override
+  String get spanishNotTranslated => 'Español';
+
+  @override
+  String get spanish => 'Espanhol';
 }
