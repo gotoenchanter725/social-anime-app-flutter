@@ -1119,4 +1119,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get spanish => 'Español';
+
+  @override
+  String get doxxingIdentityThreat => 'Doxxing / Amenaza de Identidad';
 }

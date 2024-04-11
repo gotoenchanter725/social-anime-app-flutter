@@ -2328,6 +2328,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Spanish'**
   String get spanish;
+
+  /// No description provided for @doxxingIdentityThreat.
+  ///
+  /// In en, this message translates to:
+  /// **'Doxxing / Identity threat'**
+  String get doxxingIdentityThreat;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
