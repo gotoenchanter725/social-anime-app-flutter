@@ -1122,4 +1122,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get doxxingIdentityThreat => '個人情報漏洩/個人情報の脅威';
+
+  @override
+  String get favoriteAnime => '好きなアニメ';
 }

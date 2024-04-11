@@ -1060,7 +1060,7 @@ abstract class AppLocalizations {
   /// No description provided for @enableLocationDescription.
   ///
   /// In en, this message translates to:
-  /// **'Su ubicación se utilizará para mostrar\nposibles coincidencias cerca de ti'**
+  /// **'Your location will be used to show \\npotential matches near you'**
   String get enableLocationDescription;
 
   /// No description provided for @allowLocationText.
@@ -2334,6 +2334,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Doxxing / Identity threat'**
   String get doxxingIdentityThreat;
+
+  /// No description provided for @favoriteAnime.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorite Anime'**
+  String get favoriteAnime;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

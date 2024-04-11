@@ -1122,4 +1122,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get doxxingIdentityThreat => 'Doxxing/Ameaça de Identidade';
+
+  @override
+  String get favoriteAnime => 'Anime Favorito';
 }

@@ -485,7 +485,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enableLocationText => 'Enable location';
 
   @override
-  String get enableLocationDescription => 'Su ubicación se utilizará para mostrar\nposibles coincidencias cerca de ti';
+  String get enableLocationDescription => 'Your location will be used to show \\npotential matches near you';
 
   @override
   String get allowLocationText => 'Allow location';
@@ -1122,4 +1122,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get doxxingIdentityThreat => 'Doxxing / Identity threat';
+
+  @override
+  String get favoriteAnime => 'Favorite Anime';
 }
