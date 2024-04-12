@@ -87,6 +87,9 @@ class ProfilePremiumWidget extends StatelessWidget {
               _buildPremiumText(
                   context, R.strings.premiumAbilityAnimesText),
               SizedBox(height: $constants.insets.md),
+              _buildPremiumText(
+                  context, R.strings.cancelAnytimeTitle),
+              SizedBox(height: $constants.insets.md),
               PrimaryButton(
                 text: R.strings.premiumUpgradeText,
                 onPressed: () async {
