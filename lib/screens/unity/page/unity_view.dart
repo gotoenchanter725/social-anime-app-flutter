@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_unity_widget/flutter_unity_widget.dart';
 
 @RoutePage()
-class UnityView extends StatelessWidget {
-  UnityView({super.key});
+class UnityViewPage extends StatelessWidget {
+  UnityViewPage({super.key});
 
   // ignore: unused_field
   late final UnityWidgetController _unityWidgetController;

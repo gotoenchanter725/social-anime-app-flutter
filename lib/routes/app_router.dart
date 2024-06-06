@@ -33,6 +33,7 @@ import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/page/upload_photos_manager_page.dart';
 import 'package:senpai/screens/report_user/page/report_user_page.dart';
 import 'package:senpai/screens/signup/page/sign_up_page.dart';
+import 'package:senpai/screens/unity/page/unity_view.dart';
 import 'package:senpai/screens/verify_phone/page/verify_phone_page.dart';
 import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
 import 'package:senpai/screens/verify_photo/camera_page/page/verify_camera_page.dart';
@@ -47,10 +48,11 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         // add your routes here
+        AutoRoute(page: UnityViewRoute.page, initial: true),
         AutoRoute(
             page: OnboardingRoute.page,
             // page: MatchRoute.page,
-            initial: true,
+            // initial: true,
             guards: [ExistingUserGuard()]),
         AutoRoute(page: EntryRoute.page, path: '/entry'),
         AutoRoute(page: SignUpRoute.page, path: '/create_user'),

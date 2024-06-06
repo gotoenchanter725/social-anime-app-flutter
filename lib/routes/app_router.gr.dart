@@ -228,6 +228,14 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    UnityViewRoute.name: (routeData) {
+      final args = routeData.argsAs<UnityViewRouteArgs>(
+          orElse: () => const UnityViewRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UnityViewPage(key: args.key),
+      );
+    },
     UploadPhotosManagerRoute.name: (routeData) {
       final args = routeData.argsAs<UploadPhotosManagerRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -1051,6 +1059,35 @@ class SignUpRouteArgs {
   @override
   String toString() {
     return 'SignUpRouteArgs{key: $key, isExistingUser: $isExistingUser}';
+  }
+}
+
+/// generated route for
+/// [UnityViewPage]
+class UnityViewRoute extends PageRouteInfo<UnityViewRouteArgs> {
+  UnityViewRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UnityViewRoute.name,
+          args: UnityViewRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'UnityViewRoute';
+
+  static const PageInfo<UnityViewRouteArgs> page =
+      PageInfo<UnityViewRouteArgs>(name);
+}
+
+class UnityViewRouteArgs {
+  const UnityViewRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UnityViewRouteArgs{key: $key}';
   }
 }
 
