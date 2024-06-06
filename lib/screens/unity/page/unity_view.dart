@@ -1,0 +1,27 @@
+import 'package:auto_route/annotations.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_unity_widget/flutter_unity_widget.dart';
+
+@RoutePage()
+class UnityView extends StatelessWidget {
+  UnityView({super.key});
+
+  // ignore: unused_field
+  late final UnityWidgetController _unityWidgetController;
+
+  void onUnityCreated(UnityWidgetController controller) {
+    _unityWidgetController = controller;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('The Avator screen'),
+      ),
+      body: UnityWidget(
+        onUnityCreated: onUnityCreated,
+      ),
+    );
+  }
+}
