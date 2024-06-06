@@ -4,6 +4,7 @@ import flutter_local_notifications
 import Firebase
 import FirebaseMessaging
 import GoogleMaps
+import flutter_unity_widget
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
