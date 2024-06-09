@@ -33,7 +33,7 @@ target 'Runner' do
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 
-  pod 'UnityFramework', :path => './UnityIntegration/senpai_avatar_build/UnityFramework'
+  # pod 'UnityFramework', :path => './UnityIntegration/senpai_avatar_build/UnityFramework'
   target 'RunnerTests' do
     inherit! :search_paths
   end
