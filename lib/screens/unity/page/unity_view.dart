@@ -13,14 +13,15 @@ class UnityViewPage extends StatelessWidget {
     _unityWidgetController = controller;
 
     // Send User Info to Unity
-    _unityWidgetController.postMessage("DataController", "setUserInfo", "")
+    // userId, json web token, gender, isVerified, isPremium
+    _unityWidgetController.postMessage("DataController", "setUserInfo", "");
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('The Avator screen'),
+        title: const Text('The Avatar screen'),
       ),
       body: UnityWidget(
         onUnityCreated: onUnityCreated,
