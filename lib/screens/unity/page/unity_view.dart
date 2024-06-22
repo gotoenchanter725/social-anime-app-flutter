@@ -13,7 +13,7 @@ class UnityViewPage extends StatelessWidget {
     _unityWidgetController = controller;
 
     // Send User Info to Unity
-    _unityWidgetController.postMessage("DataController", "setUserInfo", )
+    _unityWidgetController.postMessage("DataController", "setUserInfo", "")
   }
 
   @override
