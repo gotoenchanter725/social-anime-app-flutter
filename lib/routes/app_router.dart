@@ -59,9 +59,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SenpaiLicenseRoute.page, path: '/license'),
         AutoRoute(page: ProfileFillRoute.page, path: '/profile_fill'),
         AutoRoute(page: VerifyPhotoRoute.page, path: '/verify_photo'),
-        AutoRoute(
-          page: UnityViewRoute.page,
-        ),
+        AutoRoute(page: UnityViewRoute.page, path: '/video_call'),
         AutoRoute(page: HomeRoute.page, path: '/home', children: [
           AutoRoute(page: MatchRoute.page, path: 'match'),
           AutoRoute(page: ChatListRoute.page, path: 'chat_list'),
