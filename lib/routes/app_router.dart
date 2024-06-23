@@ -48,11 +48,10 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         // add your routes here
-        AutoRoute(page: UnityViewRoute.page, initial: true),
+
         AutoRoute(
             page: OnboardingRoute.page,
-            // page: MatchRoute.page,
-            // initial: true,
+            initial: true,
             guards: [ExistingUserGuard()]),
         AutoRoute(page: EntryRoute.page, path: '/entry'),
         AutoRoute(page: SignUpRoute.page, path: '/create_user'),
@@ -60,6 +59,9 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SenpaiLicenseRoute.page, path: '/license'),
         AutoRoute(page: ProfileFillRoute.page, path: '/profile_fill'),
         AutoRoute(page: VerifyPhotoRoute.page, path: '/verify_photo'),
+        AutoRoute(
+          page: UnityViewRoute.page,
+        ),
         AutoRoute(page: HomeRoute.page, path: '/home', children: [
           AutoRoute(page: MatchRoute.page, path: 'match'),
           AutoRoute(page: ChatListRoute.page, path: 'chat_list'),
