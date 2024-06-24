@@ -19,6 +19,7 @@ import 'package:senpai/screens/entry/page/entry_page.dart';
 import 'package:senpai/screens/events_list/page/events_list_page.dart';
 import 'package:senpai/screens/home/page/home_page.dart';
 import 'package:senpai/screens/license/page/license_page.dart';
+import 'package:senpai/screens/lobby/page/lobby_page.dart';
 import 'package:senpai/screens/match/page/match_page.dart';
 import 'package:senpai/screens/match_users/page/match_users_page.dart';
 import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
@@ -67,6 +68,7 @@ class AppRouter extends _$AppRouter {
           // AutoRoute(page: EventsListRoute.page, path: 'events'),
           AutoRoute(page: ProfileRoute.page, path: 'profile')
         ]),
+        AutoRoute(page: LobbyRoute.page, path: '/lobby'),
         AutoRoute(
           page: ChatRoute.page,
           path: '/chat',
