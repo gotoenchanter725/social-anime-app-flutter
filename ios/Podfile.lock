@@ -315,7 +315,7 @@ SPEC CHECKSUMS:
   flutter_unity_widget: e509f3109933aa0c63b1bc149ca3d5b90fb68543
   flutter_web_auth_2: 051cf9f5dc366f31b5dcc4e2952c2b954767be8a
   geolocator_apple: cc556e6844d508c95df1e87e3ea6fa4e58c50401
-  google_maps_flutter_ios: f135b968a67c05679e0a53538e900b5c174b0d99
+  google_maps_flutter_ios: d1318b4ff711612cab16862d7a87e31a7403d458
   GoogleAppMeasurement: bb3c564c3efb933136af0e94899e0a46167466a8
   GoogleDataTransport: 57c22343ab29bc686febbf7cbb13bad167c2d8fe
   GoogleMaps: 20d7b12be49a14287f797e88e0e31bc4156aaeb4
@@ -340,7 +340,7 @@ SPEC CHECKSUMS:
   url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
   video_player_avfoundation: 02011213dab73ae3687df27ce441fbbcc82b5579
   wakelock_plus: 8b09852c8876491e4b6d179e17dfe2a0b5f60d47
-  webview_flutter_wkwebview: be0f0d33777f1bfd0c9fdcb594786704dbf65f36
+  webview_flutter_wkwebview: 4f3e50f7273d31e5500066ed267e3ae4309c5ae4
 
 PODFILE CHECKSUM: 902850df8c3dc8eaf6433ff2c6a4b2fa3faf0b2a
 
