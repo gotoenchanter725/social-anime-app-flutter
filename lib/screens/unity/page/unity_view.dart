@@ -43,7 +43,7 @@ class UnityViewPage extends StatelessWidget {
     // Send User Info to Unity
     // userId, json web token, gender, isVerified, isPremium
     _unityWidgetController.postMessage(
-        "DataController", "setUserInfo", userInfo);
+        "DataController", "setUserInfo", userInfo.toString());
   }
 
   void onUnityCreated(UnityWidgetController controller) {
