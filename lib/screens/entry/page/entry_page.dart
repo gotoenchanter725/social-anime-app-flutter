@@ -64,7 +64,7 @@ class EntryPage extends StatelessWidget {
             if (isSignedIn) {
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 // context.router.replaceAll([HomeRoute()]);
-                context.router.replaceAll([LobbyRoute()]);
+                context.router.replaceAll([UnityViewRoute()]);
               });
             }
             return const SizedBox.shrink();
