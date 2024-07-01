@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,24 +32,27 @@ class UnityViewPage extends StatelessWidget {
       throw Exception("Could not find a signed in user");
     }
 
-    dynamic userInfo = {
+    dynamic userInfo = jsonEncode({
       "token": authModel.token,
       "userId": _user.id,
+      "firstName": _user.firstName,
       "isVerified": _user.verified,
       "gender": _user.gender,
       "isPremium": _user.premium,
-    };
+    });
 
     logIt.info("User Info: $userInfo");
 
     // Send User Info to Unity
     // userId, json web token, gender, isVerified, isPremium
+    // int userID, string token, string gender, bool isVerified, bool isPremium
     _unityWidgetController.postMessage(
-        "DataController", "setUserInfo", userInfo.toString());
+        "DataController", "SetUserInfo", userInfo);
   }
 
   void onUnityCreated(UnityWidgetController controller) {
     _unityWidgetController = controller;
+
     postUserDetails();
   }
 
