@@ -39,6 +39,7 @@ class UnityViewPage extends StatelessWidget {
       "isVerified": _user.verified,
       "gender": _user.gender,
       "isPremium": _user.premium,
+      "thumbnailURL": _user.gallery?.photos.first.url
     });
 
     logIt.info("User Info: $userInfo");
