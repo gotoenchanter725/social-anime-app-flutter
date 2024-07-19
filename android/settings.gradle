@@ -28,3 +28,7 @@ include ":app"
 
 include ":unityLibrary"
 project(":unityLibrary").projectDir = file("./UnityIntegration/unityLibrary")
+
+
+include ":AgoraRtcEngineKit.plugin"
+project(":AgoraRtcEngineKit.plugin").projectDir = file("./UnityIntegration/unityLibrary/AgoraRtcEngineKit.plugin")

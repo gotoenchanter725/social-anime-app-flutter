@@ -51,10 +51,41 @@ class UnityViewPage extends StatelessWidget {
         "DataController", "SetUserInfo", userInfo);
   }
 
+
+  // Communication from Unity to Flutter
+  void onUnityMessage(message) {
+    print('Received message from unity: ${message.toString()}');
+  }
+
+// Communication from Unity when new scene is loaded to Flutter
+  void onUnitySceneLoaded(SceneLoaded? sceneInfo) {
+    if (sceneInfo != null) {
+      print('Received scene loaded from unity: ${sceneInfo.name}');
+      print(
+          'Received scene loaded from unity buildIndex: ${sceneInfo.buildIndex}');
+
+      switch(sceneInfo.name){
+        case "VideoChatScene":
+        case "TestAvatarScene":
+            postUserDetails();
+            break;
+        default:
+        break;
+      }
+
+    
+    }
+  }
+
   void onUnityCreated(UnityWidgetController controller) {
     _unityWidgetController = controller;
+      loadUnityScene();
+  }
 
-    postUserDetails();
+// 1 = VideoChatScene , 2 = TestAvatarScene
+  void loadUnityScene(){
+      _unityWidgetController.postMessage(
+      "SceneLoaderManager", "ChangeSceneBySceneID", "1");
   }
 
   @override
@@ -101,6 +132,8 @@ class UnityViewPage extends StatelessWidget {
             loading: (result) => const SenpaiLoading(),
             loaded: ((data, result) => UnityWidget(
                   onUnityCreated: onUnityCreated,
+                  onUnityMessage: onUnityMessage,
+                  onUnitySceneLoaded: onUnitySceneLoaded,
                 )),
             orElse: () => const SizedBox.shrink(),
           );
