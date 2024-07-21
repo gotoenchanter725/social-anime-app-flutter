@@ -127,8 +127,7 @@ class VerifyPhotoProfileFillPage extends StatelessWidget {
                         isProfileFilled: true,
                       ),
                     );
-                    // context.router.replaceAll([HomeRoute()]);
-                    context.router.replaceAll([UnityViewRoute()]);
+                    context.router.replaceAll([HomeRoute()]);
                   }
                 });
               });

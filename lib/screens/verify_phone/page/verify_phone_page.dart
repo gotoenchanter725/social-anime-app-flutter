@@ -193,8 +193,7 @@ class VerifyPhonePage extends StatelessWidget {
 
               if (hasFilledProfile) {
                 WidgetsBinding.instance.addPostFrameCallback((_) {
-                  // context.router.replaceAll([HomeRoute()]);
-                  context.router.replaceAll([UnityViewRoute()]);
+                  context.router.replaceAll([HomeRoute()]);
                 });
               } else {
                 context.router.push(ProfileFillRoute(
