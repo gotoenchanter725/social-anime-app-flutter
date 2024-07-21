@@ -8,56 +8,56 @@
 
 /* Begin PBXBuildFile section */
 		0653FD042C31DC93006725D6 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD032C31DC93006725D6 /* opencv2.framework */; };
-		0653FD602C31ED1B006725D6 /* AgoraAiEchoCancellationExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD212C31E53B006725D6 /* AgoraAiEchoCancellationExtension.framework */; };
-		0653FD612C31ED1B006725D6 /* AgoraAiEchoCancellationExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD212C31E53B006725D6 /* AgoraAiEchoCancellationExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD622C31ED1B006725D6 /* AgoraAiNoiseSuppressionExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD222C31E53B006725D6 /* AgoraAiNoiseSuppressionExtension.framework */; };
-		0653FD632C31ED1B006725D6 /* AgoraAiNoiseSuppressionExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD222C31E53B006725D6 /* AgoraAiNoiseSuppressionExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD642C31ED1B006725D6 /* AgoraAudioBeautyExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD232C31E53B006725D6 /* AgoraAudioBeautyExtension.framework */; };
-		0653FD652C31ED1B006725D6 /* AgoraAudioBeautyExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD232C31E53B006725D6 /* AgoraAudioBeautyExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD662C31ED1B006725D6 /* AgoraClearVisionExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD242C31E53B006725D6 /* AgoraClearVisionExtension.framework */; };
-		0653FD672C31ED1B006725D6 /* AgoraClearVisionExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD242C31E53B006725D6 /* AgoraClearVisionExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD682C31ED1B006725D6 /* AgoraContentInspectExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD252C31E53B006725D6 /* AgoraContentInspectExtension.framework */; };
-		0653FD692C31ED1B006725D6 /* AgoraContentInspectExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD252C31E53B006725D6 /* AgoraContentInspectExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD6A2C31ED1C006725D6 /* AgoraCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD262C31E53B006725D6 /* AgoraCore.framework */; };
-		0653FD6B2C31ED1C006725D6 /* AgoraCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD262C31E53B006725D6 /* AgoraCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD6C2C31ED1C006725D6 /* AgoraDrmLoaderExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD272C31E53B006725D6 /* AgoraDrmLoaderExtension.framework */; };
-		0653FD6D2C31ED1C006725D6 /* AgoraDrmLoaderExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD272C31E53B006725D6 /* AgoraDrmLoaderExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD6E2C31ED1C006725D6 /* AgoraFaceDetectionExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD282C31E53B006725D6 /* AgoraFaceDetectionExtension.framework */; };
-		0653FD6F2C31ED1C006725D6 /* AgoraFaceDetectionExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD282C31E53B006725D6 /* AgoraFaceDetectionExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD702C31ED1C006725D6 /* Agorafdkaac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD322C31E53B006725D6 /* Agorafdkaac.framework */; };
-		0653FD712C31ED1C006725D6 /* Agorafdkaac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD322C31E53B006725D6 /* Agorafdkaac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD722C31ED1C006725D6 /* Agoraffmpeg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD332C31E53B006725D6 /* Agoraffmpeg.framework */; };
-		0653FD732C31ED1C006725D6 /* Agoraffmpeg.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD332C31E53B006725D6 /* Agoraffmpeg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD742C31ED1C006725D6 /* AgoraReplayKitExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD292C31E53B006725D6 /* AgoraReplayKitExtension.framework */; };
-		0653FD752C31ED1C006725D6 /* AgoraReplayKitExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD292C31E53B006725D6 /* AgoraReplayKitExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD762C31ED1C006725D6 /* AgoraRtcKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2A2C31E53B006725D6 /* AgoraRtcKit.framework */; };
-		0653FD772C31ED1C006725D6 /* AgoraRtcKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2A2C31E53B006725D6 /* AgoraRtcKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD782C31ED1C006725D6 /* AgoraRtcWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2B2C31E53B006725D6 /* AgoraRtcWrapper.framework */; };
-		0653FD792C31ED1C006725D6 /* AgoraRtcWrapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2B2C31E53B006725D6 /* AgoraRtcWrapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD7A2C31ED1C006725D6 /* AgoraSoundTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2C2C31E53B006725D6 /* AgoraSoundTouch.framework */; };
-		0653FD7B2C31ED1C006725D6 /* AgoraSoundTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2C2C31E53B006725D6 /* AgoraSoundTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD7C2C31ED1C006725D6 /* AgoraSpatialAudioExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2D2C31E53B006725D6 /* AgoraSpatialAudioExtension.framework */; };
-		0653FD7D2C31ED1C006725D6 /* AgoraSpatialAudioExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2D2C31E53B006725D6 /* AgoraSpatialAudioExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD7E2C31ED1C006725D6 /* AgoraVideoDecoderExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2E2C31E53B006725D6 /* AgoraVideoDecoderExtension.framework */; };
-		0653FD7F2C31ED1C006725D6 /* AgoraVideoDecoderExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2E2C31E53B006725D6 /* AgoraVideoDecoderExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD802C31ED1C006725D6 /* AgoraVideoEncoderExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2F2C31E53B006725D6 /* AgoraVideoEncoderExtension.framework */; };
-		0653FD812C31ED1C006725D6 /* AgoraVideoEncoderExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD2F2C31E53B006725D6 /* AgoraVideoEncoderExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD822C31ED1C006725D6 /* AgoraVideoQualityAnalyzerExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD302C31E53B006725D6 /* AgoraVideoQualityAnalyzerExtension.framework */; };
-		0653FD832C31ED1C006725D6 /* AgoraVideoQualityAnalyzerExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD302C31E53B006725D6 /* AgoraVideoQualityAnalyzerExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD842C31ED1C006725D6 /* AgoraVideoSegmentationExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD312C31E53B006725D6 /* AgoraVideoSegmentationExtension.framework */; };
-		0653FD852C31ED1C006725D6 /* AgoraVideoSegmentationExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD312C31E53B006725D6 /* AgoraVideoSegmentationExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0653FD862C31ED1C006725D6 /* opencv2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD032C31DC93006725D6 /* opencv2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0653FD872C31ED1C006725D6 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D677C50E281EDD34AD61895A /* Pods_Runner.framework */; };
 		0653FD882C31ED1C006725D6 /* Pods_Runner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D677C50E281EDD34AD61895A /* Pods_Runner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0653FD892C31ED1C006725D6 /* UnityFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 065A53582C18E406005CF887 /* UnityFramework.framework */; };
 		0653FD8A2C31ED1C006725D6 /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 065A53582C18E406005CF887 /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD8B2C31ED1D006725D6 /* video_dec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD342C31E53B006725D6 /* video_dec.framework */; };
-		0653FD8C2C31ED1D006725D6 /* video_dec.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD342C31E53B006725D6 /* video_dec.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD8D2C31ED1D006725D6 /* video_enc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD352C31E53B006725D6 /* video_enc.framework */; };
-		0653FD8E2C31ED1D006725D6 /* video_enc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD352C31E53B006725D6 /* video_enc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
+		6512FD292C4D97050034B32F /* AgoraAiEchoCancellationExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD162C4D97040034B32F /* AgoraAiEchoCancellationExtension.framework */; };
+		6512FD2A2C4D97050034B32F /* AgoraAiEchoCancellationExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD162C4D97040034B32F /* AgoraAiEchoCancellationExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD2B2C4D97050034B32F /* AgoraAiNoiseSuppressionExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD172C4D97040034B32F /* AgoraAiNoiseSuppressionExtension.framework */; };
+		6512FD2C2C4D97050034B32F /* AgoraAiNoiseSuppressionExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD172C4D97040034B32F /* AgoraAiNoiseSuppressionExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD2D2C4D97050034B32F /* AgoraAudioBeautyExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD182C4D97040034B32F /* AgoraAudioBeautyExtension.framework */; };
+		6512FD2E2C4D97050034B32F /* AgoraAudioBeautyExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD182C4D97040034B32F /* AgoraAudioBeautyExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD2F2C4D97050034B32F /* AgoraClearVisionExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD192C4D97040034B32F /* AgoraClearVisionExtension.framework */; };
+		6512FD302C4D97050034B32F /* AgoraClearVisionExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD192C4D97040034B32F /* AgoraClearVisionExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD312C4D97050034B32F /* AgoraContentInspectExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1A2C4D97040034B32F /* AgoraContentInspectExtension.framework */; };
+		6512FD322C4D97050034B32F /* AgoraContentInspectExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1A2C4D97040034B32F /* AgoraContentInspectExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD332C4D97050034B32F /* AgoraCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1B2C4D97040034B32F /* AgoraCore.framework */; };
+		6512FD342C4D97050034B32F /* AgoraCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1B2C4D97040034B32F /* AgoraCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD352C4D97050034B32F /* AgoraDrmLoaderExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1C2C4D97040034B32F /* AgoraDrmLoaderExtension.framework */; };
+		6512FD362C4D97050034B32F /* AgoraDrmLoaderExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1C2C4D97040034B32F /* AgoraDrmLoaderExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD372C4D97050034B32F /* AgoraFaceDetectionExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1D2C4D97040034B32F /* AgoraFaceDetectionExtension.framework */; };
+		6512FD382C4D97050034B32F /* AgoraFaceDetectionExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1D2C4D97040034B32F /* AgoraFaceDetectionExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD392C4D97050034B32F /* AgoraReplayKitExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1E2C4D97040034B32F /* AgoraReplayKitExtension.framework */; };
+		6512FD3A2C4D97050034B32F /* AgoraReplayKitExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1E2C4D97040034B32F /* AgoraReplayKitExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD3B2C4D97050034B32F /* AgoraRtcKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1F2C4D97040034B32F /* AgoraRtcKit.framework */; };
+		6512FD3C2C4D97050034B32F /* AgoraRtcKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD1F2C4D97040034B32F /* AgoraRtcKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD3D2C4D97050034B32F /* AgoraRtcWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD202C4D97040034B32F /* AgoraRtcWrapper.framework */; };
+		6512FD3E2C4D97050034B32F /* AgoraRtcWrapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD202C4D97040034B32F /* AgoraRtcWrapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD3F2C4D97050034B32F /* AgoraSoundTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD212C4D97040034B32F /* AgoraSoundTouch.framework */; };
+		6512FD402C4D97050034B32F /* AgoraSoundTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD212C4D97040034B32F /* AgoraSoundTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD412C4D97050034B32F /* AgoraSpatialAudioExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD222C4D97040034B32F /* AgoraSpatialAudioExtension.framework */; };
+		6512FD422C4D97050034B32F /* AgoraSpatialAudioExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD222C4D97040034B32F /* AgoraSpatialAudioExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD432C4D97050034B32F /* AgoraVideoDecoderExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD232C4D97040034B32F /* AgoraVideoDecoderExtension.framework */; };
+		6512FD442C4D97050034B32F /* AgoraVideoDecoderExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD232C4D97040034B32F /* AgoraVideoDecoderExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD452C4D97050034B32F /* AgoraVideoEncoderExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD242C4D97040034B32F /* AgoraVideoEncoderExtension.framework */; };
+		6512FD462C4D97050034B32F /* AgoraVideoEncoderExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD242C4D97040034B32F /* AgoraVideoEncoderExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD472C4D97050034B32F /* AgoraVideoQualityAnalyzerExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD252C4D97040034B32F /* AgoraVideoQualityAnalyzerExtension.framework */; };
+		6512FD482C4D97050034B32F /* AgoraVideoQualityAnalyzerExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD252C4D97040034B32F /* AgoraVideoQualityAnalyzerExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD492C4D97050034B32F /* AgoraVideoSegmentationExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD262C4D97040034B32F /* AgoraVideoSegmentationExtension.framework */; };
+		6512FD4A2C4D97050034B32F /* AgoraVideoSegmentationExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD262C4D97040034B32F /* AgoraVideoSegmentationExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD4B2C4D97050034B32F /* Agorafdkaac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD272C4D97040034B32F /* Agorafdkaac.framework */; };
+		6512FD4C2C4D97050034B32F /* Agorafdkaac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD272C4D97040034B32F /* Agorafdkaac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD4D2C4D97050034B32F /* Agoraffmpeg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD282C4D97040034B32F /* Agoraffmpeg.framework */; };
+		6512FD4E2C4D97050034B32F /* Agoraffmpeg.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD282C4D97040034B32F /* Agoraffmpeg.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD512C4D97190034B32F /* video_dec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD4F2C4D97190034B32F /* video_dec.framework */; };
+		6512FD522C4D971A0034B32F /* video_dec.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD4F2C4D97190034B32F /* video_dec.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6512FD532C4D971A0034B32F /* video_enc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD502C4D97190034B32F /* video_enc.framework */; };
+		6512FD542C4D971A0034B32F /* video_enc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6512FD502C4D97190034B32F /* video_enc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6CEA5E2866E05D202662F78B /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA3187C07E5BEA35FEB47D8 /* Pods_RunnerTests.framework */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
@@ -83,30 +83,30 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0653FD772C31ED1C006725D6 /* AgoraRtcKit.framework in Embed Frameworks */,
-				0653FD6D2C31ED1C006725D6 /* AgoraDrmLoaderExtension.framework in Embed Frameworks */,
-				0653FD792C31ED1C006725D6 /* AgoraRtcWrapper.framework in Embed Frameworks */,
-				0653FD7B2C31ED1C006725D6 /* AgoraSoundTouch.framework in Embed Frameworks */,
-				0653FD7F2C31ED1C006725D6 /* AgoraVideoDecoderExtension.framework in Embed Frameworks */,
+				6512FD342C4D97050034B32F /* AgoraCore.framework in Embed Frameworks */,
 				0653FD8A2C31ED1C006725D6 /* UnityFramework.framework in Embed Frameworks */,
+				6512FD482C4D97050034B32F /* AgoraVideoQualityAnalyzerExtension.framework in Embed Frameworks */,
+				6512FD4A2C4D97050034B32F /* AgoraVideoSegmentationExtension.framework in Embed Frameworks */,
+				6512FD462C4D97050034B32F /* AgoraVideoEncoderExtension.framework in Embed Frameworks */,
+				6512FD382C4D97050034B32F /* AgoraFaceDetectionExtension.framework in Embed Frameworks */,
+				6512FD3A2C4D97050034B32F /* AgoraReplayKitExtension.framework in Embed Frameworks */,
+				6512FD302C4D97050034B32F /* AgoraClearVisionExtension.framework in Embed Frameworks */,
+				6512FD322C4D97050034B32F /* AgoraContentInspectExtension.framework in Embed Frameworks */,
+				6512FD3C2C4D97050034B32F /* AgoraRtcKit.framework in Embed Frameworks */,
+				6512FD2A2C4D97050034B32F /* AgoraAiEchoCancellationExtension.framework in Embed Frameworks */,
+				6512FD542C4D971A0034B32F /* video_enc.framework in Embed Frameworks */,
+				6512FD2E2C4D97050034B32F /* AgoraAudioBeautyExtension.framework in Embed Frameworks */,
+				6512FD3E2C4D97050034B32F /* AgoraRtcWrapper.framework in Embed Frameworks */,
+				6512FD4C2C4D97050034B32F /* Agorafdkaac.framework in Embed Frameworks */,
 				0653FD882C31ED1C006725D6 /* Pods_Runner.framework in Embed Frameworks */,
-				0653FD832C31ED1C006725D6 /* AgoraVideoQualityAnalyzerExtension.framework in Embed Frameworks */,
-				0653FD812C31ED1C006725D6 /* AgoraVideoEncoderExtension.framework in Embed Frameworks */,
-				0653FD7D2C31ED1C006725D6 /* AgoraSpatialAudioExtension.framework in Embed Frameworks */,
-				0653FD632C31ED1B006725D6 /* AgoraAiNoiseSuppressionExtension.framework in Embed Frameworks */,
-				0653FD8E2C31ED1D006725D6 /* video_enc.framework in Embed Frameworks */,
-				0653FD672C31ED1B006725D6 /* AgoraClearVisionExtension.framework in Embed Frameworks */,
-				0653FD692C31ED1B006725D6 /* AgoraContentInspectExtension.framework in Embed Frameworks */,
-				0653FD652C31ED1B006725D6 /* AgoraAudioBeautyExtension.framework in Embed Frameworks */,
-				0653FD6B2C31ED1C006725D6 /* AgoraCore.framework in Embed Frameworks */,
-				0653FD8C2C31ED1D006725D6 /* video_dec.framework in Embed Frameworks */,
-				0653FD712C31ED1C006725D6 /* Agorafdkaac.framework in Embed Frameworks */,
-				0653FD6F2C31ED1C006725D6 /* AgoraFaceDetectionExtension.framework in Embed Frameworks */,
-				0653FD732C31ED1C006725D6 /* Agoraffmpeg.framework in Embed Frameworks */,
-				0653FD612C31ED1B006725D6 /* AgoraAiEchoCancellationExtension.framework in Embed Frameworks */,
-				0653FD852C31ED1C006725D6 /* AgoraVideoSegmentationExtension.framework in Embed Frameworks */,
+				6512FD522C4D971A0034B32F /* video_dec.framework in Embed Frameworks */,
+				6512FD2C2C4D97050034B32F /* AgoraAiNoiseSuppressionExtension.framework in Embed Frameworks */,
+				6512FD4E2C4D97050034B32F /* Agoraffmpeg.framework in Embed Frameworks */,
+				6512FD422C4D97050034B32F /* AgoraSpatialAudioExtension.framework in Embed Frameworks */,
+				6512FD402C4D97050034B32F /* AgoraSoundTouch.framework in Embed Frameworks */,
+				6512FD362C4D97050034B32F /* AgoraDrmLoaderExtension.framework in Embed Frameworks */,
 				0653FD862C31ED1C006725D6 /* opencv2.framework in Embed Frameworks */,
-				0653FD752C31ED1C006725D6 /* AgoraReplayKitExtension.framework in Embed Frameworks */,
+				6512FD442C4D97050034B32F /* AgoraVideoDecoderExtension.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +146,27 @@
 		451F869B0F9110D6D92362CB /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 		4BB14E13D673F9664E782297 /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.release.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
 		556F83E4B4A730CFECBEF15B /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6512FD162C4D97040034B32F /* AgoraAiEchoCancellationExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraAiEchoCancellationExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraAiEchoCancellationExtension.framework"; sourceTree = "<group>"; };
+		6512FD172C4D97040034B32F /* AgoraAiNoiseSuppressionExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraAiNoiseSuppressionExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraAiNoiseSuppressionExtension.framework"; sourceTree = "<group>"; };
+		6512FD182C4D97040034B32F /* AgoraAudioBeautyExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraAudioBeautyExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraAudioBeautyExtension.framework"; sourceTree = "<group>"; };
+		6512FD192C4D97040034B32F /* AgoraClearVisionExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraClearVisionExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraClearVisionExtension.framework"; sourceTree = "<group>"; };
+		6512FD1A2C4D97040034B32F /* AgoraContentInspectExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraContentInspectExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraContentInspectExtension.framework"; sourceTree = "<group>"; };
+		6512FD1B2C4D97040034B32F /* AgoraCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraCore.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraCore.framework"; sourceTree = "<group>"; };
+		6512FD1C2C4D97040034B32F /* AgoraDrmLoaderExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraDrmLoaderExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraDrmLoaderExtension.framework"; sourceTree = "<group>"; };
+		6512FD1D2C4D97040034B32F /* AgoraFaceDetectionExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraFaceDetectionExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraFaceDetectionExtension.framework"; sourceTree = "<group>"; };
+		6512FD1E2C4D97040034B32F /* AgoraReplayKitExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraReplayKitExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraReplayKitExtension.framework"; sourceTree = "<group>"; };
+		6512FD1F2C4D97040034B32F /* AgoraRtcKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcKit.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraRtcKit.framework"; sourceTree = "<group>"; };
+		6512FD202C4D97040034B32F /* AgoraRtcWrapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraRtcWrapper.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraRtcWrapper.framework"; sourceTree = "<group>"; };
+		6512FD212C4D97040034B32F /* AgoraSoundTouch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraSoundTouch.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraSoundTouch.framework"; sourceTree = "<group>"; };
+		6512FD222C4D97040034B32F /* AgoraSpatialAudioExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraSpatialAudioExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraSpatialAudioExtension.framework"; sourceTree = "<group>"; };
+		6512FD232C4D97040034B32F /* AgoraVideoDecoderExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraVideoDecoderExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraVideoDecoderExtension.framework"; sourceTree = "<group>"; };
+		6512FD242C4D97040034B32F /* AgoraVideoEncoderExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraVideoEncoderExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraVideoEncoderExtension.framework"; sourceTree = "<group>"; };
+		6512FD252C4D97040034B32F /* AgoraVideoQualityAnalyzerExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraVideoQualityAnalyzerExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraVideoQualityAnalyzerExtension.framework"; sourceTree = "<group>"; };
+		6512FD262C4D97040034B32F /* AgoraVideoSegmentationExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AgoraVideoSegmentationExtension.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/AgoraVideoSegmentationExtension.framework"; sourceTree = "<group>"; };
+		6512FD272C4D97040034B32F /* Agorafdkaac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Agorafdkaac.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/Agorafdkaac.framework"; sourceTree = "<group>"; };
+		6512FD282C4D97040034B32F /* Agoraffmpeg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Agoraffmpeg.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/Agoraffmpeg.framework"; sourceTree = "<group>"; };
+		6512FD4F2C4D97190034B32F /* video_dec.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = video_dec.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/video_dec.framework"; sourceTree = "<group>"; };
+		6512FD502C4D97190034B32F /* video_enc.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = video_enc.framework; path = "UnityIntegration/UnityLibrary/Frameworks/_Asset Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS/video_enc.framework"; sourceTree = "<group>"; };
 		657F0CE02B5DE16D00B32CEF /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
 		683941D3F61704583A353D79 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -177,30 +198,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0653FD642C31ED1B006725D6 /* AgoraAudioBeautyExtension.framework in Frameworks */,
-				0653FD782C31ED1C006725D6 /* AgoraRtcWrapper.framework in Frameworks */,
-				0653FD802C31ED1C006725D6 /* AgoraVideoEncoderExtension.framework in Frameworks */,
-				0653FD762C31ED1C006725D6 /* AgoraRtcKit.framework in Frameworks */,
-				0653FD7E2C31ED1C006725D6 /* AgoraVideoDecoderExtension.framework in Frameworks */,
+				6512FD332C4D97050034B32F /* AgoraCore.framework in Frameworks */,
 				0653FD042C31DC93006725D6 /* opencv2.framework in Frameworks */,
-				0653FD842C31ED1C006725D6 /* AgoraVideoSegmentationExtension.framework in Frameworks */,
+				6512FD472C4D97050034B32F /* AgoraVideoQualityAnalyzerExtension.framework in Frameworks */,
+				6512FD492C4D97050034B32F /* AgoraVideoSegmentationExtension.framework in Frameworks */,
+				6512FD452C4D97050034B32F /* AgoraVideoEncoderExtension.framework in Frameworks */,
+				6512FD372C4D97050034B32F /* AgoraFaceDetectionExtension.framework in Frameworks */,
+				6512FD392C4D97050034B32F /* AgoraReplayKitExtension.framework in Frameworks */,
+				6512FD2F2C4D97050034B32F /* AgoraClearVisionExtension.framework in Frameworks */,
+				6512FD312C4D97050034B32F /* AgoraContentInspectExtension.framework in Frameworks */,
+				6512FD3B2C4D97050034B32F /* AgoraRtcKit.framework in Frameworks */,
+				6512FD292C4D97050034B32F /* AgoraAiEchoCancellationExtension.framework in Frameworks */,
+				6512FD532C4D971A0034B32F /* video_enc.framework in Frameworks */,
+				6512FD2D2C4D97050034B32F /* AgoraAudioBeautyExtension.framework in Frameworks */,
+				6512FD3D2C4D97050034B32F /* AgoraRtcWrapper.framework in Frameworks */,
+				6512FD4B2C4D97050034B32F /* Agorafdkaac.framework in Frameworks */,
 				0653FD872C31ED1C006725D6 /* Pods_Runner.framework in Frameworks */,
-				0653FD742C31ED1C006725D6 /* AgoraReplayKitExtension.framework in Frameworks */,
-				0653FD8B2C31ED1D006725D6 /* video_dec.framework in Frameworks */,
-				0653FD7A2C31ED1C006725D6 /* AgoraSoundTouch.framework in Frameworks */,
-				0653FD8D2C31ED1D006725D6 /* video_enc.framework in Frameworks */,
-				0653FD6A2C31ED1C006725D6 /* AgoraCore.framework in Frameworks */,
+				6512FD512C4D97190034B32F /* video_dec.framework in Frameworks */,
+				6512FD2B2C4D97050034B32F /* AgoraAiNoiseSuppressionExtension.framework in Frameworks */,
+				6512FD4D2C4D97050034B32F /* Agoraffmpeg.framework in Frameworks */,
+				6512FD412C4D97050034B32F /* AgoraSpatialAudioExtension.framework in Frameworks */,
+				6512FD3F2C4D97050034B32F /* AgoraSoundTouch.framework in Frameworks */,
+				6512FD352C4D97050034B32F /* AgoraDrmLoaderExtension.framework in Frameworks */,
 				0653FD892C31ED1C006725D6 /* UnityFramework.framework in Frameworks */,
-				0653FD702C31ED1C006725D6 /* Agorafdkaac.framework in Frameworks */,
-				0653FD7C2C31ED1C006725D6 /* AgoraSpatialAudioExtension.framework in Frameworks */,
-				0653FD822C31ED1C006725D6 /* AgoraVideoQualityAnalyzerExtension.framework in Frameworks */,
-				0653FD662C31ED1B006725D6 /* AgoraClearVisionExtension.framework in Frameworks */,
-				0653FD622C31ED1B006725D6 /* AgoraAiNoiseSuppressionExtension.framework in Frameworks */,
-				0653FD682C31ED1B006725D6 /* AgoraContentInspectExtension.framework in Frameworks */,
-				0653FD602C31ED1B006725D6 /* AgoraAiEchoCancellationExtension.framework in Frameworks */,
-				0653FD6C2C31ED1C006725D6 /* AgoraDrmLoaderExtension.framework in Frameworks */,
-				0653FD722C31ED1C006725D6 /* Agoraffmpeg.framework in Frameworks */,
-				0653FD6E2C31ED1C006725D6 /* AgoraFaceDetectionExtension.framework in Frameworks */,
+				6512FD432C4D97050034B32F /* AgoraVideoDecoderExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +244,27 @@
 		2A0F385F969CB92A63375C03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6512FD162C4D97040034B32F /* AgoraAiEchoCancellationExtension.framework */,
+				6512FD172C4D97040034B32F /* AgoraAiNoiseSuppressionExtension.framework */,
+				6512FD182C4D97040034B32F /* AgoraAudioBeautyExtension.framework */,
+				6512FD192C4D97040034B32F /* AgoraClearVisionExtension.framework */,
+				6512FD1A2C4D97040034B32F /* AgoraContentInspectExtension.framework */,
+				6512FD1B2C4D97040034B32F /* AgoraCore.framework */,
+				6512FD1C2C4D97040034B32F /* AgoraDrmLoaderExtension.framework */,
+				6512FD1D2C4D97040034B32F /* AgoraFaceDetectionExtension.framework */,
+				6512FD1E2C4D97040034B32F /* AgoraReplayKitExtension.framework */,
+				6512FD1F2C4D97040034B32F /* AgoraRtcKit.framework */,
+				6512FD202C4D97040034B32F /* AgoraRtcWrapper.framework */,
+				6512FD212C4D97040034B32F /* AgoraSoundTouch.framework */,
+				6512FD222C4D97040034B32F /* AgoraSpatialAudioExtension.framework */,
+				6512FD232C4D97040034B32F /* AgoraVideoDecoderExtension.framework */,
+				6512FD242C4D97040034B32F /* AgoraVideoEncoderExtension.framework */,
+				6512FD252C4D97040034B32F /* AgoraVideoQualityAnalyzerExtension.framework */,
+				6512FD262C4D97040034B32F /* AgoraVideoSegmentationExtension.framework */,
+				6512FD272C4D97040034B32F /* Agorafdkaac.framework */,
+				6512FD282C4D97040034B32F /* Agoraffmpeg.framework */,
+				6512FD4F2C4D97190034B32F /* video_dec.framework */,
+				6512FD502C4D97190034B32F /* video_enc.framework */,
 				065A53582C18E406005CF887 /* UnityFramework.framework */,
 				D677C50E281EDD34AD61895A /* Pods_Runner.framework */,
 				0653FD032C31DC93006725D6 /* opencv2.framework */,
@@ -685,6 +727,27 @@
 					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
 					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/OpenCVForUnity/Plugins/iOS/device",
 					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/OpenCVForUnity/Plugins/iOS/device",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
 				);
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
@@ -920,6 +983,27 @@
 					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
 					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/OpenCVForUnity/Plugins/iOS/device",
 					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/OpenCVForUnity/Plugins/iOS/device",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
 				);
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
@@ -997,6 +1081,27 @@
 					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
 					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/OpenCVForUnity/Plugins/iOS/device",
 					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/OpenCVForUnity/Plugins/iOS/device",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
+					"$(PROJECT_DIR)/UnityIntegration/UnityLibrary/Frameworks/_Asset\\ Store/Agora-RTC-Plugin/Agora-Unity-RTC-SDK/Plugins/iOS",
 				);
 				INFOPLIST_FILE = Runner/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
