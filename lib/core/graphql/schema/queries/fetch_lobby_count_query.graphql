@@ -1,0 +1,3 @@
+query fetchLobbyCount($userId: Int!) {
+  fetchLobbyCount(userId: $userId)
+}

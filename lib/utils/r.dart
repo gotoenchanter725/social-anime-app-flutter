@@ -14,11 +14,20 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/launcher.png)
   final launcher = r'assets/images/launcher.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/video_chat_bg.png)
+  final video_chat_bg = r'assets/images/video_chat_bg.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/senpai_logo.png)
   final senpai_logo = r'assets/images/senpai_logo.png';
 
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/logo.png)
   final logo = r'assets/images/logo.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/profile.png)
+  final profile = r'assets/images/profile.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/card_bg.png)
+  final card_bg = r'assets/images/card_bg.png';
 
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/onboarding/onboarding_1.png)
   final onboarding_1 = r'assets/images/onboarding/onboarding_1.png';
@@ -77,8 +86,20 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/profile/spotify_bg.png)
   final spotify_bg = r'assets/images/profile/spotify_bg.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/match/accept_btn_bg.png)
+  final accept_btn_bg = r'assets/images/match/accept_btn_bg.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/match/lobby_bg.png)
+  final lobby_bg = r'assets/images/match/lobby_bg.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/match/super_like_bg.png)
   final super_like_bg = r'assets/images/match/super_like_bg.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/match/dark_bg.png)
+  final dark_bg = r'assets/images/match/dark_bg.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/match/people_bg.png)
+  final people_bg = r'assets/images/match/people_bg.png';
 
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/match/match_successful.png)
   final match_successful = r'assets/images/match/match_successful.png';

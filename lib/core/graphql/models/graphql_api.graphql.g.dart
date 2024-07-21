@@ -1889,6 +1889,16 @@ Map<String, dynamic> _$DeleteFavoriteMusicInputToJson(
       'userId': instance.userId,
     };
 
+FetchLobbyCount$Query _$FetchLobbyCount$QueryFromJson(
+        Map<String, dynamic> json) =>
+    FetchLobbyCount$Query()..fetchLobbyCount = json['fetchLobbyCount'] as int;
+
+Map<String, dynamic> _$FetchLobbyCount$QueryToJson(
+        FetchLobbyCount$Query instance) =>
+    <String, dynamic>{
+      'fetchLobbyCount': instance.fetchLobbyCount,
+    };
+
 FetchMessages$Query$FetchMessages$Recommendation$Anime
     _$FetchMessages$Query$FetchMessages$Recommendation$AnimeFromJson(
             Map<String, dynamic> json) =>
@@ -3041,6 +3051,18 @@ Map<String, dynamic> _$DeleteFavoriteMusicArgumentsToJson(
         DeleteFavoriteMusicArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
+    };
+
+FetchLobbyCountArguments _$FetchLobbyCountArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    FetchLobbyCountArguments(
+      userId: json['userId'] as int,
+    );
+
+Map<String, dynamic> _$FetchLobbyCountArgumentsToJson(
+        FetchLobbyCountArguments instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
     };
 
 FetchMessagesArguments _$FetchMessagesArgumentsFromJson(

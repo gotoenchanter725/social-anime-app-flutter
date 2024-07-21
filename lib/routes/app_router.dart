@@ -64,8 +64,9 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: HomeRoute.page, path: '/home', children: [
           AutoRoute(page: MatchRoute.page, path: 'match'),
           AutoRoute(page: ChatListRoute.page, path: 'chat_list'),
-          //TODO: 14.03 Herbert Joseph: With the events tab hidden
-          // AutoRoute(page: EventsListRoute.page, path: 'events'),
+
+          /// TODO: 14.03 Herbert Joseph: With the events tab hidden
+          /// AutoRoute(page: EventsListRoute.page, path: 'events'),
           AutoRoute(page: ProfileRoute.page, path: 'profile')
         ]),
         AutoRoute(page: LobbyRoute.page, path: '/lobby'),

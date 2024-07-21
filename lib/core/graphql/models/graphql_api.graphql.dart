@@ -2609,6 +2609,21 @@ class DeleteFavoriteMusicInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class FetchLobbyCount$Query extends JsonSerializable with EquatableMixin {
+  FetchLobbyCount$Query();
+
+  factory FetchLobbyCount$Query.fromJson(Map<String, dynamic> json) =>
+      _$FetchLobbyCount$QueryFromJson(json);
+
+  late int fetchLobbyCount;
+
+  @override
+  List<Object?> get props => [fetchLobbyCount];
+  @override
+  Map<String, dynamic> toJson() => _$FetchLobbyCount$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class FetchMessages$Query$FetchMessages$Recommendation$Anime
     extends JsonSerializable with EquatableMixin {
   FetchMessages$Query$FetchMessages$Recommendation$Anime();
@@ -6617,6 +6632,76 @@ class DeleteFavoriteMusicMutation extends GraphQLQuery<
   @override
   DeleteFavoriteMusic$Mutation parse(Map<String, dynamic> json) =>
       DeleteFavoriteMusic$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchLobbyCountArguments extends JsonSerializable with EquatableMixin {
+  FetchLobbyCountArguments({required this.userId});
+
+  @override
+  factory FetchLobbyCountArguments.fromJson(Map<String, dynamic> json) =>
+      _$FetchLobbyCountArgumentsFromJson(json);
+
+  late int userId;
+
+  @override
+  List<Object?> get props => [userId];
+  @override
+  Map<String, dynamic> toJson() => _$FetchLobbyCountArgumentsToJson(this);
+}
+
+final FETCH_LOBBY_COUNT_QUERY_DOCUMENT_OPERATION_NAME = 'fetchLobbyCount';
+final FETCH_LOBBY_COUNT_QUERY_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'fetchLobbyCount'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'fetchLobbyCount'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'userId'),
+            value: VariableNode(name: NameNode(value: 'userId')),
+          )
+        ],
+        directives: [],
+        selectionSet: null,
+      )
+    ]),
+  )
+]);
+
+class FetchLobbyCountQuery
+    extends GraphQLQuery<FetchLobbyCount$Query, FetchLobbyCountArguments> {
+  FetchLobbyCountQuery({required this.variables});
+
+  @override
+  final DocumentNode document = FETCH_LOBBY_COUNT_QUERY_DOCUMENT;
+
+  @override
+  final String operationName = FETCH_LOBBY_COUNT_QUERY_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final FetchLobbyCountArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  FetchLobbyCount$Query parse(Map<String, dynamic> json) =>
+      FetchLobbyCount$Query.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
