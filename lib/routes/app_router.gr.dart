@@ -102,9 +102,14 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     MatchRoute.name: (routeData) {
+      final args = routeData.argsAs<MatchRouteArgs>(
+          orElse: () => const MatchRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const MatchPage(),
+        child: MatchPage(
+          key: args.key,
+          defaultStep: args.defaultStep,
+        ),
       );
     },
     MatchUsersRoute.name: (routeData) {
@@ -599,16 +604,39 @@ class LobbyRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [MatchPage]
-class MatchRoute extends PageRouteInfo<void> {
-  const MatchRoute({List<PageRouteInfo>? children})
-      : super(
+class MatchRoute extends PageRouteInfo<MatchRouteArgs> {
+  MatchRoute({
+    Key? key,
+    int defaultStep = 0,
+    List<PageRouteInfo>? children,
+  }) : super(
           MatchRoute.name,
+          args: MatchRouteArgs(
+            key: key,
+            defaultStep: defaultStep,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'MatchRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<MatchRouteArgs> page = PageInfo<MatchRouteArgs>(name);
+}
+
+class MatchRouteArgs {
+  const MatchRouteArgs({
+    this.key,
+    this.defaultStep = 0,
+  });
+
+  final Key? key;
+
+  final int defaultStep;
+
+  @override
+  String toString() {
+    return 'MatchRouteArgs{key: $key, defaultStep: $defaultStep}';
+  }
 }
 
 /// generated route for

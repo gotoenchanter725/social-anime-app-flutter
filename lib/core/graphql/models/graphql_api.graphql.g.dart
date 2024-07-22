@@ -2740,6 +2740,250 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
+FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches$Conversation
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches$ConversationFromJson(
+            Map<String, dynamic> json) =>
+        FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches$Conversation()
+          ..id = json['id'] as String;
+
+Map<String, dynamic>
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches$ConversationToJson(
+            FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches$Conversation
+                instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+        };
+
+FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$MatchesFromJson(
+            Map<String, dynamic> json) =>
+        FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches()
+          ..id = json['id'] as String
+          ..matcheeId = json['matcheeId'] as int?
+          ..conversation =
+              FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches$Conversation
+                  .fromJson(json['conversation'] as Map<String, dynamic>);
+
+Map<String, dynamic>
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$MatchesToJson(
+            FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches
+                instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'matcheeId': instance.matcheeId,
+          'conversation': instance.conversation.toJson(),
+        };
+
+FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery$Photos
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery$PhotosFromJson(
+            Map<String, dynamic> json) =>
+        FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery$Photos()
+          ..order = json['order'] as int?
+          ..url = json['url'] as String
+          ..id = json['id'] as String;
+
+Map<String, dynamic>
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery$PhotosToJson(
+            FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery$Photos
+                instance) =>
+        <String, dynamic>{
+          'order': instance.order,
+          'url': instance.url,
+          'id': instance.id,
+        };
+
+FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$GalleryFromJson(
+            Map<String, dynamic> json) =>
+        FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery()
+          ..photos = (json['photos'] as List<dynamic>?)
+              ?.map((e) =>
+                  FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery$Photos
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic>
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$GalleryToJson(
+            FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery
+                instance) =>
+        <String, dynamic>{
+          'photos': instance.photos?.map((e) => e.toJson()).toList(),
+        };
+
+FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Animes
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$AnimesFromJson(
+            Map<String, dynamic> json) =>
+        FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Animes()
+          ..id = json['id'] as String
+          ..title = json['title'] as String?
+          ..japaneseTitle = json['japaneseTitle'] as String?
+          ..cover = json['cover'] as String?;
+
+Map<String,
+    dynamic> _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$AnimesToJson(
+        FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Animes instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'title': instance.title,
+      'japaneseTitle': instance.japaneseTitle,
+      'cover': instance.cover,
+    };
+
+FindVideoChatMatch$Mutation$FindVideoChatMatch$User$FavoriteMusic
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$FavoriteMusicFromJson(
+            Map<String, dynamic> json) =>
+        FindVideoChatMatch$Mutation$FindVideoChatMatch$User$FavoriteMusic()
+          ..id = json['id'] as String
+          ..coverUrl = json['coverUrl'] as String?
+          ..musicType = json['musicType'] as String?
+          ..trackName = json['trackName'] as String?
+          ..artistName = json['artistName'] as String?
+          ..spotifyId = json['spotifyId'] as String?;
+
+Map<String, dynamic>
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$FavoriteMusicToJson(
+            FindVideoChatMatch$Mutation$FindVideoChatMatch$User$FavoriteMusic
+                instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'coverUrl': instance.coverUrl,
+          'musicType': instance.musicType,
+          'trackName': instance.trackName,
+          'artistName': instance.artistName,
+          'spotifyId': instance.spotifyId,
+        };
+
+FindVideoChatMatch$Mutation$FindVideoChatMatch$User
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$UserFromJson(
+            Map<String, dynamic> json) =>
+        FindVideoChatMatch$Mutation$FindVideoChatMatch$User()
+          ..id = json['id'] as String
+          ..role = json['role'] as String
+          ..firstName = json['firstName'] as String
+          ..birthday = fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
+              json['birthday'] as String?)
+          ..country = json['country'] as String?
+          ..bio = json['bio'] as String?
+          ..gender = json['gender'] as String?
+          ..desiredGender = json['desiredGender'] as String?
+          ..phone = json['phone'] as String
+          ..verified = json['verified'] as bool
+          ..school = json['school'] as String?
+          ..occupation = json['occupation'] as String?
+          ..displayCity = json['displayCity'] as String?
+          ..displayState = json['displayState'] as String?
+          ..onlineStatus = json['onlineStatus'] as String?
+          ..lonlat = json['lonlat'] as String?
+          ..matches = (json['matches'] as List<dynamic>?)
+              ?.map((e) =>
+                  FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches
+                      .fromJson(e as Map<String, dynamic>))
+              .toList()
+          ..gallery = json['gallery'] == null
+              ? null
+              : FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery
+                  .fromJson(json['gallery'] as Map<String, dynamic>)
+          ..animes = (json['animes'] as List<dynamic>?)
+              ?.map((e) =>
+                  FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Animes
+                      .fromJson(e as Map<String, dynamic>))
+              .toList()
+          ..favoriteMusic = (json['favoriteMusic'] as List<dynamic>?)
+              ?.map((e) =>
+                  FindVideoChatMatch$Mutation$FindVideoChatMatch$User$FavoriteMusic
+                      .fromJson(e as Map<String, dynamic>))
+              .toList()
+          ..premium = json['premium'] as bool
+          ..superLikeCount = json['superLikeCount'] as int?
+          ..hasLocationHidden = json['hasLocationHidden'] as bool?
+          ..nextPaymentDate =
+              fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
+                  json['nextPaymentDate'] as String?)
+          ..isDisplayingRecentlyActive =
+              json['isDisplayingRecentlyActive'] as bool?
+          ..isDisplayingActive = json['isDisplayingActive'] as bool?;
+
+Map<String, dynamic>
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatch$UserToJson(
+            FindVideoChatMatch$Mutation$FindVideoChatMatch$User instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'role': instance.role,
+          'firstName': instance.firstName,
+          'birthday': fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable(
+              instance.birthday),
+          'country': instance.country,
+          'bio': instance.bio,
+          'gender': instance.gender,
+          'desiredGender': instance.desiredGender,
+          'phone': instance.phone,
+          'verified': instance.verified,
+          'school': instance.school,
+          'occupation': instance.occupation,
+          'displayCity': instance.displayCity,
+          'displayState': instance.displayState,
+          'onlineStatus': instance.onlineStatus,
+          'lonlat': instance.lonlat,
+          'matches': instance.matches?.map((e) => e.toJson()).toList(),
+          'gallery': instance.gallery?.toJson(),
+          'animes': instance.animes?.map((e) => e.toJson()).toList(),
+          'favoriteMusic':
+              instance.favoriteMusic?.map((e) => e.toJson()).toList(),
+          'premium': instance.premium,
+          'superLikeCount': instance.superLikeCount,
+          'hasLocationHidden': instance.hasLocationHidden,
+          'nextPaymentDate':
+              fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable(
+                  instance.nextPaymentDate),
+          'isDisplayingRecentlyActive': instance.isDisplayingRecentlyActive,
+          'isDisplayingActive': instance.isDisplayingActive,
+        };
+
+FindVideoChatMatch$Mutation$FindVideoChatMatch
+    _$FindVideoChatMatch$Mutation$FindVideoChatMatchFromJson(
+            Map<String, dynamic> json) =>
+        FindVideoChatMatch$Mutation$FindVideoChatMatch()
+          ..clientMutationId = json['clientMutationId'] as String?
+          ..user = json['user'] == null
+              ? null
+              : FindVideoChatMatch$Mutation$FindVideoChatMatch$User.fromJson(
+                  json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$FindVideoChatMatch$Mutation$FindVideoChatMatchToJson(
+        FindVideoChatMatch$Mutation$FindVideoChatMatch instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'user': instance.user?.toJson(),
+    };
+
+FindVideoChatMatch$Mutation _$FindVideoChatMatch$MutationFromJson(
+        Map<String, dynamic> json) =>
+    FindVideoChatMatch$Mutation()
+      ..findVideoChatMatch = json['findVideoChatMatch'] == null
+          ? null
+          : FindVideoChatMatch$Mutation$FindVideoChatMatch.fromJson(
+              json['findVideoChatMatch'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$FindVideoChatMatch$MutationToJson(
+        FindVideoChatMatch$Mutation instance) =>
+    <String, dynamic>{
+      'findVideoChatMatch': instance.findVideoChatMatch?.toJson(),
+    };
+
+FindVideoChatMatchInput _$FindVideoChatMatchInputFromJson(
+        Map<String, dynamic> json) =>
+    FindVideoChatMatchInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$FindVideoChatMatchInputToJson(
+        FindVideoChatMatchInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -3146,4 +3390,17 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
+    };
+
+FindVideoChatMatchArguments _$FindVideoChatMatchArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    FindVideoChatMatchArguments(
+      input: FindVideoChatMatchInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$FindVideoChatMatchArgumentsToJson(
+        FindVideoChatMatchArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
     };

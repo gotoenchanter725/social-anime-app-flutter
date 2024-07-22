@@ -104,6 +104,9 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/match/match_successful.png)
   final match_successful = r'assets/images/match/match_successful.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/match/profile_verify_bg.png)
+  final profile_verify_bg = r'assets/images/match/profile_verify_bg.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/chat/empty_conversation_search.png)
   final empty_conversation_search = r'assets/images/chat/empty_conversation_search.png';
 
