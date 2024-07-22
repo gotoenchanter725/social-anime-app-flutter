@@ -61,7 +61,20 @@ class _Specials {
   late final match = _MatchConstants();
 
   /// Allowed countries for phone input
-  late final allowedCountries = ['US', 'CA', 'JP', 'BR', 'MX', 'ES', 'AR', 'CO', 'BO', 'GB', 'UG', 'UA'];
+  late final allowedCountries = [
+    'US',
+    'CA',
+    'JP',
+    'BR',
+    'MX',
+    'ES',
+    'AR',
+    'CO',
+    'BO',
+    'GB',
+    'UG',
+    'UA'
+  ];
 
   /// Default country for phone input
   late final defaultCountry = 'US';
@@ -122,6 +135,8 @@ class _Palette {
   final loadingBackground = const Color(0x4414161D);
 
   final disabledTextButton = const Color(0xFF98A1BB);
+
+  final dialogBackground = const Color(0xFF06060A);
 
   // gradients
   final flipCardBgGradient = LinearGradient(

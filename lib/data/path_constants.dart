@@ -133,4 +133,8 @@ class PathConstants {
   static const endCallIcon = 'assets/icons/end_call.svg';
   static const muteIcon = 'assets/icons/mute.svg';
   static const avatorIcon = 'assets/icons/avatar.svg';
+  static const matchAmenityIcon1 = 'assets/icons/match_safe.svg';
+  static const matchAmenityIcon2 = 'assets/icons/match_camera.svg';
+
+  static const profileVerifyBg = 'assets/images/match/profile_verify_bg.png';
 }
