@@ -1,5 +1,5 @@
-mutation findVideoChatMatch($input: FindVideoChatMatchInput!) {
-  findVideoChatMatch(input: $input) {
+mutation startVideoMatchmaking($input: StartVideoMatchmakingInput!) {
+  startVideoMatchmaking(input: $input) {
     user {
       id
       role
