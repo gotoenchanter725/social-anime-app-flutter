@@ -3223,6 +3223,248 @@ Map<String, dynamic> _$StartVideoMatchmakingInputToJson(
       'userId': instance.userId,
     };
 
+StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$Conversation
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$ConversationFromJson(
+            Map<String, dynamic> json) =>
+        StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$Conversation()
+          ..id = json['id'] as String;
+
+Map<String, dynamic>
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$ConversationToJson(
+            StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$Conversation
+                instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+        };
+
+StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$MatchesFromJson(
+            Map<String, dynamic> json) =>
+        StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches()
+          ..id = json['id'] as String
+          ..matcheeId = json['matcheeId'] as int?
+          ..conversation =
+              StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$Conversation
+                  .fromJson(json['conversation'] as Map<String, dynamic>);
+
+Map<String, dynamic>
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$MatchesToJson(
+            StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches
+                instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'matcheeId': instance.matcheeId,
+          'conversation': instance.conversation.toJson(),
+        };
+
+StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$Photos
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$PhotosFromJson(
+            Map<String, dynamic> json) =>
+        StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$Photos()
+          ..order = json['order'] as int?
+          ..url = json['url'] as String
+          ..id = json['id'] as String;
+
+Map<String, dynamic>
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$PhotosToJson(
+            StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$Photos
+                instance) =>
+        <String, dynamic>{
+          'order': instance.order,
+          'url': instance.url,
+          'id': instance.id,
+        };
+
+StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$GalleryFromJson(
+            Map<String, dynamic> json) =>
+        StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery()
+          ..photos = (json['photos'] as List<dynamic>?)
+              ?.map((e) =>
+                  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$Photos
+                      .fromJson(e as Map<String, dynamic>))
+              .toList();
+
+Map<String, dynamic>
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$GalleryToJson(
+            StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery
+                instance) =>
+        <String, dynamic>{
+          'photos': instance.photos?.map((e) => e.toJson()).toList(),
+        };
+
+StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Animes
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$AnimesFromJson(
+            Map<String, dynamic> json) =>
+        StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Animes()
+          ..id = json['id'] as String
+          ..title = json['title'] as String?
+          ..japaneseTitle = json['japaneseTitle'] as String?
+          ..cover = json['cover'] as String?;
+
+Map<String, dynamic>
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$AnimesToJson(
+            StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Animes
+                instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'title': instance.title,
+          'japaneseTitle': instance.japaneseTitle,
+          'cover': instance.cover,
+        };
+
+StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusic
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusicFromJson(
+            Map<String, dynamic> json) =>
+        StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusic()
+          ..id = json['id'] as String
+          ..coverUrl = json['coverUrl'] as String?
+          ..musicType = json['musicType'] as String?
+          ..trackName = json['trackName'] as String?
+          ..artistName = json['artistName'] as String?
+          ..spotifyId = json['spotifyId'] as String?;
+
+Map<String, dynamic>
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusicToJson(
+            StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusic
+                instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'coverUrl': instance.coverUrl,
+          'musicType': instance.musicType,
+          'trackName': instance.trackName,
+          'artistName': instance.artistName,
+          'spotifyId': instance.spotifyId,
+        };
+
+StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$UserFromJson(
+            Map<String, dynamic> json) =>
+        StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User()
+          ..id = json['id'] as String
+          ..role = json['role'] as String
+          ..firstName = json['firstName'] as String
+          ..birthday = fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
+              json['birthday'] as String?)
+          ..country = json['country'] as String?
+          ..bio = json['bio'] as String?
+          ..gender = json['gender'] as String?
+          ..desiredGender = json['desiredGender'] as String?
+          ..phone = json['phone'] as String
+          ..verified = json['verified'] as bool
+          ..school = json['school'] as String?
+          ..occupation = json['occupation'] as String?
+          ..displayCity = json['displayCity'] as String?
+          ..displayState = json['displayState'] as String?
+          ..onlineStatus = json['onlineStatus'] as String?
+          ..lonlat = json['lonlat'] as String?
+          ..matches = (json['matches'] as List<dynamic>?)
+              ?.map((e) =>
+                  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches
+                      .fromJson(e as Map<String, dynamic>))
+              .toList()
+          ..gallery = json['gallery'] == null
+              ? null
+              : StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery
+                  .fromJson(json['gallery'] as Map<String, dynamic>)
+          ..animes = (json['animes'] as List<dynamic>?)
+              ?.map((e) =>
+                  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Animes
+                      .fromJson(e as Map<String, dynamic>))
+              .toList()
+          ..favoriteMusic = (json['favoriteMusic'] as List<dynamic>?)
+              ?.map((e) =>
+                  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusic
+                      .fromJson(e as Map<String, dynamic>))
+              .toList()
+          ..premium = json['premium'] as bool
+          ..superLikeCount = json['superLikeCount'] as int?
+          ..hasLocationHidden = json['hasLocationHidden'] as bool?
+          ..nextPaymentDate =
+              fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
+                  json['nextPaymentDate'] as String?)
+          ..isDisplayingRecentlyActive =
+              json['isDisplayingRecentlyActive'] as bool?
+          ..isDisplayingActive = json['isDisplayingActive'] as bool?;
+
+Map<String, dynamic>
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$UserToJson(
+            StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'role': instance.role,
+          'firstName': instance.firstName,
+          'birthday': fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable(
+              instance.birthday),
+          'country': instance.country,
+          'bio': instance.bio,
+          'gender': instance.gender,
+          'desiredGender': instance.desiredGender,
+          'phone': instance.phone,
+          'verified': instance.verified,
+          'school': instance.school,
+          'occupation': instance.occupation,
+          'displayCity': instance.displayCity,
+          'displayState': instance.displayState,
+          'onlineStatus': instance.onlineStatus,
+          'lonlat': instance.lonlat,
+          'matches': instance.matches?.map((e) => e.toJson()).toList(),
+          'gallery': instance.gallery?.toJson(),
+          'animes': instance.animes?.map((e) => e.toJson()).toList(),
+          'favoriteMusic':
+              instance.favoriteMusic?.map((e) => e.toJson()).toList(),
+          'premium': instance.premium,
+          'superLikeCount': instance.superLikeCount,
+          'hasLocationHidden': instance.hasLocationHidden,
+          'nextPaymentDate':
+              fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable(
+                  instance.nextPaymentDate),
+          'isDisplayingRecentlyActive': instance.isDisplayingRecentlyActive,
+          'isDisplayingActive': instance.isDisplayingActive,
+        };
+
+StopVideoMatchmaking$Mutation$StopVideoMatchmaking
+    _$StopVideoMatchmaking$Mutation$StopVideoMatchmakingFromJson(
+            Map<String, dynamic> json) =>
+        StopVideoMatchmaking$Mutation$StopVideoMatchmaking()
+          ..user =
+              StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User.fromJson(
+                  json['user'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$StopVideoMatchmaking$Mutation$StopVideoMatchmakingToJson(
+        StopVideoMatchmaking$Mutation$StopVideoMatchmaking instance) =>
+    <String, dynamic>{
+      'user': instance.user.toJson(),
+    };
+
+StopVideoMatchmaking$Mutation _$StopVideoMatchmaking$MutationFromJson(
+        Map<String, dynamic> json) =>
+    StopVideoMatchmaking$Mutation()
+      ..stopVideoMatchmaking = json['stopVideoMatchmaking'] == null
+          ? null
+          : StopVideoMatchmaking$Mutation$StopVideoMatchmaking.fromJson(
+              json['stopVideoMatchmaking'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$StopVideoMatchmaking$MutationToJson(
+        StopVideoMatchmaking$Mutation instance) =>
+    <String, dynamic>{
+      'stopVideoMatchmaking': instance.stopVideoMatchmaking?.toJson(),
+    };
+
+StopVideoMatchmakingInput _$StopVideoMatchmakingInputFromJson(
+        Map<String, dynamic> json) =>
+    StopVideoMatchmakingInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$StopVideoMatchmakingInputToJson(
+        StopVideoMatchmakingInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -3653,6 +3895,19 @@ StartVideoMatchmakingArguments _$StartVideoMatchmakingArgumentsFromJson(
 
 Map<String, dynamic> _$StartVideoMatchmakingArgumentsToJson(
         StartVideoMatchmakingArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+StopVideoMatchmakingArguments _$StopVideoMatchmakingArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    StopVideoMatchmakingArguments(
+      input: StopVideoMatchmakingInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$StopVideoMatchmakingArgumentsToJson(
+        StopVideoMatchmakingArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };

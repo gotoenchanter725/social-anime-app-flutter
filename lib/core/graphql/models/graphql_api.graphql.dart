@@ -4326,6 +4326,310 @@ class StartVideoMatchmakingInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$Conversation
+    extends JsonSerializable with EquatableMixin {
+  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$Conversation();
+
+  factory StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$Conversation.fromJson(
+          Map<String, dynamic> json) =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$ConversationFromJson(
+          json);
+
+  late String id;
+
+  @override
+  List<Object?> get props => [id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$ConversationToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches
+    extends JsonSerializable with EquatableMixin {
+  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches();
+
+  factory StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches.fromJson(
+          Map<String, dynamic> json) =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$MatchesFromJson(
+          json);
+
+  late String id;
+
+  int? matcheeId;
+
+  late StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$Conversation
+      conversation;
+
+  @override
+  List<Object?> get props => [id, matcheeId, conversation];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$MatchesToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$Photos
+    extends JsonSerializable with EquatableMixin {
+  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$Photos();
+
+  factory StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$Photos.fromJson(
+          Map<String, dynamic> json) =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$PhotosFromJson(
+          json);
+
+  int? order;
+
+  late String url;
+
+  late String id;
+
+  @override
+  List<Object?> get props => [order, url, id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$PhotosToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery
+    extends JsonSerializable with EquatableMixin {
+  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery();
+
+  factory StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery.fromJson(
+          Map<String, dynamic> json) =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$GalleryFromJson(
+          json);
+
+  List<StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$Photos>?
+      photos;
+
+  @override
+  List<Object?> get props => [photos];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$GalleryToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Animes
+    extends JsonSerializable with EquatableMixin {
+  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Animes();
+
+  factory StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Animes.fromJson(
+          Map<String, dynamic> json) =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$AnimesFromJson(
+          json);
+
+  late String id;
+
+  String? title;
+
+  String? japaneseTitle;
+
+  String? cover;
+
+  @override
+  List<Object?> get props => [id, title, japaneseTitle, cover];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$AnimesToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusic
+    extends JsonSerializable with EquatableMixin {
+  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusic();
+
+  factory StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusic.fromJson(
+          Map<String, dynamic> json) =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusicFromJson(
+          json);
+
+  late String id;
+
+  String? coverUrl;
+
+  String? musicType;
+
+  String? trackName;
+
+  String? artistName;
+
+  String? spotifyId;
+
+  @override
+  List<Object?> get props =>
+      [id, coverUrl, musicType, trackName, artistName, spotifyId];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusicToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User
+    extends JsonSerializable with EquatableMixin {
+  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User();
+
+  factory StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User.fromJson(
+          Map<String, dynamic> json) =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$UserFromJson(json);
+
+  late String id;
+
+  late String role;
+
+  late String firstName;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable,
+      toJson: fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable)
+  DateTime? birthday;
+
+  String? country;
+
+  String? bio;
+
+  String? gender;
+
+  String? desiredGender;
+
+  late String phone;
+
+  late bool verified;
+
+  String? school;
+
+  String? occupation;
+
+  String? displayCity;
+
+  String? displayState;
+
+  String? onlineStatus;
+
+  String? lonlat;
+
+  List<StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches>?
+      matches;
+
+  StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery? gallery;
+
+  List<StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Animes>? animes;
+
+  List<StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusic>?
+      favoriteMusic;
+
+  late bool premium;
+
+  int? superLikeCount;
+
+  bool? hasLocationHidden;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable,
+      toJson: fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable)
+  DateTime? nextPaymentDate;
+
+  bool? isDisplayingRecentlyActive;
+
+  bool? isDisplayingActive;
+
+  @override
+  List<Object?> get props => [
+        id,
+        role,
+        firstName,
+        birthday,
+        country,
+        bio,
+        gender,
+        desiredGender,
+        phone,
+        verified,
+        school,
+        occupation,
+        displayCity,
+        displayState,
+        onlineStatus,
+        lonlat,
+        matches,
+        gallery,
+        animes,
+        favoriteMusic,
+        premium,
+        superLikeCount,
+        hasLocationHidden,
+        nextPaymentDate,
+        isDisplayingRecentlyActive,
+        isDisplayingActive
+      ];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$UserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class StopVideoMatchmaking$Mutation$StopVideoMatchmaking
+    extends JsonSerializable with EquatableMixin {
+  StopVideoMatchmaking$Mutation$StopVideoMatchmaking();
+
+  factory StopVideoMatchmaking$Mutation$StopVideoMatchmaking.fromJson(
+          Map<String, dynamic> json) =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmakingFromJson(json);
+
+  late StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User user;
+
+  @override
+  List<Object?> get props => [user];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$StopVideoMatchmaking$Mutation$StopVideoMatchmakingToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class StopVideoMatchmaking$Mutation extends JsonSerializable
+    with EquatableMixin {
+  StopVideoMatchmaking$Mutation();
+
+  factory StopVideoMatchmaking$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$StopVideoMatchmaking$MutationFromJson(json);
+
+  StopVideoMatchmaking$Mutation$StopVideoMatchmaking? stopVideoMatchmaking;
+
+  @override
+  List<Object?> get props => [stopVideoMatchmaking];
+  @override
+  Map<String, dynamic> toJson() => _$StopVideoMatchmaking$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class StopVideoMatchmakingInput extends JsonSerializable with EquatableMixin {
+  StopVideoMatchmakingInput({
+    this.clientMutationId,
+    required this.userId,
+  });
+
+  factory StopVideoMatchmakingInput.fromJson(Map<String, dynamic> json) =>
+      _$StopVideoMatchmakingInputFromJson(json);
+
+  String? clientMutationId;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [clientMutationId, userId];
+  @override
+  Map<String, dynamic> toJson() => _$StopVideoMatchmakingInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class DeleteFavoriteAnimeArguments extends JsonSerializable
     with EquatableMixin {
   DeleteFavoriteAnimeArguments({required this.input});
@@ -9719,4 +10023,400 @@ class StartVideoMatchmakingMutation extends GraphQLQuery<
   @override
   StartVideoMatchmaking$Mutation parse(Map<String, dynamic> json) =>
       StartVideoMatchmaking$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class StopVideoMatchmakingArguments extends JsonSerializable
+    with EquatableMixin {
+  StopVideoMatchmakingArguments({required this.input});
+
+  @override
+  factory StopVideoMatchmakingArguments.fromJson(Map<String, dynamic> json) =>
+      _$StopVideoMatchmakingArgumentsFromJson(json);
+
+  late StopVideoMatchmakingInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$StopVideoMatchmakingArgumentsToJson(this);
+}
+
+final STOP_VIDEO_MATCHMAKING_MUTATION_DOCUMENT_OPERATION_NAME =
+    'stopVideoMatchmaking';
+final STOP_VIDEO_MATCHMAKING_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'stopVideoMatchmaking'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'StopVideoMatchmakingInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'stopVideoMatchmaking'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'user'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'role'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'firstName'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'birthday'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'country'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'bio'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'gender'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'desiredGender'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'phone'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'verified'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'school'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'occupation'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'displayCity'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'displayState'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'onlineStatus'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'lonlat'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'matches'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'matcheeId'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'conversation'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      )
+                    ]),
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'gallery'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'photos'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'order'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'url'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
+                  )
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'animes'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'title'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'japaneseTitle'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'cover'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'favoriteMusic'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'coverUrl'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'musicType'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'trackName'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'artistName'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'spotifyId'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'premium'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'superLikeCount'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'hasLocationHidden'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'nextPaymentDate'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isDisplayingRecentlyActive'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isDisplayingActive'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class StopVideoMatchmakingMutation extends GraphQLQuery<
+    StopVideoMatchmaking$Mutation, StopVideoMatchmakingArguments> {
+  StopVideoMatchmakingMutation({required this.variables});
+
+  @override
+  final DocumentNode document = STOP_VIDEO_MATCHMAKING_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      STOP_VIDEO_MATCHMAKING_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final StopVideoMatchmakingArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  StopVideoMatchmaking$Mutation parse(Map<String, dynamic> json) =>
+      StopVideoMatchmaking$Mutation.fromJson(json);
 }
