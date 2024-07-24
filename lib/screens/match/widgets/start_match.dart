@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 // import 'package:senpai/core/widgets/senpai_app_bar.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -11,6 +13,11 @@ class StartMatch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bloc = BlocProvider.of<ProfileBloc>(context);
+    bool isVerified = false;
+    if (bloc.user.verified == true) {
+      isVerified = true;
+    }
     return Scaffold(
       backgroundColor: $constants.palette.darkBlue,
       body: Stack(
@@ -46,7 +53,7 @@ class StartMatch extends StatelessWidget {
               ],
             ),
           ),
-          _buildVerificationOverlay(context),
+          if (!isVerified) _buildVerificationOverlay(context),
         ],
       ),
     );
