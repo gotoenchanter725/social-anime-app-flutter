@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/widgets/start_match.dart';
+import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 
 @RoutePage()
 class MatchPage extends StatelessWidget {
@@ -19,7 +20,8 @@ class MatchPage extends StatelessWidget {
             return MatchBloc(MatchStep.initial);
           }
           return MatchBloc(MatchStep.lobby);
-        })
+        }),
+        BlocProvider(create: (_) => ProfileBloc()..add(OnInitUserID())),
       ],
       child: const StartMatch(),
     );

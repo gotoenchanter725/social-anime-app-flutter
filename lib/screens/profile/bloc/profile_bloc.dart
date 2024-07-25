@@ -39,4 +39,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       emit(FetchSucssesfulState());
     });
   }
+
+  bool get isUserVerified {
+    return user.verified;
+  }
 }
