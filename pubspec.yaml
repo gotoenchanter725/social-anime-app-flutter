@@ -183,6 +183,7 @@ flutter:
     - assets/images/profile/
     - assets/images/match/
     - assets/icons/
+    - assets/gif/
     - assets/licenses/
     - assets/images/chat/
     - assets/translations/
