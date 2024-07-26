@@ -100,8 +100,8 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
       height: 40,
       child: TextButton(
         style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all<Color>(Colors.black),
-          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(28.0),
               side: const BorderSide(

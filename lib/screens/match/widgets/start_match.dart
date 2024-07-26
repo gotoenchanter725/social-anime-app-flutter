@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
-import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/match/widgets/match_header.dart';
 import 'package:senpai/screens/match/widgets/match_texture.dart';
 import 'package:senpai/screens/match/widgets/verification_overlay.dart';
