@@ -6,13 +6,14 @@ class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final Color? backgroundColor;
+  final LinearGradient? buttonGradient;
 
-  const PrimaryButton({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    this.backgroundColor,
-  });
+  const PrimaryButton(
+      {super.key,
+      required this.text,
+      required this.onPressed,
+      this.backgroundColor,
+      this.buttonGradient});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,9 @@ class PrimaryButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular($constants.corners.md),
           gradient: backgroundColor == null
-              ? $constants.palette.buttonGradient
+              ? (buttonGradient == null
+                  ? $constants.palette.buttonGradient
+                  : buttonGradient!)
               : null,
           color: backgroundColor,
         ),

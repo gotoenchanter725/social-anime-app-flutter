@@ -137,4 +137,8 @@ class PathConstants {
   static const matchAmenityIcon2 = 'assets/icons/match_camera.svg';
 
   static const profileVerifyBg = 'assets/images/match/profile_verify_bg.png';
+  static const profileVerifyShadow =
+      'assets/images/match/profile_verify_shadow.png';
+
+  static const matchingAnimation = 'assets/gif/matching_circle.gif';
 }
