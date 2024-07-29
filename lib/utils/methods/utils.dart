@@ -15,6 +15,10 @@ Size getSize(BuildContext context) {
   return MediaQuery.of(context).size;
 }
 
+double getWidthSize(BuildContext context, double size) {
+  return MediaQuery.of(context).size.width * size;
+}
+
 double getStatusBarHeight(BuildContext context) {
   return MediaQuery.of(context).padding.top;
 }

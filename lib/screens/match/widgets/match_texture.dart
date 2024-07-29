@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/utils/methods/utils.dart';
 
 class MatchTextureWidget extends StatefulWidget {
   const MatchTextureWidget({
@@ -132,16 +133,16 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.width * 508 / 375,
+      width: getSize(context).width,
+      height: getWidthSize(context, 508 / 375),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           Image.asset(
             PathConstants.lobbyActionsBackground,
             fit: BoxFit.cover,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width * 508 / 375,
+            width: getSize(context).width,
+            height: getWidthSize(context, 508 / 375),
           ),
           Center(
             child: AnimatedOpacity(
@@ -150,7 +151,7 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
               child: ClipOval(
                 child: Image.asset(
                   PathConstants.matchingAnimation,
-                  width: MediaQuery.of(context).size.width - 100,
+                  width: getSize(context).width - 100,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -163,11 +164,11 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
                 if (widget.isMatchFound)
                   SvgPicture.asset(
                     PathConstants.matchFoundIcon,
-                    width: MediaQuery.of(context).size.width * 0.083,
-                    height: MediaQuery.of(context).size.width * 0.083,
+                    width: getWidthSize(context, 0.083),
+                    height: getWidthSize(context, 0.083),
                   ),
                 if (widget.isMatchFound)
-                  SizedBox(height: MediaQuery.of(context).size.width * 0.037),
+                  SizedBox(height: getWidthSize(context, 0.037)),
                 Text(
                   widget.isMatchFound
                       ? 'MATCH FOUND'
@@ -176,7 +177,7 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
                           : "",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    fontSize: getWidthSize(context, 0.05),
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -185,15 +186,14 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
           ),
           if (widget.isMatchFound)
             Positioned(
-              top: (MediaQuery.of(context).size.width - 100) * 1.3,
+              top: (getSize(context).width - 100) * 1.3,
               left: 0,
               right: 0,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   _buildAcceptButton(context),
-                  SizedBox(
-                      height: (MediaQuery.of(context).size.width - 100) * 0.07),
+                  SizedBox(height: (getSize(context).width - 100) * 0.07),
                   _buildRejectButton(context),
                 ],
               ),

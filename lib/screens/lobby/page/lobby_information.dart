@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/utils/methods/utils.dart';
 
 class LobbyInformationWidget extends StatelessWidget {
   const LobbyInformationWidget(
@@ -16,14 +17,14 @@ class LobbyInformationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: MediaQuery.of(context).size.width * 0.037,
-          right: MediaQuery.of(context).size.width * 0.037),
+          left: getWidthSize(context, 0.037),
+          right: getWidthSize(context, 0.037)),
       child: Container(
         padding: EdgeInsets.only(
-            top: MediaQuery.of(context).size.width * 0.048,
-            left: MediaQuery.of(context).size.width * 0.042,
-            right: MediaQuery.of(context).size.width * 0.042),
-        height: MediaQuery.of(context).size.width * 0.42,
+            top: getWidthSize(context, 0.048),
+            left: getWidthSize(context, 0.042),
+            right: getWidthSize(context, 0.042)),
+        height: getWidthSize(context, 0.42),
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(PathConstants.folderBackground),
@@ -34,32 +35,31 @@ class LobbyInformationWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildLobbyHeaderText(context),
-            SizedBox(height: MediaQuery.of(context).size.width * 0.03),
+            SizedBox(height: getWidthSize(context, 0.03)),
             Row(
               children: [
                 Expanded(
                   child: Card(
                     color: Colors.white.withOpacity(0.07),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                          MediaQuery.of(context).size.width * 0.14),
+                      borderRadius:
+                          BorderRadius.circular(getWidthSize(context, 0.14)),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.all(
-                          MediaQuery.of(context).size.width * 0.018),
+                      padding: EdgeInsets.all(getWidthSize(context, 0.018)),
                       child: Center(
                         child: Text(
                           'Waiting in the lobby: $usersInLobby',
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: MediaQuery.of(context).size.width * 0.037,
+                            fontSize: getWidthSize(context, 0.037),
                           ),
                         ),
                       ),
                     ),
                   ),
                 ),
-                SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+                SizedBox(width: getWidthSize(context, 0.03)),
                 _buildAvatarsOverlay(context),
               ],
             ),
@@ -77,12 +77,12 @@ class LobbyInformationWidget extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: MediaQuery.of(context).size.width * 0.02),
+            SizedBox(height: getWidthSize(context, 0.02)),
             Text(
               'Lobby',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: MediaQuery.of(context).size.width * 0.05,
+                fontSize: getWidthSize(context, 0.05),
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -90,15 +90,15 @@ class LobbyInformationWidget extends StatelessWidget {
               'Users currently in the Lobby.',
               style: TextStyle(
                 color: Colors.white70,
-                fontSize: MediaQuery.of(context).size.width * 0.04,
+                fontSize: getWidthSize(context, 0.04),
               ),
             ),
           ],
         ),
         SvgPicture.asset(
           PathConstants.lobbyIcon, // replace with your icon path
-          width: MediaQuery.of(context).size.width * 0.1,
-          height: MediaQuery.of(context).size.width * 0.1,
+          width: getWidthSize(context, 0.1),
+          height: getWidthSize(context, 0.1),
         ),
       ],
     );
