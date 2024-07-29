@@ -35,13 +35,17 @@ class _StartMatchState extends State<StartMatch> {
           SafeArea(
             child: Stack(
               children: [
-                Positioned(
-                  bottom: MediaQuery.of(context).size.height * 0.05 -
-                      kBottomNavigationBarHeight -
-                      3,
-                  child: const MatchTextureWidget(
-                    isMatching: false,
-                    isMatchFound: false,
+                const Positioned(
+                  // top: kBottomNavigationBarHeight - 3,
+                  child: Center(
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(top: kBottomNavigationBarHeight + 60),
+                      child: MatchTextureWidget(
+                        isMatching: false,
+                        isMatchFound: false,
+                      ),
+                    ),
                   ),
                 ),
                 Column(
