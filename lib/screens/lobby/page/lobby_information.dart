@@ -15,10 +15,15 @@ class LobbyInformationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 16.0, right: 16),
+      padding: EdgeInsets.only(
+          left: MediaQuery.of(context).size.width * 0.037,
+          right: MediaQuery.of(context).size.width * 0.037),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 18.0),
-        height: 180,
+        padding: EdgeInsets.only(
+            top: MediaQuery.of(context).size.width * 0.048,
+            left: MediaQuery.of(context).size.width * 0.042,
+            right: MediaQuery.of(context).size.width * 0.042),
+        height: MediaQuery.of(context).size.width * 0.42,
         decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(PathConstants.folderBackground),
@@ -29,31 +34,33 @@ class LobbyInformationWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildLobbyHeaderText(context),
-            const SizedBox(height: 16.0),
+            SizedBox(height: MediaQuery.of(context).size.width * 0.03),
             Row(
               children: [
                 Expanded(
                   child: Card(
                     color: Colors.white.withOpacity(0.07),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(60.0),
+                      borderRadius: BorderRadius.circular(
+                          MediaQuery.of(context).size.width * 0.14),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(
+                          MediaQuery.of(context).size.width * 0.018),
                       child: Center(
                         child: Text(
                           'Waiting in the lobby: $usersInLobby',
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16.0,
+                            fontSize: MediaQuery.of(context).size.width * 0.037,
                           ),
                         ),
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(width: 16.0),
-                _buildAvatorsOverlay(context),
+                SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+                _buildAvatarsOverlay(context),
               ],
             ),
           ],
@@ -67,15 +74,15 @@ class LobbyInformationWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 4.0),
+            SizedBox(height: MediaQuery.of(context).size.width * 0.02),
             Text(
               'Lobby',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 20.0,
+                fontSize: MediaQuery.of(context).size.width * 0.05,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -83,21 +90,21 @@ class LobbyInformationWidget extends StatelessWidget {
               'Users currently in the Lobby.',
               style: TextStyle(
                 color: Colors.white70,
-                fontSize: 16.0,
+                fontSize: MediaQuery.of(context).size.width * 0.04,
               ),
             ),
           ],
         ),
         SvgPicture.asset(
           PathConstants.lobbyIcon, // replace with your icon path
-          width: 42.0,
-          height: 42.0,
+          width: MediaQuery.of(context).size.width * 0.1,
+          height: MediaQuery.of(context).size.width * 0.1,
         ),
       ],
     );
   }
 
-  Widget _buildAvatorsOverlay(BuildContext context) {
+  Widget _buildAvatarsOverlay(BuildContext context) {
     return SizedBox(
       width: 100.0,
       height: 40.0,

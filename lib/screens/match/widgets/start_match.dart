@@ -33,32 +33,41 @@ class _StartMatchState extends State<StartMatch> {
       body: Stack(
         children: [
           SafeArea(
-            child: Column(
+            child: Stack(
               children: [
-                const MatchHeaderWidget(isMatching: false),
-                const SizedBox(height: 70),
-                SizedBox(
-                  height: 160,
-                  child: Center(
-                    child: Text(
-                      "Are you ready to get started?",
-                      style: getTextTheme(context)
-                          .headlineSmall!
-                          .copyWith(fontSize: 22.0),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 18.0),
-                const Expanded(
-                  child: MatchTextureWidget(
+                Positioned(
+                  bottom: MediaQuery.of(context).size.height * 0.05 -
+                      kBottomNavigationBarHeight -
+                      3,
+                  child: const MatchTextureWidget(
                     isMatching: false,
                     isMatchFound: false,
                   ),
                 ),
-                const SizedBox(height: 16.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                Column(
+                  children: [
+                    const MatchHeaderWidget(isMatching: false),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height -
+                          MediaQuery.of(context).padding.top -
+                          MediaQuery.of(context).padding.bottom -
+                          MediaQuery.of(context).size.width * 508 / 375,
+                      child: Center(
+                        child: Text(
+                          "Are you ready to get started?",
+                          style: getTextTheme(context)
+                              .headlineSmall!
+                              .copyWith(fontSize: 22.0),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Positioned(
+                  bottom: 16,
+                  left: 16,
+                  right: 16,
                   child: PrimaryButton(
                     text: "Start Matching",
                     onPressed: () {
@@ -66,7 +75,6 @@ class _StartMatchState extends State<StartMatch> {
                     },
                   ),
                 ),
-                const SizedBox(height: 30),
               ],
             ),
           ),
