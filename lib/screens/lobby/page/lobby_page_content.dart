@@ -43,10 +43,12 @@ class _LobbyPageContentWidgetState extends State<LobbyPageContentWidget> {
         child: Stack(
           children: [
             Positioned(
-              bottom: MediaQuery.of(context).size.height * 0.05,
-              child: MatchTextureWidget(
-                isMatching: !isMatchFound,
-                isMatchFound: isMatchFound,
+              // bottom: MediaQuery.of(context).size.height * 0.05,
+              child: Center(
+                child: MatchTextureWidget(
+                  isMatching: !isMatchFound,
+                  isMatchFound: isMatchFound,
+                ),
               ),
             ),
             Column(
