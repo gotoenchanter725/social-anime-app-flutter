@@ -54,7 +54,7 @@ android {
         applicationId "makeshift.software.inc.senpai"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 21 //flutter.minSdkVersion
+        minSdkVersion 34 //flutter.minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -87,4 +87,5 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.10"
     implementation "androidx.multidex:multidex:2.0.1"
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
+    implementation project(':unityLibrary')
 }

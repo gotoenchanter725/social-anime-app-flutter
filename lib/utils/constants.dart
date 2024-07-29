@@ -61,7 +61,20 @@ class _Specials {
   late final match = _MatchConstants();
 
   /// Allowed countries for phone input
-  late final allowedCountries = ['US', 'CA', 'JP', 'BR', 'MX', 'ES', 'AR', 'CO', 'BO', 'GB', 'UG', 'UA'];
+  late final allowedCountries = [
+    'US',
+    'CA',
+    'JP',
+    'BR',
+    'MX',
+    'ES',
+    'AR',
+    'CO',
+    'BO',
+    'GB',
+    'UG',
+    'UA'
+  ];
 
   /// Default country for phone input
   late final defaultCountry = 'US';
@@ -123,6 +136,8 @@ class _Palette {
 
   final disabledTextButton = const Color(0xFF98A1BB);
 
+  final dialogBackground = const Color(0xFF06060A);
+
   // gradients
   final flipCardBgGradient = LinearGradient(
       begin: Alignment.topCenter,
@@ -150,6 +165,18 @@ class _Palette {
     stops: [0.1531, 0.8686],
     transform: GradientRotation(
         123.56 * 3.141592653589793 / 180), // Convert degrees to radians
+  );
+
+  final verificationButtonGradient = const LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFFDE0BC9),
+      Color(0xFF1286F0),
+    ],
+    stops: [0.1531, 0.8686],
+    transform: GradientRotation(
+        33.56 * 3.141592653589793 / 180), // Convert degrees to radians
   );
 
   final lineGradient = const LinearGradient(

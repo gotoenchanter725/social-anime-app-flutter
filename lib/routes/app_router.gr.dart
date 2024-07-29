@@ -95,10 +95,21 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    MatchRoute.name: (routeData) {
+    LobbyRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const MatchPage(),
+        child: const LobbyPage(),
+      );
+    },
+    MatchRoute.name: (routeData) {
+      final args = routeData.argsAs<MatchRouteArgs>(
+          orElse: () => const MatchRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: MatchPage(
+          key: args.key,
+          defaultStep: args.defaultStep,
+        ),
       );
     },
     MatchUsersRoute.name: (routeData) {
@@ -226,6 +237,14 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           isExistingUser: args.isExistingUser,
         ),
+      );
+    },
+    UnityViewRoute.name: (routeData) {
+      final args = routeData.argsAs<UnityViewRouteArgs>(
+          orElse: () => const UnityViewRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UnityViewPage(key: args.key),
       );
     },
     UploadPhotosManagerRoute.name: (routeData) {
@@ -570,17 +589,54 @@ class HomeRouteArgs {
 }
 
 /// generated route for
-/// [MatchPage]
-class MatchRoute extends PageRouteInfo<void> {
-  const MatchRoute({List<PageRouteInfo>? children})
+/// [LobbyPage]
+class LobbyRoute extends PageRouteInfo<void> {
+  const LobbyRoute({List<PageRouteInfo>? children})
       : super(
+          LobbyRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LobbyRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MatchPage]
+class MatchRoute extends PageRouteInfo<MatchRouteArgs> {
+  MatchRoute({
+    Key? key,
+    int defaultStep = 0,
+    List<PageRouteInfo>? children,
+  }) : super(
           MatchRoute.name,
+          args: MatchRouteArgs(
+            key: key,
+            defaultStep: defaultStep,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'MatchRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<MatchRouteArgs> page = PageInfo<MatchRouteArgs>(name);
+}
+
+class MatchRouteArgs {
+  const MatchRouteArgs({
+    this.key,
+    this.defaultStep = 0,
+  });
+
+  final Key? key;
+
+  final int defaultStep;
+
+  @override
+  String toString() {
+    return 'MatchRouteArgs{key: $key, defaultStep: $defaultStep}';
+  }
 }
 
 /// generated route for
@@ -1051,6 +1107,35 @@ class SignUpRouteArgs {
   @override
   String toString() {
     return 'SignUpRouteArgs{key: $key, isExistingUser: $isExistingUser}';
+  }
+}
+
+/// generated route for
+/// [UnityViewPage]
+class UnityViewRoute extends PageRouteInfo<UnityViewRouteArgs> {
+  UnityViewRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UnityViewRoute.name,
+          args: UnityViewRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'UnityViewRoute';
+
+  static const PageInfo<UnityViewRouteArgs> page =
+      PageInfo<UnityViewRouteArgs>(name);
+}
+
+class UnityViewRouteArgs {
+  const UnityViewRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UnityViewRouteArgs{key: $key}';
   }
 }
 

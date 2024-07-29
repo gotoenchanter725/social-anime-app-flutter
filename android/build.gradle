@@ -3,6 +3,9 @@ allprojects {
     ext.kotlin_version = '1.8.0'
 
     repositories {
+        flatDir {
+         dirs "${project(':unityLibrary').projectDir}/libs"
+        }
         google()
         mavenCentral()
     }

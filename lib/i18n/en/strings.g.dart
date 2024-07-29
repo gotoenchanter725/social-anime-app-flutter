@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 1
-/// Strings: 7
+/// Strings: 3
 ///
-/// Built on 2024-04-07 at 15:16 UTC
+/// Built on 2024-07-24 at 19:56 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -149,43 +149,19 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsEn _root = this; // ignore: unused_field
 
 	// Translations
-	late final _StringsErrorsEn errors = _StringsErrorsEn._(_root);
+	late final _StringsVerifyPhoneEn verify_phone = _StringsVerifyPhoneEn._(_root);
 }
 
-// Path: errors
-class _StringsErrorsEn {
-	_StringsErrorsEn._(this._root);
+// Path: verify_phone
+class _StringsVerifyPhoneEn {
+	_StringsVerifyPhoneEn._(this._root);
 
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
-	late final _StringsErrorsCreateUserEn create_user = _StringsErrorsCreateUserEn._(_root);
-	late final _StringsErrorsOthersEn others = _StringsErrorsOthersEn._(_root);
-}
-
-// Path: errors.create_user
-class _StringsErrorsCreateUserEn {
-	_StringsErrorsCreateUserEn._(this._root);
-
-	final _StringsEn _root; // ignore: unused_field
-
-	// Translations
-	String get something_went_wrong => 'Something went wrong, please try again later';
-}
-
-// Path: errors.others
-class _StringsErrorsOthersEn {
-	_StringsErrorsOthersEn._(this._root);
-
-	final _StringsEn _root; // ignore: unused_field
-
-	// Translations
-	String get no_item_found => 'There is no data to show.';
-	String get something_went_wrong => 'Something went wrong and data couldn\'t loaded.';
-	String get an_unknown_error => 'An unknown error happened.';
-	String get no_internet_connection => 'Internet connectivity is not available.';
-	String get server_failure => 'Server failure encountered.';
-	String get communication_error => 'There was an error with our communication with the servers.';
+	String get heading => 'Your code is';
+	String get instruction => 'We sent the verification code on';
+	String get resend_action => 'Code not received? Resend';
 }
 
 /// Flat map(s) containing all translations.
@@ -194,13 +170,9 @@ class _StringsErrorsOthersEn {
 extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
-			case 'errors.create_user.something_went_wrong': return 'Something went wrong, please try again later';
-			case 'errors.others.no_item_found': return 'There is no data to show.';
-			case 'errors.others.something_went_wrong': return 'Something went wrong and data couldn\'t loaded.';
-			case 'errors.others.an_unknown_error': return 'An unknown error happened.';
-			case 'errors.others.no_internet_connection': return 'Internet connectivity is not available.';
-			case 'errors.others.server_failure': return 'Server failure encountered.';
-			case 'errors.others.communication_error': return 'There was an error with our communication with the servers.';
+			case 'verify_phone.heading': return 'Your code is';
+			case 'verify_phone.instruction': return 'We sent the verification code on';
+			case 'verify_phone.resend_action': return 'Code not received? Resend';
 			default: return null;
 		}
 	}

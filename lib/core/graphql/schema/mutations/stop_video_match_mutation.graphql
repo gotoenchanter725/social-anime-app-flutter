@@ -1,0 +1,56 @@
+mutation stopVideoMatchmaking($input: StopVideoMatchmakingInput!) {
+  stopVideoMatchmaking(input: $input) {
+    user {
+      id
+      role
+      firstName
+      birthday
+      country
+      bio
+      gender
+      desiredGender
+      phone
+      verified
+      school
+      occupation
+      displayCity
+      displayState
+      onlineStatus
+      lonlat
+      matches {
+        id
+        matcheeId
+        conversation {
+          id
+        }
+      }
+      gallery {
+        photos {
+          order
+          url
+          id
+        }
+      }
+      animes {
+        id
+        title
+        japaneseTitle
+        cover
+      }
+      favoriteMusic {
+        id
+        coverUrl
+        musicType
+        trackName
+        artistName
+        spotifyId
+      }
+      premium
+      superLikeCount
+      hasLocationHidden
+      nextPaymentDate
+      isDisplayingRecentlyActive
+      isDisplayingActive
+    }
+  }
+}

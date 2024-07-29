@@ -104,4 +104,41 @@ class PathConstants {
       'assets/images/events/event_button_icon.svg';
   static const String newEventImage =
       'assets/images/events/event_image_icon.svg';
+
+  // lobby
+  static const String lobbyIcon = 'assets/icons/lobby_icon.svg';
+  static const String folderBackground = 'assets/images/match/dark_bg.png';
+  static const String lobbyActionsBackground =
+      'assets/images/match/lobby_bg.png';
+
+  static const String matchFoundIcon = 'assets/icons/match_found.svg';
+  static const String acceptBtnBg = 'assets/images/match/accept_btn_bg.png';
+
+  static const String cogIcon = 'assets/icons/cog.svg';
+  static const String cardBackground = 'assets/images/card_bg.png';
+  static const String matchInviteIcon = 'assets/icons/match_invite.svg';
+  static const String profileImage = 'assets/images/profile.png';
+  static const String chatBubble = 'assets/icons/message_bubble.svg';
+
+  static const String phoneIcon = 'assets/icons/phone.svg';
+  static const String dummyVideoChatImage = 'assets/images/video_chat_bg.png';
+  static const String videoActionBackground =
+      'assets/icons/video_action_bg.svg';
+
+  // shaders
+  static const topVideoChatShader = 'assets/icons/top_video_shader.svg';
+  static const bottomVideoChatShader = 'assets/icons/bottom_video_shader.svg';
+
+  // call action icons
+  static const endCallIcon = 'assets/icons/end_call.svg';
+  static const muteIcon = 'assets/icons/mute.svg';
+  static const avatorIcon = 'assets/icons/avatar.svg';
+  static const matchAmenityIcon1 = 'assets/icons/match_safe.svg';
+  static const matchAmenityIcon2 = 'assets/icons/match_camera.svg';
+
+  static const profileVerifyBg = 'assets/images/match/profile_verify_bg.png';
+  static const profileVerifyShadow =
+      'assets/images/match/profile_verify_shadow.png';
+
+  static const matchingAnimation = 'assets/gif/matching_circle.gif';
 }

@@ -19,6 +19,7 @@ import 'package:senpai/screens/entry/page/entry_page.dart';
 import 'package:senpai/screens/events_list/page/events_list_page.dart';
 import 'package:senpai/screens/home/page/home_page.dart';
 import 'package:senpai/screens/license/page/license_page.dart';
+import 'package:senpai/screens/lobby/page/lobby_page.dart';
 import 'package:senpai/screens/match/page/match_page.dart';
 import 'package:senpai/screens/match_users/page/match_users_page.dart';
 import 'package:senpai/screens/onboarding/page/onboarding_page.dart';
@@ -33,6 +34,7 @@ import 'package:senpai/screens/profile_fill/photos/bloc/photos_bloc.dart';
 import 'package:senpai/screens/profile_fill/photos/upload_photos/page/upload_photos_manager_page.dart';
 import 'package:senpai/screens/report_user/page/report_user_page.dart';
 import 'package:senpai/screens/signup/page/sign_up_page.dart';
+import 'package:senpai/screens/unity/page/unity_view.dart';
 import 'package:senpai/screens/verify_phone/page/verify_phone_page.dart';
 import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
 import 'package:senpai/screens/verify_photo/camera_page/page/verify_camera_page.dart';
@@ -42,14 +44,47 @@ import 'package:senpai/screens/chat_list/page/search_chat_list_page.dart';
 import 'package:senpai/models/chat/chat_room_params.dart';
 part 'app_router.gr.dart';
 
+class FadePageRoute<T> extends PageRoute<T> {
+  FadePageRoute({required this.child, required RouteSettings settings})
+      : super(settings: settings);
+
+  final Widget child;
+
+  @override
+  Color get barrierColor => Colors.black;
+
+  @override
+  String get barrierLabel => '';
+
+  @override
+  bool get maintainState => true;
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 500);
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return FadeTransition(
+      opacity: animation,
+      child: child,
+    );
+  }
+}
+
+Route<T> fadePageBuilder<T>(
+    BuildContext context, Widget child, AutoRoutePage<T> page) {
+  return FadePageRoute<T>(child: child, settings: page);
+}
+
 @AutoRouterConfig()
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         // add your routes here
+
         AutoRoute(
             page: OnboardingRoute.page,
-            // page: MatchRoute.page,
             initial: true,
             guards: [ExistingUserGuard()]),
         AutoRoute(page: EntryRoute.page, path: '/entry'),
@@ -58,13 +93,20 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SenpaiLicenseRoute.page, path: '/license'),
         AutoRoute(page: ProfileFillRoute.page, path: '/profile_fill'),
         AutoRoute(page: VerifyPhotoRoute.page, path: '/verify_photo'),
+        AutoRoute(page: UnityViewRoute.page, path: '/video_call'),
         AutoRoute(page: HomeRoute.page, path: '/home', children: [
           AutoRoute(page: MatchRoute.page, path: 'match'),
           AutoRoute(page: ChatListRoute.page, path: 'chat_list'),
-          //TODO: 14.03 Herbert Joseph: With the events tab hidden
-          // AutoRoute(page: EventsListRoute.page, path: 'events'),
+
+          /// TODO: 14.03 Herbert Joseph: With the events tab hidden
+          /// AutoRoute(page: EventsListRoute.page, path: 'events'),
           AutoRoute(page: ProfileRoute.page, path: 'profile')
         ]),
+        CustomRoute(
+          page: LobbyRoute.page,
+          path: '/lobby',
+          customRouteBuilder: fadePageBuilder,
+        ),
         AutoRoute(
           page: ChatRoute.page,
           path: '/chat',

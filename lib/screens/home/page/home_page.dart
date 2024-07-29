@@ -19,12 +19,12 @@ class HomePage extends StatelessWidget {
     return BlocProvider<HomeStorageBloc>(
       create: (_) => getIt<HomeStorageBloc>(),
       child: AutoTabsScaffold(
-        routes: const [
+        routes: [
           MatchRoute(),
-          ChatListRoute(),
+          const ChatListRoute(),
           //TODO: 14.03 Herbert Joseph: With the events tab hidden
           // EventsListRoute(),
-          ProfileRoute(),
+          const ProfileRoute(),
         ],
         homeIndex: defaultIndex,
         bottomNavigationBuilder: _createdBottomTabBar,
