@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
@@ -42,7 +43,7 @@ class _LobbyPageContentWidgetState extends State<LobbyPageContentWidget> {
         child: Stack(
           children: [
             Positioned(
-              bottom: 70,
+              bottom: MediaQuery.of(context).size.height * 0.05,
               child: MatchTextureWidget(
                 isMatching: !isMatchFound,
                 isMatchFound: isMatchFound,
@@ -53,8 +54,8 @@ class _LobbyPageContentWidgetState extends State<LobbyPageContentWidget> {
                 isMatchFound
                     ? const LobbyInformationWidget(
                         userImages: [], usersInLobby: 10)
-                    : const SizedBox(
-                        height: 180,
+                    : SizedBox(
+                        height: MediaQuery.of(context).size.width * 0.42,
                       ),
                 const SizedBox(height: 16.0),
                 Expanded(child: Container()),
