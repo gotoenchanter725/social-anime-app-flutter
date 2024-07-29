@@ -49,19 +49,24 @@ class VerificationOverlayWidget extends StatelessWidget {
         ),
         Center(
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.037),
             child: Container(
               // height: getSize(context).height * 0.6,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
+                borderRadius: BorderRadius.circular(
+                    MediaQuery.of(context).size.width * 0.046),
                 color: $constants.palette.appBackground,
               ),
-              padding: const EdgeInsets.only(
-                  top: 40, left: 27, right: 27, bottom: 20),
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.width * 0.093,
+                left: MediaQuery.of(context).size.width * 0.063,
+                right: MediaQuery.of(context).size.width * 0.063,
+                bottom: MediaQuery.of(context).size.width * 0.063,
+              ),
               child: Stack(
                 children: [
                   Positioned.fill(
-                    top: 180,
+                    top: MediaQuery.of(context).size.width * 0.419,
                     child: Center(
                         child: Image.asset(
                       PathConstants.profileVerifyShadow,
@@ -71,39 +76,41 @@ class VerificationOverlayWidget extends StatelessWidget {
                     Text(
                       "Verification Required!",
                       style: getTextTheme(context).headlineSmall!.copyWith(
-                            fontSize: 20.0,
+                            fontSize: MediaQuery.of(context).size.width * 0.047,
                             color: $constants.palette.white,
                           ),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(
-                      height: 16.0,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.037,
                     ),
                     Text(
                       "Verify your profile to enable video chat!",
                       style: getTextTheme(context).titleMedium!.copyWith(
-                            fontSize: 14.0,
+                            fontSize: MediaQuery.of(context).size.width * 0.033,
                             color: $constants.palette.grey,
                           ),
                       textAlign: TextAlign.center,
                     ),
-                    const SizedBox(
-                      height: 32.0,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.074,
                     ),
                     _buildAmenityRow(context, PathConstants.matchAmenityIcon1,
                         "To ensure a safe and genuine experience, please verify your profile."),
-                    const SizedBox(
-                      height: 28.0,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.065,
                     ),
                     _buildAmenityRow(context, PathConstants.matchAmenityIcon2,
                         "Use your camera in a well-lit area for the best results"),
-                    const SizedBox(
-                      height: 16.0,
+                    SizedBox(
+                      height: MediaQuery.of(context).size.width * 0.037,
                     ),
                     Stack(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(bottom: 42),
+                          padding: EdgeInsets.only(
+                              bottom:
+                                  MediaQuery.of(context).size.width * 0.098),
                           child: SizedBox(
                             width: double.infinity,
                             child: Image.asset(
@@ -138,13 +145,14 @@ class VerificationOverlayWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-            top: MediaQuery.of(context).size.height / 2 - 355,
-            right: 0,
+            top: MediaQuery.of(context).size.height / 2 -
+                MediaQuery.of(context).size.width * 0.839,
+            right: -MediaQuery.of(context).size.width * 0.0046,
             child: InkWell(
               onTap: onClosed,
               child: Container(
-                width: 40,
-                height: 40,
+                width: MediaQuery.of(context).size.width * 0.093,
+                height: MediaQuery.of(context).size.width * 0.093,
                 decoration: BoxDecoration(
                   color: $constants.palette.appBackground,
                   shape: BoxShape.circle,
@@ -153,11 +161,11 @@ class VerificationOverlayWidget extends StatelessWidget {
                     width: 4, // Border width
                   ),
                 ),
-                child: const Center(
+                child: Center(
                   child: Icon(
                     Icons.close_rounded,
                     color: Colors.white,
-                    size: 16,
+                    size: MediaQuery.of(context).size.width * 0.037,
                   ),
                 ),
               ),

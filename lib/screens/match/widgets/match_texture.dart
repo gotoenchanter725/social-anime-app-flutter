@@ -163,19 +163,20 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
                 if (widget.isMatchFound)
                   SvgPicture.asset(
                     PathConstants.matchFoundIcon,
-                    width: 36.0,
-                    height: 36.0,
+                    width: MediaQuery.of(context).size.width * 0.083,
+                    height: MediaQuery.of(context).size.width * 0.083,
                   ),
-                if (widget.isMatchFound) const SizedBox(height: 16.0),
+                if (widget.isMatchFound)
+                  SizedBox(height: MediaQuery.of(context).size.width * 0.037),
                 Text(
                   widget.isMatchFound
                       ? 'MATCH FOUND'
                       : widget.isMatching
                           ? _findingText[_dotCount]
                           : "",
-                  style: const TextStyle(
+                  style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24.0,
+                    fontSize: MediaQuery.of(context).size.width * 0.05,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

@@ -53,12 +53,7 @@ class _LobbyPageContentWidgetState extends State<LobbyPageContentWidget> {
             ),
             Column(
               children: [
-                isMatchFound
-                    ? const LobbyInformationWidget(
-                        userImages: [], usersInLobby: 10)
-                    : SizedBox(
-                        height: MediaQuery.of(context).size.width * 0.42,
-                      ),
+                const LobbyInformationWidget(userImages: [], usersInLobby: 10),
                 const SizedBox(height: 16.0),
                 Expanded(child: Container()),
                 const SizedBox(height: 16.0),

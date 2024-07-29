@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
+import 'package:senpai/screens/lobby/page/lobby_information.dart';
 import 'package:senpai/screens/match/widgets/match_header.dart';
 import 'package:senpai/screens/match/widgets/match_texture.dart';
 import 'package:senpai/screens/match/widgets/verification_overlay.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
-import 'package:senpai/utils/methods/utils.dart';
 
 class StartMatch extends StatefulWidget {
   const StartMatch({super.key});
@@ -51,21 +51,26 @@ class _StartMatchState extends State<StartMatch> {
                 Column(
                   children: [
                     const MatchHeaderWidget(isMatching: false),
+                    // SizedBox(
+                    //   height: MediaQuery.of(context).size.height -
+                    //       MediaQuery.of(context).padding.top -
+                    //       MediaQuery.of(context).padding.bottom -
+                    //       MediaQuery.of(context).size.width * 508 / 375,
+                    //   child: Center(
+                    //     child: Text(
+                    //       "Are you ready to get started?",
+                    //       style: getTextTheme(context)
+                    //           .headlineSmall!
+                    //           .copyWith(fontSize: 22.0),
+                    //       textAlign: TextAlign.center,
+                    //     ),
+                    //   ),
+                    // ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height -
-                          MediaQuery.of(context).padding.top -
-                          MediaQuery.of(context).padding.bottom -
-                          MediaQuery.of(context).size.width * 508 / 375,
-                      child: Center(
-                        child: Text(
-                          "Are you ready to get started?",
-                          style: getTextTheme(context)
-                              .headlineSmall!
-                              .copyWith(fontSize: 22.0),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
+                      height: MediaQuery.of(context).size.width * 0.058,
                     ),
+                    const LobbyInformationWidget(
+                        userImages: [], usersInLobby: 10),
                   ],
                 ),
                 Positioned(
