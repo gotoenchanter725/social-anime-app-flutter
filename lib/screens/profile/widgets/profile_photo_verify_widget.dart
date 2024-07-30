@@ -102,7 +102,7 @@ class ProfilePhotoVerifyWidget extends StatelessWidget {
               SizedBox(height: $constants.corners.xxl),
               _buildImage(
                 isVerified
-                    ? PathConstants.photoVerifedImage
+                    ? PathConstants.photoVerifiedImage
                     : PathConstants.photoNotVerifiedImage,
               ),
               SizedBox(height: $constants.insets.xs),

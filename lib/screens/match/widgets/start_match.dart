@@ -8,6 +8,7 @@ import 'package:senpai/screens/match/widgets/verification_overlay.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
+import 'package:senpai/utils/methods/utils.dart';
 
 class StartMatch extends StatefulWidget {
   const StartMatch({super.key});
@@ -67,7 +68,7 @@ class _StartMatchState extends State<StartMatch> {
                     //   ),
                     // ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.width * 0.058,
+                      height: getWidthSize(context, 0.058),
                     ),
                     const LobbyInformationWidget(
                         userImages: [], usersInLobby: 10),

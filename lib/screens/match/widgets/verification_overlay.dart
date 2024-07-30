@@ -49,24 +49,24 @@ class VerificationOverlayWidget extends StatelessWidget {
         ),
         Center(
           child: Padding(
-            padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.037),
+            padding: EdgeInsets.all(getWidthSize(context, 0.037)),
             child: Container(
               // height: getSize(context).height * 0.6,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                    MediaQuery.of(context).size.width * 0.046),
+                borderRadius:
+                    BorderRadius.circular(getWidthSize(context, 0.046)),
                 color: $constants.palette.appBackground,
               ),
               padding: EdgeInsets.only(
-                top: MediaQuery.of(context).size.width * 0.093,
-                left: MediaQuery.of(context).size.width * 0.063,
-                right: MediaQuery.of(context).size.width * 0.063,
-                bottom: MediaQuery.of(context).size.width * 0.063,
+                top: getWidthSize(context, 0.093),
+                left: getWidthSize(context, 0.063),
+                right: getWidthSize(context, 0.063),
+                bottom: getWidthSize(context, 0.063),
               ),
               child: Stack(
                 children: [
                   Positioned.fill(
-                    top: MediaQuery.of(context).size.width * 0.419,
+                    top: getWidthSize(context, 0.419),
                     child: Center(
                         child: Image.asset(
                       PathConstants.profileVerifyShadow,
@@ -76,52 +76,50 @@ class VerificationOverlayWidget extends StatelessWidget {
                     Text(
                       "Verification Required!",
                       style: getTextTheme(context).headlineSmall!.copyWith(
-                            fontSize: MediaQuery.of(context).size.width * 0.047,
+                            fontSize: getWidthSize(context, 0.047),
                             color: $constants.palette.white,
                           ),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.width * 0.037,
+                      height: getWidthSize(context, 0.037),
                     ),
                     Text(
                       "Verify your profile to enable video chat!",
                       style: getTextTheme(context).titleMedium!.copyWith(
-                            fontSize: MediaQuery.of(context).size.width * 0.033,
+                            fontSize: getWidthSize(context, 0.033),
                             color: $constants.palette.grey,
                           ),
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.width * 0.074,
+                      height: getWidthSize(context, 0.074),
                     ),
                     _buildAmenityRow(context, PathConstants.matchAmenityIcon1,
                         "To ensure a safe and genuine experience, please verify your profile."),
                     SizedBox(
-                      height: MediaQuery.of(context).size.width * 0.065,
+                      height: getWidthSize(context, 0.065),
                     ),
                     _buildAmenityRow(context, PathConstants.matchAmenityIcon2,
                         "Use your camera in a well-lit area for the best results"),
                     SizedBox(
-                      height: MediaQuery.of(context).size.width * 0.037,
+                      height: getWidthSize(context, 0.037),
                     ),
                     Stack(
                       children: [
                         Padding(
                           padding: EdgeInsets.only(
-                              bottom:
-                                  MediaQuery.of(context).size.width * 0.098),
+                              bottom: getWidthSize(context, 0.098)),
                           child: SizedBox(
                             width: double.infinity,
                             child: Image.asset(
                               PathConstants.profileVerifyBg,
                               fit: BoxFit.contain,
-                              height: (MediaQuery.of(context).size.width - 80) *
+                              height: (getSize(context).width - 80) *
                                   0.8 *
                                   263 /
                                   283, //262,
-                              width: (MediaQuery.of(context).size.width - 80) *
-                                  0.8, //283,
+                              width: (getSize(context).width - 80) * 0.8, //283,
                             ),
                           ),
                         ),
@@ -145,14 +143,13 @@ class VerificationOverlayWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-            top: MediaQuery.of(context).size.height / 2 -
-                MediaQuery.of(context).size.width * 0.839,
-            right: -MediaQuery.of(context).size.width * 0.0046,
+            top: getSize(context).height / 2 - getWidthSize(context, 0.839),
+            right: -getWidthSize(context, 0.0046),
             child: InkWell(
               onTap: onClosed,
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.093,
-                height: MediaQuery.of(context).size.width * 0.093,
+                width: getWidthSize(context, 0.093),
+                height: getWidthSize(context, 0.093),
                 decoration: BoxDecoration(
                   color: $constants.palette.appBackground,
                   shape: BoxShape.circle,
@@ -165,7 +162,7 @@ class VerificationOverlayWidget extends StatelessWidget {
                   child: Icon(
                     Icons.close_rounded,
                     color: Colors.white,
-                    size: MediaQuery.of(context).size.width * 0.037,
+                    size: getWidthSize(context, 0.037),
                   ),
                 ),
               ),

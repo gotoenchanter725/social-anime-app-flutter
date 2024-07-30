@@ -2,7 +2,6 @@
 
 // ignore_for_file: avoid_classes_with_only_static_members,always_specify_types,lines_longer_than_80_chars,non_constant_identifier_names,prefer_double_quotes,unnecessary_raw_strings,use_raw_strings
 
-
 class R {
   static const images = _ImageResources();
   static const svg = _SvgResources();
@@ -62,8 +61,8 @@ class _ImageResources {
   /// ![](/Volumes/Data/Work/Livia/Senpai/senpai-app/assets/images/profile/photo_not_verified.png)
   final photo_not_verified = r'assets/images/profile/photo_not_verified.png';
 
-  /// ![](/Volumes/Data/Work/Livia/Senpai/senpai-app/assets/images/profile/photo_verifed.png)
-  final photo_verifed = r'assets/images/profile/photo_verifed.png';
+  /// ![](/Volumes/Data/Work/Livia/Senpai/senpai-app/assets/images/profile/photo_verified.png)
+  final photo_verifed = r'assets/images/profile/photo_verified.png';
 
   /// ![](/Volumes/Data/Work/Livia/Senpai/senpai-app/assets/images/profile/premium_image.png)
   final premium_image = r'assets/images/profile/premium_image.png';
@@ -111,7 +110,8 @@ class _ImageResources {
   final empty_animations = r'assets/images/chat/empty_animations.png';
 
   /// ![](/Volumes/Data/Work/Livia/Senpai/senpai-app/assets/images/chat/empty_conversation_search.png)
-  final empty_conversation_search = r'assets/images/chat/empty_conversation_search.png';
+  final empty_conversation_search =
+      r'assets/images/chat/empty_conversation_search.png';
 
   /// ![](/Volumes/Data/Work/Livia/Senpai/senpai-app/assets/images/chat/empty_conversations.png)
   final empty_conversations = r'assets/images/chat/empty_conversations.png';
