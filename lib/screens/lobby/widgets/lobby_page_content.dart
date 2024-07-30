@@ -49,8 +49,6 @@ class _LobbyPageContentWidgetState extends State<LobbyPageContentWidget> {
               // bottom: MediaQuery.of(context).size.height * 0.05,
               child: Center(
                 child: MatchTextureWidget(
-                  isMatching: !isMatchFound,
-                  isMatchFound: isMatchFound,
                   onAccepted: () {
                     appRouter.push(UnityViewRoute());
                   },

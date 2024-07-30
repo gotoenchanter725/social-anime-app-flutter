@@ -5,7 +5,7 @@ import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/screens/lobby/widgets/lobby_information.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/widgets/match_header.dart';
-import 'package:senpai/screens/match/widgets/match_texture.dart';
+import 'package:senpai/screens/match/widgets/start_match_texture.dart';
 import 'package:senpai/screens/match/widgets/verification_overlay.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
@@ -43,10 +43,7 @@ class _StartMatchState extends State<StartMatch> {
                     child: Padding(
                       padding:
                           EdgeInsets.only(top: kBottomNavigationBarHeight + 60),
-                      child: MatchTextureWidget(
-                        isMatching: false,
-                        isMatchFound: false,
-                      ),
+                      child: StartMatchTexture(),
                     ),
                   ),
                 ),
