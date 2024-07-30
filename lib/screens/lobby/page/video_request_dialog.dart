@@ -14,6 +14,8 @@ import 'package:senpai/utils/methods/utils.dart';
 void showVideoRequestDialog(BuildContext context) {
   showDialog(
     context: context,
+    barrierColor: Colors.transparent,
+    useSafeArea: false,
     builder: (BuildContext context) {
       return const VideoRequestDialog(child: VideoRequestContents());
     },
@@ -29,6 +31,7 @@ class VideoRequestDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
+      extendBodyBehindAppBar: true,
       appBar: SenpaiAppBar(
         title: "Video Request",
         hasLeading: true,
@@ -45,41 +48,49 @@ class VideoRequestDialog extends StatelessWidget {
             BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 50, sigmaY: 70),
               child: Container(
-                color: Colors.black.withOpacity(0.2),
+                color: Colors.black.withOpacity(0.1),
               ),
             ),
-            Center(
-              child: child,
-            ),
-            Positioned(
-                bottom: 20,
-                left: getWidthSize(context, 0.08),
-                right: getWidthSize(context, 0.08),
-                child: InkWell(
-                  onTap: () {
-                    appRouter.pop();
-                  },
-                  child: Container(
-                    height: getWidthSize(context, 0.17),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                        getWidthSize(context, 0.17),
-                      ),
-                      border: Border.all(
-                          color: Colors.white.withOpacity(0.59), width: 1),
+            Column(
+              children: [
+                Expanded(
+                  child: Center(
+                    child: child,
+                  ),
+                ),
+                Padding(
+                    padding: EdgeInsets.only(
+                      bottom: 20,
+                      left: getWidthSize(context, 0.08),
+                      right: getWidthSize(context, 0.08),
                     ),
-                    child: Center(
-                      child: Text(
-                        "Back to the Pool",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: getWidthSize(context, 0.0372),
+                    child: InkWell(
+                      onTap: () {
+                        appRouter.pop();
+                      },
+                      child: Container(
+                        height: getWidthSize(context, 0.13),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            getWidthSize(context, 0.17),
+                          ),
+                          border: Border.all(
+                              color: Colors.white.withOpacity(0.59), width: 1),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Back to the Pool",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: getWidthSize(context, 0.0372),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                ))
+                    ))
+              ],
+            )
           ],
         ),
       ),
@@ -96,30 +107,30 @@ class VideoRequestContents extends StatelessWidget {
       padding: EdgeInsets.only(
           left: getWidthSize(context, 0.037),
           right: getWidthSize(context, 0.037)),
-      child: InkWell(
-        onTap: () {
-          appRouter.replace(UnityViewRoute());
-        },
-        child: Stack(
-          children: [
-            Container(
-              padding: EdgeInsets.only(
-                  top: getWidthSize(context, 0.058),
-                  left: getWidthSize(context, 0.042),
-                  right: getWidthSize(context, 0.042)),
-              height: getWidthSize(context, 0.926 * 406 / 686),
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(PathConstants.inviteBackground),
-                  fit: BoxFit.contain,
-                ),
+      child: Stack(
+        children: [
+          Container(
+            padding: EdgeInsets.only(
+                top: getWidthSize(context, 0.068),
+                left: getWidthSize(context, 0.042),
+                right: getWidthSize(context, 0.042)),
+            height: getWidthSize(context, 0.926 * 406 / 686),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(PathConstants.inviteBackground),
+                fit: BoxFit.contain,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildLobbyHeaderText(context),
-                  SizedBox(height: getWidthSize(context, 0.095)),
-                  Container(
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildLobbyHeaderText(context),
+                SizedBox(height: getWidthSize(context, 0.13)),
+                InkWell(
+                  onTap: () {
+                    appRouter.replace(UnityViewRoute());
+                  },
+                  child: Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
@@ -144,7 +155,7 @@ class VideoRequestContents extends StatelessWidget {
                                   getWidthSize(context, 0.14))),
                           child: Padding(
                             padding:
-                                EdgeInsets.all(getWidthSize(context, 0.018)),
+                                EdgeInsets.all(getWidthSize(context, 0.003)),
                             child: SizedBox(
                               height: getWidthSize(context, 0.13),
                               child: Row(
@@ -170,21 +181,21 @@ class VideoRequestContents extends StatelessWidget {
                         ),
                       ),
                     ),
-                  )
-                ],
-              ),
+                  ),
+                )
+              ],
             ),
-            Positioned(
-              top: getWidthSize(context, 0.025),
-              right: getWidthSize(context, 0.04),
-              child: SvgPicture.asset(
-                PathConstants.lobbyInvite, // replace with your icon path
-                width: getWidthSize(context, 0.1),
-                height: getWidthSize(context, 0.1),
-              ),
+          ),
+          Positioned(
+            top: getWidthSize(context, 0.025),
+            right: getWidthSize(context, 0.04),
+            child: SvgPicture.asset(
+              PathConstants.lobbyInvite, // replace with your icon path
+              width: getWidthSize(context, 0.1),
+              height: getWidthSize(context, 0.1),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
