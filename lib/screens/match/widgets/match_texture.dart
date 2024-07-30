@@ -9,9 +9,13 @@ class MatchTextureWidget extends StatefulWidget {
     super.key,
     required this.isMatching,
     required this.isMatchFound,
+    this.onAccepted,
+    this.onDeclined,
   });
   final bool isMatching;
   final bool isMatchFound;
+  final Function()? onAccepted;
+  final Function()? onDeclined;
 
   @override
   State<MatchTextureWidget> createState() => _MatchTextureWidgetState();
@@ -78,7 +82,9 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
           Center(
             child: TextButton(
               onPressed: () {
-                // move to the chat invite page
+                if (widget.onAccepted != null) {
+                  widget.onAccepted!();
+                }
               },
               child: const Text(
                 'Accept',
@@ -114,7 +120,9 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
           alignment: Alignment.center,
         ),
         onPressed: () {
-          print("Reject button pressed");
+          if (widget.onDeclined != null) {
+            widget.onDeclined!();
+          }
         },
         child: const Center(
           child: Text(

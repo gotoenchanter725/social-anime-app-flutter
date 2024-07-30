@@ -6,19 +6,21 @@ import 'package:senpai/screens/match_users/bloc/match_users_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 
 class MatchHeartWidget extends StatelessWidget {
-  final bool chageSize;
+  final bool changeSize;
   const MatchHeartWidget({
     Key? key,
-    this.chageSize = false,
+    this.changeSize = false,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      height:
-          chageSize ? $constants.insets.offset * 1.5 : $constants.insets.offset,
-      width:
-          chageSize ? $constants.insets.offset * 1.5 : $constants.insets.offset,
+      height: changeSize
+          ? $constants.insets.offset * 1.5
+          : $constants.insets.offset,
+      width: changeSize
+          ? $constants.insets.offset * 1.5
+          : $constants.insets.offset,
       duration: const Duration(milliseconds: 500),
       curve: Curves.linear,
       onEnd: () {
