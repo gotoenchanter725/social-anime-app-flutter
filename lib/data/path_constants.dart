@@ -22,8 +22,8 @@ class PathConstants {
   static const String closeIcon = 'assets/icons/close.svg';
 
   static const String searchIcon = 'assets/icons/search.svg';
-  static const String photoVerifedImage =
-      'assets/images/profile/photo_verifed.png';
+  static const String photoVerifiedImage =
+      'assets/images/profile/photo_verified.png';
   static const String photoNotVerifiedImage =
       'assets/images/profile/photo_not_verified.png';
   static const String alarmIcon = 'assets/icons/alarm_icon.svg';
@@ -70,6 +70,8 @@ class PathConstants {
   //Profile
   static const String filterIcon = 'assets/icons/filter.svg';
   static const String settingsIcon = 'assets/icons/settings.svg';
+  static const String settingsOutlinedIcon =
+      'assets/icons/settings_outlined.svg';
   static const String verifyUserIcon = 'assets/icons/verify_user.svg';
   static const String pencilIcon = 'assets/icons/pencil.svg';
   static const String shineHeartIcon = 'assets/icons/shine_heart.svg';
@@ -107,7 +109,10 @@ class PathConstants {
 
   // lobby
   static const String lobbyIcon = 'assets/icons/lobby_icon.svg';
+  static const String lobbyInvite = 'assets/icons/lobby_invite.svg';
   static const String folderBackground = 'assets/images/match/dark_bg.png';
+  static const String inviteBackground =
+      'assets/images/match/invite_black_bg.png';
   static const String lobbyActionsBackground =
       'assets/images/match/lobby_bg.png';
 
@@ -132,9 +137,13 @@ class PathConstants {
   // call action icons
   static const endCallIcon = 'assets/icons/end_call.svg';
   static const muteIcon = 'assets/icons/mute.svg';
-  static const avatorIcon = 'assets/icons/avatar.svg';
+  static const avatarIcon = 'assets/icons/avatar.svg';
   static const matchAmenityIcon1 = 'assets/icons/match_safe.svg';
   static const matchAmenityIcon2 = 'assets/icons/match_camera.svg';
 
   static const profileVerifyBg = 'assets/images/match/profile_verify_bg.png';
+  static const profileVerifyShadow =
+      'assets/images/match/profile_verify_shadow.png';
+
+  static const matchingAnimation = 'assets/gif/matching_circle.gif';
 }

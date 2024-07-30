@@ -1,13 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
-// import 'package:senpai/core/widgets/senpai_app_bar.dart';
-import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/screens/lobby/page/lobby_information.dart';
+import 'package:senpai/screens/match/widgets/match_header.dart';
+import 'package:senpai/screens/match/widgets/match_texture.dart';
+import 'package:senpai/screens/match/widgets/verification_overlay.dart';
+import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
-class StartMatch extends StatelessWidget {
+class StartMatch extends StatefulWidget {
   const StartMatch({super.key});
+
+  @override
+  State<StartMatch> createState() => _StartMatchState();
+}
+
+class _StartMatchState extends State<StartMatch> {
+  bool isVerified = false;
+
+  @override
+  void initState() {
+    final bloc = BlocProvider.of<ProfileBloc>(context);
+    isVerified = bloc.isUserVerified;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,182 +34,75 @@ class StartMatch extends StatelessWidget {
       body: Stack(
         children: [
           SafeArea(
-            child: Column(
+            child: Stack(
               children: [
-                _buildHeader(context),
-                const SizedBox(height: 70.0),
-                SizedBox(
-                  width: 150.0,
-                  child: Text(
-                    "Are you ready for the match?",
-                    style: getTextTheme(context)
-                        .headlineSmall!
-                        .copyWith(fontSize: 22.0),
-                    textAlign: TextAlign.center,
+                const Positioned(
+                  // top: kBottomNavigationBarHeight - 3,
+                  child: Center(
+                    child: Padding(
+                      padding:
+                          EdgeInsets.only(top: kBottomNavigationBarHeight + 60),
+                      child: MatchTextureWidget(
+                        isMatching: false,
+                        isMatchFound: false,
+                      ),
+                    ),
                   ),
                 ),
-                const SizedBox(height: 16.0),
-                Expanded(
-                  child: _buildMatchTexture(context),
+                Column(
+                  children: [
+                    const MatchHeaderWidget(isMatching: false),
+                    // SizedBox(
+                    //   height: MediaQuery.of(context).size.height -
+                    //       MediaQuery.of(context).padding.top -
+                    //       MediaQuery.of(context).padding.bottom -
+                    //       MediaQuery.of(context).size.width * 508 / 375,
+                    //   child: Center(
+                    //     child: Text(
+                    //       "Are you ready to get started?",
+                    //       style: getTextTheme(context)
+                    //           .headlineSmall!
+                    //           .copyWith(fontSize: 22.0),
+                    //       textAlign: TextAlign.center,
+                    //     ),
+                    //   ),
+                    // ),
+                    SizedBox(
+                      height: getWidthSize(context, 0.058),
+                    ),
+                    const LobbyInformationWidget(
+                        userImages: [], usersInLobby: 10),
+                  ],
                 ),
-                const SizedBox(height: 16.0),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                Positioned(
+                  bottom: 16,
+                  left: 16,
+                  right: 16,
                   child: PrimaryButton(
                     text: "Start Matching",
-                    onPressed: () {},
+                    onPressed: () {
+                      appRouter.pushNamed("/lobby");
+                    },
                   ),
                 ),
-                const SizedBox(height: 16.0),
               ],
             ),
           ),
-          _buildVerificationOverlay(context),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildMatchTexture(BuildContext context) {
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Positioned.fill(
-          child: Image.asset(
-            PathConstants.lobbyActionsBackground,
-            fit: BoxFit.cover,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildHeader(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: $constants.insets.lg),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Image.asset(
-            PathConstants.launcher,
-            width: $constants.insets.lg,
-            height: $constants.insets.lg,
-            fit: BoxFit.contain,
-          ),
-          Text(
-            "Matching",
-            style: getTextTheme(context).titleMedium!.copyWith(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                ),
-          ),
-          SvgPicture.asset(
-            PathConstants.crownIcon,
-            width: $constants.insets.lg,
-            height: $constants.insets.lg,
-            fit: BoxFit.contain,
-          )
-        ],
-      ),
-    );
-  }
-
-  Widget _buildVerificationOverlay(BuildContext context) {
-    return Stack(
-      children: [
-        Positioned.fill(
-          child: Container(
-            decoration:
-                BoxDecoration(color: $constants.palette.black.withOpacity(0.8)),
-          ),
-        ),
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Container(
-              height: getSize(context).height * 0.6,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: $constants.palette.dialogBackground,
-              ),
-              padding: const EdgeInsets.all(20.0),
-              child: Column(children: [
-                Text(
-                  "Verification Required!",
-                  style: getTextTheme(context).headlineSmall!.copyWith(
-                        fontSize: 20.0,
-                        color: $constants.palette.white,
-                      ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(
-                  height: 16.0,
-                ),
-                Text(
-                  "Verify your profile to enable video chat!",
-                  style: getTextTheme(context).titleMedium!.copyWith(
-                        fontSize: 14.0,
-                        color: $constants.palette.grey,
-                      ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(
-                  height: 32.0,
-                ),
-                _buildAmenityRow(context, PathConstants.matchAmenityIcon1,
-                    "To ensure a safe and genuine experience, please verify your profile."),
-                const SizedBox(
-                  height: 16.0,
-                ),
-                _buildAmenityRow(context, PathConstants.matchAmenityIcon2,
-                    "Use your camera in a well-lit area for the best results"),
-                const SizedBox(
-                  height: 16.0,
-                ),
-                Expanded(
-                  child: Image.asset(
-                    PathConstants.profileVerifyBg,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(
-                  height: 16.0,
-                ),
-                PrimaryButton(
-                  text: "Start Verification",
-                  onPressed: () {},
-                ),
-              ]),
+          if (!isVerified)
+            VerificationOverlayWidget(
+              onClosed: () {
+                setState(() {
+                  isVerified = true;
+                });
+              },
+              onStartVerification: () {
+                setState(() {
+                  isVerified = true;
+                });
+              },
             ),
-          ),
-        )
-      ],
-    );
-  }
-
-  Widget _buildAmenityRow(
-      BuildContext context, String iconPath, String amenityText) {
-    return Row(
-      children: [
-        SvgPicture.asset(
-          iconPath,
-          width: $constants.insets.lg,
-          height: $constants.insets.lg,
-          fit: BoxFit.contain,
-        ),
-        const SizedBox(
-          width: 4.0,
-        ),
-        Flexible(
-          child: Text(
-            amenityText,
-            style: getTextTheme(context).titleMedium!.copyWith(
-                  fontSize: 14.0,
-                  color: $constants.palette.white,
-                ),
-          ),
-        )
-      ],
+        ],
+      ),
     );
   }
 }

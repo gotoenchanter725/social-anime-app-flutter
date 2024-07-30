@@ -1,24 +1,23 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:senpai/core/widgets/senpai_app_bar.dart';
-import 'package:senpai/l10n/resources.dart';
-import 'package:senpai/utils/constants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/screens/lobby/page/lobby_page_content.dart';
+import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 
 @RoutePage()
-class LobbyPage extends StatelessWidget {
+class LobbyPage extends StatefulWidget {
   const LobbyPage({super.key});
 
   @override
+  State<LobbyPage> createState() => _LobbyPageState();
+}
+
+class _LobbyPageState extends State<LobbyPage> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: $constants.palette.darkBlue,
-      appBar: SenpaiAppBar(
-        title: R.strings.lobbyAppBarTitle,
-        hasLeading: true,
-      ),
-      body: const Center(
-        child: Text("To be implemented"),
-      ),
+    return BlocProvider(
+      create: (context) => ProfileBloc(),
+      child: const LobbyPageContentWidget(),
     );
   }
 }

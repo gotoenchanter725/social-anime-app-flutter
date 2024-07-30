@@ -17,7 +17,10 @@ import 'package:senpai/utils/methods/aliases.dart';
 
 @RoutePage()
 class UnityViewPage extends StatelessWidget {
-  UnityViewPage({super.key});
+  UnityViewPage({super.key}) {
+    // TODO: implement UnityViewPage
+    // throw UnimplementedError();
+  }
 
   // ignore: unused_field
   late final UnityWidgetController _unityWidgetController;
@@ -44,9 +47,8 @@ class UnityViewPage extends StatelessWidget {
 
     logIt.info("User Info: $userInfo");
 
-
     dynamic otherUserInfo = jsonEncode({
-       "token": authModel.token,
+      "token": authModel.token,
       "userId": 12,
       "firstName": _user.firstName,
       "isVerified": _user.verified,
@@ -57,19 +59,15 @@ class UnityViewPage extends StatelessWidget {
 
     logIt.info("User Info: $userInfo");
 
-
-
     // Send User Info to Unity
     // userId, json web token, gender, isVerified, isPremium
     // int userID, string token, string gender, bool isVerified, bool isPremium
     _unityWidgetController.postMessage(
         "DataController", "SetUserInfo", userInfo);
 
-
     _unityWidgetController.postMessage(
         "DataController", "SetOtherUserInfo", otherUserInfo);
   }
-
 
   // Communication from Unity to Flutter
   void onUnityMessage(message) {
@@ -83,23 +81,20 @@ class UnityViewPage extends StatelessWidget {
       print(
           'Received scene loaded from unity buildIndex: ${sceneInfo.buildIndex}');
 
-      switch(sceneInfo.name){
+      switch (sceneInfo.name) {
         case "VideoChatScene":
-            setChannelName();
-            postUserDetails();
-          
-            break;
-        case "TestAvatarScene":
-            postUserDetails();
-            break;
-        default:
-        break;
-      }
+          setChannelName();
+          postUserDetails();
 
-    
+          break;
+        case "TestAvatarScene":
+          postUserDetails();
+          break;
+        default:
+          break;
+      }
     }
   }
-
 
 //for set a preselected character first send setPreselectedAvatar before loadUnityScene
   void onUnityCreated(UnityWidgetController controller) {
@@ -109,20 +104,19 @@ class UnityViewPage extends StatelessWidget {
   }
 
 // 1 = VideoChatScene , 2 = TestAvatarScene
-  void loadUnityScene(){
-      _unityWidgetController.postMessage(
-      "SceneLoaderManager", "ChangeSceneBySceneID", "1");
+  void loadUnityScene() {
+    _unityWidgetController.postMessage(
+        "SceneLoaderManager", "ChangeSceneBySceneID", "1");
   }
 
-  void setChannelName(){
-      _unityWidgetController.postMessage(
-      "DataController", "SetChannelName", "Test");
+  void setChannelName() {
+    _unityWidgetController.postMessage(
+        "DataController", "SetChannelName", "Test");
   }
 
-
-  void setPreselectedAvatar(){
-      _unityWidgetController.postMessage(
-      "SceneLoaderManager", "SetPreselectedAvatarGuid", "7f9e0c10-dde1-426a-88cc-565200a79e43");
+  void setPreselectedAvatar() {
+    _unityWidgetController.postMessage("SceneLoaderManager",
+        "SetPreselectedAvatarGuid", "7f9e0c10-dde1-426a-88cc-565200a79e43");
   }
 
   @override
@@ -178,4 +172,78 @@ class UnityViewPage extends StatelessWidget {
       ),
     );
   }
+
+  // /// Just for test on emulator
+  // late final dynamic _unityWidgetController;
+  // late final dynamic _user;
+  //
+  // void onUnityMessage(dynamic message) {
+  //   print('Received message from Unity: ${message.toString()}');
+  // }
+  //
+  // void onUnitySceneLoaded(dynamic sceneInfo) {
+  //   if (sceneInfo != null) {
+  //     print('Received scene loaded from Unity: ${sceneInfo['name']}');
+  //     print(
+  //         'Received scene loaded from Unity buildIndex: ${sceneInfo['buildIndex']}');
+  //
+  //     if (sceneInfo['name'] == "VideoChatScene" ||
+  //         sceneInfo['name'] == "TestAvatarScene") {
+  //       postUserDetails();
+  //     }
+  //   }
+  // }
+  //
+  // void onUnityCreated(dynamic controller) {
+  //   _unityWidgetController = controller;
+  //   loadUnityScene();
+  // }
+  //
+  // void postUserDetails() {
+  //   // Dummy user info for testing
+  //   dynamic userInfo = jsonEncode({
+  //     "token": "dummyToken",
+  //     "userId": "dummyUserId",
+  //     "firstName": "Dummy",
+  //     "isVerified": true,
+  //     "gender": "Male",
+  //     "isPremium": false,
+  //     "thumbnailURL": "https://example.com/dummy.jpg"
+  //   });
+  //
+  //   print("User Info: $userInfo");
+  //
+  //   // Simulate sending user info to Unity
+  //   _unityWidgetController?.postMessage
+  //       ?.call("DataController", "SetUserInfo", userInfo);
+  // }
+  //
+  // void loadUnityScene() {
+  //   // Simulate loading a Unity scene
+  //   _unityWidgetController?.postMessage
+  //       ?.call("SceneLoaderManager", "ChangeSceneBySceneID", "1");
+  // }
+  //
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       title: const Text('Unity View Page'),
+  //     ),
+  //     body: Center(
+  //       child: ElevatedButton(
+  //         onPressed: () {
+  //           onUnityCreated(DummyUnityController());
+  //         },
+  //         child: Text('Simulate Unity View'),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
+
+// class DummyUnityController {
+//   void postMessage(String gameObject, String methodName, String message) {
+//     print('Simulated postMessage to $gameObject.$methodName with $message');
+//   }
+// }
