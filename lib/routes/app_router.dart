@@ -6,6 +6,7 @@ import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/report_user/report_user_params.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/routes/guards/onboarding_guard.dart';
+import 'package:senpai/screens/avatar_shop/page/avatar_shop_page.dart';
 import 'package:senpai/screens/chat/page/chat_page.dart';
 import 'package:senpai/screens/chat/widgets/video_viewer.dart';
 import 'package:senpai/screens/chat_list/page/chat_list_page.dart';
@@ -100,6 +101,7 @@ class AppRouter extends _$AppRouter {
 
           /// TODO: 14.03 Herbert Joseph: With the events tab hidden
           /// AutoRoute(page: EventsListRoute.page, path: 'events'),
+          AutoRoute(page: AvatarShopRoute.page, path: 'avatar_shop'),
           AutoRoute(page: ProfileRoute.page, path: 'profile')
         ]),
         CustomRoute(

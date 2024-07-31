@@ -14,6 +14,7 @@ class SenpaiIconInput extends StatelessWidget {
     this.onTapSuffix,
     this.onTapInput,
     this.focusNode,
+    this.borderRadius,
   });
 
   final String iconPath;
@@ -23,6 +24,7 @@ class SenpaiIconInput extends StatelessWidget {
   final VoidCallback? onTapSuffix;
   final VoidCallback? onTapInput;
   final FocusNode? focusNode;
+  final double? borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,8 @@ class SenpaiIconInput extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
       width: double.infinity,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular($constants.corners.md),
+        borderRadius: BorderRadius.circular(
+            borderRadius == null ? $constants.corners.md : borderRadius!),
         border: Border.all(
           color: $constants.palette.buttonBorder,
           width: 1,
