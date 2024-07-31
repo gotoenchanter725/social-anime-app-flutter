@@ -126,6 +126,8 @@ class PathConstants {
   static const String chatBubble = 'assets/icons/message_bubble.svg';
 
   static const String phoneIcon = 'assets/icons/phone.svg';
+  static const String phoneColored = 'assets/icons/phone_colored.svg';
+  static const String failed = 'assets/icons/failed.svg';
   static const String dummyVideoChatImage = 'assets/images/video_chat_bg.png';
   static const String videoActionBackground =
       'assets/icons/video_action_bg.svg';
