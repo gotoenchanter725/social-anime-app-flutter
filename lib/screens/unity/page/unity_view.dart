@@ -47,11 +47,26 @@ class UnityViewPage extends StatelessWidget {
 
     logIt.info("User Info: $userInfo");
 
+    dynamic otherUserInfo = jsonEncode({
+      "token": authModel.token,
+      "userId": 12,
+      "firstName": _user.firstName,
+      "isVerified": _user.verified,
+      "gender": "female",
+      "isPremium": _user.premium,
+      "thumbnailURL": _user.gallery?.photos.first.url
+    });
+
+    logIt.info("User Info: $userInfo");
+
     // Send User Info to Unity
     // userId, json web token, gender, isVerified, isPremium
     // int userID, string token, string gender, bool isVerified, bool isPremium
     _unityWidgetController.postMessage(
         "DataController", "SetUserInfo", userInfo);
+
+    _unityWidgetController.postMessage(
+        "DataController", "SetOtherUserInfo", otherUserInfo);
   }
 
   // Communication from Unity to Flutter
@@ -68,6 +83,10 @@ class UnityViewPage extends StatelessWidget {
 
       switch (sceneInfo.name) {
         case "VideoChatScene":
+          setChannelName();
+          postUserDetails();
+
+          break;
         case "TestAvatarScene":
           postUserDetails();
           break;
@@ -77,8 +96,10 @@ class UnityViewPage extends StatelessWidget {
     }
   }
 
+//for set a preselected character first send setPreselectedAvatar before loadUnityScene
   void onUnityCreated(UnityWidgetController controller) {
     _unityWidgetController = controller;
+    //setPreselectedAvatar();
     loadUnityScene();
   }
 
@@ -86,6 +107,16 @@ class UnityViewPage extends StatelessWidget {
   void loadUnityScene() {
     _unityWidgetController.postMessage(
         "SceneLoaderManager", "ChangeSceneBySceneID", "1");
+  }
+
+  void setChannelName() {
+    _unityWidgetController.postMessage(
+        "DataController", "SetChannelName", "Test");
+  }
+
+  void setPreselectedAvatar() {
+    _unityWidgetController.postMessage("SceneLoaderManager",
+        "SetPreselectedAvatarGuid", "7f9e0c10-dde1-426a-88cc-565200a79e43");
   }
 
   @override

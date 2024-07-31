@@ -18,7 +18,6 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       emit(LoadingProfileState());
       final storage = getIt<TokenStorage<AuthModel>>();
       await storage.read().then((data) {
-        //TODO: maybe if id is null we need to logout user
         if (data != null) {
           userID = data.user.id;
           user = user.copyWith(id: userID);

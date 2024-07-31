@@ -5,14 +5,13 @@ part 'match_event.dart';
 part 'match_state.dart';
 
 class MatchBloc extends Bloc<MatchEvent, MatchState> {
-  MatchBloc(MatchStep defaultStep)
-      : super(MatchState(currentStep: defaultStep)) {
-    on<OnStartMatch>((event, emit) {
-      emit(MatchState(currentStep: MatchStep.initial));
+  MatchBloc() : super(const MatchState()) {
+    on<OnHideVerifyPrompt>((event, emit) {
+      emit(const MatchState(isVerifyPromptVisible: false));
     });
 
-    on<OnEnterLobby>((event, emit) {
-      emit(MatchState(currentStep: MatchStep.lobby));
+    on<OnShowVerifyPrompt>((event, emit) {
+      emit(const MatchState(isVerifyPromptVisible: true));
     });
   }
 }
