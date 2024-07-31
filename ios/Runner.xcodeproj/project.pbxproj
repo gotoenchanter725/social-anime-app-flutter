@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		0653FD872C31ED1C006725D6 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D677C50E281EDD34AD61895A /* Pods_Runner.framework */; };
 		0653FD882C31ED1C006725D6 /* Pods_Runner.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D677C50E281EDD34AD61895A /* Pods_Runner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0653FD892C31ED1C006725D6 /* UnityFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 065A53582C18E406005CF887 /* UnityFramework.framework */; };
-		0653FD8A2C31ED1C006725D6 /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 065A53582C18E406005CF887 /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
@@ -94,7 +92,6 @@
 				FCE8BF562C5AA53F009CBF3E /* AgoraVideoEncoderExtension.framework in Embed Frameworks */,
 				FCE8BF542C5AA53F009CBF3E /* AgoraVideoDecoderExtension.framework in Embed Frameworks */,
 				FCE8BF5A2C5AA53F009CBF3E /* AgoraVideoSegmentationExtension.framework in Embed Frameworks */,
-				0653FD8A2C31ED1C006725D6 /* UnityFramework.framework in Embed Frameworks */,
 				FCE8BF4C2C5AA53F009CBF3E /* AgoraRtcKit.framework in Embed Frameworks */,
 				FCE8BF362C5AA53E009CBF3E /* AgoraAiEchoCancellationExtension.framework in Embed Frameworks */,
 				FCE8BF582C5AA53F009CBF3E /* AgoraVideoQualityAnalyzerExtension.framework in Embed Frameworks */,
@@ -216,7 +213,6 @@
 				FCE8BF572C5AA53F009CBF3E /* AgoraVideoQualityAnalyzerExtension.framework in Frameworks */,
 				FCE8BF4F2C5AA53F009CBF3E /* AgoraSoundTouch.framework in Frameworks */,
 				FCE8BF412C5AA53F009CBF3E /* AgoraDrmLoaderExtension.framework in Frameworks */,
-				0653FD892C31ED1C006725D6 /* UnityFramework.framework in Frameworks */,
 				FCE8BF5F2C5AA5A0009CBF3E /* opencv2.framework in Frameworks */,
 				FCE8BF5D2C5AA540009CBF3E /* video_enc.framework in Frameworks */,
 				FCE8BF492C5AA53F009CBF3E /* AgoraReplayKitExtension.framework in Frameworks */,
