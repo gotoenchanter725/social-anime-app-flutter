@@ -76,11 +76,7 @@ class _LobbyPageContentWidgetState extends State<LobbyPageContentWidget> {
             ),
             Column(
               children: [
-                const LobbyInformationWidget(userImages: [
-                  "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
-                  "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
-                  "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
-                ], usersInLobby: 10),
+                const LobbyInformationWidget(userImages: [], usersInLobby: 10),
                 const SizedBox(height: 16.0),
                 Expanded(child: Container()),
                 const SizedBox(height: 16.0),
