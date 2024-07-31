@@ -98,9 +98,16 @@ class VideoRequestDialog extends StatelessWidget {
   }
 }
 
-class VideoRequestContents extends StatelessWidget {
+class VideoRequestContents extends StatefulWidget {
   const VideoRequestContents({super.key});
 
+  @override
+  State<VideoRequestContents> createState() => _VideoRequestContentsState();
+}
+
+class _VideoRequestContentsState extends State<VideoRequestContents> {
+  int status =
+      0; // 0 - send invite, 1 - sending invite, 2 - invited, 3 - failed
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -128,14 +135,42 @@ class VideoRequestContents extends StatelessWidget {
                 SizedBox(height: getWidthSize(context, 0.13)),
                 InkWell(
                   onTap: () {
-                    appRouter.replace(UnityViewRoute());
+                    // if(status == 2)
+                    // appRouter.replace(UnityViewRoute());
+                    if (status == 0) {
+                      setState(() {
+                        status = 1;
+                      });
+                      Future.delayed(const Duration(seconds: 3), () {
+                        setState(() {
+                          status = 2;
+                        });
+                      });
+                    }
+                    if (status == 2 || status == 3) {
+                      setState(() {
+                        status = (status + 1) % 4;
+                      });
+                    }
                   },
                   child: Container(
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          $constants.palette.pink,
-                          $constants.palette.blue
+                          status == 0
+                              ? $constants.palette.pink
+                              : status == 1
+                                  ? $constants.palette.yellowButtonEnd
+                                  : status == 2
+                                      ? $constants.palette.warmButtonStart
+                                      : $constants.palette.redButton,
+                          status == 0
+                              ? $constants.palette.blue
+                              : status == 1
+                                  ? $constants.palette.yellowButtonStart
+                                  : status == 2
+                                      ? $constants.palette.warmButtonEnd
+                                      : $constants.palette.red
                         ],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
@@ -161,18 +196,50 @@ class VideoRequestContents extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(
-                                    Icons.phone,
-                                    color: Colors.white,
-                                    size: getWidthSize(context, 0.056),
-                                  ),
+                                  if (status == 0)
+                                    Icon(
+                                      Icons.phone,
+                                      color: Colors.white,
+                                      size: getWidthSize(context, 0.056),
+                                    ),
+                                  if (status == 1)
+                                    SizedBox(
+                                        width: getWidthSize(context, 0.056),
+                                        height: getWidthSize(context, 0.056),
+                                        child: Center(
+                                            child: CircularProgressIndicator(
+                                          strokeWidth: 2,
+                                          color: Colors.white,
+                                          backgroundColor:
+                                              Colors.white.withOpacity(0.37),
+                                        ))),
+                                  if (status == 2)
+                                    SvgPicture.asset(
+                                      PathConstants
+                                          .phoneColored, // replace with your icon path
+                                      width: getWidthSize(context, 0.056),
+                                      height: getWidthSize(context, 0.056),
+                                    ),
+                                  if (status == 3)
+                                    SvgPicture.asset(
+                                      PathConstants
+                                          .failed, // replace with your icon path
+                                      width: getWidthSize(context, 0.056),
+                                      height: getWidthSize(context, 0.056),
+                                    ),
                                   SizedBox(width: getWidthSize(context, 0.028)),
                                   Text(
-                                    'Invite to Chat',
+                                    status == 0
+                                        ? 'Invite to Chat'
+                                        : status == 1
+                                            ? 'Inviting ...'
+                                            : status == 2
+                                                ? 'Invited'
+                                                : 'Failed',
                                     style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: getWidthSize(context, 0.0372),
-                                    ),
+                                        color: Colors.white,
+                                        fontSize: getWidthSize(context, 0.0372),
+                                        fontWeight: FontWeight.w700),
                                   ),
                                 ],
                               ),

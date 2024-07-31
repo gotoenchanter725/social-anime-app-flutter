@@ -13,7 +13,7 @@ class Constants {
   /// Animation durations.
   late final times = _Times();
 
-  /// Rounded edge corner radiuses.
+  /// Rounded edge corner radius's.
   late final corners = _Corners();
 
   /// Padding and margin values.
@@ -127,6 +127,11 @@ class _Palette {
   final gold = const Color(0xFFE39F04);
   final green = const Color(0xFF67B527);
   final red = const Color(0xFFFF3A3D);
+  final yellowButtonStart = const Color(0xFFDCA712);
+  final yellowButtonEnd = const Color(0xFFED841D);
+  final warmButtonStart = const Color(0xFF0BDECC);
+  final warmButtonEnd = const Color(0xFF00D057);
+  final redButton = const Color(0xFFD11643);
   final buttonBackground = const Color(0xB214161D);
   final appBackground = const Color(0xFF14161D);
   final progressBackground = const Color(0xFF1F2542);
