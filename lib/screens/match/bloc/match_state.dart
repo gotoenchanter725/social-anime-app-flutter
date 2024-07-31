@@ -1,10 +1,8 @@
 part of 'match_bloc.dart';
 
-enum MatchStep { initial, lobby }
-
 @immutable
 class MatchState {
-  final MatchStep currentStep;
+  final bool isVerifyPromptVisible;
 
-  const MatchState({this.currentStep = MatchStep.initial});
+  const MatchState({this.isVerifyPromptVisible = false});
 }

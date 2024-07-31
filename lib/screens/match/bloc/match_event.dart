@@ -3,6 +3,6 @@ part of 'match_bloc.dart';
 @immutable
 abstract class MatchEvent {}
 
-class OnStartMatch extends MatchEvent {}
+class OnHideVerifyPrompt extends MatchEvent {}
 
-class OnEnterLobby extends MatchEvent {}
+class OnShowVerifyPrompt extends MatchEvent {}

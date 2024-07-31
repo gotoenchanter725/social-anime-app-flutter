@@ -1,20 +1,26 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:senpai/core/match/blocs/fetch_lobby_count.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class LobbyInformationWidget extends StatelessWidget {
-  const LobbyInformationWidget(
-      {Key? key, required this.userImages, required this.usersInLobby})
-      : super(key: key);
+  LobbyInformationWidget({
+    Key? key,
+  }) : super(key: key);
 
-  final int usersInLobby;
-  final List<String> userImages;
+  final List<String> userImages = [
+    PathConstants.dummyVideoChatImage,
+    PathConstants.profileVerifyBg,
+    PathConstants.profileImage,
+  ];
 
   @override
   Widget build(BuildContext context) {
+    final int usersInLobby = context.read<FetchLobbyCountBloc>().lobbyCount;
     return Padding(
       padding: EdgeInsets.only(
           left: getWidthSize(context, 0.037),
@@ -121,7 +127,7 @@ class LobbyInformationWidget extends StatelessWidget {
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                    image: NetworkImage(userImages[userImages.length - 1 - i]),
+                    image: AssetImage(userImages[userImages.length - 1 - i]),
                     fit: BoxFit.cover,
                   ),
                 ),

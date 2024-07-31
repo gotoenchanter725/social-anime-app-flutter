@@ -1,9 +1,11 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:injectable/injectable.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
 import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
 
-class FetchLobbyCount extends QueryBloc<FetchLobbyCount$Query> {
-  FetchLobbyCount() : super(options: _fetchLobbyCountQueryOptions());
+@injectable
+class FetchLobbyCountBloc extends QueryBloc<FetchLobbyCount$Query> {
+  FetchLobbyCountBloc() : super(options: _fetchLobbyCountQueryOptions());
 
   static WatchQueryOptions<Object?> _fetchLobbyCountQueryOptions() {
     return WatchQueryOptions(

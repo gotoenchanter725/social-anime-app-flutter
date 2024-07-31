@@ -3,7 +3,7 @@ import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
-import 'package:senpai/screens/lobby/page/video_request_dialog.dart';
+import 'package:senpai/screens/lobby/widgets/video_request_dialog.dart';
 import 'package:senpai/screens/match/widgets/match_texture.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -49,8 +49,6 @@ class _LobbyPageContentWidgetState extends State<LobbyPageContentWidget> {
               // bottom: MediaQuery.of(context).size.height * 0.05,
               child: Center(
                 child: MatchTextureWidget(
-                  isMatching: !isMatchFound,
-                  isMatchFound: isMatchFound,
                   onAccepted: () {
                     appRouter.push(UnityViewRoute());
                   },
@@ -76,7 +74,7 @@ class _LobbyPageContentWidgetState extends State<LobbyPageContentWidget> {
             ),
             Column(
               children: [
-                const LobbyInformationWidget(userImages: [], usersInLobby: 10),
+                LobbyInformationWidget(),
                 const SizedBox(height: 16.0),
                 Expanded(child: Container()),
                 const SizedBox(height: 16.0),
