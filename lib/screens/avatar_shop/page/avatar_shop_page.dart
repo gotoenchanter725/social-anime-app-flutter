@@ -25,8 +25,10 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
           "https://th.bing.com/th/id/OIP.r5Y8R7yn6-0A_mbijVucnQHaHZ?rs=1&pid=ImgDetMain",
       "image": "https://wallpapercave.com/wp/wp7152064.jpg",
       "isNew": true,
+      "product_id": 1,
     },
     {
+      "product_id": 2,
       "name": "Satoru Gojo",
       "status": "Buy",
       "profile":
@@ -36,6 +38,7 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
       "isNew": true,
     },
     {
+      "product_id": 3,
       "name": "Monkey D. Luffy",
       "status": "Premium",
       "profile":
@@ -45,6 +48,7 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
       "isNew": false,
     },
     {
+      "product_id": 4,
       "name": "Levi Ackerman",
       "status": "Emote",
       "profile":
@@ -54,6 +58,7 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
       "isNew": false,
     },
     {
+      "product_id": 5,
       "name": "Drakken Joe",
       "status": "Premium",
       "profile":
@@ -64,7 +69,7 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
     },
     {
       "name": "Tsunade",
-      "status": "Emote",
+      "status": "Buy",
       "profile":
           "https://th.bing.com/th/id/OIP.rFtW3ETt5PdoNgBaKTHLyQHaF7?rs=1&pid=ImgDetMain",
       "image": "https://cdn.wallpapersafari.com/6/86/JAvgzR.jpg",
@@ -77,16 +82,19 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
     return Scaffold(
       backgroundColor: $constants.palette.darkBlue,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const AvatarShopHeaderWidget(),
-              const SizedBox(height: 30),
-              const AvatarSearchInput(),
-              const SizedBox(height: 10),
-              Expanded(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const AvatarShopHeaderWidget(),
+            const SizedBox(height: 30),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: AvatarSearchInput(),
+            ),
+            const SizedBox(height: 10),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: GridView.builder(
                   itemCount: avatarSkins.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -100,8 +108,8 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
                       AvatarShopCardItem(data: avatarSkins[index]),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -76,7 +76,9 @@ class AvatarShopCardItem extends StatelessWidget {
                           onPressed: () {})
                       : data["status"] == "Buy"
                           ? GradientFilledButton(
-                              title: "Buy",
+                              title: data["product_id"] != null
+                                  ? "Buy"
+                                  : "Download",
                               startColor: $constants.palette.buyButtonStart,
                               endColor: $constants.palette.buyButtonEnd,
                               height: getWidthSize(context, 0.08) + 2,
