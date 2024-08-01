@@ -41,34 +41,33 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
       "profile":
           "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
       "image":
-          "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
+          "https://th.bing.com/th/id/R.edf5a7600628b4500e94d4e404af407b?rik=POg5zdgXd%2bxSVg&riu=http%3a%2f%2fm.gettywallpapers.com%2fwp-content%2fuploads%2f2023%2f05%2fJapanese-Anime-Boy-Profile-Picture.jpg&ehk=zq6b58zWRPs0qH%2bo32Us8NSSP%2ba4aFfr7uXTP9lUmHY%3d&risl=&pid=ImgRaw&r=0",
       "isNew": false,
     },
     {
       "name": "Levi Ackerman",
       "status": "Emote",
       "profile":
-          "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
+          "https://i.pinimg.com/originals/21/f4/46/21f4466cdcd1f132aa5cf9fe4c8b529d.jpg",
       "image":
-          "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
+          "https://i.pinimg.com/originals/36/95/71/369571e6e7e38b37750edfa91c22a3cc.jpg",
       "isNew": false,
     },
     {
       "name": "Drakken Joe",
       "status": "Premium",
       "profile":
-          "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
+          "https://i.pinimg.com/736x/c8/d1/db/c8d1dbd23718b07d374b8b891970117a.jpg",
       "image":
-          "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
+          "https://wallpapers.com/images/hd/matching-anime-profile-pictures-1080-x-1080-diw0d7jbom3sn7o3.jpg",
       "isNew": false,
     },
     {
       "name": "Tsunade",
       "status": "Emote",
       "profile":
-          "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
-      "image":
-          "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
+          "https://th.bing.com/th/id/OIP.rFtW3ETt5PdoNgBaKTHLyQHaF7?rs=1&pid=ImgDetMain",
+      "image": "https://cdn.wallpapersafari.com/6/86/JAvgzR.jpg",
       "isNew": false,
     },
   ];
