@@ -13,9 +13,9 @@ class LobbyInformationWidget extends StatelessWidget {
   }) : super(key: key);
 
   final List<String> userImages = [
-    PathConstants.dummyVideoChatImage,
-    PathConstants.profileVerifyBg,
-    PathConstants.profileImage,
+    // PathConstants.dummyVideoChatImage,
+    // PathConstants.profileVerifyBg,
+    // PathConstants.profileImage,
   ];
 
   @override

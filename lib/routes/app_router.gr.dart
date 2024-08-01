@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AvatarShopRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AvatarShopPage(),
+      );
+    },
     ChatListRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -313,6 +319,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AvatarShopPage]
+class AvatarShopRoute extends PageRouteInfo<void> {
+  const AvatarShopRoute({List<PageRouteInfo>? children})
+      : super(
+          AvatarShopRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AvatarShopRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

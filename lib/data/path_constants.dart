@@ -148,4 +148,11 @@ class PathConstants {
       'assets/images/match/profile_verify_shadow.png';
 
   static const matchingAnimation = 'assets/gif/matching_circle.gif';
+
+  // avatar shop
+  static const String avatarShopIcon = 'assets/icons/avatar_shop_icon.svg';
+  static const String filterCircle = 'assets/icons/filter_circle.svg';
+  static const String newTag = 'assets/images/avatar_shop/new_tag.png';
+  static const String avatarShopItemOverlay =
+      'assets/images/avatar_shop/avatar_shop_item_overlay.png';
 }

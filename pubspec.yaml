@@ -183,6 +183,7 @@ flutter:
     - assets/images/onboarding/
     - assets/images/profile/
     - assets/images/match/
+    - assets/images/avatar_shop/
     - assets/icons/
     - assets/gif/
     - assets/licenses/

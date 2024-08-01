@@ -173,7 +173,7 @@ class UnityViewPage extends StatelessWidget {
     );
   }
 
-  // /// Just for test on emulator
+  /// Just for test on emulator
   // late final dynamic _unityWidgetController;
   // late final dynamic _user;
   //
@@ -235,7 +235,7 @@ class UnityViewPage extends StatelessWidget {
   //         onPressed: () {
   //           onUnityCreated(DummyUnityController());
   //         },
-  //         child: Text('Simulate Unity View'),
+  //         child: const Text('Simulate Unity View'),
   //       ),
   //     ),
   //   );
