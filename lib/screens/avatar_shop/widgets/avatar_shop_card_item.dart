@@ -97,6 +97,17 @@ class AvatarShopCardItem extends StatelessWidget {
                 ],
               ),
             ),
+            if (data["isNew"])
+              Positioned(
+                top: 0,
+                right: 0,
+                child: Image.asset(
+                  PathConstants.newTag,
+                  fit: BoxFit.fill,
+                  width: getWidthSize(context, 0.157),
+                  height: getWidthSize(context, 0.0527),
+                ),
+              ),
           ],
         ),
       ),
