@@ -7,6 +7,8 @@ import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
+import 'avatar_shop_unlock_premium_dialog.dart';
+
 class AvatarShopCardItem extends StatelessWidget {
   const AvatarShopCardItem({super.key, required this.data});
 
@@ -90,7 +92,9 @@ class AvatarShopCardItem extends StatelessWidget {
                                   height: getWidthSize(context, 0.08) + 2,
                                   borderRadius: getWidthSize(context, 0.026),
                                   trailingIconPath: PathConstants.crownIcon,
-                                  onPressed: () {})
+                                  onPressed: () {
+                                    showAvatarShopUnlockPremiumDialog(context);
+                                  })
                               : GradientFilledButton(
                                   title: data["status"],
                                   height: getWidthSize(context, 0.08) + 2,

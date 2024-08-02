@@ -155,4 +155,6 @@ class PathConstants {
   static const String newTag = 'assets/images/avatar_shop/new_tag.png';
   static const String avatarShopItemOverlay =
       'assets/images/avatar_shop/avatar_shop_item_overlay.png';
+  static const String avatarShopPremiumFrame =
+      'assets/images/avatar_shop/premium_frame.png';
 }
