@@ -1,0 +1,10 @@
+mutation declineMatchRequest($input: DeclineMatchRequestInput!) {
+  declineMatchRequest(input: $input) {
+    matchRequest {
+      id
+      status
+      senderId
+      receiverId
+    }
+  }
+}
