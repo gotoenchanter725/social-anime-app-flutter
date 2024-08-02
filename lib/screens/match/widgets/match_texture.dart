@@ -192,12 +192,21 @@ class MatchTextureWidget extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                _buildAcceptButton(context),
-                SizedBox(height: getWidthSize(context, 0.07)),
-                _buildRejectButton(context),
               ],
             ),
           ),
+          Positioned(
+              top: (getSize(context).width - 100) * 1.3,
+              left: 0,
+              right: 0,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _buildAcceptButton(context),
+                  SizedBox(height: getWidthSize(context, 0.07)),
+                  _buildRejectButton(context),
+                ],
+              ))
         ],
       ),
     );
