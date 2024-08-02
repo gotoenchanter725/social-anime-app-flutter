@@ -88,8 +88,13 @@ class MatchTextureWidget extends StatelessWidget {
         listener: (context, state) {
           state.whenOrNull(
             succeeded: (data, result) {
-              // match found for this user
-              context.read<MatchTextureBloc>().add(MatchFoundEvent());
+              // if match was found then tell the match texture bloc
+
+              final matchUser =
+                  context.read<FindVideoChatMatchBloc>().matchUser;
+              if (matchUser != null) {
+                context.read<MatchTextureBloc>().add(MatchFoundEvent());
+              }
             },
           );
         },
