@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
+import 'package:senpai/core/match/blocs/find_video_match/find_video_chat_match_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/screens/match/bloc/match_texture_bloc.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -82,13 +84,28 @@ class MatchTextureWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => MatchTextureBloc()..add(StartMatchingEvent()),
-      child: BlocBuilder<MatchTextureBloc, MatchTextureState>(
-        builder: (context, state) {
-          if (state is FindingMatchState) {
-            return _buildFindingMatchUI(context, state);
-          }
-          return _buildMatchFoundUI(context);
+      child: BlocListener<FindVideoChatMatchBloc, MutationState>(
+        listener: (context, state) {
+          state.whenOrNull(
+            succeeded: (data, result) {
+              // if match was found then tell the match texture bloc
+
+              final matchUser =
+                  context.read<FindVideoChatMatchBloc>().matchUser;
+              if (matchUser != null) {
+                context.read<MatchTextureBloc>().add(MatchFoundEvent());
+              }
+            },
+          );
         },
+        child: BlocBuilder<MatchTextureBloc, MatchTextureState>(
+          builder: (context, state) {
+            if (state is FindingMatchState) {
+              return _buildFindingMatchUI(context, state);
+            }
+            return _buildMatchFoundUI(context);
+          },
+        ),
       ),
     );
   }

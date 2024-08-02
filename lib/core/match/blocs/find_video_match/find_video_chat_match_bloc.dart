@@ -1,14 +1,22 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:async';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 
 part 'find_video_chat_match_event.dart';
 part 'find_video_chat_match_state.dart';
 part 'find_video_chat_match_bloc.freezed.dart';
 
 class FindVideoChatMatchBloc extends MutationBloc<FindVideoChatMatch$Mutation> {
+  late Timer _timer;
+
+  late String currentUserId;
+
+  FindVideoChatMatch$Mutation$FindVideoChatMatch$User? matchUser;
+
   FindVideoChatMatchBloc() : super(options: _findVideoChatMatchOptions());
 
   static WatchQueryOptions<Object?> _findVideoChatMatchOptions() {
@@ -19,6 +27,8 @@ class FindVideoChatMatchBloc extends MutationBloc<FindVideoChatMatch$Mutation> {
   }
 
   findVideoChatMatch({required String userId}) {
+    currentUserId = userId;
+
     final variables = FindVideoChatMatchArguments(
       input: FindVideoChatMatchInput(
         userId: userId,
@@ -28,62 +38,34 @@ class FindVideoChatMatchBloc extends MutationBloc<FindVideoChatMatch$Mutation> {
     run(variables);
   }
 
+  /// Will schedule the next ping for a match in the next few seconds
+  schedulePingForMatch({required String userId}) {
+    _timer = Timer(const Duration(seconds: 5), () {
+      findVideoChatMatch(userId: userId);
+    });
+
+    return _timer;
+  }
+
   @override
   FindVideoChatMatch$Mutation parseData(Map<String, dynamic>? data) {
-    return FindVideoChatMatch$Mutation.fromJson(data ?? <String, dynamic>{});
+    final result =
+        FindVideoChatMatch$Mutation.fromJson(data ?? <String, dynamic>{});
+    if (result.findVideoChatMatch!.user != null) {
+      logIt.debug(
+          'Match found with user ${result.findVideoChatMatch!.user!.id}');
+      matchUser = result.findVideoChatMatch!.user;
+    } else {
+      logIt.debug('No match found');
+      // schedule a new query in 5 seconds
+      schedulePingForMatch(userId: currentUserId);
+    }
+    return result;
   }
 
-  void startPolling({required String userId}) {
-    findVideoChatMatch(userId: userId);
-    add(MutationEvent<FindVideoChatMatch$Mutation>.run(
-      {
-        'input': {'userId': userId}
-      },
-    ));
-  }
-
-  Future<void> _onEvent(
-    MutationEvent<FindVideoChatMatch$Mutation> event,
-    Emitter<MutationState<FindVideoChatMatch$Mutation>> emit,
-  ) async {
-    emit(const MutationState.loading());
-
-    await event.map(
-      run: (e) async {
-        (request
-              ..variables = e.variables
-              ..optimisticResult = e.optimisticResult)
-            .fetchResults();
-
-        await emit.forEach<QueryResult>(
-          request.stream,
-          onData: (result) {
-            final exception = result.exception;
-
-            if (exception != null) {
-              emit(MutationState<FindVideoChatMatch$Mutation>.failed(
-                  error: exception, result: result));
-            }
-
-            if (!result.isLoading && !result.hasException) {
-              final data = parseData(result.data);
-              if (data.findVideoChatMatch != null &&
-                  data.findVideoChatMatch?.user != null) {
-                emit(MutationState<FindVideoChatMatch$Mutation>.succeeded(
-                  data: data,
-                  result: result,
-                ));
-              } else {
-                emit(
-                    const MutationState<FindVideoChatMatch$Mutation>.loading());
-                startPolling(userId: e.variables['input']['userId']);
-              }
-            }
-
-            return state;
-          },
-        );
-      },
-    );
+  @override
+  Future<void> close() {
+    _timer.cancel(); // Cancel the timer when BLoC is closed
+    return super.close();
   }
 }

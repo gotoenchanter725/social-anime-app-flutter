@@ -3,36 +3,14 @@ import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
-import 'package:senpai/screens/lobby/widgets/video_request_dialog.dart';
 import 'package:senpai/screens/match/widgets/match_texture.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
 import 'lobby_information.dart';
 
-class LobbyPageContentWidget extends StatefulWidget {
+class LobbyPageContentWidget extends StatelessWidget {
   const LobbyPageContentWidget({super.key});
-
-  @override
-  State<LobbyPageContentWidget> createState() => _LobbyPageContentWidgetState();
-}
-
-class _LobbyPageContentWidgetState extends State<LobbyPageContentWidget> {
-  bool isMatchFound = false;
-
-  @override
-  void initState() {
-    // final bloc = BlocProvider.of<ProfileBloc>(context);
-    // isVerified = bloc.isUserVerified;
-
-    /// TODO: Need to removed once you connected this to FindVideoChatMatch endpoint
-    Future.delayed(const Duration(seconds: 6), () {
-      setState(() {
-        isMatchFound = true;
-      });
-    });
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,24 +28,13 @@ class _LobbyPageContentWidgetState extends State<LobbyPageContentWidget> {
               child: Center(
                 child: MatchTextureWidget(
                   onAccepted: () {
+                    // user is happy with the match
+                    // start video call
                     appRouter.push(UnityViewRoute());
                   },
                   onDeclined: () {
-                    setState(() {
-                      isMatchFound = false;
-                    });
-
-                    /// TODO: Need to removed once you connected this to FindVideoChatMatch endpoint
-                    /// TODO: Need to implement retry function here
-                    Future.delayed(const Duration(seconds: 6), () {
-                      setState(() {
-                        isMatchFound = true;
-                      });
-                    });
-
-                    /// TODO: Need to updated
-                    /// ViewChatRequest here!!! you need to connect this to VideoChatRequestChannel websocket ur
-                    showVideoRequestDialog(context);
+                    // user is not happy with the match
+                    // search for another match
                   },
                 ),
               ),
