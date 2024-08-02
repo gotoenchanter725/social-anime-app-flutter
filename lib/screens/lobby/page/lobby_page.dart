@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/match/blocs/fetch_lobby_count.dart';
+import 'package:senpai/core/match/blocs/find_video_match/find_video_chat_match_bloc.dart';
 import 'package:senpai/core/match/blocs/stop_video_match_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/dependency_injection/injection.dart';
@@ -34,10 +36,26 @@ class _LobbyPageState extends State<LobbyPage> {
           BlocProvider(
             create: (_) => StopVideoMatchBloc(),
           ),
+          BlocProvider(
+            create: (_) => FindVideoChatMatchBloc(),
+          ),
         ],
         child: FetchCountContainer(
           loadingWidget: _buildLoadingPage(context),
-          child: const LobbyPageContentWidget(),
+          child: BlocBuilder<FindVideoChatMatchBloc, MutationState>(
+            builder: (context, state) {
+              state.whenOrNull(initial: () {
+                final userId = (context.read<ProfileBloc>().userID);
+                if (userId.isNotEmpty) {
+                  context
+                      .read<FindVideoChatMatchBloc>()
+                      .findVideoChatMatch(userId: userId);
+                }
+              });
+
+              return const LobbyPageContentWidget();
+            },
+          ),
         ));
   }
 
