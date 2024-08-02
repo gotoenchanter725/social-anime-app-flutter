@@ -1,4 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
@@ -40,50 +39,5 @@ class FindVideoChatMatchBloc extends MutationBloc<FindVideoChatMatch$Mutation> {
         'input': {'userId': userId}
       },
     ));
-  }
-
-  Future<void> _onEvent(
-    MutationEvent<FindVideoChatMatch$Mutation> event,
-    Emitter<MutationState<FindVideoChatMatch$Mutation>> emit,
-  ) async {
-    emit(const MutationState.loading());
-
-    await event.map(
-      run: (e) async {
-        (request
-              ..variables = e.variables
-              ..optimisticResult = e.optimisticResult)
-            .fetchResults();
-
-        await emit.forEach<QueryResult>(
-          request.stream,
-          onData: (result) {
-            final exception = result.exception;
-
-            if (exception != null) {
-              emit(MutationState<FindVideoChatMatch$Mutation>.failed(
-                  error: exception, result: result));
-            }
-
-            if (!result.isLoading && !result.hasException) {
-              final data = parseData(result.data);
-              if (data.findVideoChatMatch != null &&
-                  data.findVideoChatMatch?.user != null) {
-                emit(MutationState<FindVideoChatMatch$Mutation>.succeeded(
-                  data: data,
-                  result: result,
-                ));
-              } else {
-                emit(
-                    const MutationState<FindVideoChatMatch$Mutation>.loading());
-                startPolling(userId: e.variables['input']['userId']);
-              }
-            }
-
-            return state;
-          },
-        );
-      },
-    );
   }
 }
