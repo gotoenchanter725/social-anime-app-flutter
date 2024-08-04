@@ -933,6 +933,7 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
     this.hasLocationHidden,
     this.isDisplayingActive,
     this.isDisplayingRecentlyActive,
+    this.isLocked,
     this.occupation,
     this.phone,
     this.school,
@@ -963,6 +964,8 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
 
   bool? isDisplayingRecentlyActive;
 
+  bool? isLocked;
+
   String? occupation;
 
   String? phone;
@@ -985,6 +988,7 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
         hasLocationHidden,
         isDisplayingActive,
         isDisplayingRecentlyActive,
+        isLocked,
         occupation,
         phone,
         school,
@@ -2961,6 +2965,116 @@ class UndoLikeInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery$Photos
+    extends JsonSerializable with EquatableMixin {
+  FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery$Photos();
+
+  factory FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery$Photos.fromJson(
+          Map<String, dynamic> json) =>
+      _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery$PhotosFromJson(
+          json);
+
+  int? order;
+
+  late String url;
+
+  late String id;
+
+  @override
+  List<Object?> get props => [order, url, id];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery$PhotosToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery
+    extends JsonSerializable with EquatableMixin {
+  FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery();
+
+  factory FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery.fromJson(
+          Map<String, dynamic> json) =>
+      _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$GalleryFromJson(
+          json);
+
+  List<FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery$Photos>?
+      photos;
+
+  @override
+  List<Object?> get props => [photos];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$GalleryToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee
+    extends JsonSerializable with EquatableMixin {
+  FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee();
+
+  factory FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee.fromJson(
+          Map<String, dynamic> json) =>
+      _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$MatcheeFromJson(
+          json);
+
+  late String id;
+
+  late String firstName;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable,
+      toJson: fromDartDateTimeNullableToGraphQLISO8601DateTimeNullable)
+  DateTime? birthday;
+
+  FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery?
+      gallery;
+
+  @override
+  List<Object?> get props => [id, firstName, birthday, gallery];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$MatcheeToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches
+    extends JsonSerializable with EquatableMixin {
+  FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches();
+
+  factory FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches.fromJson(
+          Map<String, dynamic> json) =>
+      _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatchesFromJson(
+          json);
+
+  late String id;
+
+  late String userId;
+
+  FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee?
+      matchee;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
+      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
+  late DateTime createdAt;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
+      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
+  late DateTime updatedAt;
+
+  @override
+  List<Object?> get props => [id, userId, matchee, createdAt, updatedAt];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatchesToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches$Conversation
     extends JsonSerializable with EquatableMixin {
   FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches$Conversation();
@@ -3148,6 +3262,11 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User
 
   String? lonlat;
 
+  double? videoCallScore;
+
+  List<FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches>?
+      videoMatches;
+
   List<FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches>? matches;
 
   FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery? gallery;
@@ -3190,6 +3309,8 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User
         displayState,
         onlineStatus,
         lonlat,
+        videoCallScore,
+        videoMatches,
         matches,
         gallery,
         animes,
@@ -8351,6 +8472,115 @@ final FIND_VIDEO_CHAT_MATCH_MUTATION_DOCUMENT = DocumentNode(definitions: [
                 arguments: [],
                 directives: [],
                 selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'videoCallScore'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'videoMatches'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'userId'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'matchee'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'firstName'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'birthday'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'gallery'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'photos'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: SelectionSetNode(selections: [
+                              FieldNode(
+                                name: NameNode(value: 'order'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: 'url'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: 'id'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                            ]),
+                          )
+                        ]),
+                      ),
+                    ]),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'createdAt'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'updatedAt'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
               ),
               FieldNode(
                 name: NameNode(value: 'matches'),
