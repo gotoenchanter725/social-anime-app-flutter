@@ -10,13 +10,17 @@ import 'package:senpai/screens/lobby/widgets/video_request_content.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
-void showVideoRequestDialog(BuildContext context) {
+void showVideoRequestDialog(BuildContext context, dynamic matchData) {
   showDialog(
     context: context,
     barrierColor: Colors.transparent,
     useSafeArea: false,
     builder: (BuildContext context) {
-      return const VideoRequestDialog(child: VideoRequestContents());
+      return VideoRequestDialog(
+        child: VideoRequestContents(
+          matchData: matchData,
+        ),
+      );
     },
   );
 }

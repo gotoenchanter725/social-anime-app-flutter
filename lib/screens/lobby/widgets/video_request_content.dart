@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/screens/lobby/bloc/invite_video_chat_cubit.dart';
 import 'package:senpai/utils/constants.dart';
@@ -15,7 +16,10 @@ class _GradientColor {
 }
 
 class VideoRequestContents extends StatelessWidget {
-  const VideoRequestContents({super.key});
+  const VideoRequestContents({required this.matchData, super.key});
+
+  /// This will be passed on from the upper screen context.
+  final dynamic matchData;
 
   _GradientColor _getStatusColors(InviteToVideoChatState status) {
     if (status == InviteToVideoChatState.initial) {
@@ -198,6 +202,14 @@ class VideoRequestContents extends StatelessWidget {
   }
 
   Widget _buildLobbyHeaderText(BuildContext context) {
+    final data = matchData as FindVideoChatMatch$Mutation;
+    final user = data.findVideoChatMatch?.user;
+    final photoUrl = user?.gallery!.photos![0].url;
+    final userName = user?.firstName;
+    final userRating = user?.videoCallScore ?? 0.0;
+
+    final userAge = calculateAge(user?.birthday ?? DateTime.now());
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -213,8 +225,7 @@ class VideoRequestContents extends StatelessWidget {
           ),
           child: CircleAvatar(
             radius: getWidthSize(context, 0.05),
-            backgroundImage: const NetworkImage(
-                "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0"),
+            backgroundImage: NetworkImage(photoUrl ?? ''),
           ),
         ),
         SizedBox(width: getWidthSize(context, 0.05)),
@@ -226,7 +237,7 @@ class VideoRequestContents extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  'Miyu',
+                  userName ?? '',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: getWidthSize(context, 0.07),
@@ -235,7 +246,7 @@ class VideoRequestContents extends StatelessWidget {
                 ),
                 SizedBox(width: getWidthSize(context, 0.03)),
                 Text(
-                  '24',
+                  userAge,
                   style: TextStyle(
                     color: $constants.palette.grey,
                     fontSize: getWidthSize(context, 0.06),
@@ -244,7 +255,7 @@ class VideoRequestContents extends StatelessWidget {
               ],
             ),
             RatingBar.builder(
-              initialRating: 4,
+              initialRating: userRating,
               minRating: 1,
               direction: Axis.horizontal,
               allowHalfRating: true,
