@@ -1,0 +1,10 @@
+mutation sendMatchRequest($input: SendMatchRequestInput!) {
+  sendMatchRequest(input: $input) {
+    matchRequest {
+      id
+      status
+      receiverId
+      senderId
+    }
+  }
+}

@@ -3692,6 +3692,69 @@ Map<String, dynamic> _$DeclineMatchRequestInputToJson(
       'matchRequestId': instance.matchRequestId,
     };
 
+SendMatchRequest$Mutation$SendMatchRequest$MatchRequest
+    _$SendMatchRequest$Mutation$SendMatchRequest$MatchRequestFromJson(
+            Map<String, dynamic> json) =>
+        SendMatchRequest$Mutation$SendMatchRequest$MatchRequest()
+          ..id = json['id'] as String
+          ..status = json['status'] as String?
+          ..receiverId = json['receiverId'] as int
+          ..senderId = json['senderId'] as int;
+
+Map<String, dynamic>
+    _$SendMatchRequest$Mutation$SendMatchRequest$MatchRequestToJson(
+            SendMatchRequest$Mutation$SendMatchRequest$MatchRequest instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'status': instance.status,
+          'receiverId': instance.receiverId,
+          'senderId': instance.senderId,
+        };
+
+SendMatchRequest$Mutation$SendMatchRequest
+    _$SendMatchRequest$Mutation$SendMatchRequestFromJson(
+            Map<String, dynamic> json) =>
+        SendMatchRequest$Mutation$SendMatchRequest()
+          ..matchRequest =
+              SendMatchRequest$Mutation$SendMatchRequest$MatchRequest.fromJson(
+                  json['matchRequest'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$SendMatchRequest$Mutation$SendMatchRequestToJson(
+        SendMatchRequest$Mutation$SendMatchRequest instance) =>
+    <String, dynamic>{
+      'matchRequest': instance.matchRequest.toJson(),
+    };
+
+SendMatchRequest$Mutation _$SendMatchRequest$MutationFromJson(
+        Map<String, dynamic> json) =>
+    SendMatchRequest$Mutation()
+      ..sendMatchRequest = json['sendMatchRequest'] == null
+          ? null
+          : SendMatchRequest$Mutation$SendMatchRequest.fromJson(
+              json['sendMatchRequest'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$SendMatchRequest$MutationToJson(
+        SendMatchRequest$Mutation instance) =>
+    <String, dynamic>{
+      'sendMatchRequest': instance.sendMatchRequest?.toJson(),
+    };
+
+SendMatchRequestInput _$SendMatchRequestInputFromJson(
+        Map<String, dynamic> json) =>
+    SendMatchRequestInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      receiverId: json['receiverId'] as String,
+      senderId: json['senderId'] as String,
+    );
+
+Map<String, dynamic> _$SendMatchRequestInputToJson(
+        SendMatchRequestInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'receiverId': instance.receiverId,
+      'senderId': instance.senderId,
+    };
+
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
         Map<String, dynamic> json) =>
     DeleteFavoriteAnimeArguments(
@@ -4161,6 +4224,19 @@ DeclineMatchRequestArguments _$DeclineMatchRequestArgumentsFromJson(
 
 Map<String, dynamic> _$DeclineMatchRequestArgumentsToJson(
         DeclineMatchRequestArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+SendMatchRequestArguments _$SendMatchRequestArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    SendMatchRequestArguments(
+      input:
+          SendMatchRequestInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$SendMatchRequestArgumentsToJson(
+        SendMatchRequestArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };

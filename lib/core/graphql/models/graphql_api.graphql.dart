@@ -4909,6 +4909,86 @@ class DeclineMatchRequestInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class SendMatchRequest$Mutation$SendMatchRequest$MatchRequest
+    extends JsonSerializable with EquatableMixin {
+  SendMatchRequest$Mutation$SendMatchRequest$MatchRequest();
+
+  factory SendMatchRequest$Mutation$SendMatchRequest$MatchRequest.fromJson(
+          Map<String, dynamic> json) =>
+      _$SendMatchRequest$Mutation$SendMatchRequest$MatchRequestFromJson(json);
+
+  late String id;
+
+  String? status;
+
+  late int receiverId;
+
+  late int senderId;
+
+  @override
+  List<Object?> get props => [id, status, receiverId, senderId];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$SendMatchRequest$Mutation$SendMatchRequest$MatchRequestToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendMatchRequest$Mutation$SendMatchRequest extends JsonSerializable
+    with EquatableMixin {
+  SendMatchRequest$Mutation$SendMatchRequest();
+
+  factory SendMatchRequest$Mutation$SendMatchRequest.fromJson(
+          Map<String, dynamic> json) =>
+      _$SendMatchRequest$Mutation$SendMatchRequestFromJson(json);
+
+  late SendMatchRequest$Mutation$SendMatchRequest$MatchRequest matchRequest;
+
+  @override
+  List<Object?> get props => [matchRequest];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$SendMatchRequest$Mutation$SendMatchRequestToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendMatchRequest$Mutation extends JsonSerializable with EquatableMixin {
+  SendMatchRequest$Mutation();
+
+  factory SendMatchRequest$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$SendMatchRequest$MutationFromJson(json);
+
+  SendMatchRequest$Mutation$SendMatchRequest? sendMatchRequest;
+
+  @override
+  List<Object?> get props => [sendMatchRequest];
+  @override
+  Map<String, dynamic> toJson() => _$SendMatchRequest$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendMatchRequestInput extends JsonSerializable with EquatableMixin {
+  SendMatchRequestInput({
+    this.clientMutationId,
+    required this.receiverId,
+    required this.senderId,
+  });
+
+  factory SendMatchRequestInput.fromJson(Map<String, dynamic> json) =>
+      _$SendMatchRequestInputFromJson(json);
+
+  String? clientMutationId;
+
+  late String receiverId;
+
+  late String senderId;
+
+  @override
+  List<Object?> get props => [clientMutationId, receiverId, senderId];
+  @override
+  Map<String, dynamic> toJson() => _$SendMatchRequestInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class DeleteFavoriteAnimeArguments extends JsonSerializable
     with EquatableMixin {
   DeleteFavoriteAnimeArguments({required this.input});
@@ -11026,4 +11106,112 @@ class DeclineMatchRequestMutation extends GraphQLQuery<
   @override
   DeclineMatchRequest$Mutation parse(Map<String, dynamic> json) =>
       DeclineMatchRequest$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendMatchRequestArguments extends JsonSerializable with EquatableMixin {
+  SendMatchRequestArguments({required this.input});
+
+  @override
+  factory SendMatchRequestArguments.fromJson(Map<String, dynamic> json) =>
+      _$SendMatchRequestArgumentsFromJson(json);
+
+  late SendMatchRequestInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$SendMatchRequestArgumentsToJson(this);
+}
+
+final SEND_MATCH_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME = 'sendMatchRequest';
+final SEND_MATCH_REQUEST_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'sendMatchRequest'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'SendMatchRequestInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'sendMatchRequest'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'matchRequest'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'status'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'receiverId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'senderId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class SendMatchRequestMutation
+    extends GraphQLQuery<SendMatchRequest$Mutation, SendMatchRequestArguments> {
+  SendMatchRequestMutation({required this.variables});
+
+  @override
+  final DocumentNode document = SEND_MATCH_REQUEST_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      SEND_MATCH_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final SendMatchRequestArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  SendMatchRequest$Mutation parse(Map<String, dynamic> json) =>
+      SendMatchRequest$Mutation.fromJson(json);
 }
