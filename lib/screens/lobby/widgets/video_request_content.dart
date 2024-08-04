@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
+import 'package:senpai/core/match/blocs/send_match_request_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/screens/lobby/bloc/invite_video_chat_cubit.dart';
+import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -136,7 +139,18 @@ class VideoRequestContents extends StatelessWidget {
                     SizedBox(height: getWidthSize(context, 0.13)),
                     InkWell(
                       onTap: () {
-                        // TODO: Implement the invite action
+                        final currentDialogState =
+                            context.read<InviteToVideoChatCubit>().state;
+                        if (currentDialogState !=
+                            InviteToVideoChatState.initial) {
+                          return;
+                        }
+                        final data = matchData as FindVideoChatMatch$Mutation;
+                        final id = data.findVideoChatMatch?.user?.id ?? '';
+                        final userId = context.read<ProfileBloc>().userID;
+                        context
+                            .read<SendMatchRequestBloc>()
+                            .sendMatchRequest(userId: userId, matcheeId: id);
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -151,29 +165,53 @@ class VideoRequestContents extends StatelessWidget {
                           borderRadius: BorderRadius.circular(
                               getWidthSize(context, 0.14)),
                         ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(
-                              getWidthSize(context, 0.14)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(1),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  color: Colors.black,
-                                  borderRadius: BorderRadius.circular(
-                                      getWidthSize(context, 0.14))),
-                              child: Padding(
-                                padding: EdgeInsets.all(
-                                    getWidthSize(context, 0.003)),
-                                child: SizedBox(
-                                  height: getWidthSize(context, 0.13),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      _getLeadingIcon(context, state),
-                                      SizedBox(
-                                          width: getWidthSize(context, 0.028)),
-                                      _getButtonText(context, state),
-                                    ],
+                        child:
+                            BlocListener<SendMatchRequestBloc, MutationState>(
+                          listener: (context, state) {
+                            state.whenOrNull(
+                              succeeded: (data, result) {
+                                context
+                                    .read<InviteToVideoChatCubit>()
+                                    .setSuccess();
+                              },
+                              loading: () {
+                                context
+                                    .read<InviteToVideoChatCubit>()
+                                    .setPending();
+                              },
+                              failed: (error, result) {
+                                context
+                                    .read<InviteToVideoChatCubit>()
+                                    .setFailed();
+                              },
+                            );
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(
+                                getWidthSize(context, 0.14)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(1),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.black,
+                                    borderRadius: BorderRadius.circular(
+                                        getWidthSize(context, 0.14))),
+                                child: Padding(
+                                  padding: EdgeInsets.all(
+                                      getWidthSize(context, 0.003)),
+                                  child: SizedBox(
+                                    height: getWidthSize(context, 0.13),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        _getLeadingIcon(context, state),
+                                        SizedBox(
+                                            width:
+                                                getWidthSize(context, 0.028)),
+                                        _getButtonText(context, state),
+                                      ],
+                                    ),
                                   ),
                                 ),
                               ),
