@@ -6,12 +6,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_unity_widget/flutter_unity_widget.dart';
 import 'package:fresh_graphql/fresh_graphql.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
+import 'package:senpai/core/match/blocs/stop_video_match_bloc.dart';
 import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/auth/auth_model.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
@@ -71,6 +73,9 @@ class UnityViewPage extends StatelessWidget {
 
   void _moveBackToPool(BuildContext context) {
     // Move back to pool
+    context.read<StopVideoMatchBloc>().stopVideoMatch(_user.id);
+    appRouter.replaceAll([HomeRoute()]);
+    _unityWidgetController.dispose();
   }
 
   void _handleNewMatch(BuildContext context) {
@@ -147,7 +152,10 @@ class UnityViewPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('The Avatar screen'),
         ),
-        body: _buildUnityView(),
+        body: BlocProvider(
+          create: (context) => StopVideoMatchBloc(),
+          child: _buildUnityView(),
+        ),
       ),
     );
   }
