@@ -69,9 +69,27 @@ class UnityViewPage extends StatelessWidget {
         "DataController", "SetOtherUserInfo", otherUserInfo);
   }
 
+  void _moveBackToPool(BuildContext context) {
+    // Move back to pool
+  }
+
+  void _handleNewMatch(BuildContext context) {
+    // Handle new match
+  }
+
   // Communication from Unity to Flutter
-  void onUnityMessage(message) {
+  void onUnityMessage(dynamic message, BuildContext context) {
     print('Received message from unity: ${message.toString()}');
+    final messageData = jsonDecode(message);
+    final action = messageData['VideoChat']['Action'];
+    final actionHandlers = {
+      'back_to_pool': _moveBackToPool,
+      'new_match': _handleNewMatch,
+    };
+
+    if (actionHandlers.containsKey(action)) {
+      actionHandlers[action]!(context);
+    }
   }
 
 // Communication from Unity when new scene is loaded to Flutter
@@ -163,7 +181,7 @@ class UnityViewPage extends StatelessWidget {
             loading: (result) => const SenpaiLoading(),
             loaded: ((data, result) => UnityWidget(
                   onUnityCreated: onUnityCreated,
-                  onUnityMessage: onUnityMessage,
+                  onUnityMessage: (message) => onUnityMessage(message, context),
                   onUnitySceneLoaded: onUnitySceneLoaded,
                 )),
             orElse: () => const SizedBox.shrink(),
