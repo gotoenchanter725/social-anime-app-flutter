@@ -79,7 +79,9 @@ class UnityViewPage extends StatelessWidget {
   }
 
   void _handleNewMatch(BuildContext context) {
-    // Handle new match
+    context.read<StopVideoMatchBloc>().stopVideoMatch(_user.id);
+    appRouter.replaceAll([ChatListRoute()]);
+    _unityWidgetController.dispose();
   }
 
   // Communication from Unity to Flutter
