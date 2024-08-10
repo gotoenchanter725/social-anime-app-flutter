@@ -4,7 +4,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
-import 'package:senpai/core/match/blocs/send_match_request_bloc.dart';
+import 'package:senpai/core/match/blocs/send_video_chat_request_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/screens/lobby/bloc/invite_video_chat_cubit.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
@@ -149,8 +149,9 @@ class VideoRequestContents extends StatelessWidget {
                         final id = data.findVideoChatMatch?.user?.id ?? '';
                         final userId = context.read<ProfileBloc>().userID;
                         context
-                            .read<SendMatchRequestBloc>()
-                            .sendMatchRequest(userId: userId, matcheeId: id);
+                            .read<SendVideoChatRequestBloc>()
+                            .sendVideoChatRequest(
+                                userId: userId, matcheeId: id);
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -165,8 +166,8 @@ class VideoRequestContents extends StatelessWidget {
                           borderRadius: BorderRadius.circular(
                               getWidthSize(context, 0.14)),
                         ),
-                        child:
-                            BlocListener<SendMatchRequestBloc, MutationState>(
+                        child: BlocListener<SendVideoChatRequestBloc,
+                            MutationState>(
                           listener: (context, state) {
                             state.whenOrNull(
                               succeeded: (data, result) {

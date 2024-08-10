@@ -3692,67 +3692,68 @@ Map<String, dynamic> _$DeclineMatchRequestInputToJson(
       'matchRequestId': instance.matchRequestId,
     };
 
-SendMatchRequest$Mutation$SendMatchRequest$MatchRequest
-    _$SendMatchRequest$Mutation$SendMatchRequest$MatchRequestFromJson(
+SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
+    _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestFromJson(
             Map<String, dynamic> json) =>
-        SendMatchRequest$Mutation$SendMatchRequest$MatchRequest()
+        SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest()
           ..id = json['id'] as String
-          ..status = json['status'] as String?
-          ..receiverId = json['receiverId'] as int
-          ..senderId = json['senderId'] as int;
+          ..matcheeId = json['matcheeId'] as int
+          ..status = json['status'] as int?
+          ..userId = json['userId'] as int;
 
 Map<String, dynamic>
-    _$SendMatchRequest$Mutation$SendMatchRequest$MatchRequestToJson(
-            SendMatchRequest$Mutation$SendMatchRequest$MatchRequest instance) =>
+    _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestToJson(
+            SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
+                instance) =>
         <String, dynamic>{
           'id': instance.id,
+          'matcheeId': instance.matcheeId,
           'status': instance.status,
-          'receiverId': instance.receiverId,
-          'senderId': instance.senderId,
+          'userId': instance.userId,
         };
 
-SendMatchRequest$Mutation$SendMatchRequest
-    _$SendMatchRequest$Mutation$SendMatchRequestFromJson(
+SendVideoChatRequest$Mutation$SendVideoChatRequest
+    _$SendVideoChatRequest$Mutation$SendVideoChatRequestFromJson(
             Map<String, dynamic> json) =>
-        SendMatchRequest$Mutation$SendMatchRequest()
-          ..matchRequest =
-              SendMatchRequest$Mutation$SendMatchRequest$MatchRequest.fromJson(
-                  json['matchRequest'] as Map<String, dynamic>);
+        SendVideoChatRequest$Mutation$SendVideoChatRequest()
+          ..videoChatRequest =
+              SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
+                  .fromJson(json['videoChatRequest'] as Map<String, dynamic>);
 
-Map<String, dynamic> _$SendMatchRequest$Mutation$SendMatchRequestToJson(
-        SendMatchRequest$Mutation$SendMatchRequest instance) =>
+Map<String, dynamic> _$SendVideoChatRequest$Mutation$SendVideoChatRequestToJson(
+        SendVideoChatRequest$Mutation$SendVideoChatRequest instance) =>
     <String, dynamic>{
-      'matchRequest': instance.matchRequest.toJson(),
+      'videoChatRequest': instance.videoChatRequest.toJson(),
     };
 
-SendMatchRequest$Mutation _$SendMatchRequest$MutationFromJson(
+SendVideoChatRequest$Mutation _$SendVideoChatRequest$MutationFromJson(
         Map<String, dynamic> json) =>
-    SendMatchRequest$Mutation()
-      ..sendMatchRequest = json['sendMatchRequest'] == null
+    SendVideoChatRequest$Mutation()
+      ..sendVideoChatRequest = json['sendVideoChatRequest'] == null
           ? null
-          : SendMatchRequest$Mutation$SendMatchRequest.fromJson(
-              json['sendMatchRequest'] as Map<String, dynamic>);
+          : SendVideoChatRequest$Mutation$SendVideoChatRequest.fromJson(
+              json['sendVideoChatRequest'] as Map<String, dynamic>);
 
-Map<String, dynamic> _$SendMatchRequest$MutationToJson(
-        SendMatchRequest$Mutation instance) =>
+Map<String, dynamic> _$SendVideoChatRequest$MutationToJson(
+        SendVideoChatRequest$Mutation instance) =>
     <String, dynamic>{
-      'sendMatchRequest': instance.sendMatchRequest?.toJson(),
+      'sendVideoChatRequest': instance.sendVideoChatRequest?.toJson(),
     };
 
-SendMatchRequestInput _$SendMatchRequestInputFromJson(
+SendVideoChatRequestInput _$SendVideoChatRequestInputFromJson(
         Map<String, dynamic> json) =>
-    SendMatchRequestInput(
+    SendVideoChatRequestInput(
       clientMutationId: json['clientMutationId'] as String?,
-      receiverId: json['receiverId'] as String,
-      senderId: json['senderId'] as String,
+      matcheeId: json['matcheeId'] as String,
+      userId: json['userId'] as String,
     );
 
-Map<String, dynamic> _$SendMatchRequestInputToJson(
-        SendMatchRequestInput instance) =>
+Map<String, dynamic> _$SendVideoChatRequestInputToJson(
+        SendVideoChatRequestInput instance) =>
     <String, dynamic>{
       'clientMutationId': instance.clientMutationId,
-      'receiverId': instance.receiverId,
-      'senderId': instance.senderId,
+      'matcheeId': instance.matcheeId,
+      'userId': instance.userId,
     };
 
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
@@ -4228,15 +4229,15 @@ Map<String, dynamic> _$DeclineMatchRequestArgumentsToJson(
       'input': instance.input.toJson(),
     };
 
-SendMatchRequestArguments _$SendMatchRequestArgumentsFromJson(
+SendVideoChatRequestArguments _$SendVideoChatRequestArgumentsFromJson(
         Map<String, dynamic> json) =>
-    SendMatchRequestArguments(
-      input:
-          SendMatchRequestInput.fromJson(json['input'] as Map<String, dynamic>),
+    SendVideoChatRequestArguments(
+      input: SendVideoChatRequestInput.fromJson(
+          json['input'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$SendMatchRequestArgumentsToJson(
-        SendMatchRequestArguments instance) =>
+Map<String, dynamic> _$SendVideoChatRequestArgumentsToJson(
+        SendVideoChatRequestArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };

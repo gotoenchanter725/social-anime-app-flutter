@@ -4909,83 +4909,87 @@ class DeclineMatchRequestInput extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SendMatchRequest$Mutation$SendMatchRequest$MatchRequest
+class SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
     extends JsonSerializable with EquatableMixin {
-  SendMatchRequest$Mutation$SendMatchRequest$MatchRequest();
+  SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest();
 
-  factory SendMatchRequest$Mutation$SendMatchRequest$MatchRequest.fromJson(
+  factory SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest.fromJson(
           Map<String, dynamic> json) =>
-      _$SendMatchRequest$Mutation$SendMatchRequest$MatchRequestFromJson(json);
+      _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestFromJson(
+          json);
 
   late String id;
 
-  String? status;
+  late int matcheeId;
 
-  late int receiverId;
+  int? status;
 
-  late int senderId;
+  late int userId;
 
   @override
-  List<Object?> get props => [id, status, receiverId, senderId];
+  List<Object?> get props => [id, matcheeId, status, userId];
   @override
   Map<String, dynamic> toJson() =>
-      _$SendMatchRequest$Mutation$SendMatchRequest$MatchRequestToJson(this);
+      _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestToJson(
+          this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class SendMatchRequest$Mutation$SendMatchRequest extends JsonSerializable
-    with EquatableMixin {
-  SendMatchRequest$Mutation$SendMatchRequest();
+class SendVideoChatRequest$Mutation$SendVideoChatRequest
+    extends JsonSerializable with EquatableMixin {
+  SendVideoChatRequest$Mutation$SendVideoChatRequest();
 
-  factory SendMatchRequest$Mutation$SendMatchRequest.fromJson(
+  factory SendVideoChatRequest$Mutation$SendVideoChatRequest.fromJson(
           Map<String, dynamic> json) =>
-      _$SendMatchRequest$Mutation$SendMatchRequestFromJson(json);
+      _$SendVideoChatRequest$Mutation$SendVideoChatRequestFromJson(json);
 
-  late SendMatchRequest$Mutation$SendMatchRequest$MatchRequest matchRequest;
+  late SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
+      videoChatRequest;
 
   @override
-  List<Object?> get props => [matchRequest];
+  List<Object?> get props => [videoChatRequest];
   @override
   Map<String, dynamic> toJson() =>
-      _$SendMatchRequest$Mutation$SendMatchRequestToJson(this);
+      _$SendVideoChatRequest$Mutation$SendVideoChatRequestToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class SendMatchRequest$Mutation extends JsonSerializable with EquatableMixin {
-  SendMatchRequest$Mutation();
+class SendVideoChatRequest$Mutation extends JsonSerializable
+    with EquatableMixin {
+  SendVideoChatRequest$Mutation();
 
-  factory SendMatchRequest$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$SendMatchRequest$MutationFromJson(json);
+  factory SendVideoChatRequest$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$SendVideoChatRequest$MutationFromJson(json);
 
-  SendMatchRequest$Mutation$SendMatchRequest? sendMatchRequest;
+  SendVideoChatRequest$Mutation$SendVideoChatRequest? sendVideoChatRequest;
 
   @override
-  List<Object?> get props => [sendMatchRequest];
+  List<Object?> get props => [sendVideoChatRequest];
   @override
-  Map<String, dynamic> toJson() => _$SendMatchRequest$MutationToJson(this);
+  Map<String, dynamic> toJson() => _$SendVideoChatRequest$MutationToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class SendMatchRequestInput extends JsonSerializable with EquatableMixin {
-  SendMatchRequestInput({
+class SendVideoChatRequestInput extends JsonSerializable with EquatableMixin {
+  SendVideoChatRequestInput({
     this.clientMutationId,
-    required this.receiverId,
-    required this.senderId,
+    required this.matcheeId,
+    required this.userId,
   });
 
-  factory SendMatchRequestInput.fromJson(Map<String, dynamic> json) =>
-      _$SendMatchRequestInputFromJson(json);
+  factory SendVideoChatRequestInput.fromJson(Map<String, dynamic> json) =>
+      _$SendVideoChatRequestInputFromJson(json);
 
   String? clientMutationId;
 
-  late String receiverId;
+  late String matcheeId;
 
-  late String senderId;
+  late String userId;
 
   @override
-  List<Object?> get props => [clientMutationId, receiverId, senderId];
+  List<Object?> get props => [clientMutationId, matcheeId, userId];
   @override
-  Map<String, dynamic> toJson() => _$SendMatchRequestInputToJson(this);
+  Map<String, dynamic> toJson() => _$SendVideoChatRequestInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -11109,31 +11113,33 @@ class DeclineMatchRequestMutation extends GraphQLQuery<
 }
 
 @JsonSerializable(explicitToJson: true)
-class SendMatchRequestArguments extends JsonSerializable with EquatableMixin {
-  SendMatchRequestArguments({required this.input});
+class SendVideoChatRequestArguments extends JsonSerializable
+    with EquatableMixin {
+  SendVideoChatRequestArguments({required this.input});
 
   @override
-  factory SendMatchRequestArguments.fromJson(Map<String, dynamic> json) =>
-      _$SendMatchRequestArgumentsFromJson(json);
+  factory SendVideoChatRequestArguments.fromJson(Map<String, dynamic> json) =>
+      _$SendVideoChatRequestArgumentsFromJson(json);
 
-  late SendMatchRequestInput input;
+  late SendVideoChatRequestInput input;
 
   @override
   List<Object?> get props => [input];
   @override
-  Map<String, dynamic> toJson() => _$SendMatchRequestArgumentsToJson(this);
+  Map<String, dynamic> toJson() => _$SendVideoChatRequestArgumentsToJson(this);
 }
 
-final SEND_MATCH_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME = 'sendMatchRequest';
-final SEND_MATCH_REQUEST_MUTATION_DOCUMENT = DocumentNode(definitions: [
+final SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME =
+    'sendVideoChatRequest';
+final SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.mutation,
-    name: NameNode(value: 'sendMatchRequest'),
+    name: NameNode(value: 'sendVideoChatRequest'),
     variableDefinitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'input')),
         type: NamedTypeNode(
-          name: NameNode(value: 'SendMatchRequestInput'),
+          name: NameNode(value: 'SendVideoChatRequestInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -11143,7 +11149,7 @@ final SEND_MATCH_REQUEST_MUTATION_DOCUMENT = DocumentNode(definitions: [
     directives: [],
     selectionSet: SelectionSetNode(selections: [
       FieldNode(
-        name: NameNode(value: 'sendMatchRequest'),
+        name: NameNode(value: 'sendVideoChatRequest'),
         alias: null,
         arguments: [
           ArgumentNode(
@@ -11154,13 +11160,20 @@ final SEND_MATCH_REQUEST_MUTATION_DOCUMENT = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FieldNode(
-            name: NameNode(value: 'matchRequest'),
+            name: NameNode(value: 'videoChatRequest'),
             alias: null,
             arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
                 name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'matcheeId'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -11174,14 +11187,7 @@ final SEND_MATCH_REQUEST_MUTATION_DOCUMENT = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'receiverId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'senderId'),
+                name: NameNode(value: 'userId'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -11195,23 +11201,23 @@ final SEND_MATCH_REQUEST_MUTATION_DOCUMENT = DocumentNode(definitions: [
   )
 ]);
 
-class SendMatchRequestMutation
-    extends GraphQLQuery<SendMatchRequest$Mutation, SendMatchRequestArguments> {
-  SendMatchRequestMutation({required this.variables});
+class SendVideoChatRequestMutation extends GraphQLQuery<
+    SendVideoChatRequest$Mutation, SendVideoChatRequestArguments> {
+  SendVideoChatRequestMutation({required this.variables});
 
   @override
-  final DocumentNode document = SEND_MATCH_REQUEST_MUTATION_DOCUMENT;
+  final DocumentNode document = SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT;
 
   @override
   final String operationName =
-      SEND_MATCH_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME;
+      SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME;
 
   @override
-  final SendMatchRequestArguments variables;
+  final SendVideoChatRequestArguments variables;
 
   @override
   List<Object?> get props => [document, operationName, variables];
   @override
-  SendMatchRequest$Mutation parse(Map<String, dynamic> json) =>
-      SendMatchRequest$Mutation.fromJson(json);
+  SendVideoChatRequest$Mutation parse(Map<String, dynamic> json) =>
+      SendVideoChatRequest$Mutation.fromJson(json);
 }

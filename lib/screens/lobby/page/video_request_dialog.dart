@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/core/match/blocs/send_match_request_bloc.dart';
+import 'package:senpai/core/match/blocs/send_video_chat_request_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
 import 'package:senpai/data/path_constants.dart';
@@ -52,7 +52,7 @@ class VideoRequestDialog extends StatelessWidget {
           BlocProvider(
             create: (context) => InviteToVideoChatCubit(),
           ),
-          BlocProvider(create: (context) => SendMatchRequestBloc()),
+          BlocProvider(create: (context) => SendVideoChatRequestBloc()),
           BlocProvider(
             create: (_) => ProfileBloc()
               ..add(
