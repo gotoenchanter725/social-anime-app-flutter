@@ -40,7 +40,7 @@ class VideoRequestDialog extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: SenpaiAppBar(
         title: "Video Request",
-        hasLeading: true,
+        hasLeading: false,
         actions: [
           SenpaiIconButton(
             onPressed: () {},
