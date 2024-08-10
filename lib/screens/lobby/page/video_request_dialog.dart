@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/match/blocs/send_video_chat_request_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
+import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/screens/lobby/bloc/invite_video_chat_cubit.dart';
@@ -71,43 +72,59 @@ class VideoRequestDialog extends StatelessWidget {
               ),
               Column(
                 children: [
-                  Expanded(
-                    child: Center(
-                      child: child,
-                    ),
+                  BlocBuilder<ProfileBloc, ProfileState>(
+                    builder: (context, state) {
+                      if (state is LoadingProfileState) {
+                        return const SenpaiLoading();
+                      }
+
+                      return Expanded(
+                        child: Center(
+                          child: child,
+                        ),
+                      );
+                    },
                   ),
-                  Padding(
-                      padding: EdgeInsets.only(
-                        bottom: 20,
-                        left: getWidthSize(context, 0.08),
-                        right: getWidthSize(context, 0.08),
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          appRouter.pop();
-                        },
-                        child: Container(
-                          height: getWidthSize(context, 0.13),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                              getWidthSize(context, 0.17),
-                            ),
-                            border: Border.all(
-                                color: Colors.white.withOpacity(0.59),
-                                width: 1),
+                  BlocBuilder<InviteToVideoChatCubit, InviteToVideoChatState>(
+                    builder: (context, state) {
+                      if (state == InviteToVideoChatState.success) {
+                        return const SizedBox.shrink();
+                      }
+
+                      return Padding(
+                          padding: EdgeInsets.only(
+                            bottom: 20,
+                            left: getWidthSize(context, 0.08),
+                            right: getWidthSize(context, 0.08),
                           ),
-                          child: Center(
-                            child: Text(
-                              "Back to the Pool",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: getWidthSize(context, 0.0372),
+                          child: InkWell(
+                            onTap: () {
+                              appRouter.pop();
+                            },
+                            child: Container(
+                              height: getWidthSize(context, 0.13),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                  getWidthSize(context, 0.17),
+                                ),
+                                border: Border.all(
+                                    color: Colors.white.withOpacity(0.59),
+                                    width: 1),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Back to the Pool",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: getWidthSize(context, 0.0372),
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                      ))
+                          ));
+                    },
+                  )
                 ],
               )
             ],
