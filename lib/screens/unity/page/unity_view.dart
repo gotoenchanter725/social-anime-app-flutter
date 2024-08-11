@@ -50,7 +50,8 @@ class UnityViewPage extends StatelessWidget {
     logIt.info("User Info: $userInfo");
 
     dynamic otherUserInfo = jsonEncode({
-      "token": authModel.token,
+      "token":
+          "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwiZXhwIjoxNzI1Mzc3NjE0fQ.KUBMUrKNF6Qz32KDJxcEDEocTCcfHjbZbIqAIlv_A4g",
       "userId": 12,
       "firstName": _user.firstName,
       "isVerified": _user.verified,

@@ -11,7 +11,7 @@ part 'find_video_chat_match_state.dart';
 part 'find_video_chat_match_bloc.freezed.dart';
 
 class FindVideoChatMatchBloc extends MutationBloc<FindVideoChatMatch$Mutation> {
-  late Timer _timer;
+  Timer? _timer;
 
   late String currentUserId;
 
@@ -65,7 +65,7 @@ class FindVideoChatMatchBloc extends MutationBloc<FindVideoChatMatch$Mutation> {
 
   @override
   Future<void> close() {
-    _timer.cancel(); // Cancel the timer when BLoC is closed
+    _timer?.cancel(); // Cancel the timer when BLoC is closed
     return super.close();
   }
 }
