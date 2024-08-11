@@ -8,16 +8,12 @@ import 'package:senpai/core/match/blocs/find_video_match/find_video_chat_match_b
 import 'package:senpai/core/match/blocs/stop_video_match_bloc.dart';
 import 'package:senpai/core/match/blocs/video_chat_subscriptions/video_chat_subscription_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/core/widgets/senpai_app_bar.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
-import 'package:senpai/screens/lobby/widgets/lobby_information.dart';
 import 'package:senpai/screens/lobby/widgets/lobby_page_content.dart';
 import 'package:senpai/screens/match/widgets/fetch_count_container.dart';
-import 'package:senpai/screens/match/widgets/start_match_texture.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
-import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
