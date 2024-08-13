@@ -35,3 +35,14 @@ Also go to `Unity-iPhone/Frameworks` and drag all the Frameworks into `Runner`
 ![Add Dependencies](https://i.imgur.com/PglH5Pe.png)
 
 6. Trigger Play on an iPhone device only, no simulators.
+
+## Adding UnityIntegration for Android
+
+1. Get exported build from Unity: `UnityLibrary`
+2. Place the `/UnityLibrary` in `/android/UnityIntegration`
+3. Open `build.gradle` file on  `/android/UnityIntegration/UnityLibrary`
+4. Modify the dependencies project path `implementation project('AgoraRtcEngineKit.plugin')`, to this `implementation project(':AgoraRtcEngineKit.plugin')`
+
+![Tick UnityFramework](https://imgur.com/a/UBLWIgr)
+
+5. Compile and run
