@@ -43,6 +43,6 @@ Also go to `Unity-iPhone/Frameworks` and drag all the Frameworks into `Runner`
 3. Open `build.gradle` file on  `/android/UnityIntegration/UnityLibrary`
 4. Modify the dependencies project path `implementation project('AgoraRtcEngineKit.plugin')`, to this `implementation project(':AgoraRtcEngineKit.plugin')`
 
-![Tick UnityFramework](https://imgur.com/a/UBLWIgr)
+![Add Dependencies](https://i.imgur.com/Zy5faD4.png)
 
 5. Compile and run
