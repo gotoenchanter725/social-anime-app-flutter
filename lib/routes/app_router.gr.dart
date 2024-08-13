@@ -253,6 +253,14 @@ abstract class _$AppRouter extends RootStackRouter {
         child: UnityViewPage(key: args.key),
       );
     },
+    UnityViewVideoChatRoute.name: (routeData) {
+      final args = routeData.argsAs<UnityViewVideoChatRouteArgs>(
+          orElse: () => const UnityViewVideoChatRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UnityViewVideoChatPage(key: args.key),
+      );
+    },
     UploadPhotosManagerRoute.name: (routeData) {
       final args = routeData.argsAs<UploadPhotosManagerRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -1156,6 +1164,36 @@ class UnityViewRouteArgs {
   @override
   String toString() {
     return 'UnityViewRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
+/// [UnityViewVideoChatPage]
+class UnityViewVideoChatRoute
+    extends PageRouteInfo<UnityViewVideoChatRouteArgs> {
+  UnityViewVideoChatRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UnityViewVideoChatRoute.name,
+          args: UnityViewVideoChatRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'UnityViewVideoChatRoute';
+
+  static const PageInfo<UnityViewVideoChatRouteArgs> page =
+      PageInfo<UnityViewVideoChatRouteArgs>(name);
+}
+
+class UnityViewVideoChatRouteArgs {
+  const UnityViewVideoChatRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'UnityViewVideoChatRouteArgs{key: $key}';
   }
 }
 
