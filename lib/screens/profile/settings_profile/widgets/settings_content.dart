@@ -17,6 +17,7 @@ import 'package:senpai/screens/profile/widgets/profile_app_bar.dart';
 import 'package:senpai/screens/profile/widgets/profile_item_header.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsContent extends StatelessWidget {
   const SettingsContent({
@@ -74,8 +75,11 @@ class SettingsContent extends StatelessWidget {
         children: [
           Expanded(
             child: InkWell(
-              onTap: () {
-                // Handle tap for first button
+              onTap: () async {
+                final Uri url = Uri.parse('https://discord.gg/wrACUHRyXv');
+                if (!await launchUrl(url)) {
+                  throw Exception('Could not launch $url');
+                }
               },
               borderRadius: BorderRadius.circular(12), // Set border radius here
               child: Ink(
@@ -94,8 +98,11 @@ class SettingsContent extends StatelessWidget {
           SizedBox(width: getWidthSize(context, 0.027)),
           Expanded(
             child: InkWell(
-              onTap: () {
-                // Handle tap for second button
+              onTap: () async {
+                final Uri url = Uri.parse('https://www.reddit.com/r/SenpaiApp');
+                if (!await launchUrl(url)) {
+                  throw Exception('Could not launch $url');
+                }
               },
               borderRadius: BorderRadius.circular(12), // Set border radius here
               child: Ink(
@@ -115,8 +122,11 @@ class SettingsContent extends StatelessWidget {
           SizedBox(width: getWidthSize(context, 0.027)),
           Expanded(
             child: InkWell(
-              onTap: () {
-                // Handle tap for third button
+              onTap: () async {
+                final Uri url = Uri.parse('https://x.com/SENPAI_APP');
+                if (!await launchUrl(url)) {
+                  throw Exception('Could not launch $url');
+                }
               },
               borderRadius: BorderRadius.circular(12), // Set border radius here
               child: Ink(
