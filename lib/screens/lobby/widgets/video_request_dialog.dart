@@ -8,7 +8,7 @@ import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/screens/lobby/bloc/invite_video_chat_cubit.dart';
-import 'package:senpai/screens/lobby/widgets/video_request_content.dart';
+import 'package:senpai/screens/lobby/widgets/video_request_contents.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';

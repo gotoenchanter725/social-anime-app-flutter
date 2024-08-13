@@ -5,6 +5,7 @@ import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dar
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
+import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/l10n/local_key.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/user_profile/mappers/user_profile_mapper.dart';
@@ -49,6 +50,8 @@ class SettingsContent extends StatelessWidget {
           title: R.strings.settingsTitle,
           onDoneTap: () => _onDoneTap(context),
         ),
+        _buildSocialWidget(context),
+        SizedBox(height: getWidthSize(context, 0.027)),
         _buildPremiumWidget(context),
         Expanded(
           child: Padding(
@@ -60,6 +63,78 @@ class SettingsContent extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget _buildSocialWidget(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: $constants.insets.sm),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Expanded(
+            child: InkWell(
+              onTap: () {
+                // Handle tap for first button
+              },
+              borderRadius: BorderRadius.circular(12), // Set border radius here
+              child: Ink(
+                width: double.infinity,
+                height: getWidthSize(context, 0.12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  image: const DecorationImage(
+                    image: AssetImage(PathConstants.btnDiscord),
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: getWidthSize(context, 0.027)),
+          Expanded(
+            child: InkWell(
+              onTap: () {
+                // Handle tap for second button
+              },
+              borderRadius: BorderRadius.circular(12), // Set border radius here
+              child: Ink(
+                width: double.infinity,
+                height: getWidthSize(context, 0.12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  image: const DecorationImage(
+                    image: AssetImage(PathConstants
+                        .btnReddit), // Replace with your image path
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(width: getWidthSize(context, 0.027)),
+          Expanded(
+            child: InkWell(
+              onTap: () {
+                // Handle tap for third button
+              },
+              borderRadius: BorderRadius.circular(12), // Set border radius here
+              child: Ink(
+                width: double.infinity,
+                height: getWidthSize(context, 0.12),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  image: const DecorationImage(
+                    image: AssetImage(PathConstants
+                        .btnTwitter), // Replace with your image path
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 

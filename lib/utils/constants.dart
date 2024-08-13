@@ -188,6 +188,18 @@ class _Palette {
         33.56 * 3.141592653589793 / 180), // Convert degrees to radians
   );
 
+  final premiumSectionGradient = const LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFFDE0BC9),
+      Color(0xFF1286F0),
+    ],
+    stops: [0.1531, 0.7686],
+    transform: GradientRotation(
+        33.56 * 3.141592653589793 / 180), // Convert degrees to radians
+  );
+
   final lineGradient = const LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,

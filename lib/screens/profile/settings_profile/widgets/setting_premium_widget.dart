@@ -23,11 +23,15 @@ class SettingsPremiumWidget extends StatelessWidget {
         );
       },
       child: Container(
-        margin: EdgeInsets.symmetric(vertical: $constants.insets.md),
-        padding: EdgeInsets.symmetric(vertical: $constants.insets.sm),
+        margin: EdgeInsets.only(
+          bottom: $constants.insets.md,
+          left: $constants.insets.sm,
+          right: $constants.insets.sm,
+        ),
+        padding: EdgeInsets.symmetric(vertical: $constants.insets.md),
         width: double.maxFinite,
         decoration: BoxDecoration(
-          gradient: $constants.palette.buttonGradient,
+          gradient: $constants.palette.premiumSectionGradient,
           borderRadius: BorderRadius.circular($constants.corners.lg),
           shape: BoxShape.rectangle,
         ),
@@ -55,9 +59,9 @@ class SettingsPremiumWidget extends StatelessWidget {
             Text(
               R.strings.senpaiPremiumDescription,
               textAlign: TextAlign.center,
-              style: getTextTheme(context).bodySmall?.copyWith(
-                    letterSpacing: 0,
-                  ),
+              style: getTextTheme(context)
+                  .bodySmall
+                  ?.copyWith(letterSpacing: 0, height: 2),
             )
           ],
         ),

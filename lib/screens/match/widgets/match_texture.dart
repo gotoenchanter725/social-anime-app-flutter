@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/match/blocs/find_video_match/find_video_chat_match_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
-import 'package:senpai/screens/lobby/page/video_request_dialog.dart';
+import 'package:senpai/screens/lobby/widgets/video_request_dialog.dart';
 import 'package:senpai/screens/match/bloc/match_texture_bloc.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
