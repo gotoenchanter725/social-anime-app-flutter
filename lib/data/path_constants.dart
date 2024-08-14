@@ -116,6 +116,8 @@ class PathConstants {
   static const String folderBackground = 'assets/images/match/dark_bg.png';
   static const String inviteBackground =
       'assets/images/match/invite_black_bg.png';
+  static const String inviteAcceptBackground =
+      'assets/images/match/invite_accept_bg.png';
   static const String lobbyActionsBackground =
       'assets/images/match/lobby_bg.png';
 

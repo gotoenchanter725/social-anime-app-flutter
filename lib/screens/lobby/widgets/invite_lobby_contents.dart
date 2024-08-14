@@ -72,43 +72,6 @@ class InviteLobbyContents extends StatelessWidget {
     );
   }
 
-  Widget _getButtonText(BuildContext context, InviteToVideoChatState status) {
-    if (status == InviteToVideoChatState.initial) {
-      return Text(
-        'Invite to Chat',
-        style: TextStyle(
-            color: Colors.white,
-            fontSize: getWidthSize(context, 0.0372),
-            fontWeight: FontWeight.w700),
-      );
-    }
-    if (status == InviteToVideoChatState.pending) {
-      return Text(
-        'Inviting ...',
-        style: TextStyle(
-            color: Colors.white,
-            fontSize: getWidthSize(context, 0.0372),
-            fontWeight: FontWeight.w700),
-      );
-    }
-    if (status == InviteToVideoChatState.success) {
-      return Text(
-        'Invited',
-        style: TextStyle(
-            color: Colors.white,
-            fontSize: getWidthSize(context, 0.0372),
-            fontWeight: FontWeight.w700),
-      );
-    }
-    return Text(
-      'Failed',
-      style: TextStyle(
-          color: Colors.white,
-          fontSize: getWidthSize(context, 0.0372),
-          fontWeight: FontWeight.w700),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<InviteToVideoChatCubit, InviteToVideoChatState>(
@@ -125,10 +88,10 @@ class InviteLobbyContents extends StatelessWidget {
                     top: getWidthSize(context, 0.068),
                     left: getWidthSize(context, 0.042),
                     right: getWidthSize(context, 0.042)),
-                height: getWidthSize(context, 0.926 * 406 / 686),
+                height: getWidthSize(context, 0.926 * 463 / 686),
                 decoration: const BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(PathConstants.inviteBackground),
+                    image: AssetImage(PathConstants.inviteAcceptBackground),
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -136,82 +99,110 @@ class InviteLobbyContents extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildLobbyHeaderText(context),
-                    SizedBox(height: getWidthSize(context, 0.13)),
-                    InkWell(
-                      onTap: () {
-                        final currentDialogState =
-                            context.read<InviteToVideoChatCubit>().state;
-                        if (currentDialogState !=
-                            InviteToVideoChatState.initial) {
-                          return;
-                        }
-                        final data = matchData as FindVideoChatMatch$Mutation;
-                        final id = data.findVideoChatMatch?.user?.id ?? '';
-                        final userId = context.read<ProfileBloc>().userID;
-                        context
-                            .read<SendVideoChatRequestBloc>()
-                            .sendVideoChatRequest(
-                                userId: userId, matcheeId: id);
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              buttonGradientColors.startColor,
-                              buttonGradientColors.endColor,
-                            ],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                          borderRadius: BorderRadius.circular(
-                              getWidthSize(context, 0.14)),
+                    SizedBox(height: getWidthSize(context, 0.04)),
+                    const Divider(color: Color(0xff58595E)),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          'Kitniss has sent you a video chat invitation!',
+                          style: TextStyle(
+                              color: $constants.palette.grey,
+                              fontSize: getWidthSize(context, 0.0372),
+                              fontWeight: FontWeight.w700),
                         ),
-                        child: BlocListener<SendVideoChatRequestBloc,
-                            MutationState>(
-                          listener: (context, state) {
-                            state.whenOrNull(
-                              succeeded: (data, result) {
-                                context
-                                    .read<InviteToVideoChatCubit>()
-                                    .setSuccess();
-                              },
-                              loading: () {
-                                context
-                                    .read<InviteToVideoChatCubit>()
-                                    .setPending();
-                              },
-                              failed: (error, result) {
-                                context
-                                    .read<InviteToVideoChatCubit>()
-                                    .setFailed();
-                              },
-                            );
-                          },
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(
-                                getWidthSize(context, 0.14)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(1),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.black,
-                                    borderRadius: BorderRadius.circular(
-                                        getWidthSize(context, 0.14))),
-                                child: Padding(
-                                  padding: EdgeInsets.all(
-                                      getWidthSize(context, 0.003)),
-                                  child: SizedBox(
-                                    height: getWidthSize(context, 0.13),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        _getLeadingIcon(context, state),
-                                        SizedBox(
-                                            width:
-                                                getWidthSize(context, 0.028)),
-                                        _getButtonText(context, state),
-                                      ],
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: InkWell(
+                            onTap: () {
+                              final currentDialogState =
+                                  context.read<InviteToVideoChatCubit>().state;
+                              if (currentDialogState !=
+                                  InviteToVideoChatState.initial) {
+                                return;
+                              }
+                              final data =
+                                  matchData as FindVideoChatMatch$Mutation;
+                              final id =
+                                  data.findVideoChatMatch?.user?.id ?? '';
+                              final userId = context.read<ProfileBloc>().userID;
+                              context
+                                  .read<SendVideoChatRequestBloc>()
+                                  .sendVideoChatRequest(
+                                      userId: userId, matcheeId: id);
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    buttonGradientColors.startColor,
+                                    buttonGradientColors.endColor,
+                                  ],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ),
+                                borderRadius: BorderRadius.circular(
+                                    getWidthSize(context, 0.14)),
+                              ),
+                              child: BlocListener<SendVideoChatRequestBloc,
+                                  MutationState>(
+                                listener: (context, state) {
+                                  state.whenOrNull(
+                                    succeeded: (data, result) {
+                                      context
+                                          .read<InviteToVideoChatCubit>()
+                                          .setSuccess();
+                                    },
+                                    loading: () {
+                                      context
+                                          .read<InviteToVideoChatCubit>()
+                                          .setPending();
+                                    },
+                                    failed: (error, result) {
+                                      context
+                                          .read<InviteToVideoChatCubit>()
+                                          .setFailed();
+                                    },
+                                  );
+                                },
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(
+                                      getWidthSize(context, 0.14)),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(1),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: BorderRadius.circular(
+                                              getWidthSize(context, 0.14))),
+                                      child: Padding(
+                                        padding: EdgeInsets.all(
+                                            getWidthSize(context, 0.003)),
+                                        child: SizedBox(
+                                          height: getWidthSize(context, 0.13),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              _getLeadingIcon(context, state),
+                                              SizedBox(
+                                                  width: getWidthSize(
+                                                      context, 0.028)),
+                                              Text(
+                                                'Accept',
+                                                style: TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: getWidthSize(
+                                                        context, 0.0372),
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -219,8 +210,82 @@ class InviteLobbyContents extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ),
-                    )
+                        SizedBox(width: getWidthSize(context, 0.027)),
+                        InkWell(
+                          onTap: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  $constants.palette.redButton,
+                                  $constants.palette.red,
+                                ],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                  getWidthSize(context, 0.14)),
+                            ),
+                            child: BlocListener<SendVideoChatRequestBloc,
+                                MutationState>(
+                              listener: (context, state) {
+                                state.whenOrNull(
+                                  succeeded: (data, result) {
+                                    context
+                                        .read<InviteToVideoChatCubit>()
+                                        .setSuccess();
+                                  },
+                                  loading: () {
+                                    context
+                                        .read<InviteToVideoChatCubit>()
+                                        .setPending();
+                                  },
+                                  failed: (error, result) {
+                                    context
+                                        .read<InviteToVideoChatCubit>()
+                                        .setFailed();
+                                  },
+                                );
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(
+                                    getWidthSize(context, 0.14)),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(1),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        borderRadius: BorderRadius.circular(
+                                            getWidthSize(context, 0.14))),
+                                    child: Padding(
+                                      padding: EdgeInsets.all(
+                                          getWidthSize(context, 0.003)),
+                                      child: SizedBox(
+                                        height: getWidthSize(context, 0.13),
+                                        width: getWidthSize(context, 0.253),
+                                        child: Center(
+                                          child: Text(
+                                            'Reject',
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: getWidthSize(
+                                                    context, 0.0372),
+                                                fontWeight: FontWeight.w700),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: getWidthSize(context, 0.04)),
                   ],
                 ),
               ),
@@ -228,7 +293,7 @@ class InviteLobbyContents extends StatelessWidget {
                 top: getWidthSize(context, 0.025),
                 right: getWidthSize(context, 0.04),
                 child: SvgPicture.asset(
-                  PathConstants.lobbyInvite, // replace with your icon path
+                  PathConstants.lobbyInvite,
                   width: getWidthSize(context, 0.1),
                   height: getWidthSize(context, 0.1),
                 ),
@@ -241,8 +306,8 @@ class InviteLobbyContents extends StatelessWidget {
   }
 
   Widget _buildLobbyHeaderText(BuildContext context) {
-    final data = matchData as FindVideoChatMatch$Mutation;
-    final user = data.findVideoChatMatch?.user;
+    final data = matchData as FindVideoChatMatch$Mutation?;
+    final user = data?.findVideoChatMatch?.user;
     final photoUrl = user?.gallery!.photos![0].url;
     final userName = user?.firstName;
     final userRating = user?.videoCallScore ?? 0.0;
@@ -264,19 +329,18 @@ class InviteLobbyContents extends StatelessWidget {
           ),
           child: CircleAvatar(
             radius: getWidthSize(context, 0.05),
-            backgroundImage: NetworkImage(photoUrl ?? ''),
+            backgroundImage: NetworkImage(
+                photoUrl ?? 'https://aniu.ru/avatars/no_avatar.png'),
           ),
         ),
         SizedBox(width: getWidthSize(context, 0.05)),
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: getWidthSize(context, 0.02)),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  userName ?? '',
+                  userName ?? 'Unknown',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: getWidthSize(context, 0.07),
