@@ -18,8 +18,8 @@ import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
 @RoutePage()
-class UnityViewPage extends StatelessWidget {
-  UnityViewPage({super.key}) {
+class UnityViewVideoChatPage extends StatelessWidget {
+  UnityViewVideoChatPage({super.key}) {
     // TODO: implement UnityViewPage
     // throw UnimplementedError();
   }
@@ -108,8 +108,8 @@ class UnityViewPage extends StatelessWidget {
           'Received scene loaded from unity buildIndex: ${sceneInfo.buildIndex}');
 
       switch (sceneInfo.name) {
-
-        case "TestAvatarScene":
+        case "VideoChatScene":
+          setChannelName();
           postUserDetails();
           break;
         default:
@@ -121,20 +121,18 @@ class UnityViewPage extends StatelessWidget {
 //for set a preselected character first send setPreselectedAvatar before loadUnityScene
   void onUnityCreated(UnityWidgetController controller) {
     _unityWidgetController = controller;
-    //setPreselectedAvatar();
     loadUnityScene();
   }
 
 // 1 = VideoChatScene , 2 = TestAvatarScene
   void loadUnityScene() {
     _unityWidgetController.postMessage(
-        "SceneLoaderManager", "ChangeSceneBySceneID", "2");
+        "SceneLoaderManager", "ChangeSceneBySceneID", "1");
   }
 
-
-  void setPreselectedAvatar() {
-    _unityWidgetController.postMessage("SceneLoaderManager",
-        "SetPreselectedAvatarGuid", "7f9e0c10-dde1-426a-88cc-565200a79e43");
+  void setChannelName() {
+    _unityWidgetController.postMessage(
+        "DataController", "SetChannelName", "Test");
   }
 
   @override
@@ -145,7 +143,7 @@ class UnityViewPage extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('The Avatar screen'),
+          title: const Text('The Video Chat screen'),
         ),
         body: BlocProvider(
           create: (context) => StopVideoMatchBloc(),
@@ -193,78 +191,5 @@ class UnityViewPage extends StatelessWidget {
       ),
     );
   }
-
-  /// Just for test on emulator
-  // late final dynamic _unityWidgetController;
-  // late final dynamic _user;
-  //
-  // void onUnityMessage(dynamic message) {
-  //   print('Received message from Unity: ${message.toString()}');
-  // }
-  //
-  // void onUnitySceneLoaded(dynamic sceneInfo) {
-  //   if (sceneInfo != null) {
-  //     print('Received scene loaded from Unity: ${sceneInfo['name']}');
-  //     print(
-  //         'Received scene loaded from Unity buildIndex: ${sceneInfo['buildIndex']}');
-  //
-  //     if (sceneInfo['name'] == "VideoChatScene" ||
-  //         sceneInfo['name'] == "TestAvatarScene") {
-  //       postUserDetails();
-  //     }
-  //   }
-  // }
-  //
-  // void onUnityCreated(dynamic controller) {
-  //   _unityWidgetController = controller;
-  //   loadUnityScene();
-  // }
-  //
-  // void postUserDetails() {
-  //   // Dummy user info for testing
-  //   dynamic userInfo = jsonEncode({
-  //     "token": "dummyToken",
-  //     "userId": "dummyUserId",
-  //     "firstName": "Dummy",
-  //     "isVerified": true,
-  //     "gender": "Male",
-  //     "isPremium": false,
-  //     "thumbnailURL": "https://example.com/dummy.jpg"
-  //   });
-  //
-  //   print("User Info: $userInfo");
-  //
-  //   // Simulate sending user info to Unity
-  //   _unityWidgetController?.postMessage
-  //       ?.call("DataController", "SetUserInfo", userInfo);
-  // }
-  //
-  // void loadUnityScene() {
-  //   // Simulate loading a Unity scene
-  //   _unityWidgetController?.postMessage
-  //       ?.call("SceneLoaderManager", "ChangeSceneBySceneID", "1");
-  // }
-  //
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     appBar: AppBar(
-  //       title: const Text('Unity View Page'),
-  //     ),
-  //     body: Center(
-  //       child: ElevatedButton(
-  //         onPressed: () {
-  //           onUnityCreated(DummyUnityController());
-  //         },
-  //         child: const Text('Simulate Unity View'),
-  //       ),
-  //     ),
-  //   );
-  // }
 }
 
-// class DummyUnityController {
-//   void postMessage(String gameObject, String methodName, String message) {
-//     print('Simulated postMessage to $gameObject.$methodName with $message');
-//   }
-// }
