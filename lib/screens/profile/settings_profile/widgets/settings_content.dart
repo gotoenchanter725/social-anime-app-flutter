@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
@@ -13,6 +15,7 @@ import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bl
 import 'package:senpai/screens/profile/settings_profile/widgets/cupertino_logout_widget.dart';
 import 'package:senpai/screens/profile/settings_profile/widgets/delete_account_widget.dart';
 import 'package:senpai/screens/profile/settings_profile/widgets/setting_premium_widget.dart';
+import 'package:senpai/screens/profile/settings_profile/widgets/settings_avatar_card_item.dart';
 import 'package:senpai/screens/profile/widgets/profile_app_bar.dart';
 import 'package:senpai/screens/profile/widgets/profile_item_header.dart';
 import 'package:senpai/utils/constants.dart';
@@ -159,7 +162,203 @@ class SettingsContent extends StatelessWidget {
     });
   }
 
+  Widget _buildChangeYourAvatar(BuildContext context) {
+    final List<Map<String, dynamic>> avatarSkins = [
+      {
+        "name": "Yumeko Jabami",
+        "status": "Emote",
+        "profile":
+            "https://th.bing.com/th/id/OIP.r5Y8R7yn6-0A_mbijVucnQHaHZ?rs=1&pid=ImgDetMain",
+        "image": "https://wallpapercave.com/wp/wp7152064.jpg",
+        "isNew": true,
+        "product_id": 1,
+      },
+      {
+        "product_id": 2,
+        "name": "Satoru Gojo",
+        "status": "Buy",
+        "profile":
+            "https://cdna.artstation.com/p/assets/images/images/053/054/138/large/avetetsuya-studios-alien.jpg?1661309922",
+        "image":
+            "https://th.bing.com/th/id/OIP.t2-WUEoELg8LjksAZ8dJrgAAAA?rs=1&pid=ImgDetMain",
+        "isNew": true,
+      },
+      {
+        "product_id": 3,
+        "name": "Monkey D. Luffy",
+        "status": "Premium",
+        "profile":
+            "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
+        "image":
+            "https://th.bing.com/th/id/R.edf5a7600628b4500e94d4e404af407b?rik=POg5zdgXd%2bxSVg&riu=http%3a%2f%2fm.gettywallpapers.com%2fwp-content%2fuploads%2f2023%2f05%2fJapanese-Anime-Boy-Profile-Picture.jpg&ehk=zq6b58zWRPs0qH%2bo32Us8NSSP%2ba4aFfr7uXTP9lUmHY%3d&risl=&pid=ImgRaw&r=0",
+        "isNew": false,
+      },
+      {
+        "product_id": 4,
+        "name": "Levi Ackerman",
+        "status": "Emote",
+        "profile":
+            "https://i.pinimg.com/originals/21/f4/46/21f4466cdcd1f132aa5cf9fe4c8b529d.jpg",
+        "image":
+            "https://i.pinimg.com/originals/36/95/71/369571e6e7e38b37750edfa91c22a3cc.jpg",
+        "isNew": false,
+      },
+      {
+        "product_id": 5,
+        "name": "Drakken Joe",
+        "status": "Premium",
+        "profile":
+            "https://i.pinimg.com/736x/c8/d1/db/c8d1dbd23718b07d374b8b891970117a.jpg",
+        "image":
+            "https://wallpapers.com/images/hd/matching-anime-profile-pictures-1080-x-1080-diw0d7jbom3sn7o3.jpg",
+        "isNew": false,
+      },
+      {
+        "name": "Tsunade",
+        "status": "Buy",
+        "profile":
+            "https://th.bing.com/th/id/OIP.rFtW3ETt5PdoNgBaKTHLyQHaF7?rs=1&pid=ImgDetMain",
+        "image": "https://cdn.wallpapersafari.com/6/86/JAvgzR.jpg",
+        "isNew": false,
+      },
+    ];
+    return Stack(
+      children: [
+        Positioned.fill(
+          top: 0,
+          bottom: 0,
+          child: Column(
+            children: [
+              Image.asset(PathConstants.settingsAvatarHeader),
+              Expanded(
+                child: Container(
+                  height: double.infinity,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                        colors: [
+                          Color(0x7D334256), // Start color
+                          Colors.transparent, // End color
+                        ],
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomLeft,
+                        stops: [0.2, 1.4]),
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(30),
+                        bottomRight: Radius.circular(30)),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Column(
+          children: [
+            Row(
+              children: [
+                SizedBox(width: getWidthSize(context, 0.037)),
+                Expanded(
+                  child: Text(
+                    "Change Your Avatar",
+                    style: getTextTheme(context).bodyMedium,
+                  ),
+                ),
+                Container(
+                  width: getWidthSize(context, 0.112),
+                  height: getWidthSize(context, 0.112),
+                  margin: EdgeInsets.only(top: getWidthSize(context, 0.01)),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: const Color(0xff344256),
+                      width: 2.0,
+                    ),
+                  ),
+                  child: InkWell(
+                    child: Center(
+                      child: SvgPicture.asset(
+                        PathConstants.searchIcon,
+                        width: getWidthSize(context, 0.064),
+                        height: getWidthSize(context, 0.064),
+                      ),
+                    ),
+                    onTap: () {
+                      // Handle search action
+                    },
+                  ),
+                ),
+                SizedBox(width: getWidthSize(context, 0.037)),
+              ],
+            ),
+            GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: avatarSkins.length,
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 100 / 174,
+              ),
+              padding: EdgeInsets.all(getWidthSize(context, 0.032)),
+              itemBuilder: (context, index) =>
+                  SettingsAvatarCardItem(data: avatarSkins[index]),
+            ),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget _buildTestAvatarButton(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).pop();
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              $constants.palette.emoteButtonStart,
+              $constants.palette.emoteButtonEnd,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(getWidthSize(context, 0.14)),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(getWidthSize(context, 0.14)),
+          child: Padding(
+            padding: const EdgeInsets.all(1),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius:
+                      BorderRadius.circular(getWidthSize(context, 0.14))),
+              child: Padding(
+                padding: EdgeInsets.all(getWidthSize(context, 0.003)),
+                child: SizedBox(
+                  height: getWidthSize(context, 0.13),
+                  child: Center(
+                    child: Text(
+                      'Test Avatar',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: getWidthSize(context, 0.0372),
+                          fontWeight: FontWeight.w800),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildSettingsContent(BuildContext context) {
+    var avatarEnabled = true;
     return BlocBuilder<SettingsProfileBloc, SettingsProfileState>(
       builder: (context, state) {
         final bloc = BlocProvider.of<SettingsProfileBloc>(context);
@@ -168,6 +367,27 @@ class SettingsContent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
           children: [
+            SenpaiSwitchWithTitle(
+              value: avatarEnabled,
+              title: "Avatar",
+              onChanged: (isOn) {
+                avatarEnabled = isOn;
+              },
+            ),
+            SizedBox(height: $constants.insets.sm),
+            _buildChangeYourAvatar(context),
+            SizedBox(height: $constants.insets.sm),
+            _buildTestAvatarButton(context),
+            SizedBox(height: $constants.insets.sm),
+            SenpaiSwitchWithTitle(
+              value: avatarEnabled,
+              title: "Remove Location slider",
+              onChanged: (isOn) {
+                avatarEnabled = isOn;
+              },
+            ),
+            SizedBox(height: $constants.insets.sm),
+
             Text(
               R.strings.accountSettingsTitle,
               style: getTextTheme(context).headlineSmall,

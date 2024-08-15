@@ -91,6 +91,8 @@ class PathConstants {
   static const String btnDiscord = 'assets/images/profile/btn_discord.png';
   static const String btnReddit = 'assets/images/profile/btn_reddit.png';
   static const String btnTwitter = 'assets/images/profile/btn_twitter.png';
+  static const String settingsAvatarHeader =
+      'assets/images/profile/settings_avatar_header_bg.png';
 
   //Match
   static const String catsPawIcon = 'assets/icons/cats_paw.svg';
