@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:senpai/core/widgets/icon_input.dart';
-import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/screens/avatar_shop/widgets/avatar_search_input.dart';
 import 'package:senpai/screens/avatar_shop/widgets/avatar_shop_card_item.dart';
 import 'package:senpai/screens/avatar_shop/widgets/avatar_shop_header.dart';
