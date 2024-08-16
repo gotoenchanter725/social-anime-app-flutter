@@ -1,9 +1,12 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/core/match/blocs/send_video_chat_request_bloc.dart';
+import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
+import 'package:senpai/core/match/blocs/accept_video_match_bloc.dart';
+import 'package:senpai/core/match/blocs/decline_video_match_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
-import 'package:senpai/screens/lobby/bloc/invite_video_chat_cubit.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
+import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
 
 import 'invite_lobby_contents.dart';
 
@@ -13,6 +16,7 @@ void showInviteLobbyDialog(BuildContext context, dynamic matchData) {
     barrierColor: Colors.black.withOpacity(0.7),
     builder: (BuildContext context) {
       return InviteLobbyDialog(
+        matchData: matchData,
         child: InviteLobbyContents(
           matchData: matchData,
         ),
@@ -24,7 +28,10 @@ void showInviteLobbyDialog(BuildContext context, dynamic matchData) {
 class InviteLobbyDialog extends StatelessWidget {
   final Widget child;
 
-  const InviteLobbyDialog({required this.child, super.key});
+  final dynamic matchData;
+
+  const InviteLobbyDialog(
+      {required this.child, required this.matchData, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +41,11 @@ class InviteLobbyDialog extends StatelessWidget {
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => InviteToVideoChatCubit(),
+            create: (_) => AcceptVideoMatchBloc(),
           ),
-          BlocProvider(create: (context) => SendVideoChatRequestBloc()),
+          BlocProvider(
+            create: (_) => DeclineVideoMatchBloc(),
+          ),
           BlocProvider(
             create: (_) => ProfileBloc()
               ..add(
@@ -44,13 +53,41 @@ class InviteLobbyDialog extends StatelessWidget {
               ),
           ),
         ],
-        child: BlocBuilder<ProfileBloc, ProfileState>(
-          builder: (context, state) {
-            if (state is LoadingProfileState) {
-              return const SenpaiLoading();
-            }
-            return child;
+        child: BlocListener<DeclineVideoMatchBloc, MutationState>(
+          listener: (context, state) {
+            state.whenOrNull(succeeded: (data, result) {
+              context.router.pop();
+            }, failed: (error, result) {
+              showSnackBarError(context, error.graphqlErrors.first.message);
+            });
           },
+          child: BlocBuilder<AcceptVideoMatchBloc, MutationState>(
+            builder: (context, state) {
+              state.whenOrNull(
+                failed: (error, result) {
+                  showSnackBarError(context, error.graphqlErrors.first.message);
+                },
+                succeeded: (data, result) {
+                  // we can now pop the dialog and navigate to
+                  context.router.pop();
+                },
+              );
+              return Stack(children: [
+                BlocBuilder<ProfileBloc, ProfileState>(
+                  builder: (context, state) {
+                    if (state is LoadingProfileState) {
+                      return const SenpaiLoading();
+                    }
+                    return child;
+                  },
+                ),
+                state.maybeWhen(
+                  loading: () => const SenpaiLoading(),
+                  orElse: () => const SizedBox.shrink(),
+                ),
+              ]);
+            },
+          ),
         ),
       ),
     );
