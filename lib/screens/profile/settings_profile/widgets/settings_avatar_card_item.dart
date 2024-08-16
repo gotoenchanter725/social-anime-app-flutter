@@ -7,9 +7,11 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class SettingsAvatarCardItem extends StatelessWidget {
-  const SettingsAvatarCardItem({super.key, required this.data});
+  const SettingsAvatarCardItem(
+      {super.key, required this.data, required this.selected});
 
   final Map<String, dynamic> data;
+  final bool selected;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +19,24 @@ class SettingsAvatarCardItem extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.only(bottom: getWidthSize(context, 0.117)),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.network(
-              data["image"],
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
+          child: Container(
+            decoration: selected
+                ? BoxDecoration(
+                    border: Border.all(
+                      color: Colors.yellow, // Border color
+                      width: 1, // Border width
+                    ),
+                    borderRadius: BorderRadius.circular(20),
+                  )
+                : null, // No border if not selected
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.network(
+                data["image"],
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+              ),
             ),
           ),
         ),

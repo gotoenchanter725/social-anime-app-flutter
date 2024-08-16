@@ -22,10 +22,76 @@ import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SettingsContent extends StatelessWidget {
-  const SettingsContent({
-    super.key,
-  });
+class SettingsContent extends StatefulWidget {
+  const SettingsContent({super.key});
+
+  @override
+  State<SettingsContent> createState() => _SettingsContentState();
+}
+
+class _SettingsContentState extends State<SettingsContent> {
+  final List<Map<String, dynamic>> avatarSkins = [
+    {
+      "name": "Yumeko Jabami",
+      "status": "Emote",
+      "profile":
+          "https://th.bing.com/th/id/OIP.r5Y8R7yn6-0A_mbijVucnQHaHZ?rs=1&pid=ImgDetMain",
+      "image": "https://wallpapercave.com/wp/wp7152064.jpg",
+      "isNew": true,
+      "product_id": 1,
+    },
+    {
+      "product_id": 2,
+      "name": "Satoru Gojo",
+      "status": "Buy",
+      "profile":
+          "https://cdna.artstation.com/p/assets/images/images/053/054/138/large/avetetsuya-studios-alien.jpg?1661309922",
+      "image":
+          "https://th.bing.com/th/id/OIP.t2-WUEoELg8LjksAZ8dJrgAAAA?rs=1&pid=ImgDetMain",
+      "isNew": true,
+    },
+    {
+      "product_id": 3,
+      "name": "Monkey D. Luffy",
+      "status": "Premium",
+      "profile":
+          "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
+      "image":
+          "https://th.bing.com/th/id/R.edf5a7600628b4500e94d4e404af407b?rik=POg5zdgXd%2bxSVg&riu=http%3a%2f%2fm.gettywallpapers.com%2fwp-content%2fuploads%2f2023%2f05%2fJapanese-Anime-Boy-Profile-Picture.jpg&ehk=zq6b58zWRPs0qH%2bo32Us8NSSP%2ba4aFfr7uXTP9lUmHY%3d&risl=&pid=ImgRaw&r=0",
+      "isNew": false,
+    },
+    {
+      "product_id": 4,
+      "name": "Levi Ackerman",
+      "status": "Emote",
+      "profile":
+          "https://i.pinimg.com/originals/21/f4/46/21f4466cdcd1f132aa5cf9fe4c8b529d.jpg",
+      "image":
+          "https://i.pinimg.com/originals/36/95/71/369571e6e7e38b37750edfa91c22a3cc.jpg",
+      "isNew": false,
+    },
+    {
+      "product_id": 5,
+      "name": "Drakken Joe",
+      "status": "Premium",
+      "profile":
+          "https://i.pinimg.com/736x/c8/d1/db/c8d1dbd23718b07d374b8b891970117a.jpg",
+      "image":
+          "https://wallpapers.com/images/hd/matching-anime-profile-pictures-1080-x-1080-diw0d7jbom3sn7o3.jpg",
+      "isNew": false,
+    },
+    {
+      "product_id": 6,
+      "name": "Tsunade",
+      "status": "Buy",
+      "profile":
+          "https://th.bing.com/th/id/OIP.rFtW3ETt5PdoNgBaKTHLyQHaF7?rs=1&pid=ImgDetMain",
+      "image": "https://cdn.wallpapersafari.com/6/86/JAvgzR.jpg",
+      "isNew": false,
+    },
+  ];
+  var removeLocationSlider = true;
+  var selectedAvatarIndex = -1;
 
   void _showActionSheet(BuildContext context) {
     showCupertinoModalPopup<void>(
@@ -163,65 +229,6 @@ class SettingsContent extends StatelessWidget {
   }
 
   Widget _buildChangeYourAvatar(BuildContext context) {
-    final List<Map<String, dynamic>> avatarSkins = [
-      {
-        "name": "Yumeko Jabami",
-        "status": "Emote",
-        "profile":
-            "https://th.bing.com/th/id/OIP.r5Y8R7yn6-0A_mbijVucnQHaHZ?rs=1&pid=ImgDetMain",
-        "image": "https://wallpapercave.com/wp/wp7152064.jpg",
-        "isNew": true,
-        "product_id": 1,
-      },
-      {
-        "product_id": 2,
-        "name": "Satoru Gojo",
-        "status": "Buy",
-        "profile":
-            "https://cdna.artstation.com/p/assets/images/images/053/054/138/large/avetetsuya-studios-alien.jpg?1661309922",
-        "image":
-            "https://th.bing.com/th/id/OIP.t2-WUEoELg8LjksAZ8dJrgAAAA?rs=1&pid=ImgDetMain",
-        "isNew": true,
-      },
-      {
-        "product_id": 3,
-        "name": "Monkey D. Luffy",
-        "status": "Premium",
-        "profile":
-            "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
-        "image":
-            "https://th.bing.com/th/id/R.edf5a7600628b4500e94d4e404af407b?rik=POg5zdgXd%2bxSVg&riu=http%3a%2f%2fm.gettywallpapers.com%2fwp-content%2fuploads%2f2023%2f05%2fJapanese-Anime-Boy-Profile-Picture.jpg&ehk=zq6b58zWRPs0qH%2bo32Us8NSSP%2ba4aFfr7uXTP9lUmHY%3d&risl=&pid=ImgRaw&r=0",
-        "isNew": false,
-      },
-      {
-        "product_id": 4,
-        "name": "Levi Ackerman",
-        "status": "Emote",
-        "profile":
-            "https://i.pinimg.com/originals/21/f4/46/21f4466cdcd1f132aa5cf9fe4c8b529d.jpg",
-        "image":
-            "https://i.pinimg.com/originals/36/95/71/369571e6e7e38b37750edfa91c22a3cc.jpg",
-        "isNew": false,
-      },
-      {
-        "product_id": 5,
-        "name": "Drakken Joe",
-        "status": "Premium",
-        "profile":
-            "https://i.pinimg.com/736x/c8/d1/db/c8d1dbd23718b07d374b8b891970117a.jpg",
-        "image":
-            "https://wallpapers.com/images/hd/matching-anime-profile-pictures-1080-x-1080-diw0d7jbom3sn7o3.jpg",
-        "isNew": false,
-      },
-      {
-        "name": "Tsunade",
-        "status": "Buy",
-        "profile":
-            "https://th.bing.com/th/id/OIP.rFtW3ETt5PdoNgBaKTHLyQHaF7?rs=1&pid=ImgDetMain",
-        "image": "https://cdn.wallpapersafari.com/6/86/JAvgzR.jpg",
-        "isNew": false,
-      },
-    ];
     return Stack(
       children: [
         Positioned.fill(
@@ -257,9 +264,12 @@ class SettingsContent extends StatelessWidget {
               children: [
                 SizedBox(width: getWidthSize(context, 0.037)),
                 Expanded(
-                  child: Text(
-                    "Change Your Avatar",
-                    style: getTextTheme(context).bodyMedium,
+                  child: Padding(
+                    padding: EdgeInsets.only(top: getWidthSize(context, 0.03)),
+                    child: Text(
+                      "Change Your Avatar",
+                      style: getTextTheme(context).bodyMedium,
+                    ),
                   ),
                 ),
                 Container(
@@ -300,8 +310,19 @@ class SettingsContent extends StatelessWidget {
                 childAspectRatio: 100 / 174,
               ),
               padding: EdgeInsets.all(getWidthSize(context, 0.032)),
-              itemBuilder: (context, index) =>
-                  SettingsAvatarCardItem(data: avatarSkins[index]),
+              itemBuilder: (context, index) => InkWell(
+                  onTap: () {
+                    setState(() {
+                      if (selectedAvatarIndex == index) {
+                        selectedAvatarIndex = -1;
+                      } else {
+                        selectedAvatarIndex = index;
+                      }
+                    });
+                  },
+                  child: SettingsAvatarCardItem(
+                      data: avatarSkins[index],
+                      selected: index == selectedAvatarIndex)),
             ),
           ],
         )
@@ -358,7 +379,6 @@ class SettingsContent extends StatelessWidget {
   }
 
   Widget _buildSettingsContent(BuildContext context) {
-    var avatarEnabled = true;
     return BlocBuilder<SettingsProfileBloc, SettingsProfileState>(
       builder: (context, state) {
         final bloc = BlocProvider.of<SettingsProfileBloc>(context);
@@ -367,23 +387,24 @@ class SettingsContent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
           children: [
-            SenpaiSwitchWithTitle(
-              value: avatarEnabled,
-              title: "Avatar",
-              onChanged: (isOn) {
-                avatarEnabled = isOn;
-              },
-            ),
+            // SenpaiSwitchWithTitle(
+            //   value: avatarEnabled,
+            //   title: "Avatar",
+            //   onChanged: (isOn) {
+            //     avatarEnabled = isOn;
+            //   },
+            // ),
             SizedBox(height: $constants.insets.sm),
             _buildChangeYourAvatar(context),
-            SizedBox(height: $constants.insets.sm),
-            _buildTestAvatarButton(context),
+            if (selectedAvatarIndex != -1)
+              SizedBox(height: $constants.insets.sm),
+            if (selectedAvatarIndex != -1) _buildTestAvatarButton(context),
             SizedBox(height: $constants.insets.sm),
             SenpaiSwitchWithTitle(
-              value: avatarEnabled,
+              value: removeLocationSlider,
               title: "Remove Location slider",
               onChanged: (isOn) {
-                avatarEnabled = isOn;
+                removeLocationSlider = isOn;
               },
             ),
             SizedBox(height: $constants.insets.sm),

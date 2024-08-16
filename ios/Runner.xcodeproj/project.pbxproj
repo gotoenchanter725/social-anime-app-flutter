@@ -17,8 +17,6 @@
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		CED619773F52EECC0AADCB14 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707A41A77CB93F5CD2A3BC55 /* Pods_Runner.framework */; };
 		DE556AE8CB162CDD87CF703C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F95A60E59335750FB1E6A7 /* GoogleService-Info.plist */; };
-		FC0B38F02C6AF1DF00E384CA /* UnityFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC0B38EF2C6AF1DF00E384CA /* UnityFramework.framework */; };
-		FC0B38F12C6AF1DF00E384CA /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC0B38EF2C6AF1DF00E384CA /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FCE6AF622C6EDE4C00176E7C /* AgoraAiEchoCancellationExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD212C31E53B006725D6 /* AgoraAiEchoCancellationExtension.framework */; };
 		FCE6AF632C6EDE4C00176E7C /* AgoraAiEchoCancellationExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD212C31E53B006725D6 /* AgoraAiEchoCancellationExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FCE6AF642C6EDE4C00176E7C /* AgoraAiNoiseSuppressionExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD222C31E53B006725D6 /* AgoraAiNoiseSuppressionExtension.framework */; };
@@ -87,7 +85,6 @@
 				FCE6AF7D2C6EDE4D00176E7C /* AgoraSoundTouch.framework in Embed Frameworks */,
 				FCE6AF812C6EDE4D00176E7C /* AgoraVideoDecoderExtension.framework in Embed Frameworks */,
 				FCE6AF792C6EDE4D00176E7C /* AgoraRtcKit.framework in Embed Frameworks */,
-				FC0B38F12C6AF1DF00E384CA /* UnityFramework.framework in Embed Frameworks */,
 				FCE6AF6F2C6EDE4C00176E7C /* AgoraDrmLoaderExtension.framework in Embed Frameworks */,
 				FCE6AF632C6EDE4C00176E7C /* AgoraAiEchoCancellationExtension.framework in Embed Frameworks */,
 				FCE6AF7B2C6EDE4D00176E7C /* AgoraRtcWrapper.framework in Embed Frameworks */,
@@ -209,7 +206,6 @@
 				FCE6AF822C6EDE4D00176E7C /* AgoraVideoEncoderExtension.framework in Frameworks */,
 				FCE6AF802C6EDE4D00176E7C /* AgoraVideoDecoderExtension.framework in Frameworks */,
 				FCE6AF862C6EDE4D00176E7C /* AgoraVideoSegmentationExtension.framework in Frameworks */,
-				FC0B38F02C6AF1DF00E384CA /* UnityFramework.framework in Frameworks */,
 				FCE6AF782C6EDE4D00176E7C /* AgoraRtcKit.framework in Frameworks */,
 				FCE6AF622C6EDE4C00176E7C /* AgoraAiEchoCancellationExtension.framework in Frameworks */,
 				FCE6AF842C6EDE4D00176E7C /* AgoraVideoQualityAnalyzerExtension.framework in Frameworks */,
