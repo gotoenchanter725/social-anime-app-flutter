@@ -132,8 +132,9 @@ class UnityViewVideoChatPage extends StatelessWidget {
   }
 
   void setChannelName() {
+    final channelName = matchData["channel_name"];
     _unityWidgetController.postMessage(
-        "DataController", "SetChannelName", "Test");
+        "DataController", "SetChannelName", channelName);
   }
 
   @override
