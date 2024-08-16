@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/match/blocs/start_video_match_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
-import 'package:senpai/screens/lobby/widgets/invite_lobby_dialog.dart';
 import 'package:senpai/screens/lobby/widgets/lobby_information.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/widgets/match_header.dart';
@@ -28,10 +27,6 @@ class _StartMatchState extends State<StartMatch> {
     final bloc = BlocProvider.of<ProfileBloc>(context);
     isVerified = bloc.isUserVerified;
     super.initState();
-
-    Future.delayed(const Duration(seconds: 2), () {
-      showInviteLobbyDialog(context, null);
-    });
   }
 
   @override

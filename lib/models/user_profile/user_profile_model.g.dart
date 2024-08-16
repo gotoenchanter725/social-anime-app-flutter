@@ -34,13 +34,13 @@ _$UserProfileModelImpl _$$UserProfileModelImplFromJson(
       lonlat: json['lonlat'] as String?,
       onlineStatus: json['onlineStatus'] as String?,
       premium: json['premium'] as bool?,
-      superLikeCount: json['superLikeCount'] as int?,
+      superLikeCount: (json['superLikeCount'] as num?)?.toInt(),
       favoriteMusic: (json['favoriteMusic'] as List<dynamic>?)
           ?.map(
               (e) => UserFavoriteMusicModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       hasLocationHidden: json['hasLocationHidden'] as bool?,
-      milesAway: json['milesAway'] as int?,
+      milesAway: (json['milesAway'] as num?)?.toInt(),
       nextPaymentDate: json['nextPaymentDate'] == null
           ? null
           : DateTime.parse(json['nextPaymentDate'] as String),

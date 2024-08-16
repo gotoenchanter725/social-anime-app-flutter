@@ -11,7 +11,7 @@ _$UploadPhotoModelImpl _$$UploadPhotoModelImplFromJson(
     _$UploadPhotoModelImpl(
       id: json['id'] as String,
       url: json['url'] as String?,
-      order: json['order'] as int?,
+      order: (json['order'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$$UploadPhotoModelImplToJson(

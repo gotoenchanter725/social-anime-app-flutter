@@ -15,8 +15,8 @@ _$UpdateUserModelImpl _$$UpdateUserModelImplFromJson(
       birthday: json['birthday'] == null
           ? null
           : DateTime.parse(json['birthday'] as String),
-      gender: json['gender'] as int?,
-      desiredGender: json['desiredGender'] as int?,
+      gender: (json['gender'] as num?)?.toInt(),
+      desiredGender: (json['desiredGender'] as num?)?.toInt(),
       occupation: json['occupation'] as String?,
       school: json['school'] as String?,
       bio: json['bio'] as String?,
