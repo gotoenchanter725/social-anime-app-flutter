@@ -61,6 +61,8 @@
 		FCE6AF8B2C6EDE4D00176E7C /* video_enc.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0653FD352C31E53B006725D6 /* video_enc.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FCE6AF8C2C6EDE7100176E7C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067F20E92C513ED4000A99AF /* opencv2.framework */; };
 		FCE6AF8D2C6EDE7100176E7C /* opencv2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 067F20E92C513ED4000A99AF /* opencv2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FCE6AF8F2C6EF2CA00176E7C /* UnityFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE6AF8E2C6EF2CA00176E7C /* UnityFramework.framework */; };
+		FCE6AF902C6EF2CA00176E7C /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCE6AF8E2C6EF2CA00176E7C /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,7 @@
 				FCE6AF752C6EDE4D00176E7C /* Agoraffmpeg.framework in Embed Frameworks */,
 				FCE6AF832C6EDE4D00176E7C /* AgoraVideoEncoderExtension.framework in Embed Frameworks */,
 				FCE6AF892C6EDE4D00176E7C /* video_dec.framework in Embed Frameworks */,
+				FCE6AF902C6EF2CA00176E7C /* UnityFramework.framework in Embed Frameworks */,
 				FCE6AF8B2C6EDE4D00176E7C /* video_enc.framework in Embed Frameworks */,
 				FCE6AF712C6EDE4C00176E7C /* AgoraFaceDetectionExtension.framework in Embed Frameworks */,
 				FCE6AF692C6EDE4C00176E7C /* AgoraClearVisionExtension.framework in Embed Frameworks */,
@@ -180,6 +183,7 @@
 		B0F90D6BA9A2344F2C2C5B5B /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		ED08B3338649AEB0CA0AB686 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 		FC0B38EF2C6AF1DF00E384CA /* UnityFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UnityFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCE6AF8E2C6EF2CA00176E7C /* UnityFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UnityFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,7 @@
 				FCE6AF822C6EDE4D00176E7C /* AgoraVideoEncoderExtension.framework in Frameworks */,
 				FCE6AF802C6EDE4D00176E7C /* AgoraVideoDecoderExtension.framework in Frameworks */,
 				FCE6AF862C6EDE4D00176E7C /* AgoraVideoSegmentationExtension.framework in Frameworks */,
+				FCE6AF8F2C6EF2CA00176E7C /* UnityFramework.framework in Frameworks */,
 				FCE6AF782C6EDE4D00176E7C /* AgoraRtcKit.framework in Frameworks */,
 				FCE6AF622C6EDE4C00176E7C /* AgoraAiEchoCancellationExtension.framework in Frameworks */,
 				FCE6AF842C6EDE4D00176E7C /* AgoraVideoQualityAnalyzerExtension.framework in Frameworks */,
@@ -240,6 +245,7 @@
 		2A0F385F969CB92A63375C03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FCE6AF8E2C6EF2CA00176E7C /* UnityFramework.framework */,
 				FC0B38EF2C6AF1DF00E384CA /* UnityFramework.framework */,
 				6512FD162C4D97040034B32F /* AgoraAiEchoCancellationExtension.framework */,
 				6512FD172C4D97040034B32F /* AgoraAiNoiseSuppressionExtension.framework */,
