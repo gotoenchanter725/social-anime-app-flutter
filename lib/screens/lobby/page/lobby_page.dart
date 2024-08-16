@@ -94,10 +94,11 @@ class _LobbyPageState extends State<LobbyPage> {
       data: (data) {
         // if the data is for involves the current user:
         logIt.info("Received data from lobby subscriptions: $data");
-        // final matcheeID = data["matchee_id"];
+        final matcheeID = data["matchee_id"];
         final status = data["status"];
 
-        bool shouldShowDialog = status == "pending";
+        bool shouldShowDialog = status == "pending" && matcheeID == userId;
+
         if (shouldShowDialog) {
           // show accept/reject dialog
           showInviteLobbyDialog(context, data);
