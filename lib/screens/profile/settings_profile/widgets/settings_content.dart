@@ -400,14 +400,14 @@ class _SettingsContentState extends State<SettingsContent> {
               SizedBox(height: $constants.insets.sm),
             if (selectedAvatarIndex != -1) _buildTestAvatarButton(context),
             SizedBox(height: $constants.insets.sm),
-            SenpaiSwitchWithTitle(
-              value: removeLocationSlider,
-              title: "Remove Location slider",
-              onChanged: (isOn) {
-                removeLocationSlider = isOn;
-              },
-            ),
-            SizedBox(height: $constants.insets.sm),
+            // SenpaiSwitchWithTitle(
+            //   value: removeLocationSlider,
+            //   title: "Remove Location slider",
+            //   onChanged: (isOn) {
+            //     removeLocationSlider = isOn;
+            //   },
+            // ),
+            // SizedBox(height: $constants.insets.sm),
 
             Text(
               R.strings.accountSettingsTitle,
