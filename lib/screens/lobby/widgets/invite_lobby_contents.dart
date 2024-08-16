@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:senpai/core/match/blocs/accept_video_match_bloc.dart';
-import 'package:senpai/core/match/blocs/decline_video_match_bloc.dart';
+import 'package:senpai/core/match/blocs/accept_video_call_bloc.dart';
+import 'package:senpai/core/match/blocs/deny_video_call_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
@@ -57,7 +57,7 @@ class InviteLobbyContents extends StatelessWidget {
                     Expanded(
                       child: InkWell(
                         onTap: () {
-                          context.read<AcceptVideoMatchBloc>().acceptVideoMatch(
+                          context.read<AcceptVideoCallBloc>().acceptVideoCall(
                               matchId: matchData["video_chat_request_id"]
                                   .toString());
                         },
@@ -126,7 +126,7 @@ class InviteLobbyContents extends StatelessWidget {
                     SizedBox(width: getWidthSize(context, 0.027)),
                     InkWell(
                       onTap: () {
-                        context.read<DeclineVideoMatchBloc>().declineVideoMatch(
+                        context.read<DenyVideoCallBloc>().denyVideoCall(
                             matchId:
                                 matchData["video_chat_request_id"].toString());
                       },

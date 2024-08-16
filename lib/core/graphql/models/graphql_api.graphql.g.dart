@@ -3566,132 +3566,6 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
     };
 
-AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequest
-    _$AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequestFromJson(
-            Map<String, dynamic> json) =>
-        AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequest()
-          ..id = json['id'] as String
-          ..status = json['status'] as String?
-          ..senderId = json['senderId'] as int
-          ..receiverId = json['receiverId'] as int;
-
-Map<String, dynamic>
-    _$AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequestToJson(
-            AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequest
-                instance) =>
-        <String, dynamic>{
-          'id': instance.id,
-          'status': instance.status,
-          'senderId': instance.senderId,
-          'receiverId': instance.receiverId,
-        };
-
-AcceptMatchRequest$Mutation$AcceptMatchRequest
-    _$AcceptMatchRequest$Mutation$AcceptMatchRequestFromJson(
-            Map<String, dynamic> json) =>
-        AcceptMatchRequest$Mutation$AcceptMatchRequest()
-          ..matchRequest = json['matchRequest'] == null
-              ? null
-              : AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequest
-                  .fromJson(json['matchRequest'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$AcceptMatchRequest$Mutation$AcceptMatchRequestToJson(
-        AcceptMatchRequest$Mutation$AcceptMatchRequest instance) =>
-    <String, dynamic>{
-      'matchRequest': instance.matchRequest?.toJson(),
-    };
-
-AcceptMatchRequest$Mutation _$AcceptMatchRequest$MutationFromJson(
-        Map<String, dynamic> json) =>
-    AcceptMatchRequest$Mutation()
-      ..acceptMatchRequest = json['acceptMatchRequest'] == null
-          ? null
-          : AcceptMatchRequest$Mutation$AcceptMatchRequest.fromJson(
-              json['acceptMatchRequest'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$AcceptMatchRequest$MutationToJson(
-        AcceptMatchRequest$Mutation instance) =>
-    <String, dynamic>{
-      'acceptMatchRequest': instance.acceptMatchRequest?.toJson(),
-    };
-
-AcceptMatchRequestInput _$AcceptMatchRequestInputFromJson(
-        Map<String, dynamic> json) =>
-    AcceptMatchRequestInput(
-      clientMutationId: json['clientMutationId'] as String?,
-      matchRequestId: json['matchRequestId'] as String,
-    );
-
-Map<String, dynamic> _$AcceptMatchRequestInputToJson(
-        AcceptMatchRequestInput instance) =>
-    <String, dynamic>{
-      'clientMutationId': instance.clientMutationId,
-      'matchRequestId': instance.matchRequestId,
-    };
-
-DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequest
-    _$DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequestFromJson(
-            Map<String, dynamic> json) =>
-        DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequest()
-          ..id = json['id'] as String
-          ..status = json['status'] as String?
-          ..senderId = json['senderId'] as int
-          ..receiverId = json['receiverId'] as int;
-
-Map<String, dynamic>
-    _$DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequestToJson(
-            DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequest
-                instance) =>
-        <String, dynamic>{
-          'id': instance.id,
-          'status': instance.status,
-          'senderId': instance.senderId,
-          'receiverId': instance.receiverId,
-        };
-
-DeclineMatchRequest$Mutation$DeclineMatchRequest
-    _$DeclineMatchRequest$Mutation$DeclineMatchRequestFromJson(
-            Map<String, dynamic> json) =>
-        DeclineMatchRequest$Mutation$DeclineMatchRequest()
-          ..matchRequest = json['matchRequest'] == null
-              ? null
-              : DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequest
-                  .fromJson(json['matchRequest'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$DeclineMatchRequest$Mutation$DeclineMatchRequestToJson(
-        DeclineMatchRequest$Mutation$DeclineMatchRequest instance) =>
-    <String, dynamic>{
-      'matchRequest': instance.matchRequest?.toJson(),
-    };
-
-DeclineMatchRequest$Mutation _$DeclineMatchRequest$MutationFromJson(
-        Map<String, dynamic> json) =>
-    DeclineMatchRequest$Mutation()
-      ..declineMatchRequest = json['declineMatchRequest'] == null
-          ? null
-          : DeclineMatchRequest$Mutation$DeclineMatchRequest.fromJson(
-              json['declineMatchRequest'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$DeclineMatchRequest$MutationToJson(
-        DeclineMatchRequest$Mutation instance) =>
-    <String, dynamic>{
-      'declineMatchRequest': instance.declineMatchRequest?.toJson(),
-    };
-
-DeclineMatchRequestInput _$DeclineMatchRequestInputFromJson(
-        Map<String, dynamic> json) =>
-    DeclineMatchRequestInput(
-      clientMutationId: json['clientMutationId'] as String?,
-      matchRequestId: json['matchRequestId'] as String,
-    );
-
-Map<String, dynamic> _$DeclineMatchRequestInputToJson(
-        DeclineMatchRequestInput instance) =>
-    <String, dynamic>{
-      'clientMutationId': instance.clientMutationId,
-      'matchRequestId': instance.matchRequestId,
-    };
-
 SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
     _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestFromJson(
             Map<String, dynamic> json) =>
@@ -3754,6 +3628,120 @@ Map<String, dynamic> _$SendVideoChatRequestInputToJson(
       'clientMutationId': instance.clientMutationId,
       'matcheeId': instance.matcheeId,
       'userId': instance.userId,
+    };
+
+AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch
+    _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchFromJson(
+            Map<String, dynamic> json) =>
+        AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch()
+          ..id = json['id'] as String
+          ..status = json['status'] as String;
+
+Map<String, dynamic>
+    _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchToJson(
+            AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'status': instance.status,
+        };
+
+AcceptVideoChat$Mutation$AcceptVideoCall
+    _$AcceptVideoChat$Mutation$AcceptVideoCallFromJson(
+            Map<String, dynamic> json) =>
+        AcceptVideoChat$Mutation$AcceptVideoCall()
+          ..videoMatch = json['videoMatch'] == null
+              ? null
+              : AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch.fromJson(
+                  json['videoMatch'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AcceptVideoChat$Mutation$AcceptVideoCallToJson(
+        AcceptVideoChat$Mutation$AcceptVideoCall instance) =>
+    <String, dynamic>{
+      'videoMatch': instance.videoMatch?.toJson(),
+    };
+
+AcceptVideoChat$Mutation _$AcceptVideoChat$MutationFromJson(
+        Map<String, dynamic> json) =>
+    AcceptVideoChat$Mutation()
+      ..acceptVideoCall = json['acceptVideoCall'] == null
+          ? null
+          : AcceptVideoChat$Mutation$AcceptVideoCall.fromJson(
+              json['acceptVideoCall'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AcceptVideoChat$MutationToJson(
+        AcceptVideoChat$Mutation instance) =>
+    <String, dynamic>{
+      'acceptVideoCall': instance.acceptVideoCall?.toJson(),
+    };
+
+AcceptVideoCallInput _$AcceptVideoCallInputFromJson(
+        Map<String, dynamic> json) =>
+    AcceptVideoCallInput(
+      chatRequestId: json['chatRequestId'] as String,
+      clientMutationId: json['clientMutationId'] as String?,
+    );
+
+Map<String, dynamic> _$AcceptVideoCallInputToJson(
+        AcceptVideoCallInput instance) =>
+    <String, dynamic>{
+      'chatRequestId': instance.chatRequestId,
+      'clientMutationId': instance.clientMutationId,
+    };
+
+DenyVideoCall$Mutation$DenyVideoCall$Request
+    _$DenyVideoCall$Mutation$DenyVideoCall$RequestFromJson(
+            Map<String, dynamic> json) =>
+        DenyVideoCall$Mutation$DenyVideoCall$Request()
+          ..id = json['id'] as String
+          ..userId = json['userId'] as int
+          ..matcheeId = json['matcheeId'] as int;
+
+Map<String, dynamic> _$DenyVideoCall$Mutation$DenyVideoCall$RequestToJson(
+        DenyVideoCall$Mutation$DenyVideoCall$Request instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'userId': instance.userId,
+      'matcheeId': instance.matcheeId,
+    };
+
+DenyVideoCall$Mutation$DenyVideoCall
+    _$DenyVideoCall$Mutation$DenyVideoCallFromJson(Map<String, dynamic> json) =>
+        DenyVideoCall$Mutation$DenyVideoCall()
+          ..request = json['request'] == null
+              ? null
+              : DenyVideoCall$Mutation$DenyVideoCall$Request.fromJson(
+                  json['request'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DenyVideoCall$Mutation$DenyVideoCallToJson(
+        DenyVideoCall$Mutation$DenyVideoCall instance) =>
+    <String, dynamic>{
+      'request': instance.request?.toJson(),
+    };
+
+DenyVideoCall$Mutation _$DenyVideoCall$MutationFromJson(
+        Map<String, dynamic> json) =>
+    DenyVideoCall$Mutation()
+      ..denyVideoCall = json['denyVideoCall'] == null
+          ? null
+          : DenyVideoCall$Mutation$DenyVideoCall.fromJson(
+              json['denyVideoCall'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DenyVideoCall$MutationToJson(
+        DenyVideoCall$Mutation instance) =>
+    <String, dynamic>{
+      'denyVideoCall': instance.denyVideoCall?.toJson(),
+    };
+
+DenyVideoCallInput _$DenyVideoCallInputFromJson(Map<String, dynamic> json) =>
+    DenyVideoCallInput(
+      chatRequestId: json['chatRequestId'] as String,
+      clientMutationId: json['clientMutationId'] as String?,
+    );
+
+Map<String, dynamic> _$DenyVideoCallInputToJson(DenyVideoCallInput instance) =>
+    <String, dynamic>{
+      'chatRequestId': instance.chatRequestId,
+      'clientMutationId': instance.clientMutationId,
     };
 
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
@@ -4203,32 +4191,6 @@ Map<String, dynamic> _$FetchStickersArgumentsToJson(
       'page': instance.page,
     };
 
-AcceptMatchRequestArguments _$AcceptMatchRequestArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    AcceptMatchRequestArguments(
-      input: AcceptMatchRequestInput.fromJson(
-          json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$AcceptMatchRequestArgumentsToJson(
-        AcceptMatchRequestArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
-    };
-
-DeclineMatchRequestArguments _$DeclineMatchRequestArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    DeclineMatchRequestArguments(
-      input: DeclineMatchRequestInput.fromJson(
-          json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$DeclineMatchRequestArgumentsToJson(
-        DeclineMatchRequestArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
-    };
-
 SendVideoChatRequestArguments _$SendVideoChatRequestArgumentsFromJson(
         Map<String, dynamic> json) =>
     SendVideoChatRequestArguments(
@@ -4238,6 +4200,31 @@ SendVideoChatRequestArguments _$SendVideoChatRequestArgumentsFromJson(
 
 Map<String, dynamic> _$SendVideoChatRequestArgumentsToJson(
         SendVideoChatRequestArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+AcceptVideoChatArguments _$AcceptVideoChatArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    AcceptVideoChatArguments(
+      input:
+          AcceptVideoCallInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$AcceptVideoChatArgumentsToJson(
+        AcceptVideoChatArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+DenyVideoCallArguments _$DenyVideoCallArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    DenyVideoCallArguments(
+      input: DenyVideoCallInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$DenyVideoCallArgumentsToJson(
+        DenyVideoCallArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };

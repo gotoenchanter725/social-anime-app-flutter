@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
-import 'package:senpai/core/match/blocs/accept_video_match_bloc.dart';
-import 'package:senpai/core/match/blocs/decline_video_match_bloc.dart';
+import 'package:senpai/core/match/blocs/accept_video_call_bloc.dart';
+import 'package:senpai/core/match/blocs/deny_video_call_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
@@ -41,10 +41,10 @@ class InviteLobbyDialog extends StatelessWidget {
       body: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (_) => AcceptVideoMatchBloc(),
+            create: (_) => AcceptVideoCallBloc(),
           ),
           BlocProvider(
-            create: (_) => DeclineVideoMatchBloc(),
+            create: (_) => DenyVideoCallBloc(),
           ),
           BlocProvider(
             create: (_) => ProfileBloc()
@@ -53,7 +53,7 @@ class InviteLobbyDialog extends StatelessWidget {
               ),
           ),
         ],
-        child: BlocListener<DeclineVideoMatchBloc, MutationState>(
+        child: BlocListener<DenyVideoCallBloc, MutationState>(
           listener: (context, state) {
             state.whenOrNull(succeeded: (data, result) {
               context.router.pop();
@@ -61,7 +61,7 @@ class InviteLobbyDialog extends StatelessWidget {
               showSnackBarError(context, error.graphqlErrors.first.message);
             });
           },
-          child: BlocBuilder<AcceptVideoMatchBloc, MutationState>(
+          child: BlocBuilder<AcceptVideoCallBloc, MutationState>(
             builder: (context, state) {
               state.whenOrNull(
                 failed: (error, result) {

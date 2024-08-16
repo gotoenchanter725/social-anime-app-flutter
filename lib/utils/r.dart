@@ -86,6 +86,15 @@ class _ImageResources {
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/profile/spotify_bg.png)
   final spotify_bg = r'assets/images/profile/spotify_bg.png';
 
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/profile/btn_discord.png)
+  final btn_discord = r'assets/images/profile/btn_discord.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/profile/btn_twitter.png)
+  final btn_twitter = r'assets/images/profile/btn_twitter.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/profile/btn_reddit.png)
+  final btn_reddit = r'assets/images/profile/btn_reddit.png';
+
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/match/accept_btn_bg.png)
   final accept_btn_bg = r'assets/images/match/accept_btn_bg.png';
 
@@ -112,6 +121,9 @@ class _ImageResources {
 
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/match/profile_verify_shadow.png)
   final profile_verify_shadow = r'assets/images/match/profile_verify_shadow.png';
+
+  /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/match/invite_accept_bg.png)
+  final invite_accept_bg = r'assets/images/match/invite_accept_bg.png';
 
   /// ![](/Users/daniel/Desktop/work/senpai-app/assets/images/avatar_shop/new_tag.png)
   final new_tag = r'assets/images/avatar_shop/new_tag.png';

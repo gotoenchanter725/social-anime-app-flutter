@@ -4751,164 +4751,6 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequest
-    extends JsonSerializable with EquatableMixin {
-  AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequest();
-
-  factory AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequestFromJson(
-          json);
-
-  late String id;
-
-  String? status;
-
-  late int senderId;
-
-  late int receiverId;
-
-  @override
-  List<Object?> get props => [id, status, senderId, receiverId];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequestToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AcceptMatchRequest$Mutation$AcceptMatchRequest extends JsonSerializable
-    with EquatableMixin {
-  AcceptMatchRequest$Mutation$AcceptMatchRequest();
-
-  factory AcceptMatchRequest$Mutation$AcceptMatchRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$AcceptMatchRequest$Mutation$AcceptMatchRequestFromJson(json);
-
-  AcceptMatchRequest$Mutation$AcceptMatchRequest$MatchRequest? matchRequest;
-
-  @override
-  List<Object?> get props => [matchRequest];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$AcceptMatchRequest$Mutation$AcceptMatchRequestToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AcceptMatchRequest$Mutation extends JsonSerializable with EquatableMixin {
-  AcceptMatchRequest$Mutation();
-
-  factory AcceptMatchRequest$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$AcceptMatchRequest$MutationFromJson(json);
-
-  AcceptMatchRequest$Mutation$AcceptMatchRequest? acceptMatchRequest;
-
-  @override
-  List<Object?> get props => [acceptMatchRequest];
-  @override
-  Map<String, dynamic> toJson() => _$AcceptMatchRequest$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AcceptMatchRequestInput extends JsonSerializable with EquatableMixin {
-  AcceptMatchRequestInput({
-    this.clientMutationId,
-    required this.matchRequestId,
-  });
-
-  factory AcceptMatchRequestInput.fromJson(Map<String, dynamic> json) =>
-      _$AcceptMatchRequestInputFromJson(json);
-
-  String? clientMutationId;
-
-  late String matchRequestId;
-
-  @override
-  List<Object?> get props => [clientMutationId, matchRequestId];
-  @override
-  Map<String, dynamic> toJson() => _$AcceptMatchRequestInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequest
-    extends JsonSerializable with EquatableMixin {
-  DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequest();
-
-  factory DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequestFromJson(
-          json);
-
-  late String id;
-
-  String? status;
-
-  late int senderId;
-
-  late int receiverId;
-
-  @override
-  List<Object?> get props => [id, status, senderId, receiverId];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequestToJson(
-          this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeclineMatchRequest$Mutation$DeclineMatchRequest extends JsonSerializable
-    with EquatableMixin {
-  DeclineMatchRequest$Mutation$DeclineMatchRequest();
-
-  factory DeclineMatchRequest$Mutation$DeclineMatchRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$DeclineMatchRequest$Mutation$DeclineMatchRequestFromJson(json);
-
-  DeclineMatchRequest$Mutation$DeclineMatchRequest$MatchRequest? matchRequest;
-
-  @override
-  List<Object?> get props => [matchRequest];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$DeclineMatchRequest$Mutation$DeclineMatchRequestToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeclineMatchRequest$Mutation extends JsonSerializable
-    with EquatableMixin {
-  DeclineMatchRequest$Mutation();
-
-  factory DeclineMatchRequest$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$DeclineMatchRequest$MutationFromJson(json);
-
-  DeclineMatchRequest$Mutation$DeclineMatchRequest? declineMatchRequest;
-
-  @override
-  List<Object?> get props => [declineMatchRequest];
-  @override
-  Map<String, dynamic> toJson() => _$DeclineMatchRequest$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeclineMatchRequestInput extends JsonSerializable with EquatableMixin {
-  DeclineMatchRequestInput({
-    this.clientMutationId,
-    required this.matchRequestId,
-  });
-
-  factory DeclineMatchRequestInput.fromJson(Map<String, dynamic> json) =>
-      _$DeclineMatchRequestInputFromJson(json);
-
-  String? clientMutationId;
-
-  late String matchRequestId;
-
-  @override
-  List<Object?> get props => [clientMutationId, matchRequestId];
-  @override
-  Map<String, dynamic> toJson() => _$DeclineMatchRequestInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
 class SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
     extends JsonSerializable with EquatableMixin {
   SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest();
@@ -4990,6 +4832,154 @@ class SendVideoChatRequestInput extends JsonSerializable with EquatableMixin {
   List<Object?> get props => [clientMutationId, matcheeId, userId];
   @override
   Map<String, dynamic> toJson() => _$SendVideoChatRequestInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch
+    extends JsonSerializable with EquatableMixin {
+  AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch();
+
+  factory AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch.fromJson(
+          Map<String, dynamic> json) =>
+      _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchFromJson(json);
+
+  late String id;
+
+  late String status;
+
+  @override
+  List<Object?> get props => [id, status];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AcceptVideoChat$Mutation$AcceptVideoCall extends JsonSerializable
+    with EquatableMixin {
+  AcceptVideoChat$Mutation$AcceptVideoCall();
+
+  factory AcceptVideoChat$Mutation$AcceptVideoCall.fromJson(
+          Map<String, dynamic> json) =>
+      _$AcceptVideoChat$Mutation$AcceptVideoCallFromJson(json);
+
+  AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch? videoMatch;
+
+  @override
+  List<Object?> get props => [videoMatch];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$AcceptVideoChat$Mutation$AcceptVideoCallToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AcceptVideoChat$Mutation extends JsonSerializable with EquatableMixin {
+  AcceptVideoChat$Mutation();
+
+  factory AcceptVideoChat$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$AcceptVideoChat$MutationFromJson(json);
+
+  AcceptVideoChat$Mutation$AcceptVideoCall? acceptVideoCall;
+
+  @override
+  List<Object?> get props => [acceptVideoCall];
+  @override
+  Map<String, dynamic> toJson() => _$AcceptVideoChat$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AcceptVideoCallInput extends JsonSerializable with EquatableMixin {
+  AcceptVideoCallInput({
+    required this.chatRequestId,
+    this.clientMutationId,
+  });
+
+  factory AcceptVideoCallInput.fromJson(Map<String, dynamic> json) =>
+      _$AcceptVideoCallInputFromJson(json);
+
+  late String chatRequestId;
+
+  String? clientMutationId;
+
+  @override
+  List<Object?> get props => [chatRequestId, clientMutationId];
+  @override
+  Map<String, dynamic> toJson() => _$AcceptVideoCallInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DenyVideoCall$Mutation$DenyVideoCall$Request extends JsonSerializable
+    with EquatableMixin {
+  DenyVideoCall$Mutation$DenyVideoCall$Request();
+
+  factory DenyVideoCall$Mutation$DenyVideoCall$Request.fromJson(
+          Map<String, dynamic> json) =>
+      _$DenyVideoCall$Mutation$DenyVideoCall$RequestFromJson(json);
+
+  late String id;
+
+  late int userId;
+
+  late int matcheeId;
+
+  @override
+  List<Object?> get props => [id, userId, matcheeId];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$DenyVideoCall$Mutation$DenyVideoCall$RequestToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DenyVideoCall$Mutation$DenyVideoCall extends JsonSerializable
+    with EquatableMixin {
+  DenyVideoCall$Mutation$DenyVideoCall();
+
+  factory DenyVideoCall$Mutation$DenyVideoCall.fromJson(
+          Map<String, dynamic> json) =>
+      _$DenyVideoCall$Mutation$DenyVideoCallFromJson(json);
+
+  DenyVideoCall$Mutation$DenyVideoCall$Request? request;
+
+  @override
+  List<Object?> get props => [request];
+  @override
+  Map<String, dynamic> toJson() =>
+      _$DenyVideoCall$Mutation$DenyVideoCallToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DenyVideoCall$Mutation extends JsonSerializable with EquatableMixin {
+  DenyVideoCall$Mutation();
+
+  factory DenyVideoCall$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$DenyVideoCall$MutationFromJson(json);
+
+  DenyVideoCall$Mutation$DenyVideoCall? denyVideoCall;
+
+  @override
+  List<Object?> get props => [denyVideoCall];
+  @override
+  Map<String, dynamic> toJson() => _$DenyVideoCall$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DenyVideoCallInput extends JsonSerializable with EquatableMixin {
+  DenyVideoCallInput({
+    required this.chatRequestId,
+    this.clientMutationId,
+  });
+
+  factory DenyVideoCallInput.fromJson(Map<String, dynamic> json) =>
+      _$DenyVideoCallInputFromJson(json);
+
+  late String chatRequestId;
+
+  String? clientMutationId;
+
+  @override
+  List<Object?> get props => [chatRequestId, clientMutationId];
+  @override
+  Map<String, dynamic> toJson() => _$DenyVideoCallInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -10894,225 +10884,6 @@ class FetchStickersQuery
 }
 
 @JsonSerializable(explicitToJson: true)
-class AcceptMatchRequestArguments extends JsonSerializable with EquatableMixin {
-  AcceptMatchRequestArguments({required this.input});
-
-  @override
-  factory AcceptMatchRequestArguments.fromJson(Map<String, dynamic> json) =>
-      _$AcceptMatchRequestArgumentsFromJson(json);
-
-  late AcceptMatchRequestInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$AcceptMatchRequestArgumentsToJson(this);
-}
-
-final ACCEPT_MATCH_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME =
-    'acceptMatchRequest';
-final ACCEPT_MATCH_REQUEST_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'acceptMatchRequest'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'AcceptMatchRequestInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'acceptMatchRequest'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'matchRequest'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'status'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'senderId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'receiverId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class AcceptMatchRequestMutation extends GraphQLQuery<
-    AcceptMatchRequest$Mutation, AcceptMatchRequestArguments> {
-  AcceptMatchRequestMutation({required this.variables});
-
-  @override
-  final DocumentNode document = ACCEPT_MATCH_REQUEST_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName =
-      ACCEPT_MATCH_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final AcceptMatchRequestArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  AcceptMatchRequest$Mutation parse(Map<String, dynamic> json) =>
-      AcceptMatchRequest$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DeclineMatchRequestArguments extends JsonSerializable
-    with EquatableMixin {
-  DeclineMatchRequestArguments({required this.input});
-
-  @override
-  factory DeclineMatchRequestArguments.fromJson(Map<String, dynamic> json) =>
-      _$DeclineMatchRequestArgumentsFromJson(json);
-
-  late DeclineMatchRequestInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$DeclineMatchRequestArgumentsToJson(this);
-}
-
-final DECLINE_MATCH_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME =
-    'declineMatchRequest';
-final DECLINE_MATCH_REQUEST_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'declineMatchRequest'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'DeclineMatchRequestInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'declineMatchRequest'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'matchRequest'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'status'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'senderId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'receiverId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class DeclineMatchRequestMutation extends GraphQLQuery<
-    DeclineMatchRequest$Mutation, DeclineMatchRequestArguments> {
-  DeclineMatchRequestMutation({required this.variables});
-
-  @override
-  final DocumentNode document = DECLINE_MATCH_REQUEST_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName =
-      DECLINE_MATCH_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final DeclineMatchRequestArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  DeclineMatchRequest$Mutation parse(Map<String, dynamic> json) =>
-      DeclineMatchRequest$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
 class SendVideoChatRequestArguments extends JsonSerializable
     with EquatableMixin {
   SendVideoChatRequestArguments({required this.input});
@@ -11220,4 +10991,198 @@ class SendVideoChatRequestMutation extends GraphQLQuery<
   @override
   SendVideoChatRequest$Mutation parse(Map<String, dynamic> json) =>
       SendVideoChatRequest$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AcceptVideoChatArguments extends JsonSerializable with EquatableMixin {
+  AcceptVideoChatArguments({required this.input});
+
+  @override
+  factory AcceptVideoChatArguments.fromJson(Map<String, dynamic> json) =>
+      _$AcceptVideoChatArgumentsFromJson(json);
+
+  late AcceptVideoCallInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$AcceptVideoChatArgumentsToJson(this);
+}
+
+final ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT_OPERATION_NAME = 'acceptVideoChat';
+final ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'acceptVideoChat'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'AcceptVideoCallInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'acceptVideoCall'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'videoMatch'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'status'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class AcceptVideoChatMutation
+    extends GraphQLQuery<AcceptVideoChat$Mutation, AcceptVideoChatArguments> {
+  AcceptVideoChatMutation({required this.variables});
+
+  @override
+  final DocumentNode document = ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final AcceptVideoChatArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  AcceptVideoChat$Mutation parse(Map<String, dynamic> json) =>
+      AcceptVideoChat$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DenyVideoCallArguments extends JsonSerializable with EquatableMixin {
+  DenyVideoCallArguments({required this.input});
+
+  @override
+  factory DenyVideoCallArguments.fromJson(Map<String, dynamic> json) =>
+      _$DenyVideoCallArgumentsFromJson(json);
+
+  late DenyVideoCallInput input;
+
+  @override
+  List<Object?> get props => [input];
+  @override
+  Map<String, dynamic> toJson() => _$DenyVideoCallArgumentsToJson(this);
+}
+
+final DENY_VIDEO_CALL_MUTATION_DOCUMENT_OPERATION_NAME = 'denyVideoCall';
+final DENY_VIDEO_CALL_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'denyVideoCall'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'DenyVideoCallInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'denyVideoCall'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'request'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'userId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'matcheeId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class DenyVideoCallMutation
+    extends GraphQLQuery<DenyVideoCall$Mutation, DenyVideoCallArguments> {
+  DenyVideoCallMutation({required this.variables});
+
+  @override
+  final DocumentNode document = DENY_VIDEO_CALL_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = DENY_VIDEO_CALL_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final DenyVideoCallArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+  @override
+  DenyVideoCall$Mutation parse(Map<String, dynamic> json) =>
+      DenyVideoCall$Mutation.fromJson(json);
 }
