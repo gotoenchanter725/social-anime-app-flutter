@@ -95,6 +95,8 @@ class _LobbyPageState extends State<LobbyPage> {
         // if the data is for involves the current user:
         logIt.info("Received data from lobby subscriptions: $data");
         final matcheeID = data["matchee_id"];
+        final matchID = data["user_id"];
+
         final status = data["status"];
 
         bool shouldShowDialog = status == "pending" && matcheeID == userId;
@@ -102,6 +104,18 @@ class _LobbyPageState extends State<LobbyPage> {
         if (shouldShowDialog) {
           // show accept/reject dialog
           showInviteLobbyDialog(context, data);
+          return;
+        }
+
+        final involvedUserIds = [matchID, matcheeID];
+
+        bool shouldNavigateToUnityView =
+            status == "in_progress" && involvedUserIds.contains(userId);
+
+        if (shouldNavigateToUnityView) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            context.router.push(UnityViewVideoChatRoute(matchData: data));
+          });
         }
       },
       error: (message) {

@@ -19,14 +19,15 @@ import 'package:senpai/utils/methods/aliases.dart';
 
 @RoutePage()
 class UnityViewVideoChatPage extends StatelessWidget {
-  UnityViewVideoChatPage({super.key}) {
-    // TODO: implement UnityViewPage
-    // throw UnimplementedError();
+  UnityViewVideoChatPage({super.key, required this.matchData}) {
+    // empty to silence linter warnings
   }
 
   // ignore: unused_field
   late final UnityWidgetController _unityWidgetController;
   late final UserProfileModel _user;
+
+  final dynamic matchData;
 
   Future<void> postUserDetails() async {
     // Send User Info to Unity
@@ -192,4 +193,3 @@ class UnityViewVideoChatPage extends StatelessWidget {
     );
   }
 }
-
