@@ -11,6 +11,7 @@ import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
+import 'package:senpai/screens/lobby/widgets/invite_lobby_dialog.dart';
 import 'package:senpai/screens/lobby/widgets/lobby_page_content.dart';
 import 'package:senpai/screens/match/widgets/fetch_count_container.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
@@ -93,12 +94,13 @@ class _LobbyPageState extends State<LobbyPage> {
       data: (data) {
         // if the data is for involves the current user:
         logIt.info("Received data from lobby subscriptions: $data");
-        final matcheeID = data["matchee_id"];
+        // final matcheeID = data["matchee_id"];
         final status = data["status"];
 
-        bool shouldShowDialog = matcheeID == userId && status == "pending";
+        bool shouldShowDialog = status == "pending";
         if (shouldShowDialog) {
           // show accept/reject dialog
+          showInviteLobbyDialog(context, data);
         }
       },
       error: (message) {
