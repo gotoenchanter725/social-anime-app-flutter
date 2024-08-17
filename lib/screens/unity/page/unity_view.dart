@@ -108,7 +108,6 @@ class UnityViewPage extends StatelessWidget {
           'Received scene loaded from unity buildIndex: ${sceneInfo.buildIndex}');
 
       switch (sceneInfo.name) {
-
         case "TestAvatarScene":
           postUserDetails();
           break;
@@ -130,7 +129,6 @@ class UnityViewPage extends StatelessWidget {
     _unityWidgetController.postMessage(
         "SceneLoaderManager", "ChangeSceneBySceneID", "2");
   }
-
 
   void setPreselectedAvatar() {
     _unityWidgetController.postMessage("SceneLoaderManager",

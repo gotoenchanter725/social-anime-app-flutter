@@ -6,46 +6,46 @@ PODS:
   - connectivity_plus (0.0.1):
     - Flutter
     - ReachabilitySwift
-  - Firebase/Analytics (10.20.0):
+  - Firebase/Analytics (10.25.0):
     - Firebase/Core
-  - Firebase/Core (10.20.0):
+  - Firebase/Core (10.25.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (~> 10.20.0)
-  - Firebase/CoreOnly (10.20.0):
-    - FirebaseCore (= 10.20.0)
-  - Firebase/Messaging (10.20.0):
+    - FirebaseAnalytics (~> 10.25.0)
+  - Firebase/CoreOnly (10.25.0):
+    - FirebaseCore (= 10.25.0)
+  - Firebase/Messaging (10.25.0):
     - Firebase/CoreOnly
-    - FirebaseMessaging (~> 10.20.0)
-  - firebase_analytics (10.8.5):
-    - Firebase/Analytics (= 10.20.0)
+    - FirebaseMessaging (~> 10.25.0)
+  - firebase_analytics (10.10.7):
+    - Firebase/Analytics (= 10.25.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.25.4):
-    - Firebase/CoreOnly (= 10.20.0)
+  - firebase_core (2.32.0):
+    - Firebase/CoreOnly (= 10.25.0)
     - Flutter
-  - firebase_messaging (14.7.15):
-    - Firebase/Messaging (= 10.20.0)
+  - firebase_messaging (14.9.4):
+    - Firebase/Messaging (= 10.25.0)
     - firebase_core
     - Flutter
-  - FirebaseAnalytics (10.20.0):
-    - FirebaseAnalytics/AdIdSupport (= 10.20.0)
+  - FirebaseAnalytics (10.25.0):
+    - FirebaseAnalytics/AdIdSupport (= 10.25.0)
     - FirebaseCore (~> 10.0)
     - FirebaseInstallations (~> 10.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
     - GoogleUtilities/MethodSwizzler (~> 7.11)
     - GoogleUtilities/Network (~> 7.11)
     - "GoogleUtilities/NSData+zlib (~> 7.11)"
-    - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseAnalytics/AdIdSupport (10.20.0):
+    - nanopb (< 2.30911.0, >= 2.30908.0)
+  - FirebaseAnalytics/AdIdSupport (10.25.0):
     - FirebaseCore (~> 10.0)
     - FirebaseInstallations (~> 10.0)
-    - GoogleAppMeasurement (= 10.20.0)
+    - GoogleAppMeasurement (= 10.25.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
     - GoogleUtilities/MethodSwizzler (~> 7.11)
     - GoogleUtilities/Network (~> 7.11)
     - "GoogleUtilities/NSData+zlib (~> 7.11)"
-    - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseCore (10.20.0):
+    - nanopb (< 2.30911.0, >= 2.30908.0)
+  - FirebaseCore (10.25.0):
     - FirebaseCoreInternal (~> 10.0)
     - GoogleUtilities/Environment (~> 7.12)
     - GoogleUtilities/Logger (~> 7.12)
@@ -56,7 +56,7 @@ PODS:
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
     - PromisesObjC (~> 2.1)
-  - FirebaseMessaging (10.20.0):
+  - FirebaseMessaging (10.25.0):
     - FirebaseCore (~> 10.0)
     - FirebaseInstallations (~> 10.0)
     - GoogleDataTransport (~> 9.3)
@@ -64,7 +64,7 @@ PODS:
     - GoogleUtilities/Environment (~> 7.8)
     - GoogleUtilities/Reachability (~> 7.8)
     - GoogleUtilities/UserDefaults (~> 7.8)
-    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - nanopb (< 2.30911.0, >= 2.30908.0)
   - Flutter (1.0.0)
   - flutter_local_notifications (0.0.1):
     - Flutter
@@ -78,37 +78,40 @@ PODS:
     - Flutter
   - geolocator_apple (1.2.0):
     - Flutter
+  - Google-Maps-iOS-Utils (5.0.0):
+    - GoogleMaps (~> 8.0)
   - google_maps_flutter_ios (0.0.1):
     - Flutter
-    - GoogleMaps (< 9.0)
-  - GoogleAppMeasurement (10.20.0):
-    - GoogleAppMeasurement/AdIdSupport (= 10.20.0)
+    - Google-Maps-iOS-Utils (< 7.0, >= 5.0)
+    - GoogleMaps (< 10.0, >= 8.4)
+  - GoogleAppMeasurement (10.25.0):
+    - GoogleAppMeasurement/AdIdSupport (= 10.25.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
     - GoogleUtilities/MethodSwizzler (~> 7.11)
     - GoogleUtilities/Network (~> 7.11)
     - "GoogleUtilities/NSData+zlib (~> 7.11)"
-    - nanopb (< 2.30910.0, >= 2.30908.0)
-  - GoogleAppMeasurement/AdIdSupport (10.20.0):
-    - GoogleAppMeasurement/WithoutAdIdSupport (= 10.20.0)
+    - nanopb (< 2.30911.0, >= 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (10.25.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 10.25.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
     - GoogleUtilities/MethodSwizzler (~> 7.11)
     - GoogleUtilities/Network (~> 7.11)
     - "GoogleUtilities/NSData+zlib (~> 7.11)"
-    - nanopb (< 2.30910.0, >= 2.30908.0)
-  - GoogleAppMeasurement/WithoutAdIdSupport (10.20.0):
+    - nanopb (< 2.30911.0, >= 2.30908.0)
+  - GoogleAppMeasurement/WithoutAdIdSupport (10.25.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.11)
     - GoogleUtilities/MethodSwizzler (~> 7.11)
     - GoogleUtilities/Network (~> 7.11)
     - "GoogleUtilities/NSData+zlib (~> 7.11)"
-    - nanopb (< 2.30910.0, >= 2.30908.0)
+    - nanopb (< 2.30911.0, >= 2.30908.0)
   - GoogleDataTransport (9.4.1):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30911.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleMaps (6.2.1):
-    - GoogleMaps/Maps (= 6.2.1)
-  - GoogleMaps/Base (6.2.1)
-  - GoogleMaps/Maps (6.2.1):
+  - GoogleMaps (8.4.0):
+    - GoogleMaps/Maps (= 8.4.0)
+  - GoogleMaps/Base (8.4.0)
+  - GoogleMaps/Maps (8.4.0):
     - GoogleMaps/Base
   - GoogleUtilities/AppDelegateSwizzler (7.13.3):
     - GoogleUtilities/Environment
@@ -146,11 +149,11 @@ PODS:
   - libphonenumber_plugin (0.0.1):
     - Flutter
     - PhoneNumberKit
-  - nanopb (2.30909.1):
-    - nanopb/decode (= 2.30909.1)
-    - nanopb/encode (= 2.30909.1)
-  - nanopb/decode (2.30909.1)
-  - nanopb/encode (2.30909.1)
+  - nanopb (2.30910.0):
+    - nanopb/decode (= 2.30910.0)
+    - nanopb/encode (= 2.30910.0)
+  - nanopb/decode (2.30910.0)
+  - nanopb/encode (2.30910.0)
   - "otp_pin_field (1.2.0+2)":
     - Flutter
   - package_info_plus (0.4.5):
@@ -160,24 +163,22 @@ PODS:
     - FlutterMacOS
   - permission_handler_apple (9.1.1):
     - Flutter
-  - PhoneNumberKit (3.7.11):
-    - PhoneNumberKit/PhoneNumberKitCore (= 3.7.11)
-    - PhoneNumberKit/UIKit (= 3.7.11)
-  - PhoneNumberKit/PhoneNumberKitCore (3.7.11)
-  - PhoneNumberKit/UIKit (3.7.11):
+  - PhoneNumberKit (3.8.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 3.8.0)
+    - PhoneNumberKit/UIKit (= 3.8.0)
+  - PhoneNumberKit/PhoneNumberKitCore (3.8.0)
+  - PhoneNumberKit/UIKit (3.8.0):
     - PhoneNumberKit/PhoneNumberKitCore
   - photo_manager (2.0.0):
     - Flutter
     - FlutterMacOS
   - PromisesObjC (2.4.0)
   - ReachabilitySwift (5.2.3)
-  - Sentry/HybridSDK (8.9.1):
-    - SentryPrivate (= 8.9.1)
-  - sentry_flutter (0.0.1):
+  - Sentry/HybridSDK (8.25.0)
+  - sentry_flutter (7.20.2):
     - Flutter
     - FlutterMacOS
-    - Sentry/HybridSDK (= 8.9.1)
-  - SentryPrivate (8.9.1)
+    - Sentry/HybridSDK (= 8.25.0)
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
@@ -233,6 +234,7 @@ SPEC REPOS:
     - FirebaseCoreInternal
     - FirebaseInstallations
     - FirebaseMessaging
+    - Google-Maps-iOS-Utils
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleMaps
@@ -242,7 +244,6 @@ SPEC REPOS:
     - PromisesObjC
     - ReachabilitySwift
     - Sentry
-    - SentryPrivate
 
 EXTERNAL SOURCES:
   app_tracking_transparency:
@@ -305,52 +306,52 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/webview_flutter_wkwebview/ios"
 
 SPEC CHECKSUMS:
-  app_tracking_transparency: 5b1745ef9ade815f7455cb6a0848349589afb7c5
-  camera_avfoundation: 3125e8cd1a4387f6f31c6c63abb8a55892a9eeeb
-  connectivity_plus: 07c49e96d7fc92bc9920617b83238c4d178b446a
-  Firebase: 10c8cb12fb7ad2ae0c09ffc86cd9c1ab392a0031
-  firebase_analytics: 2e82fd84ce13f8321aa7b99336d6ee0e6cc7b984
-  firebase_core: a46c312d8bae4defa3d009b2aa7b5b413aeb394e
-  firebase_messaging: 40d7dd2f3e88a6367c7326cf601f84633d477582
-  FirebaseAnalytics: a2731bf3670747ce8f65368b118d18aa8e368246
-  FirebaseCore: 28045c1560a2600d284b9c45a904fe322dc890b6
+  app_tracking_transparency: e169b653478da7bb15a6c61209015378ca73e375
+  camera_avfoundation: dd002b0330f4981e1bbcb46ae9b62829237459a4
+  connectivity_plus: bf0076dd84a130856aa636df1c71ccaff908fa1d
+  Firebase: 0312a2352584f782ea56f66d91606891d4607f06
+  firebase_analytics: cc06e24d6a2343c44f845b3112143db72d10ef78
+  firebase_core: a626d00494efa398e7c54f25f1454a64c8abf197
+  firebase_messaging: 06391e8f35dc65a00c56580266285263d2861f10
+  FirebaseAnalytics: ec00fe8b93b41dc6fe4a28784b8e51da0647a248
+  FirebaseCore: 7ec4d0484817f12c3373955bc87762d96842d483
   FirebaseCoreInternal: df84dd300b561c27d5571684f389bf60b0a5c934
   FirebaseInstallations: 913cf60d0400ebd5d6b63a28b290372ab44590dd
-  FirebaseMessaging: 06c414a21b122396a26847c523d5c370f8325df5
+  FirebaseMessaging: 88950ba9485052891ebe26f6c43a52bb62248952
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_local_notifications: 4cde75091f6327eb8517fa068a0a5950212d2086
-  flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
+  flutter_native_splash: edf599c81f74d093a4daf8e17bd7a018854bc778
   flutter_secure_storage: 23fc622d89d073675f2eaa109381aefbcf5a49be
   flutter_unity_widget: e509f3109933aa0c63b1bc149ca3d5b90fb68543
   flutter_web_auth_2: 051cf9f5dc366f31b5dcc4e2952c2b954767be8a
-  geolocator_apple: cc556e6844d508c95df1e87e3ea6fa4e58c50401
-  google_maps_flutter_ios: d1318b4ff711612cab16862d7a87e31a7403d458
-  GoogleAppMeasurement: bb3c564c3efb933136af0e94899e0a46167466a8
+  geolocator_apple: 6cbaf322953988e009e5ecb481f07efece75c450
+  Google-Maps-iOS-Utils: 66d6de12be1ce6d3742a54661e7a79cb317a9321
+  google_maps_flutter_ios: e31555a04d1986ab130f2b9f24b6cdc861acc6d3
+  GoogleAppMeasurement: 9abf64b682732fed36da827aa2a68f0221fd2356
   GoogleDataTransport: 6c09b596d841063d76d4288cc2d2f42cc36e1e2a
-  GoogleMaps: 20d7b12be49a14287f797e88e0e31bc4156aaeb4
+  GoogleMaps: 8939898920281c649150e0af74aa291c60f2e77d
   GoogleUtilities: ea963c370a38a8069cc5f7ba4ca849a60b6d7d15
-  image_picker_ios: 4a8aadfbb6dc30ad5141a2ce3832af9214a705b5
-  in_app_purchase_storekit: 4fb7ee9e824b1f09107fbfbbce8c4b276366dc43
-  libphonenumber_plugin: e8a7d64a6624a7c25f2c4ab0b7ead2a8e341e35e
-  nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
+  image_picker_ios: c560581cceedb403a6ff17f2f816d7fea1421fc1
+  in_app_purchase_storekit: 8c3b0b3eb1b0f04efbff401c3de6266d4258d433
+  libphonenumber_plugin: 48bf4078546377eedaab4aa54978cd0f6fa23072
+  nanopb: 438bc412db1928dac798aa6fd75726007be04262
   otp_pin_field: 0f0935fafc56252e6a48a5a045ac689b6bad3857
-  package_info_plus: fd030dabf36271f146f1f3beacd48f564b0f17f7
-  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
+  package_info_plus: 58f0028419748fad15bf008b270aaa8e54380b1c
+  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   permission_handler_apple: e76247795d700c14ea09e3a2d8855d41ee80a2e6
-  PhoneNumberKit: ced55861269312a5e3bc2ef82a58d6255b1c976a
-  photo_manager: 4f6810b7dfc4feb03b461ac1a70dacf91fba7604
+  PhoneNumberKit: ec00ab8cef5342c1dc49fadb99d23fa7e66cf0ef
+  photo_manager: ff695c7a1dd5bc379974953a2b5c0a293f7c4c8a
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   ReachabilitySwift: 7f151ff156cea1481a8411701195ac6a984f4979
-  Sentry: e3203780941722a1fcfee99e351de14244c7f806
-  sentry_flutter: 8f0ffd53088e6a4d50c095852c5cad9e4405025c
-  SentryPrivate: 5e3683390f66611fc7c6215e27645873adb55d13
-  shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
+  Sentry: cd86fc55628f5b7c572cabe66cc8f95a9d2f165a
+  sentry_flutter: 0cf2507eb90ff7a6aa3304e900dd7f08edbbefdf
+  shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
   sqflite: 673a0e54cc04b7d6dba8d24fb8095b31c3a99eec
-  url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
-  video_player_avfoundation: 02011213dab73ae3687df27ce441fbbcc82b5579
-  wakelock_plus: 8b09852c8876491e4b6d179e17dfe2a0b5f60d47
-  webview_flutter_wkwebview: be0f0d33777f1bfd0c9fdcb594786704dbf65f36
+  url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
+  video_player_avfoundation: 7c6c11d8470e1675df7397027218274b6d2360b3
+  wakelock_plus: 78ec7c5b202cab7761af8e2b2b3d0671be6c4ae1
+  webview_flutter_wkwebview: 2a23822e9039b7b1bc52e5add778e5d89ad488d1
 
-PODFILE CHECKSUM: 902850df8c3dc8eaf6433ff2c6a4b2fa3faf0b2a
+PODFILE CHECKSUM: 50790a8c8b6bfbf83e50ab910a2daa74624f0ac6
 
 COCOAPODS: 1.15.2

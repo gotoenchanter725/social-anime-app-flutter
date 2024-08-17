@@ -4,8 +4,7 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_lambdas
-// ignore_for_file: lines_longer_than_80_chars
+// ignore_for_file: type=lint
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
@@ -152,7 +151,7 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i25.HomeStorageBloc>(() => _i25.HomeStorageBloc());
     gh.factory<_i26.InternetConnection>(() => networkInfoInjection.networkInfo);
     gh.factory<_i27.LikeUserBloc>(() => _i27.LikeUserBloc());
-    gh.singleton<_i28.LoggingHelper>(_i28.LoggingHelper());
+    gh.singleton<_i28.LoggingHelper>(() => _i28.LoggingHelper());
     gh.factory<_i29.RemoveDeviceTokenBloc>(() => _i29.RemoveDeviceTokenBloc());
     gh.factory<_i30.ReorderPhotosBloc>(() => _i30.ReorderPhotosBloc());
     gh.factory<_i31.ReportUserBloc>(() => _i31.ReportUserBloc());

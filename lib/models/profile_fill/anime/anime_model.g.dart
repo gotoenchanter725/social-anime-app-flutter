@@ -13,13 +13,13 @@ _$AnimeModelImpl _$$AnimeModelImplFromJson(Map<String, dynamic> json) =>
       japaneseTitle: json['japaneseTitle'] as String?,
       genres: json['genres'] as String?,
       cover: json['cover'] as String?,
-      episodes: json['episodes'] as int?,
-      popularity: json['popularity'] as int?,
-      averageScore: json['averageScore'] as int?,
+      episodes: (json['episodes'] as num?)?.toInt(),
+      popularity: (json['popularity'] as num?)?.toInt(),
+      averageScore: (json['averageScore'] as num?)?.toInt(),
       startDate: json['startDate'] as String?,
       endDate: json['endDate'] as String?,
       studios: json['studios'] as String?,
-      year: json['year'] as int?,
+      year: (json['year'] as num?)?.toInt(),
       status: json['status'] as String?,
     );
 

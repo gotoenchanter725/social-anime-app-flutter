@@ -71,7 +71,11 @@ dependencies:
   slang: ^3.22.0
   universal_platform: ^1.0.0+1
   internet_connection_checker_plus: ^2.0.0
-  json_theme: ^6.2.3
+#  json_theme: ^6.2.3
+  json_theme: # We can use the custom url until they update the package for the last version flutter.
+    git:
+      url: https://github.com/livia629/json_theme
+      path: json_theme
   shimmer: ^3.0.0
   keframe: ^3.0.0
   url_strategy: ^0.2.0

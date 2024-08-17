@@ -11,7 +11,7 @@ PaginatedModel<T> _$PaginatedModelFromJson<T>(
   T Function(Object? json) fromJsonT,
 ) =>
     PaginatedModel<T>(
-      currentPage: json['currentPage'] as int,
+      currentPage: (json['currentPage'] as num).toInt(),
       items: (json['items'] as List<dynamic>).map(fromJsonT).toList(),
     );
 
