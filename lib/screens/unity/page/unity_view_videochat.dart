@@ -50,15 +50,16 @@ class UnityViewVideoChatPage extends StatelessWidget {
 
     logIt.info("User Info: $userInfo");
 
+    final dynamic otherUser = matchData["other_user_data"];
+
     dynamic otherUserInfo = jsonEncode({
-      "token":
-          "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxMiwiZXhwIjoxNzI1Mzc3NjE0fQ.KUBMUrKNF6Qz32KDJxcEDEocTCcfHjbZbIqAIlv_A4g",
-      "userId": 12,
-      "firstName": _user.firstName,
-      "isVerified": _user.verified,
-      "gender": "female",
-      "isPremium": _user.premium,
-      "thumbnailURL": _user.gallery?.photos.first.url
+      "token": otherUser["token"],
+      "userId": otherUser["userId"],
+      "firstName": otherUser["firstName"],
+      "isVerified": otherUser["isVerified"],
+      "gender": otherUser["gender"],
+      "isPremium": otherUser["isPremium"],
+      "thumbnailURL": otherUser["thumbnailURL"]
     });
 
     logIt.info("User Info: $userInfo");
