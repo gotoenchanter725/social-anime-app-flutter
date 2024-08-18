@@ -68,7 +68,7 @@ StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Matches
             Map<String, dynamic> json) =>
         StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Matches()
           ..id = json['id'] as String
-          ..matcheeId = json['matcheeId'] as int?
+          ..matcheeId = (json['matcheeId'] as num?)?.toInt()
           ..conversation =
               StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Matches$Conversation
                   .fromJson(json['conversation'] as Map<String, dynamic>);
@@ -87,7 +87,7 @@ StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Gallery$Photos
     _$StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
         StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Gallery$Photos()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String
           ..id = json['id'] as String;
 
@@ -204,7 +204,7 @@ StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User
                       .fromJson(e as Map<String, dynamic>))
               .toList()
           ..premium = json['premium'] as bool
-          ..superLikeCount = json['superLikeCount'] as int?
+          ..superLikeCount = (json['superLikeCount'] as num?)?.toInt()
           ..hasLocationHidden = json['hasLocationHidden'] as bool?
           ..nextPaymentDate =
               fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
@@ -528,7 +528,7 @@ VerifyRequestInput _$VerifyRequestInputFromJson(Map<String, dynamic> json) =>
     VerifyRequestInput(
       image:
           fromGraphQLUploadToDartMultipartFile(json['image'] as MultipartFile),
-      userId: json['userId'] as int,
+      userId: (json['userId'] as num).toInt(),
     );
 
 Map<String, dynamic> _$VerifyRequestInputToJson(VerifyRequestInput instance) =>
@@ -694,9 +694,9 @@ UserUpdateInput _$UserUpdateInputFromJson(Map<String, dynamic> json) =>
       bio: json['bio'] as String?,
       birthday: fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
           json['birthday'] as String?),
-      desiredGender: json['desiredGender'] as int?,
+      desiredGender: (json['desiredGender'] as num?)?.toInt(),
       firstName: json['firstName'] as String?,
-      gender: json['gender'] as int?,
+      gender: (json['gender'] as num?)?.toInt(),
       hasLocationHidden: json['hasLocationHidden'] as bool?,
       isDisplayingActive: json['isDisplayingActive'] as bool?,
       isDisplayingRecentlyActive: json['isDisplayingRecentlyActive'] as bool?,
@@ -704,7 +704,7 @@ UserUpdateInput _$UserUpdateInputFromJson(Map<String, dynamic> json) =>
       occupation: json['occupation'] as String?,
       phone: json['phone'] as String?,
       school: json['school'] as String?,
-      superLikeCount: json['superLikeCount'] as int?,
+      superLikeCount: (json['superLikeCount'] as num?)?.toInt(),
       userId: json['userId'] as String,
       verified: json['verified'] as bool?,
     );
@@ -734,7 +734,7 @@ SendMessage$Mutation$SendMessage$Message
             Map<String, dynamic> json) =>
         SendMessage$Mutation$SendMessage$Message()
           ..content = json['content'] as String?
-          ..senderId = json['senderId'] as int?
+          ..senderId = (json['senderId'] as num?)?.toInt()
           ..conversationId = json['conversationId'] as String?
           ..reaction = json['reaction'] as String?;
 
@@ -792,7 +792,7 @@ MessageInput _$MessageInputFromJson(Map<String, dynamic> json) => MessageInput(
       content: json['content'] as String?,
       conversationId: json['conversationId'] as String,
       recommendedAnimeId: json['recommendedAnimeId'] as String?,
-      senderId: json['senderId'] as int,
+      senderId: (json['senderId'] as num).toInt(),
       stickerId: json['stickerId'] as String?,
     );
 
@@ -812,7 +812,7 @@ DeletePhoto$Mutation$DeletePhoto$Gallery$Photos
     _$DeletePhoto$Mutation$DeletePhoto$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
         DeletePhoto$Mutation$DeletePhoto$Gallery$Photos()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String
           ..id = json['id'] as String;
 
@@ -1004,7 +1004,7 @@ Map<String, dynamic> _$ValidatePhone$MutationToJson(
 ValidatePhoneInput _$ValidatePhoneInputFromJson(Map<String, dynamic> json) =>
     ValidatePhoneInput(
       clientMutationId: json['clientMutationId'] as String?,
-      code: json['code'] as int,
+      code: (json['code'] as num).toInt(),
       userId: json['userId'] as String,
     );
 
@@ -1144,7 +1144,7 @@ StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches
             Map<String, dynamic> json) =>
         StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches()
           ..id = json['id'] as String
-          ..matcheeId = json['matcheeId'] as int?
+          ..matcheeId = (json['matcheeId'] as num?)?.toInt()
           ..conversation =
               StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$Conversation
                   .fromJson(json['conversation'] as Map<String, dynamic>);
@@ -1163,7 +1163,7 @@ StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$Photos
     _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
         StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$Photos()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String
           ..id = json['id'] as String;
 
@@ -1280,7 +1280,7 @@ StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User
                       .fromJson(e as Map<String, dynamic>))
               .toList()
           ..premium = json['premium'] as bool
-          ..superLikeCount = json['superLikeCount'] as int?
+          ..superLikeCount = (json['superLikeCount'] as num?)?.toInt()
           ..hasLocationHidden = json['hasLocationHidden'] as bool?
           ..nextPaymentDate =
               fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
@@ -1371,7 +1371,7 @@ GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers
     _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersFromJson(
             Map<String, dynamic> json) =>
         GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers()
-          ..mi = json['mi'] as int;
+          ..mi = (json['mi'] as num).toInt();
 
 Map<String,
     dynamic> _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersToJson(
@@ -1398,8 +1398,8 @@ GetDistanceBetweenUsersInput _$GetDistanceBetweenUsersInputFromJson(
         Map<String, dynamic> json) =>
     GetDistanceBetweenUsersInput(
       clientMutationId: json['clientMutationId'] as String?,
-      userId: json['userId'] as int,
-      vieweeId: json['vieweeId'] as int,
+      userId: (json['userId'] as num).toInt(),
+      vieweeId: (json['vieweeId'] as num).toInt(),
     );
 
 Map<String, dynamic> _$GetDistanceBetweenUsersInputToJson(
@@ -1408,6 +1408,64 @@ Map<String, dynamic> _$GetDistanceBetweenUsersInputToJson(
       'clientMutationId': instance.clientMutationId,
       'userId': instance.userId,
       'vieweeId': instance.vieweeId,
+    };
+
+AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch
+    _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchFromJson(
+            Map<String, dynamic> json) =>
+        AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch()
+          ..id = json['id'] as String
+          ..status = json['status'] as String;
+
+Map<String, dynamic>
+    _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchToJson(
+            AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'status': instance.status,
+        };
+
+AcceptVideoChat$Mutation$AcceptVideoCall
+    _$AcceptVideoChat$Mutation$AcceptVideoCallFromJson(
+            Map<String, dynamic> json) =>
+        AcceptVideoChat$Mutation$AcceptVideoCall()
+          ..videoMatch = json['videoMatch'] == null
+              ? null
+              : AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch.fromJson(
+                  json['videoMatch'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AcceptVideoChat$Mutation$AcceptVideoCallToJson(
+        AcceptVideoChat$Mutation$AcceptVideoCall instance) =>
+    <String, dynamic>{
+      'videoMatch': instance.videoMatch?.toJson(),
+    };
+
+AcceptVideoChat$Mutation _$AcceptVideoChat$MutationFromJson(
+        Map<String, dynamic> json) =>
+    AcceptVideoChat$Mutation()
+      ..acceptVideoCall = json['acceptVideoCall'] == null
+          ? null
+          : AcceptVideoChat$Mutation$AcceptVideoCall.fromJson(
+              json['acceptVideoCall'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$AcceptVideoChat$MutationToJson(
+        AcceptVideoChat$Mutation instance) =>
+    <String, dynamic>{
+      'acceptVideoCall': instance.acceptVideoCall?.toJson(),
+    };
+
+AcceptVideoCallInput _$AcceptVideoCallInputFromJson(
+        Map<String, dynamic> json) =>
+    AcceptVideoCallInput(
+      chatRequestId: json['chatRequestId'] as String,
+      clientMutationId: json['clientMutationId'] as String?,
+    );
+
+Map<String, dynamic> _$AcceptVideoCallInputToJson(
+        AcceptVideoCallInput instance) =>
+    <String, dynamic>{
+      'chatRequestId': instance.chatRequestId,
+      'clientMutationId': instance.clientMutationId,
     };
 
 AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic
@@ -1577,8 +1635,8 @@ Map<String, dynamic> _$ResendVerifyTextInputToJson(
 LikeUser$Mutation$LikeUser$Like _$LikeUser$Mutation$LikeUser$LikeFromJson(
         Map<String, dynamic> json) =>
     LikeUser$Mutation$LikeUser$Like()
-      ..userId = json['userId'] as int
-      ..likeeId = json['likeeId'] as int?
+      ..userId = (json['userId'] as num).toInt()
+      ..likeeId = (json['likeeId'] as num?)?.toInt()
       ..likeType = json['likeType'] as String?;
 
 Map<String, dynamic> _$LikeUser$Mutation$LikeUser$LikeToJson(
@@ -1605,7 +1663,7 @@ LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$Photos
     _$LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
         LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$Photos()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String
           ..id = json['id'] as String;
 
@@ -1661,7 +1719,7 @@ LikeUser$Mutation$LikeUser$Match$User$Gallery$Photos
     _$LikeUser$Mutation$LikeUser$Match$User$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
         LikeUser$Mutation$LikeUser$Match$User$Gallery$Photos()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String
           ..id = json['id'] as String;
 
@@ -1774,8 +1832,8 @@ Map<String, dynamic> _$LikeUserInputToJson(LikeUserInput instance) =>
 
 LikeInput _$LikeInputFromJson(Map<String, dynamic> json) => LikeInput(
       likeType: json['likeType'] as String,
-      likeeId: json['likeeId'] as int,
-      userId: json['userId'] as int,
+      likeeId: (json['likeeId'] as num).toInt(),
+      userId: (json['userId'] as num).toInt(),
     );
 
 Map<String, dynamic> _$LikeInputToJson(LikeInput instance) => <String, dynamic>{
@@ -1829,7 +1887,7 @@ GrantUserPremiumInput _$GrantUserPremiumInputFromJson(
         Map<String, dynamic> json) =>
     GrantUserPremiumInput(
       clientMutationId: json['clientMutationId'] as String?,
-      userId: json['userId'] as int,
+      userId: (json['userId'] as num).toInt(),
     );
 
 Map<String, dynamic> _$GrantUserPremiumInputToJson(
@@ -1945,7 +2003,7 @@ Map<String, dynamic> _$DeleteUser$MutationToJson(
 DeleteUserInput _$DeleteUserInputFromJson(Map<String, dynamic> json) =>
     DeleteUserInput(
       clientMutationId: json['clientMutationId'] as String?,
-      userId: json['userId'] as int,
+      userId: (json['userId'] as num).toInt(),
     );
 
 Map<String, dynamic> _$DeleteUserInputToJson(DeleteUserInput instance) =>
@@ -2012,11 +2070,75 @@ Map<String, dynamic> _$SignInInputToJson(SignInInput instance) =>
       'token': instance.token,
     };
 
+SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
+    _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestFromJson(
+            Map<String, dynamic> json) =>
+        SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest()
+          ..id = json['id'] as String
+          ..matcheeId = (json['matcheeId'] as num).toInt()
+          ..status = (json['status'] as num?)?.toInt()
+          ..userId = (json['userId'] as num).toInt();
+
+Map<String, dynamic>
+    _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestToJson(
+            SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
+                instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'matcheeId': instance.matcheeId,
+          'status': instance.status,
+          'userId': instance.userId,
+        };
+
+SendVideoChatRequest$Mutation$SendVideoChatRequest
+    _$SendVideoChatRequest$Mutation$SendVideoChatRequestFromJson(
+            Map<String, dynamic> json) =>
+        SendVideoChatRequest$Mutation$SendVideoChatRequest()
+          ..videoChatRequest =
+              SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
+                  .fromJson(json['videoChatRequest'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$SendVideoChatRequest$Mutation$SendVideoChatRequestToJson(
+        SendVideoChatRequest$Mutation$SendVideoChatRequest instance) =>
+    <String, dynamic>{
+      'videoChatRequest': instance.videoChatRequest.toJson(),
+    };
+
+SendVideoChatRequest$Mutation _$SendVideoChatRequest$MutationFromJson(
+        Map<String, dynamic> json) =>
+    SendVideoChatRequest$Mutation()
+      ..sendVideoChatRequest = json['sendVideoChatRequest'] == null
+          ? null
+          : SendVideoChatRequest$Mutation$SendVideoChatRequest.fromJson(
+              json['sendVideoChatRequest'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$SendVideoChatRequest$MutationToJson(
+        SendVideoChatRequest$Mutation instance) =>
+    <String, dynamic>{
+      'sendVideoChatRequest': instance.sendVideoChatRequest?.toJson(),
+    };
+
+SendVideoChatRequestInput _$SendVideoChatRequestInputFromJson(
+        Map<String, dynamic> json) =>
+    SendVideoChatRequestInput(
+      clientMutationId: json['clientMutationId'] as String?,
+      matcheeId: json['matcheeId'] as String,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$SendVideoChatRequestInputToJson(
+        SendVideoChatRequestInput instance) =>
+    <String, dynamic>{
+      'clientMutationId': instance.clientMutationId,
+      'matcheeId': instance.matcheeId,
+      'userId': instance.userId,
+    };
+
 ReorderPhotos$Mutation$ReorderPhotos$Photo
     _$ReorderPhotos$Mutation$ReorderPhotos$PhotoFromJson(
             Map<String, dynamic> json) =>
         ReorderPhotos$Mutation$ReorderPhotos$Photo()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String
           ..id = json['id'] as String;
 
@@ -2119,7 +2241,7 @@ SetUserLocationInput _$SetUserLocationInputFromJson(
       clientMutationId: json['clientMutationId'] as String?,
       latitude: json['latitude'] as String,
       longitude: json['longitude'] as String,
-      userId: json['userId'] as int,
+      userId: (json['userId'] as num).toInt(),
     );
 
 Map<String, dynamic> _$SetUserLocationInputToJson(
@@ -2185,7 +2307,7 @@ FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery
     _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
         FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery$Photos()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String
           ..id = json['id'] as String;
 
@@ -2290,7 +2412,7 @@ FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches
             Map<String, dynamic> json) =>
         FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches()
           ..id = json['id'] as String
-          ..matcheeId = json['matcheeId'] as int?
+          ..matcheeId = (json['matcheeId'] as num?)?.toInt()
           ..conversation =
               FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches$Conversation
                   .fromJson(json['conversation'] as Map<String, dynamic>);
@@ -2309,7 +2431,7 @@ FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery$Photos
     _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
         FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery$Photos()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String
           ..id = json['id'] as String;
 
@@ -2431,7 +2553,7 @@ FindVideoChatMatch$Mutation$FindVideoChatMatch$User
                       .fromJson(e as Map<String, dynamic>))
               .toList()
           ..premium = json['premium'] as bool
-          ..superLikeCount = json['superLikeCount'] as int?
+          ..superLikeCount = (json['superLikeCount'] as num?)?.toInt()
           ..hasLocationHidden = json['hasLocationHidden'] as bool?
           ..nextPaymentDate =
               fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
@@ -2529,7 +2651,7 @@ AddSuperLikes$Mutation$AddSuperLikes$User
           ..id = json['id'] as String
           ..phone = json['phone'] as String
           ..verified = json['verified'] as bool
-          ..superLikeCount = json['superLikeCount'] as int?;
+          ..superLikeCount = (json['superLikeCount'] as num?)?.toInt();
 
 Map<String, dynamic> _$AddSuperLikes$Mutation$AddSuperLikes$UserToJson(
         AddSuperLikes$Mutation$AddSuperLikes$User instance) =>
@@ -2568,7 +2690,7 @@ Map<String, dynamic> _$AddSuperLikes$MutationToJson(
 
 AddSuperLikesInput _$AddSuperLikesInputFromJson(Map<String, dynamic> json) =>
     AddSuperLikesInput(
-      amount: json['amount'] as int,
+      amount: (json['amount'] as num).toInt(),
       clientMutationId: json['clientMutationId'] as String?,
       userId: json['userId'] as String,
     );
@@ -2580,11 +2702,67 @@ Map<String, dynamic> _$AddSuperLikesInputToJson(AddSuperLikesInput instance) =>
       'userId': instance.userId,
     };
 
+DenyVideoCall$Mutation$DenyVideoCall$Request
+    _$DenyVideoCall$Mutation$DenyVideoCall$RequestFromJson(
+            Map<String, dynamic> json) =>
+        DenyVideoCall$Mutation$DenyVideoCall$Request()
+          ..id = json['id'] as String
+          ..userId = (json['userId'] as num).toInt()
+          ..matcheeId = (json['matcheeId'] as num).toInt();
+
+Map<String, dynamic> _$DenyVideoCall$Mutation$DenyVideoCall$RequestToJson(
+        DenyVideoCall$Mutation$DenyVideoCall$Request instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'userId': instance.userId,
+      'matcheeId': instance.matcheeId,
+    };
+
+DenyVideoCall$Mutation$DenyVideoCall
+    _$DenyVideoCall$Mutation$DenyVideoCallFromJson(Map<String, dynamic> json) =>
+        DenyVideoCall$Mutation$DenyVideoCall()
+          ..request = json['request'] == null
+              ? null
+              : DenyVideoCall$Mutation$DenyVideoCall$Request.fromJson(
+                  json['request'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DenyVideoCall$Mutation$DenyVideoCallToJson(
+        DenyVideoCall$Mutation$DenyVideoCall instance) =>
+    <String, dynamic>{
+      'request': instance.request?.toJson(),
+    };
+
+DenyVideoCall$Mutation _$DenyVideoCall$MutationFromJson(
+        Map<String, dynamic> json) =>
+    DenyVideoCall$Mutation()
+      ..denyVideoCall = json['denyVideoCall'] == null
+          ? null
+          : DenyVideoCall$Mutation$DenyVideoCall.fromJson(
+              json['denyVideoCall'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$DenyVideoCall$MutationToJson(
+        DenyVideoCall$Mutation instance) =>
+    <String, dynamic>{
+      'denyVideoCall': instance.denyVideoCall?.toJson(),
+    };
+
+DenyVideoCallInput _$DenyVideoCallInputFromJson(Map<String, dynamic> json) =>
+    DenyVideoCallInput(
+      chatRequestId: json['chatRequestId'] as String,
+      clientMutationId: json['clientMutationId'] as String?,
+    );
+
+Map<String, dynamic> _$DenyVideoCallInputToJson(DenyVideoCallInput instance) =>
+    <String, dynamic>{
+      'chatRequestId': instance.chatRequestId,
+      'clientMutationId': instance.clientMutationId,
+    };
+
 UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos
     _$UploadPhoto$Mutation$UploadPhoto$User$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
         UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String
           ..id = json['id'] as String;
 
@@ -2659,8 +2837,8 @@ UploadPhotoInput _$UploadPhotoInputFromJson(Map<String, dynamic> json) =>
       clientMutationId: json['clientMutationId'] as String?,
       image: fromGraphQLUploadNullableToDartMultipartFileNullable(
           json['image'] as MultipartFile?),
-      order: json['order'] as int,
-      userId: json['userId'] as int,
+      order: (json['order'] as num).toInt(),
+      userId: (json['userId'] as num).toInt(),
     );
 
 Map<String, dynamic> _$UploadPhotoInputToJson(UploadPhotoInput instance) =>
@@ -2717,7 +2895,8 @@ Map<String, dynamic> _$DeleteFavoriteMusicInputToJson(
 
 FetchLobbyCount$Query _$FetchLobbyCount$QueryFromJson(
         Map<String, dynamic> json) =>
-    FetchLobbyCount$Query()..fetchLobbyCount = json['fetchLobbyCount'] as int;
+    FetchLobbyCount$Query()
+      ..fetchLobbyCount = (json['fetchLobbyCount'] as num).toInt();
 
 Map<String, dynamic> _$FetchLobbyCount$QueryToJson(
         FetchLobbyCount$Query instance) =>
@@ -2746,8 +2925,8 @@ FetchMessages$Query$FetchMessages$Recommendation
     _$FetchMessages$Query$FetchMessages$RecommendationFromJson(
             Map<String, dynamic> json) =>
         FetchMessages$Query$FetchMessages$Recommendation()
-          ..userId = json['userId'] as int
-          ..recommendeeId = json['recommendeeId'] as int
+          ..userId = (json['userId'] as num).toInt()
+          ..recommendeeId = (json['recommendeeId'] as num).toInt()
           ..anime = json['anime'] == null
               ? null
               : FetchMessages$Query$FetchMessages$Recommendation$Anime.fromJson(
@@ -2786,7 +2965,7 @@ FetchMessages$Query$FetchMessages _$FetchMessages$Query$FetchMessagesFromJson(
           fromGraphQLISO8601DateTimeToDartDateTime(json['createdAt'] as String)
       ..reaction = json['reaction'] as String?
       ..read = json['read'] as bool?
-      ..senderId = json['senderId'] as int?
+      ..senderId = (json['senderId'] as num?)?.toInt()
       ..recommendation = json['recommendation'] == null
           ? null
           : FetchMessages$Query$FetchMessages$Recommendation.fromJson(
@@ -2829,7 +3008,7 @@ FetchFeed$Query$FetchFeed$Gallery$Photos
             Map<String, dynamic> json) =>
         FetchFeed$Query$FetchFeed$Gallery$Photos()
           ..id = json['id'] as String
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String;
 
 Map<String, dynamic> _$FetchFeed$Query$FetchFeed$Gallery$PhotosToJson(
@@ -2926,8 +3105,8 @@ FetchFeed$Query$FetchFeed _$FetchFeed$Query$FetchFeedFromJson(
               e as Map<String, dynamic>))
           .toList()
       ..hasLocationHidden = json['hasLocationHidden'] as bool?
-      ..superLikeCount = json['superLikeCount'] as int?
-      ..milesAway = json['milesAway'] as int?;
+      ..superLikeCount = (json['superLikeCount'] as num?)?.toInt()
+      ..milesAway = (json['milesAway'] as num?)?.toInt();
 
 Map<String, dynamic> _$FetchFeed$Query$FetchFeedToJson(
         FetchFeed$Query$FetchFeed instance) =>
@@ -2975,10 +3154,10 @@ FetchFeedInput _$FetchFeedInputFromJson(Map<String, dynamic> json) =>
           ?.map((e) => e as String)
           .toList(),
       hasBio: json['hasBio'] as bool?,
-      maxAge: json['maxAge'] as int,
-      milesAway: json['milesAway'] as int,
-      minAge: json['minAge'] as int,
-      page: json['page'] as int?,
+      maxAge: (json['maxAge'] as num).toInt(),
+      milesAway: (json['milesAway'] as num).toInt(),
+      minAge: (json['minAge'] as num).toInt(),
+      page: (json['page'] as num?)?.toInt(),
       refresh: json['refresh'] as bool?,
       userId: json['userId'] as String,
       verified: json['verified'] as bool?,
@@ -3013,7 +3192,7 @@ FetchUser$Query$FetchUser$Matches _$FetchUser$Query$FetchUser$MatchesFromJson(
         Map<String, dynamic> json) =>
     FetchUser$Query$FetchUser$Matches()
       ..id = json['id'] as String
-      ..matcheeId = json['matcheeId'] as int?
+      ..matcheeId = (json['matcheeId'] as num?)?.toInt()
       ..conversation = FetchUser$Query$FetchUser$Matches$Conversation.fromJson(
           json['conversation'] as Map<String, dynamic>);
 
@@ -3029,7 +3208,7 @@ FetchUser$Query$FetchUser$Gallery$Photos
     _$FetchUser$Query$FetchUser$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
         FetchUser$Query$FetchUser$Gallery$Photos()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String
           ..id = json['id'] as String;
 
@@ -3131,7 +3310,7 @@ FetchUser$Query$FetchUser _$FetchUser$Query$FetchUserFromJson(
               e as Map<String, dynamic>))
           .toList()
       ..premium = json['premium'] as bool
-      ..superLikeCount = json['superLikeCount'] as int?
+      ..superLikeCount = (json['superLikeCount'] as num?)?.toInt()
       ..hasLocationHidden = json['hasLocationHidden'] as bool?
       ..nextPaymentDate =
           fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
@@ -3190,15 +3369,15 @@ FetchAnime$Query$FetchAnime _$FetchAnime$Query$FetchAnimeFromJson(
       ..title = json['title'] as String?
       ..genres = json['genres'] as String?
       ..cover = json['cover'] as String?
-      ..episodes = json['episodes'] as int?
-      ..popularity = json['popularity'] as int?
-      ..averageScore = json['averageScore'] as int?
+      ..episodes = (json['episodes'] as num?)?.toInt()
+      ..popularity = (json['popularity'] as num?)?.toInt()
+      ..averageScore = (json['averageScore'] as num?)?.toInt()
       ..startDate = fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
           json['startDate'] as String?)
       ..endDate = fromGraphQLISO8601DateTimeNullableToDartDateTimeNullable(
           json['endDate'] as String?)
       ..studios = json['studios'] as String?
-      ..year = json['year'] as int?
+      ..year = (json['year'] as num?)?.toInt()
       ..status = json['status'] as String?
       ..japaneseTitle = json['japaneseTitle'] as String?;
 
@@ -3237,7 +3416,7 @@ Map<String, dynamic> _$FetchAnime$QueryToJson(FetchAnime$Query instance) =>
 AnimeInput _$AnimeInputFromJson(Map<String, dynamic> json) => AnimeInput(
       genres:
           (json['genres'] as List<dynamic>?)?.map((e) => e as String).toList(),
-      page: json['page'] as int?,
+      page: (json['page'] as num?)?.toInt(),
       title: json['title'] as String?,
     );
 
@@ -3252,7 +3431,7 @@ FetchConversations$Query$FetchConversations$Match$User$Gallery$Photos
     _$FetchConversations$Query$FetchConversations$Match$User$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
         FetchConversations$Query$FetchConversations$Match$User$Gallery$Photos()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String;
 
 Map<String, dynamic>
@@ -3308,7 +3487,7 @@ FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos
     _$FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$PhotosFromJson(
             Map<String, dynamic> json) =>
         FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos()
-          ..order = json['order'] as int?
+          ..order = (json['order'] as num?)?.toInt()
           ..url = json['url'] as String;
 
 Map<String, dynamic>
@@ -3402,8 +3581,8 @@ FetchConversations$Query$FetchConversations$LastMessage$Recommendation
     _$FetchConversations$Query$FetchConversations$LastMessage$RecommendationFromJson(
             Map<String, dynamic> json) =>
         FetchConversations$Query$FetchConversations$LastMessage$Recommendation()
-          ..userId = json['userId'] as int
-          ..recommendeeId = json['recommendeeId'] as int
+          ..userId = (json['userId'] as num).toInt()
+          ..recommendeeId = (json['recommendeeId'] as num).toInt()
           ..anime = json['anime'] == null
               ? null
               : FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Anime
@@ -3446,7 +3625,7 @@ FetchConversations$Query$FetchConversations$LastMessage
               json['createdAt'] as String)
           ..reaction = json['reaction'] as String?
           ..read = json['read'] as bool?
-          ..senderId = json['senderId'] as int?
+          ..senderId = (json['senderId'] as num?)?.toInt()
           ..recommendation = json['recommendation'] == null
               ? null
               : FetchConversations$Query$FetchConversations$LastMessage$Recommendation
@@ -3485,7 +3664,7 @@ FetchConversations$Query$FetchConversations
               ? null
               : FetchConversations$Query$FetchConversations$LastMessage
                   .fromJson(json['lastMessage'] as Map<String, dynamic>)
-          ..unreadCount = json['unreadCount'] as int?;
+          ..unreadCount = (json['unreadCount'] as num?)?.toInt();
 
 Map<String, dynamic> _$FetchConversations$Query$FetchConversationsToJson(
         FetchConversations$Query$FetchConversations instance) =>
@@ -3515,7 +3694,7 @@ FetchVerifyRequests$Query$FetchVerifyRequests
     _$FetchVerifyRequests$Query$FetchVerifyRequestsFromJson(
             Map<String, dynamic> json) =>
         FetchVerifyRequests$Query$FetchVerifyRequests()
-          ..userId = json['userId'] as int
+          ..userId = (json['userId'] as num).toInt()
           ..status = json['status'] as String;
 
 Map<String, dynamic> _$FetchVerifyRequests$Query$FetchVerifyRequestsToJson(
@@ -3564,184 +3743,6 @@ Map<String, dynamic> _$FetchStickers$QueryToJson(
         FetchStickers$Query instance) =>
     <String, dynamic>{
       'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
-    };
-
-SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
-    _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestFromJson(
-            Map<String, dynamic> json) =>
-        SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest()
-          ..id = json['id'] as String
-          ..matcheeId = json['matcheeId'] as int
-          ..status = json['status'] as int?
-          ..userId = json['userId'] as int;
-
-Map<String, dynamic>
-    _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestToJson(
-            SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
-                instance) =>
-        <String, dynamic>{
-          'id': instance.id,
-          'matcheeId': instance.matcheeId,
-          'status': instance.status,
-          'userId': instance.userId,
-        };
-
-SendVideoChatRequest$Mutation$SendVideoChatRequest
-    _$SendVideoChatRequest$Mutation$SendVideoChatRequestFromJson(
-            Map<String, dynamic> json) =>
-        SendVideoChatRequest$Mutation$SendVideoChatRequest()
-          ..videoChatRequest =
-              SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
-                  .fromJson(json['videoChatRequest'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$SendVideoChatRequest$Mutation$SendVideoChatRequestToJson(
-        SendVideoChatRequest$Mutation$SendVideoChatRequest instance) =>
-    <String, dynamic>{
-      'videoChatRequest': instance.videoChatRequest.toJson(),
-    };
-
-SendVideoChatRequest$Mutation _$SendVideoChatRequest$MutationFromJson(
-        Map<String, dynamic> json) =>
-    SendVideoChatRequest$Mutation()
-      ..sendVideoChatRequest = json['sendVideoChatRequest'] == null
-          ? null
-          : SendVideoChatRequest$Mutation$SendVideoChatRequest.fromJson(
-              json['sendVideoChatRequest'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$SendVideoChatRequest$MutationToJson(
-        SendVideoChatRequest$Mutation instance) =>
-    <String, dynamic>{
-      'sendVideoChatRequest': instance.sendVideoChatRequest?.toJson(),
-    };
-
-SendVideoChatRequestInput _$SendVideoChatRequestInputFromJson(
-        Map<String, dynamic> json) =>
-    SendVideoChatRequestInput(
-      clientMutationId: json['clientMutationId'] as String?,
-      matcheeId: json['matcheeId'] as String,
-      userId: json['userId'] as String,
-    );
-
-Map<String, dynamic> _$SendVideoChatRequestInputToJson(
-        SendVideoChatRequestInput instance) =>
-    <String, dynamic>{
-      'clientMutationId': instance.clientMutationId,
-      'matcheeId': instance.matcheeId,
-      'userId': instance.userId,
-    };
-
-AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch
-    _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchFromJson(
-            Map<String, dynamic> json) =>
-        AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch()
-          ..id = json['id'] as String
-          ..status = json['status'] as String;
-
-Map<String, dynamic>
-    _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchToJson(
-            AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch instance) =>
-        <String, dynamic>{
-          'id': instance.id,
-          'status': instance.status,
-        };
-
-AcceptVideoChat$Mutation$AcceptVideoCall
-    _$AcceptVideoChat$Mutation$AcceptVideoCallFromJson(
-            Map<String, dynamic> json) =>
-        AcceptVideoChat$Mutation$AcceptVideoCall()
-          ..videoMatch = json['videoMatch'] == null
-              ? null
-              : AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch.fromJson(
-                  json['videoMatch'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$AcceptVideoChat$Mutation$AcceptVideoCallToJson(
-        AcceptVideoChat$Mutation$AcceptVideoCall instance) =>
-    <String, dynamic>{
-      'videoMatch': instance.videoMatch?.toJson(),
-    };
-
-AcceptVideoChat$Mutation _$AcceptVideoChat$MutationFromJson(
-        Map<String, dynamic> json) =>
-    AcceptVideoChat$Mutation()
-      ..acceptVideoCall = json['acceptVideoCall'] == null
-          ? null
-          : AcceptVideoChat$Mutation$AcceptVideoCall.fromJson(
-              json['acceptVideoCall'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$AcceptVideoChat$MutationToJson(
-        AcceptVideoChat$Mutation instance) =>
-    <String, dynamic>{
-      'acceptVideoCall': instance.acceptVideoCall?.toJson(),
-    };
-
-AcceptVideoCallInput _$AcceptVideoCallInputFromJson(
-        Map<String, dynamic> json) =>
-    AcceptVideoCallInput(
-      chatRequestId: json['chatRequestId'] as String,
-      clientMutationId: json['clientMutationId'] as String?,
-    );
-
-Map<String, dynamic> _$AcceptVideoCallInputToJson(
-        AcceptVideoCallInput instance) =>
-    <String, dynamic>{
-      'chatRequestId': instance.chatRequestId,
-      'clientMutationId': instance.clientMutationId,
-    };
-
-DenyVideoCall$Mutation$DenyVideoCall$Request
-    _$DenyVideoCall$Mutation$DenyVideoCall$RequestFromJson(
-            Map<String, dynamic> json) =>
-        DenyVideoCall$Mutation$DenyVideoCall$Request()
-          ..id = json['id'] as String
-          ..userId = json['userId'] as int
-          ..matcheeId = json['matcheeId'] as int;
-
-Map<String, dynamic> _$DenyVideoCall$Mutation$DenyVideoCall$RequestToJson(
-        DenyVideoCall$Mutation$DenyVideoCall$Request instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'userId': instance.userId,
-      'matcheeId': instance.matcheeId,
-    };
-
-DenyVideoCall$Mutation$DenyVideoCall
-    _$DenyVideoCall$Mutation$DenyVideoCallFromJson(Map<String, dynamic> json) =>
-        DenyVideoCall$Mutation$DenyVideoCall()
-          ..request = json['request'] == null
-              ? null
-              : DenyVideoCall$Mutation$DenyVideoCall$Request.fromJson(
-                  json['request'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$DenyVideoCall$Mutation$DenyVideoCallToJson(
-        DenyVideoCall$Mutation$DenyVideoCall instance) =>
-    <String, dynamic>{
-      'request': instance.request?.toJson(),
-    };
-
-DenyVideoCall$Mutation _$DenyVideoCall$MutationFromJson(
-        Map<String, dynamic> json) =>
-    DenyVideoCall$Mutation()
-      ..denyVideoCall = json['denyVideoCall'] == null
-          ? null
-          : DenyVideoCall$Mutation$DenyVideoCall.fromJson(
-              json['denyVideoCall'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$DenyVideoCall$MutationToJson(
-        DenyVideoCall$Mutation instance) =>
-    <String, dynamic>{
-      'denyVideoCall': instance.denyVideoCall?.toJson(),
-    };
-
-DenyVideoCallInput _$DenyVideoCallInputFromJson(Map<String, dynamic> json) =>
-    DenyVideoCallInput(
-      chatRequestId: json['chatRequestId'] as String,
-      clientMutationId: json['clientMutationId'] as String?,
-    );
-
-Map<String, dynamic> _$DenyVideoCallInputToJson(DenyVideoCallInput instance) =>
-    <String, dynamic>{
-      'chatRequestId': instance.chatRequestId,
-      'clientMutationId': instance.clientMutationId,
     };
 
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
@@ -3929,6 +3930,19 @@ Map<String, dynamic> _$GetDistanceBetweenUsersArgumentsToJson(
       'input': instance.input.toJson(),
     };
 
+AcceptVideoChatArguments _$AcceptVideoChatArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    AcceptVideoChatArguments(
+      input:
+          AcceptVideoCallInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$AcceptVideoChatArgumentsToJson(
+        AcceptVideoChatArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
 AddFavoriteMusicArguments _$AddFavoriteMusicArgumentsFromJson(
         Map<String, dynamic> json) =>
     AddFavoriteMusicArguments(
@@ -4011,6 +4025,19 @@ Map<String, dynamic> _$SignInArgumentsToJson(SignInArguments instance) =>
       'input': instance.input.toJson(),
     };
 
+SendVideoChatRequestArguments _$SendVideoChatRequestArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    SendVideoChatRequestArguments(
+      input: SendVideoChatRequestInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$SendVideoChatRequestArgumentsToJson(
+        SendVideoChatRequestArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
 ReorderPhotosArguments _$ReorderPhotosArgumentsFromJson(
         Map<String, dynamic> json) =>
     ReorderPhotosArguments(
@@ -4071,6 +4098,18 @@ Map<String, dynamic> _$AddSuperLikesArgumentsToJson(
       'input': instance.input.toJson(),
     };
 
+DenyVideoCallArguments _$DenyVideoCallArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    DenyVideoCallArguments(
+      input: DenyVideoCallInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$DenyVideoCallArgumentsToJson(
+        DenyVideoCallArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
 UploadPhotoArguments _$UploadPhotoArgumentsFromJson(
         Map<String, dynamic> json) =>
     UploadPhotoArguments(
@@ -4099,7 +4138,7 @@ Map<String, dynamic> _$DeleteFavoriteMusicArgumentsToJson(
 FetchLobbyCountArguments _$FetchLobbyCountArgumentsFromJson(
         Map<String, dynamic> json) =>
     FetchLobbyCountArguments(
-      userId: json['userId'] as int,
+      userId: (json['userId'] as num).toInt(),
     );
 
 Map<String, dynamic> _$FetchLobbyCountArgumentsToJson(
@@ -4112,7 +4151,7 @@ FetchMessagesArguments _$FetchMessagesArgumentsFromJson(
         Map<String, dynamic> json) =>
     FetchMessagesArguments(
       conversationId: json['conversationId'] as String,
-      page: json['page'] as int?,
+      page: (json['page'] as num?)?.toInt(),
     );
 
 Map<String, dynamic> _$FetchMessagesArgumentsToJson(
@@ -4182,49 +4221,11 @@ Map<String, dynamic> _$FetchVerifyRequestsArgumentsToJson(
 FetchStickersArguments _$FetchStickersArgumentsFromJson(
         Map<String, dynamic> json) =>
     FetchStickersArguments(
-      page: json['page'] as int,
+      page: (json['page'] as num).toInt(),
     );
 
 Map<String, dynamic> _$FetchStickersArgumentsToJson(
         FetchStickersArguments instance) =>
     <String, dynamic>{
       'page': instance.page,
-    };
-
-SendVideoChatRequestArguments _$SendVideoChatRequestArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    SendVideoChatRequestArguments(
-      input: SendVideoChatRequestInput.fromJson(
-          json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$SendVideoChatRequestArgumentsToJson(
-        SendVideoChatRequestArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
-    };
-
-AcceptVideoChatArguments _$AcceptVideoChatArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    AcceptVideoChatArguments(
-      input:
-          AcceptVideoCallInput.fromJson(json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$AcceptVideoChatArgumentsToJson(
-        AcceptVideoChatArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
-    };
-
-DenyVideoCallArguments _$DenyVideoCallArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    DenyVideoCallArguments(
-      input: DenyVideoCallInput.fromJson(json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$DenyVideoCallArgumentsToJson(
-        DenyVideoCallArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
     };

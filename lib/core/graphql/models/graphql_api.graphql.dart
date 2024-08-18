@@ -22,6 +22,7 @@ class DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime extends JsonSerializable
 
   @override
   List<Object?> get props => [deleted];
+
   @override
   Map<String, dynamic> toJson() =>
       _$DeleteFavoriteAnime$Mutation$DeleteFavoriteAnimeToJson(this);
@@ -39,6 +40,7 @@ class DeleteFavoriteAnime$Mutation extends JsonSerializable
 
   @override
   List<Object?> get props => [deleteFavoriteAnime];
+
   @override
   Map<String, dynamic> toJson() => _$DeleteFavoriteAnime$MutationToJson(this);
 }
@@ -62,6 +64,7 @@ class DeleteFavoriteAnimeInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [animeIds, clientMutationId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$DeleteFavoriteAnimeInputToJson(this);
 }
@@ -80,6 +83,7 @@ class StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Matches$Conversa
 
   @override
   List<Object?> get props => [id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Matches$ConversationToJson(
@@ -105,6 +109,7 @@ class StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Matches
 
   @override
   List<Object?> get props => [id, matcheeId, conversation];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$MatchesToJson(
@@ -129,6 +134,7 @@ class StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Gallery$Photos
 
   @override
   List<Object?> get props => [order, url, id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Gallery$PhotosToJson(
@@ -150,6 +156,7 @@ class StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Gallery
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$GalleryToJson(
@@ -176,6 +183,7 @@ class StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$Animes
 
   @override
   List<Object?> get props => [id, title, japaneseTitle, cover];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$AnimesToJson(
@@ -207,6 +215,7 @@ class StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$FavoriteMusic
   @override
   List<Object?> get props =>
       [id, coverUrl, musicType, trackName, artistName, spotifyId];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User$FavoriteMusicToJson(
@@ -312,6 +321,7 @@ class StartVideoMatchmaking$Mutation$StartVideoMatchmaking$User
         isDisplayingRecentlyActive,
         isDisplayingActive
       ];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StartVideoMatchmaking$Mutation$StartVideoMatchmaking$UserToJson(this);
@@ -330,6 +340,7 @@ class StartVideoMatchmaking$Mutation$StartVideoMatchmaking
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StartVideoMatchmaking$Mutation$StartVideoMatchmakingToJson(this);
@@ -347,6 +358,7 @@ class StartVideoMatchmaking$Mutation extends JsonSerializable
 
   @override
   List<Object?> get props => [startVideoMatchmaking];
+
   @override
   Map<String, dynamic> toJson() => _$StartVideoMatchmaking$MutationToJson(this);
 }
@@ -367,6 +379,7 @@ class StartVideoMatchmakingInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$StartVideoMatchmakingInputToJson(this);
 }
@@ -396,6 +409,7 @@ class CreateUser$Mutation$CreateUser$User extends JsonSerializable
 
   @override
   List<Object?> get props => [id, phone, createdAt, updatedAt];
+
   @override
   Map<String, dynamic> toJson() =>
       _$CreateUser$Mutation$CreateUser$UserToJson(this);
@@ -413,6 +427,7 @@ class CreateUser$Mutation$CreateUser extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() => _$CreateUser$Mutation$CreateUserToJson(this);
 }
@@ -428,6 +443,7 @@ class CreateUser$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [createUser];
+
   @override
   Map<String, dynamic> toJson() => _$CreateUser$MutationToJson(this);
 }
@@ -448,6 +464,7 @@ class CreateUserInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, params];
+
   @override
   Map<String, dynamic> toJson() => _$CreateUserInputToJson(this);
 }
@@ -463,6 +480,7 @@ class UserInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [phone];
+
   @override
   Map<String, dynamic> toJson() => _$UserInputToJson(this);
 }
@@ -480,6 +498,7 @@ class AddDeviceToken$Mutation$AddDeviceToken$DeviceInfo extends JsonSerializable
 
   @override
   List<Object?> get props => [token];
+
   @override
   Map<String, dynamic> toJson() =>
       _$AddDeviceToken$Mutation$AddDeviceToken$DeviceInfoToJson(this);
@@ -498,6 +517,7 @@ class AddDeviceToken$Mutation$AddDeviceToken extends JsonSerializable
 
   @override
   List<Object?> get props => [deviceInfo];
+
   @override
   Map<String, dynamic> toJson() =>
       _$AddDeviceToken$Mutation$AddDeviceTokenToJson(this);
@@ -514,6 +534,7 @@ class AddDeviceToken$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [addDeviceToken];
+
   @override
   Map<String, dynamic> toJson() => _$AddDeviceToken$MutationToJson(this);
 }
@@ -541,6 +562,7 @@ class AddDeviceTokenInput extends JsonSerializable with EquatableMixin {
   @override
   List<Object?> get props =>
       [clientMutationId, deviceToken, deviceType, userId];
+
   @override
   Map<String, dynamic> toJson() => _$AddDeviceTokenInputToJson(this);
 }
@@ -558,6 +580,7 @@ class RemoveDeviceToken$Mutation$RemoveDeviceToken$User extends JsonSerializable
 
   @override
   List<Object?> get props => [id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserToJson(this);
@@ -576,6 +599,7 @@ class RemoveDeviceToken$Mutation$RemoveDeviceToken extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$RemoveDeviceToken$Mutation$RemoveDeviceTokenToJson(this);
@@ -592,6 +616,7 @@ class RemoveDeviceToken$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [removeDeviceToken];
+
   @override
   Map<String, dynamic> toJson() => _$RemoveDeviceToken$MutationToJson(this);
 }
@@ -615,6 +640,7 @@ class RemoveDeviceTokenInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, deviceToken, userId];
+
   @override
   Map<String, dynamic> toJson() => _$RemoveDeviceTokenInputToJson(this);
 }
@@ -634,6 +660,7 @@ class SubmitVerifyRequest$Mutation$SubmitVerifyRequest$User
 
   @override
   List<Object?> get props => [id, phone];
+
   @override
   Map<String, dynamic> toJson() =>
       _$SubmitVerifyRequest$Mutation$SubmitVerifyRequest$UserToJson(this);
@@ -652,6 +679,7 @@ class SubmitVerifyRequest$Mutation$SubmitVerifyRequest extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$SubmitVerifyRequest$Mutation$SubmitVerifyRequestToJson(this);
@@ -669,6 +697,7 @@ class SubmitVerifyRequest$Mutation extends JsonSerializable
 
   @override
   List<Object?> get props => [submitVerifyRequest];
+
   @override
   Map<String, dynamic> toJson() => _$SubmitVerifyRequest$MutationToJson(this);
 }
@@ -689,6 +718,7 @@ class SubmitVerifyRequestInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, params];
+
   @override
   Map<String, dynamic> toJson() => _$SubmitVerifyRequestInputToJson(this);
 }
@@ -712,6 +742,7 @@ class VerifyRequestInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [image, userId];
+
   @override
   Map<String, dynamic> toJson() => _$VerifyRequestInputToJson(this);
 }
@@ -733,6 +764,7 @@ class AddFavoriteAnime$Mutation$AddFavoriteAnime$User$Animes
 
   @override
   List<Object?> get props => [id, title, cover];
+
   @override
   Map<String, dynamic> toJson() =>
       _$AddFavoriteAnime$Mutation$AddFavoriteAnime$User$AnimesToJson(this);
@@ -751,6 +783,7 @@ class AddFavoriteAnime$Mutation$AddFavoriteAnime$User extends JsonSerializable
 
   @override
   List<Object?> get props => [animes];
+
   @override
   Map<String, dynamic> toJson() =>
       _$AddFavoriteAnime$Mutation$AddFavoriteAnime$UserToJson(this);
@@ -769,6 +802,7 @@ class AddFavoriteAnime$Mutation$AddFavoriteAnime extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$AddFavoriteAnime$Mutation$AddFavoriteAnimeToJson(this);
@@ -785,6 +819,7 @@ class AddFavoriteAnime$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [addFavoriteAnime];
+
   @override
   Map<String, dynamic> toJson() => _$AddFavoriteAnime$MutationToJson(this);
 }
@@ -808,6 +843,7 @@ class AddFavoriteAnimeInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [animeIds, clientMutationId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$AddFavoriteAnimeInputToJson(this);
 }
@@ -866,6 +902,7 @@ class UpdateUser$Mutation$UpdateUser$User extends JsonSerializable
         isDisplayingRecentlyActive,
         isDisplayingActive
       ];
+
   @override
   Map<String, dynamic> toJson() =>
       _$UpdateUser$Mutation$UpdateUser$UserToJson(this);
@@ -883,6 +920,7 @@ class UpdateUser$Mutation$UpdateUser extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() => _$UpdateUser$Mutation$UpdateUserToJson(this);
 }
@@ -898,6 +936,7 @@ class UpdateUser$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [updateUser];
+
   @override
   Map<String, dynamic> toJson() => _$UpdateUser$MutationToJson(this);
 }
@@ -918,6 +957,7 @@ class UpdateUserInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, params];
+
   @override
   Map<String, dynamic> toJson() => _$UpdateUserInputToJson(this);
 }
@@ -996,6 +1036,7 @@ class UserUpdateInput extends JsonSerializable with EquatableMixin {
         userId,
         verified
       ];
+
   @override
   Map<String, dynamic> toJson() => _$UserUpdateInputToJson(this);
 }
@@ -1019,6 +1060,7 @@ class SendMessage$Mutation$SendMessage$Message extends JsonSerializable
 
   @override
   List<Object?> get props => [content, senderId, conversationId, reaction];
+
   @override
   Map<String, dynamic> toJson() =>
       _$SendMessage$Mutation$SendMessage$MessageToJson(this);
@@ -1037,6 +1079,7 @@ class SendMessage$Mutation$SendMessage extends JsonSerializable
 
   @override
   List<Object?> get props => [message];
+
   @override
   Map<String, dynamic> toJson() =>
       _$SendMessage$Mutation$SendMessageToJson(this);
@@ -1053,6 +1096,7 @@ class SendMessage$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [sendMessage];
+
   @override
   Map<String, dynamic> toJson() => _$SendMessage$MutationToJson(this);
 }
@@ -1073,6 +1117,7 @@ class SendMessageInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, params];
+
   @override
   Map<String, dynamic> toJson() => _$SendMessageInputToJson(this);
 }
@@ -1119,6 +1164,7 @@ class MessageInput extends JsonSerializable with EquatableMixin {
         senderId,
         stickerId
       ];
+
   @override
   Map<String, dynamic> toJson() => _$MessageInputToJson(this);
 }
@@ -1140,6 +1186,7 @@ class DeletePhoto$Mutation$DeletePhoto$Gallery$Photos extends JsonSerializable
 
   @override
   List<Object?> get props => [order, url, id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$DeletePhoto$Mutation$DeletePhoto$Gallery$PhotosToJson(this);
@@ -1158,6 +1205,7 @@ class DeletePhoto$Mutation$DeletePhoto$Gallery extends JsonSerializable
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$DeletePhoto$Mutation$DeletePhoto$GalleryToJson(this);
@@ -1178,6 +1226,7 @@ class DeletePhoto$Mutation$DeletePhoto extends JsonSerializable
 
   @override
   List<Object?> get props => [deleted, gallery];
+
   @override
   Map<String, dynamic> toJson() =>
       _$DeletePhoto$Mutation$DeletePhotoToJson(this);
@@ -1194,6 +1243,7 @@ class DeletePhoto$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [deletePhoto];
+
   @override
   Map<String, dynamic> toJson() => _$DeletePhoto$MutationToJson(this);
 }
@@ -1217,6 +1267,7 @@ class DeletePhotoInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, photoId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$DeletePhotoInputToJson(this);
 }
@@ -1236,6 +1287,7 @@ class UpdateMessage$Mutation$UpdateMessage$Message extends JsonSerializable
 
   @override
   List<Object?> get props => [id, reaction];
+
   @override
   Map<String, dynamic> toJson() =>
       _$UpdateMessage$Mutation$UpdateMessage$MessageToJson(this);
@@ -1254,6 +1306,7 @@ class UpdateMessage$Mutation$UpdateMessage extends JsonSerializable
 
   @override
   List<Object?> get props => [message];
+
   @override
   Map<String, dynamic> toJson() =>
       _$UpdateMessage$Mutation$UpdateMessageToJson(this);
@@ -1270,6 +1323,7 @@ class UpdateMessage$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [updateMessage];
+
   @override
   Map<String, dynamic> toJson() => _$UpdateMessage$MutationToJson(this);
 }
@@ -1290,6 +1344,7 @@ class UpdateMessageInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, params];
+
   @override
   Map<String, dynamic> toJson() => _$UpdateMessageInputToJson(this);
 }
@@ -1313,6 +1368,7 @@ class MessageUpdateInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [content, messageId, reaction];
+
   @override
   Map<String, dynamic> toJson() => _$MessageUpdateInputToJson(this);
 }
@@ -1342,6 +1398,7 @@ class ValidatePhone$Mutation$ValidatePhone$User extends JsonSerializable
 
   @override
   List<Object?> get props => [id, phone, createdAt, updatedAt];
+
   @override
   Map<String, dynamic> toJson() =>
       _$ValidatePhone$Mutation$ValidatePhone$UserToJson(this);
@@ -1364,6 +1421,7 @@ class ValidatePhone$Mutation$ValidatePhone extends JsonSerializable
 
   @override
   List<Object?> get props => [user, token, profileFilled];
+
   @override
   Map<String, dynamic> toJson() =>
       _$ValidatePhone$Mutation$ValidatePhoneToJson(this);
@@ -1380,6 +1438,7 @@ class ValidatePhone$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [validatePhone];
+
   @override
   Map<String, dynamic> toJson() => _$ValidatePhone$MutationToJson(this);
 }
@@ -1403,6 +1462,7 @@ class ValidatePhoneInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, code, userId];
+
   @override
   Map<String, dynamic> toJson() => _$ValidatePhoneInputToJson(this);
 }
@@ -1420,6 +1480,7 @@ class ReportUser$Mutation$ReportUser$Report$Offender extends JsonSerializable
 
   @override
   List<Object?> get props => [id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$ReportUser$Mutation$ReportUser$Report$OffenderToJson(this);
@@ -1438,6 +1499,7 @@ class ReportUser$Mutation$ReportUser$Report$Reporter extends JsonSerializable
 
   @override
   List<Object?> get props => [id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$ReportUser$Mutation$ReportUser$Report$ReporterToJson(this);
@@ -1488,6 +1550,7 @@ class ReportUser$Mutation$ReportUser$Report extends JsonSerializable
         updatedAt,
         userId
       ];
+
   @override
   Map<String, dynamic> toJson() =>
       _$ReportUser$Mutation$ReportUser$ReportToJson(this);
@@ -1507,6 +1570,7 @@ class ReportUser$Mutation$ReportUser extends JsonSerializable
 
   @override
   List<Object?> get props => [blocked, report];
+
   @override
   Map<String, dynamic> toJson() => _$ReportUser$Mutation$ReportUserToJson(this);
 }
@@ -1522,6 +1586,7 @@ class ReportUser$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [reportUser];
+
   @override
   Map<String, dynamic> toJson() => _$ReportUser$MutationToJson(this);
 }
@@ -1542,6 +1607,7 @@ class ReportUserInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, params];
+
   @override
   Map<String, dynamic> toJson() => _$ReportUserInputToJson(this);
 }
@@ -1568,6 +1634,7 @@ class ReportInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [conversationId, offenseId, reason, userId];
+
   @override
   Map<String, dynamic> toJson() => _$ReportInputToJson(this);
 }
@@ -1586,6 +1653,7 @@ class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$Conversati
 
   @override
   List<Object?> get props => [id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches$ConversationToJson(
@@ -1611,6 +1679,7 @@ class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Matches
 
   @override
   List<Object?> get props => [id, matcheeId, conversation];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$MatchesToJson(
@@ -1635,6 +1704,7 @@ class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$Photos
 
   @override
   List<Object?> get props => [order, url, id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery$PhotosToJson(
@@ -1656,6 +1726,7 @@ class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Gallery
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$GalleryToJson(
@@ -1682,6 +1753,7 @@ class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$Animes
 
   @override
   List<Object?> get props => [id, title, japaneseTitle, cover];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$AnimesToJson(
@@ -1713,6 +1785,7 @@ class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusic
   @override
   List<Object?> get props =>
       [id, coverUrl, musicType, trackName, artistName, spotifyId];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User$FavoriteMusicToJson(
@@ -1817,6 +1890,7 @@ class StopVideoMatchmaking$Mutation$StopVideoMatchmaking$User
         isDisplayingRecentlyActive,
         isDisplayingActive
       ];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StopVideoMatchmaking$Mutation$StopVideoMatchmaking$UserToJson(this);
@@ -1835,6 +1909,7 @@ class StopVideoMatchmaking$Mutation$StopVideoMatchmaking
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$StopVideoMatchmaking$Mutation$StopVideoMatchmakingToJson(this);
@@ -1852,6 +1927,7 @@ class StopVideoMatchmaking$Mutation extends JsonSerializable
 
   @override
   List<Object?> get props => [stopVideoMatchmaking];
+
   @override
   Map<String, dynamic> toJson() => _$StopVideoMatchmaking$MutationToJson(this);
 }
@@ -1872,6 +1948,7 @@ class StopVideoMatchmakingInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$StopVideoMatchmakingInputToJson(this);
 }
@@ -1889,6 +1966,7 @@ class GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsers
 
   @override
   List<Object?> get props => [mi];
+
   @override
   Map<String, dynamic> toJson() =>
       _$GetDistanceBetweenUsers$Mutation$GetDistanceBetweenUsersToJson(this);
@@ -1908,6 +1986,7 @@ class GetDistanceBetweenUsers$Mutation extends JsonSerializable
 
   @override
   List<Object?> get props => [getDistanceBetweenUsers];
+
   @override
   Map<String, dynamic> toJson() =>
       _$GetDistanceBetweenUsers$MutationToJson(this);
@@ -1933,8 +2012,86 @@ class GetDistanceBetweenUsersInput extends JsonSerializable
 
   @override
   List<Object?> get props => [clientMutationId, userId, vieweeId];
+
   @override
   Map<String, dynamic> toJson() => _$GetDistanceBetweenUsersInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch
+    extends JsonSerializable with EquatableMixin {
+  AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch();
+
+  factory AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch.fromJson(
+          Map<String, dynamic> json) =>
+      _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchFromJson(json);
+
+  late String id;
+
+  late String status;
+
+  @override
+  List<Object?> get props => [id, status];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AcceptVideoChat$Mutation$AcceptVideoCall extends JsonSerializable
+    with EquatableMixin {
+  AcceptVideoChat$Mutation$AcceptVideoCall();
+
+  factory AcceptVideoChat$Mutation$AcceptVideoCall.fromJson(
+          Map<String, dynamic> json) =>
+      _$AcceptVideoChat$Mutation$AcceptVideoCallFromJson(json);
+
+  AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch? videoMatch;
+
+  @override
+  List<Object?> get props => [videoMatch];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$AcceptVideoChat$Mutation$AcceptVideoCallToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AcceptVideoChat$Mutation extends JsonSerializable with EquatableMixin {
+  AcceptVideoChat$Mutation();
+
+  factory AcceptVideoChat$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$AcceptVideoChat$MutationFromJson(json);
+
+  AcceptVideoChat$Mutation$AcceptVideoCall? acceptVideoCall;
+
+  @override
+  List<Object?> get props => [acceptVideoCall];
+
+  @override
+  Map<String, dynamic> toJson() => _$AcceptVideoChat$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AcceptVideoCallInput extends JsonSerializable with EquatableMixin {
+  AcceptVideoCallInput({
+    required this.chatRequestId,
+    this.clientMutationId,
+  });
+
+  factory AcceptVideoCallInput.fromJson(Map<String, dynamic> json) =>
+      _$AcceptVideoCallInputFromJson(json);
+
+  late String chatRequestId;
+
+  String? clientMutationId;
+
+  @override
+  List<Object?> get props => [chatRequestId, clientMutationId];
+
+  @override
+  Map<String, dynamic> toJson() => _$AcceptVideoCallInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -1962,6 +2119,7 @@ class AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusic
   @override
   List<Object?> get props =>
       [id, musicType, trackName, artistName, coverUrl, spotifyId];
+
   @override
   Map<String, dynamic> toJson() =>
       _$AddFavoriteMusic$Mutation$AddFavoriteMusic$User$FavoriteMusicToJson(
@@ -1984,6 +2142,7 @@ class AddFavoriteMusic$Mutation$AddFavoriteMusic$User extends JsonSerializable
 
   @override
   List<Object?> get props => [id, favoriteMusic];
+
   @override
   Map<String, dynamic> toJson() =>
       _$AddFavoriteMusic$Mutation$AddFavoriteMusic$UserToJson(this);
@@ -2002,6 +2161,7 @@ class AddFavoriteMusic$Mutation$AddFavoriteMusic extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$AddFavoriteMusic$Mutation$AddFavoriteMusicToJson(this);
@@ -2018,6 +2178,7 @@ class AddFavoriteMusic$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [addFavoriteMusic];
+
   @override
   Map<String, dynamic> toJson() => _$AddFavoriteMusic$MutationToJson(this);
 }
@@ -2038,6 +2199,7 @@ class AddFavoriteMusicInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, params];
+
   @override
   Map<String, dynamic> toJson() => _$AddFavoriteMusicInputToJson(this);
 }
@@ -2074,6 +2236,7 @@ class FavoriteMusicInput extends JsonSerializable with EquatableMixin {
   @override
   List<Object?> get props =>
       [artistName, coverUrl, hidden, musicType, spotifyId, trackName, userId];
+
   @override
   Map<String, dynamic> toJson() => _$FavoriteMusicInputToJson(this);
 }
@@ -2093,6 +2256,7 @@ class ResendVerifyCode$Mutation$ResendVerifyText$User extends JsonSerializable
 
   @override
   List<Object?> get props => [id, phone];
+
   @override
   Map<String, dynamic> toJson() =>
       _$ResendVerifyCode$Mutation$ResendVerifyText$UserToJson(this);
@@ -2111,6 +2275,7 @@ class ResendVerifyCode$Mutation$ResendVerifyText extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$ResendVerifyCode$Mutation$ResendVerifyTextToJson(this);
@@ -2127,6 +2292,7 @@ class ResendVerifyCode$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [resendVerifyText];
+
   @override
   Map<String, dynamic> toJson() => _$ResendVerifyCode$MutationToJson(this);
 }
@@ -2147,6 +2313,7 @@ class ResendVerifyTextInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, phone];
+
   @override
   Map<String, dynamic> toJson() => _$ResendVerifyTextInputToJson(this);
 }
@@ -2167,6 +2334,7 @@ class LikeUser$Mutation$LikeUser$Like extends JsonSerializable
 
   @override
   List<Object?> get props => [userId, likeeId, likeType];
+
   @override
   Map<String, dynamic> toJson() =>
       _$LikeUser$Mutation$LikeUser$LikeToJson(this);
@@ -2185,6 +2353,7 @@ class LikeUser$Mutation$LikeUser$Match$Conversation extends JsonSerializable
 
   @override
   List<Object?> get props => [id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$LikeUser$Mutation$LikeUser$Match$ConversationToJson(this);
@@ -2207,6 +2376,7 @@ class LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$Photos
 
   @override
   List<Object?> get props => [order, url, id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$LikeUser$Mutation$LikeUser$Match$Matchee$Gallery$PhotosToJson(this);
@@ -2225,6 +2395,7 @@ class LikeUser$Mutation$LikeUser$Match$Matchee$Gallery extends JsonSerializable
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$LikeUser$Mutation$LikeUser$Match$Matchee$GalleryToJson(this);
@@ -2251,6 +2422,7 @@ class LikeUser$Mutation$LikeUser$Match$Matchee extends JsonSerializable
 
   @override
   List<Object?> get props => [id, phone, firstName, verified, gallery];
+
   @override
   Map<String, dynamic> toJson() =>
       _$LikeUser$Mutation$LikeUser$Match$MatcheeToJson(this);
@@ -2273,6 +2445,7 @@ class LikeUser$Mutation$LikeUser$Match$User$Gallery$Photos
 
   @override
   List<Object?> get props => [order, url, id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$LikeUser$Mutation$LikeUser$Match$User$Gallery$PhotosToJson(this);
@@ -2291,6 +2464,7 @@ class LikeUser$Mutation$LikeUser$Match$User$Gallery extends JsonSerializable
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$LikeUser$Mutation$LikeUser$Match$User$GalleryToJson(this);
@@ -2317,6 +2491,7 @@ class LikeUser$Mutation$LikeUser$Match$User extends JsonSerializable
 
   @override
   List<Object?> get props => [id, phone, firstName, verified, gallery];
+
   @override
   Map<String, dynamic> toJson() =>
       _$LikeUser$Mutation$LikeUser$Match$UserToJson(this);
@@ -2339,6 +2514,7 @@ class LikeUser$Mutation$LikeUser$Match extends JsonSerializable
 
   @override
   List<Object?> get props => [conversation, matchee, user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$LikeUser$Mutation$LikeUser$MatchToJson(this);
@@ -2357,6 +2533,7 @@ class LikeUser$Mutation$LikeUser extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [like, match];
+
   @override
   Map<String, dynamic> toJson() => _$LikeUser$Mutation$LikeUserToJson(this);
 }
@@ -2372,6 +2549,7 @@ class LikeUser$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [likeUser];
+
   @override
   Map<String, dynamic> toJson() => _$LikeUser$MutationToJson(this);
 }
@@ -2392,6 +2570,7 @@ class LikeUserInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, params];
+
   @override
   Map<String, dynamic> toJson() => _$LikeUserInputToJson(this);
 }
@@ -2415,6 +2594,7 @@ class LikeInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [likeType, likeeId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$LikeInputToJson(this);
 }
@@ -2434,6 +2614,7 @@ class GrantUserPremium$Mutation$GrantUserPremium$User extends JsonSerializable
 
   @override
   List<Object?> get props => [id, premium];
+
   @override
   Map<String, dynamic> toJson() =>
       _$GrantUserPremium$Mutation$GrantUserPremium$UserToJson(this);
@@ -2452,6 +2633,7 @@ class GrantUserPremium$Mutation$GrantUserPremium extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$GrantUserPremium$Mutation$GrantUserPremiumToJson(this);
@@ -2468,6 +2650,7 @@ class GrantUserPremium$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [grantUserPremium];
+
   @override
   Map<String, dynamic> toJson() => _$GrantUserPremium$MutationToJson(this);
 }
@@ -2488,6 +2671,7 @@ class GrantUserPremiumInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$GrantUserPremiumInputToJson(this);
 }
@@ -2505,6 +2689,7 @@ class UnmatchUser$Mutation$UnmatchUser$User extends JsonSerializable
 
   @override
   List<Object?> get props => [id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$UnmatchUser$Mutation$UnmatchUser$UserToJson(this);
@@ -2523,6 +2708,7 @@ class UnmatchUser$Mutation$UnmatchUser extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$UnmatchUser$Mutation$UnmatchUserToJson(this);
@@ -2539,6 +2725,7 @@ class UnmatchUser$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [unmatchUser];
+
   @override
   Map<String, dynamic> toJson() => _$UnmatchUser$MutationToJson(this);
 }
@@ -2559,6 +2746,7 @@ class UnmatchUserInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, params];
+
   @override
   Map<String, dynamic> toJson() => _$UnmatchUserInputToJson(this);
 }
@@ -2579,6 +2767,7 @@ class BlockUserInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [blockedUserId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$BlockUserInputToJson(this);
 }
@@ -2600,6 +2789,7 @@ class DeleteUser$Mutation$DeleteUser$SoftDeletedUser extends JsonSerializable
 
   @override
   List<Object?> get props => [id, phone, verified];
+
   @override
   Map<String, dynamic> toJson() =>
       _$DeleteUser$Mutation$DeleteUser$SoftDeletedUserToJson(this);
@@ -2617,6 +2807,7 @@ class DeleteUser$Mutation$DeleteUser extends JsonSerializable
 
   @override
   List<Object?> get props => [softDeletedUser];
+
   @override
   Map<String, dynamic> toJson() => _$DeleteUser$Mutation$DeleteUserToJson(this);
 }
@@ -2632,6 +2823,7 @@ class DeleteUser$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [deleteUser];
+
   @override
   Map<String, dynamic> toJson() => _$DeleteUser$MutationToJson(this);
 }
@@ -2652,6 +2844,7 @@ class DeleteUserInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$DeleteUserInputToJson(this);
 }
@@ -2679,6 +2872,7 @@ class SignIn$Mutation$SignIn$User extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [id, currentSignInAt, lastSignInAt, phone];
+
   @override
   Map<String, dynamic> toJson() => _$SignIn$Mutation$SignIn$UserToJson(this);
 }
@@ -2694,6 +2888,7 @@ class SignIn$Mutation$SignIn extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() => _$SignIn$Mutation$SignInToJson(this);
 }
@@ -2709,6 +2904,7 @@ class SignIn$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [signIn];
+
   @override
   Map<String, dynamic> toJson() => _$SignIn$MutationToJson(this);
 }
@@ -2729,8 +2925,97 @@ class SignInInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, token];
+
   @override
   Map<String, dynamic> toJson() => _$SignInInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
+    extends JsonSerializable with EquatableMixin {
+  SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest();
+
+  factory SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest.fromJson(
+          Map<String, dynamic> json) =>
+      _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestFromJson(
+          json);
+
+  late String id;
+
+  late int matcheeId;
+
+  int? status;
+
+  late int userId;
+
+  @override
+  List<Object?> get props => [id, matcheeId, status, userId];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestToJson(
+          this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendVideoChatRequest$Mutation$SendVideoChatRequest
+    extends JsonSerializable with EquatableMixin {
+  SendVideoChatRequest$Mutation$SendVideoChatRequest();
+
+  factory SendVideoChatRequest$Mutation$SendVideoChatRequest.fromJson(
+          Map<String, dynamic> json) =>
+      _$SendVideoChatRequest$Mutation$SendVideoChatRequestFromJson(json);
+
+  late SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
+      videoChatRequest;
+
+  @override
+  List<Object?> get props => [videoChatRequest];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$SendVideoChatRequest$Mutation$SendVideoChatRequestToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendVideoChatRequest$Mutation extends JsonSerializable
+    with EquatableMixin {
+  SendVideoChatRequest$Mutation();
+
+  factory SendVideoChatRequest$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$SendVideoChatRequest$MutationFromJson(json);
+
+  SendVideoChatRequest$Mutation$SendVideoChatRequest? sendVideoChatRequest;
+
+  @override
+  List<Object?> get props => [sendVideoChatRequest];
+
+  @override
+  Map<String, dynamic> toJson() => _$SendVideoChatRequest$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendVideoChatRequestInput extends JsonSerializable with EquatableMixin {
+  SendVideoChatRequestInput({
+    this.clientMutationId,
+    required this.matcheeId,
+    required this.userId,
+  });
+
+  factory SendVideoChatRequestInput.fromJson(Map<String, dynamic> json) =>
+      _$SendVideoChatRequestInputFromJson(json);
+
+  String? clientMutationId;
+
+  late String matcheeId;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [clientMutationId, matcheeId, userId];
+
+  @override
+  Map<String, dynamic> toJson() => _$SendVideoChatRequestInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -2750,6 +3035,7 @@ class ReorderPhotos$Mutation$ReorderPhotos$Photo extends JsonSerializable
 
   @override
   List<Object?> get props => [order, url, id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$ReorderPhotos$Mutation$ReorderPhotos$PhotoToJson(this);
@@ -2768,6 +3054,7 @@ class ReorderPhotos$Mutation$ReorderPhotos extends JsonSerializable
 
   @override
   List<Object?> get props => [photo];
+
   @override
   Map<String, dynamic> toJson() =>
       _$ReorderPhotos$Mutation$ReorderPhotosToJson(this);
@@ -2784,6 +3071,7 @@ class ReorderPhotos$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [reorderPhotos];
+
   @override
   Map<String, dynamic> toJson() => _$ReorderPhotos$MutationToJson(this);
 }
@@ -2807,6 +3095,7 @@ class ReorderPhotosInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, order, photoId];
+
   @override
   Map<String, dynamic> toJson() => _$ReorderPhotosInputToJson(this);
 }
@@ -2830,6 +3119,7 @@ class SetUserLocation$Mutation$SetUserLocation$User extends JsonSerializable
 
   @override
   List<Object?> get props => [id, lonlat, displayCity, displayState];
+
   @override
   Map<String, dynamic> toJson() =>
       _$SetUserLocation$Mutation$SetUserLocation$UserToJson(this);
@@ -2848,6 +3138,7 @@ class SetUserLocation$Mutation$SetUserLocation extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$SetUserLocation$Mutation$SetUserLocationToJson(this);
@@ -2864,6 +3155,7 @@ class SetUserLocation$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [setUserLocation];
+
   @override
   Map<String, dynamic> toJson() => _$SetUserLocation$MutationToJson(this);
 }
@@ -2890,6 +3182,7 @@ class SetUserLocationInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, latitude, longitude, userId];
+
   @override
   Map<String, dynamic> toJson() => _$SetUserLocationInputToJson(this);
 }
@@ -2907,6 +3200,7 @@ class UndoLike$Mutation$UndoLike$UndidUser extends JsonSerializable
 
   @override
   List<Object?> get props => [id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$UndoLike$Mutation$UndoLike$UndidUserToJson(this);
@@ -2925,6 +3219,7 @@ class UndoLike$Mutation$UndoLike extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [status, undidUser];
+
   @override
   Map<String, dynamic> toJson() => _$UndoLike$Mutation$UndoLikeToJson(this);
 }
@@ -2940,6 +3235,7 @@ class UndoLike$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [undoLike];
+
   @override
   Map<String, dynamic> toJson() => _$UndoLike$MutationToJson(this);
 }
@@ -2960,6 +3256,7 @@ class UndoLikeInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$UndoLikeInputToJson(this);
 }
@@ -2982,6 +3279,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$G
 
   @override
   List<Object?> get props => [order, url, id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$Gallery$PhotosToJson(
@@ -3003,6 +3301,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$G
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee$GalleryToJson(
@@ -3033,6 +3332,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$Matchee
 
   @override
   List<Object?> get props => [id, firstName, birthday, gallery];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches$MatcheeToJson(
@@ -3068,6 +3368,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatches
 
   @override
   List<Object?> get props => [id, userId, matchee, createdAt, updatedAt];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$VideoMatchesToJson(
@@ -3088,6 +3389,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches$Conversation
 
   @override
   List<Object?> get props => [id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches$ConversationToJson(
@@ -3113,6 +3415,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Matches
 
   @override
   List<Object?> get props => [id, matcheeId, conversation];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$MatchesToJson(this);
@@ -3136,6 +3439,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery$Photos
 
   @override
   List<Object?> get props => [order, url, id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery$PhotosToJson(
@@ -3157,6 +3461,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Gallery
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$GalleryToJson(this);
@@ -3182,6 +3487,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$Animes
 
   @override
   List<Object?> get props => [id, title, japaneseTitle, cover];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$AnimesToJson(this);
@@ -3212,6 +3518,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User$FavoriteMusic
   @override
   List<Object?> get props =>
       [id, coverUrl, musicType, trackName, artistName, spotifyId];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatch$User$FavoriteMusicToJson(
@@ -3322,6 +3629,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch$User
         isDisplayingRecentlyActive,
         isDisplayingActive
       ];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatch$UserToJson(this);
@@ -3340,6 +3648,7 @@ class FindVideoChatMatch$Mutation$FindVideoChatMatch extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FindVideoChatMatch$Mutation$FindVideoChatMatchToJson(this);
@@ -3356,6 +3665,7 @@ class FindVideoChatMatch$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [findVideoChatMatch];
+
   @override
   Map<String, dynamic> toJson() => _$FindVideoChatMatch$MutationToJson(this);
 }
@@ -3376,6 +3686,7 @@ class FindVideoChatMatchInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$FindVideoChatMatchInputToJson(this);
 }
@@ -3399,6 +3710,7 @@ class AddSuperLikes$Mutation$AddSuperLikes$User extends JsonSerializable
 
   @override
   List<Object?> get props => [id, phone, verified, superLikeCount];
+
   @override
   Map<String, dynamic> toJson() =>
       _$AddSuperLikes$Mutation$AddSuperLikes$UserToJson(this);
@@ -3417,6 +3729,7 @@ class AddSuperLikes$Mutation$AddSuperLikes extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$AddSuperLikes$Mutation$AddSuperLikesToJson(this);
@@ -3433,6 +3746,7 @@ class AddSuperLikes$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [addSuperLikes];
+
   @override
   Map<String, dynamic> toJson() => _$AddSuperLikes$MutationToJson(this);
 }
@@ -3456,8 +3770,88 @@ class AddSuperLikesInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [amount, clientMutationId, userId];
+
   @override
   Map<String, dynamic> toJson() => _$AddSuperLikesInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DenyVideoCall$Mutation$DenyVideoCall$Request extends JsonSerializable
+    with EquatableMixin {
+  DenyVideoCall$Mutation$DenyVideoCall$Request();
+
+  factory DenyVideoCall$Mutation$DenyVideoCall$Request.fromJson(
+          Map<String, dynamic> json) =>
+      _$DenyVideoCall$Mutation$DenyVideoCall$RequestFromJson(json);
+
+  late String id;
+
+  late int userId;
+
+  late int matcheeId;
+
+  @override
+  List<Object?> get props => [id, userId, matcheeId];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$DenyVideoCall$Mutation$DenyVideoCall$RequestToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DenyVideoCall$Mutation$DenyVideoCall extends JsonSerializable
+    with EquatableMixin {
+  DenyVideoCall$Mutation$DenyVideoCall();
+
+  factory DenyVideoCall$Mutation$DenyVideoCall.fromJson(
+          Map<String, dynamic> json) =>
+      _$DenyVideoCall$Mutation$DenyVideoCallFromJson(json);
+
+  DenyVideoCall$Mutation$DenyVideoCall$Request? request;
+
+  @override
+  List<Object?> get props => [request];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$DenyVideoCall$Mutation$DenyVideoCallToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DenyVideoCall$Mutation extends JsonSerializable with EquatableMixin {
+  DenyVideoCall$Mutation();
+
+  factory DenyVideoCall$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$DenyVideoCall$MutationFromJson(json);
+
+  DenyVideoCall$Mutation$DenyVideoCall? denyVideoCall;
+
+  @override
+  List<Object?> get props => [denyVideoCall];
+
+  @override
+  Map<String, dynamic> toJson() => _$DenyVideoCall$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DenyVideoCallInput extends JsonSerializable with EquatableMixin {
+  DenyVideoCallInput({
+    required this.chatRequestId,
+    this.clientMutationId,
+  });
+
+  factory DenyVideoCallInput.fromJson(Map<String, dynamic> json) =>
+      _$DenyVideoCallInputFromJson(json);
+
+  late String chatRequestId;
+
+  String? clientMutationId;
+
+  @override
+  List<Object?> get props => [chatRequestId, clientMutationId];
+
+  @override
+  Map<String, dynamic> toJson() => _$DenyVideoCallInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -3477,6 +3871,7 @@ class UploadPhoto$Mutation$UploadPhoto$User$Gallery$Photos
 
   @override
   List<Object?> get props => [order, url, id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$UploadPhoto$Mutation$UploadPhoto$User$Gallery$PhotosToJson(this);
@@ -3495,6 +3890,7 @@ class UploadPhoto$Mutation$UploadPhoto$User$Gallery extends JsonSerializable
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$UploadPhoto$Mutation$UploadPhoto$User$GalleryToJson(this);
@@ -3513,6 +3909,7 @@ class UploadPhoto$Mutation$UploadPhoto$User extends JsonSerializable
 
   @override
   List<Object?> get props => [gallery];
+
   @override
   Map<String, dynamic> toJson() =>
       _$UploadPhoto$Mutation$UploadPhoto$UserToJson(this);
@@ -3531,6 +3928,7 @@ class UploadPhoto$Mutation$UploadPhoto extends JsonSerializable
 
   @override
   List<Object?> get props => [user];
+
   @override
   Map<String, dynamic> toJson() =>
       _$UploadPhoto$Mutation$UploadPhotoToJson(this);
@@ -3547,6 +3945,7 @@ class UploadPhoto$Mutation extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [uploadPhoto];
+
   @override
   Map<String, dynamic> toJson() => _$UploadPhoto$MutationToJson(this);
 }
@@ -3576,6 +3975,7 @@ class UploadPhotoInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, image, order, userId];
+
   @override
   Map<String, dynamic> toJson() => _$UploadPhotoInputToJson(this);
 }
@@ -3593,6 +3993,7 @@ class DeleteFavoriteMusic$Mutation$DeleteFavoriteMusic extends JsonSerializable
 
   @override
   List<Object?> get props => [deleted];
+
   @override
   Map<String, dynamic> toJson() =>
       _$DeleteFavoriteMusic$Mutation$DeleteFavoriteMusicToJson(this);
@@ -3610,6 +4011,7 @@ class DeleteFavoriteMusic$Mutation extends JsonSerializable
 
   @override
   List<Object?> get props => [deleteFavoriteMusic];
+
   @override
   Map<String, dynamic> toJson() => _$DeleteFavoriteMusic$MutationToJson(this);
 }
@@ -3633,6 +4035,7 @@ class DeleteFavoriteMusicInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [clientMutationId, musicIds, userId];
+
   @override
   Map<String, dynamic> toJson() => _$DeleteFavoriteMusicInputToJson(this);
 }
@@ -3648,6 +4051,7 @@ class FetchLobbyCount$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [fetchLobbyCount];
+
   @override
   Map<String, dynamic> toJson() => _$FetchLobbyCount$QueryToJson(this);
 }
@@ -3669,6 +4073,7 @@ class FetchMessages$Query$FetchMessages$Recommendation$Anime
 
   @override
   List<Object?> get props => [id, title, cover];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchMessages$Query$FetchMessages$Recommendation$AnimeToJson(this);
@@ -3691,6 +4096,7 @@ class FetchMessages$Query$FetchMessages$Recommendation extends JsonSerializable
 
   @override
   List<Object?> get props => [userId, recommendeeId, anime];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchMessages$Query$FetchMessages$RecommendationToJson(this);
@@ -3711,6 +4117,7 @@ class FetchMessages$Query$FetchMessages$Sticker extends JsonSerializable
 
   @override
   List<Object?> get props => [id, url];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchMessages$Query$FetchMessages$StickerToJson(this);
@@ -3761,6 +4168,7 @@ class FetchMessages$Query$FetchMessages extends JsonSerializable
         recommendation,
         sticker
       ];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchMessages$Query$FetchMessagesToJson(this);
@@ -3777,6 +4185,7 @@ class FetchMessages$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [fetchMessages];
+
   @override
   Map<String, dynamic> toJson() => _$FetchMessages$QueryToJson(this);
 }
@@ -3798,6 +4207,7 @@ class FetchFeed$Query$FetchFeed$Gallery$Photos extends JsonSerializable
 
   @override
   List<Object?> get props => [id, order, url];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchFeed$Query$FetchFeed$Gallery$PhotosToJson(this);
@@ -3816,6 +4226,7 @@ class FetchFeed$Query$FetchFeed$Gallery extends JsonSerializable
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchFeed$Query$FetchFeed$GalleryToJson(this);
@@ -3840,6 +4251,7 @@ class FetchFeed$Query$FetchFeed$Animes extends JsonSerializable
 
   @override
   List<Object?> get props => [id, title, japaneseTitle, cover];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchFeed$Query$FetchFeed$AnimesToJson(this);
@@ -3869,6 +4281,7 @@ class FetchFeed$Query$FetchFeed$FavoriteMusic extends JsonSerializable
   @override
   List<Object?> get props =>
       [id, trackName, artistName, coverUrl, musicType, spotifyId];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchFeed$Query$FetchFeed$FavoriteMusicToJson(this);
@@ -3950,6 +4363,7 @@ class FetchFeed$Query$FetchFeed extends JsonSerializable with EquatableMixin {
         superLikeCount,
         milesAway
       ];
+
   @override
   Map<String, dynamic> toJson() => _$FetchFeed$Query$FetchFeedToJson(this);
 }
@@ -3965,6 +4379,7 @@ class FetchFeed$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [fetchFeed];
+
   @override
   Map<String, dynamic> toJson() => _$FetchFeed$QueryToJson(this);
 }
@@ -4016,6 +4431,7 @@ class FetchFeedInput extends JsonSerializable with EquatableMixin {
         userId,
         verified
       ];
+
   @override
   Map<String, dynamic> toJson() => _$FetchFeedInputToJson(this);
 }
@@ -4033,6 +4449,7 @@ class FetchUser$Query$FetchUser$Matches$Conversation extends JsonSerializable
 
   @override
   List<Object?> get props => [id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchUser$Query$FetchUser$Matches$ConversationToJson(this);
@@ -4055,6 +4472,7 @@ class FetchUser$Query$FetchUser$Matches extends JsonSerializable
 
   @override
   List<Object?> get props => [id, matcheeId, conversation];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchUser$Query$FetchUser$MatchesToJson(this);
@@ -4077,6 +4495,7 @@ class FetchUser$Query$FetchUser$Gallery$Photos extends JsonSerializable
 
   @override
   List<Object?> get props => [order, url, id];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchUser$Query$FetchUser$Gallery$PhotosToJson(this);
@@ -4095,6 +4514,7 @@ class FetchUser$Query$FetchUser$Gallery extends JsonSerializable
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchUser$Query$FetchUser$GalleryToJson(this);
@@ -4119,6 +4539,7 @@ class FetchUser$Query$FetchUser$Animes extends JsonSerializable
 
   @override
   List<Object?> get props => [id, title, japaneseTitle, cover];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchUser$Query$FetchUser$AnimesToJson(this);
@@ -4148,6 +4569,7 @@ class FetchUser$Query$FetchUser$FavoriteMusic extends JsonSerializable
   @override
   List<Object?> get props =>
       [id, coverUrl, musicType, trackName, artistName, spotifyId];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchUser$Query$FetchUser$FavoriteMusicToJson(this);
@@ -4247,6 +4669,7 @@ class FetchUser$Query$FetchUser extends JsonSerializable with EquatableMixin {
         isDisplayingRecentlyActive,
         isDisplayingActive
       ];
+
   @override
   Map<String, dynamic> toJson() => _$FetchUser$Query$FetchUserToJson(this);
 }
@@ -4262,6 +4685,7 @@ class FetchUser$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [fetchUser];
+
   @override
   Map<String, dynamic> toJson() => _$FetchUser$QueryToJson(this);
 }
@@ -4321,6 +4745,7 @@ class FetchAnime$Query$FetchAnime extends JsonSerializable with EquatableMixin {
         status,
         japaneseTitle
       ];
+
   @override
   Map<String, dynamic> toJson() => _$FetchAnime$Query$FetchAnimeToJson(this);
 }
@@ -4336,6 +4761,7 @@ class FetchAnime$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [fetchAnime];
+
   @override
   Map<String, dynamic> toJson() => _$FetchAnime$QueryToJson(this);
 }
@@ -4359,6 +4785,7 @@ class AnimeInput extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [genres, page, title];
+
   @override
   Map<String, dynamic> toJson() => _$AnimeInputToJson(this);
 }
@@ -4379,6 +4806,7 @@ class FetchConversations$Query$FetchConversations$Match$User$Gallery$Photos
 
   @override
   List<Object?> get props => [order, url];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$Match$User$Gallery$PhotosToJson(
@@ -4400,6 +4828,7 @@ class FetchConversations$Query$FetchConversations$Match$User$Gallery
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$Match$User$GalleryToJson(
@@ -4425,6 +4854,7 @@ class FetchConversations$Query$FetchConversations$Match$User
 
   @override
   List<Object?> get props => [id, onlineStatus, firstName, gallery];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$Match$UserToJson(this);
@@ -4446,6 +4876,7 @@ class FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$Photos
 
   @override
   List<Object?> get props => [order, url];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$Match$Matchee$Gallery$PhotosToJson(
@@ -4467,6 +4898,7 @@ class FetchConversations$Query$FetchConversations$Match$Matchee$Gallery
 
   @override
   List<Object?> get props => [photos];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$Match$Matchee$GalleryToJson(
@@ -4492,6 +4924,7 @@ class FetchConversations$Query$FetchConversations$Match$Matchee
 
   @override
   List<Object?> get props => [id, onlineStatus, firstName, gallery];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$Match$MatcheeToJson(this);
@@ -4519,6 +4952,7 @@ class FetchConversations$Query$FetchConversations$Match extends JsonSerializable
 
   @override
   List<Object?> get props => [id, createdAt, user, matchee];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$MatchToJson(this);
@@ -4540,6 +4974,7 @@ class FetchConversations$Query$FetchConversations$LastMessage$Recommendation$Ani
 
   @override
   List<Object?> get props => [title, cover];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$LastMessage$Recommendation$AnimeToJson(
@@ -4565,6 +5000,7 @@ class FetchConversations$Query$FetchConversations$LastMessage$Recommendation
 
   @override
   List<Object?> get props => [userId, recommendeeId, anime];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$LastMessage$RecommendationToJson(
@@ -4587,6 +5023,7 @@ class FetchConversations$Query$FetchConversations$LastMessage$Sticker
 
   @override
   List<Object?> get props => [id, url];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$LastMessage$StickerToJson(
@@ -4636,6 +5073,7 @@ class FetchConversations$Query$FetchConversations$LastMessage
         recommendation,
         sticker
       ];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversations$LastMessageToJson(this);
@@ -4660,6 +5098,7 @@ class FetchConversations$Query$FetchConversations extends JsonSerializable
 
   @override
   List<Object?> get props => [id, match, lastMessage, unreadCount];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchConversations$Query$FetchConversationsToJson(this);
@@ -4676,6 +5115,7 @@ class FetchConversations$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [fetchConversations];
+
   @override
   Map<String, dynamic> toJson() => _$FetchConversations$QueryToJson(this);
 }
@@ -4695,6 +5135,7 @@ class FetchVerifyRequests$Query$FetchVerifyRequests extends JsonSerializable
 
   @override
   List<Object?> get props => [userId, status];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchVerifyRequests$Query$FetchVerifyRequestsToJson(this);
@@ -4711,6 +5152,7 @@ class FetchVerifyRequests$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [fetchVerifyRequests];
+
   @override
   Map<String, dynamic> toJson() => _$FetchVerifyRequests$QueryToJson(this);
 }
@@ -4730,6 +5172,7 @@ class FetchStickers$Query$FetchStickers extends JsonSerializable
 
   @override
   List<Object?> get props => [id, url];
+
   @override
   Map<String, dynamic> toJson() =>
       _$FetchStickers$Query$FetchStickersToJson(this);
@@ -4746,240 +5189,9 @@ class FetchStickers$Query extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [fetchStickers];
+
   @override
   Map<String, dynamic> toJson() => _$FetchStickers$QueryToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
-    extends JsonSerializable with EquatableMixin {
-  SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest();
-
-  factory SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestFromJson(
-          json);
-
-  late String id;
-
-  late int matcheeId;
-
-  int? status;
-
-  late int userId;
-
-  @override
-  List<Object?> get props => [id, matcheeId, status, userId];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequestToJson(
-          this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class SendVideoChatRequest$Mutation$SendVideoChatRequest
-    extends JsonSerializable with EquatableMixin {
-  SendVideoChatRequest$Mutation$SendVideoChatRequest();
-
-  factory SendVideoChatRequest$Mutation$SendVideoChatRequest.fromJson(
-          Map<String, dynamic> json) =>
-      _$SendVideoChatRequest$Mutation$SendVideoChatRequestFromJson(json);
-
-  late SendVideoChatRequest$Mutation$SendVideoChatRequest$VideoChatRequest
-      videoChatRequest;
-
-  @override
-  List<Object?> get props => [videoChatRequest];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$SendVideoChatRequest$Mutation$SendVideoChatRequestToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class SendVideoChatRequest$Mutation extends JsonSerializable
-    with EquatableMixin {
-  SendVideoChatRequest$Mutation();
-
-  factory SendVideoChatRequest$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$SendVideoChatRequest$MutationFromJson(json);
-
-  SendVideoChatRequest$Mutation$SendVideoChatRequest? sendVideoChatRequest;
-
-  @override
-  List<Object?> get props => [sendVideoChatRequest];
-  @override
-  Map<String, dynamic> toJson() => _$SendVideoChatRequest$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class SendVideoChatRequestInput extends JsonSerializable with EquatableMixin {
-  SendVideoChatRequestInput({
-    this.clientMutationId,
-    required this.matcheeId,
-    required this.userId,
-  });
-
-  factory SendVideoChatRequestInput.fromJson(Map<String, dynamic> json) =>
-      _$SendVideoChatRequestInputFromJson(json);
-
-  String? clientMutationId;
-
-  late String matcheeId;
-
-  late String userId;
-
-  @override
-  List<Object?> get props => [clientMutationId, matcheeId, userId];
-  @override
-  Map<String, dynamic> toJson() => _$SendVideoChatRequestInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch
-    extends JsonSerializable with EquatableMixin {
-  AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch();
-
-  factory AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch.fromJson(
-          Map<String, dynamic> json) =>
-      _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchFromJson(json);
-
-  late String id;
-
-  late String status;
-
-  @override
-  List<Object?> get props => [id, status];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatchToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AcceptVideoChat$Mutation$AcceptVideoCall extends JsonSerializable
-    with EquatableMixin {
-  AcceptVideoChat$Mutation$AcceptVideoCall();
-
-  factory AcceptVideoChat$Mutation$AcceptVideoCall.fromJson(
-          Map<String, dynamic> json) =>
-      _$AcceptVideoChat$Mutation$AcceptVideoCallFromJson(json);
-
-  AcceptVideoChat$Mutation$AcceptVideoCall$VideoMatch? videoMatch;
-
-  @override
-  List<Object?> get props => [videoMatch];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$AcceptVideoChat$Mutation$AcceptVideoCallToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AcceptVideoChat$Mutation extends JsonSerializable with EquatableMixin {
-  AcceptVideoChat$Mutation();
-
-  factory AcceptVideoChat$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$AcceptVideoChat$MutationFromJson(json);
-
-  AcceptVideoChat$Mutation$AcceptVideoCall? acceptVideoCall;
-
-  @override
-  List<Object?> get props => [acceptVideoCall];
-  @override
-  Map<String, dynamic> toJson() => _$AcceptVideoChat$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AcceptVideoCallInput extends JsonSerializable with EquatableMixin {
-  AcceptVideoCallInput({
-    required this.chatRequestId,
-    this.clientMutationId,
-  });
-
-  factory AcceptVideoCallInput.fromJson(Map<String, dynamic> json) =>
-      _$AcceptVideoCallInputFromJson(json);
-
-  late String chatRequestId;
-
-  String? clientMutationId;
-
-  @override
-  List<Object?> get props => [chatRequestId, clientMutationId];
-  @override
-  Map<String, dynamic> toJson() => _$AcceptVideoCallInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DenyVideoCall$Mutation$DenyVideoCall$Request extends JsonSerializable
-    with EquatableMixin {
-  DenyVideoCall$Mutation$DenyVideoCall$Request();
-
-  factory DenyVideoCall$Mutation$DenyVideoCall$Request.fromJson(
-          Map<String, dynamic> json) =>
-      _$DenyVideoCall$Mutation$DenyVideoCall$RequestFromJson(json);
-
-  late String id;
-
-  late int userId;
-
-  late int matcheeId;
-
-  @override
-  List<Object?> get props => [id, userId, matcheeId];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$DenyVideoCall$Mutation$DenyVideoCall$RequestToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DenyVideoCall$Mutation$DenyVideoCall extends JsonSerializable
-    with EquatableMixin {
-  DenyVideoCall$Mutation$DenyVideoCall();
-
-  factory DenyVideoCall$Mutation$DenyVideoCall.fromJson(
-          Map<String, dynamic> json) =>
-      _$DenyVideoCall$Mutation$DenyVideoCallFromJson(json);
-
-  DenyVideoCall$Mutation$DenyVideoCall$Request? request;
-
-  @override
-  List<Object?> get props => [request];
-  @override
-  Map<String, dynamic> toJson() =>
-      _$DenyVideoCall$Mutation$DenyVideoCallToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DenyVideoCall$Mutation extends JsonSerializable with EquatableMixin {
-  DenyVideoCall$Mutation();
-
-  factory DenyVideoCall$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$DenyVideoCall$MutationFromJson(json);
-
-  DenyVideoCall$Mutation$DenyVideoCall? denyVideoCall;
-
-  @override
-  List<Object?> get props => [denyVideoCall];
-  @override
-  Map<String, dynamic> toJson() => _$DenyVideoCall$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DenyVideoCallInput extends JsonSerializable with EquatableMixin {
-  DenyVideoCallInput({
-    required this.chatRequestId,
-    this.clientMutationId,
-  });
-
-  factory DenyVideoCallInput.fromJson(Map<String, dynamic> json) =>
-      _$DenyVideoCallInputFromJson(json);
-
-  late String chatRequestId;
-
-  String? clientMutationId;
-
-  @override
-  List<Object?> get props => [chatRequestId, clientMutationId];
-  @override
-  Map<String, dynamic> toJson() => _$DenyVideoCallInputToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -4995,6 +5207,7 @@ class DeleteFavoriteAnimeArguments extends JsonSerializable
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$DeleteFavoriteAnimeArgumentsToJson(this);
 }
@@ -5058,6 +5271,7 @@ class DeleteFavoriteAnimeMutation extends GraphQLQuery<
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   DeleteFavoriteAnime$Mutation parse(Map<String, dynamic> json) =>
       DeleteFavoriteAnime$Mutation.fromJson(json);
@@ -5076,6 +5290,7 @@ class StartVideoMatchmakingArguments extends JsonSerializable
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$StartVideoMatchmakingArgumentsToJson(this);
 }
@@ -5454,6 +5669,7 @@ class StartVideoMatchmakingMutation extends GraphQLQuery<
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   StartVideoMatchmaking$Mutation parse(Map<String, dynamic> json) =>
       StartVideoMatchmaking$Mutation.fromJson(json);
@@ -5471,6 +5687,7 @@ class CreateUserArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$CreateUserArgumentsToJson(this);
 }
@@ -5561,6 +5778,7 @@ class CreateUserMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   CreateUser$Mutation parse(Map<String, dynamic> json) =>
       CreateUser$Mutation.fromJson(json);
@@ -5578,6 +5796,7 @@ class AddDeviceTokenArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$AddDeviceTokenArgumentsToJson(this);
 }
@@ -5648,6 +5867,7 @@ class AddDeviceTokenMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   AddDeviceToken$Mutation parse(Map<String, dynamic> json) =>
       AddDeviceToken$Mutation.fromJson(json);
@@ -5665,6 +5885,7 @@ class RemoveDeviceTokenArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$RemoveDeviceTokenArgumentsToJson(this);
 }
@@ -5736,6 +5957,7 @@ class RemoveDeviceTokenMutation extends GraphQLQuery<RemoveDeviceToken$Mutation,
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   RemoveDeviceToken$Mutation parse(Map<String, dynamic> json) =>
       RemoveDeviceToken$Mutation.fromJson(json);
@@ -5754,6 +5976,7 @@ class SubmitVerifyRequestArguments extends JsonSerializable
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$SubmitVerifyRequestArgumentsToJson(this);
 }
@@ -5832,6 +6055,7 @@ class SubmitVerifyRequestMutation extends GraphQLQuery<
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   SubmitVerifyRequest$Mutation parse(Map<String, dynamic> json) =>
       SubmitVerifyRequest$Mutation.fromJson(json);
@@ -5849,6 +6073,7 @@ class AddFavoriteAnimeArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$AddFavoriteAnimeArgumentsToJson(this);
 }
@@ -5941,6 +6166,7 @@ class AddFavoriteAnimeMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   AddFavoriteAnime$Mutation parse(Map<String, dynamic> json) =>
       AddFavoriteAnime$Mutation.fromJson(json);
@@ -5958,6 +6184,7 @@ class UpdateUserArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$UpdateUserArgumentsToJson(this);
 }
@@ -6111,6 +6338,7 @@ class UpdateUserMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   UpdateUser$Mutation parse(Map<String, dynamic> json) =>
       UpdateUser$Mutation.fromJson(json);
@@ -6128,6 +6356,7 @@ class SendMessageArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$SendMessageArgumentsToJson(this);
 }
@@ -6218,6 +6447,7 @@ class SendMessageMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   SendMessage$Mutation parse(Map<String, dynamic> json) =>
       SendMessage$Mutation.fromJson(json);
@@ -6235,6 +6465,7 @@ class DeletePhotoArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$DeletePhotoArgumentsToJson(this);
 }
@@ -6333,6 +6564,7 @@ class DeletePhotoMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   DeletePhoto$Mutation parse(Map<String, dynamic> json) =>
       DeletePhoto$Mutation.fromJson(json);
@@ -6350,6 +6582,7 @@ class UpdateMessageArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$UpdateMessageArgumentsToJson(this);
 }
@@ -6426,6 +6659,7 @@ class UpdateMessageMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   UpdateMessage$Mutation parse(Map<String, dynamic> json) =>
       UpdateMessage$Mutation.fromJson(json);
@@ -6443,6 +6677,7 @@ class ValidatePhoneArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$ValidatePhoneArgumentsToJson(this);
 }
@@ -6547,6 +6782,7 @@ class ValidatePhoneMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   ValidatePhone$Mutation parse(Map<String, dynamic> json) =>
       ValidatePhone$Mutation.fromJson(json);
@@ -6564,6 +6800,7 @@ class ReportUserArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$ReportUserArgumentsToJson(this);
 }
@@ -6712,6 +6949,7 @@ class ReportUserMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   ReportUser$Mutation parse(Map<String, dynamic> json) =>
       ReportUser$Mutation.fromJson(json);
@@ -6730,6 +6968,7 @@ class StopVideoMatchmakingArguments extends JsonSerializable
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$StopVideoMatchmakingArgumentsToJson(this);
 }
@@ -7108,6 +7347,7 @@ class StopVideoMatchmakingMutation extends GraphQLQuery<
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   StopVideoMatchmaking$Mutation parse(Map<String, dynamic> json) =>
       StopVideoMatchmaking$Mutation.fromJson(json);
@@ -7127,6 +7367,7 @@ class GetDistanceBetweenUsersArguments extends JsonSerializable
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() =>
       _$GetDistanceBetweenUsersArgumentsToJson(this);
@@ -7191,9 +7432,106 @@ class GetDistanceBetweenUsersMutation extends GraphQLQuery<
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   GetDistanceBetweenUsers$Mutation parse(Map<String, dynamic> json) =>
       GetDistanceBetweenUsers$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class AcceptVideoChatArguments extends JsonSerializable with EquatableMixin {
+  AcceptVideoChatArguments({required this.input});
+
+  @override
+  factory AcceptVideoChatArguments.fromJson(Map<String, dynamic> json) =>
+      _$AcceptVideoChatArgumentsFromJson(json);
+
+  late AcceptVideoCallInput input;
+
+  @override
+  List<Object?> get props => [input];
+
+  @override
+  Map<String, dynamic> toJson() => _$AcceptVideoChatArgumentsToJson(this);
+}
+
+final ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT_OPERATION_NAME = 'acceptVideoChat';
+final ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'acceptVideoChat'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'AcceptVideoCallInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'acceptVideoCall'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'videoMatch'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'status'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class AcceptVideoChatMutation
+    extends GraphQLQuery<AcceptVideoChat$Mutation, AcceptVideoChatArguments> {
+  AcceptVideoChatMutation({required this.variables});
+
+  @override
+  final DocumentNode document = ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final AcceptVideoChatArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+
+  @override
+  AcceptVideoChat$Mutation parse(Map<String, dynamic> json) =>
+      AcceptVideoChat$Mutation.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -7208,6 +7546,7 @@ class AddFavoriteMusicArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$AddFavoriteMusicArgumentsToJson(this);
 }
@@ -7328,6 +7667,7 @@ class AddFavoriteMusicMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   AddFavoriteMusic$Mutation parse(Map<String, dynamic> json) =>
       AddFavoriteMusic$Mutation.fromJson(json);
@@ -7345,6 +7685,7 @@ class ResendVerifyCodeArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$ResendVerifyCodeArgumentsToJson(this);
 }
@@ -7422,6 +7763,7 @@ class ResendVerifyCodeMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   ResendVerifyCode$Mutation parse(Map<String, dynamic> json) =>
       ResendVerifyCode$Mutation.fromJson(json);
@@ -7439,6 +7781,7 @@ class LikeUserArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$LikeUserArgumentsToJson(this);
 }
@@ -7691,6 +8034,7 @@ class LikeUserMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   LikeUser$Mutation parse(Map<String, dynamic> json) =>
       LikeUser$Mutation.fromJson(json);
@@ -7708,6 +8052,7 @@ class GrantUserPremiumArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$GrantUserPremiumArgumentsToJson(this);
 }
@@ -7785,6 +8130,7 @@ class GrantUserPremiumMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   GrantUserPremium$Mutation parse(Map<String, dynamic> json) =>
       GrantUserPremium$Mutation.fromJson(json);
@@ -7802,6 +8148,7 @@ class UnmatchUserArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$UnmatchUserArgumentsToJson(this);
 }
@@ -7871,6 +8218,7 @@ class UnmatchUserMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   UnmatchUser$Mutation parse(Map<String, dynamic> json) =>
       UnmatchUser$Mutation.fromJson(json);
@@ -7888,6 +8236,7 @@ class DeleteUserArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$DeleteUserArgumentsToJson(this);
 }
@@ -7971,6 +8320,7 @@ class DeleteUserMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   DeleteUser$Mutation parse(Map<String, dynamic> json) =>
       DeleteUser$Mutation.fromJson(json);
@@ -7988,6 +8338,7 @@ class SignInArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$SignInArgumentsToJson(this);
 }
@@ -8077,9 +8428,122 @@ class SignInMutation extends GraphQLQuery<SignIn$Mutation, SignInArguments> {
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   SignIn$Mutation parse(Map<String, dynamic> json) =>
       SignIn$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class SendVideoChatRequestArguments extends JsonSerializable
+    with EquatableMixin {
+  SendVideoChatRequestArguments({required this.input});
+
+  @override
+  factory SendVideoChatRequestArguments.fromJson(Map<String, dynamic> json) =>
+      _$SendVideoChatRequestArgumentsFromJson(json);
+
+  late SendVideoChatRequestInput input;
+
+  @override
+  List<Object?> get props => [input];
+
+  @override
+  Map<String, dynamic> toJson() => _$SendVideoChatRequestArgumentsToJson(this);
+}
+
+final SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME =
+    'sendVideoChatRequest';
+final SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'sendVideoChatRequest'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'SendVideoChatRequestInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'sendVideoChatRequest'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'videoChatRequest'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'matcheeId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'status'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'userId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class SendVideoChatRequestMutation extends GraphQLQuery<
+    SendVideoChatRequest$Mutation, SendVideoChatRequestArguments> {
+  SendVideoChatRequestMutation({required this.variables});
+
+  @override
+  final DocumentNode document = SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final SendVideoChatRequestArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+
+  @override
+  SendVideoChatRequest$Mutation parse(Map<String, dynamic> json) =>
+      SendVideoChatRequest$Mutation.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -8094,6 +8558,7 @@ class ReorderPhotosArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$ReorderPhotosArgumentsToJson(this);
 }
@@ -8177,6 +8642,7 @@ class ReorderPhotosMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   ReorderPhotos$Mutation parse(Map<String, dynamic> json) =>
       ReorderPhotos$Mutation.fromJson(json);
@@ -8194,6 +8660,7 @@ class SetUserLocationArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$SetUserLocationArgumentsToJson(this);
 }
@@ -8285,6 +8752,7 @@ class SetUserLocationMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   SetUserLocation$Mutation parse(Map<String, dynamic> json) =>
       SetUserLocation$Mutation.fromJson(json);
@@ -8302,6 +8770,7 @@ class UndoLikeArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$UndoLikeArgumentsToJson(this);
 }
@@ -8378,6 +8847,7 @@ class UndoLikeMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   UndoLike$Mutation parse(Map<String, dynamic> json) =>
       UndoLike$Mutation.fromJson(json);
@@ -8395,6 +8865,7 @@ class FindVideoChatMatchArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$FindVideoChatMatchArgumentsToJson(this);
 }
@@ -8882,6 +9353,7 @@ class FindVideoChatMatchMutation extends GraphQLQuery<
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   FindVideoChatMatch$Mutation parse(Map<String, dynamic> json) =>
       FindVideoChatMatch$Mutation.fromJson(json);
@@ -8899,6 +9371,7 @@ class AddSuperLikesArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$AddSuperLikesArgumentsToJson(this);
 }
@@ -8989,9 +9462,112 @@ class AddSuperLikesMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   AddSuperLikes$Mutation parse(Map<String, dynamic> json) =>
       AddSuperLikes$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class DenyVideoCallArguments extends JsonSerializable with EquatableMixin {
+  DenyVideoCallArguments({required this.input});
+
+  @override
+  factory DenyVideoCallArguments.fromJson(Map<String, dynamic> json) =>
+      _$DenyVideoCallArgumentsFromJson(json);
+
+  late DenyVideoCallInput input;
+
+  @override
+  List<Object?> get props => [input];
+
+  @override
+  Map<String, dynamic> toJson() => _$DenyVideoCallArgumentsToJson(this);
+}
+
+final DENY_VIDEO_CALL_MUTATION_DOCUMENT_OPERATION_NAME = 'denyVideoCall';
+final DENY_VIDEO_CALL_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'denyVideoCall'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'DenyVideoCallInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'denyVideoCall'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'request'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'userId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'matcheeId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class DenyVideoCallMutation
+    extends GraphQLQuery<DenyVideoCall$Mutation, DenyVideoCallArguments> {
+  DenyVideoCallMutation({required this.variables});
+
+  @override
+  final DocumentNode document = DENY_VIDEO_CALL_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName = DENY_VIDEO_CALL_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final DenyVideoCallArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+
+  @override
+  DenyVideoCall$Mutation parse(Map<String, dynamic> json) =>
+      DenyVideoCall$Mutation.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -9006,6 +9582,7 @@ class UploadPhotoArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$UploadPhotoArgumentsToJson(this);
 }
@@ -9105,6 +9682,7 @@ class UploadPhotoMutation
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   UploadPhoto$Mutation parse(Map<String, dynamic> json) =>
       UploadPhoto$Mutation.fromJson(json);
@@ -9123,6 +9701,7 @@ class DeleteFavoriteMusicArguments extends JsonSerializable
 
   @override
   List<Object?> get props => [input];
+
   @override
   Map<String, dynamic> toJson() => _$DeleteFavoriteMusicArgumentsToJson(this);
 }
@@ -9186,6 +9765,7 @@ class DeleteFavoriteMusicMutation extends GraphQLQuery<
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   DeleteFavoriteMusic$Mutation parse(Map<String, dynamic> json) =>
       DeleteFavoriteMusic$Mutation.fromJson(json);
@@ -9203,6 +9783,7 @@ class FetchLobbyCountArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [userId];
+
   @override
   Map<String, dynamic> toJson() => _$FetchLobbyCountArgumentsToJson(this);
 }
@@ -9256,6 +9837,7 @@ class FetchLobbyCountQuery
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   FetchLobbyCount$Query parse(Map<String, dynamic> json) =>
       FetchLobbyCount$Query.fromJson(json);
@@ -9278,6 +9860,7 @@ class FetchMessagesArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [conversationId, page];
+
   @override
   Map<String, dynamic> toJson() => _$FetchMessagesArgumentsToJson(this);
 }
@@ -9474,6 +10057,7 @@ class FetchMessagesQuery
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   FetchMessages$Query parse(Map<String, dynamic> json) =>
       FetchMessages$Query.fromJson(json);
@@ -9496,6 +10080,7 @@ class FetchFeedArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [params, otherUserId];
+
   @override
   Map<String, dynamic> toJson() => _$FetchFeedArgumentsToJson(this);
 }
@@ -9805,6 +10390,7 @@ class FetchFeedQuery extends GraphQLQuery<FetchFeed$Query, FetchFeedArguments> {
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   FetchFeed$Query parse(Map<String, dynamic> json) =>
       FetchFeed$Query.fromJson(json);
@@ -9822,6 +10408,7 @@ class FetchUserArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [userId];
+
   @override
   Map<String, dynamic> toJson() => _$FetchUserArgumentsToJson(this);
 }
@@ -10189,6 +10776,7 @@ class FetchUserQuery extends GraphQLQuery<FetchUser$Query, FetchUserArguments> {
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   FetchUser$Query parse(Map<String, dynamic> json) =>
       FetchUser$Query.fromJson(json);
@@ -10206,6 +10794,7 @@ class FetchAnimeArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [params];
+
   @override
   Map<String, dynamic> toJson() => _$FetchAnimeArgumentsToJson(this);
 }
@@ -10351,6 +10940,7 @@ class FetchAnimeQuery
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   FetchAnime$Query parse(Map<String, dynamic> json) =>
       FetchAnime$Query.fromJson(json);
@@ -10368,6 +10958,7 @@ class FetchConversationsArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [userId];
+
   @override
   Map<String, dynamic> toJson() => _$FetchConversationsArgumentsToJson(this);
 }
@@ -10705,6 +11296,7 @@ class FetchConversationsQuery extends GraphQLQuery<FetchConversations$Query,
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   FetchConversations$Query parse(Map<String, dynamic> json) =>
       FetchConversations$Query.fromJson(json);
@@ -10723,6 +11315,7 @@ class FetchVerifyRequestsArguments extends JsonSerializable
 
   @override
   List<Object?> get props => [userId];
+
   @override
   Map<String, dynamic> toJson() => _$FetchVerifyRequestsArgumentsToJson(this);
 }
@@ -10793,6 +11386,7 @@ class FetchVerifyRequestsQuery extends GraphQLQuery<FetchVerifyRequests$Query,
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   FetchVerifyRequests$Query parse(Map<String, dynamic> json) =>
       FetchVerifyRequests$Query.fromJson(json);
@@ -10810,6 +11404,7 @@ class FetchStickersArguments extends JsonSerializable with EquatableMixin {
 
   @override
   List<Object?> get props => [page];
+
   @override
   Map<String, dynamic> toJson() => _$FetchStickersArgumentsToJson(this);
 }
@@ -10878,311 +11473,8 @@ class FetchStickersQuery
 
   @override
   List<Object?> get props => [document, operationName, variables];
+
   @override
   FetchStickers$Query parse(Map<String, dynamic> json) =>
       FetchStickers$Query.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class SendVideoChatRequestArguments extends JsonSerializable
-    with EquatableMixin {
-  SendVideoChatRequestArguments({required this.input});
-
-  @override
-  factory SendVideoChatRequestArguments.fromJson(Map<String, dynamic> json) =>
-      _$SendVideoChatRequestArgumentsFromJson(json);
-
-  late SendVideoChatRequestInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$SendVideoChatRequestArgumentsToJson(this);
-}
-
-final SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME =
-    'sendVideoChatRequest';
-final SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'sendVideoChatRequest'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'SendVideoChatRequestInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'sendVideoChatRequest'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'videoChatRequest'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'matcheeId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'status'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'userId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class SendVideoChatRequestMutation extends GraphQLQuery<
-    SendVideoChatRequest$Mutation, SendVideoChatRequestArguments> {
-  SendVideoChatRequestMutation({required this.variables});
-
-  @override
-  final DocumentNode document = SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName =
-      SEND_VIDEO_CHAT_REQUEST_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final SendVideoChatRequestArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  SendVideoChatRequest$Mutation parse(Map<String, dynamic> json) =>
-      SendVideoChatRequest$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class AcceptVideoChatArguments extends JsonSerializable with EquatableMixin {
-  AcceptVideoChatArguments({required this.input});
-
-  @override
-  factory AcceptVideoChatArguments.fromJson(Map<String, dynamic> json) =>
-      _$AcceptVideoChatArgumentsFromJson(json);
-
-  late AcceptVideoCallInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$AcceptVideoChatArgumentsToJson(this);
-}
-
-final ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT_OPERATION_NAME = 'acceptVideoChat';
-final ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'acceptVideoChat'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'AcceptVideoCallInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'acceptVideoCall'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'videoMatch'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'status'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class AcceptVideoChatMutation
-    extends GraphQLQuery<AcceptVideoChat$Mutation, AcceptVideoChatArguments> {
-  AcceptVideoChatMutation({required this.variables});
-
-  @override
-  final DocumentNode document = ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName =
-      ACCEPT_VIDEO_CHAT_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final AcceptVideoChatArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  AcceptVideoChat$Mutation parse(Map<String, dynamic> json) =>
-      AcceptVideoChat$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class DenyVideoCallArguments extends JsonSerializable with EquatableMixin {
-  DenyVideoCallArguments({required this.input});
-
-  @override
-  factory DenyVideoCallArguments.fromJson(Map<String, dynamic> json) =>
-      _$DenyVideoCallArgumentsFromJson(json);
-
-  late DenyVideoCallInput input;
-
-  @override
-  List<Object?> get props => [input];
-  @override
-  Map<String, dynamic> toJson() => _$DenyVideoCallArgumentsToJson(this);
-}
-
-final DENY_VIDEO_CALL_MUTATION_DOCUMENT_OPERATION_NAME = 'denyVideoCall';
-final DENY_VIDEO_CALL_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'denyVideoCall'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'DenyVideoCallInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'denyVideoCall'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'request'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'userId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'matcheeId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class DenyVideoCallMutation
-    extends GraphQLQuery<DenyVideoCall$Mutation, DenyVideoCallArguments> {
-  DenyVideoCallMutation({required this.variables});
-
-  @override
-  final DocumentNode document = DENY_VIDEO_CALL_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName = DENY_VIDEO_CALL_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final DenyVideoCallArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-  @override
-  DenyVideoCall$Mutation parse(Map<String, dynamic> json) =>
-      DenyVideoCall$Mutation.fromJson(json);
 }
