@@ -126,7 +126,8 @@ class _LobbyPageState extends State<LobbyPage> {
 
         final status = data["status"];
 
-        bool shouldShowDialog = status == "pending" && matcheeID == userId;
+        bool shouldShowDialog =
+            status == "pending" && matcheeID.toString() == userId.toString();
 
         if (shouldShowDialog) {
           // show accept/reject dialog
