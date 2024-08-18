@@ -147,13 +147,12 @@ class _LobbyPageState extends State<LobbyPage> {
       data: (data) {
         // if the data is for involves the current user:
         logIt.info("Received data from lobby subscriptions: $data");
-        final matcheeID = data["matchee_id"];
-        final matchID = data["user_id"];
+        final matcheeID = data["matchee_id"].toString();
+        final matchID = data["user_id"].toString();
 
         final status = data["status"];
 
-        bool shouldShowDialog =
-            status == "pending" && matcheeID.toString() == userId.toString();
+        bool shouldShowDialog = status == "pending" && matcheeID == userId;
 
         if (shouldShowDialog) {
           // show accept/reject dialog
