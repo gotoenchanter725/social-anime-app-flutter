@@ -1,16 +1,19 @@
 import 'dart:ui';
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/match/blocs/send_video_chat_request_bloc.dart';
+import 'package:senpai/core/match/blocs/stop_video_match_bloc.dart';
 import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/lobby/bloc/invite_video_chat_cubit.dart';
 import 'package:senpai/screens/lobby/widgets/video_request_contents.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
-import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 void showVideoRequestDialog(BuildContext context, dynamic matchData) {
@@ -60,6 +63,9 @@ class VideoRequestDialog extends StatelessWidget {
                 OnInitUserID(),
               ),
           ),
+          BlocProvider(
+            create: (_) => StopVideoMatchBloc(),
+          ),
         ],
         child: SafeArea(
           child: Stack(
@@ -99,7 +105,11 @@ class VideoRequestDialog extends StatelessWidget {
                           ),
                           child: InkWell(
                             onTap: () {
-                              appRouter.pop();
+                              final userId =
+                                  (context.read<ProfileBloc>().userID);
+                              context
+                                  .read<StopVideoMatchBloc>()
+                                  .stopVideoMatch(userId);
                             },
                             child: Container(
                               height: getWidthSize(context, 0.13),
@@ -126,11 +136,33 @@ class VideoRequestDialog extends StatelessWidget {
                     },
                   )
                 ],
-              )
+              ),
+              _buildStopMatchingListeners(context),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildStopMatchingListeners(BuildContext context) {
+    return BlocBuilder<StopVideoMatchBloc, MutationState>(
+      builder: (context, state) {
+        return state.maybeWhen<Widget>(
+          orElse: () {
+            return const SizedBox.shrink();
+          },
+          succeeded: (data, result) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              context.router.replaceAll([HomeRoute()]);
+            });
+            return const SizedBox.shrink();
+          },
+          loading: () {
+            return const SenpaiLoading();
+          },
+        );
+      },
     );
   }
 }

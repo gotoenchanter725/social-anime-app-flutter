@@ -3,8 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:senpai/core/match/blocs/fetch_lobby_count.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/screens/match/bloc/lobby_count_cubit.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class LobbyInformationWidget extends StatelessWidget {
@@ -20,7 +20,6 @@ class LobbyInformationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int usersInLobby = context.read<FetchLobbyCountBloc>().lobbyCount;
     return Padding(
       padding: EdgeInsets.only(
           left: getWidthSize(context, 0.037),
@@ -54,12 +53,16 @@ class LobbyInformationWidget extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.all(getWidthSize(context, 0.018)),
                       child: Center(
-                        child: Text(
-                          'Waiting in the lobby: $usersInLobby',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: getWidthSize(context, 0.037),
-                          ),
+                        child: BlocBuilder<LobbyCubit, int>(
+                          builder: (context, state) {
+                            return Text(
+                              'Waiting in the lobby: $state',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: getWidthSize(context, 0.037),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     ),

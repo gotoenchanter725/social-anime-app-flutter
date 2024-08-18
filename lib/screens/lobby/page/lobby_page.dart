@@ -5,6 +5,7 @@ import 'package:senpai/core/action_cable/blocs/action_cable_bloc.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/match/blocs/fetch_lobby_count.dart';
 import 'package:senpai/core/match/blocs/find_video_match/find_video_chat_match_bloc.dart';
+import 'package:senpai/core/match/blocs/lobby_count_subscriptions/lobby_count_subscription_bloc.dart';
 import 'package:senpai/core/match/blocs/stop_video_match_bloc.dart';
 import 'package:senpai/core/match/blocs/video_chat_subscriptions/video_chat_subscription_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
@@ -13,6 +14,7 @@ import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/lobby/widgets/invite_lobby_dialog.dart';
 import 'package:senpai/screens/lobby/widgets/lobby_page_content.dart';
+import 'package:senpai/screens/match/bloc/lobby_count_cubit.dart';
 import 'package:senpai/screens/match/widgets/fetch_count_container.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
@@ -49,27 +51,37 @@ class _LobbyPageState extends State<LobbyPage> {
           BlocProvider(
             create: (_) => VideoChatSubscriptionsBloc(),
           ),
+          BlocProvider(
+            create: (_) => LobbyCountSubScriptionBloc(),
+          ),
+          BlocProvider(create: (_) => LobbyCubit()),
         ],
-        child: FetchCountContainer(
-          loadingWidget: _buildLoadingPage(context),
-          child: BlocBuilder<FindVideoChatMatchBloc, MutationState>(
-            builder: (context, state) {
-              state.whenOrNull(initial: () {
-                final userId = (context.read<ProfileBloc>().userID);
-                if (userId.isNotEmpty) {
-                  context
-                      .read<FindVideoChatMatchBloc>()
-                      .findVideoChatMatch(userId: userId);
-                }
-              });
+        child: BlocListener<LobbyCountSubScriptionBloc, ActionCableState>(
+          listener: (context, state) {
+            _handleLobbyCountSubscriptions(context, state);
+          },
+          child: FetchCountContainer(
+            loadingWidget: _buildLoadingPage(context),
+            child: BlocBuilder<FindVideoChatMatchBloc, MutationState>(
+              builder: (context, state) {
+                state.whenOrNull(initial: () {
+                  final userId = (context.read<ProfileBloc>().userID);
+                  if (userId.isNotEmpty) {
+                    context
+                        .read<FindVideoChatMatchBloc>()
+                        .findVideoChatMatch(userId: userId);
+                  }
+                });
 
-              return BlocListener<VideoChatSubscriptionsBloc, ActionCableState>(
-                listener: (context, state) {
-                  _handleLobbySubscriptions(context, state);
-                },
-                child: const LobbyPageContentWidget(),
-              );
-            },
+                return BlocListener<VideoChatSubscriptionsBloc,
+                    ActionCableState>(
+                  listener: (context, state) {
+                    _handleLobbySubscriptions(context, state);
+                  },
+                  child: const LobbyPageContentWidget(),
+                );
+              },
+            ),
           ),
         ));
   }
@@ -77,6 +89,21 @@ class _LobbyPageState extends State<LobbyPage> {
   _buildLoadingPage(BuildContext context) {
     return const Scaffold(
       body: SenpaiLoading(),
+    );
+  }
+
+  _handleLobbyCountSubscriptions(BuildContext context, ActionCableState state) {
+    final lobbyCubit = context.read<LobbyCubit>();
+    final lobbyCountSubScriptionBloc =
+        context.read<LobbyCountSubScriptionBloc>();
+    state.maybeWhen(
+      orElse: () {},
+      connected: () {
+        lobbyCountSubScriptionBloc.subscribe();
+      },
+      data: (data) {
+        lobbyCubit.setNumberOfPeople(data['lobby_count']);
+      },
     );
   }
 

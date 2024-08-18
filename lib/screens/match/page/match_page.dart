@@ -1,10 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/action_cable/blocs/action_cable_bloc.dart';
 import 'package:senpai/core/match/blocs/fetch_lobby_count.dart';
+import 'package:senpai/core/match/blocs/lobby_count_subscriptions/lobby_count_subscription_bloc.dart';
 import 'package:senpai/core/match/blocs/start_video_match_bloc.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/screens/match/bloc/lobby_count_cubit.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/widgets/fetch_count_container.dart';
 import 'package:senpai/screens/match/widgets/start_match.dart';
@@ -35,11 +38,35 @@ class MatchPage extends StatelessWidget {
         BlocProvider(
           create: (_) => StartVideoMatchBloc(),
         ),
+        BlocProvider(
+          create: (_) => LobbyCountSubScriptionBloc(),
+        ),
+        BlocProvider(create: (_) => LobbyCubit()),
       ],
-      child: FetchCountContainer(
-        loadingWidget: _buildLoadingPage(context),
-        child: const StartMatch(),
+      child: BlocListener<LobbyCountSubScriptionBloc, ActionCableState>(
+        listener: (context, state) {
+          _handleLobbyCountSubscriptions(context, state);
+        },
+        child: FetchCountContainer(
+          loadingWidget: _buildLoadingPage(context),
+          child: const StartMatch(),
+        ),
       ),
+    );
+  }
+
+  _handleLobbyCountSubscriptions(BuildContext context, ActionCableState state) {
+    final lobbyCubit = context.read<LobbyCubit>();
+    final lobbyCountSubScriptionBloc =
+        context.read<LobbyCountSubScriptionBloc>();
+    state.maybeWhen(
+      orElse: () {},
+      connected: () {
+        lobbyCountSubScriptionBloc.subscribe();
+      },
+      data: (data) {
+        lobbyCubit.setNumberOfPeople(data['lobby_count']);
+      },
     );
   }
 

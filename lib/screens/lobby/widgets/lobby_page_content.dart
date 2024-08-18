@@ -49,9 +49,7 @@ class LobbyPageContentWidget extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: PrimaryButton(
                     text: 'Exit Lobby',
-                    onPressed: () {
-                      appRouter.pop();
-                    },
+                    onPressed: () {},
                   ),
                 ),
                 const SizedBox(height: 12),
