@@ -78,7 +78,12 @@ class _LobbyPageState extends State<LobbyPage> {
                   listener: (context, state) {
                     _handleLobbySubscriptions(context, state);
                   },
-                  child: const LobbyPageContentWidget(),
+                  child: Stack(
+                    children: [
+                      const LobbyPageContentWidget(),
+                      _buildStopMatchingListeners(context),
+                    ],
+                  ),
                 );
               },
             ),
@@ -89,6 +94,27 @@ class _LobbyPageState extends State<LobbyPage> {
   _buildLoadingPage(BuildContext context) {
     return const Scaffold(
       body: SenpaiLoading(),
+    );
+  }
+
+  Widget _buildStopMatchingListeners(BuildContext context) {
+    return BlocBuilder<StopVideoMatchBloc, MutationState>(
+      builder: (context, state) {
+        return state.maybeWhen<Widget>(
+          orElse: () {
+            return const SizedBox.shrink();
+          },
+          succeeded: (data, result) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              context.router.replaceAll([HomeRoute()]);
+            });
+            return const SizedBox.shrink();
+          },
+          loading: () {
+            return const SenpaiLoading();
+          },
+        );
+      },
     );
   }
 

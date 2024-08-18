@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/match/blocs/stop_video_match_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/match/widgets/match_texture.dart';
+import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
@@ -49,7 +52,11 @@ class LobbyPageContentWidget extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: PrimaryButton(
                     text: 'Exit Lobby',
-                    onPressed: () {},
+                    onPressed: () {
+                      final userId = context.read<ProfileBloc>().userID;
+
+                      context.read<StopVideoMatchBloc>().stopVideoMatch(userId);
+                    },
                   ),
                 ),
                 const SizedBox(height: 12),
