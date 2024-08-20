@@ -982,10 +982,10 @@ class __$$QueryEventFetchMoreImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? options = null,
+    Object? options = freezed,
   }) {
     return _then(_$QueryEventFetchMoreImpl<T>(
-      options: null == options
+      options: freezed == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
               as FetchMoreOptions,
@@ -1011,11 +1011,12 @@ class _$QueryEventFetchMoreImpl<T> implements _QueryEventFetchMore<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$QueryEventFetchMoreImpl<T> &&
-            (identical(other.options, options) || other.options == options));
+            const DeepCollectionEquality().equals(other.options, options));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, options);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(options));
 
   @JsonKey(ignore: true)
   @override
