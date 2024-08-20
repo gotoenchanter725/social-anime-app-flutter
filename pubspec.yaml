@@ -122,7 +122,7 @@ dependencies:
   google_maps_flutter: ^2.5.3
   google_places_flutter: ^2.0.8
   flutter_rating_bar: ^4.0.1
-  flutter_unity_widget: ^2022.2.1
+#  flutter_unity_widget: ^2022.2.1
 
   flutter_localizations:
     sdk: flutter

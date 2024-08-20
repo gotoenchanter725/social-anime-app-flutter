@@ -4,9 +4,9 @@ import flutter_local_notifications
 import Firebase
 import FirebaseMessaging
 import GoogleMaps
-//#if !targetEnvironment(simulator)
+#if !targetEnvironment(simulator)
 import flutter_unity_widget
-//#endif
+#endif
 
 
 @main
@@ -15,9 +15,9 @@ import flutter_unity_widget
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-//#if !targetEnvironment(simulator)
+#if !targetEnvironment(simulator)
     InitUnityIntegrationWithOptions(argc: CommandLine.argc, argv: CommandLine.unsafeArgv, launchOptions)
-//#endif
+#endif
     // This is required to make any communication available in the action isolate.
     FlutterLocalNotificationsPlugin.setPluginRegistrantCallback { (registry) in
         GeneratedPluginRegistrant.register(with: registry)

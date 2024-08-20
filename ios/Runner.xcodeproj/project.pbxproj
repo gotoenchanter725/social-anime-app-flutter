@@ -80,8 +80,6 @@
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
 		CED619773F52EECC0AADCB14 /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 707A41A77CB93F5CD2A3BC55 /* Pods_Runner.framework */; };
 		DE556AE8CB162CDD87CF703C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 03F95A60E59335750FB1E6A7 /* GoogleService-Info.plist */; };
-		FCE6AF8F2C6EF2CA00176E7C /* UnityFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE6AF8E2C6EF2CA00176E7C /* UnityFramework.framework */; };
-		FCE6AF902C6EF2CA00176E7C /* UnityFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCE6AF8E2C6EF2CA00176E7C /* UnityFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +101,6 @@
 			files = (
 				657415D72C74159A0018D2EB /* AgoraContentInspectExtension.framework in Embed Frameworks */,
 				657415E12C74159A0018D2EB /* AgoraRtcKit.framework in Embed Frameworks */,
-				FCE6AF902C6EF2CA00176E7C /* UnityFramework.framework in Embed Frameworks */,
 				657415DB2C74159A0018D2EB /* AgoraDrmLoaderExtension.framework in Embed Frameworks */,
 				657415ED2C74159A0018D2EB /* AgoraVideoQualityAnalyzerExtension.framework in Embed Frameworks */,
 				657415E52C74159A0018D2EB /* AgoraSoundTouch.framework in Embed Frameworks */,
@@ -239,7 +236,6 @@
 			files = (
 				65E09AA92C72906E00528326 /* CFNetwork.framework in Frameworks */,
 				657415D82C74159A0018D2EB /* AgoraCore.framework in Frameworks */,
-				FCE6AF8F2C6EF2CA00176E7C /* UnityFramework.framework in Frameworks */,
 				CED619773F52EECC0AADCB14 /* Pods_Runner.framework in Frameworks */,
 				657415E82C74159A0018D2EB /* AgoraVideoDecoderExtension.framework in Frameworks */,
 				65E09AAE2C72906E00528326 /* CoreText.framework in Frameworks */,
