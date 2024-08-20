@@ -69,7 +69,8 @@ class InviteLobbyDialog extends StatelessWidget {
                 },
                 succeeded: (data, result) {
                   // we can now pop the dialog and navigate to
-                  context.router.pop();
+                  // This will be handled by the parent screen using a websocket subscription
+                  // context.router.pop();
                 },
               );
               return Stack(children: [
