@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:senpai/screens/avatar_shop/widgets/avatar_search_input.dart';
-import 'package:senpai/screens/avatar_shop/widgets/avatar_shop_card_item.dart';
-import 'package:senpai/screens/avatar_shop/widgets/avatar_shop_header.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/avatar_shop/blocs/fetch_avatars_shop_bloc.dart';
+import 'package:senpai/core/avatar_shop/blocs/grant_user_avatar_bloc.dart';
+import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
+import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
+import 'package:senpai/core/user/blocs/fetch_user/fetch_user_bloc.dart';
+import 'package:senpai/core/widgets/loading.dart';
+import 'package:senpai/dependency_injection/injection.dart';
+import 'package:senpai/l10n/resources.dart';
+import 'package:senpai/models/avatar_shop/avatar_shop_model.dart';
+import 'package:senpai/models/user_profile/user_profile_model.dart';
+import 'package:senpai/screens/avatar_shop/bloc/avatar_shop_bloc.dart';
+import 'package:senpai/screens/avatar_shop/widgets/avatar_shop_content.dart';
+
 import 'package:senpai/utils/constants.dart';
+import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
+import 'package:senpai/utils/methods/aliases.dart';
 
 @RoutePage()
 class AvatarShopPage extends StatefulWidget {
@@ -14,100 +27,164 @@ class AvatarShopPage extends StatefulWidget {
 }
 
 class _AvatarShopPageState extends State<AvatarShopPage> {
-  final List<Map<String, dynamic>> avatarSkins = [
-    {
-      "name": "Yumeko Jabami",
-      "status": "Emote",
-      "profile":
-          "https://th.bing.com/th/id/OIP.r5Y8R7yn6-0A_mbijVucnQHaHZ?rs=1&pid=ImgDetMain",
-      "image": "https://wallpapercave.com/wp/wp7152064.jpg",
-      "isNew": true,
-      "product_id": 1,
-    },
-    {
-      "product_id": 2,
-      "name": "Satoru Gojo",
-      "status": "Buy",
-      "profile":
-          "https://cdna.artstation.com/p/assets/images/images/053/054/138/large/avetetsuya-studios-alien.jpg?1661309922",
-      "image":
-          "https://th.bing.com/th/id/OIP.t2-WUEoELg8LjksAZ8dJrgAAAA?rs=1&pid=ImgDetMain",
-      "isNew": true,
-    },
-    {
-      "product_id": 3,
-      "name": "Monkey D. Luffy",
-      "status": "Premium",
-      "profile":
-          "https://th.bing.com/th/id/R.2c49c9cf2c5248cf4f5e8661b8d3af4f?rik=G8yDhr4srExPpQ&pid=ImgRaw&r=0",
-      "image":
-          "https://th.bing.com/th/id/R.edf5a7600628b4500e94d4e404af407b?rik=POg5zdgXd%2bxSVg&riu=http%3a%2f%2fm.gettywallpapers.com%2fwp-content%2fuploads%2f2023%2f05%2fJapanese-Anime-Boy-Profile-Picture.jpg&ehk=zq6b58zWRPs0qH%2bo32Us8NSSP%2ba4aFfr7uXTP9lUmHY%3d&risl=&pid=ImgRaw&r=0",
-      "isNew": false,
-    },
-    {
-      "product_id": 4,
-      "name": "Levi Ackerman",
-      "status": "Emote",
-      "profile":
-          "https://i.pinimg.com/originals/21/f4/46/21f4466cdcd1f132aa5cf9fe4c8b529d.jpg",
-      "image":
-          "https://i.pinimg.com/originals/36/95/71/369571e6e7e38b37750edfa91c22a3cc.jpg",
-      "isNew": false,
-    },
-    {
-      "product_id": 5,
-      "name": "Drakken Joe",
-      "status": "Premium",
-      "profile":
-          "https://i.pinimg.com/736x/c8/d1/db/c8d1dbd23718b07d374b8b891970117a.jpg",
-      "image":
-          "https://wallpapers.com/images/hd/matching-anime-profile-pictures-1080-x-1080-diw0d7jbom3sn7o3.jpg",
-      "isNew": false,
-    },
-    {
-      "name": "Tsunade",
-      "status": "Buy",
-      "profile":
-          "https://th.bing.com/th/id/OIP.rFtW3ETt5PdoNgBaKTHLyQHaF7?rs=1&pid=ImgDetMain",
-      "image": "https://cdn.wallpapersafari.com/6/86/JAvgzR.jpg",
-      "isNew": false,
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: $constants.palette.darkBlue,
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const AvatarShopHeaderWidget(),
-            const SizedBox(height: 30),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: AvatarSearchInput(),
-            ),
-            const SizedBox(height: 10),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: GridView.builder(
-                  itemCount: avatarSkins.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 10,
-                    crossAxisSpacing: 10,
-                    childAspectRatio: 160 / 273,
-                  ),
-                  padding: const EdgeInsets.only(top: 20, bottom: 30),
-                  itemBuilder: (context, index) =>
-                      AvatarShopCardItem(data: avatarSkins[index]),
-                ),
-              ),
-            ),
-          ],
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => AvatarsShopBloc()..add(OnAvatarsShopInitEvent()),
         ),
+        BlocProvider(create: (_) => getIt<FetchAvatarsShopBloc>()),
+        BlocProvider(create: (_) => getIt<FetchUserBloc>()),
+        BlocProvider(create: (_) => getIt<GrantUserAvatarBloc>()),
+      ],
+      child: Scaffold(
+        backgroundColor: $constants.palette.darkBlue,
+        body: SafeArea(
+          child: Stack(
+            children: [
+              const AvatarsShopContent(),
+              _buildFetchUserListeners(),
+              _buildFetchAvatarsShopListeners(),
+              _buildDownloadAvatarListeners(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFetchUserListeners() {
+    return BlocListener<FetchUserBloc, QueryState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: (result) {},
+          error: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          loaded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.wtf("A successful empty response just got set user");
+              return;
+            }
+            UserProfileModel? user;
+            try {
+              final bloc = BlocProvider.of<AvatarsShopBloc>(context);
+              user = UserProfileModel.fromJson(result.data!["fetchUser"]);
+              bloc.add(OnFetchUserEvent(user));
+            } catch (e) {
+              logIt.error("Error accessing fetchUser from response: $e");
+              user = null;
+            }
+            if (user == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A user with error");
+            }
+          },
+        );
+      },
+      child: BlocBuilder<FetchUserBloc, QueryState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildFetchAvatarsShopListeners() {
+    return BlocListener<FetchAvatarsShopBloc, QueryState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          loading: (result) {},
+          error: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          loaded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              showSnackBarError(context, R.strings.nullUser);
+              logIt.error("A successful empty response just got recorded");
+              return;
+            }
+            List<dynamic>? avatars;
+            try {
+              avatars = result.data!["fetchAvatars"];
+              final bloc = BlocProvider.of<AvatarsShopBloc>(context);
+              final avatarsList =
+                  avatars!.map((e) => AvatarsShopModel.fromJson(e)).toList();
+              bloc.add(OnFetchAvatarsShopListEvent(avatarsList: avatarsList));
+            } catch (e) {
+              logIt.error("Error accessing fetchAvatars from response: $e");
+              avatars = null;
+            }
+            if (avatars == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A avatar list with error");
+            }
+          },
+        );
+      },
+      child: BlocBuilder<FetchAvatarsShopBloc, QueryState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: (result) => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildDownloadAvatarListeners() {
+    return BlocListener<GrantUserAvatarBloc, MutationState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          failed: (error, result) {
+            showSnackBarError(context, R.strings.serverError);
+          },
+          succeeded: (data, result) {
+            final response = result.data;
+            if (response == null) {
+              logIt.wtf("A successful empty response just got set avatar");
+              return;
+            }
+            dynamic model;
+            try {
+              model = response["grantUserAvatar"]["avatar"];
+              context.router.pop();
+              final bloc = BlocProvider.of<AvatarsShopBloc>(context);
+              final serviceBloc =
+                  BlocProvider.of<FetchAvatarsShopBloc>(context);
+              serviceBloc.fetchAvatarsShop(
+                userId: int.parse(bloc.user.id),
+                page: bloc.page,
+                query: bloc.searchText,
+                gender: bloc.user.gender,
+              );
+            } catch (e) {
+              logIt.error(
+                  "Error accessing grantUserAvatar or user from response: $e");
+              model = null;
+            }
+            if (model == null) {
+              showSnackBarError(context, R.strings.serverError);
+              logIt.error("A grant avatar with error");
+            }
+          },
+        );
+      },
+      child: BlocBuilder<GrantUserAvatarBloc, MutationState>(
+        builder: (context, state) {
+          return state.maybeWhen<Widget>(
+            loading: () => const SenpaiLoading(),
+            orElse: () => const SizedBox.shrink(),
+          );
+        },
       ),
     );
   }
