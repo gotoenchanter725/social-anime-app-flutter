@@ -1,0 +1,9 @@
+mutation grantUserAvatar($input: GrantUserAvatarInput!) {
+  grantUserAvatar(input: $input) {
+    avatar {
+      id
+      guid
+      userId
+    }
+  }
+}

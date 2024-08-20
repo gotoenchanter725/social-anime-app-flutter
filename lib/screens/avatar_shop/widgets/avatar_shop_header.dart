@@ -21,7 +21,8 @@ class AvatarShopHeaderWidget extends StatelessWidget {
             fit: BoxFit.contain,
           ),
           Text(
-            "Shop",
+            //TODO: add to localization
+            "Avatar Skin Shop",
             style: getTextTheme(context).titleMedium!.copyWith(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
