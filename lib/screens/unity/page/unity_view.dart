@@ -24,19 +24,13 @@ class UnityViewPage extends StatelessWidget {
       return;
     }
 
-    switch (sceneInfo.name) {
-      case "TestAvatarScene":
-        _setPreselectedAvatar();
-        break;
-      default:
-        break;
-    }
+    logIt.info('Received scene loaded from unity: ${sceneInfo.name}');
   }
 
 //for set a preselected character first send setPreselectedAvatar before loadUnityScene
   void _onUnityCreated(UnityWidgetController controller) {
     _unityWidgetController = controller;
-    //setPreselectedAvatar();
+    _setPreselectedAvatar();
     _loadUnityScene();
   }
 
