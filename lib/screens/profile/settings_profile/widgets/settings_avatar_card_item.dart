@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/models/avatar_shop/avatar_shop_model.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
