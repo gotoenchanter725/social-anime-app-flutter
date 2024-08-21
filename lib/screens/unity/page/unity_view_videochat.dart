@@ -145,9 +145,7 @@ class UnityViewVideoChatPage extends StatelessWidget {
         BlocProvider(create: (_) => getIt<FetchUserBloc>()..fetchCurrentUser()),
       ],
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('The Video Chat screen'),
-        ),
+        appBar: null,
         body: BlocProvider(
           create: (context) => StopVideoMatchBloc(),
           child: _buildUnityView(),
