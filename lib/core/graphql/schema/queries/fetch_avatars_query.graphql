@@ -7,5 +7,6 @@ query fetchAvatars($query: String, $page: Int, $userId: Int, $gender: String) {
     thumbnailUrl
     productId
     createdAt
+    isDefault
   }
 }

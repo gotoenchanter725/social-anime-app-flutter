@@ -3094,7 +3094,8 @@ FetchAvatars$Query$FetchAvatars _$FetchAvatars$Query$FetchAvatarsFromJson(
       ..thumbnailUrl = json['thumbnailUrl'] as String?
       ..productId = json['productId'] as String?
       ..createdAt =
-          fromGraphQLISO8601DateTimeToDartDateTime(json['createdAt'] as String);
+          fromGraphQLISO8601DateTimeToDartDateTime(json['createdAt'] as String)
+      ..isDefault = json['isDefault'] as bool?;
 
 Map<String, dynamic> _$FetchAvatars$Query$FetchAvatarsToJson(
         FetchAvatars$Query$FetchAvatars instance) =>
@@ -3106,6 +3107,7 @@ Map<String, dynamic> _$FetchAvatars$Query$FetchAvatarsToJson(
       'thumbnailUrl': instance.thumbnailUrl,
       'productId': instance.productId,
       'createdAt': fromDartDateTimeToGraphQLISO8601DateTime(instance.createdAt),
+      'isDefault': instance.isDefault,
     };
 
 FetchAvatars$Query _$FetchAvatars$QueryFromJson(Map<String, dynamic> json) =>

@@ -21,7 +21,7 @@ mixin _$SubscriptionEvent<T> {
     required TResult Function(
             OperationException error, QueryResult<Object?> result, T? data)
         error,
-    required TResult Function(SubscriptionOptions options) run,
+    required TResult Function(SubscriptionOptions<Object?> options) run,
     required TResult Function(QueryResult<Object?> result) loading,
     required TResult Function(T? data, QueryResult<Object?> result) loaded,
   }) =>
@@ -31,7 +31,7 @@ mixin _$SubscriptionEvent<T> {
     TResult? Function(
             OperationException error, QueryResult<Object?> result, T? data)?
         error,
-    TResult? Function(SubscriptionOptions options)? run,
+    TResult? Function(SubscriptionOptions<Object?> options)? run,
     TResult? Function(QueryResult<Object?> result)? loading,
     TResult? Function(T? data, QueryResult<Object?> result)? loaded,
   }) =>
@@ -41,7 +41,7 @@ mixin _$SubscriptionEvent<T> {
     TResult Function(
             OperationException error, QueryResult<Object?> result, T? data)?
         error,
-    TResult Function(SubscriptionOptions options)? run,
+    TResult Function(SubscriptionOptions<Object?> options)? run,
     TResult Function(QueryResult<Object?> result)? loading,
     TResult Function(T? data, QueryResult<Object?> result)? loaded,
     required TResult orElse(),
@@ -182,7 +182,7 @@ class _$SubscriptionEventErrorImpl<T> implements _SubscriptionEventError<T> {
     required TResult Function(
             OperationException error, QueryResult<Object?> result, T? data)
         error,
-    required TResult Function(SubscriptionOptions options) run,
+    required TResult Function(SubscriptionOptions<Object?> options) run,
     required TResult Function(QueryResult<Object?> result) loading,
     required TResult Function(T? data, QueryResult<Object?> result) loaded,
   }) {
@@ -195,7 +195,7 @@ class _$SubscriptionEventErrorImpl<T> implements _SubscriptionEventError<T> {
     TResult? Function(
             OperationException error, QueryResult<Object?> result, T? data)?
         error,
-    TResult? Function(SubscriptionOptions options)? run,
+    TResult? Function(SubscriptionOptions<Object?> options)? run,
     TResult? Function(QueryResult<Object?> result)? loading,
     TResult? Function(T? data, QueryResult<Object?> result)? loaded,
   }) {
@@ -208,7 +208,7 @@ class _$SubscriptionEventErrorImpl<T> implements _SubscriptionEventError<T> {
     TResult Function(
             OperationException error, QueryResult<Object?> result, T? data)?
         error,
-    TResult Function(SubscriptionOptions options)? run,
+    TResult Function(SubscriptionOptions<Object?> options)? run,
     TResult Function(QueryResult<Object?> result)? loading,
     TResult Function(T? data, QueryResult<Object?> result)? loaded,
     required TResult orElse(),
@@ -278,7 +278,7 @@ abstract class _$$SubscriptionEventRunImplCopyWith<T, $Res> {
           $Res Function(_$SubscriptionEventRunImpl<T>) then) =
       __$$SubscriptionEventRunImplCopyWithImpl<T, $Res>;
   @useResult
-  $Res call({SubscriptionOptions options});
+  $Res call({SubscriptionOptions<Object?> options});
 }
 
 /// @nodoc
@@ -293,13 +293,13 @@ class __$$SubscriptionEventRunImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? options = freezed,
+    Object? options = null,
   }) {
     return _then(_$SubscriptionEventRunImpl<T>(
-      options: freezed == options
+      options: null == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
-              as SubscriptionOptions,
+              as SubscriptionOptions<Object?>,
     ));
   }
 }
@@ -310,7 +310,7 @@ class _$SubscriptionEventRunImpl<T> implements _SubscriptionEventRun<T> {
   const _$SubscriptionEventRunImpl({required this.options});
 
   @override
-  final SubscriptionOptions options;
+  final SubscriptionOptions<Object?> options;
 
   @override
   String toString() {
@@ -322,12 +322,11 @@ class _$SubscriptionEventRunImpl<T> implements _SubscriptionEventRun<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SubscriptionEventRunImpl<T> &&
-            const DeepCollectionEquality().equals(other.options, options));
+            (identical(other.options, options) || other.options == options));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(options));
+  int get hashCode => Object.hash(runtimeType, options);
 
   @JsonKey(ignore: true)
   @override
@@ -342,7 +341,7 @@ class _$SubscriptionEventRunImpl<T> implements _SubscriptionEventRun<T> {
     required TResult Function(
             OperationException error, QueryResult<Object?> result, T? data)
         error,
-    required TResult Function(SubscriptionOptions options) run,
+    required TResult Function(SubscriptionOptions<Object?> options) run,
     required TResult Function(QueryResult<Object?> result) loading,
     required TResult Function(T? data, QueryResult<Object?> result) loaded,
   }) {
@@ -355,7 +354,7 @@ class _$SubscriptionEventRunImpl<T> implements _SubscriptionEventRun<T> {
     TResult? Function(
             OperationException error, QueryResult<Object?> result, T? data)?
         error,
-    TResult? Function(SubscriptionOptions options)? run,
+    TResult? Function(SubscriptionOptions<Object?> options)? run,
     TResult? Function(QueryResult<Object?> result)? loading,
     TResult? Function(T? data, QueryResult<Object?> result)? loaded,
   }) {
@@ -368,7 +367,7 @@ class _$SubscriptionEventRunImpl<T> implements _SubscriptionEventRun<T> {
     TResult Function(
             OperationException error, QueryResult<Object?> result, T? data)?
         error,
-    TResult Function(SubscriptionOptions options)? run,
+    TResult Function(SubscriptionOptions<Object?> options)? run,
     TResult Function(QueryResult<Object?> result)? loading,
     TResult Function(T? data, QueryResult<Object?> result)? loaded,
     required TResult orElse(),
@@ -419,10 +418,10 @@ class _$SubscriptionEventRunImpl<T> implements _SubscriptionEventRun<T> {
 
 abstract class _SubscriptionEventRun<T> implements SubscriptionEvent<T> {
   const factory _SubscriptionEventRun(
-          {required final SubscriptionOptions options}) =
+          {required final SubscriptionOptions<Object?> options}) =
       _$SubscriptionEventRunImpl<T>;
 
-  SubscriptionOptions get options;
+  SubscriptionOptions<Object?> get options;
   @JsonKey(ignore: true)
   _$$SubscriptionEventRunImplCopyWith<T, _$SubscriptionEventRunImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
@@ -500,7 +499,7 @@ class _$SubscriptionEventLoadingImpl<T>
     required TResult Function(
             OperationException error, QueryResult<Object?> result, T? data)
         error,
-    required TResult Function(SubscriptionOptions options) run,
+    required TResult Function(SubscriptionOptions<Object?> options) run,
     required TResult Function(QueryResult<Object?> result) loading,
     required TResult Function(T? data, QueryResult<Object?> result) loaded,
   }) {
@@ -513,7 +512,7 @@ class _$SubscriptionEventLoadingImpl<T>
     TResult? Function(
             OperationException error, QueryResult<Object?> result, T? data)?
         error,
-    TResult? Function(SubscriptionOptions options)? run,
+    TResult? Function(SubscriptionOptions<Object?> options)? run,
     TResult? Function(QueryResult<Object?> result)? loading,
     TResult? Function(T? data, QueryResult<Object?> result)? loaded,
   }) {
@@ -526,7 +525,7 @@ class _$SubscriptionEventLoadingImpl<T>
     TResult Function(
             OperationException error, QueryResult<Object?> result, T? data)?
         error,
-    TResult Function(SubscriptionOptions options)? run,
+    TResult Function(SubscriptionOptions<Object?> options)? run,
     TResult Function(QueryResult<Object?> result)? loading,
     TResult Function(T? data, QueryResult<Object?> result)? loaded,
     required TResult orElse(),
@@ -667,7 +666,7 @@ class _$SubscriptionEventLoadedImpl<T> implements _SubscriptionEventLoaded<T> {
     required TResult Function(
             OperationException error, QueryResult<Object?> result, T? data)
         error,
-    required TResult Function(SubscriptionOptions options) run,
+    required TResult Function(SubscriptionOptions<Object?> options) run,
     required TResult Function(QueryResult<Object?> result) loading,
     required TResult Function(T? data, QueryResult<Object?> result) loaded,
   }) {
@@ -680,7 +679,7 @@ class _$SubscriptionEventLoadedImpl<T> implements _SubscriptionEventLoaded<T> {
     TResult? Function(
             OperationException error, QueryResult<Object?> result, T? data)?
         error,
-    TResult? Function(SubscriptionOptions options)? run,
+    TResult? Function(SubscriptionOptions<Object?> options)? run,
     TResult? Function(QueryResult<Object?> result)? loading,
     TResult? Function(T? data, QueryResult<Object?> result)? loaded,
   }) {
@@ -693,7 +692,7 @@ class _$SubscriptionEventLoadedImpl<T> implements _SubscriptionEventLoaded<T> {
     TResult Function(
             OperationException error, QueryResult<Object?> result, T? data)?
         error,
-    TResult Function(SubscriptionOptions options)? run,
+    TResult Function(SubscriptionOptions<Object?> options)? run,
     TResult Function(QueryResult<Object?> result)? loading,
     TResult Function(T? data, QueryResult<Object?> result)? loaded,
     required TResult orElse(),

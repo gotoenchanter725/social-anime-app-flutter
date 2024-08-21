@@ -211,6 +211,10 @@ class _SettingsContentState extends State<SettingsContent> {
                   avatarsList = avatars!
                       .map((e) => AvatarsShopModel.fromJson(e))
                       .toList();
+
+                  // for (var avatar in avatarsList) {
+                  //   print("avatar ${avatar.name} ${avatar.isDefault}");
+                  // }
                   bloc.add(
                       OnFetchAvatarsShopListEvent(avatarsList: avatarsList));
                 } catch (e) {
@@ -318,6 +322,16 @@ class _SettingsContentState extends State<SettingsContent> {
                                       userId: bloc.user
                                           .id, // Updated to use bloc.user.id
                                     );
+
+                                // final serviceBloc =
+                                //     BlocProvider.of<FetchAvatarsShopBloc>(
+                                //         context);
+                                // serviceBloc.fetchAvatarsShop(
+                                //   userId: int.parse(bloc.user.id),
+                                //   page: bloc.page,
+                                //   query: bloc.searchText,
+                                //   gender: bloc.user.gender,
+                                // );
                               });
                             },
                             child: SettingsAvatarCardItem(

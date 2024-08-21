@@ -4336,9 +4336,19 @@ class FetchAvatars$Query$FetchAvatars extends JsonSerializable
       toJson: fromDartDateTimeToGraphQLISO8601DateTime)
   late DateTime createdAt;
 
+  bool? isDefault;
+
   @override
-  List<Object?> get props =>
-      [name, guid, userId, photoUrl, thumbnailUrl, productId, createdAt];
+  List<Object?> get props => [
+        name,
+        guid,
+        userId,
+        photoUrl,
+        thumbnailUrl,
+        productId,
+        createdAt,
+        isDefault
+      ];
 
   @override
   Map<String, dynamic> toJson() =>
@@ -10525,6 +10535,13 @@ final FETCH_AVATARS_QUERY_DOCUMENT = DocumentNode(definitions: [
           ),
           FieldNode(
             name: NameNode(value: 'createdAt'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'isDefault'),
             alias: null,
             arguments: [],
             directives: [],
