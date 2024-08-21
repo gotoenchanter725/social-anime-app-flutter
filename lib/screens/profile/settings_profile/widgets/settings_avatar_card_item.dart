@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/models/avatar_shop/avatar_shop_model.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class SettingsAvatarCardItem extends StatelessWidget {
-  const SettingsAvatarCardItem({super.key, required this.data});
+  const SettingsAvatarCardItem(
+      {super.key, required this.data, required this.selected});
 
   final AvatarsShopModel data;
+  final bool selected;
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +18,7 @@ class SettingsAvatarCardItem extends StatelessWidget {
         Padding(
           padding: EdgeInsets.only(bottom: getWidthSize(context, 0.117)),
           child: Container(
-            decoration: data.isDefault
+            decoration: selected
                 ? BoxDecoration(
                     border: Border.all(
                       color: Colors.yellow, // Border color
@@ -69,23 +73,21 @@ class SettingsAvatarCardItem extends StatelessWidget {
             ],
           ),
         ),
-
-        /// I am not sure which param is just for Premium
-        // if (data. ["status"] == "Premium")
-        //   Positioned(
-        //     top: getWidthSize(context, 0.013),
-        //     left: getWidthSize(context, 0.013),
-        //     child: Container(
-        //       width: getWidthSize(context, 0.053),
-        //       height: getWidthSize(context, 0.053),
-        //       decoration: const BoxDecoration(
-        //           color: Colors.black, shape: BoxShape.circle),
-        //       child: Padding(
-        //         padding: const EdgeInsets.all(3),
-        //         child: SvgPicture.asset(PathConstants.crownGoldIcon),
-        //       ),
-        //     ),
-        //   ),
+        if (data.isDefault)
+          Positioned(
+            top: getWidthSize(context, 0.013),
+            left: getWidthSize(context, 0.013),
+            child: Container(
+              width: getWidthSize(context, 0.053),
+              height: getWidthSize(context, 0.053),
+              decoration: const BoxDecoration(
+                  color: Colors.black, shape: BoxShape.circle),
+              child: Padding(
+                padding: const EdgeInsets.all(3),
+                child: SvgPicture.asset(PathConstants.crownGoldIcon),
+              ),
+            ),
+          ),
       ],
     );
   }
