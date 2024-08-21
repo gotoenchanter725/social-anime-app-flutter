@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/application_locale/blocs/application_locale_bloc.dart';
-import 'package:senpai/core/avatar_shop/blocs/fetch_avatars_shop_bloc.dart';
 import 'package:senpai/core/avatar_shop/blocs/mark_avatar_as_default_bloc.dart';
+import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/blocs/query/query_bloc.dart';
+import 'package:senpai/core/user/blocs/fetch_user/fetch_user_avatar_bloc.dart';
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 import 'package:senpai/core/widgets/secondary_button.dart';
 import 'package:senpai/core/widgets/senpai_cupertino_switch.dart';
@@ -14,7 +15,6 @@ import 'package:senpai/l10n/local_key.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/avatar_shop/avatar_shop_model.dart';
 import 'package:senpai/models/user_profile/mappers/user_profile_mapper.dart';
-import 'package:senpai/screens/avatar_shop/bloc/avatar_shop_bloc.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 import 'package:senpai/screens/profile/settings_profile/widgets/cupertino_logout_widget.dart';
 import 'package:senpai/screens/profile/settings_profile/widgets/delete_account_widget.dart';
@@ -37,6 +37,16 @@ class SettingsContent extends StatefulWidget {
 
 class _SettingsContentState extends State<SettingsContent> {
   String defaultAvatarId = "";
+  List<AvatarsShopModel> avatarsList = [];
+  var isMarking = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    final fetchUserAvatarsBloc = BlocProvider.of<FetchUserAvatarsBloc>(context);
+    fetchUserAvatarsBloc.fetchUserAvatars();
+  }
 
   void _showActionSheet(BuildContext context) {
     showCupertinoModalPopup<void>(
@@ -172,30 +182,26 @@ class _SettingsContentState extends State<SettingsContent> {
   }
 
   Widget _buildChangeYourAvatar(BuildContext context) {
-    return BlocConsumer<AvatarsShopBloc, AvatarsShopState>(
-      listenWhen: (_, currState) =>
-          currState is AvatarsShopFetchState ||
-          currState is AvatarsShopUserIdInitialState,
+    return BlocListener<MarkAvatarAsDefaultBloc, MutationState>(
       listener: (context, state) {
-        final bloc = BlocProvider.of<AvatarsShopBloc>(context);
-        final serviceBloc = BlocProvider.of<FetchAvatarsShopBloc>(context);
-        serviceBloc.fetchAvatarsShop(
-          userId: int.parse(bloc.user.id),
-          page: bloc.page,
-          query: bloc.searchText,
-          gender: bloc.user.gender,
-        );
+        state.whenOrNull(succeeded: (data, result) {
+          isMarking = false;
+          final fetchUserAvatarsBloc =
+              BlocProvider.of<FetchUserAvatarsBloc>(context);
+          fetchUserAvatarsBloc.fetchUserAvatars();
+        }, loading: () {
+          isMarking = true;
+        }, failed: (error, result) {
+          isMarking = false;
+        });
       },
-      builder: (context, state) {
-        return BlocBuilder<FetchAvatarsShopBloc, QueryState>(
-          builder: (context, state) {
-            return state.maybeWhen<Widget>(
-              loading: (result) => const SizedBox(
-                width: double.infinity,
-                height: 60,
-                child: Center(child: CircularProgressIndicator()),
-              ),
+      child: BlocBuilder<FetchUserAvatarsBloc, QueryState>(
+        builder: (context, state) {
+          var isLoading = false;
+          state.maybeWhen(
+              loading: (result) => isLoading = true,
               loaded: (date, result) {
+                isLoading = false;
                 final response = result.data;
                 if (response == null) {
                   showSnackBarError(context, R.strings.nullUser);
@@ -203,152 +209,165 @@ class _SettingsContentState extends State<SettingsContent> {
                   return Container();
                 }
                 List<dynamic>? avatars;
-                List<AvatarsShopModel> avatarsList = [];
-                final bloc = BlocProvider.of<AvatarsShopBloc>(context);
+                // List<AvatarsShopModel> avatarsList = [];
                 try {
-                  avatars = result.data!["fetchAvatars"];
+                  avatars = result.data!["fetchUser"]["avatars"];
+                  // print("Avatars length");
+                  // print(avatars?.length);
 
                   avatarsList = avatars!
                       .map((e) => AvatarsShopModel.fromJson(e))
                       .toList();
 
-                  // for (var avatar in avatarsList) {
-                  //   print("avatar ${avatar.name} ${avatar.isDefault}");
-                  // }
-                  bloc.add(
-                      OnFetchAvatarsShopListEvent(avatarsList: avatarsList));
+                  for (var avatar in avatarsList) {
+                    if (avatar.isDefault) {
+                      print("avatar ${avatar.name} ${avatar.isDefault}");
+                    }
+                  }
                 } catch (e) {
                   logIt.error("Error accessing fetchAvatars from response: $e");
                   avatars = null;
                 }
-                return Stack(
-                  children: [
-                    Positioned.fill(
-                      top: 0,
-                      bottom: 0,
-                      child: Column(
-                        children: [
-                          Image.asset(PathConstants.settingsAvatarHeader),
-                          Expanded(
-                            child: Container(
-                              height: double.infinity,
-                              decoration: const BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [
-                                    Color(0x7D334256),
-                                    Colors.transparent,
-                                  ],
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomLeft,
-                                  stops: [0.2, 1.4],
-                                ),
-                                borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(30),
-                                  bottomRight: Radius.circular(30),
-                                ),
-                              ),
+              },
+              orElse: () {
+                isLoading = false;
+              });
+          if (avatarsList.isNotEmpty) {
+            return Stack(
+              children: [
+                Positioned.fill(
+                  top: 0,
+                  bottom: 0,
+                  child: Column(
+                    children: [
+                      Image.asset(PathConstants.settingsAvatarHeader),
+                      Expanded(
+                        child: Container(
+                          height: double.infinity,
+                          decoration: const BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Color(0x7D334256),
+                                Colors.transparent,
+                              ],
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomLeft,
+                              stops: [0.2, 1.4],
+                            ),
+                            borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(30),
+                              bottomRight: Radius.circular(30),
                             ),
                           ),
-                        ],
+                        ),
                       ),
-                    ),
-                    Column(
+                    ],
+                  ),
+                ),
+                Column(
+                  children: [
+                    Row(
                       children: [
-                        Row(
-                          children: [
-                            SizedBox(width: getWidthSize(context, 0.037)),
-                            Expanded(
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: getWidthSize(context, 0.03)),
-                                child: Text(
-                                  "Change Your Avatar",
-                                  style: getTextTheme(context).bodyMedium,
-                                ),
-                              ),
+                        SizedBox(width: getWidthSize(context, 0.037)),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                top: getWidthSize(context, 0.03)),
+                            child: Text(
+                              "Change Your Avatar",
+                              style: getTextTheme(context).bodyMedium,
                             ),
-                            Container(
-                              width: getWidthSize(context, 0.112),
-                              height: getWidthSize(context, 0.112),
-                              margin: EdgeInsets.only(
-                                  top: getWidthSize(context, 0.01)),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: const Color(0xff344256),
-                                  width: 2.0,
-                                ),
-                              ),
-                              child: InkWell(
-                                child: Center(
-                                  child: SvgPicture.asset(
-                                    PathConstants.searchIcon,
-                                    width: getWidthSize(context, 0.064),
-                                    height: getWidthSize(context, 0.064),
-                                  ),
-                                ),
-                                onTap: () {
-                                  // Handle search action
-                                },
-                              ),
-                            ),
-                            SizedBox(width: getWidthSize(context, 0.037)),
-                          ],
-                        ),
-                        GridView.builder(
-                          physics: const NeverScrollableScrollPhysics(),
-                          itemCount: avatarsList.length,
-                          shrinkWrap: true,
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 3,
-                            mainAxisSpacing: 10,
-                            crossAxisSpacing: 10,
-                            childAspectRatio: 100 / 174,
                           ),
-                          padding: EdgeInsets.all(getWidthSize(context, 0.032)),
-                          itemBuilder: (context, index) => InkWell(
+                        ),
+                        Container(
+                          width: getWidthSize(context, 0.112),
+                          height: getWidthSize(context, 0.112),
+                          margin:
+                              EdgeInsets.only(top: getWidthSize(context, 0.01)),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: const Color(0xff344256),
+                              width: 2.0,
+                            ),
+                          ),
+                          child: InkWell(
+                            child: Center(
+                              child: SvgPicture.asset(
+                                PathConstants.searchIcon,
+                                width: getWidthSize(context, 0.064),
+                                height: getWidthSize(context, 0.064),
+                              ),
+                            ),
                             onTap: () {
-                              setState(() {
-                                defaultAvatarId = avatarsList[index].guid;
-
-                                // Use MarkAvatarAsDefaultBloc to mark the avatar as default
-                                final avatarId =
-                                    avatarsList[index].guid.toString();
-                                context
-                                    .read<MarkAvatarAsDefaultBloc>()
-                                    .markAvatarAsDefault(
-                                      avatarGuid: avatarId,
-                                      userId: bloc.user
-                                          .id, // Updated to use bloc.user.id
-                                    );
-
-                                // final serviceBloc =
-                                //     BlocProvider.of<FetchAvatarsShopBloc>(
-                                //         context);
-                                // serviceBloc.fetchAvatarsShop(
-                                //   userId: int.parse(bloc.user.id),
-                                //   page: bloc.page,
-                                //   query: bloc.searchText,
-                                //   gender: bloc.user.gender,
-                                // );
-                              });
+                              // Handle search action
                             },
-                            child: SettingsAvatarCardItem(
-                              data: avatarsList[index],
-                            ),
                           ),
                         ),
+                        SizedBox(width: getWidthSize(context, 0.037)),
                       ],
                     ),
+                    GridView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemCount: avatarsList.length,
+                      shrinkWrap: true,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 10,
+                        childAspectRatio: 100 / 174,
+                      ),
+                      padding: EdgeInsets.all(getWidthSize(context, 0.032)),
+                      itemBuilder: (context, index) => InkWell(
+                        onTap: () {
+                          setState(() {
+                            defaultAvatarId = avatarsList[index].guid;
+
+                            // Use MarkAvatarAsDefaultBloc to mark the avatar as default
+                            final avatarId = avatarsList[index].guid.toString();
+                            context
+                                .read<MarkAvatarAsDefaultBloc>()
+                                .markAvatarAsDefault(
+                                  avatarGuid: avatarId,
+                                );
+                          });
+                        },
+                        child: Stack(
+                          children: [
+                            SettingsAvatarCardItem(
+                              data: avatarsList[index],
+                            ),
+                            if (avatarsList[index].guid == defaultAvatarId &&
+                                (isLoading || isMarking))
+                              Positioned.fill(
+                                  bottom: 40,
+                                  child: Center(
+                                      child: CupertinoActivityIndicator(
+                                    radius: $constants.insets.sm,
+                                  )))
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
-                );
-              },
-              orElse: () => const SizedBox.shrink(),
+                ),
+              ],
             );
-          },
-        );
-      },
+          } else if (isLoading) {
+            return SizedBox(
+              width: double.infinity,
+              height: 60,
+              child: Center(
+                  child: CupertinoActivityIndicator(
+                radius: $constants.insets.md,
+              )),
+            );
+          } else {
+            return Container();
+          }
+        },
+      ),
     );
   }
 

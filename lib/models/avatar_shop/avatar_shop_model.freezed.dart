@@ -20,6 +20,7 @@ AvatarsShopModel _$AvatarsShopModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AvatarsShopModel {
+  String? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get guid => throw _privateConstructorUsedError;
   String? get userId => throw _privateConstructorUsedError;
@@ -42,7 +43,8 @@ abstract class $AvatarsShopModelCopyWith<$Res> {
       _$AvatarsShopModelCopyWithImpl<$Res, AvatarsShopModel>;
   @useResult
   $Res call(
-      {String name,
+      {String? id,
+      String name,
       String guid,
       String? userId,
       String photoUrl,
@@ -65,6 +67,7 @@ class _$AvatarsShopModelCopyWithImpl<$Res, $Val extends AvatarsShopModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = null,
     Object? guid = null,
     Object? userId = freezed,
@@ -75,6 +78,10 @@ class _$AvatarsShopModelCopyWithImpl<$Res, $Val extends AvatarsShopModel>
     Object? isDefault = null,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -120,7 +127,8 @@ abstract class _$$AvatarsShopModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String name,
+      {String? id,
+      String name,
       String guid,
       String? userId,
       String photoUrl,
@@ -141,6 +149,7 @@ class __$$AvatarsShopModelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = null,
     Object? guid = null,
     Object? userId = freezed,
@@ -151,6 +160,10 @@ class __$$AvatarsShopModelImplCopyWithImpl<$Res>
     Object? isDefault = null,
   }) {
     return _then(_$AvatarsShopModelImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -191,7 +204,8 @@ class __$$AvatarsShopModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AvatarsShopModelImpl implements _AvatarsShopModel {
   const _$AvatarsShopModelImpl(
-      {required this.name,
+      {this.id,
+      required this.name,
       required this.guid,
       this.userId,
       required this.photoUrl,
@@ -203,6 +217,8 @@ class _$AvatarsShopModelImpl implements _AvatarsShopModel {
   factory _$AvatarsShopModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$AvatarsShopModelImplFromJson(json);
 
+  @override
+  final String? id;
   @override
   final String name;
   @override
@@ -223,7 +239,7 @@ class _$AvatarsShopModelImpl implements _AvatarsShopModel {
 
   @override
   String toString() {
-    return 'AvatarsShopModel(name: $name, guid: $guid, userId: $userId, photoUrl: $photoUrl, thumbnailUrl: $thumbnailUrl, productId: $productId, createdAt: $createdAt, isDefault: $isDefault)';
+    return 'AvatarsShopModel(id: $id, name: $name, guid: $guid, userId: $userId, photoUrl: $photoUrl, thumbnailUrl: $thumbnailUrl, productId: $productId, createdAt: $createdAt, isDefault: $isDefault)';
   }
 
   @override
@@ -231,6 +247,7 @@ class _$AvatarsShopModelImpl implements _AvatarsShopModel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AvatarsShopModelImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.guid, guid) || other.guid == guid) &&
             (identical(other.userId, userId) || other.userId == userId) &&
@@ -248,7 +265,7 @@ class _$AvatarsShopModelImpl implements _AvatarsShopModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, guid, userId, photoUrl,
+  int get hashCode => Object.hash(runtimeType, id, name, guid, userId, photoUrl,
       thumbnailUrl, productId, createdAt, isDefault);
 
   @JsonKey(ignore: true)
@@ -268,7 +285,8 @@ class _$AvatarsShopModelImpl implements _AvatarsShopModel {
 
 abstract class _AvatarsShopModel implements AvatarsShopModel {
   const factory _AvatarsShopModel(
-      {required final String name,
+      {final String? id,
+      required final String name,
       required final String guid,
       final String? userId,
       required final String photoUrl,
@@ -280,6 +298,8 @@ abstract class _AvatarsShopModel implements AvatarsShopModel {
   factory _AvatarsShopModel.fromJson(Map<String, dynamic> json) =
       _$AvatarsShopModelImpl.fromJson;
 
+  @override
+  String? get id;
   @override
   String get name;
   @override
