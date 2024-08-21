@@ -36,9 +36,10 @@ class SettingsContent extends StatefulWidget {
 }
 
 class _SettingsContentState extends State<SettingsContent> {
-  String defaultAvatarId = "";
+  String selectedAvatarId = "";
   List<AvatarsShopModel> avatarsList = [];
   var isMarking = false;
+  var isLoadingAvatars = false;
 
   @override
   void initState() {
@@ -185,23 +186,28 @@ class _SettingsContentState extends State<SettingsContent> {
     return BlocListener<MarkAvatarAsDefaultBloc, MutationState>(
       listener: (context, state) {
         state.whenOrNull(succeeded: (data, result) {
-          isMarking = false;
           final fetchUserAvatarsBloc =
               BlocProvider.of<FetchUserAvatarsBloc>(context);
           fetchUserAvatarsBloc.fetchUserAvatars();
+          setState(() {
+            isMarking = false;
+          });
         }, loading: () {
-          isMarking = true;
+          setState(() {
+            isMarking = true;
+          });
         }, failed: (error, result) {
-          isMarking = false;
+          setState(() {
+            isMarking = false;
+          });
         });
       },
       child: BlocBuilder<FetchUserAvatarsBloc, QueryState>(
         builder: (context, state) {
-          var isLoading = false;
           state.maybeWhen(
-              loading: (result) => isLoading = true,
+              loading: (result) => isLoadingAvatars = true,
               loaded: (date, result) {
-                isLoading = false;
+                isLoadingAvatars = false;
                 final response = result.data;
                 if (response == null) {
                   showSnackBarError(context, R.strings.nullUser);
@@ -221,7 +227,7 @@ class _SettingsContentState extends State<SettingsContent> {
 
                   for (var avatar in avatarsList) {
                     if (avatar.isDefault) {
-                      print("avatar ${avatar.name} ${avatar.isDefault}");
+                      debugPrint("avatar ${avatar.name} ${avatar.isDefault}");
                     }
                   }
                 } catch (e) {
@@ -230,7 +236,7 @@ class _SettingsContentState extends State<SettingsContent> {
                 }
               },
               orElse: () {
-                isLoading = false;
+                isLoadingAvatars = false;
               });
           if (avatarsList.isNotEmpty) {
             return Stack(
@@ -322,24 +328,21 @@ class _SettingsContentState extends State<SettingsContent> {
                       itemBuilder: (context, index) => InkWell(
                         onTap: () {
                           setState(() {
-                            defaultAvatarId = avatarsList[index].guid;
-
-                            // Use MarkAvatarAsDefaultBloc to mark the avatar as default
-                            final avatarId = avatarsList[index].guid.toString();
-                            context
-                                .read<MarkAvatarAsDefaultBloc>()
-                                .markAvatarAsDefault(
-                                  avatarGuid: avatarId,
-                                );
+                            if (selectedAvatarId != avatarsList[index].guid) {
+                              selectedAvatarId = avatarsList[index].guid;
+                            } else {
+                              selectedAvatarId = "";
+                            }
                           });
                         },
                         child: Stack(
                           children: [
                             SettingsAvatarCardItem(
-                              data: avatarsList[index],
-                            ),
-                            if (avatarsList[index].guid == defaultAvatarId &&
-                                (isLoading || isMarking))
+                                data: avatarsList[index],
+                                selected: avatarsList[index].guid ==
+                                    selectedAvatarId),
+                            if (avatarsList[index].guid == selectedAvatarId &&
+                                (isLoadingAvatars || isMarking))
                               Positioned.fill(
                                   bottom: 40,
                                   child: Center(
@@ -354,7 +357,7 @@ class _SettingsContentState extends State<SettingsContent> {
                 ),
               ],
             );
-          } else if (isLoading) {
+          } else if (isLoadingAvatars) {
             return SizedBox(
               width: double.infinity,
               height: 60,
@@ -419,6 +422,61 @@ class _SettingsContentState extends State<SettingsContent> {
     );
   }
 
+  Widget _buildSetDefaultAvatarButton(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        context.read<MarkAvatarAsDefaultBloc>().markAvatarAsDefault(
+              avatarGuid: selectedAvatarId,
+            );
+        setState(() {});
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              $constants.palette.emoteButtonStart,
+              $constants.palette.emoteButtonEnd,
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.circular(getWidthSize(context, 0.14)),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(getWidthSize(context, 0.14)),
+          child: Padding(
+            padding: const EdgeInsets.all(1),
+            child: Padding(
+              padding: EdgeInsets.all(getWidthSize(context, 0.003)),
+              child: SizedBox(
+                height: getWidthSize(context, 0.13),
+                child: Center(
+                  child: Stack(
+                    children: [
+                      Text(
+                        'Set as Default',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: getWidthSize(context, 0.0372),
+                            fontWeight: FontWeight.w800),
+                      ),
+                      if (isLoadingAvatars || isMarking)
+                        Positioned.fill(
+                            child: Center(
+                                child: CupertinoActivityIndicator(
+                          radius: $constants.insets.sm,
+                        )))
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildSettingsContent(BuildContext context) {
     return BlocBuilder<SettingsProfileBloc, SettingsProfileState>(
       builder: (context, state) {
@@ -430,8 +488,15 @@ class _SettingsContentState extends State<SettingsContent> {
           children: [
             SizedBox(height: $constants.insets.sm),
             _buildChangeYourAvatar(context),
-            if (defaultAvatarId != "") SizedBox(height: $constants.insets.sm),
-            if (defaultAvatarId != "") _buildTestAvatarButton(context),
+            if (selectedAvatarId != "") SizedBox(height: $constants.insets.sm),
+            if (selectedAvatarId != "")
+              Row(
+                children: [
+                  Expanded(child: _buildSetDefaultAvatarButton(context)),
+                  const SizedBox(width: 11),
+                  Expanded(child: _buildTestAvatarButton(context)),
+                ],
+              ),
             // _buildFetchAvatarsShopListeners(),
             SizedBox(height: $constants.insets.sm),
             Text(
