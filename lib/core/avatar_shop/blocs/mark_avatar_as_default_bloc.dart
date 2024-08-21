@@ -51,7 +51,6 @@ class MarkAvatarAsDefaultBloc
 
   @override
   MarkAvatarAsDefault$Mutation parseData(Map<String, dynamic>? data) {
-    debugPrint('Mark avatar as default response data: $data');
     return MarkAvatarAsDefault$Mutation.fromJson(data ?? <String, dynamic>{});
   }
 }
