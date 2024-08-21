@@ -6,6 +6,7 @@ import 'package:senpai/core/avatar_shop/blocs/mark_avatar_as_default_bloc.dart';
 
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/user/blocs/delete_user/delete_user_bloc.dart';
+import 'package:senpai/core/user/blocs/fetch_user/fetch_user_avatar_bloc.dart';
 import 'package:senpai/core/user/blocs/update_user/update_user_bloc.dart';
 
 import 'package:senpai/core/widgets/loading.dart';
@@ -40,11 +41,11 @@ class SettingsProfilePage extends StatelessWidget {
         ),
         BlocProvider(create: (_) => getIt<UpdateUserBloc>()),
         BlocProvider(create: (_) => getIt<DeleteUserBloc>()),
-        BlocProvider(create: (_) => getIt<FetchAvatarsShopBloc>()),
+        BlocProvider(create: (_) => getIt<FetchUserAvatarsBloc>()),
         BlocProvider(create: (_) => getIt<MarkAvatarAsDefaultBloc>()),
-        BlocProvider(
-          create: (_) => AvatarsShopBloc()..add(OnAvatarsShopInitEvent()),
-        ),
+        // BlocProvider(
+        //   create: (_) => AvatarsShopBloc()..add(OnAvatarsShopInitEvent()),
+        // ),
       ],
       child: Scaffold(
         backgroundColor: $constants.palette.darkBlue,

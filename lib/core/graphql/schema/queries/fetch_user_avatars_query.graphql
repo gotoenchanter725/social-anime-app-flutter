@@ -1,0 +1,14 @@
+query fetchUserAvatars($userId: ID!) {
+  fetchUser(userId: $userId) {
+    avatars {
+      id
+      name
+      guid
+      gender
+      photoUrl
+      thumbnailUrl
+      productId
+      isDefault
+    }
+  }
+}

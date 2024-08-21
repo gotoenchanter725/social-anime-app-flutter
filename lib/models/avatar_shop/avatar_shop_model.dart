@@ -6,6 +6,7 @@ part 'avatar_shop_model.g.dart';
 @freezed
 class AvatarsShopModel with _$AvatarsShopModel {
   const factory AvatarsShopModel({
+    String? id,
     required String name,
     required String guid,
     String? userId,

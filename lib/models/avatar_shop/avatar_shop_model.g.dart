@@ -9,6 +9,7 @@ part of 'avatar_shop_model.dart';
 _$AvatarsShopModelImpl _$$AvatarsShopModelImplFromJson(
         Map<String, dynamic> json) =>
     _$AvatarsShopModelImpl(
+      id: json['id'] as String?,
       name: json['name'] as String,
       guid: json['guid'] as String,
       userId: json['userId'] as String?,
@@ -24,6 +25,7 @@ _$AvatarsShopModelImpl _$$AvatarsShopModelImplFromJson(
 Map<String, dynamic> _$$AvatarsShopModelImplToJson(
         _$AvatarsShopModelImpl instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'guid': instance.guid,
       'userId': instance.userId,
