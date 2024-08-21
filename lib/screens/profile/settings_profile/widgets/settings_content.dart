@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +16,7 @@ import 'package:senpai/l10n/local_key.dart';
 import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/models/avatar_shop/avatar_shop_model.dart';
 import 'package:senpai/models/user_profile/mappers/user_profile_mapper.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 import 'package:senpai/screens/profile/settings_profile/widgets/cupertino_logout_widget.dart';
 import 'package:senpai/screens/profile/settings_profile/widgets/delete_account_widget.dart';
@@ -377,7 +379,7 @@ class _SettingsContentState extends State<SettingsContent> {
   Widget _buildTestAvatarButton(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pop();
+        context.router.push(UnityViewRoute(avatorGuid: selectedAvatarId));
       },
       child: Container(
         decoration: BoxDecoration(

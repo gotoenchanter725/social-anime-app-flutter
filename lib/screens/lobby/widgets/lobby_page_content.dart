@@ -4,11 +4,9 @@ import 'package:senpai/core/match/blocs/stop_video_match_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
 import 'package:senpai/l10n/resources.dart';
-import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/match/widgets/match_texture.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
-import 'package:senpai/utils/methods/aliases.dart';
 
 import 'lobby_information.dart';
 
@@ -33,7 +31,6 @@ class LobbyPageContentWidget extends StatelessWidget {
                   onAccepted: () {
                     // user is happy with the match
                     // start video call
-                    appRouter.push(UnityViewRoute());
                   },
                   onDeclined: () {
                     // user is not happy with the match
