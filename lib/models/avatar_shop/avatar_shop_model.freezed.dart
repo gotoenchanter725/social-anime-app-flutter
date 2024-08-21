@@ -27,6 +27,7 @@ mixin _$AvatarsShopModel {
   String get thumbnailUrl => throw _privateConstructorUsedError;
   String? get productId => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
+  bool get isDefault => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +48,8 @@ abstract class $AvatarsShopModelCopyWith<$Res> {
       String photoUrl,
       String thumbnailUrl,
       String? productId,
-      DateTime? createdAt});
+      DateTime? createdAt,
+      bool isDefault});
 }
 
 /// @nodoc
@@ -70,6 +72,7 @@ class _$AvatarsShopModelCopyWithImpl<$Res, $Val extends AvatarsShopModel>
     Object? thumbnailUrl = null,
     Object? productId = freezed,
     Object? createdAt = freezed,
+    Object? isDefault = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -100,6 +103,10 @@ class _$AvatarsShopModelCopyWithImpl<$Res, $Val extends AvatarsShopModel>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      isDefault: null == isDefault
+          ? _value.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -119,7 +126,8 @@ abstract class _$$AvatarsShopModelImplCopyWith<$Res>
       String photoUrl,
       String thumbnailUrl,
       String? productId,
-      DateTime? createdAt});
+      DateTime? createdAt,
+      bool isDefault});
 }
 
 /// @nodoc
@@ -140,6 +148,7 @@ class __$$AvatarsShopModelImplCopyWithImpl<$Res>
     Object? thumbnailUrl = null,
     Object? productId = freezed,
     Object? createdAt = freezed,
+    Object? isDefault = null,
   }) {
     return _then(_$AvatarsShopModelImpl(
       name: null == name
@@ -170,6 +179,10 @@ class __$$AvatarsShopModelImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      isDefault: null == isDefault
+          ? _value.isDefault
+          : isDefault // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -184,7 +197,8 @@ class _$AvatarsShopModelImpl implements _AvatarsShopModel {
       required this.photoUrl,
       required this.thumbnailUrl,
       this.productId,
-      this.createdAt});
+      this.createdAt,
+      this.isDefault = false});
 
   factory _$AvatarsShopModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$AvatarsShopModelImplFromJson(json);
@@ -203,10 +217,13 @@ class _$AvatarsShopModelImpl implements _AvatarsShopModel {
   final String? productId;
   @override
   final DateTime? createdAt;
+  @override
+  @JsonKey()
+  final bool isDefault;
 
   @override
   String toString() {
-    return 'AvatarsShopModel(name: $name, guid: $guid, userId: $userId, photoUrl: $photoUrl, thumbnailUrl: $thumbnailUrl, productId: $productId, createdAt: $createdAt)';
+    return 'AvatarsShopModel(name: $name, guid: $guid, userId: $userId, photoUrl: $photoUrl, thumbnailUrl: $thumbnailUrl, productId: $productId, createdAt: $createdAt, isDefault: $isDefault)';
   }
 
   @override
@@ -224,13 +241,15 @@ class _$AvatarsShopModelImpl implements _AvatarsShopModel {
             (identical(other.productId, productId) ||
                 other.productId == productId) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            (identical(other.isDefault, isDefault) ||
+                other.isDefault == isDefault));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, guid, userId, photoUrl,
-      thumbnailUrl, productId, createdAt);
+      thumbnailUrl, productId, createdAt, isDefault);
 
   @JsonKey(ignore: true)
   @override
@@ -255,7 +274,8 @@ abstract class _AvatarsShopModel implements AvatarsShopModel {
       required final String photoUrl,
       required final String thumbnailUrl,
       final String? productId,
-      final DateTime? createdAt}) = _$AvatarsShopModelImpl;
+      final DateTime? createdAt,
+      final bool isDefault}) = _$AvatarsShopModelImpl;
 
   factory _AvatarsShopModel.fromJson(Map<String, dynamic> json) =
       _$AvatarsShopModelImpl.fromJson;
@@ -274,6 +294,8 @@ abstract class _AvatarsShopModel implements AvatarsShopModel {
   String? get productId;
   @override
   DateTime? get createdAt;
+  @override
+  bool get isDefault;
   @override
   @JsonKey(ignore: true)
   _$$AvatarsShopModelImplCopyWith<_$AvatarsShopModelImpl> get copyWith =>

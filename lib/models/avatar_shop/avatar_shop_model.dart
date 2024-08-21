@@ -13,6 +13,7 @@ class AvatarsShopModel with _$AvatarsShopModel {
     required String thumbnailUrl,
     String? productId,
     DateTime? createdAt,
+    @Default(false) bool isDefault,
   }) = _AvatarsShopModel;
 
   factory AvatarsShopModel.initial() => const AvatarsShopModel(
@@ -23,6 +24,7 @@ class AvatarsShopModel with _$AvatarsShopModel {
         thumbnailUrl: '',
         productId: '',
         createdAt: null,
+        isDefault: false, // Default value for the initial factory
       );
 
   factory AvatarsShopModel.fromJson(Map<String, dynamic> json) =>

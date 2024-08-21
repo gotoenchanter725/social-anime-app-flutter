@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:senpai/core/avatar_shop/blocs/fetch_avatars_shop_bloc.dart';
 
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/user/blocs/delete_user/delete_user_bloc.dart';
@@ -12,6 +13,8 @@ import 'package:senpai/dependency_injection/injection.dart';
 
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/routes/app_router.dart';
+import 'package:senpai/screens/avatar_shop/bloc/avatar_shop_bloc.dart';
+import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/screens/profile/settings_profile/bloc/settings_profile_bloc.dart';
 import 'package:senpai/screens/profile/settings_profile/widgets/settings_profile_content.dart';
 import 'package:senpai/utils/constants.dart';
@@ -37,6 +40,11 @@ class SettingsProfilePage extends StatelessWidget {
         ),
         BlocProvider(create: (_) => getIt<UpdateUserBloc>()),
         BlocProvider(create: (_) => getIt<DeleteUserBloc>()),
+        BlocProvider(create: (_) => getIt<FetchAvatarsShopBloc>()),
+        BlocProvider(create: (_) => getIt<ProfileBloc>()),
+        BlocProvider(
+          create: (_) => AvatarsShopBloc()..add(OnAvatarsShopInitEvent()),
+        ),
       ],
       child: Scaffold(
         backgroundColor: $constants.palette.darkBlue,
@@ -93,7 +101,7 @@ class SettingsProfilePage extends StatelessWidget {
                       ),
                     );
               } else {
-                context.router.pop();
+                context.router.maybePop();
               }
             } catch (e) {
               logIt.error(

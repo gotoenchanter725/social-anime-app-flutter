@@ -1407,6 +1407,73 @@ Map<String, dynamic> _$LikeInputToJson(LikeInput instance) => <String, dynamic>{
       'userId': instance.userId,
     };
 
+MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar
+    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarFromJson(
+            Map<String, dynamic> json) =>
+        MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar()
+          ..id = json['id'] as String
+          ..name = json['name'] as String?
+          ..isDefault = json['isDefault'] as bool?
+          ..photoUrl = json['photoUrl'] as String?
+          ..thumbnailUrl = json['thumbnailUrl'] as String?;
+
+Map<String, dynamic>
+    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarToJson(
+            MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'name': instance.name,
+          'isDefault': instance.isDefault,
+          'photoUrl': instance.photoUrl,
+          'thumbnailUrl': instance.thumbnailUrl,
+        };
+
+MarkAvatarAsDefault$Mutation$MarkAvatarDefault
+    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultFromJson(
+            Map<String, dynamic> json) =>
+        MarkAvatarAsDefault$Mutation$MarkAvatarDefault()
+          ..avatar =
+              MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar.fromJson(
+                  json['avatar'] as Map<String, dynamic>)
+          ..clientMutationId = json['clientMutationId'] as String?;
+
+Map<String, dynamic> _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultToJson(
+        MarkAvatarAsDefault$Mutation$MarkAvatarDefault instance) =>
+    <String, dynamic>{
+      'avatar': instance.avatar.toJson(),
+      'clientMutationId': instance.clientMutationId,
+    };
+
+MarkAvatarAsDefault$Mutation _$MarkAvatarAsDefault$MutationFromJson(
+        Map<String, dynamic> json) =>
+    MarkAvatarAsDefault$Mutation()
+      ..markAvatarDefault = json['markAvatarDefault'] == null
+          ? null
+          : MarkAvatarAsDefault$Mutation$MarkAvatarDefault.fromJson(
+              json['markAvatarDefault'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$MarkAvatarAsDefault$MutationToJson(
+        MarkAvatarAsDefault$Mutation instance) =>
+    <String, dynamic>{
+      'markAvatarDefault': instance.markAvatarDefault?.toJson(),
+    };
+
+MarkAvatarDefaultInput _$MarkAvatarDefaultInputFromJson(
+        Map<String, dynamic> json) =>
+    MarkAvatarDefaultInput(
+      avatarGuid: json['avatarGuid'] as String,
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: (json['userId'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$MarkAvatarDefaultInputToJson(
+        MarkAvatarDefaultInput instance) =>
+    <String, dynamic>{
+      'avatarGuid': instance.avatarGuid,
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
 RemoveDeviceToken$Mutation$RemoveDeviceToken$User
     _$RemoveDeviceToken$Mutation$RemoveDeviceToken$UserFromJson(
             Map<String, dynamic> json) =>
@@ -3840,73 +3907,6 @@ Map<String, dynamic> _$FetchVerifyRequests$QueryToJson(
           instance.fetchVerifyRequests.map((e) => e.toJson()).toList(),
     };
 
-MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar
-    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarFromJson(
-            Map<String, dynamic> json) =>
-        MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar()
-          ..id = json['id'] as String
-          ..name = json['name'] as String?
-          ..isDefault = json['isDefault'] as bool?
-          ..photoUrl = json['photoUrl'] as String?
-          ..thumbnailUrl = json['thumbnailUrl'] as String?;
-
-Map<String, dynamic>
-    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarToJson(
-            MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar instance) =>
-        <String, dynamic>{
-          'id': instance.id,
-          'name': instance.name,
-          'isDefault': instance.isDefault,
-          'photoUrl': instance.photoUrl,
-          'thumbnailUrl': instance.thumbnailUrl,
-        };
-
-MarkAvatarAsDefault$Mutation$MarkAvatarDefault
-    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultFromJson(
-            Map<String, dynamic> json) =>
-        MarkAvatarAsDefault$Mutation$MarkAvatarDefault()
-          ..avatar =
-              MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar.fromJson(
-                  json['avatar'] as Map<String, dynamic>)
-          ..clientMutationId = json['clientMutationId'] as String?;
-
-Map<String, dynamic> _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultToJson(
-        MarkAvatarAsDefault$Mutation$MarkAvatarDefault instance) =>
-    <String, dynamic>{
-      'avatar': instance.avatar.toJson(),
-      'clientMutationId': instance.clientMutationId,
-    };
-
-MarkAvatarAsDefault$Mutation _$MarkAvatarAsDefault$MutationFromJson(
-        Map<String, dynamic> json) =>
-    MarkAvatarAsDefault$Mutation()
-      ..markAvatarDefault = json['markAvatarDefault'] == null
-          ? null
-          : MarkAvatarAsDefault$Mutation$MarkAvatarDefault.fromJson(
-              json['markAvatarDefault'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$MarkAvatarAsDefault$MutationToJson(
-        MarkAvatarAsDefault$Mutation instance) =>
-    <String, dynamic>{
-      'markAvatarDefault': instance.markAvatarDefault?.toJson(),
-    };
-
-MarkAvatarDefaultInput _$MarkAvatarDefaultInputFromJson(
-        Map<String, dynamic> json) =>
-    MarkAvatarDefaultInput(
-      avatarGuid: json['avatarGuid'] as String,
-      clientMutationId: json['clientMutationId'] as String?,
-      userId: (json['userId'] as num).toInt(),
-    );
-
-Map<String, dynamic> _$MarkAvatarDefaultInputToJson(
-        MarkAvatarDefaultInput instance) =>
-    <String, dynamic>{
-      'avatarGuid': instance.avatarGuid,
-      'clientMutationId': instance.clientMutationId,
-      'userId': instance.userId,
-    };
-
 AcceptVideoChatArguments _$AcceptVideoChatArgumentsFromJson(
         Map<String, dynamic> json) =>
     AcceptVideoChatArguments(
@@ -4101,6 +4101,19 @@ LikeUserArguments _$LikeUserArgumentsFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$LikeUserArgumentsToJson(LikeUserArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+MarkAvatarAsDefaultArguments _$MarkAvatarAsDefaultArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    MarkAvatarAsDefaultArguments(
+      input: MarkAvatarDefaultInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$MarkAvatarAsDefaultArgumentsToJson(
+        MarkAvatarAsDefaultArguments instance) =>
     <String, dynamic>{
       'input': instance.input.toJson(),
     };
@@ -4421,17 +4434,4 @@ Map<String, dynamic> _$FetchVerifyRequestsArgumentsToJson(
         FetchVerifyRequestsArguments instance) =>
     <String, dynamic>{
       'userId': instance.userId,
-    };
-
-MarkAvatarAsDefaultArguments _$MarkAvatarAsDefaultArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    MarkAvatarAsDefaultArguments(
-      input: MarkAvatarDefaultInput.fromJson(
-          json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$MarkAvatarAsDefaultArgumentsToJson(
-        MarkAvatarAsDefaultArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
     };

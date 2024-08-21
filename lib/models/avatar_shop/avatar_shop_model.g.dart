@@ -18,6 +18,7 @@ _$AvatarsShopModelImpl _$$AvatarsShopModelImplFromJson(
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
+      isDefault: json['isDefault'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$AvatarsShopModelImplToJson(
@@ -30,4 +31,5 @@ Map<String, dynamic> _$$AvatarsShopModelImplToJson(
       'thumbnailUrl': instance.thumbnailUrl,
       'productId': instance.productId,
       'createdAt': instance.createdAt?.toIso8601String(),
+      'isDefault': instance.isDefault,
     };

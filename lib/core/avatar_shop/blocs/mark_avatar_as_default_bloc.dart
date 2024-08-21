@@ -15,7 +15,14 @@ class MarkAvatarAsDefaultBloc
     );
   }
 
-  void markAvatarAsDefault({required String avatarGuid, required int userId}) {
+  void markAvatarAsDefault(
+      {required String avatarGuid, required String userId}) {
+    final intUserId = int.tryParse(userId);
+    if (intUserId == null) {
+      debugPrint("Invalid userId: $userId");
+      return;
+    }
+
     // Generate a clientMutationId using the userId and a timestamp
     final clientMutationId =
         'user-$userId-${DateTime.now().millisecondsSinceEpoch}';
@@ -23,7 +30,7 @@ class MarkAvatarAsDefaultBloc
     // Create the input object with the clientMutationId
     final input = MarkAvatarDefaultInput(
       avatarGuid: avatarGuid,
-      userId: userId,
+      userId: intUserId,
       clientMutationId: clientMutationId,
     );
 
