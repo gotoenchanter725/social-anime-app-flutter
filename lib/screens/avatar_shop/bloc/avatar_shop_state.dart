@@ -5,18 +5,18 @@ abstract class AvatarsShopState {}
 
 class AvatarsShopInitial extends AvatarsShopState {}
 
-class ErrorState extends AvatarsShopState {
+class AvatarsShopErrorState extends AvatarsShopState {
   final String message;
 
-  ErrorState({required this.message});
+  AvatarsShopErrorState({required this.message});
 }
 
-class ValidState extends AvatarsShopState {}
+class AvatarsShopValidState extends AvatarsShopState {}
 
-class LoadingState extends AvatarsShopState {}
+class AvatarsShopLoadingState extends AvatarsShopState {}
 
 class AvatarsShopFetchState extends AvatarsShopState {}
 
-class AvatarsShopSucssesfulState extends AvatarsShopState {}
+class AvatarsShopSuccessfulState extends AvatarsShopState {}
 
-class UserIdInitialState extends AvatarsShopState {}
+class AvatarsShopUserIdInitialState extends AvatarsShopState {}

@@ -1,0 +1,12 @@
+mutation markAvatarAsDefault($input: MarkAvatarDefaultInput!) {
+  markAvatarDefault(input: $input) {
+    avatar {
+      id
+      name
+      isDefault
+      photoUrl
+      thumbnailUrl
+    }
+    clientMutationId
+  }
+}

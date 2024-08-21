@@ -46,7 +46,9 @@ class SettingsProfileContent extends StatelessWidget {
       ),
     ).timeout(
       $constants.times.slow,
-      onTimeout: () => Navigator.pop(context),
+      onTimeout: () {
+        if (context.mounted) Navigator.pop(context);
+      },
     );
   }
 

@@ -15,11 +15,12 @@ class AvatarsShopContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<AvatarsShopBloc, AvatarsShopState>(
       listenWhen: (_, currState) =>
-          currState is AvatarsShopFetchState || currState is UserIdInitialState,
+          currState is AvatarsShopFetchState ||
+          currState is AvatarsShopUserIdInitialState,
       listener: (context, state) {
         final bloc = BlocProvider.of<AvatarsShopBloc>(context);
 
-        if (state is UserIdInitialState && bloc.userID.isNotEmpty) {
+        if (state is AvatarsShopUserIdInitialState && bloc.userID.isNotEmpty) {
           final fetchUserBloc = BlocProvider.of<FetchUserBloc>(context);
           fetchUserBloc.fetchUser(userId: int.parse(bloc.userID));
         } else {
