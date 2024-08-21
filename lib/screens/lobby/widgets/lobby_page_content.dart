@@ -21,7 +21,7 @@ class LobbyPageContentWidget extends StatelessWidget {
       backgroundColor: $constants.palette.darkBlue,
       appBar: SenpaiAppBar(
         title: R.strings.lobbyAppBarTitle,
-        hasLeading: true,
+        hasLeading: false,
       ),
       body: SafeArea(
         child: Stack(
