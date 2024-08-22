@@ -46,7 +46,7 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
               const AvatarsShopContent(),
               _buildFetchUserListeners(),
               _buildFetchAvatarsShopListeners(),
-              _buildDownloadAvatarListeners(),
+              _buildGrantAvatarListeners(),
             ],
           ),
         ),
@@ -140,7 +140,7 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
     );
   }
 
-  Widget _buildDownloadAvatarListeners() {
+  Widget _buildGrantAvatarListeners() {
     return BlocListener<GrantUserAvatarBloc, MutationState>(
       listener: (context, state) {
         state.whenOrNull(
@@ -156,16 +156,8 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
             dynamic model;
             try {
               model = response["grantUserAvatar"]["avatar"];
-              context.router.pop();
               final bloc = BlocProvider.of<AvatarsShopBloc>(context);
-              final serviceBloc =
-                  BlocProvider.of<FetchAvatarsShopBloc>(context);
-              serviceBloc.fetchAvatarsShop(
-                userId: int.parse(bloc.user.id),
-                page: bloc.page,
-                query: bloc.searchText,
-                gender: bloc.user.gender,
-              );
+              bloc.add(OnChangePaginationPageEvent(page: 1));
             } catch (e) {
               logIt.error(
                   "Error accessing grantUserAvatar or user from response: $e");

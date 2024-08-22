@@ -20,3 +20,10 @@ class AvatarsShopFetchState extends AvatarsShopState {}
 class AvatarsShopSuccessfulState extends AvatarsShopState {}
 
 class AvatarsShopUserIdInitialState extends AvatarsShopState {}
+
+class AvatarsSelectedSucssesfulState extends AvatarsShopState {
+  final AvatarsShopModel avatar;
+  final bool isGrantUserAvatar;
+
+  AvatarsSelectedSucssesfulState(this.avatar, this.isGrantUserAvatar);
+}

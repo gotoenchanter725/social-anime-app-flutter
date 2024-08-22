@@ -103,7 +103,11 @@ class AppRouter extends _$AppRouter {
 
           /// TODO: 14.03 Herbert Joseph: With the events tab hidden
           /// AutoRoute(page: EventsListRoute.page, path: 'events'),
-          AutoRoute(page: AvatarShopRoute.page, path: 'avatar_shop'),
+          AutoRoute(
+            page: AvatarShopRoute.page,
+            path: 'avatar_shop',
+            maintainState: false,
+          ),
           AutoRoute(page: ProfileRoute.page, path: 'profile')
         ]),
         CustomRoute(

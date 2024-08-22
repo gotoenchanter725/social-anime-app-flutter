@@ -29,3 +29,10 @@ class OnChangePaginationPageEvent extends AvatarsShopEvent {
 
   OnChangePaginationPageEvent({required this.page});
 }
+
+class OnSelectedAvatarEvent extends AvatarsShopEvent {
+  final AvatarsShopModel avatar;
+  final bool isGrantUserAvatar;
+
+  OnSelectedAvatarEvent(this.avatar, {required this.isGrantUserAvatar});
+}
