@@ -246,11 +246,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     UnityViewRoute.name: (routeData) {
-      final args = routeData.argsAs<UnityViewRouteArgs>(
-          orElse: () => const UnityViewRouteArgs());
+      final args = routeData.argsAs<UnityViewRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: UnityViewPage(key: args.key),
+        child: UnityViewPage(
+          key: args.key,
+          avatorGuid: args.avatorGuid,
+        ),
       );
     },
     UnityViewVideoChatRoute.name: (routeData) {
@@ -1145,10 +1147,14 @@ class SignUpRouteArgs {
 class UnityViewRoute extends PageRouteInfo<UnityViewRouteArgs> {
   UnityViewRoute({
     Key? key,
+    required String avatorGuid,
     List<PageRouteInfo>? children,
   }) : super(
           UnityViewRoute.name,
-          args: UnityViewRouteArgs(key: key),
+          args: UnityViewRouteArgs(
+            key: key,
+            avatorGuid: avatorGuid,
+          ),
           initialChildren: children,
         );
 
@@ -1159,13 +1165,18 @@ class UnityViewRoute extends PageRouteInfo<UnityViewRouteArgs> {
 }
 
 class UnityViewRouteArgs {
-  const UnityViewRouteArgs({this.key});
+  const UnityViewRouteArgs({
+    this.key,
+    required this.avatorGuid,
+  });
 
   final Key? key;
 
+  final String avatorGuid;
+
   @override
   String toString() {
-    return 'UnityViewRouteArgs{key: $key}';
+    return 'UnityViewRouteArgs{key: $key, avatorGuid: $avatorGuid}';
   }
 }
 

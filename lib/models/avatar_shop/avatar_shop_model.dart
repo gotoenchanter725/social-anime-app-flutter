@@ -6,6 +6,7 @@ part 'avatar_shop_model.g.dart';
 @freezed
 class AvatarsShopModel with _$AvatarsShopModel {
   const factory AvatarsShopModel({
+    String? id,
     required String name,
     required String guid,
     String? userId,
@@ -13,6 +14,7 @@ class AvatarsShopModel with _$AvatarsShopModel {
     required String thumbnailUrl,
     String? productId,
     DateTime? createdAt,
+    @Default(false) bool isDefault,
   }) = _AvatarsShopModel;
 
   factory AvatarsShopModel.initial() => const AvatarsShopModel(
@@ -23,6 +25,7 @@ class AvatarsShopModel with _$AvatarsShopModel {
         thumbnailUrl: '',
         productId: '',
         createdAt: null,
+        isDefault: false, // Default value for the initial factory
       );
 
   factory AvatarsShopModel.fromJson(Map<String, dynamic> json) =>

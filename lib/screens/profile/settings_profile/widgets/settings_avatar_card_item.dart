@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/models/avatar_shop/avatar_shop_model.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
 class SettingsAvatarCardItem extends StatelessWidget {
   const SettingsAvatarCardItem(
       {super.key, required this.data, required this.selected});
 
-  final Map<String, dynamic> data;
+  final AvatarsShopModel data;
   final bool selected;
 
   @override
@@ -27,7 +30,7 @@ class SettingsAvatarCardItem extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.network(
-                data["image"],
+                data.photoUrl,
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
@@ -53,13 +56,13 @@ class SettingsAvatarCardItem extends StatelessWidget {
                   ),
                 ),
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage(data["profile"]),
+                  backgroundImage: NetworkImage(data.thumbnailUrl),
                   radius: getWidthSize(context, 0.112),
                 ),
               ),
               SizedBox(height: getWidthSize(context, 0.015)),
               Text(
-                data["name"],
+                data.name,
                 textAlign: TextAlign.center,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
@@ -70,6 +73,21 @@ class SettingsAvatarCardItem extends StatelessWidget {
             ],
           ),
         ),
+        if (data.isDefault)
+          Positioned(
+            top: getWidthSize(context, 0.013),
+            left: getWidthSize(context, 0.013),
+            child: Container(
+              width: getWidthSize(context, 0.053),
+              height: getWidthSize(context, 0.053),
+              decoration: const BoxDecoration(
+                  color: Colors.black, shape: BoxShape.circle),
+              child: Padding(
+                padding: const EdgeInsets.all(3),
+                child: SvgPicture.asset(PathConstants.crownGoldIcon),
+              ),
+            ),
+          ),
       ],
     );
   }

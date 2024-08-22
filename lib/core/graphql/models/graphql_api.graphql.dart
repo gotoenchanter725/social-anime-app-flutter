@@ -5158,56 +5158,6 @@ class FetchVerifyRequests$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FetchAvatars$Query$FetchAvatars extends JsonSerializable
-    with EquatableMixin {
-  FetchAvatars$Query$FetchAvatars();
-
-  factory FetchAvatars$Query$FetchAvatars.fromJson(Map<String, dynamic> json) =>
-      _$FetchAvatars$Query$FetchAvatarsFromJson(json);
-
-  String? name;
-
-  String? guid;
-
-  int? userId;
-
-  String? photoUrl;
-
-  String? thumbnailUrl;
-
-  String? productId;
-
-  @JsonKey(
-      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
-      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
-  late DateTime createdAt;
-
-  @override
-  List<Object?> get props =>
-      [name, guid, userId, photoUrl, thumbnailUrl, productId, createdAt];
-
-  @override
-  Map<String, dynamic> toJson() =>
-      _$FetchAvatars$Query$FetchAvatarsToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class FetchAvatars$Query extends JsonSerializable with EquatableMixin {
-  FetchAvatars$Query();
-
-  factory FetchAvatars$Query.fromJson(Map<String, dynamic> json) =>
-      _$FetchAvatars$QueryFromJson(json);
-
-  late List<FetchAvatars$Query$FetchAvatars> fetchAvatars;
-
-  @override
-  List<Object?> get props => [fetchAvatars];
-
-  @override
-  Map<String, dynamic> toJson() => _$FetchAvatars$QueryToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
 class FetchStickers$Query$FetchStickers extends JsonSerializable
     with EquatableMixin {
   FetchStickers$Query$FetchStickers();
@@ -5324,6 +5274,227 @@ class GrantUserAvatarInput extends JsonSerializable with EquatableMixin {
 
   @override
   Map<String, dynamic> toJson() => _$GrantUserAvatarInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar
+    extends JsonSerializable with EquatableMixin {
+  MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar();
+
+  factory MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar.fromJson(
+          Map<String, dynamic> json) =>
+      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarFromJson(json);
+
+  late String id;
+
+  String? guid;
+
+  String? name;
+
+  bool? isDefault;
+
+  String? photoUrl;
+
+  String? thumbnailUrl;
+
+  @override
+  List<Object?> get props =>
+      [id, guid, name, isDefault, photoUrl, thumbnailUrl];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class MarkAvatarAsDefault$Mutation$MarkAvatarDefault extends JsonSerializable
+    with EquatableMixin {
+  MarkAvatarAsDefault$Mutation$MarkAvatarDefault();
+
+  factory MarkAvatarAsDefault$Mutation$MarkAvatarDefault.fromJson(
+          Map<String, dynamic> json) =>
+      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultFromJson(json);
+
+  late MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar avatar;
+
+  String? clientMutationId;
+
+  @override
+  List<Object?> get props => [avatar, clientMutationId];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class MarkAvatarAsDefault$Mutation extends JsonSerializable
+    with EquatableMixin {
+  MarkAvatarAsDefault$Mutation();
+
+  factory MarkAvatarAsDefault$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$MarkAvatarAsDefault$MutationFromJson(json);
+
+  MarkAvatarAsDefault$Mutation$MarkAvatarDefault? markAvatarDefault;
+
+  @override
+  List<Object?> get props => [markAvatarDefault];
+
+  @override
+  Map<String, dynamic> toJson() => _$MarkAvatarAsDefault$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class MarkAvatarDefaultInput extends JsonSerializable with EquatableMixin {
+  MarkAvatarDefaultInput({
+    required this.avatarGuid,
+    this.clientMutationId,
+    required this.userId,
+  });
+
+  factory MarkAvatarDefaultInput.fromJson(Map<String, dynamic> json) =>
+      _$MarkAvatarDefaultInputFromJson(json);
+
+  late String avatarGuid;
+
+  String? clientMutationId;
+
+  late int userId;
+
+  @override
+  List<Object?> get props => [avatarGuid, clientMutationId, userId];
+
+  @override
+  Map<String, dynamic> toJson() => _$MarkAvatarDefaultInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchUserAvatars$Query$FetchUser$Avatars extends JsonSerializable
+    with EquatableMixin {
+  FetchUserAvatars$Query$FetchUser$Avatars();
+
+  factory FetchUserAvatars$Query$FetchUser$Avatars.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchUserAvatars$Query$FetchUser$AvatarsFromJson(json);
+
+  late String id;
+
+  String? name;
+
+  String? guid;
+
+  String? gender;
+
+  String? photoUrl;
+
+  String? thumbnailUrl;
+
+  String? productId;
+
+  bool? isDefault;
+
+  @override
+  List<Object?> get props =>
+      [id, name, guid, gender, photoUrl, thumbnailUrl, productId, isDefault];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchUserAvatars$Query$FetchUser$AvatarsToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchUserAvatars$Query$FetchUser extends JsonSerializable
+    with EquatableMixin {
+  FetchUserAvatars$Query$FetchUser();
+
+  factory FetchUserAvatars$Query$FetchUser.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchUserAvatars$Query$FetchUserFromJson(json);
+
+  List<FetchUserAvatars$Query$FetchUser$Avatars>? avatars;
+
+  @override
+  List<Object?> get props => [avatars];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchUserAvatars$Query$FetchUserToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchUserAvatars$Query extends JsonSerializable with EquatableMixin {
+  FetchUserAvatars$Query();
+
+  factory FetchUserAvatars$Query.fromJson(Map<String, dynamic> json) =>
+      _$FetchUserAvatars$QueryFromJson(json);
+
+  late FetchUserAvatars$Query$FetchUser fetchUser;
+
+  @override
+  List<Object?> get props => [fetchUser];
+
+  @override
+  Map<String, dynamic> toJson() => _$FetchUserAvatars$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchAvatars$Query$FetchAvatars extends JsonSerializable
+    with EquatableMixin {
+  FetchAvatars$Query$FetchAvatars();
+
+  factory FetchAvatars$Query$FetchAvatars.fromJson(Map<String, dynamic> json) =>
+      _$FetchAvatars$Query$FetchAvatarsFromJson(json);
+
+  String? name;
+
+  String? guid;
+
+  int? userId;
+
+  String? photoUrl;
+
+  String? thumbnailUrl;
+
+  String? productId;
+
+  @JsonKey(
+      fromJson: fromGraphQLISO8601DateTimeToDartDateTime,
+      toJson: fromDartDateTimeToGraphQLISO8601DateTime)
+  late DateTime createdAt;
+
+  bool? isDefault;
+
+  @override
+  List<Object?> get props => [
+        name,
+        guid,
+        userId,
+        photoUrl,
+        thumbnailUrl,
+        productId,
+        createdAt,
+        isDefault
+      ];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchAvatars$Query$FetchAvatarsToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchAvatars$Query extends JsonSerializable with EquatableMixin {
+  FetchAvatars$Query();
+
+  factory FetchAvatars$Query.fromJson(Map<String, dynamic> json) =>
+      _$FetchAvatars$QueryFromJson(json);
+
+  late List<FetchAvatars$Query$FetchAvatars> fetchAvatars;
+
+  @override
+  List<Object?> get props => [fetchAvatars];
+
+  @override
+  Map<String, dynamic> toJson() => _$FetchAvatars$QueryToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -11525,178 +11696,6 @@ class FetchVerifyRequestsQuery extends GraphQLQuery<FetchVerifyRequests$Query,
 }
 
 @JsonSerializable(explicitToJson: true)
-class FetchAvatarsArguments extends JsonSerializable with EquatableMixin {
-  FetchAvatarsArguments({
-    this.query,
-    this.page,
-    this.userId,
-    this.gender,
-  });
-
-  @override
-  factory FetchAvatarsArguments.fromJson(Map<String, dynamic> json) =>
-      _$FetchAvatarsArgumentsFromJson(json);
-
-  final String? query;
-
-  final int? page;
-
-  final int? userId;
-
-  final String? gender;
-
-  @override
-  List<Object?> get props => [query, page, userId, gender];
-
-  @override
-  Map<String, dynamic> toJson() => _$FetchAvatarsArgumentsToJson(this);
-}
-
-final FETCH_AVATARS_QUERY_DOCUMENT_OPERATION_NAME = 'fetchAvatars';
-final FETCH_AVATARS_QUERY_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'fetchAvatars'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'query')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'gender')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'fetchAvatars'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'query'),
-            value: VariableNode(name: NameNode(value: 'query')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'userId'),
-            value: VariableNode(name: NameNode(value: 'userId')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'gender'),
-            value: VariableNode(name: NameNode(value: 'gender')),
-          ),
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'name'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'guid'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'userId'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'photoUrl'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'thumbnailUrl'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'productId'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'createdAt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      )
-    ]),
-  )
-]);
-
-class FetchAvatarsQuery
-    extends GraphQLQuery<FetchAvatars$Query, FetchAvatarsArguments> {
-  FetchAvatarsQuery({required this.variables});
-
-  @override
-  final DocumentNode document = FETCH_AVATARS_QUERY_DOCUMENT;
-
-  @override
-  final String operationName = FETCH_AVATARS_QUERY_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final FetchAvatarsArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-
-  @override
-  FetchAvatars$Query parse(Map<String, dynamic> json) =>
-      FetchAvatars$Query.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
 class FetchStickersArguments extends JsonSerializable with EquatableMixin {
   FetchStickersArguments({required this.page});
 
@@ -11884,4 +11883,453 @@ class GrantUserAvatarMutation
   @override
   GrantUserAvatar$Mutation parse(Map<String, dynamic> json) =>
       GrantUserAvatar$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class MarkAvatarAsDefaultArguments extends JsonSerializable
+    with EquatableMixin {
+  MarkAvatarAsDefaultArguments({required this.input});
+
+  @override
+  factory MarkAvatarAsDefaultArguments.fromJson(Map<String, dynamic> json) =>
+      _$MarkAvatarAsDefaultArgumentsFromJson(json);
+
+  late MarkAvatarDefaultInput input;
+
+  @override
+  List<Object?> get props => [input];
+
+  @override
+  Map<String, dynamic> toJson() => _$MarkAvatarAsDefaultArgumentsToJson(this);
+}
+
+final MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT_OPERATION_NAME =
+    'markAvatarAsDefault';
+final MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'markAvatarAsDefault'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'MarkAvatarDefaultInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'markAvatarDefault'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'avatar'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'guid'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isDefault'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'photoUrl'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'thumbnailUrl'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'clientMutationId'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class MarkAvatarAsDefaultMutation extends GraphQLQuery<
+    MarkAvatarAsDefault$Mutation, MarkAvatarAsDefaultArguments> {
+  MarkAvatarAsDefaultMutation({required this.variables});
+
+  @override
+  final DocumentNode document = MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final MarkAvatarAsDefaultArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+
+  @override
+  MarkAvatarAsDefault$Mutation parse(Map<String, dynamic> json) =>
+      MarkAvatarAsDefault$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchUserAvatarsArguments extends JsonSerializable with EquatableMixin {
+  FetchUserAvatarsArguments({required this.userId});
+
+  @override
+  factory FetchUserAvatarsArguments.fromJson(Map<String, dynamic> json) =>
+      _$FetchUserAvatarsArgumentsFromJson(json);
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [userId];
+
+  @override
+  Map<String, dynamic> toJson() => _$FetchUserAvatarsArgumentsToJson(this);
+}
+
+final FETCH_USER_AVATARS_QUERY_DOCUMENT_OPERATION_NAME = 'fetchUserAvatars';
+final FETCH_USER_AVATARS_QUERY_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'fetchUserAvatars'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ID'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'fetchUser'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'userId'),
+            value: VariableNode(name: NameNode(value: 'userId')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'avatars'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'guid'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'gender'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'photoUrl'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'thumbnailUrl'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'productId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isDefault'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class FetchUserAvatarsQuery
+    extends GraphQLQuery<FetchUserAvatars$Query, FetchUserAvatarsArguments> {
+  FetchUserAvatarsQuery({required this.variables});
+
+  @override
+  final DocumentNode document = FETCH_USER_AVATARS_QUERY_DOCUMENT;
+
+  @override
+  final String operationName = FETCH_USER_AVATARS_QUERY_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final FetchUserAvatarsArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+
+  @override
+  FetchUserAvatars$Query parse(Map<String, dynamic> json) =>
+      FetchUserAvatars$Query.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchAvatarsArguments extends JsonSerializable with EquatableMixin {
+  FetchAvatarsArguments({
+    this.query,
+    this.page,
+    this.userId,
+    this.gender,
+  });
+
+  @override
+  factory FetchAvatarsArguments.fromJson(Map<String, dynamic> json) =>
+      _$FetchAvatarsArgumentsFromJson(json);
+
+  final String? query;
+
+  final int? page;
+
+  final int? userId;
+
+  final String? gender;
+
+  @override
+  List<Object?> get props => [query, page, userId, gender];
+
+  @override
+  Map<String, dynamic> toJson() => _$FetchAvatarsArgumentsToJson(this);
+}
+
+final FETCH_AVATARS_QUERY_DOCUMENT_OPERATION_NAME = 'fetchAvatars';
+final FETCH_AVATARS_QUERY_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'fetchAvatars'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'query')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'gender')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'fetchAvatars'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'query'),
+            value: VariableNode(name: NameNode(value: 'query')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'userId'),
+            value: VariableNode(name: NameNode(value: 'userId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'gender'),
+            value: VariableNode(name: NameNode(value: 'gender')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'name'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'guid'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'userId'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'photoUrl'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'thumbnailUrl'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'productId'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'createdAt'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'isDefault'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class FetchAvatarsQuery
+    extends GraphQLQuery<FetchAvatars$Query, FetchAvatarsArguments> {
+  FetchAvatarsQuery({required this.variables});
+
+  @override
+  final DocumentNode document = FETCH_AVATARS_QUERY_DOCUMENT;
+
+  @override
+  final String operationName = FETCH_AVATARS_QUERY_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final FetchAvatarsArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+
+  @override
+  FetchAvatars$Query parse(Map<String, dynamic> json) =>
+      FetchAvatars$Query.fromJson(json);
 }

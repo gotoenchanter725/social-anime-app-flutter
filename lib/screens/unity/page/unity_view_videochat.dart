@@ -22,8 +22,8 @@ class UnityViewVideoChatPage extends StatelessWidget {
   UnityViewVideoChatPage({super.key, required this.matchData}) {
     // empty to silence linter warnings
   }
-//
-//   // ignore: unused_field
+
+  // ignore: unused_field
   late final UnityWidgetController _unityWidgetController;
   late final UserProfileModel _user;
 
@@ -192,4 +192,10 @@ class UnityViewVideoChatPage extends StatelessWidget {
       ),
     );
   }
+
+  /// Just for test
+  // @override
+  // Widget build(BuildContext context) {
+  //   return const Placeholder();
+  // }
 }

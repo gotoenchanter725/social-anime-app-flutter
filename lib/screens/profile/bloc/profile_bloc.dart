@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fresh_graphql/fresh_graphql.dart';
+import 'package:injectable/injectable.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/auth/auth_model.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
@@ -8,6 +9,7 @@ import 'package:senpai/models/user_profile/user_profile_model.dart';
 part 'profile_event.dart';
 part 'profile_state.dart';
 
+@injectable
 class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   String userID = '';
   UserProfileModel user = UserProfileModel.initial();

@@ -41,6 +41,7 @@ class PathConstants {
 
   // chat
   static const String crownIcon = 'assets/icons/crown.svg';
+  static const String crownGoldIcon = 'assets/icons/crown_gold.svg';
   static const String sendIcon = 'assets/icons/up.svg';
   static const String stickerIcon = 'assets/icons/sticker.svg';
   static const String locationBg = 'assets/images/profile/location_bg.png';
