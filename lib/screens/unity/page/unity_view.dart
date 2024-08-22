@@ -1,6 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_unity_widget/flutter_unity_widget.dart';
+import 'package:senpai/core/widgets/icon_button.dart';
+import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 
 @RoutePage()
@@ -49,7 +51,16 @@ class UnityViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: null,
-      body: _buildUnityView(context),
+      body: Stack(
+        children: [
+          _buildUnityView(context),
+          Positioned(
+            top: 0,
+            left: 0,
+            child: _buildBackButton(context),
+          ),
+        ],
+      ),
     );
   }
 
@@ -58,6 +69,23 @@ class UnityViewPage extends StatelessWidget {
       onUnityCreated: _onUnityCreated,
       onUnityMessage: (message) => _onUnityMessage(message, context),
       onUnitySceneLoaded: _onUnitySceneLoaded,
+    );
+  }
+
+  Widget _buildBackButton(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 50,
+        vertical: 50,
+      ),
+      child: Row(
+        children: [
+          SenpaiIconButton(
+            onPressed: () => Navigator.of(context).pop(),
+            iconPath: PathConstants.backIcon,
+          ),
+        ],
+      ),
     );
   }
 }
