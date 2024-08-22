@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:senpai/core/avatar_shop/blocs/grant_user_avatar_bloc.dart';
 import 'package:senpai/core/widgets/gradient_filled_button.dart';
 import 'package:senpai/core/widgets/gradient_outlined_button.dart';
 import 'package:senpai/data/path_constants.dart';
@@ -32,13 +31,14 @@ class AvatarShopCardItem extends StatelessWidget {
               height: double.infinity,
             ),
             Positioned(
-                bottom: 0,
-                left: 0,
-                right: 0,
-                child: Image.asset(
-                  PathConstants.avatarShopItemOverlay,
-                  fit: BoxFit.cover,
-                )),
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Image.asset(
+                PathConstants.avatarShopItemOverlay,
+                fit: BoxFit.cover,
+              ),
+            ),
             Positioned(
               bottom: getWidthSize(context, 0.02),
               left: getWidthSize(context, 0.026),
@@ -83,7 +83,14 @@ class AvatarShopCardItem extends StatelessWidget {
                           height: getWidthSize(context, 0.08) + 2,
                           borderRadius: getWidthSize(context, 0.026),
                           onPressed: () {
-                            print('Buy');
+                            final bloc =
+                                BlocProvider.of<AvatarsShopBloc>(context);
+                            bloc.add(
+                              OnSelectedAvatarEvent(
+                                avatarsShopModel,
+                                isGrantUserAvatar: false,
+                              ),
+                            );
                           },
                         )
                       : GradientOutlinedButton(
@@ -96,55 +103,19 @@ class AvatarShopCardItem extends StatelessWidget {
                           onPressed: () {
                             final bloc =
                                 BlocProvider.of<AvatarsShopBloc>(context);
-                            final serviceBloc =
-                                BlocProvider.of<GrantUserAvatarBloc>(context);
-                            serviceBloc.grantUserAvatar(
-                              userId: bloc.userID,
-                              avatarGuid: avatarsShopModel.guid,
+                            bloc.add(
+                              OnSelectedAvatarEvent(
+                                avatarsShopModel,
+                                isGrantUserAvatar: true,
+                              ),
                             );
                           },
                         )
-                  //TODO: delete it after add Premium Button
-
-                  // data["status"] == "Emote"
-                  //     ? GradientOutlinedButton(
-                  //         title: "Emote",
-                  //         height: getWidthSize(context, 0.08),
-                  //         borderRadius: getWidthSize(context, 0.026),
-                  //         startColor: $constants.palette.emoteButtonStart,
-                  //         endColor: $constants.palette.emoteButtonEnd,
-                  //         onPressed: () {},
-                  //       )
-                  //     : data["status"] == "Buy"
-                  //         ? GradientFilledButton(
-                  //             title: data["product_id"] != null
-                  //                 ? "Buy"
-                  //                 : "Download",
-                  //             startColor: $constants.palette.buyButtonStart,
-                  //             endColor: $constants.palette.buyButtonEnd,
-                  //             height: getWidthSize(context, 0.08) + 2,
-                  //             borderRadius: getWidthSize(context, 0.026),
-                  //             onPressed: () {},
-                  //           )
-                  //         : data["status"] == "Premium"
-                  //             ? GradientFilledButton(
-                  //                 title: "Premium",
-                  //                 height: getWidthSize(context, 0.08) + 2,
-                  //                 borderRadius: getWidthSize(context, 0.026),
-                  //                 trailingIconPath: PathConstants.crownIcon,
-                  //                 onPressed: () {
-                  //                   showAvatarShopUnlockPremiumDialog(context);
-                  //                 })
-                  //             : GradientFilledButton(
-                  //                 title: data["status"],
-                  //                 height: getWidthSize(context, 0.08) + 2,
-                  //                 borderRadius: getWidthSize(context, 0.026),
-                  //                 onPressed: () {},
-                  //               )
                 ],
               ),
             ),
             _buildNewWidget(context),
+            _buildPriceWidget(context),
           ],
         ),
       ),
@@ -165,6 +136,34 @@ class AvatarShopCardItem extends StatelessWidget {
           fit: BoxFit.fill,
           width: getWidthSize(context, 0.157),
           height: getWidthSize(context, 0.0527),
+        ),
+      );
+    }
+    return const SizedBox();
+  }
+
+  Widget _buildPriceWidget(BuildContext context) {
+    if (avatarsShopModel.productId != null &&
+        avatarsShopModel.productId!.isNotEmpty) {
+      return Positioned(
+        top: $constants.insets.xs,
+        left: $constants.insets.xs,
+        child: Container(
+          padding: EdgeInsets.symmetric(
+            vertical: $constants.insets.xxs,
+            horizontal: $constants.insets.xs,
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular($constants.insets.md),
+            color: $constants.palette.black.withOpacity(0.5),
+          ),
+          child: Text(
+            //TODO: wait from BE
+            '\$ 7.99',
+            style: getTextTheme(context).labelMedium!.copyWith(
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
         ),
       );
     }

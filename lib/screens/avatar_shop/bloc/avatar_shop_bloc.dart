@@ -21,6 +21,7 @@ class AvatarsShopBloc extends Bloc<AvatarsShopEvent, AvatarsShopState> {
   int page = 1;
 
   UserProfileModel user = UserProfileModel.initial();
+  AvatarsShopModel avatarShopModel = AvatarsShopModel.initial();
 
   AvatarsShopBloc() : super(AvatarsShopInitial()) {
     on<OnAvatarsShopInitEvent>((event, emit) async {
@@ -66,6 +67,15 @@ class AvatarsShopBloc extends Bloc<AvatarsShopEvent, AvatarsShopState> {
       emit(AvatarsShopLoadingState());
       emit(AvatarsShopValidState());
       emit(AvatarsShopFetchState());
+    });
+
+    on<OnSelectedAvatarEvent>((event, emit) {
+      emit(AvatarsShopValidState());
+      avatarShopModel = event.avatar;
+      emit(AvatarsSelectedSucssesfulState(
+        event.avatar,
+        event.isGrantUserAvatar,
+      ));
     });
   }
 
