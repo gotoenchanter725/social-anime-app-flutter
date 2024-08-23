@@ -6,6 +6,134 @@ part of 'graphql_api.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+GrantUserAvatar$Mutation$GrantUserAvatar$Avatar
+    _$GrantUserAvatar$Mutation$GrantUserAvatar$AvatarFromJson(
+            Map<String, dynamic> json) =>
+        GrantUserAvatar$Mutation$GrantUserAvatar$Avatar()
+          ..id = json['id'] as String
+          ..guid = json['guid'] as String?
+          ..userId = (json['userId'] as num?)?.toInt();
+
+Map<String, dynamic> _$GrantUserAvatar$Mutation$GrantUserAvatar$AvatarToJson(
+        GrantUserAvatar$Mutation$GrantUserAvatar$Avatar instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'guid': instance.guid,
+      'userId': instance.userId,
+    };
+
+GrantUserAvatar$Mutation$GrantUserAvatar
+    _$GrantUserAvatar$Mutation$GrantUserAvatarFromJson(
+            Map<String, dynamic> json) =>
+        GrantUserAvatar$Mutation$GrantUserAvatar()
+          ..avatar = GrantUserAvatar$Mutation$GrantUserAvatar$Avatar.fromJson(
+              json['avatar'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$GrantUserAvatar$Mutation$GrantUserAvatarToJson(
+        GrantUserAvatar$Mutation$GrantUserAvatar instance) =>
+    <String, dynamic>{
+      'avatar': instance.avatar.toJson(),
+    };
+
+GrantUserAvatar$Mutation _$GrantUserAvatar$MutationFromJson(
+        Map<String, dynamic> json) =>
+    GrantUserAvatar$Mutation()
+      ..grantUserAvatar = json['grantUserAvatar'] == null
+          ? null
+          : GrantUserAvatar$Mutation$GrantUserAvatar.fromJson(
+              json['grantUserAvatar'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$GrantUserAvatar$MutationToJson(
+        GrantUserAvatar$Mutation instance) =>
+    <String, dynamic>{
+      'grantUserAvatar': instance.grantUserAvatar?.toJson(),
+    };
+
+GrantUserAvatarInput _$GrantUserAvatarInputFromJson(
+        Map<String, dynamic> json) =>
+    GrantUserAvatarInput(
+      avatarGuid: json['avatarGuid'] as String,
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$GrantUserAvatarInputToJson(
+        GrantUserAvatarInput instance) =>
+    <String, dynamic>{
+      'avatarGuid': instance.avatarGuid,
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
+MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar
+    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarFromJson(
+            Map<String, dynamic> json) =>
+        MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar()
+          ..id = json['id'] as String
+          ..guid = json['guid'] as String?
+          ..name = json['name'] as String?
+          ..isDefault = json['isDefault'] as bool?
+          ..photoUrl = json['photoUrl'] as String?
+          ..thumbnailUrl = json['thumbnailUrl'] as String?;
+
+Map<String, dynamic>
+    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarToJson(
+            MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar instance) =>
+        <String, dynamic>{
+          'id': instance.id,
+          'guid': instance.guid,
+          'name': instance.name,
+          'isDefault': instance.isDefault,
+          'photoUrl': instance.photoUrl,
+          'thumbnailUrl': instance.thumbnailUrl,
+        };
+
+MarkAvatarAsDefault$Mutation$MarkAvatarDefault
+    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultFromJson(
+            Map<String, dynamic> json) =>
+        MarkAvatarAsDefault$Mutation$MarkAvatarDefault()
+          ..avatar =
+              MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar.fromJson(
+                  json['avatar'] as Map<String, dynamic>)
+          ..clientMutationId = json['clientMutationId'] as String?;
+
+Map<String, dynamic> _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultToJson(
+        MarkAvatarAsDefault$Mutation$MarkAvatarDefault instance) =>
+    <String, dynamic>{
+      'avatar': instance.avatar.toJson(),
+      'clientMutationId': instance.clientMutationId,
+    };
+
+MarkAvatarAsDefault$Mutation _$MarkAvatarAsDefault$MutationFromJson(
+        Map<String, dynamic> json) =>
+    MarkAvatarAsDefault$Mutation()
+      ..markAvatarDefault = json['markAvatarDefault'] == null
+          ? null
+          : MarkAvatarAsDefault$Mutation$MarkAvatarDefault.fromJson(
+              json['markAvatarDefault'] as Map<String, dynamic>);
+
+Map<String, dynamic> _$MarkAvatarAsDefault$MutationToJson(
+        MarkAvatarAsDefault$Mutation instance) =>
+    <String, dynamic>{
+      'markAvatarDefault': instance.markAvatarDefault?.toJson(),
+    };
+
+MarkAvatarDefaultInput _$MarkAvatarDefaultInputFromJson(
+        Map<String, dynamic> json) =>
+    MarkAvatarDefaultInput(
+      avatarGuid: json['avatarGuid'] as String,
+      clientMutationId: json['clientMutationId'] as String?,
+      userId: (json['userId'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$MarkAvatarDefaultInputToJson(
+        MarkAvatarDefaultInput instance) =>
+    <String, dynamic>{
+      'avatarGuid': instance.avatarGuid,
+      'clientMutationId': instance.clientMutationId,
+      'userId': instance.userId,
+    };
+
 DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime
     _$DeleteFavoriteAnime$Mutation$DeleteFavoriteAnimeFromJson(
             Map<String, dynamic> json) =>
@@ -3690,189 +3818,6 @@ Map<String, dynamic> _$FetchConversations$QueryToJson(
           instance.fetchConversations.map((e) => e.toJson()).toList(),
     };
 
-FetchVerifyRequests$Query$FetchVerifyRequests
-    _$FetchVerifyRequests$Query$FetchVerifyRequestsFromJson(
-            Map<String, dynamic> json) =>
-        FetchVerifyRequests$Query$FetchVerifyRequests()
-          ..userId = (json['userId'] as num).toInt()
-          ..status = json['status'] as String;
-
-Map<String, dynamic> _$FetchVerifyRequests$Query$FetchVerifyRequestsToJson(
-        FetchVerifyRequests$Query$FetchVerifyRequests instance) =>
-    <String, dynamic>{
-      'userId': instance.userId,
-      'status': instance.status,
-    };
-
-FetchVerifyRequests$Query _$FetchVerifyRequests$QueryFromJson(
-        Map<String, dynamic> json) =>
-    FetchVerifyRequests$Query()
-      ..fetchVerifyRequests = (json['fetchVerifyRequests'] as List<dynamic>)
-          .map((e) => FetchVerifyRequests$Query$FetchVerifyRequests.fromJson(
-              e as Map<String, dynamic>))
-          .toList();
-
-Map<String, dynamic> _$FetchVerifyRequests$QueryToJson(
-        FetchVerifyRequests$Query instance) =>
-    <String, dynamic>{
-      'fetchVerifyRequests':
-          instance.fetchVerifyRequests.map((e) => e.toJson()).toList(),
-    };
-
-FetchStickers$Query$FetchStickers _$FetchStickers$Query$FetchStickersFromJson(
-        Map<String, dynamic> json) =>
-    FetchStickers$Query$FetchStickers()
-      ..id = json['id'] as String
-      ..url = json['url'] as String;
-
-Map<String, dynamic> _$FetchStickers$Query$FetchStickersToJson(
-        FetchStickers$Query$FetchStickers instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'url': instance.url,
-    };
-
-FetchStickers$Query _$FetchStickers$QueryFromJson(Map<String, dynamic> json) =>
-    FetchStickers$Query()
-      ..fetchStickers = (json['fetchStickers'] as List<dynamic>)
-          .map((e) => FetchStickers$Query$FetchStickers.fromJson(
-              e as Map<String, dynamic>))
-          .toList();
-
-Map<String, dynamic> _$FetchStickers$QueryToJson(
-        FetchStickers$Query instance) =>
-    <String, dynamic>{
-      'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
-    };
-
-GrantUserAvatar$Mutation$GrantUserAvatar$Avatar
-    _$GrantUserAvatar$Mutation$GrantUserAvatar$AvatarFromJson(
-            Map<String, dynamic> json) =>
-        GrantUserAvatar$Mutation$GrantUserAvatar$Avatar()
-          ..id = json['id'] as String
-          ..guid = json['guid'] as String?
-          ..userId = (json['userId'] as num?)?.toInt();
-
-Map<String, dynamic> _$GrantUserAvatar$Mutation$GrantUserAvatar$AvatarToJson(
-        GrantUserAvatar$Mutation$GrantUserAvatar$Avatar instance) =>
-    <String, dynamic>{
-      'id': instance.id,
-      'guid': instance.guid,
-      'userId': instance.userId,
-    };
-
-GrantUserAvatar$Mutation$GrantUserAvatar
-    _$GrantUserAvatar$Mutation$GrantUserAvatarFromJson(
-            Map<String, dynamic> json) =>
-        GrantUserAvatar$Mutation$GrantUserAvatar()
-          ..avatar = GrantUserAvatar$Mutation$GrantUserAvatar$Avatar.fromJson(
-              json['avatar'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$GrantUserAvatar$Mutation$GrantUserAvatarToJson(
-        GrantUserAvatar$Mutation$GrantUserAvatar instance) =>
-    <String, dynamic>{
-      'avatar': instance.avatar.toJson(),
-    };
-
-GrantUserAvatar$Mutation _$GrantUserAvatar$MutationFromJson(
-        Map<String, dynamic> json) =>
-    GrantUserAvatar$Mutation()
-      ..grantUserAvatar = json['grantUserAvatar'] == null
-          ? null
-          : GrantUserAvatar$Mutation$GrantUserAvatar.fromJson(
-              json['grantUserAvatar'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$GrantUserAvatar$MutationToJson(
-        GrantUserAvatar$Mutation instance) =>
-    <String, dynamic>{
-      'grantUserAvatar': instance.grantUserAvatar?.toJson(),
-    };
-
-GrantUserAvatarInput _$GrantUserAvatarInputFromJson(
-        Map<String, dynamic> json) =>
-    GrantUserAvatarInput(
-      avatarGuid: json['avatarGuid'] as String,
-      clientMutationId: json['clientMutationId'] as String?,
-      userId: json['userId'] as String,
-    );
-
-Map<String, dynamic> _$GrantUserAvatarInputToJson(
-        GrantUserAvatarInput instance) =>
-    <String, dynamic>{
-      'avatarGuid': instance.avatarGuid,
-      'clientMutationId': instance.clientMutationId,
-      'userId': instance.userId,
-    };
-
-MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar
-    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarFromJson(
-            Map<String, dynamic> json) =>
-        MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar()
-          ..id = json['id'] as String
-          ..guid = json['guid'] as String?
-          ..name = json['name'] as String?
-          ..isDefault = json['isDefault'] as bool?
-          ..photoUrl = json['photoUrl'] as String?
-          ..thumbnailUrl = json['thumbnailUrl'] as String?;
-
-Map<String, dynamic>
-    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarToJson(
-            MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar instance) =>
-        <String, dynamic>{
-          'id': instance.id,
-          'guid': instance.guid,
-          'name': instance.name,
-          'isDefault': instance.isDefault,
-          'photoUrl': instance.photoUrl,
-          'thumbnailUrl': instance.thumbnailUrl,
-        };
-
-MarkAvatarAsDefault$Mutation$MarkAvatarDefault
-    _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultFromJson(
-            Map<String, dynamic> json) =>
-        MarkAvatarAsDefault$Mutation$MarkAvatarDefault()
-          ..avatar =
-              MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar.fromJson(
-                  json['avatar'] as Map<String, dynamic>)
-          ..clientMutationId = json['clientMutationId'] as String?;
-
-Map<String, dynamic> _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultToJson(
-        MarkAvatarAsDefault$Mutation$MarkAvatarDefault instance) =>
-    <String, dynamic>{
-      'avatar': instance.avatar.toJson(),
-      'clientMutationId': instance.clientMutationId,
-    };
-
-MarkAvatarAsDefault$Mutation _$MarkAvatarAsDefault$MutationFromJson(
-        Map<String, dynamic> json) =>
-    MarkAvatarAsDefault$Mutation()
-      ..markAvatarDefault = json['markAvatarDefault'] == null
-          ? null
-          : MarkAvatarAsDefault$Mutation$MarkAvatarDefault.fromJson(
-              json['markAvatarDefault'] as Map<String, dynamic>);
-
-Map<String, dynamic> _$MarkAvatarAsDefault$MutationToJson(
-        MarkAvatarAsDefault$Mutation instance) =>
-    <String, dynamic>{
-      'markAvatarDefault': instance.markAvatarDefault?.toJson(),
-    };
-
-MarkAvatarDefaultInput _$MarkAvatarDefaultInputFromJson(
-        Map<String, dynamic> json) =>
-    MarkAvatarDefaultInput(
-      avatarGuid: json['avatarGuid'] as String,
-      clientMutationId: json['clientMutationId'] as String?,
-      userId: (json['userId'] as num).toInt(),
-    );
-
-Map<String, dynamic> _$MarkAvatarDefaultInputToJson(
-        MarkAvatarDefaultInput instance) =>
-    <String, dynamic>{
-      'avatarGuid': instance.avatarGuid,
-      'clientMutationId': instance.clientMutationId,
-      'userId': instance.userId,
-    };
-
 FetchUserAvatars$Query$FetchUser$Avatars
     _$FetchUserAvatars$Query$FetchUser$AvatarsFromJson(
             Map<String, dynamic> json) =>
@@ -3925,6 +3870,35 @@ Map<String, dynamic> _$FetchUserAvatars$QueryToJson(
       'fetchUser': instance.fetchUser.toJson(),
     };
 
+FetchVerifyRequests$Query$FetchVerifyRequests
+    _$FetchVerifyRequests$Query$FetchVerifyRequestsFromJson(
+            Map<String, dynamic> json) =>
+        FetchVerifyRequests$Query$FetchVerifyRequests()
+          ..userId = (json['userId'] as num).toInt()
+          ..status = json['status'] as String;
+
+Map<String, dynamic> _$FetchVerifyRequests$Query$FetchVerifyRequestsToJson(
+        FetchVerifyRequests$Query$FetchVerifyRequests instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+      'status': instance.status,
+    };
+
+FetchVerifyRequests$Query _$FetchVerifyRequests$QueryFromJson(
+        Map<String, dynamic> json) =>
+    FetchVerifyRequests$Query()
+      ..fetchVerifyRequests = (json['fetchVerifyRequests'] as List<dynamic>)
+          .map((e) => FetchVerifyRequests$Query$FetchVerifyRequests.fromJson(
+              e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$FetchVerifyRequests$QueryToJson(
+        FetchVerifyRequests$Query instance) =>
+    <String, dynamic>{
+      'fetchVerifyRequests':
+          instance.fetchVerifyRequests.map((e) => e.toJson()).toList(),
+    };
+
 FetchAvatars$Query$FetchAvatars _$FetchAvatars$Query$FetchAvatarsFromJson(
         Map<String, dynamic> json) =>
     FetchAvatars$Query$FetchAvatars()
@@ -3961,6 +3935,58 @@ FetchAvatars$Query _$FetchAvatars$QueryFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$FetchAvatars$QueryToJson(FetchAvatars$Query instance) =>
     <String, dynamic>{
       'fetchAvatars': instance.fetchAvatars.map((e) => e.toJson()).toList(),
+    };
+
+FetchStickers$Query$FetchStickers _$FetchStickers$Query$FetchStickersFromJson(
+        Map<String, dynamic> json) =>
+    FetchStickers$Query$FetchStickers()
+      ..id = json['id'] as String
+      ..url = json['url'] as String;
+
+Map<String, dynamic> _$FetchStickers$Query$FetchStickersToJson(
+        FetchStickers$Query$FetchStickers instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'url': instance.url,
+    };
+
+FetchStickers$Query _$FetchStickers$QueryFromJson(Map<String, dynamic> json) =>
+    FetchStickers$Query()
+      ..fetchStickers = (json['fetchStickers'] as List<dynamic>)
+          .map((e) => FetchStickers$Query$FetchStickers.fromJson(
+              e as Map<String, dynamic>))
+          .toList();
+
+Map<String, dynamic> _$FetchStickers$QueryToJson(
+        FetchStickers$Query instance) =>
+    <String, dynamic>{
+      'fetchStickers': instance.fetchStickers.map((e) => e.toJson()).toList(),
+    };
+
+GrantUserAvatarArguments _$GrantUserAvatarArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    GrantUserAvatarArguments(
+      input:
+          GrantUserAvatarInput.fromJson(json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$GrantUserAvatarArgumentsToJson(
+        GrantUserAvatarArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
+    };
+
+MarkAvatarAsDefaultArguments _$MarkAvatarAsDefaultArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    MarkAvatarAsDefaultArguments(
+      input: MarkAvatarDefaultInput.fromJson(
+          json['input'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$MarkAvatarAsDefaultArgumentsToJson(
+        MarkAvatarAsDefaultArguments instance) =>
+    <String, dynamic>{
+      'input': instance.input.toJson(),
     };
 
 DeleteFavoriteAnimeArguments _$DeleteFavoriteAnimeArgumentsFromJson(
@@ -4424,56 +4450,6 @@ Map<String, dynamic> _$FetchConversationsArgumentsToJson(
       'userId': instance.userId,
     };
 
-FetchVerifyRequestsArguments _$FetchVerifyRequestsArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    FetchVerifyRequestsArguments(
-      userId: json['userId'] as String,
-    );
-
-Map<String, dynamic> _$FetchVerifyRequestsArgumentsToJson(
-        FetchVerifyRequestsArguments instance) =>
-    <String, dynamic>{
-      'userId': instance.userId,
-    };
-
-FetchStickersArguments _$FetchStickersArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    FetchStickersArguments(
-      page: (json['page'] as num).toInt(),
-    );
-
-Map<String, dynamic> _$FetchStickersArgumentsToJson(
-        FetchStickersArguments instance) =>
-    <String, dynamic>{
-      'page': instance.page,
-    };
-
-GrantUserAvatarArguments _$GrantUserAvatarArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    GrantUserAvatarArguments(
-      input:
-          GrantUserAvatarInput.fromJson(json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$GrantUserAvatarArgumentsToJson(
-        GrantUserAvatarArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
-    };
-
-MarkAvatarAsDefaultArguments _$MarkAvatarAsDefaultArgumentsFromJson(
-        Map<String, dynamic> json) =>
-    MarkAvatarAsDefaultArguments(
-      input: MarkAvatarDefaultInput.fromJson(
-          json['input'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$MarkAvatarAsDefaultArgumentsToJson(
-        MarkAvatarAsDefaultArguments instance) =>
-    <String, dynamic>{
-      'input': instance.input.toJson(),
-    };
-
 FetchUserAvatarsArguments _$FetchUserAvatarsArgumentsFromJson(
         Map<String, dynamic> json) =>
     FetchUserAvatarsArguments(
@@ -4482,6 +4458,18 @@ FetchUserAvatarsArguments _$FetchUserAvatarsArgumentsFromJson(
 
 Map<String, dynamic> _$FetchUserAvatarsArgumentsToJson(
         FetchUserAvatarsArguments instance) =>
+    <String, dynamic>{
+      'userId': instance.userId,
+    };
+
+FetchVerifyRequestsArguments _$FetchVerifyRequestsArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    FetchVerifyRequestsArguments(
+      userId: json['userId'] as String,
+    );
+
+Map<String, dynamic> _$FetchVerifyRequestsArgumentsToJson(
+        FetchVerifyRequestsArguments instance) =>
     <String, dynamic>{
       'userId': instance.userId,
     };
@@ -4502,4 +4490,16 @@ Map<String, dynamic> _$FetchAvatarsArgumentsToJson(
       'page': instance.page,
       'userId': instance.userId,
       'gender': instance.gender,
+    };
+
+FetchStickersArguments _$FetchStickersArgumentsFromJson(
+        Map<String, dynamic> json) =>
+    FetchStickersArguments(
+      page: (json['page'] as num).toInt(),
+    );
+
+Map<String, dynamic> _$FetchStickersArgumentsToJson(
+        FetchStickersArguments instance) =>
+    <String, dynamic>{
+      'page': instance.page,
     };

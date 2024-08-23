@@ -10,6 +10,180 @@ import 'package:senpai/core/graphql/scalars/upload_scalar.dart';
 part 'graphql_api.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
+class GrantUserAvatar$Mutation$GrantUserAvatar$Avatar extends JsonSerializable
+    with EquatableMixin {
+  GrantUserAvatar$Mutation$GrantUserAvatar$Avatar();
+
+  factory GrantUserAvatar$Mutation$GrantUserAvatar$Avatar.fromJson(
+          Map<String, dynamic> json) =>
+      _$GrantUserAvatar$Mutation$GrantUserAvatar$AvatarFromJson(json);
+
+  late String id;
+
+  String? guid;
+
+  int? userId;
+
+  @override
+  List<Object?> get props => [id, guid, userId];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$GrantUserAvatar$Mutation$GrantUserAvatar$AvatarToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class GrantUserAvatar$Mutation$GrantUserAvatar extends JsonSerializable
+    with EquatableMixin {
+  GrantUserAvatar$Mutation$GrantUserAvatar();
+
+  factory GrantUserAvatar$Mutation$GrantUserAvatar.fromJson(
+          Map<String, dynamic> json) =>
+      _$GrantUserAvatar$Mutation$GrantUserAvatarFromJson(json);
+
+  late GrantUserAvatar$Mutation$GrantUserAvatar$Avatar avatar;
+
+  @override
+  List<Object?> get props => [avatar];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$GrantUserAvatar$Mutation$GrantUserAvatarToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class GrantUserAvatar$Mutation extends JsonSerializable with EquatableMixin {
+  GrantUserAvatar$Mutation();
+
+  factory GrantUserAvatar$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$GrantUserAvatar$MutationFromJson(json);
+
+  GrantUserAvatar$Mutation$GrantUserAvatar? grantUserAvatar;
+
+  @override
+  List<Object?> get props => [grantUserAvatar];
+
+  @override
+  Map<String, dynamic> toJson() => _$GrantUserAvatar$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class GrantUserAvatarInput extends JsonSerializable with EquatableMixin {
+  GrantUserAvatarInput({
+    required this.avatarGuid,
+    this.clientMutationId,
+    required this.userId,
+  });
+
+  factory GrantUserAvatarInput.fromJson(Map<String, dynamic> json) =>
+      _$GrantUserAvatarInputFromJson(json);
+
+  late String avatarGuid;
+
+  String? clientMutationId;
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [avatarGuid, clientMutationId, userId];
+
+  @override
+  Map<String, dynamic> toJson() => _$GrantUserAvatarInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar
+    extends JsonSerializable with EquatableMixin {
+  MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar();
+
+  factory MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar.fromJson(
+          Map<String, dynamic> json) =>
+      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarFromJson(json);
+
+  late String id;
+
+  String? guid;
+
+  String? name;
+
+  bool? isDefault;
+
+  String? photoUrl;
+
+  String? thumbnailUrl;
+
+  @override
+  List<Object?> get props =>
+      [id, guid, name, isDefault, photoUrl, thumbnailUrl];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class MarkAvatarAsDefault$Mutation$MarkAvatarDefault extends JsonSerializable
+    with EquatableMixin {
+  MarkAvatarAsDefault$Mutation$MarkAvatarDefault();
+
+  factory MarkAvatarAsDefault$Mutation$MarkAvatarDefault.fromJson(
+          Map<String, dynamic> json) =>
+      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultFromJson(json);
+
+  late MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar avatar;
+
+  String? clientMutationId;
+
+  @override
+  List<Object?> get props => [avatar, clientMutationId];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class MarkAvatarAsDefault$Mutation extends JsonSerializable
+    with EquatableMixin {
+  MarkAvatarAsDefault$Mutation();
+
+  factory MarkAvatarAsDefault$Mutation.fromJson(Map<String, dynamic> json) =>
+      _$MarkAvatarAsDefault$MutationFromJson(json);
+
+  MarkAvatarAsDefault$Mutation$MarkAvatarDefault? markAvatarDefault;
+
+  @override
+  List<Object?> get props => [markAvatarDefault];
+
+  @override
+  Map<String, dynamic> toJson() => _$MarkAvatarAsDefault$MutationToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class MarkAvatarDefaultInput extends JsonSerializable with EquatableMixin {
+  MarkAvatarDefaultInput({
+    required this.avatarGuid,
+    this.clientMutationId,
+    required this.userId,
+  });
+
+  factory MarkAvatarDefaultInput.fromJson(Map<String, dynamic> json) =>
+      _$MarkAvatarDefaultInputFromJson(json);
+
+  late String avatarGuid;
+
+  String? clientMutationId;
+
+  late int userId;
+
+  @override
+  List<Object?> get props => [avatarGuid, clientMutationId, userId];
+
+  @override
+  Map<String, dynamic> toJson() => _$MarkAvatarDefaultInputToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime extends JsonSerializable
     with EquatableMixin {
   DeleteFavoriteAnime$Mutation$DeleteFavoriteAnime();
@@ -5121,254 +5295,6 @@ class FetchConversations$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FetchVerifyRequests$Query$FetchVerifyRequests extends JsonSerializable
-    with EquatableMixin {
-  FetchVerifyRequests$Query$FetchVerifyRequests();
-
-  factory FetchVerifyRequests$Query$FetchVerifyRequests.fromJson(
-          Map<String, dynamic> json) =>
-      _$FetchVerifyRequests$Query$FetchVerifyRequestsFromJson(json);
-
-  late int userId;
-
-  late String status;
-
-  @override
-  List<Object?> get props => [userId, status];
-
-  @override
-  Map<String, dynamic> toJson() =>
-      _$FetchVerifyRequests$Query$FetchVerifyRequestsToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class FetchVerifyRequests$Query extends JsonSerializable with EquatableMixin {
-  FetchVerifyRequests$Query();
-
-  factory FetchVerifyRequests$Query.fromJson(Map<String, dynamic> json) =>
-      _$FetchVerifyRequests$QueryFromJson(json);
-
-  late List<FetchVerifyRequests$Query$FetchVerifyRequests> fetchVerifyRequests;
-
-  @override
-  List<Object?> get props => [fetchVerifyRequests];
-
-  @override
-  Map<String, dynamic> toJson() => _$FetchVerifyRequests$QueryToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class FetchStickers$Query$FetchStickers extends JsonSerializable
-    with EquatableMixin {
-  FetchStickers$Query$FetchStickers();
-
-  factory FetchStickers$Query$FetchStickers.fromJson(
-          Map<String, dynamic> json) =>
-      _$FetchStickers$Query$FetchStickersFromJson(json);
-
-  late String id;
-
-  late String url;
-
-  @override
-  List<Object?> get props => [id, url];
-
-  @override
-  Map<String, dynamic> toJson() =>
-      _$FetchStickers$Query$FetchStickersToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class FetchStickers$Query extends JsonSerializable with EquatableMixin {
-  FetchStickers$Query();
-
-  factory FetchStickers$Query.fromJson(Map<String, dynamic> json) =>
-      _$FetchStickers$QueryFromJson(json);
-
-  late List<FetchStickers$Query$FetchStickers> fetchStickers;
-
-  @override
-  List<Object?> get props => [fetchStickers];
-
-  @override
-  Map<String, dynamic> toJson() => _$FetchStickers$QueryToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GrantUserAvatar$Mutation$GrantUserAvatar$Avatar extends JsonSerializable
-    with EquatableMixin {
-  GrantUserAvatar$Mutation$GrantUserAvatar$Avatar();
-
-  factory GrantUserAvatar$Mutation$GrantUserAvatar$Avatar.fromJson(
-          Map<String, dynamic> json) =>
-      _$GrantUserAvatar$Mutation$GrantUserAvatar$AvatarFromJson(json);
-
-  late String id;
-
-  String? guid;
-
-  int? userId;
-
-  @override
-  List<Object?> get props => [id, guid, userId];
-
-  @override
-  Map<String, dynamic> toJson() =>
-      _$GrantUserAvatar$Mutation$GrantUserAvatar$AvatarToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GrantUserAvatar$Mutation$GrantUserAvatar extends JsonSerializable
-    with EquatableMixin {
-  GrantUserAvatar$Mutation$GrantUserAvatar();
-
-  factory GrantUserAvatar$Mutation$GrantUserAvatar.fromJson(
-          Map<String, dynamic> json) =>
-      _$GrantUserAvatar$Mutation$GrantUserAvatarFromJson(json);
-
-  late GrantUserAvatar$Mutation$GrantUserAvatar$Avatar avatar;
-
-  @override
-  List<Object?> get props => [avatar];
-
-  @override
-  Map<String, dynamic> toJson() =>
-      _$GrantUserAvatar$Mutation$GrantUserAvatarToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GrantUserAvatar$Mutation extends JsonSerializable with EquatableMixin {
-  GrantUserAvatar$Mutation();
-
-  factory GrantUserAvatar$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$GrantUserAvatar$MutationFromJson(json);
-
-  GrantUserAvatar$Mutation$GrantUserAvatar? grantUserAvatar;
-
-  @override
-  List<Object?> get props => [grantUserAvatar];
-
-  @override
-  Map<String, dynamic> toJson() => _$GrantUserAvatar$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GrantUserAvatarInput extends JsonSerializable with EquatableMixin {
-  GrantUserAvatarInput({
-    required this.avatarGuid,
-    this.clientMutationId,
-    required this.userId,
-  });
-
-  factory GrantUserAvatarInput.fromJson(Map<String, dynamic> json) =>
-      _$GrantUserAvatarInputFromJson(json);
-
-  late String avatarGuid;
-
-  String? clientMutationId;
-
-  late String userId;
-
-  @override
-  List<Object?> get props => [avatarGuid, clientMutationId, userId];
-
-  @override
-  Map<String, dynamic> toJson() => _$GrantUserAvatarInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar
-    extends JsonSerializable with EquatableMixin {
-  MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar();
-
-  factory MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar.fromJson(
-          Map<String, dynamic> json) =>
-      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarFromJson(json);
-
-  late String id;
-
-  String? guid;
-
-  String? name;
-
-  bool? isDefault;
-
-  String? photoUrl;
-
-  String? thumbnailUrl;
-
-  @override
-  List<Object?> get props =>
-      [id, guid, name, isDefault, photoUrl, thumbnailUrl];
-
-  @override
-  Map<String, dynamic> toJson() =>
-      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefault$AvatarToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class MarkAvatarAsDefault$Mutation$MarkAvatarDefault extends JsonSerializable
-    with EquatableMixin {
-  MarkAvatarAsDefault$Mutation$MarkAvatarDefault();
-
-  factory MarkAvatarAsDefault$Mutation$MarkAvatarDefault.fromJson(
-          Map<String, dynamic> json) =>
-      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultFromJson(json);
-
-  late MarkAvatarAsDefault$Mutation$MarkAvatarDefault$Avatar avatar;
-
-  String? clientMutationId;
-
-  @override
-  List<Object?> get props => [avatar, clientMutationId];
-
-  @override
-  Map<String, dynamic> toJson() =>
-      _$MarkAvatarAsDefault$Mutation$MarkAvatarDefaultToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class MarkAvatarAsDefault$Mutation extends JsonSerializable
-    with EquatableMixin {
-  MarkAvatarAsDefault$Mutation();
-
-  factory MarkAvatarAsDefault$Mutation.fromJson(Map<String, dynamic> json) =>
-      _$MarkAvatarAsDefault$MutationFromJson(json);
-
-  MarkAvatarAsDefault$Mutation$MarkAvatarDefault? markAvatarDefault;
-
-  @override
-  List<Object?> get props => [markAvatarDefault];
-
-  @override
-  Map<String, dynamic> toJson() => _$MarkAvatarAsDefault$MutationToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
-class MarkAvatarDefaultInput extends JsonSerializable with EquatableMixin {
-  MarkAvatarDefaultInput({
-    required this.avatarGuid,
-    this.clientMutationId,
-    required this.userId,
-  });
-
-  factory MarkAvatarDefaultInput.fromJson(Map<String, dynamic> json) =>
-      _$MarkAvatarDefaultInputFromJson(json);
-
-  late String avatarGuid;
-
-  String? clientMutationId;
-
-  late int userId;
-
-  @override
-  List<Object?> get props => [avatarGuid, clientMutationId, userId];
-
-  @override
-  Map<String, dynamic> toJson() => _$MarkAvatarDefaultInputToJson(this);
-}
-
-@JsonSerializable(explicitToJson: true)
 class FetchUserAvatars$Query$FetchUser$Avatars extends JsonSerializable
     with EquatableMixin {
   FetchUserAvatars$Query$FetchUser$Avatars();
@@ -5438,6 +5364,43 @@ class FetchUserAvatars$Query extends JsonSerializable with EquatableMixin {
 }
 
 @JsonSerializable(explicitToJson: true)
+class FetchVerifyRequests$Query$FetchVerifyRequests extends JsonSerializable
+    with EquatableMixin {
+  FetchVerifyRequests$Query$FetchVerifyRequests();
+
+  factory FetchVerifyRequests$Query$FetchVerifyRequests.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchVerifyRequests$Query$FetchVerifyRequestsFromJson(json);
+
+  late int userId;
+
+  late String status;
+
+  @override
+  List<Object?> get props => [userId, status];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchVerifyRequests$Query$FetchVerifyRequestsToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchVerifyRequests$Query extends JsonSerializable with EquatableMixin {
+  FetchVerifyRequests$Query();
+
+  factory FetchVerifyRequests$Query.fromJson(Map<String, dynamic> json) =>
+      _$FetchVerifyRequests$QueryFromJson(json);
+
+  late List<FetchVerifyRequests$Query$FetchVerifyRequests> fetchVerifyRequests;
+
+  @override
+  List<Object?> get props => [fetchVerifyRequests];
+
+  @override
+  Map<String, dynamic> toJson() => _$FetchVerifyRequests$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
 class FetchAvatars$Query$FetchAvatars extends JsonSerializable
     with EquatableMixin {
   FetchAvatars$Query$FetchAvatars();
@@ -5495,6 +5458,279 @@ class FetchAvatars$Query extends JsonSerializable with EquatableMixin {
 
   @override
   Map<String, dynamic> toJson() => _$FetchAvatars$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchStickers$Query$FetchStickers extends JsonSerializable
+    with EquatableMixin {
+  FetchStickers$Query$FetchStickers();
+
+  factory FetchStickers$Query$FetchStickers.fromJson(
+          Map<String, dynamic> json) =>
+      _$FetchStickers$Query$FetchStickersFromJson(json);
+
+  late String id;
+
+  late String url;
+
+  @override
+  List<Object?> get props => [id, url];
+
+  @override
+  Map<String, dynamic> toJson() =>
+      _$FetchStickers$Query$FetchStickersToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchStickers$Query extends JsonSerializable with EquatableMixin {
+  FetchStickers$Query();
+
+  factory FetchStickers$Query.fromJson(Map<String, dynamic> json) =>
+      _$FetchStickers$QueryFromJson(json);
+
+  late List<FetchStickers$Query$FetchStickers> fetchStickers;
+
+  @override
+  List<Object?> get props => [fetchStickers];
+
+  @override
+  Map<String, dynamic> toJson() => _$FetchStickers$QueryToJson(this);
+}
+
+@JsonSerializable(explicitToJson: true)
+class GrantUserAvatarArguments extends JsonSerializable with EquatableMixin {
+  GrantUserAvatarArguments({required this.input});
+
+  @override
+  factory GrantUserAvatarArguments.fromJson(Map<String, dynamic> json) =>
+      _$GrantUserAvatarArgumentsFromJson(json);
+
+  late GrantUserAvatarInput input;
+
+  @override
+  List<Object?> get props => [input];
+
+  @override
+  Map<String, dynamic> toJson() => _$GrantUserAvatarArgumentsToJson(this);
+}
+
+final GRANT_USER_AVATAR_MUTATION_DOCUMENT_OPERATION_NAME = 'grantUserAvatar';
+final GRANT_USER_AVATAR_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'grantUserAvatar'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'GrantUserAvatarInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'grantUserAvatar'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'avatar'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'guid'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'userId'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          )
+        ]),
+      )
+    ]),
+  )
+]);
+
+class GrantUserAvatarMutation
+    extends GraphQLQuery<GrantUserAvatar$Mutation, GrantUserAvatarArguments> {
+  GrantUserAvatarMutation({required this.variables});
+
+  @override
+  final DocumentNode document = GRANT_USER_AVATAR_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      GRANT_USER_AVATAR_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final GrantUserAvatarArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+
+  @override
+  GrantUserAvatar$Mutation parse(Map<String, dynamic> json) =>
+      GrantUserAvatar$Mutation.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class MarkAvatarAsDefaultArguments extends JsonSerializable
+    with EquatableMixin {
+  MarkAvatarAsDefaultArguments({required this.input});
+
+  @override
+  factory MarkAvatarAsDefaultArguments.fromJson(Map<String, dynamic> json) =>
+      _$MarkAvatarAsDefaultArgumentsFromJson(json);
+
+  late MarkAvatarDefaultInput input;
+
+  @override
+  List<Object?> get props => [input];
+
+  @override
+  Map<String, dynamic> toJson() => _$MarkAvatarAsDefaultArgumentsToJson(this);
+}
+
+final MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT_OPERATION_NAME =
+    'markAvatarAsDefault';
+final MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'markAvatarAsDefault'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'MarkAvatarDefaultInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'markAvatarDefault'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'avatar'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'guid'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'isDefault'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'photoUrl'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'thumbnailUrl'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'clientMutationId'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class MarkAvatarAsDefaultMutation extends GraphQLQuery<
+    MarkAvatarAsDefault$Mutation, MarkAvatarAsDefaultArguments> {
+  MarkAvatarAsDefaultMutation({required this.variables});
+
+  @override
+  final DocumentNode document = MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT;
+
+  @override
+  final String operationName =
+      MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final MarkAvatarAsDefaultArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+
+  @override
+  MarkAvatarAsDefault$Mutation parse(Map<String, dynamic> json) =>
+      MarkAvatarAsDefault$Mutation.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -11606,419 +11842,6 @@ class FetchConversationsQuery extends GraphQLQuery<FetchConversations$Query,
 }
 
 @JsonSerializable(explicitToJson: true)
-class FetchVerifyRequestsArguments extends JsonSerializable
-    with EquatableMixin {
-  FetchVerifyRequestsArguments({required this.userId});
-
-  @override
-  factory FetchVerifyRequestsArguments.fromJson(Map<String, dynamic> json) =>
-      _$FetchVerifyRequestsArgumentsFromJson(json);
-
-  late String userId;
-
-  @override
-  List<Object?> get props => [userId];
-
-  @override
-  Map<String, dynamic> toJson() => _$FetchVerifyRequestsArgumentsToJson(this);
-}
-
-final FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT_OPERATION_NAME =
-    'fetchVerifyRequests';
-final FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'fetchVerifyRequests'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ID'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'fetchVerifyRequests'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'userId'),
-            value: VariableNode(name: NameNode(value: 'userId')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'userId'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'status'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      )
-    ]),
-  )
-]);
-
-class FetchVerifyRequestsQuery extends GraphQLQuery<FetchVerifyRequests$Query,
-    FetchVerifyRequestsArguments> {
-  FetchVerifyRequestsQuery({required this.variables});
-
-  @override
-  final DocumentNode document = FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT;
-
-  @override
-  final String operationName =
-      FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final FetchVerifyRequestsArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-
-  @override
-  FetchVerifyRequests$Query parse(Map<String, dynamic> json) =>
-      FetchVerifyRequests$Query.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class FetchStickersArguments extends JsonSerializable with EquatableMixin {
-  FetchStickersArguments({required this.page});
-
-  @override
-  factory FetchStickersArguments.fromJson(Map<String, dynamic> json) =>
-      _$FetchStickersArgumentsFromJson(json);
-
-  late int page;
-
-  @override
-  List<Object?> get props => [page];
-
-  @override
-  Map<String, dynamic> toJson() => _$FetchStickersArgumentsToJson(this);
-}
-
-final FETCH_STICKERS_QUERY_DOCUMENT_OPERATION_NAME = 'fetchStickers';
-final FETCH_STICKERS_QUERY_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'fetchStickers'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'page')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'fetchStickers'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'page'),
-            value: VariableNode(name: NameNode(value: 'page')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'url'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      )
-    ]),
-  )
-]);
-
-class FetchStickersQuery
-    extends GraphQLQuery<FetchStickers$Query, FetchStickersArguments> {
-  FetchStickersQuery({required this.variables});
-
-  @override
-  final DocumentNode document = FETCH_STICKERS_QUERY_DOCUMENT;
-
-  @override
-  final String operationName = FETCH_STICKERS_QUERY_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final FetchStickersArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-
-  @override
-  FetchStickers$Query parse(Map<String, dynamic> json) =>
-      FetchStickers$Query.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class GrantUserAvatarArguments extends JsonSerializable with EquatableMixin {
-  GrantUserAvatarArguments({required this.input});
-
-  @override
-  factory GrantUserAvatarArguments.fromJson(Map<String, dynamic> json) =>
-      _$GrantUserAvatarArgumentsFromJson(json);
-
-  late GrantUserAvatarInput input;
-
-  @override
-  List<Object?> get props => [input];
-
-  @override
-  Map<String, dynamic> toJson() => _$GrantUserAvatarArgumentsToJson(this);
-}
-
-final GRANT_USER_AVATAR_MUTATION_DOCUMENT_OPERATION_NAME = 'grantUserAvatar';
-final GRANT_USER_AVATAR_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'grantUserAvatar'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'GrantUserAvatarInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'grantUserAvatar'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'avatar'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'guid'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'userId'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          )
-        ]),
-      )
-    ]),
-  )
-]);
-
-class GrantUserAvatarMutation
-    extends GraphQLQuery<GrantUserAvatar$Mutation, GrantUserAvatarArguments> {
-  GrantUserAvatarMutation({required this.variables});
-
-  @override
-  final DocumentNode document = GRANT_USER_AVATAR_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName =
-      GRANT_USER_AVATAR_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final GrantUserAvatarArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-
-  @override
-  GrantUserAvatar$Mutation parse(Map<String, dynamic> json) =>
-      GrantUserAvatar$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
-class MarkAvatarAsDefaultArguments extends JsonSerializable
-    with EquatableMixin {
-  MarkAvatarAsDefaultArguments({required this.input});
-
-  @override
-  factory MarkAvatarAsDefaultArguments.fromJson(Map<String, dynamic> json) =>
-      _$MarkAvatarAsDefaultArgumentsFromJson(json);
-
-  late MarkAvatarDefaultInput input;
-
-  @override
-  List<Object?> get props => [input];
-
-  @override
-  Map<String, dynamic> toJson() => _$MarkAvatarAsDefaultArgumentsToJson(this);
-}
-
-final MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT_OPERATION_NAME =
-    'markAvatarAsDefault';
-final MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT = DocumentNode(definitions: [
-  OperationDefinitionNode(
-    type: OperationType.mutation,
-    name: NameNode(value: 'markAvatarAsDefault'),
-    variableDefinitions: [
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'MarkAvatarDefaultInput'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      )
-    ],
-    directives: [],
-    selectionSet: SelectionSetNode(selections: [
-      FieldNode(
-        name: NameNode(value: 'markAvatarDefault'),
-        alias: null,
-        arguments: [
-          ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          )
-        ],
-        directives: [],
-        selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'avatar'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'guid'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'name'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'isDefault'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'photoUrl'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'thumbnailUrl'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
-            name: NameNode(value: 'clientMutationId'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-        ]),
-      )
-    ]),
-  )
-]);
-
-class MarkAvatarAsDefaultMutation extends GraphQLQuery<
-    MarkAvatarAsDefault$Mutation, MarkAvatarAsDefaultArguments> {
-  MarkAvatarAsDefaultMutation({required this.variables});
-
-  @override
-  final DocumentNode document = MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT;
-
-  @override
-  final String operationName =
-      MARK_AVATAR_AS_DEFAULT_MUTATION_DOCUMENT_OPERATION_NAME;
-
-  @override
-  final MarkAvatarAsDefaultArguments variables;
-
-  @override
-  List<Object?> get props => [document, operationName, variables];
-
-  @override
-  MarkAvatarAsDefault$Mutation parse(Map<String, dynamic> json) =>
-      MarkAvatarAsDefault$Mutation.fromJson(json);
-}
-
-@JsonSerializable(explicitToJson: true)
 class FetchUserAvatarsArguments extends JsonSerializable with EquatableMixin {
   FetchUserAvatarsArguments({required this.userId});
 
@@ -12153,6 +11976,96 @@ class FetchUserAvatarsQuery
   @override
   FetchUserAvatars$Query parse(Map<String, dynamic> json) =>
       FetchUserAvatars$Query.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchVerifyRequestsArguments extends JsonSerializable
+    with EquatableMixin {
+  FetchVerifyRequestsArguments({required this.userId});
+
+  @override
+  factory FetchVerifyRequestsArguments.fromJson(Map<String, dynamic> json) =>
+      _$FetchVerifyRequestsArgumentsFromJson(json);
+
+  late String userId;
+
+  @override
+  List<Object?> get props => [userId];
+
+  @override
+  Map<String, dynamic> toJson() => _$FetchVerifyRequestsArgumentsToJson(this);
+}
+
+final FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT_OPERATION_NAME =
+    'fetchVerifyRequests';
+final FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'fetchVerifyRequests'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ID'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'fetchVerifyRequests'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'userId'),
+            value: VariableNode(name: NameNode(value: 'userId')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'userId'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'status'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class FetchVerifyRequestsQuery extends GraphQLQuery<FetchVerifyRequests$Query,
+    FetchVerifyRequestsArguments> {
+  FetchVerifyRequestsQuery({required this.variables});
+
+  @override
+  final DocumentNode document = FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT;
+
+  @override
+  final String operationName =
+      FETCH_VERIFY_REQUESTS_QUERY_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final FetchVerifyRequestsArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+
+  @override
+  FetchVerifyRequests$Query parse(Map<String, dynamic> json) =>
+      FetchVerifyRequests$Query.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -12332,4 +12245,91 @@ class FetchAvatarsQuery
   @override
   FetchAvatars$Query parse(Map<String, dynamic> json) =>
       FetchAvatars$Query.fromJson(json);
+}
+
+@JsonSerializable(explicitToJson: true)
+class FetchStickersArguments extends JsonSerializable with EquatableMixin {
+  FetchStickersArguments({required this.page});
+
+  @override
+  factory FetchStickersArguments.fromJson(Map<String, dynamic> json) =>
+      _$FetchStickersArgumentsFromJson(json);
+
+  late int page;
+
+  @override
+  List<Object?> get props => [page];
+
+  @override
+  Map<String, dynamic> toJson() => _$FetchStickersArgumentsToJson(this);
+}
+
+final FETCH_STICKERS_QUERY_DOCUMENT_OPERATION_NAME = 'fetchStickers';
+final FETCH_STICKERS_QUERY_DOCUMENT = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'fetchStickers'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'fetchStickers'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'url'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      )
+    ]),
+  )
+]);
+
+class FetchStickersQuery
+    extends GraphQLQuery<FetchStickers$Query, FetchStickersArguments> {
+  FetchStickersQuery({required this.variables});
+
+  @override
+  final DocumentNode document = FETCH_STICKERS_QUERY_DOCUMENT;
+
+  @override
+  final String operationName = FETCH_STICKERS_QUERY_DOCUMENT_OPERATION_NAME;
+
+  @override
+  final FetchStickersArguments variables;
+
+  @override
+  List<Object?> get props => [document, operationName, variables];
+
+  @override
+  FetchStickers$Query parse(Map<String, dynamic> json) =>
+      FetchStickers$Query.fromJson(json);
 }
