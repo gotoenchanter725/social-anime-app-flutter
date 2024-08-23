@@ -18,7 +18,7 @@ class LobbyPageContentWidget extends StatelessWidget {
     return Scaffold(
       backgroundColor: $constants.palette.darkBlue,
       appBar: SenpaiAppBar(
-        title: R.strings.lobbyAppBarTitle,
+        title: "Lobby", // R.strings.lobbyAppBarTitle,
         hasLeading: false,
       ),
       body: SafeArea(
