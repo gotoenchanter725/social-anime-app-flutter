@@ -899,11 +899,11 @@ class __$$FailedImplCopyWithImpl<T, $Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? error = null,
+    Object? error = freezed,
     Object? result = null,
   }) {
     return _then(_$FailedImpl<T>(
-      error: null == error
+      error: freezed == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as OperationException,
@@ -935,12 +935,13 @@ class _$FailedImpl<T> implements _Failed<T> {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FailedImpl<T> &&
-            (identical(other.error, error) || other.error == error) &&
+            const DeepCollectionEquality().equals(other.error, error) &&
             (identical(other.result, result) || other.result == result));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, error, result);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(error), result);
 
   @JsonKey(ignore: true)
   @override

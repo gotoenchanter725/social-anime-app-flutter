@@ -5,49 +5,154 @@
   ],
   "products" : [
     {
-      "displayPrice" : "3.99",
+      "displayPrice" : "4.99",
       "familyShareable" : false,
-      "internalID" : "6464066784",
+      "internalID" : "6560110089",
       "localizations" : [
         {
-          "description" : "Receive 15 super likes",
-          "displayName" : "15 Super Likes",
+          "description" : "Aki's 3D avatar for video chat",
+          "displayName" : "Aki",
           "locale" : "en_US"
         }
       ],
-      "productID" : "15SUPERLIKES",
-      "referenceName" : "15SUPERLIKES",
-      "type" : "Consumable"
+      "productID" : "avatar_aki",
+      "referenceName" : "Aki",
+      "type" : "NonConsumable"
     },
     {
       "displayPrice" : "7.99",
       "familyShareable" : false,
-      "internalID" : "6472971245",
+      "internalID" : "6587576601",
       "localizations" : [
         {
-          "description" : "Receive 30 Super likes",
-          "displayName" : "30 Super Likes",
+          "description" : "3D avatar for video chat",
+          "displayName" : "Chloe",
           "locale" : "en_US"
         }
       ],
-      "productID" : "0984772",
-      "referenceName" : "30SUPERLIKES",
-      "type" : "Consumable"
+      "productID" : "avatar_chloe",
+      "referenceName" : "Chloe",
+      "type" : "NonConsumable"
     },
     {
-      "displayPrice" : "12.99",
+      "displayPrice" : "7.99",
       "familyShareable" : false,
-      "internalID" : "6472971727",
+      "internalID" : "6560110329",
       "localizations" : [
         {
-          "description" : "Receive 50 Super Likes",
-          "displayName" : "50 Super Likes",
+          "description" : "3D avatar for video chat",
+          "displayName" : "Hinata Hyuga",
           "locale" : "en_US"
         }
       ],
-      "productID" : "09845723",
-      "referenceName" : "50SUPERLIKES",
-      "type" : "Consumable"
+      "productID" : "avatar_hinata",
+      "referenceName" : "Hinata Hyuga",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "7.99",
+      "familyShareable" : false,
+      "internalID" : "6560110596",
+      "localizations" : [
+        {
+          "description" : "Kazuko's 3D avatar for video chat",
+          "displayName" : "Kazuko",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "kazuko_avatar",
+      "referenceName" : "Kazuko",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "7.99",
+      "familyShareable" : false,
+      "internalID" : "6560109569",
+      "localizations" : [
+        {
+          "description" : "3D avatar for video chat",
+          "displayName" : "Madara Uchiha",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "avatar_madara",
+      "referenceName" : "Madara Uchiha",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "7.99",
+      "familyShareable" : false,
+      "internalID" : "6560109814",
+      "localizations" : [
+        {
+          "description" : "3D avatar for video chat",
+          "displayName" : "Minato Namikaze",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "avatar_minato",
+      "referenceName" : "Minato Namikaze",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "7.99",
+      "familyShareable" : false,
+      "internalID" : "6560110386",
+      "localizations" : [
+        {
+          "description" : "3D avatar for video chat",
+          "displayName" : "Naruto Uzumaki",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "avatar_naruto",
+      "referenceName" : "Naruto Uzumaki",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "7.99",
+      "familyShareable" : false,
+      "internalID" : "6560109991",
+      "localizations" : [
+        {
+          "description" : "3D avatar for video chat",
+          "displayName" : "Pain",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "avatar_pain",
+      "referenceName" : "Pain",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "7.99",
+      "familyShareable" : false,
+      "internalID" : "6560110741",
+      "localizations" : [
+        {
+          "description" : "Riko's 3D avatar for video chat",
+          "displayName" : "Riko",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "avatar_riko",
+      "referenceName" : "Riko",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "7.99",
+      "familyShareable" : false,
+      "internalID" : "6560110693",
+      "localizations" : [
+        {
+          "description" : "3D avatar for video chat",
+          "displayName" : "Toji Fushiguro",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "avatar_toji",
+      "referenceName" : "Toji Fushiguro",
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {
@@ -57,7 +162,7 @@
     "_billingIssuesEnabled" : false,
     "_developerTeamID" : "JTMJYZSCG6",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 728064078.65290701,
+    "_lastSynchronizedDate" : 746105280.92641199,
     "_locale" : "en_US",
     "_renewalBillingIssuesEnabled" : false,
     "_storefront" : "USA",
