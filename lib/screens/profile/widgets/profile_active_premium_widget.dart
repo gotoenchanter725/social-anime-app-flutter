@@ -9,9 +9,6 @@ import 'package:senpai/utils/methods/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:io' show Platform;
 
-
-
-
 class ProfileActivePremiumWidget extends StatelessWidget {
   final DateTime nextDate;
 
@@ -44,10 +41,12 @@ class ProfileActivePremiumWidget extends StatelessWidget {
             style: getTextTheme(context).headlineSmall,
             maxLines: 1,
           ),
+          // temporary hardcode
+          _buildPremiumText(context, "Unlimited Video Chat"),
           SizedBox(height: $constants.insets.sm),
-          _buildPremiumText(context, R.strings.premiumHigherText),
+          _buildPremiumText(context, "Premium Avatars"),
           SizedBox(height: $constants.insets.sm),
-          _buildPremiumText(context, R.strings.premiumSuperLikesText),
+          _buildPremiumText(context, "Higher Visibility"),
           SizedBox(height: $constants.insets.sm),
           _buildPremiumText(context, R.strings.premiumAbilityAnimesText),
           SizedBox(height: $constants.insets.md),
@@ -128,26 +127,28 @@ class ProfileActivePremiumWidget extends StatelessWidget {
   }
 
   Widget _buildManageLink(BuildContext context) {
-    
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        InkWell(
-          child: Text(
-            R.strings.manageSubscriptionTitle,
-            style: getTextTheme(context)
-                .bodyMedium
-                ?.copyWith(color: $constants.palette.grey)
-          ),
+    return Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+      InkWell(
+          child: Text(R.strings.manageSubscriptionTitle,
+              style: getTextTheme(context)
+                  .bodyMedium
+                  ?.copyWith(color: $constants.palette.grey)),
           onTap: () => {
-            if (Platform.isIOS) {
-              launchUrl(Uri.parse("https://apps.apple.com/account/subscriptions"), mode: LaunchMode.externalApplication)
-            } else {
-              launchUrl(Uri.parse("https://play.google.com/store/account/subscriptions?sku=senpaipremium&package=makeshift.software.inc.senpai"), mode: LaunchMode.externalApplication)
-            }
-          }
-        )
-      ]
-    );
+                if (Platform.isIOS)
+                  {
+                    launchUrl(
+                        Uri.parse(
+                            "https://apps.apple.com/account/subscriptions"),
+                        mode: LaunchMode.externalApplication)
+                  }
+                else
+                  {
+                    launchUrl(
+                        Uri.parse(
+                            "https://play.google.com/store/account/subscriptions?sku=senpaipremium&package=makeshift.software.inc.senpai"),
+                        mode: LaunchMode.externalApplication)
+                  }
+              })
+    ]);
   }
 }
