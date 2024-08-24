@@ -5,7 +5,7 @@
   ],
   "products" : [
     {
-      "displayPrice" : "4.99",
+      "displayPrice" : "7.99",
       "familyShareable" : false,
       "internalID" : "6560110089",
       "localizations" : [
@@ -162,7 +162,7 @@
     "_billingIssuesEnabled" : false,
     "_developerTeamID" : "JTMJYZSCG6",
     "_failTransactionsEnabled" : false,
-    "_lastSynchronizedDate" : 746105280.92641199,
+    "_lastSynchronizedDate" : 746137576.46482396,
     "_locale" : "en_US",
     "_renewalBillingIssuesEnabled" : false,
     "_storefront" : "USA",
