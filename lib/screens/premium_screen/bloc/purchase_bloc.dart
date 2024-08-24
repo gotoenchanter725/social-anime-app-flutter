@@ -23,52 +23,56 @@ part 'purchase_event.dart';
 // Auto-consume must be true on iOS.
 // To try without auto-consume on another platform, change `true` to `false` here.
 final bool kAutoConsume = Platform.isIOS || true;
-
-const String _kSuperLike15IOS = '15SUPERLIKES';
-const String _kSuperLike30IOS = '0984772';
-const String _kSuperLike50IOS = '09845723';
+// TODO: uncomment it if need
+// const String _kSuperLike15IOS = '15SUPERLIKES';
+// const String _kSuperLike30IOS = '0984772';
+// const String _kSuperLike50IOS = '09845723';
 
 const String _kPremiumSubscriptionIdIOS = '19960713';
-const List<String> _kProductIdsIOS = <String>[
-  _kSuperLike15IOS,
-  _kSuperLike30IOS,
-  _kSuperLike50IOS,
-  _kPremiumSubscriptionIdIOS,
-];
-
-const String _kSuperLike15Android = '15superlikes';
-const String _kSuperLike30Android = '30superlikes';
-const String _kSuperLike50Android = '50superlikes';
+// TODO: uncomment it if need
+// const String _kSuperLike15Android = '15superlikes';
+// const String _kSuperLike30Android = '30superlikes';
+// const String _kSuperLike50Android = '50superlikes';
 
 const String _kPremiumSubscriptionIdAndroid = 'senpaipremium';
 
-const List<String> _kProductIdsAndroid = <String>[
-  _kSuperLike15Android,
-  _kSuperLike30Android,
-  _kSuperLike50Android,
-  _kPremiumSubscriptionIdAndroid,
-];
-
 class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
   List<SubscriptionPlan> subscriptionPlanList = [
-    SubscriptionPlan(
-      superLikeCount: 15,
-      price: "\$3.99",
-      productIdIOS: _kSuperLike15IOS,
-      productIdAndroid: _kSuperLike15Android,
-    ),
-    SubscriptionPlan(
-      superLikeCount: 30,
-      price: "\$7.99",
-      productIdIOS: _kSuperLike30IOS,
-      productIdAndroid: _kSuperLike30Android,
-    ),
-    SubscriptionPlan(
-      superLikeCount: 50,
-      price: "\$12.99",
-      productIdIOS: _kSuperLike50IOS,
-      productIdAndroid: _kSuperLike50Android,
-    ),
+    // TODO: uncomment it if need
+    // SubscriptionPlan(
+    //   superLikeCount: 15,
+    //   price: "\$3.99",
+    //   productIdIOS: _kSuperLike15IOS,
+    //   productIdAndroid: _kSuperLike15Android,
+    // ),
+    // SubscriptionPlan(
+    //   superLikeCount: 30,
+    //   price: "\$7.99",
+    //   productIdIOS: _kSuperLike30IOS,
+    //   productIdAndroid: _kSuperLike30Android,
+    // ),
+    // SubscriptionPlan(
+    //   superLikeCount: 50,
+    //   price: "\$12.99",
+    //   productIdIOS: _kSuperLike50IOS,
+    //   productIdAndroid: _kSuperLike50Android,
+    // ),
+  ];
+
+  final List<String> _kProductIdsIOS = <String>[
+    // TODO: uncomment it if need
+    // _kSuperLike15IOS,
+    // _kSuperLike30IOS,
+    // _kSuperLike50IOS,
+    _kPremiumSubscriptionIdIOS,
+  ];
+
+  final List<String> _kProductIdsAndroid = <String>[
+    // TODO: uncomment it if need
+    // _kSuperLike15Android,
+    // _kSuperLike30Android,
+    // _kSuperLike50Android,
+    _kPremiumSubscriptionIdAndroid,
   ];
 
   SubscriptionPlan? selectedSubscription;
@@ -83,6 +87,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
   bool? isPurchased = false;
 
   String? _purchaseErrorText;
+  String _selectedProductId = '';
 
   PurchaseBloc() : super(PlanInitialState()) {
     on<OnPlanInitEvent>((event, emit) async {
@@ -95,6 +100,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
           _listenToPurchaseUpdated(purchaseDetailsList).then(
             (_) {
               if (_purchaseErrorText != null) {
+                isPurchased = false;
                 add(OnErrorEvent(R.strings.serverError));
               }
               if (isPurchased == true) {
@@ -148,6 +154,34 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
 
     on<OnErrorEvent>((event, emit) {
       emit(PurchaseErrorState(message: event.message));
+    });
+
+    on<OnTapBuyConsumableAvatarEvent>((event, emit) async {
+      isPurchased = false;
+      _kProductIdsIOS.add(event.productID);
+      _kProductIdsAndroid.add(event.productID);
+      _selectedProductId = event.productID;
+
+      await _initStoreInfo().then((_) {
+        if (_purchaseErrorText != null) {
+          logIt.debug("-- PurchaseDetails onError $_purchaseErrorText");
+          add(OnErrorEvent(_purchaseErrorText ?? R.strings.serverError));
+        } else if (products.any((product) => product.id == event.productID)) {
+          selectedProductDetails = products.firstWhere(
+            (product) => product.id == event.productID,
+          );
+
+          if (selectedProductDetails != null) {
+            add(OnTapBuyConsumableEvent(
+              productDetails: selectedProductDetails!,
+            ));
+          } else {
+            emit(PurchaseErrorState(message: R.strings.serverError));
+          }
+        } else {
+          emit(PurchaseErrorState(message: R.strings.serverError));
+        }
+      });
     });
 
     on<OnTapBuyConsumableEvent>((event, emit) {
@@ -252,6 +286,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
   Future<void> _listenToPurchaseUpdated(
     List<PurchaseDetails> purchaseDetailsList,
   ) async {
+    isPurchased = false;
     _purchaseErrorText = null;
     for (final PurchaseDetails purchaseDetails in purchaseDetailsList) {
       if (purchaseDetails.status == PurchaseStatus.error) {
@@ -269,9 +304,11 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
       }
       if (Platform.isAndroid) {
         if (!kAutoConsume &&
-            (purchaseDetails.productID == _kSuperLike15Android ||
-                purchaseDetails.productID == _kSuperLike30Android ||
-                purchaseDetails.productID == _kSuperLike50Android)) {
+            // TODO: uncomment it if need
+            // (purchaseDetails.productID == _kSuperLike15Android ||
+            //     purchaseDetails.productID == _kSuperLike30Android ||
+            //     purchaseDetails.productID == _kSuperLike50Android ||
+            (purchaseDetails.productID == _selectedProductId)) {
           final InAppPurchaseAndroidPlatformAddition androidAddition =
               inAppPurchase
                   .getPlatformAddition<InAppPurchaseAndroidPlatformAddition>();

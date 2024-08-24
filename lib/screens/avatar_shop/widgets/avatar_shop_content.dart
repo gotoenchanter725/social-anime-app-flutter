@@ -7,6 +7,7 @@ import 'package:senpai/screens/avatar_shop/bloc/avatar_shop_bloc.dart';
 import 'package:senpai/screens/avatar_shop/widgets/avatar_search_input.dart';
 import 'package:senpai/screens/avatar_shop/widgets/avatar_shop_card_item.dart';
 import 'package:senpai/screens/avatar_shop/widgets/avatar_shop_header.dart';
+import 'package:senpai/screens/premium_screen/bloc/purchase_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 
 class AvatarsShopContent extends StatelessWidget {
@@ -45,7 +46,10 @@ class AvatarsShopContent extends StatelessWidget {
               avatarGuid: state.avatar.guid,
             );
           } else {
-            //TODO: add buy
+            final bloc = BlocProvider.of<PurchaseBloc>(context);
+            bloc.add(OnTapBuyConsumableAvatarEvent(
+              productID: state.avatar.productId!,
+            ));
           }
         }
       },

@@ -13,6 +13,7 @@ import 'package:senpai/models/avatar_shop/avatar_shop_model.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/screens/avatar_shop/bloc/avatar_shop_bloc.dart';
 import 'package:senpai/screens/avatar_shop/widgets/avatar_shop_content.dart';
+import 'package:senpai/screens/premium_screen/bloc/purchase_bloc.dart';
 
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/helpers/snack_bar_helpers.dart';
@@ -34,6 +35,9 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
         BlocProvider(
           create: (_) => AvatarsShopBloc()..add(OnAvatarsShopInitEvent()),
         ),
+        BlocProvider(
+          create: (_) => PurchaseBloc()..add(OnPlanInitEvent()),
+        ),
         BlocProvider(create: (_) => getIt<FetchAvatarsShopBloc>()),
         BlocProvider(create: (_) => getIt<FetchUserBloc>()),
         BlocProvider(create: (_) => getIt<GrantUserAvatarBloc>()),
@@ -43,7 +47,24 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
         body: SafeArea(
           child: Stack(
             children: [
-              const AvatarsShopContent(),
+              BlocConsumer<PurchaseBloc, PurchaseState>(
+                listener: (context, state) {
+                  final bloc = BlocProvider.of<PurchaseBloc>(context);
+                  if (bloc.isPurchased == true) {
+                    final bloc = BlocProvider.of<AvatarsShopBloc>(context);
+                    bloc.add(OnSelectedAvatarEvent(
+                      bloc.avatarShopModel,
+                      isGrantUserAvatar: true,
+                    ));
+                  }
+                  if (state is PurchaseErrorState) {
+                    showSnackBarError(context, R.strings.serverError);
+                  }
+                },
+                builder: (context, state) {
+                  return const AvatarsShopContent();
+                },
+              ),
               _buildFetchUserListeners(),
               _buildFetchAvatarsShopListeners(),
               _buildGrantAvatarListeners(),

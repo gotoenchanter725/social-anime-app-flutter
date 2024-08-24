@@ -20,11 +20,11 @@ class OnErrorEvent extends PurchaseEvent {
 
 class OnTapBuyConsumableEvent extends PurchaseEvent {
   final ProductDetails productDetails;
-  final Map<String, PurchaseDetails> purchases;
+  final Map<String, PurchaseDetails>? purchases;
 
   OnTapBuyConsumableEvent({
     required this.productDetails,
-    required this.purchases,
+    this.purchases,
   });
 }
 
@@ -35,5 +35,13 @@ class OnTapBuyNonConsumableEvent extends PurchaseEvent {
   OnTapBuyNonConsumableEvent({
     // required this.productDetails,
     required this.purchases,
+  });
+}
+
+class OnTapBuyConsumableAvatarEvent extends PurchaseEvent {
+  final String productID;
+
+  OnTapBuyConsumableAvatarEvent({
+    required this.productID,
   });
 }
