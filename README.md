@@ -46,3 +46,17 @@ Also go to `Unity-iPhone/Frameworks` and drag all the Frameworks into `Runner`
 ![Add Dependencies](https://i.imgur.com/Zy5faD4.png)
 
 5. Compile and run
+
+### Generating Appbundles for Android
+
+In order to generate a signed bundle, you'll need `key.properties` and `upload-keystore.jks` in the `/android` directory.
+
+Ask the team for these files.
+
+The command to generate the bundle is:
+
+`flutter build appbundle --release --dart-define=APP_ENV=prod`
+
+The important part being `--dart-define=APP_ENV=prod`, ensuring the bundle will run in production mode.
+
+This flag can also be used with `flutter run`.
