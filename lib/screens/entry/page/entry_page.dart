@@ -64,6 +64,10 @@ class EntryPage extends StatelessWidget {
             if (isSignedIn) {
               WidgetsBinding.instance.addPostFrameCallback((_) {
                 context.router.replaceAll([HomeRoute()]);
+                //video chat
+                //context.router.replaceAll([UnityViewVideoChatRoute()]);
+                //avatar test
+                // context.router.replaceAll([UnityViewRoute()]);
               });
             }
             return const SizedBox.shrink();

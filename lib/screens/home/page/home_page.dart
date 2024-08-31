@@ -22,6 +22,7 @@ class HomePage extends StatelessWidget {
         routes: [
           MatchRoute(),
           const ChatListRoute(),
+          const AvatarShopRoute(),
           //TODO: 14.03 Herbert Joseph: With the events tab hidden
           // EventsListRoute(),
           const ProfileRoute(),
@@ -61,6 +62,17 @@ class HomePage extends StatelessWidget {
             PathConstants.chatIcon,
           ),
           label: R.strings.chatTabText,
+        ),
+        BottomNavigationBarItem(
+          icon: SvgPicture.asset(
+            PathConstants.avatarShopIcon,
+            colorFilter:
+                ColorFilter.mode($constants.palette.darkGrey, BlendMode.srcIn),
+          ),
+          activeIcon: SvgPicture.asset(
+            PathConstants.avatarShopIcon,
+          ),
+          label: "Avatar Shop",
         ),
         //TODO: 14.03 Herbert Joseph: With the events tab hidden
         // BottomNavigationBarItem(

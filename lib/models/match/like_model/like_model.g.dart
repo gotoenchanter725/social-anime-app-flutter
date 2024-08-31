@@ -8,8 +8,8 @@ part of 'like_model.dart';
 
 _$LikeModelImpl _$$LikeModelImplFromJson(Map<String, dynamic> json) =>
     _$LikeModelImpl(
-      userId: json['userId'] as int,
-      likeeId: json['likeeId'] as int,
+      userId: (json['userId'] as num).toInt(),
+      likeeId: (json['likeeId'] as num).toInt(),
       likeType: json['likeType'] as String,
     );
 

@@ -17,6 +17,25 @@ mutation findVideoChatMatch($input: FindVideoChatMatchInput!) {
       displayState
       onlineStatus
       lonlat
+      videoCallScore
+      videoMatches {
+        id
+        userId
+        matchee {
+          id
+          firstName
+          birthday
+          gallery {
+            photos {
+              order
+              url
+              id
+            }
+          }
+        }
+        createdAt
+        updatedAt
+      }
       matches {
         id
         matcheeId

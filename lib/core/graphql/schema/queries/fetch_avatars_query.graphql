@@ -1,0 +1,12 @@
+query fetchAvatars($query: String, $page: Int, $userId: Int, $gender: String) {
+  fetchAvatars(query: $query, page: $page, userId: $userId, gender: $gender) {
+    name
+    guid
+    userId
+    photoUrl
+    thumbnailUrl
+    productId
+    createdAt
+    isDefault
+  }
+}

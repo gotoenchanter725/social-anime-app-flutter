@@ -9,9 +9,9 @@ part of 'profile_filter_model.dart';
 _$ProfileFilterModelImpl _$$ProfileFilterModelImplFromJson(
         Map<String, dynamic> json) =>
     _$ProfileFilterModelImpl(
-      milesAway: json['milesAway'] as int,
-      minAge: json['minAge'] as int,
-      maxAge: json['maxAge'] as int,
+      milesAway: (json['milesAway'] as num).toInt(),
+      minAge: (json['minAge'] as num).toInt(),
+      maxAge: (json['maxAge'] as num).toInt(),
       hasBio: json['hasBio'] as bool,
       verified: json['verified'] as bool,
       animeIds:

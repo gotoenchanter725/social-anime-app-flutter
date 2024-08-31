@@ -22,8 +22,8 @@ class PathConstants {
   static const String closeIcon = 'assets/icons/close.svg';
 
   static const String searchIcon = 'assets/icons/search.svg';
-  static const String photoVerifedImage =
-      'assets/images/profile/photo_verifed.png';
+  static const String photoVerifiedImage =
+      'assets/images/profile/photo_verified.png';
   static const String photoNotVerifiedImage =
       'assets/images/profile/photo_not_verified.png';
   static const String alarmIcon = 'assets/icons/alarm_icon.svg';
@@ -41,6 +41,7 @@ class PathConstants {
 
   // chat
   static const String crownIcon = 'assets/icons/crown.svg';
+  static const String crownGoldIcon = 'assets/icons/crown_gold.svg';
   static const String sendIcon = 'assets/icons/up.svg';
   static const String stickerIcon = 'assets/icons/sticker.svg';
   static const String locationBg = 'assets/images/profile/location_bg.png';
@@ -70,6 +71,8 @@ class PathConstants {
   //Profile
   static const String filterIcon = 'assets/icons/filter.svg';
   static const String settingsIcon = 'assets/icons/settings.svg';
+  static const String settingsOutlinedIcon =
+      'assets/icons/settings_outlined.svg';
   static const String verifyUserIcon = 'assets/icons/verify_user.svg';
   static const String pencilIcon = 'assets/icons/pencil.svg';
   static const String shineHeartIcon = 'assets/icons/shine_heart.svg';
@@ -86,6 +89,11 @@ class PathConstants {
   static const String spotifyImage = 'assets/images/profile/spotify_image.png';
   static const String spotifyLogoImage =
       'assets/images/profile/spotify_logo_image.png';
+  static const String btnDiscord = 'assets/images/profile/btn_discord.png';
+  static const String btnReddit = 'assets/images/profile/btn_reddit.png';
+  static const String btnTwitter = 'assets/images/profile/btn_twitter.png';
+  static const String settingsAvatarHeader =
+      'assets/images/profile/settings_avatar_header_bg.png';
 
   //Match
   static const String catsPawIcon = 'assets/icons/cats_paw.svg';
@@ -107,7 +115,12 @@ class PathConstants {
 
   // lobby
   static const String lobbyIcon = 'assets/icons/lobby_icon.svg';
+  static const String lobbyInvite = 'assets/icons/lobby_invite.svg';
   static const String folderBackground = 'assets/images/match/dark_bg.png';
+  static const String inviteBackground =
+      'assets/images/match/invite_black_bg.png';
+  static const String inviteAcceptBackground =
+      'assets/images/match/invite_accept_bg.png';
   static const String lobbyActionsBackground =
       'assets/images/match/lobby_bg.png';
 
@@ -121,6 +134,8 @@ class PathConstants {
   static const String chatBubble = 'assets/icons/message_bubble.svg';
 
   static const String phoneIcon = 'assets/icons/phone.svg';
+  static const String phoneColored = 'assets/icons/phone_colored.svg';
+  static const String failed = 'assets/icons/failed.svg';
   static const String dummyVideoChatImage = 'assets/images/video_chat_bg.png';
   static const String videoActionBackground =
       'assets/icons/video_action_bg.svg';
@@ -132,7 +147,7 @@ class PathConstants {
   // call action icons
   static const endCallIcon = 'assets/icons/end_call.svg';
   static const muteIcon = 'assets/icons/mute.svg';
-  static const avatorIcon = 'assets/icons/avatar.svg';
+  static const avatarIcon = 'assets/icons/avatar.svg';
   static const matchAmenityIcon1 = 'assets/icons/match_safe.svg';
   static const matchAmenityIcon2 = 'assets/icons/match_camera.svg';
 
@@ -141,4 +156,13 @@ class PathConstants {
       'assets/images/match/profile_verify_shadow.png';
 
   static const matchingAnimation = 'assets/gif/matching_circle.gif';
+
+  // avatar shop
+  static const String avatarShopIcon = 'assets/icons/avatar_shop_icon.svg';
+  static const String filterCircle = 'assets/icons/filter_circle.svg';
+  static const String newTag = 'assets/images/avatar_shop/new_tag.png';
+  static const String avatarShopItemOverlay =
+      'assets/images/avatar_shop/avatar_shop_item_overlay.png';
+  static const String avatarShopPremiumFrame =
+      'assets/images/avatar_shop/premium_frame.png';
 }

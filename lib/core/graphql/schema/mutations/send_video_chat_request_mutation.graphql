@@ -1,0 +1,10 @@
+mutation sendVideoChatRequest($input: SendVideoChatRequestInput!) {
+  sendVideoChatRequest(input: $input) {
+    videoChatRequest {
+      id
+      matcheeId
+      status
+      userId
+    }
+  }
+}

@@ -1,66 +1,22 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
+import 'package:senpai/core/match/blocs/find_video_match/find_video_chat_match_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/screens/lobby/widgets/video_request_dialog.dart';
+import 'package:senpai/screens/match/bloc/match_texture_bloc.dart';
+import 'package:senpai/utils/methods/utils.dart';
 
-class MatchTextureWidget extends StatefulWidget {
+class MatchTextureWidget extends StatelessWidget {
   const MatchTextureWidget({
-    super.key,
-    required this.isMatching,
-    required this.isMatchFound,
-  });
-  final bool isMatching;
-  final bool isMatchFound;
+    Key? key,
+    this.onAccepted,
+    this.onDeclined,
+  }) : super(key: key);
 
-  @override
-  State<MatchTextureWidget> createState() => _MatchTextureWidgetState();
-}
-
-class _MatchTextureWidgetState extends State<MatchTextureWidget> {
-  late Timer _timer;
-  int _dotCount = 0;
-  final List<String> _findingText = [
-    "Finding a Match",
-    "Finding a Match.",
-    "Finding a Match..",
-    "Finding a Match...",
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    if (widget.isMatching) {
-      _startTimer();
-    }
-  }
-
-  @override
-  void didUpdateWidget(MatchTextureWidget oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.isMatching && !oldWidget.isMatching) {
-      _startTimer();
-    } else if (!widget.isMatching && oldWidget.isMatching) {
-      _stopTimer();
-    }
-  }
-
-  void _startTimer() {
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      setState(() {
-        _dotCount = (_dotCount + 1) % _findingText.length;
-      });
-    });
-  }
-
-  void _stopTimer() {
-    _timer.cancel();
-  }
-
-  @override
-  void dispose() {
-    _stopTimer();
-    super.dispose();
-  }
+  final Function()? onAccepted;
+  final Function()? onDeclined;
 
   Widget _buildAcceptButton(BuildContext context) {
     return SizedBox(
@@ -76,9 +32,7 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
           ),
           Center(
             child: TextButton(
-              onPressed: () {
-                // move to the chat invite page
-              },
+              onPressed: onAccepted,
               child: const Text(
                 'Accept',
                 style: TextStyle(
@@ -100,8 +54,8 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
       height: 40,
       child: TextButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(Colors.black),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          backgroundColor: WidgetStateProperty.all<Color>(Colors.black),
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(28.0),
               side: const BorderSide(
@@ -112,9 +66,7 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
           ),
           alignment: Alignment.center,
         ),
-        onPressed: () {
-          print("Reject button pressed");
-        },
+        onPressed: onDeclined,
         child: const Center(
           child: Text(
             'Decline',
@@ -131,26 +83,55 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
 
   @override
   Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => MatchTextureBloc()..add(StartMatchingEvent()),
+      child: BlocListener<FindVideoChatMatchBloc, MutationState>(
+        listener: (context, state) {
+          state.whenOrNull(
+            succeeded: (data, result) {
+              // if match was found then tell the match texture bloc
+
+              final matchUser =
+                  context.read<FindVideoChatMatchBloc>().matchUser;
+              if (matchUser != null) {
+                showVideoRequestDialog(context, data);
+              }
+            },
+          );
+        },
+        child: BlocBuilder<MatchTextureBloc, MatchTextureState>(
+          builder: (context, state) {
+            if (state is FindingMatchState) {
+              return _buildFindingMatchUI(context, state);
+            }
+            return _buildMatchFoundUI(context);
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _buildFindingMatchUI(BuildContext context, FindingMatchState state) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.width * 508 / 375,
+      width: getSize(context).width,
+      height: getWidthSize(context, 508 / 375),
       child: Stack(
         clipBehavior: Clip.none,
         children: [
           Image.asset(
             PathConstants.lobbyActionsBackground,
             fit: BoxFit.cover,
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.width * 508 / 375,
+            width: getSize(context).width,
+            height: getWidthSize(context, 508 / 375),
           ),
           Center(
             child: AnimatedOpacity(
-              opacity: widget.isMatching ? 0.8 : 0,
+              opacity: 0.8,
               duration: const Duration(milliseconds: 500),
               child: ClipOval(
                 child: Image.asset(
                   PathConstants.matchingAnimation,
-                  width: MediaQuery.of(context).size.width - 100,
+                  width: getSize(context).width - 100,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -160,44 +141,73 @@ class _MatchTextureWidgetState extends State<MatchTextureWidget> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                if (widget.isMatchFound)
-                  SvgPicture.asset(
-                    PathConstants.matchFoundIcon,
-                    width: MediaQuery.of(context).size.width * 0.083,
-                    height: MediaQuery.of(context).size.width * 0.083,
+                Container(
+                  alignment: Alignment.center,
+                  width: getWidthSize(context, 0.5),
+                  child: Text(
+                    state.findingText,
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: getWidthSize(context, 0.05),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                if (widget.isMatchFound)
-                  SizedBox(height: MediaQuery.of(context).size.width * 0.037),
-                Text(
-                  widget.isMatchFound
-                      ? 'MATCH FOUND'
-                      : widget.isMatching
-                          ? _findingText[_dotCount]
-                          : "",
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMatchFoundUI(BuildContext context) {
+    return SizedBox(
+      width: getSize(context).width,
+      height: getWidthSize(context, 508 / 375),
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Image.asset(
+            PathConstants.lobbyActionsBackground,
+            fit: BoxFit.cover,
+            width: getSize(context).width,
+            height: getWidthSize(context, 508 / 375),
+          ),
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SvgPicture.asset(
+                  PathConstants.matchFoundIcon,
+                  width: getWidthSize(context, 0.083),
+                  height: getWidthSize(context, 0.083),
+                ),
+                SizedBox(height: getWidthSize(context, 0.037)),
+                const Text(
+                  'MATCH FOUND',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: MediaQuery.of(context).size.width * 0.05,
+                    fontSize: 16.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ],
             ),
           ),
-          if (widget.isMatchFound)
-            Positioned(
-              top: (MediaQuery.of(context).size.width - 100) * 1.3,
+          Positioned(
+              top: (getSize(context).width - 100) * 1.3,
               left: 0,
               right: 0,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   _buildAcceptButton(context),
-                  SizedBox(
-                      height: (MediaQuery.of(context).size.width - 100) * 0.07),
+                  SizedBox(height: getWidthSize(context, 0.07)),
                   _buildRejectButton(context),
                 ],
-              ),
-            )
+              ))
         ],
       ),
     );

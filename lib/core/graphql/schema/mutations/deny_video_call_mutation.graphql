@@ -1,0 +1,9 @@
+mutation denyVideoCall($input: DenyVideoCallInput!) {
+  denyVideoCall(input: $input) {
+    request {
+      id
+      userId
+      matcheeId
+    }
+  }
+}

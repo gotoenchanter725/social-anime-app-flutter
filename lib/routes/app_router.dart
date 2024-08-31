@@ -6,6 +6,7 @@ import 'package:senpai/models/profile_fill/anime/anime_model.dart';
 import 'package:senpai/models/report_user/report_user_params.dart';
 import 'package:senpai/models/user_profile/user_profile_model.dart';
 import 'package:senpai/routes/guards/onboarding_guard.dart';
+import 'package:senpai/screens/avatar_shop/page/avatar_shop_page.dart';
 import 'package:senpai/screens/chat/page/chat_page.dart';
 import 'package:senpai/screens/chat/widgets/video_viewer.dart';
 import 'package:senpai/screens/chat_list/page/chat_list_page.dart';
@@ -35,6 +36,7 @@ import 'package:senpai/screens/profile_fill/photos/upload_photos/page/upload_pho
 import 'package:senpai/screens/report_user/page/report_user_page.dart';
 import 'package:senpai/screens/signup/page/sign_up_page.dart';
 import 'package:senpai/screens/unity/page/unity_view.dart';
+import 'package:senpai/screens/unity/page/unity_view_videochat.dart';
 import 'package:senpai/screens/verify_phone/page/verify_phone_page.dart';
 import 'package:senpai/screens/verify_photo/bloc/verify_photo_bloc.dart';
 import 'package:senpai/screens/verify_photo/camera_page/page/verify_camera_page.dart';
@@ -93,13 +95,19 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: SenpaiLicenseRoute.page, path: '/license'),
         AutoRoute(page: ProfileFillRoute.page, path: '/profile_fill'),
         AutoRoute(page: VerifyPhotoRoute.page, path: '/verify_photo'),
-        AutoRoute(page: UnityViewRoute.page, path: '/video_call'),
+        AutoRoute(page: UnityViewRoute.page, path: '/avatar_test'),
+         AutoRoute(page: UnityViewVideoChatRoute.page, path: '/video_call'),
         AutoRoute(page: HomeRoute.page, path: '/home', children: [
           AutoRoute(page: MatchRoute.page, path: 'match'),
           AutoRoute(page: ChatListRoute.page, path: 'chat_list'),
 
           /// TODO: 14.03 Herbert Joseph: With the events tab hidden
           /// AutoRoute(page: EventsListRoute.page, path: 'events'),
+          AutoRoute(
+            page: AvatarShopRoute.page,
+            path: 'avatar_shop',
+            maintainState: false,
+          ),
           AutoRoute(page: ProfileRoute.page, path: 'profile')
         ]),
         CustomRoute(

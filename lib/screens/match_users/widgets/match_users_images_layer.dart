@@ -47,7 +47,7 @@ class MatchUsersImagesLayer extends StatelessWidget {
             Positioned(
               top: 0,
               child: MatchHeartWidget(
-                chageSize: bloc.state is FinishAnimationFireworkState,
+                changeSize: bloc.state is FinishAnimationFireworkState,
               ),
             ),
             Positioned(

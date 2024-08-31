@@ -16,7 +16,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, build-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.6
+version: 2.0.0
 
 environment:
   sdk: ">=3.0.6 <4.0.0"
@@ -71,7 +71,11 @@ dependencies:
   slang: ^3.22.0
   universal_platform: ^1.0.0+1
   internet_connection_checker_plus: ^2.0.0
-  json_theme: ^6.2.3
+#  json_theme: ^6.2.3
+  json_theme: # We can use the custom url until they update the package for the last version flutter.
+    git:
+      url: https://github.com/livia629/json_theme
+      path: json_theme
   shimmer: ^3.0.0
   keframe: ^3.0.0
   url_strategy: ^0.2.0
@@ -117,14 +121,14 @@ dependencies:
   easy_debounce: 2.0.3
   google_maps_flutter: ^2.5.3
   google_places_flutter: ^2.0.8
+  flutter_rating_bar: ^4.0.1
   flutter_unity_widget: ^2022.2.1
 
   flutter_localizations:
     sdk: flutter
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  r_resources: ^1.0.1
   flutter_loco_translations: 1.0.0+2
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -142,7 +146,6 @@ dev_dependencies:
   golden_toolkit: ^0.15.0
   slang_flutter: ^3.22.0
   slang_build_runner: ^3.22.0
-  r_resources: ^1.0.1
   flutter_launcher_icons: ^0.13.1
 
 flutter_icons:
@@ -182,6 +185,7 @@ flutter:
     - assets/images/onboarding/
     - assets/images/profile/
     - assets/images/match/
+    - assets/images/avatar_shop/
     - assets/icons/
     - assets/gif/
     - assets/licenses/

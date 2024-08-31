@@ -8,7 +8,6 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:senpai/core/app/app.dart';
-// import 'package:senpai/core/bloc_observer/bloc_observer.dart';
 import 'package:senpai/core/sentry/sentry_module.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/i18n/strings.g.dart';

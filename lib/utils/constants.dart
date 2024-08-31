@@ -13,7 +13,7 @@ class Constants {
   /// Animation durations.
   late final times = _Times();
 
-  /// Rounded edge corner radiuses.
+  /// Rounded edge corner radius's.
   late final corners = _Corners();
 
   /// Padding and margin values.
@@ -127,6 +127,15 @@ class _Palette {
   final gold = const Color(0xFFE39F04);
   final green = const Color(0xFF67B527);
   final red = const Color(0xFFFF3A3D);
+  final yellowButtonStart = const Color(0xFFDCA712);
+  final yellowButtonEnd = const Color(0xFFED841D);
+  final warmButtonStart = const Color(0xFF0BDECC);
+  final warmButtonEnd = const Color(0xFF00D057);
+  final redButton = const Color(0xFFD11643);
+  final emoteButtonStart = const Color(0xFFD90FCA);
+  final emoteButtonEnd = const Color(0xFF1D80EE);
+  final buyButtonStart = const Color(0xFFD9AD0F);
+  final buyButtonEnd = const Color(0xFFEE811D);
   final buttonBackground = const Color(0xB214161D);
   final appBackground = const Color(0xFF14161D);
   final progressBackground = const Color(0xFF1F2542);
@@ -175,6 +184,18 @@ class _Palette {
       Color(0xFF1286F0),
     ],
     stops: [0.1531, 0.8686],
+    transform: GradientRotation(
+        33.56 * 3.141592653589793 / 180), // Convert degrees to radians
+  );
+
+  final premiumSectionGradient = const LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFFDE0BC9),
+      Color(0xFF1286F0),
+    ],
+    stops: [0.1531, 0.7686],
     transform: GradientRotation(
         33.56 * 3.141592653589793 / 180), // Convert degrees to radians
   );

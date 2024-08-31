@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AvatarShopRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AvatarShopPage(),
+      );
+    },
     ChatListRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -240,11 +246,23 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     UnityViewRoute.name: (routeData) {
-      final args = routeData.argsAs<UnityViewRouteArgs>(
-          orElse: () => const UnityViewRouteArgs());
+      final args = routeData.argsAs<UnityViewRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: UnityViewPage(key: args.key),
+        child: UnityViewPage(
+          key: args.key,
+          avatorGuid: args.avatorGuid,
+        ),
+      );
+    },
+    UnityViewVideoChatRoute.name: (routeData) {
+      final args = routeData.argsAs<UnityViewVideoChatRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: UnityViewVideoChatPage(
+          key: args.key,
+          matchData: args.matchData,
+        ),
       );
     },
     UploadPhotosManagerRoute.name: (routeData) {
@@ -313,6 +331,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AvatarShopPage]
+class AvatarShopRoute extends PageRouteInfo<void> {
+  const AvatarShopRoute({List<PageRouteInfo>? children})
+      : super(
+          AvatarShopRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AvatarShopRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -1115,10 +1147,14 @@ class SignUpRouteArgs {
 class UnityViewRoute extends PageRouteInfo<UnityViewRouteArgs> {
   UnityViewRoute({
     Key? key,
+    required String avatorGuid,
     List<PageRouteInfo>? children,
   }) : super(
           UnityViewRoute.name,
-          args: UnityViewRouteArgs(key: key),
+          args: UnityViewRouteArgs(
+            key: key,
+            avatorGuid: avatorGuid,
+          ),
           initialChildren: children,
         );
 
@@ -1129,13 +1165,57 @@ class UnityViewRoute extends PageRouteInfo<UnityViewRouteArgs> {
 }
 
 class UnityViewRouteArgs {
-  const UnityViewRouteArgs({this.key});
+  const UnityViewRouteArgs({
+    this.key,
+    required this.avatorGuid,
+  });
 
   final Key? key;
 
+  final String avatorGuid;
+
   @override
   String toString() {
-    return 'UnityViewRouteArgs{key: $key}';
+    return 'UnityViewRouteArgs{key: $key, avatorGuid: $avatorGuid}';
+  }
+}
+
+/// generated route for
+/// [UnityViewVideoChatPage]
+class UnityViewVideoChatRoute
+    extends PageRouteInfo<UnityViewVideoChatRouteArgs> {
+  UnityViewVideoChatRoute({
+    Key? key,
+    required dynamic matchData,
+    List<PageRouteInfo>? children,
+  }) : super(
+          UnityViewVideoChatRoute.name,
+          args: UnityViewVideoChatRouteArgs(
+            key: key,
+            matchData: matchData,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'UnityViewVideoChatRoute';
+
+  static const PageInfo<UnityViewVideoChatRouteArgs> page =
+      PageInfo<UnityViewVideoChatRouteArgs>(name);
+}
+
+class UnityViewVideoChatRouteArgs {
+  const UnityViewVideoChatRouteArgs({
+    this.key,
+    required this.matchData,
+  });
+
+  final Key? key;
+
+  final dynamic matchData;
+
+  @override
+  String toString() {
+    return 'UnityViewVideoChatRouteArgs{key: $key, matchData: $matchData}';
   }
 }
 

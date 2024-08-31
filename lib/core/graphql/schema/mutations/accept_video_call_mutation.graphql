@@ -1,0 +1,8 @@
+mutation acceptVideoChat($input: AcceptVideoCallInput!) {
+  acceptVideoCall(input: $input) {
+    videoMatch {
+      id
+      status
+    }
+  }
+}

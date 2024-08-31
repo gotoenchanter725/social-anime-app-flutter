@@ -9,7 +9,7 @@ part of 'user_verify_model.dart';
 _$UserVerifyModelImpl _$$UserVerifyModelImplFromJson(
         Map<String, dynamic> json) =>
     _$UserVerifyModelImpl(
-      userId: json['userId'] as int,
+      userId: (json['userId'] as num).toInt(),
       status: json['status'] as String?,
     );
 

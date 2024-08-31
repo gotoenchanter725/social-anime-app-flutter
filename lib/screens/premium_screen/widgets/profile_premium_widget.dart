@@ -80,15 +80,16 @@ class ProfilePremiumWidget extends StatelessWidget {
             children: [
               _buildPremiumTitle(context),
               SizedBox(height: $constants.insets.sm),
-              _buildPremiumText(context, R.strings.premiumHigherText),
+              // temporary hardcode
+              _buildPremiumText(context, "Unlimited Video Chat"),
               SizedBox(height: $constants.insets.sm),
-              _buildPremiumText(context, R.strings.premiumSuperLikesText),
+              _buildPremiumText(context, "Premium Avatars"),
               SizedBox(height: $constants.insets.sm),
-              _buildPremiumText(
-                  context, R.strings.premiumAbilityAnimesText),
+              _buildPremiumText(context, "Higher Visibility"),
+              SizedBox(height: $constants.insets.sm),
+              _buildPremiumText(context, R.strings.premiumAbilityAnimesText),
               SizedBox(height: $constants.insets.md),
-              _buildPremiumText(
-                  context, R.strings.cancelAnytimeTitle),
+              _buildPremiumText(context, R.strings.cancelAnytimeTitle),
               SizedBox(height: $constants.insets.md),
               PrimaryButton(
                 text: R.strings.premiumUpgradeText,
