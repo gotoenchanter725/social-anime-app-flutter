@@ -47,7 +47,7 @@ Also go to `Unity-iPhone/Frameworks` and drag all the Frameworks into `Runner`
 
 5. Compile and run
 
-### Generating Appbundles for Android
+## Generating Appbundles for Android
 
 In order to generate a signed bundle, you'll need `key.properties` and `upload-keystore.jks` in the `/android` directory.
 
