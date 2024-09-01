@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -27,9 +28,9 @@ class MatchHeaderWidget extends StatelessWidget {
               return FadeTransition(opacity: animation, child: child);
             },
             child: Text(
-              isMatching ? "Waiting for a Match" : "Join Pool",
+              isMatching ? R.strings.waitingForMatch : R.strings.joinPool,
               key: ValueKey<String>(
-                  isMatching ? "Waiting for a Match" : "Join Pool"),
+                  isMatching ? R.strings.waitingForMatch : R.strings.joinPool),
               style: getTextTheme(context).titleMedium!.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,

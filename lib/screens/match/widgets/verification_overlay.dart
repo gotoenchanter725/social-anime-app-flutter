@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
 
@@ -74,7 +75,7 @@ class VerificationOverlayWidget extends StatelessWidget {
                   ),
                   Column(mainAxisSize: MainAxisSize.min, children: [
                     Text(
-                      "Verification Required!",
+                      R.strings.verificationPrompt,
                       style: getTextTheme(context).headlineSmall!.copyWith(
                             fontSize: getWidthSize(context, 0.047),
                             color: $constants.palette.white,
@@ -85,7 +86,7 @@ class VerificationOverlayWidget extends StatelessWidget {
                       height: getWidthSize(context, 0.037),
                     ),
                     Text(
-                      "Verify your profile to enable video chat!",
+                      R.strings.verificationDescription,
                       style: getTextTheme(context).titleMedium!.copyWith(
                             fontSize: getWidthSize(context, 0.033),
                             color: $constants.palette.grey,
@@ -96,12 +97,12 @@ class VerificationOverlayWidget extends StatelessWidget {
                       height: getWidthSize(context, 0.074),
                     ),
                     _buildAmenityRow(context, PathConstants.matchAmenityIcon1,
-                        "To ensure a safe and genuine experience, please verify your profile."),
+                        R.strings.verificationAmenity),
                     SizedBox(
                       height: getWidthSize(context, 0.065),
                     ),
                     _buildAmenityRow(context, PathConstants.matchAmenityIcon2,
-                        "Use your camera in a well-lit area for the best results"),
+                        R.strings.cameraAmenity),
                     SizedBox(
                       height: getWidthSize(context, 0.037),
                     ),
@@ -128,7 +129,7 @@ class VerificationOverlayWidget extends StatelessWidget {
                           left: 0,
                           right: 0,
                           child: PrimaryButton(
-                            text: "Start Verification",
+                            text: R.strings.startMatching,
                             buttonGradient:
                                 $constants.palette.verificationButtonGradient,
                             onPressed: onStartVerification,
