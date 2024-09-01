@@ -2349,11 +2349,11 @@ abstract class AppLocalizations {
   /// **'Lobby'**
   String get lobbyAppBarTitle;
 
-  /// No description provided for @iAPSubscriptionDescription.
+  /// No description provided for @unlimitedVideoCalls.
   ///
   /// In en, this message translates to:
   /// **'Unlimited Video Calls'**
-  String get iAPSubscriptionDescription;
+  String get unlimitedVideoCalls;
 
   /// No description provided for @waitingForMatch.
   ///

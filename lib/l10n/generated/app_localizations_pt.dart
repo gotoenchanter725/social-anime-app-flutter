@@ -1132,7 +1132,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get lobbyAppBarTitle => 'Salão';
 
   @override
-  String get iAPSubscriptionDescription => 'Chamadas de Vídeo Ilimitadas';
+  String get unlimitedVideoCalls => 'Chamadas de Vídeo Ilimitadas';
 
   @override
   String get waitingForMatch => 'Esperando por uma Partida';

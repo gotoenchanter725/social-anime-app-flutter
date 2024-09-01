@@ -1132,7 +1132,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get lobbyAppBarTitle => 'ロビー';
 
   @override
-  String get iAPSubscriptionDescription => '無制限のビデオ通話';
+  String get unlimitedVideoCalls => '無制限のビデオ通話';
 
   @override
   String get waitingForMatch => '試合を待つ';
