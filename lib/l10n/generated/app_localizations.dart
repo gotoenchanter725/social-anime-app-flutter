@@ -10,6 +10,8 @@ import 'app_localizations_es.dart';
 import 'app_localizations_ja.dart';
 import 'app_localizations_pt.dart';
 
+// ignore_for_file: type=lint
+
 /// Callers can lookup localized strings with an instance of AppLocalizations
 /// returned by `AppLocalizations.of(context)`.
 ///
@@ -62,8 +64,7 @@ import 'app_localizations_pt.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale)
-      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -71,8 +72,7 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -84,8 +84,7 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -2317,7 +2316,7 @@ abstract class AppLocalizations {
   /// No description provided for @oopsNoAnimeFound.
   ///
   /// In en, this message translates to:
-  /// **'Oops, no anime found!'**
+  /// **'Oops. No anime found.'**
   String get oopsNoAnimeFound;
 
   /// No description provided for @spanishNotTranslated.
@@ -2344,51 +2343,158 @@ abstract class AppLocalizations {
   /// **'Favorite Anime'**
   String get favoriteAnime;
 
+  /// No description provided for @and.
+  ///
+  /// In en, this message translates to:
+  /// **'and'**
+  String get and;
+
+  /// No description provided for @photoVerifyToLetEveryoneKnowYourPhotosAre.
+  ///
+  /// In en, this message translates to:
+  /// **'Photo verify to let everyone know your photos are really you'**
+  String get photoVerifyToLetEveryoneKnowYourPhotosAre;
+
+  /// No description provided for @happyWithYourPhoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Happy with your photo?'**
+  String get happyWithYourPhoto;
+
+  /// No description provided for @gIPHYCompanyNameDoNotTranslate.
+  ///
+  /// In en, this message translates to:
+  /// **'GIPHY (company name, do not translate)'**
+  String get gIPHYCompanyNameDoNotTranslate;
+
+  /// No description provided for @nowChooseYourFavoriteAnimesAndStartMatching.
+  ///
+  /// In en, this message translates to:
+  /// **'Now choose your favorite animes and start matching'**
+  String get nowChooseYourFavoriteAnimesAndStartMatching;
+
+  /// No description provided for @yourLocationWillBeUsedToShowPotentialMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Your location will be used to show potential matches near you'**
+  String get yourLocationWillBeUsedToShowPotentialMatch;
+
+  /// No description provided for @top5SpotifyListeningSongs.
+  ///
+  /// In en, this message translates to:
+  /// **'Top 5 Spotify Listening Songs'**
+  String get top5SpotifyListeningSongs;
+
+  /// No description provided for @upgradeFor$1999.
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade for \$19.99'**
+  String get upgradeFor$1999;
+
+  /// No description provided for @buyButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Buy'**
+  String get buyButton;
+
+  /// No description provided for @downloadButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Download'**
+  String get downloadButton;
+
+  /// No description provided for @avatarSkinShopTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar Skin Shop'**
+  String get avatarSkinShopTitle;
+
+  /// No description provided for @increasedVisibilityRates.
+  ///
+  /// In en, this message translates to:
+  /// **'Increased visibility rates'**
+  String get increasedVisibilityRates;
+
+  /// No description provided for @unlimitedVideoCalls.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited Video Calls'**
+  String get unlimitedVideoCalls;
+
   /// No description provided for @lobbyAppBarTitle.
   ///
   /// In en, this message translates to:
-  /// **'Waiting for a Match'**
+  /// **'Lobby'**
   String get lobbyAppBarTitle;
 
-  /// No description provided for @lobbyCardTitle.
+  /// No description provided for @iAPSubscriptionDescription.
   ///
   /// In en, this message translates to:
-  /// **'Lobby'**
-  String get lobbyCardTitle;
+  /// **'Unlimited Video Calls'**
+  String get iAPSubscriptionDescription;
 
-  /// No description provided for @lobbyCardDescription.
+  /// No description provided for @waitingForMatch.
   ///
   /// In en, this message translates to:
-  /// **'Users currently in the Lobby.'**
-  String get lobbyCardDescription;
+  /// **'Waiting for a Match'**
+  String get waitingForMatch;
 
-  /// No description provided for @lobbyMatchFound.
+  /// No description provided for @joinPool.
   ///
   /// In en, this message translates to:
-  /// **'MATCH FOUND'**
-  String get lobbyMatchFound;
+  /// **'Join Pool'**
+  String get joinPool;
 
-  /// No description provided for @lobbyMatchDecline.
+  /// No description provided for @decline.
   ///
   /// In en, this message translates to:
   /// **'Decline'**
-  String get lobbyMatchDecline;
+  String get decline;
 
-  /// No description provided for @lobbyMatchAccept.
+  /// No description provided for @acceptPromptText.
   ///
   /// In en, this message translates to:
-  /// **'Accept!'**
-  String get lobbyMatchAccept;
+  /// **'Accept'**
+  String get acceptPromptText;
 
-  /// No description provided for @exitLobby.
+  /// No description provided for @startMatching.
   ///
   /// In en, this message translates to:
-  /// **'Exit Lobby'**
-  String get exitLobby;
+  /// **'Start Matching'**
+  String get startMatching;
+
+  /// No description provided for @verificationPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Required!'**
+  String get verificationPrompt;
+
+  /// No description provided for @verificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify your profile to enable video chat!'**
+  String get verificationDescription;
+
+  /// No description provided for @verificationAmenity.
+  ///
+  /// In en, this message translates to:
+  /// **'To ensure a safe and genuine experience, please verify your profile.'**
+  String get verificationAmenity;
+
+  /// No description provided for @cameraAmenity.
+  ///
+  /// In en, this message translates to:
+  /// **'Use your camera in a well-lit area for the best results'**
+  String get cameraAmenity;
+
+  /// No description provided for @startVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Verification'**
+  String get startVerification;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -2397,29 +2503,27 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'es', 'ja', 'pt'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'es', 'ja', 'pt'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
+
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en':
-      return AppLocalizationsEn();
-    case 'es':
-      return AppLocalizationsEs();
-    case 'ja':
-      return AppLocalizationsJa();
-    case 'pt':
-      return AppLocalizationsPt();
+    case 'en': return AppLocalizationsEn();
+    case 'es': return AppLocalizationsEs();
+    case 'ja': return AppLocalizationsJa();
+    case 'pt': return AppLocalizationsPt();
   }
 
   throw FlutterError(
-      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-      'an issue with the localizations generation tool. Please file an issue '
-      'on GitHub with a reproducible sample app and the gen-l10n configuration '
-      'that was used.');
+    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+    'an issue with the localizations generation tool. Please file an issue '
+    'on GitHub with a reproducible sample app and the gen-l10n configuration '
+    'that was used.'
+  );
 }
