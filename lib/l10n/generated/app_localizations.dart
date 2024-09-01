@@ -2316,7 +2316,7 @@ abstract class AppLocalizations {
   /// No description provided for @oopsNoAnimeFound.
   ///
   /// In en, this message translates to:
-  /// **'Oops. No anime found.'**
+  /// **'Oops, no anime found!'**
   String get oopsNoAnimeFound;
 
   /// No description provided for @spanishNotTranslated.
@@ -2342,84 +2342,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Favorite Anime'**
   String get favoriteAnime;
-
-  /// No description provided for @and.
-  ///
-  /// In en, this message translates to:
-  /// **'and'**
-  String get and;
-
-  /// No description provided for @photoVerifyToLetEveryoneKnowYourPhotosAre.
-  ///
-  /// In en, this message translates to:
-  /// **'Photo verify to let everyone know your photos are really you'**
-  String get photoVerifyToLetEveryoneKnowYourPhotosAre;
-
-  /// No description provided for @happyWithYourPhoto.
-  ///
-  /// In en, this message translates to:
-  /// **'Happy with your photo?'**
-  String get happyWithYourPhoto;
-
-  /// No description provided for @gIPHYCompanyNameDoNotTranslate.
-  ///
-  /// In en, this message translates to:
-  /// **'GIPHY (company name, do not translate)'**
-  String get gIPHYCompanyNameDoNotTranslate;
-
-  /// No description provided for @nowChooseYourFavoriteAnimesAndStartMatching.
-  ///
-  /// In en, this message translates to:
-  /// **'Now choose your favorite animes and start matching'**
-  String get nowChooseYourFavoriteAnimesAndStartMatching;
-
-  /// No description provided for @yourLocationWillBeUsedToShowPotentialMatch.
-  ///
-  /// In en, this message translates to:
-  /// **'Your location will be used to show potential matches near you'**
-  String get yourLocationWillBeUsedToShowPotentialMatch;
-
-  /// No description provided for @top5SpotifyListeningSongs.
-  ///
-  /// In en, this message translates to:
-  /// **'Top 5 Spotify Listening Songs'**
-  String get top5SpotifyListeningSongs;
-
-  /// No description provided for @upgradeFor$1999.
-  ///
-  /// In en, this message translates to:
-  /// **'Upgrade for \$19.99'**
-  String get upgradeFor$1999;
-
-  /// No description provided for @buyButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Buy'**
-  String get buyButton;
-
-  /// No description provided for @downloadButton.
-  ///
-  /// In en, this message translates to:
-  /// **'Download'**
-  String get downloadButton;
-
-  /// No description provided for @avatarSkinShopTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Avatar Skin Shop'**
-  String get avatarSkinShopTitle;
-
-  /// No description provided for @increasedVisibilityRates.
-  ///
-  /// In en, this message translates to:
-  /// **'Increased visibility rates'**
-  String get increasedVisibilityRates;
-
-  /// No description provided for @unlimitedVideoCalls.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlimited Video Calls'**
-  String get unlimitedVideoCalls;
 
   /// No description provided for @lobbyAppBarTitle.
   ///
@@ -2492,6 +2414,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start Verification'**
   String get startVerification;
+
+  /// No description provided for @premiumAvatars.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Avatars'**
+  String get premiumAvatars;
+
+  /// No description provided for @higherVisibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Higher Visibility'**
+  String get higherVisibility;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

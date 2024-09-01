@@ -1114,7 +1114,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get conventionWebsiteText => 'ウェブサイト';
 
   @override
-  String get oopsNoAnimeFound => '';
+  String get oopsNoAnimeFound => 'おっと、アニメが見つかりません!';
 
   @override
   String get spanishNotTranslated => 'Español';
@@ -1129,77 +1129,44 @@ class AppLocalizationsJa extends AppLocalizations {
   String get favoriteAnime => '好きなアニメ';
 
   @override
-  String get and => '';
+  String get lobbyAppBarTitle => 'ロビー';
 
   @override
-  String get photoVerifyToLetEveryoneKnowYourPhotosAre => '';
+  String get iAPSubscriptionDescription => '無制限のビデオ通話';
 
   @override
-  String get happyWithYourPhoto => '';
+  String get waitingForMatch => '試合を待つ';
 
   @override
-  String get gIPHYCompanyNameDoNotTranslate => '';
+  String get joinPool => 'プールに参加';
 
   @override
-  String get nowChooseYourFavoriteAnimesAndStartMatching => '';
+  String get decline => '衰退';
 
   @override
-  String get yourLocationWillBeUsedToShowPotentialMatch => '';
+  String get acceptPromptText => '受け入れる';
 
   @override
-  String get top5SpotifyListeningSongs => '';
+  String get startMatching => 'マッチングを開始';
 
   @override
-  String get upgradeFor$1999 => '';
+  String get verificationPrompt => '確認が必要です!';
 
   @override
-  String get buyButton => '';
+  String get verificationDescription => 'ビデオチャットを有効にするにはプロフィールを確認してください。';
 
   @override
-  String get downloadButton => '';
+  String get verificationAmenity => '安全で本物の体験を保証するために、プロフィールを確認してください。';
 
   @override
-  String get avatarSkinShopTitle => '';
+  String get cameraAmenity => '最良の結果を得るには、明るい場所でカメラを使用してください。';
 
   @override
-  String get increasedVisibilityRates => '';
+  String get startVerification => '検証を開始';
 
   @override
-  String get unlimitedVideoCalls => '';
+  String get premiumAvatars => 'プレミアムアバター';
 
   @override
-  String get lobbyAppBarTitle => '';
-
-  @override
-  String get iAPSubscriptionDescription => '';
-
-  @override
-  String get waitingForMatch => '';
-
-  @override
-  String get joinPool => '';
-
-  @override
-  String get decline => '';
-
-  @override
-  String get acceptPromptText => '';
-
-  @override
-  String get startMatching => '';
-
-  @override
-  String get verificationPrompt => '';
-
-  @override
-  String get verificationDescription => '';
-
-  @override
-  String get verificationAmenity => '';
-
-  @override
-  String get cameraAmenity => '';
-
-  @override
-  String get startVerification => '';
+  String get higherVisibility => 'より高い可視性';
 }

@@ -1114,7 +1114,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get conventionWebsiteText => 'Website';
 
   @override
-  String get oopsNoAnimeFound => 'Oops. No anime found.';
+  String get oopsNoAnimeFound => 'Oops, no anime found!';
 
   @override
   String get spanishNotTranslated => 'Español';
@@ -1127,45 +1127,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get favoriteAnime => 'Favorite Anime';
-
-  @override
-  String get and => 'and';
-
-  @override
-  String get photoVerifyToLetEveryoneKnowYourPhotosAre => 'Photo verify to let everyone know your photos are really you';
-
-  @override
-  String get happyWithYourPhoto => 'Happy with your photo?';
-
-  @override
-  String get gIPHYCompanyNameDoNotTranslate => 'GIPHY (company name, do not translate)';
-
-  @override
-  String get nowChooseYourFavoriteAnimesAndStartMatching => 'Now choose your favorite animes and start matching';
-
-  @override
-  String get yourLocationWillBeUsedToShowPotentialMatch => 'Your location will be used to show potential matches near you';
-
-  @override
-  String get top5SpotifyListeningSongs => 'Top 5 Spotify Listening Songs';
-
-  @override
-  String get upgradeFor$1999 => 'Upgrade for \$19.99';
-
-  @override
-  String get buyButton => 'Buy';
-
-  @override
-  String get downloadButton => 'Download';
-
-  @override
-  String get avatarSkinShopTitle => 'Avatar Skin Shop';
-
-  @override
-  String get increasedVisibilityRates => 'Increased visibility rates';
-
-  @override
-  String get unlimitedVideoCalls => 'Unlimited Video Calls';
 
   @override
   String get lobbyAppBarTitle => 'Lobby';
@@ -1202,4 +1163,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get startVerification => 'Start Verification';
+
+  @override
+  String get premiumAvatars => 'Premium Avatars';
+
+  @override
+  String get higherVisibility => 'Higher Visibility';
 }

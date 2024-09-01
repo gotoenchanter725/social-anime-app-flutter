@@ -1114,7 +1114,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get conventionWebsiteText => 'Site';
 
   @override
-  String get oopsNoAnimeFound => '';
+  String get oopsNoAnimeFound => 'Ops, nenhum anime encontrado!';
 
   @override
   String get spanishNotTranslated => 'Español';
@@ -1129,77 +1129,44 @@ class AppLocalizationsPt extends AppLocalizations {
   String get favoriteAnime => 'Anime Favorito';
 
   @override
-  String get and => '';
+  String get lobbyAppBarTitle => 'Salão';
 
   @override
-  String get photoVerifyToLetEveryoneKnowYourPhotosAre => '';
+  String get iAPSubscriptionDescription => 'Chamadas de Vídeo Ilimitadas';
 
   @override
-  String get happyWithYourPhoto => '';
+  String get waitingForMatch => 'Esperando por uma Partida';
 
   @override
-  String get gIPHYCompanyNameDoNotTranslate => '';
+  String get joinPool => 'Junte-se ao Pool';
 
   @override
-  String get nowChooseYourFavoriteAnimesAndStartMatching => '';
+  String get decline => 'Declínio';
 
   @override
-  String get yourLocationWillBeUsedToShowPotentialMatch => '';
+  String get acceptPromptText => 'Aceitar';
 
   @override
-  String get top5SpotifyListeningSongs => '';
+  String get startMatching => 'Comece a Combinar';
 
   @override
-  String get upgradeFor$1999 => '';
+  String get verificationPrompt => 'Verificação Necessária!';
 
   @override
-  String get buyButton => '';
+  String get verificationDescription => 'Verifique seu perfil para habilitar o bate-papo por vídeo!';
 
   @override
-  String get downloadButton => '';
+  String get verificationAmenity => 'Para garantir uma experiência segura e genuína, verifique seu perfil.';
 
   @override
-  String get avatarSkinShopTitle => '';
+  String get cameraAmenity => 'Use sua câmera em uma área bem iluminada para obter melhores resultados';
 
   @override
-  String get increasedVisibilityRates => '';
+  String get startVerification => 'Iniciar Verificação';
 
   @override
-  String get unlimitedVideoCalls => '';
+  String get premiumAvatars => 'Avatares Premium';
 
   @override
-  String get lobbyAppBarTitle => '';
-
-  @override
-  String get iAPSubscriptionDescription => '';
-
-  @override
-  String get waitingForMatch => '';
-
-  @override
-  String get joinPool => '';
-
-  @override
-  String get decline => '';
-
-  @override
-  String get acceptPromptText => '';
-
-  @override
-  String get startMatching => '';
-
-  @override
-  String get verificationPrompt => '';
-
-  @override
-  String get verificationDescription => '';
-
-  @override
-  String get verificationAmenity => '';
-
-  @override
-  String get cameraAmenity => '';
-
-  @override
-  String get startVerification => '';
+  String get higherVisibility => 'Maior Visibilidade';
 }
