@@ -80,7 +80,6 @@ class ProfilePremiumWidget extends StatelessWidget {
             children: [
               _buildPremiumTitle(context),
               SizedBox(height: $constants.insets.sm),
-              // temporary hardcode
               _buildPremiumText(context, R.strings.unlimitedVideoCalls),
               SizedBox(height: $constants.insets.sm),
               _buildPremiumText(context, R.strings.premiumAvatars),
