@@ -18,7 +18,7 @@ class LobbyPageContentWidget extends StatelessWidget {
     return Scaffold(
       backgroundColor: $constants.palette.darkBlue,
       appBar: SenpaiAppBar(
-        title: "Lobby", // R.strings.lobbyAppBarTitle,
+        title: R.strings.lobbyAppBarTitle,
         hasLeading: false,
       ),
       body: SafeArea(
@@ -48,7 +48,7 @@ class LobbyPageContentWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: PrimaryButton(
-                    text: 'Exit Lobby',
+                    text: R.strings.exitLobby,
                     onPressed: () {
                       final userId = context.read<ProfileBloc>().userID;
 

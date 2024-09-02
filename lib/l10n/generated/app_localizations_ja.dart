@@ -1169,4 +1169,25 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get higherVisibility => 'より高い可視性';
+
+  @override
+  String get avatarShop => 'アバターショップ';
+
+  @override
+  String get avatarSkinShop => 'アバタースキンショップ';
+
+  @override
+  String get usersCurrentlyInLobby => '現在ロビーにいるユーザー。';
+
+  @override
+  String get exitLobby => '出口ロビー';
+
+  @override
+  String get waitingInTheLobby => 'ロビーで待機中';
+
+  @override
+  String get startMatchingBtn => 'マッチングを開始';
+
+  @override
+  String get findingMatch => 'マッチを見つける';
 }

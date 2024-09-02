@@ -2426,6 +2426,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Higher Visibility'**
   String get higherVisibility;
+
+  /// No description provided for @avatarShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar Shop'**
+  String get avatarShop;
+
+  /// No description provided for @avatarSkinShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar Skin Shop'**
+  String get avatarSkinShop;
+
+  /// No description provided for @usersCurrentlyInLobby.
+  ///
+  /// In en, this message translates to:
+  /// **'Users currently in the Lobby.'**
+  String get usersCurrentlyInLobby;
+
+  /// No description provided for @exitLobby.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit Lobby'**
+  String get exitLobby;
+
+  /// No description provided for @waitingInTheLobby.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting in the lobby'**
+  String get waitingInTheLobby;
+
+  /// No description provided for @startMatchingBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Matching'**
+  String get startMatchingBtn;
+
+  /// No description provided for @findingMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Finding a Match'**
+  String get findingMatch;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

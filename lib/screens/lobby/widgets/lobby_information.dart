@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/screens/match/bloc/lobby_count_cubit.dart';
 import 'package:senpai/utils/methods/utils.dart';
+import 'package:senpai/l10n/resources.dart';
 
 class LobbyInformationWidget extends StatelessWidget {
   LobbyInformationWidget({
@@ -56,7 +57,7 @@ class LobbyInformationWidget extends StatelessWidget {
                         child: BlocBuilder<LobbyCubit, int>(
                           builder: (context, state) {
                             return Text(
-                              'Waiting in the lobby: $state',
+                              '${R.strings.waitingInTheLobby}: $state',
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: getWidthSize(context, 0.037),
@@ -88,7 +89,7 @@ class LobbyInformationWidget extends StatelessWidget {
           children: [
             SizedBox(height: getWidthSize(context, 0.02)),
             Text(
-              'Lobby',
+              R.strings.lobbyAppBarTitle,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: getWidthSize(context, 0.05),
@@ -96,7 +97,7 @@ class LobbyInformationWidget extends StatelessWidget {
               ),
             ),
             Text(
-              'Users currently in the Lobby.',
+              R.strings.usersCurrentlyInLobby,
               style: TextStyle(
                 color: Colors.white70,
                 fontSize: getWidthSize(context, 0.04),

@@ -1169,4 +1169,25 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get higherVisibility => 'Higher Visibility';
+
+  @override
+  String get avatarShop => 'Avatar Shop';
+
+  @override
+  String get avatarSkinShop => 'Avatar Skin Shop';
+
+  @override
+  String get usersCurrentlyInLobby => 'Users currently in the Lobby.';
+
+  @override
+  String get exitLobby => 'Exit Lobby';
+
+  @override
+  String get waitingInTheLobby => 'Waiting in the lobby';
+
+  @override
+  String get startMatchingBtn => 'Start Matching';
+
+  @override
+  String get findingMatch => 'Finding a Match';
 }

@@ -11,6 +11,7 @@ import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
+import 'package:senpai/l10n/resources.dart';
 
 class StartMatch extends StatefulWidget {
   const StartMatch({super.key});
@@ -61,7 +62,7 @@ class _StartMatchState extends State<StartMatch> {
                   left: 16,
                   right: 16,
                   child: PrimaryButton(
-                    text: "Start Matching",
+                    text: R.strings.startMatchingBtn,
                     onPressed: () {
                       final userId = (context.read<ProfileBloc>().userID);
                       context
