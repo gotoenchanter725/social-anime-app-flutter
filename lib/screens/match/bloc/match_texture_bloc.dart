@@ -34,7 +34,8 @@ class FindingMatchState extends MatchTextureState {
 
 class MatchFoundState extends MatchTextureState {}
 
-final String findingMatchBaseText = R.strings.findingMatch;
+// const String findingMatchBaseText = R.strings.findingMatch;
+const String findingMatchBaseText = 'Finding a Match';
 
 // Bloc
 class MatchTextureBloc extends Bloc<MatchTextureEvent, MatchTextureState> {
