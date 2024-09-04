@@ -1217,4 +1217,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get backToPool => '';
+
+  @override
+  String get matchFoundTitle => '';
 }

@@ -186,12 +186,13 @@ class MatchTextureWidget extends StatelessWidget {
                   height: getWidthSize(context, 0.083),
                 ),
                 SizedBox(height: getWidthSize(context, 0.037)),
-                const Text(
-                  'MATCH FOUND',
-                  style: TextStyle(
+                Text(
+                  R.strings.matchFoundTitle,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
+                    // capitalise the text
                   ),
                 ),
               ],

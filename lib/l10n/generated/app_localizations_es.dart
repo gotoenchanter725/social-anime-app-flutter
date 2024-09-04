@@ -1217,4 +1217,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get backToPool => 'Back to the Pool';
+
+  @override
+  String get matchFoundTitle => 'MATCH FOUND';
 }

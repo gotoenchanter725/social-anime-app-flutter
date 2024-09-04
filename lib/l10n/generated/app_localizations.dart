@@ -2522,6 +2522,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Back to the Pool'**
   String get backToPool;
+
+  /// No description provided for @matchFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'MATCH FOUND'**
+  String get matchFoundTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
