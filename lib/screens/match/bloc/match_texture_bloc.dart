@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:senpai/l10n/resources.dart';
 
 // Events
 abstract class MatchTextureEvent extends Equatable {
