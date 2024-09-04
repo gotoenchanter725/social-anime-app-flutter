@@ -1180,7 +1180,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get usersCurrentlyInLobby => '現在ロビーにいるユーザー。';
 
   @override
-  String get exitLobby => '出口ロビー';
+  String get exitLobby => 'ロビーを退出';
 
   @override
   String get waitingInTheLobby => 'ロビーで待機中';
@@ -1190,4 +1190,31 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get findingMatch => 'マッチを見つける';
+
+  @override
+  String get invitationPrompt => '';
+
+  @override
+  String get unknownUserName => '';
+
+  @override
+  String get rejectLobbyInvitation => '';
+
+  @override
+  String get inviteChatStatus => '';
+
+  @override
+  String get pendingInviteStatus => '';
+
+  @override
+  String get doneInviteStatus => '';
+
+  @override
+  String get failedInviteStatus => '';
+
+  @override
+  String get videoChatDialogScreenTitle => '';
+
+  @override
+  String get backToPool => '';
 }

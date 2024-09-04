@@ -1190,4 +1190,31 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get findingMatch => 'Encontrando uma Correspondência';
+
+  @override
+  String get invitationPrompt => '';
+
+  @override
+  String get unknownUserName => '';
+
+  @override
+  String get rejectLobbyInvitation => '';
+
+  @override
+  String get inviteChatStatus => '';
+
+  @override
+  String get pendingInviteStatus => '';
+
+  @override
+  String get doneInviteStatus => '';
+
+  @override
+  String get failedInviteStatus => '';
+
+  @override
+  String get videoChatDialogScreenTitle => '';
+
+  @override
+  String get backToPool => '';
 }

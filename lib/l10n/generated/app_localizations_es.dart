@@ -1190,4 +1190,31 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get findingMatch => 'Finding a Match';
+
+  @override
+  String get invitationPrompt => 'has sent you a video chat invitation!';
+
+  @override
+  String get unknownUserName => 'Unknown';
+
+  @override
+  String get rejectLobbyInvitation => 'Reject';
+
+  @override
+  String get inviteChatStatus => 'Invite to Chat';
+
+  @override
+  String get pendingInviteStatus => 'Inviting ...';
+
+  @override
+  String get doneInviteStatus => 'Invited';
+
+  @override
+  String get failedInviteStatus => 'Failed';
+
+  @override
+  String get videoChatDialogScreenTitle => 'Video Request';
+
+  @override
+  String get backToPool => 'Back to the Pool';
 }

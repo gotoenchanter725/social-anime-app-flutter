@@ -2468,6 +2468,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Finding a Match'**
   String get findingMatch;
+
+  /// No description provided for @invitationPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'has sent you a video chat invitation!'**
+  String get invitationPrompt;
+
+  /// No description provided for @unknownUserName.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get unknownUserName;
+
+  /// No description provided for @rejectLobbyInvitation.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject'**
+  String get rejectLobbyInvitation;
+
+  /// No description provided for @inviteChatStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite to Chat'**
+  String get inviteChatStatus;
+
+  /// No description provided for @pendingInviteStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Inviting ...'**
+  String get pendingInviteStatus;
+
+  /// No description provided for @doneInviteStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Invited'**
+  String get doneInviteStatus;
+
+  /// No description provided for @failedInviteStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed'**
+  String get failedInviteStatus;
+
+  /// No description provided for @videoChatDialogScreenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Video Request'**
+  String get videoChatDialogScreenTitle;
+
+  /// No description provided for @backToPool.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to the Pool'**
+  String get backToPool;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

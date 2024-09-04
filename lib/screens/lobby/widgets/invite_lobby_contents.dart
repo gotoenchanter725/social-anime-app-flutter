@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/match/blocs/accept_video_call_bloc.dart';
 import 'package:senpai/core/match/blocs/deny_video_call_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -44,7 +45,7 @@ class InviteLobbyContents extends StatelessWidget {
                 Expanded(
                   child: Center(
                     child: Text(
-                      '${matchData["user"]["first_name"]} has sent you a video chat invitation!',
+                      '${matchData["user"]["first_name"]} ${R.strings.invitationPrompt}',
                       style: TextStyle(
                           color: $constants.palette.grey,
                           fontSize: getWidthSize(context, 0.0372),
@@ -106,7 +107,7 @@ class InviteLobbyContents extends StatelessWidget {
                                             width:
                                                 getWidthSize(context, 0.028)),
                                         Text(
-                                          'Accept',
+                                          R.strings.acceptPromptText,
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize:
@@ -161,7 +162,7 @@ class InviteLobbyContents extends StatelessWidget {
                                   width: getWidthSize(context, 0.253),
                                   child: Center(
                                     child: Text(
-                                      'Reject',
+                                      R.strings.rejectLobbyInvitation,
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize:
@@ -234,7 +235,7 @@ class InviteLobbyContents extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  userName ?? 'Unknown',
+                  userName ?? R.strings.unknownUserName,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: getWidthSize(context, 0.07),

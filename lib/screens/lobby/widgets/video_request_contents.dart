@@ -6,6 +6,7 @@ import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/graphql/models/graphql_api.graphql.dart';
 import 'package:senpai/core/match/blocs/send_video_chat_request_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/lobby/bloc/invite_video_chat_cubit.dart';
 import 'package:senpai/screens/profile/bloc/profile_bloc.dart';
 import 'package:senpai/utils/constants.dart';
@@ -75,7 +76,7 @@ class VideoRequestContents extends StatelessWidget {
   Widget _getButtonText(BuildContext context, InviteToVideoChatState status) {
     if (status == InviteToVideoChatState.initial) {
       return Text(
-        'Invite to Chat',
+        R.strings.inviteChatStatus,
         style: TextStyle(
             color: Colors.white,
             fontSize: getWidthSize(context, 0.0372),
@@ -84,7 +85,7 @@ class VideoRequestContents extends StatelessWidget {
     }
     if (status == InviteToVideoChatState.pending) {
       return Text(
-        'Inviting ...',
+        R.strings.pendingInviteStatus,
         style: TextStyle(
             color: Colors.white,
             fontSize: getWidthSize(context, 0.0372),
@@ -93,7 +94,7 @@ class VideoRequestContents extends StatelessWidget {
     }
     if (status == InviteToVideoChatState.success) {
       return Text(
-        'Invited',
+        R.strings.doneInviteStatus,
         style: TextStyle(
             color: Colors.white,
             fontSize: getWidthSize(context, 0.0372),
@@ -101,7 +102,7 @@ class VideoRequestContents extends StatelessWidget {
       );
     }
     return Text(
-      'Failed',
+      R.strings.failedInviteStatus,
       style: TextStyle(
           color: Colors.white,
           fontSize: getWidthSize(context, 0.0372),
