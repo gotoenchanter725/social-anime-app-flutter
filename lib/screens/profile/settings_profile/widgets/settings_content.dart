@@ -588,51 +588,53 @@ class _SettingsContentState extends State<SettingsContent> {
   }
 
   Widget _buildEntryText(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-        style: getTextTheme(context).labelMedium?.copyWith(
-              color: $constants.palette.white,
+    return Center(
+      child: RichText(
+        textAlign: TextAlign.center,
+        text: TextSpan(
+          style: getTextTheme(context).labelMedium?.copyWith(
+                color: $constants.palette.white,
+              ),
+          children: [
+            TextSpan(
+              text: R.strings.entryActionText1,
+              style: getTextTheme(context).labelMedium!.copyWith(
+                    decoration: TextDecoration.underline,
+                    color: $constants.palette.white,
+                  ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  context.router.push(SenpaiLicenseRoute(mdFileName: "tos.md"));
+                },
             ),
-        children: [
-          TextSpan(
-            text: R.strings.entryActionText1,
-            style: getTextTheme(context).labelMedium!.copyWith(
-                  decoration: TextDecoration.underline,
-                  color: $constants.palette.white,
-                ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                context.router.push(SenpaiLicenseRoute(mdFileName: "tos.md"));
-              },
-          ),
-          const TextSpan(text: ",  "),
-          TextSpan(
-            text: R.strings.entryActionText2,
-            style: getTextTheme(context).labelMedium!.copyWith(
-                  decoration: TextDecoration.underline,
-                  color: $constants.palette.white,
-                ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                context.router
-                    .push(SenpaiLicenseRoute(mdFileName: "privacy_policy.md"));
-              },
-          ),
-          const TextSpan(text: ",  "),
-          TextSpan(
-            text: R.strings.entryActionText3,
-            style: getTextTheme(context).labelMedium!.copyWith(
-                  decoration: TextDecoration.underline,
-                  color: $constants.palette.white,
-                ),
-            recognizer: TapGestureRecognizer()
-              ..onTap = () {
-                context.router
-                    .push(SenpaiLicenseRoute(mdFileName: "cookie_policy.md"));
-              },
-          ),
-        ],
+            const TextSpan(text: ",  "),
+            TextSpan(
+              text: R.strings.entryActionText2,
+              style: getTextTheme(context).labelMedium!.copyWith(
+                    decoration: TextDecoration.underline,
+                    color: $constants.palette.white,
+                  ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  context.router.push(
+                      SenpaiLicenseRoute(mdFileName: "privacy_policy.md"));
+                },
+            ),
+            const TextSpan(text: ",  "),
+            TextSpan(
+              text: R.strings.entryActionText3,
+              style: getTextTheme(context).labelMedium!.copyWith(
+                    decoration: TextDecoration.underline,
+                    color: $constants.palette.white,
+                  ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  context.router
+                      .push(SenpaiLicenseRoute(mdFileName: "cookie_policy.md"));
+                },
+            ),
+          ],
+        ),
       ),
     );
   }
