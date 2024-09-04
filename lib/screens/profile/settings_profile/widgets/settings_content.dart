@@ -595,7 +595,6 @@ class _SettingsContentState extends State<SettingsContent> {
               color: $constants.palette.white,
             ),
         children: [
-          TextSpan(text: R.strings.entrySpanText1),
           TextSpan(
             text: R.strings.entryActionText1,
             style: getTextTheme(context).labelMedium!.copyWith(
@@ -607,7 +606,7 @@ class _SettingsContentState extends State<SettingsContent> {
                 context.router.push(SenpaiLicenseRoute(mdFileName: "tos.md"));
               },
           ),
-          TextSpan(text: R.strings.entrySpanText2),
+          const TextSpan(text: ",  "),
           TextSpan(
             text: R.strings.entryActionText2,
             style: getTextTheme(context).labelMedium!.copyWith(
@@ -620,7 +619,7 @@ class _SettingsContentState extends State<SettingsContent> {
                     .push(SenpaiLicenseRoute(mdFileName: "privacy_policy.md"));
               },
           ),
-          TextSpan(text: R.strings.entrySpanText3),
+          const TextSpan(text: ",  "),
           TextSpan(
             text: R.strings.entryActionText3,
             style: getTextTheme(context).labelMedium!.copyWith(
@@ -633,7 +632,6 @@ class _SettingsContentState extends State<SettingsContent> {
                     .push(SenpaiLicenseRoute(mdFileName: "cookie_policy.md"));
               },
           ),
-          const TextSpan(text: '.'),
         ],
       ),
     );
