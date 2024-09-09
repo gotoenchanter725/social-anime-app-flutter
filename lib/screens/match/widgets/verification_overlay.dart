@@ -129,7 +129,7 @@ class VerificationOverlayWidget extends StatelessWidget {
                           left: 0,
                           right: 0,
                           child: PrimaryButton(
-                            text: R.strings.startMatching,
+                            text: R.strings.startVerification,
                             buttonGradient:
                                 $constants.palette.verificationButtonGradient,
                             onPressed: onStartVerification,
@@ -143,31 +143,6 @@ class VerificationOverlayWidget extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(
-            top: getSize(context).height / 2 - getWidthSize(context, 0.839),
-            right: -getWidthSize(context, 0.0046),
-            child: InkWell(
-              onTap: onClosed,
-              child: Container(
-                width: getWidthSize(context, 0.093),
-                height: getWidthSize(context, 0.093),
-                decoration: BoxDecoration(
-                  color: $constants.palette.appBackground,
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: Colors.black, // Border color
-                    width: 4, // Border width
-                  ),
-                ),
-                child: Center(
-                  child: Icon(
-                    Icons.close_rounded,
-                    color: Colors.white,
-                    size: getWidthSize(context, 0.037),
-                  ),
-                ),
-              ),
-            ))
       ],
     );
   }

@@ -4,5 +4,5 @@ part of 'match_bloc.dart';
 class MatchState {
   final bool isVerifyPromptVisible;
 
-  const MatchState({this.isVerifyPromptVisible = false});
+  const MatchState({this.isVerifyPromptVisible = true});
 }

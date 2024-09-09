@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:senpai/core/match/blocs/start_video_match_bloc.dart';
 import 'package:senpai/core/widgets/primary_button.dart';
+import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/lobby/widgets/lobby_information.dart';
 import 'package:senpai/screens/match/bloc/match_bloc.dart';
 import 'package:senpai/screens/match/widgets/match_header.dart';
@@ -13,22 +15,8 @@ import 'package:senpai/utils/methods/aliases.dart';
 import 'package:senpai/utils/methods/utils.dart';
 import 'package:senpai/l10n/resources.dart';
 
-class StartMatch extends StatefulWidget {
+class StartMatch extends StatelessWidget {
   const StartMatch({super.key});
-
-  @override
-  State<StartMatch> createState() => _StartMatchState();
-}
-
-class _StartMatchState extends State<StartMatch> {
-  bool isVerified = false;
-
-  @override
-  void initState() {
-    final bloc = BlocProvider.of<ProfileBloc>(context);
-    isVerified = bloc.isUserVerified;
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -86,17 +74,19 @@ class _StartMatchState extends State<StartMatch> {
   _buildVerifyProfilePrompt(BuildContext context) {
     ProfileBloc bloc = BlocProvider.of<ProfileBloc>(context);
 
-    if (bloc.isUserVerified) {
+    if (bloc.user.verified) {
       return const SizedBox.shrink();
     }
 
     return BlocBuilder<MatchBloc, MatchState>(
       builder: (context, state) {
-        var isVerified = state.isVerifyPromptVisible;
+        var showVerifyWarningPrompt = state.isVerifyPromptVisible;
 
-        if (!isVerified) {
+        if (!showVerifyWarningPrompt) {
           return const SizedBox.shrink();
         }
+
+        final user = bloc.user;
 
         return VerificationOverlayWidget(
           onClosed: () {
@@ -104,7 +94,10 @@ class _StartMatchState extends State<StartMatch> {
           },
           onStartVerification: () {
             // route to profile fill page
-            appRouter.pushNamed("/profile_fill");
+            context.router.push(ProfileFillRoute(
+              id: user.id,
+              phone: user.phone,
+            ));
           },
         );
       },
