@@ -92,6 +92,20 @@ Future<void> main() async {
 
     String? token = await messaging.getToken();
 
+    // Handle token refresh
+    messaging.onTokenRefresh.listen((newToken) async {
+      DeviceTokenModel? savedToken =
+          await getIt<TokenStorage<DeviceTokenModel>>().read();
+
+      if (savedToken == null || savedToken.token != newToken) {
+        // Save the new token
+        await getIt<TokenStorage<DeviceTokenModel>>()
+            .write(DeviceTokenModel(token: newToken));
+
+        logIt.info('Device token refreshed and updated: $newToken');
+      }
+    });
+
     // Set the background messaging handler early on, as a named top-level function
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
