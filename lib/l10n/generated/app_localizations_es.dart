@@ -31,10 +31,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get onboardingButtonText => 'Saltar';
 
   @override
-  String get entryText => 'Al presionar \"Crear cuenta\" o \"Iniciar sesión\", acepta nuestros Términos y Condiciones. Descubra cómo procesamos sus datos en nuestra Política de privacidad y Política de cookies.';
+  String get entryText =>
+      'Al presionar \"Crear cuenta\" o \"Iniciar sesión\", acepta nuestros Términos y Condiciones. Descubra cómo procesamos sus datos en nuestra Política de privacidad y Política de cookies.';
 
   @override
-  String get entrySpanText1 => 'Al presionar \"Crear cuenta\" o \"Iniciar sesión\", aceptas nuestros';
+  String get entrySpanText1 =>
+      'Al presionar \"Crear cuenta\" o \"Iniciar sesión\", aceptas nuestros';
 
   @override
   String get entryActionText1 => 'Términos';
@@ -70,22 +72,26 @@ class AppLocalizationsEs extends AppLocalizations {
   String get continueText => 'Continúe en';
 
   @override
-  String get invalidPhoneError => 'Número de teléfono no válido. Vuelva a intentarlo';
+  String get invalidPhoneError =>
+      'Número de teléfono no válido. Vuelva a intentarlo';
 
   @override
-  String get createUserInstructions => 'Le enviaremos un mensaje de texto con un código de verificación.';
+  String get createUserInstructions =>
+      'Le enviaremos un mensaje de texto con un código de verificación.';
 
   @override
   String get serverError => 'Algo ha ido mal, por favor inténtelo de nuevo';
 
   @override
-  String get nullUser => 'No hay ninguna cuenta asociada a este número de teléfono.';
+  String get nullUser =>
+      'No hay ninguna cuenta asociada a este número de teléfono.';
 
   @override
   String get alreadyHasAccount => 'Este usuario ya tiene una cuenta';
 
   @override
-  String get termsAndConditions => 'Acepto recibir mensajes de texto SMS de Senpai en el número de teléfono proporcionado. Responda STOP para darse de baja.';
+  String get termsAndConditions =>
+      'Acepto recibir mensajes de texto SMS de Senpai en el número de teléfono proporcionado. Responda STOP para darse de baja.';
 
   @override
   String get verifyPhoneHeading => 'Su código es';
@@ -94,7 +100,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get verifyPhoneInstruction => 'Enviamos el código de verificación al';
 
   @override
-  String get invalidCodeError => 'Código inválido. Por favor, inténtelo de nuevo';
+  String get invalidCodeError =>
+      'Código inválido. Por favor, inténtelo de nuevo';
 
   @override
   String get verifyCodeAction => '¿No ha recibido el código? Reenviar';
@@ -106,7 +113,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get verifyPhotoHeading => 'Verificación fotográfica';
 
   @override
-  String get verifyPhotoDescription => 'Verificación de foto para que todos lo sepan.\ntus fotos son realmente tu';
+  String get verifyPhotoDescription =>
+      'Verificación de foto para que todos lo sepan.\ntus fotos son realmente tu';
 
   @override
   String get verifyPhotoButtonText => 'Verificar por foto';
@@ -124,7 +132,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get happyWithPhotoText => '¿Feliz con \ntu foto?';
 
   @override
-  String get weWillScanYourPhotoText => 'Escanearemos su foto para verificar su identidad';
+  String get weWillScanYourPhotoText =>
+      'Escanearemos su foto para verificar su identidad';
 
   @override
   String get retakeButton => 'Retomar';
@@ -136,7 +145,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get thanksLotText => '¡Muchas gracias!';
 
   @override
-  String get weReceivedYourPhotoText => 'Hemos recibido su foto y le responderemos en un plazo de 1-2 días laborables';
+  String get weReceivedYourPhotoText =>
+      'Hemos recibido su foto y le responderemos en un plazo de 1-2 días laborables';
 
   @override
   String get startMatchingButton => '¡Empieza a matchear!';
@@ -145,7 +155,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get welcomeSenpaiTitle => '¡Bienvenidos a Senpai!';
 
   @override
-  String get welcomeSenpaiDescription => 'Completa tu perfil y empieza a matchear';
+  String get welcomeSenpaiDescription =>
+      'Completa tu perfil y empieza a matchear';
 
   @override
   String get fillProfileText => 'Llena tu perfil';
@@ -163,13 +174,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get nextText => 'Siguiente';
 
   @override
-  String get conversationsDataErrorText => 'Error al obtener conversaciones del servidor';
+  String get conversationsDataErrorText =>
+      'Error al obtener conversaciones del servidor';
 
   @override
   String get emptyConversationsPromptText => 'Empieza a dar like';
 
   @override
-  String get emptyConversationsText => 'Cuando coincidas con otros usuarios aparecerán aquí';
+  String get emptyConversationsText =>
+      'Cuando coincidas con otros usuarios aparecerán aquí';
 
   @override
   String get emptyChatTitle => 'Usted emparejado con';
@@ -193,13 +206,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get cancelText => 'Cancelar';
 
   @override
-  String get emptySearchConversationsHintText => 'Intenta buscar tus matches o chats';
+  String get emptySearchConversationsHintText =>
+      'Intenta buscar tus matches o chats';
 
   @override
-  String get emptyConversationSearchPromptText => 'Vaya. No se han encontrado matches';
+  String get emptyConversationSearchPromptText =>
+      'Vaya. No se han encontrado matches';
 
   @override
-  String get emptyConversationSearchText => '¿Quizás haya un error en la búsqueda? Por favor revisa e intenta de nuevo';
+  String get emptyConversationSearchText =>
+      '¿Quizás haya un error en la búsqueda? Por favor revisa e intenta de nuevo';
 
   @override
   String get stickersTabText => 'Pegatinas';
@@ -244,10 +260,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get animeDescriptionHint => 'Añadir una descripción';
 
   @override
-  String get emptyChatAnimationsSearchTitle => 'Ups. No se han encontrado animes';
+  String get emptyChatAnimationsSearchTitle =>
+      'Ups. No se han encontrado animes';
 
   @override
-  String get emptyChatAnimationsSearchText => '¿Puede que haya un error en la búsqueda? Compruébelo e inténtelo de nuevo';
+  String get emptyChatAnimationsSearchText =>
+      '¿Puede que haya un error en la búsqueda? Compruébelo e inténtelo de nuevo';
 
   @override
   String get searchGifPlaceHolderText => 'Buscar en GIPHY';
@@ -271,7 +289,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get sexualAbuseText => 'Abusos sexuales';
 
   @override
-  String get areYouSureYouWantToUnmatchUser => '¿Estás seguro de que quieres cancelar el match con este usuario?';
+  String get areYouSureYouWantToUnmatchUser =>
+      '¿Estás seguro de que quieres cancelar el match con este usuario?';
 
   @override
   String get yourBirthdayText => 'Tu cumpleaños';
@@ -316,13 +335,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get jobTitleName => 'Puesto';
 
   @override
-  String get jobTitleNameHelper => 'Si no tienes trabajo o no quieres rellenar este campo, omítelo.';
+  String get jobTitleNameHelper =>
+      'Si no tienes trabajo o no quieres rellenar este campo, omítelo.';
 
   @override
-  String get invalidUniversityNameError => 'Nombre de universidad no válido. Vuelva a intentarlo';
+  String get invalidUniversityNameError =>
+      'Nombre de universidad no válido. Vuelva a intentarlo';
 
   @override
-  String get noUniversityFound => 'No se encontró ninguna universidad con ese nombre.';
+  String get noUniversityFound =>
+      'No se encontró ninguna universidad con ese nombre.';
 
   @override
   String get yourStoryText => 'Su historia';
@@ -346,10 +368,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get youCanChangeOrder => 'Puedes cambiar el orden de las fotos.';
 
   @override
-  String get justDragPhoto => 'Sólo tienes que arrastrar la foto a un nuevo lugar.';
+  String get justDragPhoto =>
+      'Sólo tienes que arrastrar la foto a un nuevo lugar.';
 
   @override
-  String get yourPhotoSuccessfullyAdded => 'Tu foto se ha añadido correctamente.';
+  String get yourPhotoSuccessfullyAdded =>
+      'Tu foto se ha añadido correctamente.';
 
   @override
   String get uploadingPhoto => 'Subir foto';
@@ -388,7 +412,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get ofText => 'de';
 
   @override
-  String get noPhotoFoundText => 'Lo sentimos, no se ha encontrado ninguna foto';
+  String get noPhotoFoundText =>
+      'Lo sentimos, no se ha encontrado ninguna foto';
 
   @override
   String get cameraError => 'Algo ha ido mal con tu cámara';
@@ -409,10 +434,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get almostDoneText => '¡Ya casi está!';
 
   @override
-  String get nowChooseYourFavoriteAnimesText => 'Ahora elige tus animes favoritos.\ny empieza a emparejar';
+  String get nowChooseYourFavoriteAnimesText =>
+      'Ahora elige tus animes favoritos.\ny empieza a emparejar';
 
   @override
-  String get noAnimesFoundText => '¿Puede que haya un error en la búsqueda? Por favor, compruébelo e inténtelo de nuevo.';
+  String get noAnimesFoundText =>
+      '¿Puede que haya un error en la búsqueda? Por favor, compruébelo e inténtelo de nuevo.';
 
   @override
   String get selectedAnimeError => 'Lo sentimos, ya ha seleccionado 10 animes.';
@@ -487,7 +514,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get enableLocationText => 'Activar ubicación';
 
   @override
-  String get enableLocationDescription => 'Su ubicación se utilizará para mostrar\nposibles coincidencias cerca de ti';
+  String get enableLocationDescription =>
+      'Su ubicación se utilizará para mostrar\nposibles coincidencias cerca de ti';
 
   @override
   String get allowLocationText => 'Permitir ubicación';
@@ -496,13 +524,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get locationPermissionsDenied => 'Permisos de localización denegados';
 
   @override
-  String get locationPermissionsPermanentlyDenied => 'Los permisos de localización están denegados permanentemente, no podemos solicitar permisos.';
+  String get locationPermissionsPermanentlyDenied =>
+      'Los permisos de localización están denegados permanentemente, no podemos solicitar permisos.';
 
   @override
   String get connectYourSpotifyText => 'Conecta tu Spotify';
 
   @override
-  String get connectYourSpotifyDescription => 'Muestra a tus posibles matchs tus artistas favoritos';
+  String get connectYourSpotifyDescription =>
+      'Muestra a tus posibles matchs tus artistas favoritos';
 
   @override
   String get connectSpotifyText => 'Conectar Spotify';
@@ -511,7 +541,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get topSpotifyArtistsText => 'Los 5 mejores artistas de Spotify';
 
   @override
-  String get topSpotifyListeningSongsText => 'Las 5 mejores canciones de Spotify';
+  String get topSpotifyListeningSongsText =>
+      'Las 5 mejores canciones de Spotify';
 
   @override
   String get connectText => 'Conectar';
@@ -529,7 +560,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get disconnectSpotifyText => 'Desconectar Spotify';
 
   @override
-  String get myTopSpotifyListeningSongsText => 'Mis 5 mejores canciones para escuchar en Spotify';
+  String get myTopSpotifyListeningSongsText =>
+      'Mis 5 mejores canciones para escuchar en Spotify';
 
   @override
   String get myTopSpotifyArtistsText => 'Mis 5 mejores artistas de Spotify';
@@ -541,7 +573,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get selectedTracksText => 'Temas seleccionados';
 
   @override
-  String get spotifyServerError => 'Algo ha ido mal, por favor desconecta spotify e inténtalo de nuevo';
+  String get spotifyServerError =>
+      'Algo ha ido mal, por favor desconecta spotify e inténtalo de nuevo';
 
   @override
   String get senpaiPremiumTitle => 'Senpai Premium';
@@ -553,7 +586,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get premiumSuperLikesText => '30 Super Likes';
 
   @override
-  String get premiumAbilityAnimesText => 'Posibilidad de añadir hasta 15 animes';
+  String get premiumAbilityAnimesText =>
+      'Posibilidad de añadir hasta 15 animes';
 
   @override
   String get premiumUpgradeText => 'Actualice por \$19.99/mes';
@@ -577,7 +611,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get currentlyNotActiveTitle => 'Actualmente no activo';
 
   @override
-  String get waitingForPhotoVerificationTitle => 'A la espera de la verificación fotográfica';
+  String get waitingForPhotoVerificationTitle =>
+      'A la espera de la verificación fotográfica';
 
   @override
   String get milesAwayText => 'a kilómetros de distancia';
@@ -586,16 +621,20 @@ class AppLocalizationsEs extends AppLocalizations {
   String get findCityNearbyTitle => 'Buscar una ciudad cercana';
 
   @override
-  String get yourPhotosHaveBeenVerifiedTitle => 'Tus fotos han sido verificadas.';
+  String get yourPhotosHaveBeenVerifiedTitle =>
+      'Tus fotos han sido verificadas.';
 
   @override
-  String get yourPhotosHaveNotBeenVerifiedTitle => 'Tus fotos no han sido verificadas :(';
+  String get yourPhotosHaveNotBeenVerifiedTitle =>
+      'Tus fotos no han sido verificadas :(';
 
   @override
-  String get nowEveryoneWillKnowThatYouText => 'Ahora todo el mundo sabrá que no estás fingiendo ser otra persona';
+  String get nowEveryoneWillKnowThatYouText =>
+      'Ahora todo el mundo sabrá que no estás fingiendo ser otra persona';
 
   @override
-  String get thereSeemsToBeSomethingWrongYourPhotoText => 'Parece que hay algún problema con tu foto. Por favor, intente pasar la verificación de nuevo';
+  String get thereSeemsToBeSomethingWrongYourPhotoText =>
+      'Parece que hay algún problema con tu foto. Por favor, intente pasar la verificación de nuevo';
 
   @override
   String get closeButton => 'Cerrar';
@@ -676,7 +715,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settingsTitle => 'Ajustes';
 
   @override
-  String get senpaiPremiumDescription => 'Tasas de visibilidad más altas, 30 Super Me gusta\n¡y mucho más!';
+  String get senpaiPremiumDescription =>
+      'Tasas de visibilidad más altas, 30 Super Me gusta\n¡y mucho más!';
 
   @override
   String get accountSettingsTitle => 'Configuración de la cuenta';
@@ -700,13 +740,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get showActiveStatusTitle => 'Mostrar estado \"Activo';
 
   @override
-  String get showActiveStatusDescription => 'El estado \"Actividad\" se muestra en el perfil si has utilizado la aplicación Senpai en las últimas 2 horas.';
+  String get showActiveStatusDescription =>
+      'El estado \"Actividad\" se muestra en el perfil si has utilizado la aplicación Senpai en las últimas 2 horas.';
 
   @override
-  String get showRecentlyActivetatusTitle => 'Mostrar estado \"Recientemente activo';
+  String get showRecentlyActivetatusTitle =>
+      'Mostrar estado \"Recientemente activo';
 
   @override
-  String get showRecentlyActivetatusDescription => 'El estado \"Actividad reciente\" se muestra en el perfil si has utilizado la aplicación Senpai en las últimas 24 horas.';
+  String get showRecentlyActivetatusDescription =>
+      'El estado \"Actividad reciente\" se muestra en el perfil si has utilizado la aplicación Senpai en las últimas 24 horas.';
 
   @override
   String get deleteAccountTitle => 'Eliminar cuenta';
@@ -733,7 +776,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get rateSenpaiTitle => 'Valora a Senpai';
 
   @override
-  String get deleteAccountDescriprion => '¿Estás seguro de que quieres eliminar tu cuenta? La conservaremos durante 30 días, si cambias de opinión.';
+  String get deleteAccountDescriprion =>
+      '¿Estás seguro de que quieres eliminar tu cuenta? La conservaremos durante 30 días, si cambias de opinión.';
 
   @override
   String get noButton => 'No';
@@ -748,10 +792,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get pleaseWaitText => 'Por favor, espere...';
 
   @override
-  String get areSureDeleteAccountTitle => '¿Estás seguro de que quieres eliminar tu cuenta? Si quieres esconderte por un tiempo o empezar de nuevo, puedes hacerlo:';
+  String get areSureDeleteAccountTitle =>
+      '¿Estás seguro de que quieres eliminar tu cuenta? Si quieres esconderte por un tiempo o empezar de nuevo, puedes hacerlo:';
 
   @override
-  String get hideYourAccountTitle => 'Oculta tu cuenta, como si la borraras, pero puedes volver cuando quieras';
+  String get hideYourAccountTitle =>
+      'Oculta tu cuenta, como si la borraras, pero puedes volver cuando quieras';
 
   @override
   String get switchNotificationsOffTitle => 'Desactivar las notificaciones';
@@ -784,7 +830,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get areYouSureLogoutTitle => '¿Seguro que quieres cerrar la sesión?';
 
   @override
-  String get areYouSureLogoutDescription => 'Si le pides a Senpai que te recuerde, podrás volver a iniciar sesión en este dispositivo con un solo toque.';
+  String get areYouSureLogoutDescription =>
+      'Si le pides a Senpai que te recuerde, podrás volver a iniciar sesión en este dispositivo con un solo toque.';
 
   @override
   String get forgetMeTitle => 'Olvídame en este dispositivo';
@@ -826,13 +873,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get sentText => 'enviado';
 
   @override
-  String get actionCableConnectionError => 'Se ha perdido la conexión. Compruebe su conexión a Internet.';
+  String get actionCableConnectionError =>
+      'Se ha perdido la conexión. Compruebe su conexión a Internet.';
 
   @override
-  String get actionCableCannotConnectError => 'No se puede establecer la conexión. Compruebe su conexión a Internet.';
+  String get actionCableCannotConnectError =>
+      'No se puede establecer la conexión. Compruebe su conexión a Internet.';
 
   @override
-  String get actionCableAuthError => 'El usuario no está autorizado. Por favor, inicie sesión de nuevo';
+  String get actionCableAuthError =>
+      'El usuario no está autorizado. Por favor, inicie sesión de nuevo';
 
   @override
   String get outOfSuperLikes => '¡Fuera Super Likes!';
@@ -865,13 +915,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get miTitle => 'mi';
 
   @override
-  String get noAccountWithThisNumber => 'No hay ninguna cuenta con este número.';
+  String get noAccountWithThisNumber =>
+      'No hay ninguna cuenta con este número.';
 
   @override
   String get dearUserText => 'Estimado usuario';
 
   @override
-  String get dearUserDescription => 'Nos preocupamos por su privacidad y seguridad de sus datos. Su información nunca se venderá a terceros, sino que se utilizará internamente para mejorar la aplicación.';
+  String get dearUserDescription =>
+      'Nos preocupamos por su privacidad y seguridad de sus datos. Su información nunca se venderá a terceros, sino que se utilizará internamente para mejorar la aplicación.';
 
   @override
   String get whatYouGetText => 'Lo que obtienes:';
@@ -883,10 +935,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get bearWithUsTitle => '¡Bienvenido a Senpai!';
 
   @override
-  String get bearWithUsDescription => '¡Tenga paciencia con nosotros, ya que continuamos creciendo y hay más perfiles disponibles!';
+  String get bearWithUsDescription =>
+      '¡Tenga paciencia con nosotros, ya que continuamos creciendo y hay más perfiles disponibles!';
 
   @override
-  String get unableToConnectToThePaymentsProcessor => 'No se puede conectar con el procesador de pagos';
+  String get unableToConnectToThePaymentsProcessor =>
+      'No se puede conectar con el procesador de pagos';
 
   @override
   String get invalidPurchase => 'Compra no válida';
@@ -895,7 +949,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get senpaiPremiumIsActivated => '¡Senpai Premium está activado!';
 
   @override
-  String get senpaiDatingForAnimeFans => 'Senpai - Citas para aficionados al anime\n';
+  String get senpaiDatingForAnimeFans =>
+      'Senpai - Citas para aficionados al anime\n';
 
   @override
   String get findYourMatchToday => 'Encuentre su pareja hoy mismo.\n';
@@ -907,7 +962,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get openCameraButtonText => 'Cámara';
 
   @override
-  String get maximumAttachmentSizeExceededError => 'Se superó el tamaño máximo de archivo adjunto';
+  String get maximumAttachmentSizeExceededError =>
+      'Se superó el tamaño máximo de archivo adjunto';
 
   @override
   String get portugueseNotTranslated => 'Português';
@@ -955,7 +1011,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get optionalButton => 'Opcional';
 
   @override
-  String get eventAssociatedWithConventionText => '¿El evento está asociado a una Convención?';
+  String get eventAssociatedWithConventionText =>
+      '¿El evento está asociado a una Convención?';
 
   @override
   String get findConventionText => 'Buscar Convención';
@@ -988,22 +1045,26 @@ class AppLocalizationsEs extends AppLocalizations {
   String get noEventsFoundText => '¡Vaya, no se encontraron eventos!';
 
   @override
-  String get noEventsFoundDescription => 'Intente modificar sus filtros o venga\nVuelve más tarde para ver más opciones divertidas.';
+  String get noEventsFoundDescription =>
+      'Intente modificar sus filtros o venga\nVuelve más tarde para ver más opciones divertidas.';
 
   @override
   String get openAppSettings => 'Abrir configuración de la aplicación';
 
   @override
-  String get cameraErrorCheckPermission => 'Algo salió mal con su cámara, verifique el permiso.';
+  String get cameraErrorCheckPermission =>
+      'Algo salió mal con su cámara, verifique el permiso.';
 
   @override
   String get editPromoImage => 'Editar Imagen Promocional';
 
   @override
-  String get invalidEventNameError => 'Nombre de evento no válido. Inténtalo de nuevo';
+  String get invalidEventNameError =>
+      'Nombre de evento no válido. Inténtalo de nuevo';
 
   @override
-  String get invalidDescriptionError => 'Descripción no válida. Inténtalo de nuevo';
+  String get invalidDescriptionError =>
+      'Descripción no válida. Inténtalo de nuevo';
 
   @override
   String get venueText => 'Evento';
@@ -1012,7 +1073,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get invalidVenueError => 'Lugar no válido. Inténtalo de nuevo';
 
   @override
-  String get invalidMaxPartySizeError => 'Tamaño máximo de grupo no válido. Inténtalo de nuevo';
+  String get invalidMaxPartySizeError =>
+      'Tamaño máximo de grupo no válido. Inténtalo de nuevo';
 
   @override
   String get normalEvents => 'Eventos Normales';
@@ -1042,10 +1104,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get hostTheEventText => 'Anfitrión del evento';
 
   @override
-  String get maximumPartyMemberLimit => 'Límite máximo de miembros del grupo: 10';
+  String get maximumPartyMemberLimit =>
+      'Límite máximo de miembros del grupo: 10';
 
   @override
-  String get youCanParticipateInPartyDescription => 'Podrás participar en una fiesta, encontrar nuevos amigos y pasar un buen rato.';
+  String get youCanParticipateInPartyDescription =>
+      'Podrás participar en una fiesta, encontrar nuevos amigos y pasar un buen rato.';
 
   @override
   String get associatedEventsTitle => 'Eventos Asociados';
@@ -1060,7 +1124,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get creatingEventTitle => 'Creando un evento';
 
   @override
-  String get creatingEventDescription => 'Debes estar verificado antes de poder crear un evento.';
+  String get creatingEventDescription =>
+      'Debes estar verificado antes de poder crear un evento.';
 
   @override
   String get verifyNowButton => 'Verifica Ahora';
@@ -1069,16 +1134,19 @@ class AppLocalizationsEs extends AppLocalizations {
   String get hostAnEventTitle => 'Organizar un Evento';
 
   @override
-  String get hostAnEventDescription => 'Ya sea para salir por la noche a jugar bolos, tomar unas copas o reunir a tu equipo de cosplay para la convención, ¡organiza un evento hoy y organiza tu fiesta!';
+  String get hostAnEventDescription =>
+      'Ya sea para salir por la noche a jugar bolos, tomar unas copas o reunir a tu equipo de cosplay para la convención, ¡organiza un evento hoy y organiza tu fiesta!';
 
   @override
   String get inviteFriendsGetPremiumText => '¡Invita amigos, obtén Premium!';
 
   @override
-  String get keepInvitingPeopleDescription => 'Sigue invitando gente y pronto obtendrás una cuenta Premium․';
+  String get keepInvitingPeopleDescription =>
+      'Sigue invitando gente y pronto obtendrás una cuenta Premium․';
 
   @override
-  String get attendSuccessfulDescription => 'Ha solicitado con éxito unirse al grupo y se le notificará cuando el anfitrión tome una decisión.';
+  String get attendSuccessfulDescription =>
+      'Ha solicitado con éxito unirse al grupo y se le notificará cuando el anfitrión tome una decisión.';
 
   @override
   String get attendSuccessTitle => 'Éxito';
@@ -1090,10 +1158,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get congratulationsTitle => '¡Felicidades!';
 
   @override
-  String get youHavePremiumAccountForMonth => 'Tienes una cuenta Premium por 1 mes.';
+  String get youHavePremiumAccountForMonth =>
+      'Tienes una cuenta Premium por 1 mes.';
 
   @override
-  String get higherVisibilityRatesSuperLikesAndMuchMore => 'Mayores índices de visibilidad, 30 Super Likes y ¡mucho más!';
+  String get higherVisibilityRatesSuperLikesAndMuchMore =>
+      'Mayores índices de visibilidad, 30 Super Likes y ¡mucho más!';
 
   @override
   String get backHomeTitle => 'De vuelta a Casa';
@@ -1127,4 +1197,100 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get favoriteAnime => 'Anime Favorito';
+
+  @override
+  String get lobbyAppBarTitle => 'Lobby';
+
+  @override
+  String get unlimitedVideoCalls => 'Unlimited Video Calls';
+
+  @override
+  String get waitingForMatch => 'Waiting for a Match';
+
+  @override
+  String get joinPool => 'Join Pool';
+
+  @override
+  String get decline => 'Decline';
+
+  @override
+  String get acceptPromptText => 'Accept';
+
+  @override
+  String get startMatching => 'Start Matching';
+
+  @override
+  String get verificationPrompt => 'Verification Required!';
+
+  @override
+  String get verificationDescription =>
+      'Verify your profile to enable video chat!';
+
+  @override
+  String get verificationAmenity =>
+      'To ensure a safe and genuine experience, please verify your profile.';
+
+  @override
+  String get cameraAmenity =>
+      'Use your camera in a well-lit area for the best results';
+
+  @override
+  String get startVerification => 'Start Verification';
+
+  @override
+  String get premiumAvatars => 'Premium Avatars';
+
+  @override
+  String get higherVisibility => 'Higher Visibility';
+
+  @override
+  String get avatarShop => 'Avatar Shop';
+
+  @override
+  String get avatarSkinShop => 'Avatar Skin Shop';
+
+  @override
+  String get usersCurrentlyInLobby => 'Users currently in the Lobby.';
+
+  @override
+  String get exitLobby => 'Exit Lobby';
+
+  @override
+  String get waitingInTheLobby => 'Waiting in the lobby';
+
+  @override
+  String get startMatchingBtn => 'Start Matching';
+
+  @override
+  String get findingMatch => 'Finding a Match';
+
+  @override
+  String get invitationPrompt => 'has sent you a video chat invitation!';
+
+  @override
+  String get unknownUserName => 'Unknown';
+
+  @override
+  String get rejectLobbyInvitation => 'Reject';
+
+  @override
+  String get inviteChatStatus => 'Invite to Chat';
+
+  @override
+  String get pendingInviteStatus => 'Inviting ...';
+
+  @override
+  String get doneInviteStatus => 'Invited';
+
+  @override
+  String get failedInviteStatus => 'Failed';
+
+  @override
+  String get videoChatDialogScreenTitle => 'Video Request';
+
+  @override
+  String get backToPool => 'Back to the Pool';
+
+  @override
+  String get matchFoundTitle => 'MATCH FOUND';
 }

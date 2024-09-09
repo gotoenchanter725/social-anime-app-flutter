@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -575,10 +576,66 @@ class _SettingsContentState extends State<SettingsContent> {
             const Center(
               child: DeleteAccountWidget(),
             ),
+            SizedBox(height: $constants.insets.xs),
+            const Divider(),
+            SizedBox(height: $constants.insets.xs),
+            _buildEntryText(context),
             SizedBox(height: MediaQuery.of(context).padding.bottom),
           ],
         );
       },
+    );
+  }
+
+  Widget _buildEntryText(BuildContext context) {
+    return Center(
+      child: RichText(
+        textAlign: TextAlign.center,
+        text: TextSpan(
+          style: getTextTheme(context).labelMedium?.copyWith(
+                color: $constants.palette.white,
+              ),
+          children: [
+            TextSpan(
+              text: R.strings.entryActionText1,
+              style: getTextTheme(context).labelMedium!.copyWith(
+                    decoration: TextDecoration.underline,
+                    color: $constants.palette.white,
+                  ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  context.router.push(SenpaiLicenseRoute(mdFileName: "tos.md"));
+                },
+            ),
+            const TextSpan(text: ",  "),
+            TextSpan(
+              text: R.strings.entryActionText2,
+              style: getTextTheme(context).labelMedium!.copyWith(
+                    decoration: TextDecoration.underline,
+                    color: $constants.palette.white,
+                  ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  context.router.push(
+                      SenpaiLicenseRoute(mdFileName: "privacy_policy.md"));
+                },
+            ),
+            const TextSpan(text: ",  "),
+            TextSpan(
+              text: R.strings.entryActionText3,
+              style: getTextTheme(context).labelMedium!.copyWith(
+                    decoration: TextDecoration.underline,
+                    color: $constants.palette.white,
+                  ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  context.router
+                      .push(SenpaiLicenseRoute(mdFileName: "cookie_policy.md"));
+                },
+            ),
+          ],
+        ),
+      ),
     );
   }
 

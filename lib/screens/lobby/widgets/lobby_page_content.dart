@@ -48,7 +48,7 @@ class LobbyPageContentWidget extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: PrimaryButton(
-                    text: 'Exit Lobby',
+                    text: R.strings.exitLobby,
                     onPressed: () {
                       final userId = context.read<ProfileBloc>().userID;
 

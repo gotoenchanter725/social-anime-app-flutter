@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:senpai/l10n/resources.dart';
 
 // Events
 abstract class MatchTextureEvent extends Equatable {
@@ -33,11 +34,12 @@ class FindingMatchState extends MatchTextureState {
 
 class MatchFoundState extends MatchTextureState {}
 
-const String findingMatchBaseText = "Finding a Match";
+final String findingMatchBaseText = R.strings.findingMatch;
+// const String findingMatchBaseText = 'Finding a Match';
 
 // Bloc
 class MatchTextureBloc extends Bloc<MatchTextureEvent, MatchTextureState> {
-  MatchTextureBloc() : super(const FindingMatchState(findingMatchBaseText)) {
+  MatchTextureBloc() : super(FindingMatchState(findingMatchBaseText)) {
     _startTimer();
     on<StartMatchingEvent>(_onStartMatching);
     on<MatchFoundEvent>(_onMatchFound);

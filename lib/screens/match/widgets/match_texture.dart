@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:senpai/core/graphql/blocs/mutation/mutation_bloc.dart';
 import 'package:senpai/core/match/blocs/find_video_match/find_video_chat_match_bloc.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/screens/lobby/widgets/video_request_dialog.dart';
 import 'package:senpai/screens/match/bloc/match_texture_bloc.dart';
 import 'package:senpai/utils/methods/utils.dart';
@@ -33,9 +34,9 @@ class MatchTextureWidget extends StatelessWidget {
           Center(
             child: TextButton(
               onPressed: onAccepted,
-              child: const Text(
-                'Accept',
-                style: TextStyle(
+              child: Text(
+                R.strings.acceptPromptText,
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,
@@ -67,10 +68,10 @@ class MatchTextureWidget extends StatelessWidget {
           alignment: Alignment.center,
         ),
         onPressed: onDeclined,
-        child: const Center(
+        child: Center(
           child: Text(
-            'Decline',
-            style: TextStyle(
+            R.strings.decline,
+            style: const TextStyle(
               color: Colors.white,
               fontSize: 16.0,
               fontWeight: FontWeight.bold,
@@ -185,12 +186,13 @@ class MatchTextureWidget extends StatelessWidget {
                   height: getWidthSize(context, 0.083),
                 ),
                 SizedBox(height: getWidthSize(context, 0.037)),
-                const Text(
-                  'MATCH FOUND',
-                  style: TextStyle(
+                Text(
+                  R.strings.matchFoundTitle,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
                     fontWeight: FontWeight.bold,
+                    // capitalise the text
                   ),
                 ),
               ],

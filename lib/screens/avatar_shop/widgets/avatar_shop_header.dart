@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:senpai/data/path_constants.dart';
 import 'package:senpai/utils/constants.dart';
 import 'package:senpai/utils/methods/utils.dart';
+import 'package:senpai/l10n/resources.dart';
 
 class AvatarShopHeaderWidget extends StatelessWidget {
   const AvatarShopHeaderWidget({super.key});
@@ -21,8 +22,7 @@ class AvatarShopHeaderWidget extends StatelessWidget {
             fit: BoxFit.contain,
           ),
           Text(
-            //TODO: add to localization
-            "Avatar Skin Shop",
+            R.strings.avatarSkinShop,
             style: getTextTheme(context).titleMedium!.copyWith(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,

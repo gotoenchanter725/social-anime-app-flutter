@@ -10,6 +10,7 @@ import 'package:senpai/core/widgets/icon_button.dart';
 import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/core/widgets/senpai_app_bar.dart';
 import 'package:senpai/data/path_constants.dart';
+import 'package:senpai/l10n/resources.dart';
 import 'package:senpai/routes/app_router.dart';
 import 'package:senpai/screens/lobby/bloc/invite_video_chat_cubit.dart';
 import 'package:senpai/screens/lobby/widgets/video_request_contents.dart';
@@ -42,7 +43,7 @@ class VideoRequestDialog extends StatelessWidget {
       backgroundColor: Colors.transparent,
       extendBodyBehindAppBar: true,
       appBar: SenpaiAppBar(
-        title: "Video Request",
+        title: R.strings.videoChatDialogScreenTitle,
         hasLeading: false,
         actions: [
           SenpaiIconButton(
@@ -123,7 +124,7 @@ class VideoRequestDialog extends StatelessWidget {
                               ),
                               child: Center(
                                 child: Text(
-                                  "Back to the Pool",
+                                  R.strings.backToPool,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                     color: Colors.white,

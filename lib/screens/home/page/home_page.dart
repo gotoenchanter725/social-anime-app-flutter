@@ -72,7 +72,7 @@ class HomePage extends StatelessWidget {
           activeIcon: SvgPicture.asset(
             PathConstants.avatarShopIcon,
           ),
-          label: "Avatar Shop",
+          label: R.strings.avatarShop,
         ),
         //TODO: 14.03 Herbert Joseph: With the events tab hidden
         // BottomNavigationBarItem(

@@ -64,7 +64,8 @@ import 'app_localizations_pt.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -72,7 +73,8 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate =
+      _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -84,7 +86,8 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -2342,9 +2345,196 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Favorite Anime'**
   String get favoriteAnime;
+
+  /// No description provided for @lobbyAppBarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lobby'**
+  String get lobbyAppBarTitle;
+
+  /// No description provided for @unlimitedVideoCalls.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited Video Calls'**
+  String get unlimitedVideoCalls;
+
+  /// No description provided for @waitingForMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting for a Match'**
+  String get waitingForMatch;
+
+  /// No description provided for @joinPool.
+  ///
+  /// In en, this message translates to:
+  /// **'Join Pool'**
+  String get joinPool;
+
+  /// No description provided for @decline.
+  ///
+  /// In en, this message translates to:
+  /// **'Decline'**
+  String get decline;
+
+  /// No description provided for @acceptPromptText.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept'**
+  String get acceptPromptText;
+
+  /// No description provided for @startMatching.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Matching'**
+  String get startMatching;
+
+  /// No description provided for @verificationPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Verification Required!'**
+  String get verificationPrompt;
+
+  /// No description provided for @verificationDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify your profile to enable video chat!'**
+  String get verificationDescription;
+
+  /// No description provided for @verificationAmenity.
+  ///
+  /// In en, this message translates to:
+  /// **'To ensure a safe and genuine experience, please verify your profile.'**
+  String get verificationAmenity;
+
+  /// No description provided for @cameraAmenity.
+  ///
+  /// In en, this message translates to:
+  /// **'Use your camera in a well-lit area for the best results'**
+  String get cameraAmenity;
+
+  /// No description provided for @startVerification.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Verification'**
+  String get startVerification;
+
+  /// No description provided for @premiumAvatars.
+  ///
+  /// In en, this message translates to:
+  /// **'Premium Avatars'**
+  String get premiumAvatars;
+
+  /// No description provided for @higherVisibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Higher Visibility'**
+  String get higherVisibility;
+
+  /// No description provided for @avatarShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar Shop'**
+  String get avatarShop;
+
+  /// No description provided for @avatarSkinShop.
+  ///
+  /// In en, this message translates to:
+  /// **'Avatar Skin Shop'**
+  String get avatarSkinShop;
+
+  /// No description provided for @usersCurrentlyInLobby.
+  ///
+  /// In en, this message translates to:
+  /// **'Users currently in the Lobby.'**
+  String get usersCurrentlyInLobby;
+
+  /// No description provided for @exitLobby.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit Lobby'**
+  String get exitLobby;
+
+  /// No description provided for @waitingInTheLobby.
+  ///
+  /// In en, this message translates to:
+  /// **'Waiting in the lobby'**
+  String get waitingInTheLobby;
+
+  /// No description provided for @startMatchingBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Matching'**
+  String get startMatchingBtn;
+
+  /// No description provided for @findingMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Finding a Match'**
+  String get findingMatch;
+
+  /// No description provided for @invitationPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'has sent you a video chat invitation!'**
+  String get invitationPrompt;
+
+  /// No description provided for @unknownUserName.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get unknownUserName;
+
+  /// No description provided for @rejectLobbyInvitation.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject'**
+  String get rejectLobbyInvitation;
+
+  /// No description provided for @inviteChatStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite to Chat'**
+  String get inviteChatStatus;
+
+  /// No description provided for @pendingInviteStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Inviting ...'**
+  String get pendingInviteStatus;
+
+  /// No description provided for @doneInviteStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Invited'**
+  String get doneInviteStatus;
+
+  /// No description provided for @failedInviteStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Failed'**
+  String get failedInviteStatus;
+
+  /// No description provided for @videoChatDialogScreenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Video Request'**
+  String get videoChatDialogScreenTitle;
+
+  /// No description provided for @backToPool.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to the Pool'**
+  String get backToPool;
+
+  /// No description provided for @matchFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'MATCH FOUND'**
+  String get matchFoundTitle;
 }
 
-class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate
+    extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -2353,27 +2543,29 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'es', 'ja', 'pt'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'es', 'ja', 'pt'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return AppLocalizationsEn();
-    case 'es': return AppLocalizationsEs();
-    case 'ja': return AppLocalizationsJa();
-    case 'pt': return AppLocalizationsPt();
+    case 'en':
+      return AppLocalizationsEn();
+    case 'es':
+      return AppLocalizationsEs();
+    case 'ja':
+      return AppLocalizationsJa();
+    case 'pt':
+      return AppLocalizationsPt();
   }
 
   throw FlutterError(
-    'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }
