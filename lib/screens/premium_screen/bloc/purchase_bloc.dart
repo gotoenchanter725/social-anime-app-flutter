@@ -85,6 +85,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
   bool? isAvailablePurchase;
   ProductDetails? selectedProductDetails;
   bool? isPurchased = false;
+  bool? isAvatarPurchased = false;
 
   String? _purchaseErrorText;
   String _selectedProductId = '';
@@ -101,9 +102,11 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
             (_) {
               if (_purchaseErrorText != null) {
                 isPurchased = false;
+                isAvatarPurchased = false;
+
                 add(OnErrorEvent(R.strings.serverError));
               }
-              if (isPurchased == true) {
+              if (isPurchased == true || isAvatarPurchased == false) {
                 add(OnNavigateEvent());
               }
             },
@@ -158,6 +161,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
 
     on<OnTapBuyConsumableAvatarEvent>((event, emit) async {
       isPurchased = false;
+      isAvatarPurchased = false;
       _kProductIdsIOS.add(event.productID);
       _kProductIdsAndroid.add(event.productID);
       _selectedProductId = event.productID;
@@ -287,6 +291,7 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
     List<PurchaseDetails> purchaseDetailsList,
   ) async {
     isPurchased = false;
+    isAvatarPurchased = false;
     _purchaseErrorText = null;
     for (final PurchaseDetails purchaseDetails in purchaseDetailsList) {
       if (purchaseDetails.status == PurchaseStatus.error) {
@@ -296,7 +301,14 @@ class PurchaseBloc extends Bloc<PurchaseEvent, PurchaseState> {
           purchaseDetails.status == PurchaseStatus.restored) {
         final bool valid = await _verifyPurchase(purchaseDetails);
         if (valid) {
-          await deliverProduct(purchaseDetails).then((_) => isPurchased = true);
+          await deliverProduct(purchaseDetails).then((_) {
+            if (purchaseDetails.productID == _kPremiumSubscriptionIdIOS ||
+                purchaseDetails.productID == _kPremiumSubscriptionIdAndroid) {
+              isPurchased = true;
+            } else {
+              isAvatarPurchased = true;
+            }
+          });
         } else {
           _purchaseErrorText = R.strings.invalidPurchase;
           return;
