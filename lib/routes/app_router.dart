@@ -96,7 +96,7 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: ProfileFillRoute.page, path: '/profile_fill'),
         AutoRoute(page: VerifyPhotoRoute.page, path: '/verify_photo'),
         AutoRoute(page: UnityViewRoute.page, path: '/avatar_test'),
-         AutoRoute(page: UnityViewVideoChatRoute.page, path: '/video_call'),
+        AutoRoute(page: UnityViewVideoChatRoute.page, path: '/video_call'),
         AutoRoute(page: HomeRoute.page, path: '/home', children: [
           AutoRoute(page: MatchRoute.page, path: 'match'),
           AutoRoute(page: ChatListRoute.page, path: 'chat_list'),
@@ -108,7 +108,11 @@ class AppRouter extends _$AppRouter {
             path: 'avatar_shop',
             maintainState: false,
           ),
-          AutoRoute(page: ProfileRoute.page, path: 'profile')
+          AutoRoute(
+            page: ProfileRoute.page, path: 'profile',
+            //It’s needed to reload the screen each time.
+            maintainState: false,
+          )
         ]),
         CustomRoute(
           page: LobbyRoute.page,
