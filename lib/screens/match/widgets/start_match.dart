@@ -86,18 +86,20 @@ class StartMatch extends StatelessWidget {
           return const SizedBox.shrink();
         }
 
-        final user = bloc.user;
+        // final user = bloc.user;
 
         return VerificationOverlayWidget(
           onClosed: () {
             context.read<MatchBloc>().add(OnHideVerifyPrompt());
           },
           onStartVerification: () {
+            // route to profile page
+            context.router.navigate(const ProfileRoute());
             // route to profile fill page
-            context.router.push(ProfileFillRoute(
-              id: user.id,
-              phone: user.phone,
-            ));
+            // context.router.push(ProfileFillRoute(
+            //   id: user.id,
+            //   phone: user.phone,
+            // ));
           },
         );
       },
