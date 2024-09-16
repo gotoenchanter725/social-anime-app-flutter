@@ -13,17 +13,13 @@ class SpotifyFetchUserInfoApi {
 
   SpotifyFetchUserInfoApi(this._dio, this._env, this._tokenStorage);
 
-  Future<List<SpotifyArtistModel>> getTopArtists(
-      SpotifyAuthModel? authModel) async {
-    SpotifyAuthModel? spotifyAuthModel =
-        authModel ?? await _tokenStorage.read();
-
-    if (spotifyAuthModel != null) {
+  Future<List<SpotifyArtistModel>> getTopArtists(String token) async {
+    if (token.isNotEmpty) {
       final response = await _dio.get(
         '${_env.httpApiSpotify}/me/top/artists',
         options: Options(
           headers: {
-            'Authorization': 'Bearer ${spotifyAuthModel.token}',
+            'Authorization': 'Bearer $token',
           },
         ),
         queryParameters: {"time_range": "medium_term", "limit": "5"},
@@ -44,7 +40,7 @@ class SpotifyFetchUserInfoApi {
         throw const ServerError();
       }
     } else {
-      print(" ---------------- spotifyAuthModel - ${spotifyAuthModel}");
+      print(" ---------------- spotifyAuthModel - ${token}");
       throw const ServerError();
     }
   }

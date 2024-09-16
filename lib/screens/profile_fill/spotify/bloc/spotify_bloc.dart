@@ -37,14 +37,13 @@ class SpotifyBloc extends Bloc<SpotifyEvent, SpotifyState> {
       emit(LoadingSpotifyState());
       favoriteMusicList = [];
       final spotifyAuthModel = await _tokenStorage.read();
-      bool hasToken =
+      String token =
           spotifyAuthModel != null ? await refreshToken() : await getToken();
 
-      if (hasToken) {
+      if (token.isNotEmpty) {
         try {
-          final spotifyAuthModel = await _tokenStorage.read();
-          final result = await _spotifyFetchUserInfoUseCase
-              .getTopArtists(spotifyAuthModel);
+          final result =
+              await _spotifyFetchUserInfoUseCase.getTopArtists(token);
           result.fold(
             (failure) {
               emit(ErrorSpotifyState(
@@ -75,10 +74,10 @@ class SpotifyBloc extends Bloc<SpotifyEvent, SpotifyState> {
     on<OnSpotifyFetchTracksEvent>((event, emit) async {
       emit(LoadingSpotifyState());
       final spotifyAuthModel = await _tokenStorage.read();
-      bool hasToken =
+      String token =
           spotifyAuthModel != null ? await refreshToken() : await getToken();
 
-      if (hasToken) {
+      if (token.isNotEmpty) {
         try {
           final result = await _spotifyFetchUserInfoUseCase.getTopTracks();
           result.fold(
@@ -109,24 +108,24 @@ class SpotifyBloc extends Bloc<SpotifyEvent, SpotifyState> {
     });
   }
 
-  Future<bool> getToken() async {
+  Future<String> getToken() async {
     return await _spotifyUseCase.fetchToken().then(
           (result) => result.fold((failure) {
-            return false;
+            return '';
           }, (token) {
-            return true;
+            return token;
           }),
         );
   }
 
-  Future<bool> refreshToken() async {
+  Future<String> refreshToken() async {
     return await _spotifyUseCase.refreshToken().then(
           (result) => result.fold(
             (failure) {
-              return false;
+              return '';
             },
             (token) {
-              return true;
+              return token;
             },
           ),
         );
