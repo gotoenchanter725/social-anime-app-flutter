@@ -37,9 +37,11 @@ class SpotifyFetchUserInfoApi {
           return [];
         }
       } else {
+        print("--------------- response.statusCode - ${response.statusCode}");
         throw const ServerError();
       }
     } else {
+      print(" ---------------- spotifyAuthModel - ${spotifyAuthModel}");
       throw const ServerError();
     }
   }
@@ -68,9 +70,11 @@ class SpotifyFetchUserInfoApi {
           return [];
         }
       } else {
+        print("--------------- response.statusCode - ${response.statusCode}");
         throw const ServerError();
       }
     } else {
+      print(" ---------------- spotifyAuthModel - ${spotifyAuthModel}");
       throw const ServerError();
     }
   }
