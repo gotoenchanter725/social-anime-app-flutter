@@ -42,7 +42,9 @@ class SpotifyBloc extends Bloc<SpotifyEvent, SpotifyState> {
 
       if (hasToken) {
         try {
-          final result = await _spotifyFetchUserInfoUseCase.getTopArtists();
+          final spotifyAuthModel = await _tokenStorage.read();
+          final result = await _spotifyFetchUserInfoUseCase
+              .getTopArtists(spotifyAuthModel);
           result.fold(
             (failure) {
               emit(ErrorSpotifyState(

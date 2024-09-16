@@ -34,8 +34,11 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
           spotifyAuthModel != null ? await refreshToken() : await getToken();
 
       if (hasToken) {
+        SpotifyAuthModel? spotifyAuthModel = await _tokenStorage.read();
+
         try {
-          final result = await _spotifyFetchUserInfoUseCase.getTopArtists();
+          final result = await _spotifyFetchUserInfoUseCase
+              .getTopArtists(spotifyAuthModel);
           result.fold(
             (failure) {
               isShowDisconnectSpotify = false;

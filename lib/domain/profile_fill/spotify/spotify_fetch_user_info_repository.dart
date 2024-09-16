@@ -5,6 +5,7 @@ import 'package:senpai/domain/profile_fill/spotify/spotify_failure.dart';
 import 'package:senpai/domain/profile_fill/spotify/spotify_fetch_user_info_usecase.dart';
 import 'package:senpai/models/profile_fill/spotify/spotify_artist/spotify_artist_model.dart';
 import 'package:senpai/models/profile_fill/spotify/spotify_track/spotify_track_model.dart';
+import 'package:senpai/models/spotify_auth/spotify_auth_model.dart';
 
 class SpotifyFetchUserInfoRepository implements SpotifyFetchUserInfoUseCase {
   final SpotifyFetchUserInfoApi api;
@@ -12,10 +13,10 @@ class SpotifyFetchUserInfoRepository implements SpotifyFetchUserInfoUseCase {
   SpotifyFetchUserInfoRepository(this.api);
 
   @override
-  Future<Either<SpotifyFailure, List<SpotifyArtistModel>>>
-      getTopArtists() async {
+  Future<Either<SpotifyFailure, List<SpotifyArtistModel>>> getTopArtists(
+      SpotifyAuthModel? spotifyAuthModel) async {
     try {
-      final artists = await api.getTopArtists();
+      final artists = await api.getTopArtists(spotifyAuthModel);
       return right(artists);
     } catch (e) {
       return left(

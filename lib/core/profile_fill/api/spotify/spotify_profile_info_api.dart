@@ -13,8 +13,11 @@ class SpotifyFetchUserInfoApi {
 
   SpotifyFetchUserInfoApi(this._dio, this._env, this._tokenStorage);
 
-  Future<List<SpotifyArtistModel>> getTopArtists() async {
-    SpotifyAuthModel? spotifyAuthModel = await _tokenStorage.read();
+  Future<List<SpotifyArtistModel>> getTopArtists(
+      SpotifyAuthModel? authModel) async {
+    SpotifyAuthModel? spotifyAuthModel =
+        authModel ?? await _tokenStorage.read();
+
     if (spotifyAuthModel != null) {
       final response = await _dio.get(
         '${_env.httpApiSpotify}/me/top/artists',
