@@ -26,9 +26,16 @@ class SpotifyFetchUserInfoApi {
         queryParameters: {"time_range": "medium_term", "limit": "5"},
       );
       if (response.statusCode == 200) {
-        return (response.data['items'] as List)
-            .map((item) => SpotifyArtistModel.fromJson(item))
-            .toList();
+        if (response.data['items'] != null) {
+          final data = response.data['items'] as List;
+          return data.isNotEmpty
+              ? (response.data['items'] as List)
+                  .map((item) => SpotifyArtistModel.fromJson(item))
+                  .toList()
+              : [];
+        } else {
+          return [];
+        }
       } else {
         throw const ServerError();
       }
@@ -50,9 +57,16 @@ class SpotifyFetchUserInfoApi {
         queryParameters: {"time_range": "medium_term", "limit": "5"},
       );
       if (response.statusCode == 200) {
-        return (response.data['items'] as List)
-            .map((item) => SpotifyTrackModel.fromJson(item))
-            .toList();
+        if (response.data['items'] != null) {
+          final data = response.data['items'] as List;
+          return data.isNotEmpty
+              ? (response.data['items'] as List)
+                  .map((item) => SpotifyTrackModel.fromJson(item))
+                  .toList()
+              : [];
+        } else {
+          return [];
+        }
       } else {
         throw const ServerError();
       }

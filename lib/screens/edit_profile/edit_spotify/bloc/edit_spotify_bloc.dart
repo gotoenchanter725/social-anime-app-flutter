@@ -50,7 +50,7 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
         } catch (error) {
           //TODO: return it after test
           emit(ErrorEditSpotifyState(
-            message: '$error', //R.strings.serverError,
+            message: 'catch $error', //R.strings.serverError,
           ));
         }
       } else {
@@ -92,7 +92,7 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
         } catch (error) {
           //TODO: return it after test
           emit(ErrorEditSpotifyState(
-            message: '$error', //R.strings.serverError,
+            message: 'catch $error', //R.strings.serverError,
           ));
         }
       } else {
