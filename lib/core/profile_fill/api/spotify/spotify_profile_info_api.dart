@@ -36,23 +36,20 @@ class SpotifyFetchUserInfoApi {
           return [];
         }
       } else {
-        print("--------------- response.statusCode - ${response.statusCode}");
         throw const ServerError();
       }
     } else {
-      print(" ---------------- spotifyAuthModel - ${token}");
       throw const ServerError();
     }
   }
 
-  Future<List<SpotifyTrackModel>> getTopTracks() async {
-    SpotifyAuthModel? spotifyAuthModel = await _tokenStorage.read();
-    if (spotifyAuthModel != null) {
+  Future<List<SpotifyTrackModel>> getTopTracks(String token) async {
+    if (token.isNotEmpty) {
       final response = await _dio.get(
         '${_env.httpApiSpotify}/me/top/tracks',
         options: Options(
           headers: {
-            'Authorization': 'Bearer ${spotifyAuthModel.token}',
+            'Authorization': 'Bearer $token',
           },
         ),
         queryParameters: {"time_range": "medium_term", "limit": "5"},
@@ -69,11 +66,9 @@ class SpotifyFetchUserInfoApi {
           return [];
         }
       } else {
-        print("--------------- response.statusCode - ${response.statusCode}");
         throw const ServerError();
       }
     } else {
-      print(" ---------------- spotifyAuthModel - ${spotifyAuthModel}");
       throw const ServerError();
     }
   }

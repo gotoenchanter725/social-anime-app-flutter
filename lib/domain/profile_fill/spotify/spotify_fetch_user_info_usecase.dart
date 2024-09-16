@@ -7,5 +7,7 @@ abstract class SpotifyFetchUserInfoUseCase {
   Future<Either<SpotifyFailure, List<SpotifyArtistModel>>> getTopArtists(
     String token,
   );
-  Future<Either<SpotifyFailure, List<SpotifyTrackModel>>> getTopTracks();
+  Future<Either<SpotifyFailure, List<SpotifyTrackModel>>> getTopTracks(
+    String token,
+  );
 }

@@ -79,7 +79,7 @@ class SpotifyBloc extends Bloc<SpotifyEvent, SpotifyState> {
 
       if (token.isNotEmpty) {
         try {
-          final result = await _spotifyFetchUserInfoUseCase.getTopTracks();
+          final result = await _spotifyFetchUserInfoUseCase.getTopTracks(token);
           result.fold(
             (failure) {
               emit(ErrorSpotifyState(

@@ -13,7 +13,8 @@ class SpotifyFetchUserInfoRepository implements SpotifyFetchUserInfoUseCase {
 
   @override
   Future<Either<SpotifyFailure, List<SpotifyArtistModel>>> getTopArtists(
-      String token) async {
+    String token,
+  ) async {
     try {
       final artists = await api.getTopArtists(token);
       return right(artists);
@@ -25,9 +26,11 @@ class SpotifyFetchUserInfoRepository implements SpotifyFetchUserInfoUseCase {
   }
 
   @override
-  Future<Either<SpotifyFailure, List<SpotifyTrackModel>>> getTopTracks() async {
+  Future<Either<SpotifyFailure, List<SpotifyTrackModel>>> getTopTracks(
+    String token,
+  ) async {
     try {
-      final tracks = await api.getTopTracks();
+      final tracks = await api.getTopTracks(token);
       return right(tracks);
     } catch (e) {
       return left(

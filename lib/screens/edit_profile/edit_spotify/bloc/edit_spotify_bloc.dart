@@ -42,8 +42,7 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
             (failure) {
               isShowDisconnectSpotify = false;
               emit(ErrorEditSpotifyState(
-                //TODO: return it after test  after test
-                message: '$failure', //R.strings.serverError,
+                message: R.strings.serverError,
               ));
             },
             (data) {
@@ -52,15 +51,13 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
             },
           );
         } catch (error) {
-          //TODO: return it after test
           emit(ErrorEditSpotifyState(
-            message: 'catch $error', //R.strings.serverError,
+            message: R.strings.serverError,
           ));
         }
       } else {
-        //TODO: return it after test
         emit(ErrorEditSpotifyState(
-          message: 'hasToken = false', // R.strings.serverError,
+          message: R.strings.serverError,
         ));
       }
     });
@@ -75,19 +72,12 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
 
       if (token.isNotEmpty) {
         try {
-          // final spotifyAuthModel = await _tokenStorage.read();
-          // // if (spotifyAuthModel != null) {
-          // //   await refreshToken();
-          // // } else {
-          // //   await getToken();
-          // // }
-          final result = await _spotifyFetchUserInfoUseCase.getTopTracks();
+          final result = await _spotifyFetchUserInfoUseCase.getTopTracks(token);
           result.fold(
             (failure) {
               isShowDisconnectSpotify = false;
               emit(ErrorEditSpotifyState(
-                //TODO: return it after test
-                message: '$failure', //R.strings.serverError,
+                message: R.strings.serverError,
               ));
             },
             (data) {
@@ -96,15 +86,13 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
             },
           );
         } catch (error) {
-          //TODO: return it after test
           emit(ErrorEditSpotifyState(
-            message: 'catch $error', //R.strings.serverError,
+            message: R.strings.serverError,
           ));
         }
       } else {
-        //TODO: return it after test
         emit(ErrorEditSpotifyState(
-          message: 'hasToken = false', // R.strings.serverError,
+          message: R.strings.serverError,
         ));
       }
     });
@@ -121,8 +109,6 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
           (result) => result.fold((failure) {
             return '';
           }, (token) {
-            print('------------- spotifyToken $token');
-
             return token;
           }),
         );
@@ -135,8 +121,6 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
               return '';
             },
             (token) {
-              print('------------- spotifyRefreshToken $token');
-
               return token;
             },
           ),
