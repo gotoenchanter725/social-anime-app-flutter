@@ -124,7 +124,11 @@ class EditSpotifyMusicPage extends StatelessWidget {
           }
         }
         if (state is ErrorEditSpotifyState) {
-          showSnackBarError(context, R.strings.spotifyServerError);
+          //TODO: return it after test
+          showSnackBarError(
+            context,
+            state.message,
+          ); // R.strings.spotifyServerError);
         }
       },
       builder: (context, state) {

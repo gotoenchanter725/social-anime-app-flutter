@@ -38,7 +38,8 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
             (failure) {
               isShowDisconnectSpotify = false;
               emit(ErrorEditSpotifyState(
-                message: R.strings.serverError,
+                //TODO: return it after test  after test
+                message: '$failure', //R.strings.serverError,
               ));
             },
             (data) {
@@ -46,14 +47,16 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
               emit(SpotifySucssesfulState());
             },
           );
-        } catch (_) {
+        } catch (error) {
+          //TODO: return it after test
           emit(ErrorEditSpotifyState(
-            message: R.strings.serverError,
+            message: '$error', //R.strings.serverError,
           ));
         }
       } else {
+        //TODO: return it after test
         emit(ErrorEditSpotifyState(
-          message: R.strings.serverError,
+          message: 'hasToken = false', // R.strings.serverError,
         ));
       }
     });
@@ -77,7 +80,8 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
             (failure) {
               isShowDisconnectSpotify = false;
               emit(ErrorEditSpotifyState(
-                message: R.strings.serverError,
+                //TODO: return it after test
+                message: '$failure', //R.strings.serverError,
               ));
             },
             (data) {
@@ -85,14 +89,16 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
               emit(SpotifySucssesfulState());
             },
           );
-        } catch (_) {
+        } catch (error) {
+          //TODO: return it after test
           emit(ErrorEditSpotifyState(
-            message: R.strings.serverError,
+            message: '$error', //R.strings.serverError,
           ));
         }
       } else {
+        //TODO: return it after test
         emit(ErrorEditSpotifyState(
-          message: R.strings.serverError,
+          message: 'hasToken = false', // R.strings.serverError,
         ));
       }
     });

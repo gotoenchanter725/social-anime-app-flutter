@@ -98,7 +98,11 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: UnityViewRoute.page, path: '/avatar_test'),
         AutoRoute(page: UnityViewVideoChatRoute.page, path: '/video_call'),
         AutoRoute(page: HomeRoute.page, path: '/home', children: [
-          AutoRoute(page: MatchRoute.page, path: 'match'),
+          AutoRoute(
+            page: MatchRoute.page,
+            path: 'match',
+            maintainState: false,
+          ),
           AutoRoute(page: ChatListRoute.page, path: 'chat_list'),
 
           /// TODO: 14.03 Herbert Joseph: With the events tab hidden
