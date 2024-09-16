@@ -26,6 +26,8 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
   EditSpotifyBloc() : super(SpotifyInitial()) {
     on<OnSpotifyFetchArtistsEvent>((event, emit) async {
       emit(LoadingEditSpotifyState());
+      await _tokenStorage.delete();
+
       final spotifyAuthModel = await _tokenStorage.read();
 
       bool hasToken =
@@ -63,18 +65,20 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
 
     on<OnSpotifyFetchTracksEvent>((event, emit) async {
       emit(LoadingEditSpotifyState());
+      await _tokenStorage.delete();
+
       final spotifyAuthModel = await _tokenStorage.read();
       bool hasToken =
           spotifyAuthModel != null ? await refreshToken() : await getToken();
 
       if (hasToken) {
         try {
-          final spotifyAuthModel = await _tokenStorage.read();
-          if (spotifyAuthModel != null) {
-            await refreshToken();
-          } else {
-            await getToken();
-          }
+          // final spotifyAuthModel = await _tokenStorage.read();
+          // // if (spotifyAuthModel != null) {
+          // //   await refreshToken();
+          // // } else {
+          // //   await getToken();
+          // // }
           final result = await _spotifyFetchUserInfoUseCase.getTopTracks();
           result.fold(
             (failure) {
@@ -115,6 +119,7 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
           (result) => result.fold((failure) {
             return false;
           }, (token) {
+            print('------------- spotifyToken $token');
             return true;
           }),
         );
@@ -127,6 +132,7 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
               return false;
             },
             (token) {
+              print('------------- spotifyRefreshToken $token');
               return true;
             },
           ),
