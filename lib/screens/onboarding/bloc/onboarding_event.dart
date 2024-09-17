@@ -3,7 +3,10 @@ part of 'onboarding_bloc.dart';
 @immutable
 abstract class OnboardingEvent {}
 
-class PageChangedEvent extends OnboardingEvent {}
+class PageChangedEvent extends OnboardingEvent {
+  final int? pageIndex;
+  PageChangedEvent({this.pageIndex});
+}
 
 class PageSwipedEvent extends OnboardingEvent {
   final int index;

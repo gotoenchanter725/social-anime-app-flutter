@@ -136,7 +136,7 @@ class OnboardingContent extends StatelessWidget {
               style: getTextTheme(context).displaySmall,
             ),
             onPressed: () {
-              bloc.add(PageChangedEvent());
+              bloc.add(PageChangedEvent(pageIndex: 2));
             },
           ),
         ),

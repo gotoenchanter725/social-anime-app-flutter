@@ -73,7 +73,7 @@ class StartMatch extends StatelessWidget {
 
   _buildVerifyProfilePrompt(BuildContext context) {
     ProfileBloc bloc = BlocProvider.of<ProfileBloc>(context);
-
+    print('------ user.verified status -- ${bloc.user.verified}');
     if (bloc.user.verified) {
       return const SizedBox.shrink();
     }
