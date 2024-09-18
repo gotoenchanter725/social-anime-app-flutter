@@ -24,6 +24,7 @@ import 'package:senpai/core/widgets/loading.dart';
 import 'package:senpai/dependency_injection/injection.dart';
 import 'package:senpai/models/auth/auth_model.dart';
 import 'package:senpai/routes/app_router.dart';
+import 'package:senpai/screens/entry/bloc/entry_bloc.dart';
 import 'package:senpai/screens/entry/widgets/entry_content.dart';
 
 @RoutePage()
@@ -81,8 +82,14 @@ class EntryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocProvider<SignInBloc>(
-        create: (_) => getIt<SignInBloc>(),
+      body: MultiBlocProvider(
+        providers: [
+          BlocProvider<SignInBloc>(create: (_) => getIt<SignInBloc>()),
+          BlocProvider<EntryBloc>(
+            create: (context) =>
+                EntryBloc()..add(OnChangeStatusAppTrackingEvent()),
+          ),
+        ],
         child: Stack(
           children: [
             const EntryContent(),

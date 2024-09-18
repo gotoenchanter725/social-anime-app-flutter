@@ -84,12 +84,17 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         // add your routes here
-
+        //TODO: 17.09 just cut them! (Herbert Joseph)
+        // AutoRoute(
+        //     page: OnboardingRoute.page,
+        //     // page: MatchRoute.page,
+        //     initial: true,
+        //     guards: [ExistingUserGuard()]),
         AutoRoute(
-            page: OnboardingRoute.page,
+            page: EntryRoute.page,
+            path: '/entry',
             initial: true,
             guards: [ExistingUserGuard()]),
-        AutoRoute(page: EntryRoute.page, path: '/entry'),
         AutoRoute(page: SignUpRoute.page, path: '/create_user'),
         AutoRoute(page: VerifyPhoneRoute.page, path: '/verify_phone'),
         AutoRoute(page: SenpaiLicenseRoute.page, path: '/license'),
