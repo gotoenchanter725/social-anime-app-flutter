@@ -26,14 +26,18 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
   EditSpotifyBloc() : super(SpotifyInitial()) {
     on<OnSpotifyFetchArtistsEvent>((event, emit) async {
       emit(LoadingEditSpotifyState());
+      await _tokenStorage.delete();
+
       final spotifyAuthModel = await _tokenStorage.read();
 
-      bool hasToken =
+      String token =
           spotifyAuthModel != null ? await refreshToken() : await getToken();
 
-      if (hasToken) {
+      if (token.isNotEmpty) {
         try {
-          final result = await _spotifyFetchUserInfoUseCase.getTopArtists();
+          final result = await _spotifyFetchUserInfoUseCase.getTopArtists(
+            token,
+          );
           result.fold(
             (failure) {
               isShowDisconnectSpotify = false;
@@ -46,7 +50,7 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
               emit(SpotifySucssesfulState());
             },
           );
-        } catch (_) {
+        } catch (error) {
           emit(ErrorEditSpotifyState(
             message: R.strings.serverError,
           ));
@@ -60,19 +64,15 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
 
     on<OnSpotifyFetchTracksEvent>((event, emit) async {
       emit(LoadingEditSpotifyState());
+      await _tokenStorage.delete();
+
       final spotifyAuthModel = await _tokenStorage.read();
-      bool hasToken =
+      String token =
           spotifyAuthModel != null ? await refreshToken() : await getToken();
 
-      if (hasToken) {
+      if (token.isNotEmpty) {
         try {
-          final spotifyAuthModel = await _tokenStorage.read();
-          if (spotifyAuthModel != null) {
-            await refreshToken();
-          } else {
-            await getToken();
-          }
-          final result = await _spotifyFetchUserInfoUseCase.getTopTracks();
+          final result = await _spotifyFetchUserInfoUseCase.getTopTracks(token);
           result.fold(
             (failure) {
               isShowDisconnectSpotify = false;
@@ -85,7 +85,7 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
               emit(SpotifySucssesfulState());
             },
           );
-        } catch (_) {
+        } catch (error) {
           emit(ErrorEditSpotifyState(
             message: R.strings.serverError,
           ));
@@ -104,24 +104,24 @@ class EditSpotifyBloc extends Bloc<EditSpotifyEvent, EditSpotifyState> {
     });
   }
 
-  Future<bool> getToken() async {
+  Future<String> getToken() async {
     return await _spotifyUseCase.fetchToken().then(
           (result) => result.fold((failure) {
-            return false;
+            return '';
           }, (token) {
-            return true;
+            return token;
           }),
         );
   }
 
-  Future<bool> refreshToken() async {
+  Future<String> refreshToken() async {
     return await _spotifyUseCase.refreshToken().then(
           (result) => result.fold(
             (failure) {
-              return false;
+              return '';
             },
             (token) {
-              return true;
+              return token;
             },
           ),
         );

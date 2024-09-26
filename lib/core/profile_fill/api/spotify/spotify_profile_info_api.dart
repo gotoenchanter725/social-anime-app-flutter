@@ -13,22 +13,28 @@ class SpotifyFetchUserInfoApi {
 
   SpotifyFetchUserInfoApi(this._dio, this._env, this._tokenStorage);
 
-  Future<List<SpotifyArtistModel>> getTopArtists() async {
-    SpotifyAuthModel? spotifyAuthModel = await _tokenStorage.read();
-    if (spotifyAuthModel != null) {
+  Future<List<SpotifyArtistModel>> getTopArtists(String token) async {
+    if (token.isNotEmpty) {
       final response = await _dio.get(
         '${_env.httpApiSpotify}/me/top/artists',
         options: Options(
           headers: {
-            'Authorization': 'Bearer ${spotifyAuthModel.token}',
+            'Authorization': 'Bearer $token',
           },
         ),
         queryParameters: {"time_range": "medium_term", "limit": "5"},
       );
       if (response.statusCode == 200) {
-        return (response.data['items'] as List)
-            .map((item) => SpotifyArtistModel.fromJson(item))
-            .toList();
+        if (response.data['items'] != null) {
+          final data = response.data['items'] as List;
+          return data.isNotEmpty
+              ? (response.data['items'] as List)
+                  .map((item) => SpotifyArtistModel.fromJson(item))
+                  .toList()
+              : [];
+        } else {
+          return [];
+        }
       } else {
         throw const ServerError();
       }
@@ -37,22 +43,28 @@ class SpotifyFetchUserInfoApi {
     }
   }
 
-  Future<List<SpotifyTrackModel>> getTopTracks() async {
-    SpotifyAuthModel? spotifyAuthModel = await _tokenStorage.read();
-    if (spotifyAuthModel != null) {
+  Future<List<SpotifyTrackModel>> getTopTracks(String token) async {
+    if (token.isNotEmpty) {
       final response = await _dio.get(
         '${_env.httpApiSpotify}/me/top/tracks',
         options: Options(
           headers: {
-            'Authorization': 'Bearer ${spotifyAuthModel.token}',
+            'Authorization': 'Bearer $token',
           },
         ),
         queryParameters: {"time_range": "medium_term", "limit": "5"},
       );
       if (response.statusCode == 200) {
-        return (response.data['items'] as List)
-            .map((item) => SpotifyTrackModel.fromJson(item))
-            .toList();
+        if (response.data['items'] != null) {
+          final data = response.data['items'] as List;
+          return data.isNotEmpty
+              ? (response.data['items'] as List)
+                  .map((item) => SpotifyTrackModel.fromJson(item))
+                  .toList()
+              : [];
+        } else {
+          return [];
+        }
       } else {
         throw const ServerError();
       }

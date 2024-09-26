@@ -50,7 +50,7 @@ class _AvatarShopPageState extends State<AvatarShopPage> {
               BlocConsumer<PurchaseBloc, PurchaseState>(
                 listener: (context, state) {
                   final bloc = BlocProvider.of<PurchaseBloc>(context);
-                  if (bloc.isPurchased == true) {
+                  if (bloc.isAvatarPurchased == true) {
                     final bloc = BlocProvider.of<AvatarsShopBloc>(context);
                     bloc.add(OnSelectedAvatarEvent(
                       bloc.avatarShopModel,

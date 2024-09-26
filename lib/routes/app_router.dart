@@ -84,21 +84,30 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         // add your routes here
-
+        //TODO: 17.09 just cut them! (Herbert Joseph)
+        // AutoRoute(
+        //     page: OnboardingRoute.page,
+        //     // page: MatchRoute.page,
+        //     initial: true,
+        //     guards: [ExistingUserGuard()]),
         AutoRoute(
-            page: OnboardingRoute.page,
+            page: EntryRoute.page,
+            path: '/entry',
             initial: true,
             guards: [ExistingUserGuard()]),
-        AutoRoute(page: EntryRoute.page, path: '/entry'),
         AutoRoute(page: SignUpRoute.page, path: '/create_user'),
         AutoRoute(page: VerifyPhoneRoute.page, path: '/verify_phone'),
         AutoRoute(page: SenpaiLicenseRoute.page, path: '/license'),
         AutoRoute(page: ProfileFillRoute.page, path: '/profile_fill'),
         AutoRoute(page: VerifyPhotoRoute.page, path: '/verify_photo'),
         AutoRoute(page: UnityViewRoute.page, path: '/avatar_test'),
-         AutoRoute(page: UnityViewVideoChatRoute.page, path: '/video_call'),
+        AutoRoute(page: UnityViewVideoChatRoute.page, path: '/video_call'),
         AutoRoute(page: HomeRoute.page, path: '/home', children: [
-          AutoRoute(page: MatchRoute.page, path: 'match'),
+          AutoRoute(
+            page: MatchRoute.page,
+            path: 'match',
+            maintainState: false,
+          ),
           AutoRoute(page: ChatListRoute.page, path: 'chat_list'),
 
           /// TODO: 14.03 Herbert Joseph: With the events tab hidden
@@ -108,7 +117,11 @@ class AppRouter extends _$AppRouter {
             path: 'avatar_shop',
             maintainState: false,
           ),
-          AutoRoute(page: ProfileRoute.page, path: 'profile')
+          AutoRoute(
+            page: ProfileRoute.page, path: 'profile',
+            //It’s needed to reload the screen each time.
+            maintainState: false,
+          )
         ]),
         CustomRoute(
           page: LobbyRoute.page,

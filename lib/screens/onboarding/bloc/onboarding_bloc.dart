@@ -13,7 +13,7 @@ class OnboardingBloc extends Bloc<OnboardingEvent, OnboardingState> {
 
   OnboardingBloc() : super(OnboardingInitial()) {
     on<PageChangedEvent>((event, emit) {
-      if (pageIndex == 2) {
+      if (pageIndex == 2 || event.pageIndex == 2) {
         if (Platform.isIOS) {
           emit(CheckAppTrackingTransparencyState());
         } else {

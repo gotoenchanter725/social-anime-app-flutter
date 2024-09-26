@@ -77,10 +77,16 @@ class SpotifyContent extends StatelessWidget {
           bloc.add(OnSpotifyFetchTracksEvent());
         }
         if (state is SpotifyTracksSucssesfulState) {
-          serviceBloc.addFavoriteMusicList(
-            userId: blocProfileFill.userId,
-            listFavoriteMusic: bloc.favoriteMusicList,
-          );
+          if (bloc.favoriteMusicList.isNotEmpty) {
+            serviceBloc.addFavoriteMusicList(
+              userId: blocProfileFill.userId,
+              listFavoriteMusic: bloc.favoriteMusicList,
+            );
+          } else {
+            blocProfileFill.add(
+              OnChangeStepEvent(step: ProfileFillStep.animes),
+            );
+          }
         }
       },
       child: PrimaryButton(
